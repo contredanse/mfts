@@ -1,0 +1,38 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "modules": false,
+        "useBuiltIns": false,
+        "targets": {
+          "browsers": [
+            "last 2 chrome versions",
+            "last 2 firefox versions",
+            "last 2 edge versions",
+            "last 2 ios versions",
+            "last 2 safari versions",
+            "last 2 chromeAndroid versions"
+          ]
+        },
+        "debug": false
+      }
+    ],
+    "react",
+    "stage-3"
+  ],
+  "plugins": [
+    "react-hot-loader/babel",
+    "syntax-dynamic-import",
+    "transform-object-rest-spread",
+    "transform-es2015-spread"
+  ],
+  "env": {
+    "production": {
+      "presets": [
+        //["minify"]
+      ]
+    }
+  }
+
+}
