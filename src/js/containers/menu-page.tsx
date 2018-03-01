@@ -1,4 +1,6 @@
 import React from 'react';
+import helixMenuImg from '@assets/helix-menu.gif';
+
 
 interface IProps {
 
@@ -13,9 +15,10 @@ class MenuPage extends React.Component<IProps, IState> {
     }
 
     render() {
+
         return (
             <div>
-                Menu
+                <img src={helixMenuImg} />
             </div>
         );
     }

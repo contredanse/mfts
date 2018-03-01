@@ -6,19 +6,11 @@ import { history } from '@src/store';
 
 import {Switch} from 'react-router';
 import { AppBarConnected } from '@src/components/app-bar-connected';
-import HomePage from "@src/containers/home-page";
-import IntroPage from "@src/containers/intro-page";
-import MenuPage from "@src/containers/menu-page";
+import HomePage from '@src/containers/home-page';
+import IntroPage from '@src/containers/intro-page';
+import MenuPage from '@src/containers/menu-page';
+import NotFoundPage from "@src/containers/notfound-page";
 
-
-
-class NotFoundComponent extends React.Component<{}, {}> {
-    public render() {
-        return(
-            <h1 style={{color: 'red'}}>Page not found!</h1>
-        );
-    }
-}
 
 class App extends React.Component<{}, {}> {
 
@@ -27,14 +19,14 @@ class App extends React.Component<{}, {}> {
             <ConnectedRouter history={history}>
                 <div className="page-container">
                     <header>
-                        <AppBarConnected title="MFTS" />
+                        <AppBarConnected title="MTFS" />
                     </header>
                     <main>
                         <Switch>
                             <Route exact={true} path="/" component={HomePage}/>
                             <Route exact={true} path="/intro" component={IntroPage}/>
                             <Route exact={true} path="/menu" component={MenuPage}/>
-                            <Route component={NotFoundComponent}/>
+                            <Route component={NotFoundPage}/>
                         </Switch>
                     </main>
                 </div>

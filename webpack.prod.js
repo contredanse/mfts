@@ -7,7 +7,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 
 const extractSass = new ExtractTextPlugin({
-  filename: "style.css",
+  filename: "style.[contenthash].css",
 });
 
 
@@ -15,7 +15,7 @@ module.exports = merge(common, {
   devtool: 'source-map', // or false if you don't want source map
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js',
+    filename: '[name].[hash].js',
     publicPath: './',
   },
   module: {

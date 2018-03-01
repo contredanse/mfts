@@ -3,6 +3,7 @@ const webpack = require('webpack');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
 
 module.exports = {
   entry: [
@@ -95,6 +96,10 @@ module.exports = {
             }
           }
         ]
+      },
+      {
+        test: /\.ico$/,
+        loader: 'file-loader?name=[name].[ext]'  // <-- retain original file name
       }
     ]
   },
@@ -104,13 +109,34 @@ module.exports = {
     ]),
     new HtmlWebpackPlugin({
       alwaysWriteToDisk: true,
-      hash: true,
+      hash: false,
       title: 'MFTS',
       myPageHeader: 'MFTS',
       template: './public/index.html',
     }),
     new HtmlWebpackHarddiskPlugin(),
-    new webpack.NamedModulesPlugin()
+    new webpack.NamedModulesPlugin(),
+    new ManifestPlugin(
+      {
+        fileName: 'manifest.json',
+        basePath: '',
+        seed: {
+          "short_name": "Paxton MFTS",
+          "name": "Steve Paxton - Material for the spine",
+          "icons": [
+            {
+              "src": "favicon.ico",
+              "sizes": "64x64 32x32 24x24 16x16",
+              "type": "image/x-icon"
+            }
+          ],
+          "start_url": "./index.html",
+          "display": "standalone",
+          "theme_color": "#000000",
+          "background_color": "#ffffff"
+        }
+      }
+    )
   ]
 };
 

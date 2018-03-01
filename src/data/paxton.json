@@ -1,0 +1,1468 @@
+{
+    "intro": [
+      {
+        "page": {
+          "media": {
+            "_tope": "video",
+            "_source_en": "flv/intro_2tubes_walk.flv"
+          },
+          "_title_en": "walking tubes",
+          "_controller": "false"
+        }
+      },
+      {
+        "page": {
+          "media": [
+            {
+              "_tope": "video",
+              "_source_fr": "flv/new_intro.flv",
+              "_source_en": "flv/new_intro.flv"
+            },
+            {
+              "_tope": "subs",
+              "_source_fr": "srt/intro_fr.srt",
+              "_source_en": "srt/intro_en.srt"
+            }
+          ],
+          "_title_fr": "introduction",
+          "_title_en": "introduction"
+        },
+        "_menu": "true"
+      }
+    ],
+    "languages": {
+      "language": [
+        {
+          "_code": "en",
+          "_title_en": "Material for the Spine - a movement study"
+        },
+        {
+          "_code": "fr",
+          "_title_en": "Material for the Spine - une étude du mouvement"
+        }
+      ]
+    },
+    "content": {
+      "spiral": [
+        {
+          "section": {
+            "page": {
+              "media": [
+                {
+                  "_tope": "video",
+                  "_source_fr": "flv/hello.flv",
+                  "_source_en": "flv/hello.flv"
+                },
+                {
+                  "_tope": "subs",
+                  "_source_fr": "srt/hello_fr.srt",
+                  "_source_en": "srt/hello_en.srt"
+                }
+              ],
+              "_title_fr": "le poids de la sensation",
+              "_title_en": "weight of sensation"
+            },
+            "section": [
+              {
+                "page": [
+                  {
+                    "media": {
+                      "_tope": "video",
+                      "_source_fr": "flv/lemmon_fr.flv",
+                      "_source_en": "flv/lemmon_en.flv"
+                    },
+                    "_title_fr": "le plat et le rond",
+                    "_title_en": "the flat & the round"
+                  },
+                  {
+                    "media": {
+                      "_tope": "video",
+                      "_source_fr": "flv/falls.flv",
+                      "_source_en": "flv/falls.flv"
+                    },
+                    "_title_fr": "chutes",
+                    "_title_en": "falls"
+                  },
+                  {
+                    "media": {
+                      "_tope": "video",
+                      "_source_fr": "flv/watergravity.flv",
+                      "_source_en": "flv/watergravity.flv",
+                      "_loop": "true"
+                    },
+                    "_title_fr": "la pesanteur dans l'eau",
+                    "_title_en": "water gravity"
+                  },
+                  {
+                    "media": {
+                      "_tope": "video",
+                      "_source_fr": "flv/adjusting_birds.flv",
+                      "_source_en": "flv/adjusting_birds.flv"
+                    },
+                    "_title_fr": "ajuster",
+                    "_title_en": "adjusting"
+                  }
+                ],
+                "_title_fr": "la pesanteur",
+                "_title_en": "gravity"
+              },
+              {
+                "page": [
+                  {
+                    "media": {
+                      "_tope": "video",
+                      "_source_fr": "flv/breathing_fr.flv",
+                      "_source_en": "flv/breathing_en.flv"
+                    },
+                    "_title_fr": "respirer, une approche",
+                    "_title_en": "an approach to breathing"
+                  },
+                  {
+                    "media": [
+                      {
+                        "_tope": "video",
+                        "_source_fr": "flv/smalldance_full.flv",
+                        "_source_en": "flv/smalldance_full.flv"
+                      },
+                      {
+                        "_tope": "audio",
+                        "_source_fr": "mp3/small_dance_fr.mp3",
+                        "_source_en": "mp3/small_dance_en.mp3"
+                      }
+                    ],
+                    "_title_fr": "la petite danse, une approche",
+                    "_title_en": "an approach to the small dance"
+                  }
+                ],
+                "_title_fr": "à la base",
+                "_title_en": "basics"
+              },
+              {
+                "page": [
+                  {
+                    "media": [
+                      {
+                        "_tope": "video",
+                        "_source_fr": "flv/pointing.flv",
+                        "_source_en": "flv/pointing.flv"
+                      },
+                      {
+                        "_tope": "subs",
+                        "_source_fr": "srt/pointing_fr.srt",
+                        "_source_en": "srt/pointing_en.srt"
+                      }
+                    ],
+                    "_title_fr": "pointer, les différentes parties",
+                    "_title_en": "parts of pointing"
+                  },
+                  {
+                    "media": [
+                      {
+                        "_tope": "video",
+                        "_source_fr": "flv/pointing_scapula.flv",
+                        "_source_en": "flv/pointing_scapula.flv"
+                      },
+                      {
+                        "_tope": "subs",
+                        "_source_fr": "srt/pointing_scapula_fr.srt",
+                        "_source_en": "srt/pointing_scapula_en.srt"
+                      }
+                    ],
+                    "_title_fr": "la relation à l'omoplate",
+                    "_title_en": "relation to scapula"
+                  }
+                ],
+                "_title_fr": "pointer",
+                "_title_en": "pointing"
+              },
+              {
+                "page": [
+                  {
+                    "media": [
+                      {
+                        "_tope": "video",
+                        "_source_fr": "flv/pelvis.flv",
+                        "_source_en": "flv/pelvis.flv"
+                      },
+                      {
+                        "_tope": "subs",
+                        "_source_fr": "srt/pelvis_fr.srt",
+                        "_source_en": "srt/pelvis_en.srt"
+                      }
+                    ],
+                    "_title_fr": "initier par le bassin",
+                    "_title_en": "pelvis as an initiator"
+                  },
+                  {
+                    "media": [
+                      {
+                        "_tope": "video",
+                        "_source_fr": "flv/pointing_heel.flv",
+                        "_source_en": "flv/pointing_heel.flv"
+                      },
+                      {
+                        "_tope": "subs",
+                        "_source_fr": "srt/pointing_heel_fr.srt",
+                        "_source_en": "srt/pointing_heel_en.srt"
+                      }
+                    ],
+                    "_title_fr": "exercice: les ischions vers les talons",
+                    "_title_en": "exercise ischia to heels"
+                  }
+                ],
+                "_title_fr": "le bassin",
+                "_title_en": "pelvis"
+              },
+              {
+                "page": [
+                  {
+                    "media": [
+                      {
+                        "_tope": "video",
+                        "_source_fr": "flv/walkasfondation.flv",
+                        "_source_en": "flv/walkasfondation.flv"
+                      },
+                      {
+                        "_tope": "subs",
+                        "_source_fr": "srt/walk_fondation_fr.srt",
+                        "_source_en": "srt/walk_fondation_en.srt"
+                      }
+                    ],
+                    "_title_fr": "la marche comme fondement",
+                    "_title_en": "walk as foundation"
+                  },
+                  {
+                    "media": [
+                      {
+                        "_tope": "video",
+                        "_source_fr": "flv/birdswalk.flv",
+                        "_source_en": "flv/birdswalk.flv"
+                      },
+                      {
+                        "_tope": "subs",
+                        "_source_fr": "srt/birdswalk_fr.srt",
+                        "_source_en": "srt/birdswalk_en.srt"
+                      }
+                    ],
+                    "_title_fr": "la marche des oiseaux",
+                    "_title_en": "birds walk"
+                  },
+                  {
+                    "media": {
+                      "_tope": "swfvideo",
+                      "_source_fr": "swfvideo/slowwalk.swf",
+                      "_source_en": "swfvideo/slowwalk.swf"
+                    },
+                    "_title_fr": "la marche lente",
+                    "_title_en": "slow walk"
+                  },
+                  {
+                    "media": {
+                      "_tope": "video",
+                      "_source_fr": "flv/twist.flv",
+                      "_source_en": "flv/twist.flv"
+                    },
+                    "_title_fr": "la torsion",
+                    "_title_en": "twist"
+                  }
+                ],
+                "_title_fr": "la marche",
+                "_title_en": "walk"
+              },
+              {
+                "page": [
+                  {
+                    "media": [
+                      {
+                        "_tope": "video",
+                        "_source_fr": "flv/focus_back.flv",
+                        "_source_en": "flv/focus_back.flv"
+                      },
+                      {
+                        "_tope": "subs",
+                        "_source_fr": "srt/back_fr.srt",
+                        "_source_en": "srt/back_en.srt"
+                      }
+                    ],
+                    "_title_fr": "choisir de se concentrer sur le dos",
+                    "_title_en": "choosing to focus on the Back"
+                  },
+                  {
+                    "media": {
+                      "_tope": "video",
+                      "_source_fr": "flv/passage.flv",
+                      "_source_en": "flv/passage.flv"
+                    },
+                    "_title_fr": "*",
+                    "_title_en": "*"
+                  }
+                ],
+                "_title_fr": "le dos",
+                "_title_en": "the back"
+              },
+              {
+                "page": {
+                  "media": [
+                    {
+                      "_tope": "video",
+                      "_source_fr": "flv/sphericalspace.flv",
+                      "_source_en": "flv/sphericalspace.flv"
+                    },
+                    {
+                      "_tope": "subs",
+                      "_source_fr": "srt/space_fr.srt",
+                      "_source_en": "srt/space_en.srt"
+                    }
+                  ],
+                  "_title_fr": "l'espace sphérique",
+                  "_title_en": "spherical space"
+                },
+                "_title_fr": "l'espace",
+                "_title_en": "space"
+              },
+              {
+                "page": [
+                  {
+                    "media": [
+                      {
+                        "_tope": "video",
+                        "_source_fr": "flv/perf_comments_goldberg.flv",
+                        "_source_en": "flv/perf_comments_goldberg.flv"
+                      },
+                      {
+                        "_tope": "subs",
+                        "_source_fr": "srt/perf_comment_gold_fr.srt",
+                        "_source_en": "srt/perf_comment_gold_en.srt"
+                      }
+                    ],
+                    "_title_fr": "introduction aux Goldberg Variations",
+                    "_title_en": "looking at Goldberg Variations"
+                  },
+                  {
+                    "media": {
+                      "_tope": "video",
+                      "_source_fr": "flv/goldberg.flv",
+                      "_source_en": "flv/goldberg.flv"
+                    },
+                    "_title_fr": "Goldberg Variations (extraits)",
+                    "_title_en": "Goldberg Variations (extracts)"
+                  },
+                  {
+                    "media": [
+                      {
+                        "_tope": "video",
+                        "_source_fr": "flv/perf_comments_english.flv",
+                        "_source_en": "flv/perf_comments_english.flv"
+                      },
+                      {
+                        "_tope": "subs",
+                        "_source_fr": "srt/perf_comment_engl_fr.srt",
+                        "_source_en": "srt/perf_comment_engl_en.srt"
+                      }
+                    ],
+                    "_title_fr": "introduction aux English Suites",
+                    "_title_en": "looking at English Suites"
+                  },
+                  {
+                    "media": {
+                      "_tope": "video",
+                      "_source_fr": "flv/english.flv",
+                      "_source_en": "flv/english.flv"
+                    },
+                    "_title_fr": "English Suites",
+                    "_title_en": "English Suites"
+                  },
+                  {
+                    "media": [
+                      {
+                        "_tope": "video",
+                        "_source_fr": "flv/perf_techimpro.flv",
+                        "_source_en": "flv/perf_techimpro.flv"
+                      },
+                      {
+                        "_tope": "subs",
+                        "_source_fr": "srt/perf_comment_fr.srt",
+                        "_source_en": "srt/perf_comment_en.srt"
+                      }
+                    ],
+                    "_title_fr": "une technique pour l'improvisation",
+                    "_title_en": "a technique for improvisation"
+                  }
+                ],
+                "_title_fr": "MFS comme base pour l'improvisation",
+                "_title_en": "MFS as base for improvisation"
+              }
+            ],
+            "_title_fr": "SENSATION ET SENS",
+            "_title_en": "SENSATION AND SENSES"
+          }
+        },
+        {
+          "section": {
+            "page": {
+              "media": [
+                {
+                  "_tope": "video",
+                  "_source_fr": "flv/new_intro.flv",
+                  "_source_en": "flv/new_intro.flv"
+                },
+                {
+                  "_tope": "subs",
+                  "_source_fr": "srt/intro_fr.srt",
+                  "_source_en": "srt/intro_en.srt"
+                }
+              ],
+              "_title_fr": "introduction",
+              "_title_en": "introduction"
+            },
+            "section": [
+              {
+                "page": [
+                  {
+                    "media": [
+                      {
+                        "page": {
+                          "media": {
+                            "_tope": "swfvideo",
+                            "_source_fr": "swfvideo/cbfh_side.swf",
+                            "_source_en": "swfvideo/cbfh_side.swf"
+                          },
+                          "_title_fr": "-- initié par le les mains et les pieds - détail - depuis le côté",
+                          "_title_en": "-- led by feet and hands - detail from side"
+                        },
+                        "_tope": "video",
+                        "_source_fr": "flv/cbhf_fromside.flv",
+                        "_source_en": "flv/cbhf_fromside.flv",
+                        "_loop": "true"
+                      },
+                      {
+                        "page": {
+                          "media": {
+                            "_tope": "swfvideo",
+                            "_source_fr": "swfvideo/cbfh_top.swf",
+                            "_source_en": "swfvideo/cbfh_top.swf"
+                          },
+                          "_title_fr": "-- initié par le les mains et les pieds - détail - depuis le haut",
+                          "_title_en": "-- led by feet and hands - detail from top"
+                        },
+                        "_tope": "video",
+                        "_source_fr": "flv/cbhf_fromtop.flv",
+                        "_source_en": "flv/cbhf_fromtop.flv",
+                        "_loop": "true"
+                      },
+                      {
+                        "page": {
+                          "media": {
+                            "_tope": "swfvideo",
+                            "_source_fr": "swfvideo/cbfh_front.swf",
+                            "_source_en": "swfvideo/cbfh_front.swf"
+                          },
+                          "_title_fr": "-- initié par le les mains et les pieds - détail - depuis la tête",
+                          "_title_en": "-- led by feet and hands - detail from head"
+                        },
+                        "_tope": "video",
+                        "_source_fr": "flv/cbhf_fromhead.flv",
+                        "_source_en": "flv/cbhf_fromhead.flv",
+                        "_loop": "true"
+                      },
+                      {
+                        "_tope": "audio",
+                        "_source_fr": "mp3/comments_crescent.mp3",
+                        "_source_en": "mp3/comments_crescent.mp3"
+                      },
+                      {
+                        "_tope": "subs",
+                        "_source_fr": "srt/mfs_crescents_comments_fr.srt",
+                        "_source_en": "srt/mfs_crescents_comments_en.srt"
+                      }
+                    ],
+                    "_title_fr": "initié par les mains et les pieds",
+                    "_title_en": "crescent led by feet and hands"
+                  },
+                  {
+                    "media": [
+                      {
+                        "page": {
+                          "media": {
+                            "_tope": "swfvideo",
+                            "_source_fr": "swfvideo/cbc_front.swf",
+                            "_source_en": "swfvideo/cbc_front.swf"
+                          },
+                          "_title_fr": "-- initié par le centre - détail - depuis la tête",
+                          "_title_en": "-- led by center - detail from head"
+                        },
+                        "_tope": "video",
+                        "_source_fr": "flv/cbc_fromhead.flv",
+                        "_source_en": "flv/cbc_fromhead.flv",
+                        "_loop": "true"
+                      },
+                      {
+                        "page": {
+                          "media": {
+                            "_tope": "swfvideo",
+                            "_source_fr": "swfvideo/cbc_top.swf",
+                            "_source_en": "swfvideo/cbc_top.swf"
+                          },
+                          "_title_fr": "-- initié par le centre - détail - depuis le haut",
+                          "_title_en": "-- led by center - detail from top"
+                        },
+                        "_tope": "video",
+                        "_source_fr": "flv/cbc_fromtop.flv",
+                        "_source_en": "flv/cbc_fromtop.flv",
+                        "_loop": "true"
+                      }
+                    ],
+                    "_title_fr": "initié par le centre",
+                    "_title_en": "crescent led by center"
+                  },
+                  {
+                    "media": [
+                      {
+                        "page": {
+                          "media": {
+                            "_tope": "swfvideo",
+                            "_source_fr": "swfvideo/cbhu_front.swf",
+                            "_source_en": "swfvideo/cbhu_front.swf"
+                          },
+                          "_title_fr": "-- la tête haute - détail - depuis les pieds",
+                          "_title_en": "-- head up - detail from feet"
+                        },
+                        "_tope": "video",
+                        "_source_fr": "flv/chu_fromfeet.flv",
+                        "_source_en": "flv/chu_fromfeet.flv",
+                        "_loop": "true"
+                      },
+                      {
+                        "page": {
+                          "media": {
+                            "_tope": "swfvideo",
+                            "_source_fr": "swfvideo/cbhu_side.swf",
+                            "_source_en": "swfvideo/cbhu_side.swf"
+                          },
+                          "_title_fr": "-- la tête haute - détail - depuis le côté",
+                          "_title_en": "-- head up - detail from side"
+                        },
+                        "_tope": "video",
+                        "_source_fr": "flv/chu_fromside.flv",
+                        "_source_en": "flv/chu_fromside.flv",
+                        "_loop": "true"
+                      }
+                    ],
+                    "_title_fr": "tête dégagée",
+                    "_title_en": "head up"
+                  },
+                  {
+                    "media": {
+                      "_tope": "swfvideo",
+                      "_source_fr": "swfvideo/cbfhu.swf",
+                      "_source_en": "swfvideo/cbfhu.swf"
+                    },
+                    "_title_fr": "tête et pieds vers le haut",
+                    "_title_en": "head and feet up"
+                  },
+                  {
+                    "media": {
+                      "_tope": "video",
+                      "_source_fr": "flv/crescent_water.flv",
+                      "_source_en": "flv/crescent_water.flv",
+                      "_loop": "true"
+                    },
+                    "_title_fr": "dans l'eau",
+                    "_title_en": "in water"
+                  },
+                  {
+                    "media": {
+                      "_tope": "swfvideo",
+                      "_source_fr": "swf/c_comparing.swf",
+                      "_source_en": "swf/c_comparing.swf"
+                    },
+                    "_title_fr": "comparaison",
+                    "_title_en": "comparison"
+                  }
+                ],
+                "_title_fr": "le roulé en croissant",
+                "_title_en": "crescent roll"
+              },
+              {
+                "page": [
+                  {
+                    "media": [
+                      {
+                        "page": {
+                          "media": {
+                            "_tope": "swfvideo",
+                            "_source_fr": "swfvideo/sbf_fromfeet.swf",
+                            "_source_en": "swfvideo/sbf_fromfeet.swf"
+                          },
+                          "_title_fr": "-- initié par les pieds - détail - depuis les pieds",
+                          "_title_en": "-- led by feet - detail from feet"
+                        },
+                        "_tope": "video",
+                        "_source_fr": "flv/sbf_fromfeet.flv",
+                        "_source_en": "flv/sbf_fromfeet.flv",
+                        "_loop": "true"
+                      },
+                      {
+                        "page": {
+                          "media": {
+                            "_tope": "swfvideo",
+                            "_source_fr": "swfvideo/sbf_fromside.swf",
+                            "_source_en": "swfvideo/sbf_fromside.swf"
+                          },
+                          "_title_fr": "-- initié par les pieds - détail - depuis le côté",
+                          "_title_en": "-- led by feet - detail from side"
+                        },
+                        "_tope": "video",
+                        "_source_fr": "flv/sbf_side.flv",
+                        "_source_en": "flv/sbf_side.flv",
+                        "_loop": "true"
+                      },
+                      {
+                        "page": {
+                          "media": {
+                            "_tope": "swfvideo",
+                            "_source_fr": "swfvideo/sbf_fromhead.swf",
+                            "_source_en": "swfvideo/sbf_fromhead.swf"
+                          },
+                          "_title_fr": "-- initié par les pieds - détail - depuis la tête",
+                          "_title_en": "-- led by feet - detail from head"
+                        },
+                        "_tope": "video",
+                        "_source_fr": "flv/sbf_fromhead.flv",
+                        "_source_en": "flv/sbf_fromhead.flv",
+                        "_loop": "true"
+                      },
+                      {
+                        "_tope": "audio",
+                        "_source_fr": "mp3/mfs_sbf.mp3",
+                        "_source_en": "mp3/mfs_sbf.mp3"
+                      },
+                      {
+                        "_tope": "subs",
+                        "_source_fr": "srt/mfs_sbf_fr.srt",
+                        "_source_en": "srt/mfs_sbf_en.srt"
+                      }
+                    ],
+                    "_title_fr": "initié par les pieds",
+                    "_title_en": "led by feet"
+                  },
+                  {
+                    "media": [
+                      {
+                        "page": {
+                          "media": {
+                            "_tope": "swfvideo",
+                            "_source_fr": "swfvideo/sbh_fromhead.swf",
+                            "_source_en": "swfvideo/sbh_fromhead.swf"
+                          },
+                          "_title_fr": "-- initié par les mains - détail - depuis la tête",
+                          "_title_en": "-- led by hands - detail from head"
+                        },
+                        "_tope": "video",
+                        "_source_fr": "flv/sbh_fromhead.flv",
+                        "_source_en": "flv/sbh_fromhead.flv",
+                        "_loop": "true"
+                      },
+                      {
+                        "page": {
+                          "media": {
+                            "_tope": "swfvideo",
+                            "_source_fr": "swfvideo/sbh_fromside.swf",
+                            "_source_en": "swfvideo/sbh_fromside.swf"
+                          },
+                          "_title_fr": "-- initié par les mains - détail - depuis le côté",
+                          "_title_en": "-- led by hands - detail from side"
+                        },
+                        "_tope": "video",
+                        "_source_fr": "flv/sbh_side.flv",
+                        "_source_en": "flv/sbh_side.flv",
+                        "_loop": "true"
+                      },
+                      {
+                        "_tope": "audio",
+                        "_source_fr": "mp3/mfs_sbh.mp3",
+                        "_source_en": "mp3/mfs_sbh.mp3"
+                      },
+                      {
+                        "_tope": "subs",
+                        "_source_fr": "srt/mfs_sbh_fr.srt",
+                        "_source_en": "srt/mfs_sbh_en.srt"
+                      }
+                    ],
+                    "_title_fr": "initié par les mains",
+                    "_title_en": "led by hands"
+                  },
+                  {
+                    "media": {
+                      "_tope": "video",
+                      "_source_fr": "flv/helixinwater.flv",
+                      "_source_en": "flv/helixinwater.flv",
+                      "_loop": "true"
+                    },
+                    "_title_fr": "dans l'eau",
+                    "_title_en": "in water"
+                  },
+                  {
+                    "media": {
+                      "_tope": "swfvideo",
+                      "_source_fr": "swf/h_comparing.swf",
+                      "_source_en": "swf/h_comparing.swf"
+                    },
+                    "_title_fr": "comparaison",
+                    "_title_en": "comparison"
+                  }
+                ],
+                "_title_fr": "le roulé en hélice",
+                "_title_en": "helix roll"
+              },
+              {
+                "page": [
+                  {
+                    "media": {
+                      "_tope": "swfvideo",
+                      "_source_fr": "swfvideo/puzzle1.swf",
+                      "_source_en": "swfvideo/puzzle1.swf"
+                    },
+                    "_title_fr": "puzzle 1",
+                    "_title_en": "puzzle 1"
+                  },
+                  {
+                    "media": {
+                      "_tope": "swfvideo",
+                      "_source_fr": "swfvideo/puzzle2.swf",
+                      "_source_en": "swfvideo/puzzle2.swf"
+                    },
+                    "_title_fr": "puzzle 2",
+                    "_title_en": "puzzle 2"
+                  },
+                  {
+                    "media": {
+                      "_tope": "swfvideo",
+                      "_source_fr": "swfvideo/puzzle3.swf",
+                      "_source_en": "swfvideo/puzzle3.swf"
+                    },
+                    "_title_fr": "puzzle 3",
+                    "_title_en": "puzzle 3"
+                  },
+                  {
+                    "media": {
+                      "_tope": "swfvideo",
+                      "_source_fr": "swfvideo/puzzle4.swf",
+                      "_source_en": "swfvideo/puzzle4.swf"
+                    },
+                    "_title_fr": "puzzle 4",
+                    "_title_en": "puzzle 4"
+                  }
+                ],
+                "_title_fr": "les puzzles",
+                "_title_en": "puzzles"
+              },
+              {
+                "page": [
+                  {
+                    "media": [
+                      {
+                        "page": {
+                          "media": {
+                            "_tope": "swfvideo",
+                            "_source_fr": "swfvideo/frontal_head_top.swf",
+                            "_source_en": "swfvideo/frontal_head_top.swf"
+                          },
+                          "_title_fr": "-- détail vu d'en haut",
+                          "_title_en": "-- detail from top"
+                        },
+                        "_tope": "video",
+                        "_source_fr": "flv/frontal_head_top.flv",
+                        "_source_en": "flv/frontal_head_top.flv",
+                        "_loop": "true"
+                      },
+                      {
+                        "page": {
+                          "media": {
+                            "_tope": "swfvideo",
+                            "_source_fr": "swfvideo/frontal_head_side.swf",
+                            "_source_en": "swfvideo/frontal_head_side.swf"
+                          },
+                          "_title_fr": "-- détail vu de côté",
+                          "_title_en": "-- detail from side"
+                        },
+                        "_tope": "video",
+                        "_source_fr": "flv/frontal_head_side.flv",
+                        "_source_en": "flv/frontal_head_side.flv",
+                        "_loop": "true"
+                      },
+                      {
+                        "page": {
+                          "media": {
+                            "_tope": "swfvideo",
+                            "_source_fr": "swfvideo/frontal_head_bottom.swf",
+                            "_source_en": "swfvideo/frontal_head_bottom.swf"
+                          },
+                          "_title_fr": "-- détail vu d'en bas",
+                          "_title_en": "-- detail from bottom"
+                        },
+                        "_tope": "video",
+                        "_source_fr": "flv/frontal_head_bottom.flv",
+                        "_source_en": "flv/frontal_head_bottom.flv",
+                        "_loop": "true"
+                      },
+                      {
+                        "_tope": "audio",
+                        "_source_fr": "mp3/comment_undulation.mp3",
+                        "_source_en": "mp3/comment_undulation.mp3"
+                      },
+                      {
+                        "_tope": "subs",
+                        "_source_fr": "srt/undulations_fr.srt",
+                        "_source_en": "srt/undulations_en.srt"
+                      }
+                    ],
+                    "_title_fr": "frontale initiée par la tête",
+                    "_title_en": "frontal initiated by the head"
+                  },
+                  {
+                    "media": [
+                      {
+                        "page": {
+                          "media": {
+                            "_tope": "swfvideo",
+                            "_source_fr": "swfvideo/frontal_pelvis_top.swf",
+                            "_source_en": "swfvideo/frontal_pelvis_top.swf"
+                          },
+                          "_title_fr": "-- détail vu d'en haut",
+                          "_title_en": "-- detail from top"
+                        },
+                        "_tope": "video",
+                        "_source_fr": "flv/frontal_pelvis_top.flv",
+                        "_source_en": "flv/frontal_pelvis_top.flv",
+                        "_loop": "true"
+                      },
+                      {
+                        "page": {
+                          "media": {
+                            "_tope": "swfvideo",
+                            "_source_fr": "swfvideo/frontal_pelvis_side.swf",
+                            "_source_en": "swfvideo/frontal_pelvis_side.swf"
+                          },
+                          "_title_fr": "-- détail vu de côté",
+                          "_title_en": "-- detail from side"
+                        },
+                        "_tope": "video",
+                        "_source_fr": "flv/frontal_pelvis_side.flv",
+                        "_source_en": "flv/frontal_pelvis_side.flv",
+                        "_loop": "true"
+                      },
+                      {
+                        "page": {
+                          "media": {
+                            "_tope": "swfvideo",
+                            "_source_fr": "swfvideo/frontal_pelvis_bottom.swf",
+                            "_source_en": "swfvideo/frontal_pelvis_bottom.swf"
+                          },
+                          "_title_fr": "-- détail vu d'en bas",
+                          "_title_en": "-- detail from bottom"
+                        },
+                        "_tope": "video",
+                        "_source_fr": "flv/frontal_pelvis_bottom.flv",
+                        "_source_en": "flv/frontal_pelvis_bottom.flv",
+                        "_loop": "true"
+                      }
+                    ],
+                    "_title_fr": "frontale initiée par le bassin",
+                    "_title_en": "frontal initiated by the pelvis"
+                  },
+                  {
+                    "media": [
+                      {
+                        "page": {
+                          "media": {
+                            "_tope": "swfvideo",
+                            "_source_fr": "swfvideo/lateral_head_front.swf",
+                            "_source_en": "swfvideo/lateral_head_front.swf"
+                          },
+                          "_title_fr": "-- détail vu de face",
+                          "_title_en": "-- detail from front"
+                        },
+                        "_tope": "video",
+                        "_source_fr": "flv/lateral_head_front.flv",
+                        "_source_en": "flv/lateral_head_front.flv",
+                        "_loop": "true"
+                      },
+                      {
+                        "page": {
+                          "media": {
+                            "_tope": "swfvideo",
+                            "_source_fr": "swfvideo/lateral_head_top.swf",
+                            "_source_en": "swfvideo/lateral_head_top.swf"
+                          },
+                          "_title_fr": "-- détail vu d'en haut",
+                          "_title_en": "-- detail from top"
+                        },
+                        "_tope": "video",
+                        "_source_fr": "flv/lateral_head_top.flv",
+                        "_source_en": "flv/lateral_head_top.flv",
+                        "_loop": "true"
+                      }
+                    ],
+                    "_title_fr": "latérale initiée par la tête",
+                    "_title_en": "lateral initiated by the head"
+                  },
+                  {
+                    "media": [
+                      {
+                        "page": {
+                          "media": {
+                            "_tope": "swfvideo",
+                            "_source_fr": "swfvideo/lateral_pelvis_top.swf",
+                            "_source_en": "swfvideo/lateral_pelvis_top.swf"
+                          },
+                          "_title_fr": "-- détail vu d'en haut",
+                          "_title_en": "-- detail from top"
+                        },
+                        "_tope": "video",
+                        "_source_fr": "flv/lateral_pelvis_top.flv",
+                        "_source_en": "flv/lateral_pelvis_top.flv",
+                        "_loop": "true"
+                      },
+                      {
+                        "page": {
+                          "media": {
+                            "_tope": "swfvideo",
+                            "_source_fr": "swfvideo/lateral_pelvis_front.swf",
+                            "_source_en": "swfvideo/lateral_pelvis_front.swf"
+                          },
+                          "_title_fr": "-- détail vu de face",
+                          "_title_en": "-- detail from front"
+                        },
+                        "_tope": "video",
+                        "_source_fr": "flv/lateral_pelvis_front.flv",
+                        "_source_en": "flv/lateral_pelvis_front.flv",
+                        "_loop": "true"
+                      }
+                    ],
+                    "_title_fr": "latérale initiée par le bassin",
+                    "_title_en": "lateral initiated by the pelvis"
+                  },
+                  {
+                    "media": {
+                      "_tope": "video",
+                      "_source_fr": "flv/dolphininwater.flv",
+                      "_source_en": "flv/dolphininwater.flv",
+                      "_loop": "true"
+                    },
+                    "_title_fr": "le dauphin",
+                    "_title_en": "dolphin"
+                  }
+                ],
+                "_title_fr": "l'ondulation",
+                "_title_en": "undulation"
+              },
+              {
+                "page": [
+                  {
+                    "media": [
+                      {
+                        "_tope": "video",
+                        "_source_fr": "flv/aikido_principle.flv",
+                        "_source_en": "flv/aikido_principle.flv"
+                      },
+                      {
+                        "_tope": "subs",
+                        "_source_fr": "srt/aikido_principle_fr.srt",
+                        "_source_en": "srt/aikido_principle_en.srt"
+                      }
+                    ],
+                    "_title_fr": "le principe",
+                    "_title_en": "principle"
+                  },
+                  {
+                    "media": [
+                      {
+                        "page": {
+                          "media": {
+                            "_tope": "swfvideo",
+                            "_source_fr": "swfvideo/aikido_side.swf",
+                            "_source_en": "swfvideo/aikido_side.swf"
+                          },
+                          "_title_fr": "-- rouler aikido vu de côté ",
+                          "_title_en": "-- aikido roll from side"
+                        },
+                        "_tope": "video",
+                        "_source_fr": "flv/aikido_3D_side.flv",
+                        "_source_en": "flv/aikido_3D_side.flv",
+                        "_loop": "true"
+                      },
+                      {
+                        "page": {
+                          "media": {
+                            "_tope": "swfvideo",
+                            "_source_fr": "swfvideo/aikido_top.swf",
+                            "_source_en": "swfvideo/aikido_top.swf"
+                          },
+                          "_title_fr": "-- rouler aikido vu d'en haut ",
+                          "_title_en": "-- aikido roll from top"
+                        },
+                        "_tope": "video",
+                        "_source_fr": "flv/aikido_3D_top.flv",
+                        "_source_en": "flv/aikido_3D_top.flv",
+                        "_loop": "true"
+                      },
+                      {
+                        "page": {
+                          "media": {
+                            "_tope": "swfvideo",
+                            "_source_fr": "swfvideo/aikido_front.swf",
+                            "_source_en": "swfvideo/aikido_front.swf"
+                          },
+                          "_title_fr": "-- rouler aikido vu de face ",
+                          "_title_en": "-- aikido roll from front"
+                        },
+                        "_tope": "video",
+                        "_source_fr": "flv/aikido_3D_front.flv",
+                        "_source_en": "flv/aikido_3D_front.flv",
+                        "_loop": "true"
+                      },
+                      {
+                        "_tope": "audio",
+                        "_source_fr": "mp3/aikidoform.mp3",
+                        "_source_en": "mp3/aikidoform.mp3"
+                      },
+                      {
+                        "_tope": "subs",
+                        "_source_fr": "srt/aikidoform_fr.srt",
+                        "_source_en": "srt/aikidoform_en.srt"
+                      }
+                    ],
+                    "_title_fr": "les 3 directions",
+                    "_title_en": "3 directions"
+                  }
+                ],
+                "_title_fr": "la chute roulée de l'aïkido",
+                "_title_en": "aikido roll"
+              },
+              {
+                "page": [
+                  {
+                    "media": [
+                      {
+                        "_tope": "video",
+                        "_source_fr": "flv/crescent_head up.flv",
+                        "_source_en": "flv/crescent_head up.flv"
+                      },
+                      {
+                        "_tope": "subs",
+                        "_source_fr": "srt/crescent_headup_fr.srt",
+                        "_source_en": "srt/crescent_headup_en.srt"
+                      }
+                    ],
+                    "_title_fr": "démonstration du roulé en croissant tête dégagée",
+                    "_title_en": "crescent roll head up in workshop"
+                  },
+                  {
+                    "media": [
+                      {
+                        "_tope": "video",
+                        "_source_fr": "flv/mfs_sbf_seattle.flv",
+                        "_source_en": "flv/mfs_sbf_seattle.flv"
+                      },
+                      {
+                        "_tope": "subs",
+                        "_source_fr": "srt/mfs_sbf_seattle_fr.srt",
+                        "_source_en": "srt/mfs_sbf_seattle_en.srt",
+                        "_visible": "true"
+                      }
+                    ],
+                    "_title_fr": "démonstration du roulé en hélice par les pieds",
+                    "_title_en": "helix roll led by feet in workshop"
+                  },
+                  {
+                    "media": [
+                      {
+                        "_tope": "video",
+                        "_source_fr": "flv/mfs_sbh_seattle.flv",
+                        "_source_en": "flv/mfs_sbh_seattle.flv"
+                      },
+                      {
+                        "_tope": "subs",
+                        "_source_fr": "srt/mfs_sbh_seattle_fr.srt",
+                        "_source_en": "srt/mfs_sbh_seattle_en.srt",
+                        "_visible": "true"
+                      }
+                    ],
+                    "_title_fr": "démonstration du roulé en hélice par les mains",
+                    "_title_en": "helix roll led by hands in workshop"
+                  },
+                  {
+                    "media": [
+                      {
+                        "_tope": "video",
+                        "_source_fr": "flv/puzzle1_demo_graph.flv",
+                        "_source_en": "flv/puzzle1_demo_graph.flv",
+                        "_loop": "true"
+                      },
+                      {
+                        "_tope": "subs",
+                        "_source_fr": "srt/mfs_puzzle1_demo_fr.srt",
+                        "_source_en": "srt/mfs_puzzle1_demo_en.srt",
+                        "_visible": "true"
+                      }
+                    ],
+                    "_title_fr": "puzzle 1, l'analyse",
+                    "_title_en": "puzzle 1, analyse"
+                  },
+                  {
+                    "media": [
+                      {
+                        "_tope": "video",
+                        "_source_fr": "flv/correction_crescent_handsfeet.flv",
+                        "_source_en": "flv/correction_crescent_handsfeet.flv"
+                      },
+                      {
+                        "_tope": "subs",
+                        "_source_fr": "srt/correction_crescent_handsfeet_fr.srt",
+                        "_source_en": "srt/correction_crescent_handsfeet_en.srt"
+                      }
+                    ],
+                    "_title_fr": "le roulé en croissant par pieds et mains, commentaires",
+                    "_title_en": "comments on crescent roll - feet and hands"
+                  },
+                  {
+                    "media": [
+                      {
+                        "_tope": "video",
+                        "_source_fr": "flv/correction_crescent_center.flv",
+                        "_source_en": "flv/correction_crescent_center.flv"
+                      },
+                      {
+                        "_tope": "subs",
+                        "_source_fr": "srt/correction_crescent_center_fr.srt",
+                        "_source_en": "srt/correction_crescent_center_en.srt"
+                      }
+                    ],
+                    "_title_fr": "le roulé en croissant par le centre, commentaires",
+                    "_title_en": "comments on crescent roll - center"
+                  },
+                  {
+                    "media": [
+                      {
+                        "_tope": "video",
+                        "_source_fr": "flv/correction_helix_feet.flv",
+                        "_source_en": "flv/correction_helix_feet.flv"
+                      },
+                      {
+                        "_tope": "subs",
+                        "_source_fr": "srt/correction_helix_feet_fr.srt",
+                        "_source_en": "srt/correction_helix_feet_en.srt"
+                      }
+                    ],
+                    "_title_fr": "le roulé en hélice par les pieds, commentaires",
+                    "_title_en": "comments on helix roll - feet"
+                  },
+                  {
+                    "media": [
+                      {
+                        "_tope": "video",
+                        "_source_fr": "flv/correction_helix_hands.flv",
+                        "_source_en": "flv/correction_helix_hands.flv"
+                      },
+                      {
+                        "_tope": "subs",
+                        "_source_fr": "srt/correction_helix_hands_fr.srt",
+                        "_source_en": "srt/correction_helix_hands_en.srt"
+                      }
+                    ],
+                    "_title_fr": "le roulé en hélice par les mains, commentaires",
+                    "_title_en": "comments on helix roll - hands"
+                  },
+                  {
+                    "media": [
+                      {
+                        "_tope": "video",
+                        "_source_fr": "flv/correction_conclusion.flv",
+                        "_source_en": "flv/correction_conclusion.flv"
+                      },
+                      {
+                        "_tope": "subs",
+                        "_source_fr": "srt/correction_conclusion_fr.srt",
+                        "_source_en": "srt/correction_conclusion_en.srt"
+                      }
+                    ],
+                    "_title_fr": "conclusion sur les roulés",
+                    "_title_en": "conclusion on rolls"
+                  }
+                ],
+                "_title_fr": "regarder les formes",
+                "_title_en": "looking at the forms"
+              },
+              {
+                "page": [
+                  {
+                    "media": {
+                      "_tope": "video",
+                      "_source_fr": "flv/wu_fingers.flv",
+                      "_source_en": "flv/wu_fingers.flv"
+                    },
+                    "_title_fr": "les doigts",
+                    "_title_en": "fingers"
+                  },
+                  {
+                    "media": {
+                      "_tope": "video",
+                      "_source_fr": "flv/wu_wrist.flv",
+                      "_source_en": "flv/wu_wrist.flv"
+                    },
+                    "_title_fr": "le poignet",
+                    "_title_en": "the wrist"
+                  },
+                  {
+                    "media": {
+                      "_tope": "video",
+                      "_source_fr": "flv/wu_hands.flv",
+                      "_source_en": "flv/wu_hands.flv"
+                    },
+                    "_title_fr": "les mains",
+                    "_title_en": "hands"
+                  },
+                  {
+                    "media": {
+                      "_tope": "video",
+                      "_source_fr": "flv/wu_arms.flv",
+                      "_source_en": "flv/wu_arms.flv"
+                    },
+                    "_title_fr": "les bras",
+                    "_title_en": "arms"
+                  },
+                  {
+                    "media": {
+                      "_tope": "video",
+                      "_source_fr": "flv/wu_spine\\&arms.flv",
+                      "_source_en": "flv/wu_spine&arms.flv"
+                    },
+                    "_title_fr": "les bras et la colonne",
+                    "_title_en": "spine and arms"
+                  },
+                  {
+                    "media": [
+                      {
+                        "_tope": "video",
+                        "_source_fr": "flv/wu_bendingbone.flv",
+                        "_source_en": "flv/wu_bendingbone.flv"
+                      },
+                      {
+                        "_tope": "subs",
+                        "_source_fr": "srt/wu_bendingbone_fr.srt",
+                        "_source_en": "srt/wu_bendingbone_en.srt",
+                        "_visible": "true"
+                      }
+                    ],
+                    "_title_fr": "courber l'os",
+                    "_title_en": "bending bone"
+                  },
+                  {
+                    "media": {
+                      "_tope": "video",
+                      "_source_fr": "flv/wu_aikidostep.flv",
+                      "_source_en": "flv/wu_aikidostep.flv"
+                    },
+                    "_title_fr": "le pas aïkido",
+                    "_title_en": "aikido step"
+                  },
+                  {
+                    "media": {
+                      "_tope": "video",
+                      "_source_fr": "flv/wu_twist.flv",
+                      "_source_en": "flv/wu_twist.flv"
+                    },
+                    "_title_fr": "la torsion",
+                    "_title_en": "the twist"
+                  },
+                  {
+                    "media": [
+                      {
+                        "_tope": "video",
+                        "_source_fr": "flv/wu_twistlegs.flv",
+                        "_source_en": "flv/wu_twistlegs.flv"
+                      },
+                      {
+                        "_tope": "subs",
+                        "_source_fr": "srt/wu_twistleg_fr.srt",
+                        "_source_en": "srt/wu_twistleg_en.srt",
+                        "_visible": "true"
+                      }
+                    ],
+                    "_title_fr": "torsion des jambes",
+                    "_title_en": "legs twist"
+                  },
+                  {
+                    "media": [
+                      {
+                        "_tope": "video",
+                        "_source_fr": "flv/wu_legsresistance.flv",
+                        "_source_en": "flv/wu_legsresistance.flv"
+                      },
+                      {
+                        "_tope": "subs",
+                        "_source_fr": "srt/wu_legsresistance_fr.srt",
+                        "_source_en": "srt/wu_legsresistance_en.srt",
+                        "_visible": "true"
+                      }
+                    ],
+                    "_title_fr": "résistance des jambes",
+                    "_title_en": "legs resistance"
+                  },
+                  {
+                    "media": [
+                      {
+                        "_tope": "video",
+                        "_source_fr": "flv/wu_trocantere.flv",
+                        "_source_en": "flv/wu_trocantere.flv"
+                      },
+                      {
+                        "_tope": "subs",
+                        "_source_fr": "srt/wu_trochanter_fr.srt",
+                        "_source_en": "srt/wu_trochanter_en.srt",
+                        "_visible": "true"
+                      }
+                    ],
+                    "_title_fr": "trochanter",
+                    "_title_en": "trochanter"
+                  },
+                  {
+                    "media": [
+                      {
+                        "_tope": "video",
+                        "_source_fr": "flv/wu_psoas.flv",
+                        "_source_en": "flv/wu_psoas.flv"
+                      },
+                      {
+                        "_tope": "subs",
+                        "_source_fr": "srt/wu_psoas_fr.srt",
+                        "_source_en": "srt/wu_psoas_en.srt",
+                        "_visible": "true"
+                      }
+                    ],
+                    "_title_fr": "psoas",
+                    "_title_en": "psoas"
+                  },
+                  {
+                    "media": [
+                      {
+                        "_tope": "video",
+                        "_source_fr": "flv/wu_wave.flv",
+                        "_source_en": "flv/wu_wave.flv"
+                      },
+                      {
+                        "_tope": "subs",
+                        "_source_fr": "srt/wu_wave_fr.srt",
+                        "_source_en": "srt/wu_wave_en.srt",
+                        "_visible": "true"
+                      }
+                    ],
+                    "_title_fr": "ondulation",
+                    "_title_en": "wave"
+                  },
+                  {
+                    "media": [
+                      {
+                        "_tope": "video",
+                        "_source_fr": "flv/wu_wavefloor.flv",
+                        "_source_en": "flv/wu_wavefloor.flv"
+                      },
+                      {
+                        "_tope": "subs",
+                        "_source_fr": "srt/wu_wavefloor_fr.srt",
+                        "_source_en": "srt/wu_wavefloor_en.srt",
+                        "_visible": "true"
+                      }
+                    ],
+                    "_title_fr": "ondulation au sol",
+                    "_title_en": "wave on the floor"
+                  },
+                  {
+                    "media": [
+                      {
+                        "_tope": "video",
+                        "_source_fr": "flv/wu_asanas.flv",
+                        "_source_en": "flv/wu_asanas.flv"
+                      },
+                      {
+                        "_tope": "subs",
+                        "_source_fr": "srt/wu_asanas_fr.srt",
+                        "_source_en": "srt/wu_asanas_en.srt",
+                        "_visible": "true"
+                      }
+                    ],
+                    "_title_fr": "asanas",
+                    "_title_en": "asanas"
+                  },
+                  {
+                    "media": [
+                      {
+                        "_tope": "video",
+                        "_source_fr": "flv/napp.flv",
+                        "_source_en": "flv/napp.flv"
+                      },
+                      {
+                        "_tope": "subs",
+                        "_source_fr": "srt/napp_fr.srt",
+                        "_source_en": "srt/napp_en.srt"
+                      }
+                    ],
+                    "_title_fr": "la sieste",
+                    "_title_en": "napping"
+                  },
+                  {
+                    "media": {
+                      "_tope": "video",
+                      "_source_fr": "flv/wu_play.flv",
+                      "_source_en": "flv/wu_play.flv"
+                    },
+                    "_title_fr": "et jouer",
+                    "_title_en": "and play"
+                  }
+                ],
+                "_title_fr": "les échauffements",
+                "_title_en": "warm ups"
+              },
+              {
+                "page": [
+                  {
+                    "media": [
+                      {
+                        "_tope": "video",
+                        "_source_fr": "flv/dance_culture.flv",
+                        "_source_en": "flv/dance_culture.flv"
+                      },
+                      {
+                        "_tope": "subs",
+                        "_source_fr": "srt/dance_culture_fr.srt",
+                        "_source_en": "srt/dance_culture_en.srt"
+                      }
+                    ],
+                    "_title_fr": "la danse & la culture",
+                    "_title_en": "dance & culture"
+                  },
+                  {
+                    "media": {
+                      "_tope": "video",
+                      "_source_fr": "flv/cultivating2.flv",
+                      "_source_en": "flv/cultivating2.flv"
+                    },
+                    "_title_fr": "le petit bois & la faux",
+                    "_title_en": "kindling & scythe"
+                  }
+                ],
+                "_title_fr": "cultiver",
+                "_title_en": "cultivating"
+              }
+            ],
+            "_title_fr": "LES FORMES",
+            "_title_en": "FORMS"
+          }
+        }
+      ]
+    },
+    "_title_fr": "MFS",
+    "_title_en": "MFS",
+    "_debug": "false"
+}

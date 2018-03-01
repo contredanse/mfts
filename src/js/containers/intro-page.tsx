@@ -1,6 +1,6 @@
 import React from 'react';
-import {Link} from "react-router-dom";
-import {VideoPlayer} from "@src/components";
+import {Link} from 'react-router-dom';
+import {VideoPlayer} from '@src/components';
 
 interface IProps {
 
@@ -45,4 +45,3 @@ export default class IntroPage extends React.Component<IProps, IState> {
         );
     }
 }
-

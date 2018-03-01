@@ -5,8 +5,8 @@ export interface IVideoPlayerProps {
     autoPlay?: boolean;
     muted?: boolean;
     style?: object;
-    controls?: boolean
-    onEnd?: () => void
+    controls?: boolean;
+    onEnd?: () => void;
 }
 
 export interface IVideoPlayerState {
@@ -17,11 +17,11 @@ export class VideoPlayer extends React.Component<IVideoPlayerProps, IVideoPlayer
 
     videoNode: HTMLVideoElement;
 
-    public static defaultProps: Partial<IVideoPlayerProps> = {
+    public defaultProps: Partial<IVideoPlayerProps> = {
         autoPlay: true,
         muted: false,
         controls: false,
-        style: {}
+        style: {},
     };
 
     constructor(props) {
@@ -30,7 +30,7 @@ export class VideoPlayer extends React.Component<IVideoPlayerProps, IVideoPlayer
 
     componentDidMount() {
         if (this.props.onEnd !== undefined) {
-            this.videoNode.addEventListener('ended', this.props.onEnd, false)
+            this.videoNode.addEventListener('ended', this.props.onEnd, false);
         }
     }
 
@@ -43,15 +43,14 @@ export class VideoPlayer extends React.Component<IVideoPlayerProps, IVideoPlayer
     render(): JSX.Element {
         const {sourceUrl, autoPlay, muted, style, controls} = this.props;
         return (
-            <video ref={(node: HTMLVideoElement) => {this.videoNode = node} }
+            <video ref={(node: HTMLVideoElement) => {this.videoNode = node; }}
                    src={sourceUrl}
                    autoPlay={autoPlay}
                    muted={muted}
                    style={style}
                    controls={controls}
             />
-        )
+        );
     }
 
 }
-

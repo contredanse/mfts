@@ -1,5 +1,5 @@
 import React from 'react';
-import "./intro.scss"
+import './intro.scss';
 
 interface IProps {
 
@@ -22,7 +22,3 @@ export class Intro extends React.Component<IProps, IState> {
         );
     }
 }
-
-
-
-

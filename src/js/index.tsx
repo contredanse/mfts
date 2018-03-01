@@ -6,6 +6,7 @@ import store from './store';
 import App from './containers/app';
 
 // global styles
+import '@public/favicon.ico';
 import '@styles/style.scss';
 
 const renderApp = (Component: any, elementId: string) => {
