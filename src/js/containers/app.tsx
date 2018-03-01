@@ -10,6 +10,7 @@ import HomePage from '@src/containers/home-page';
 import IntroPage from '@src/containers/intro-page';
 import MenuPage from '@src/containers/menu-page';
 import NotFoundPage from "@src/containers/notfound-page";
+import VideoListPage from "@src/containers/video-list-page";
 
 
 class App extends React.Component<{}, {}> {
@@ -26,6 +27,7 @@ class App extends React.Component<{}, {}> {
                             <Route exact={true} path="/" component={HomePage}/>
                             <Route exact={true} path="/intro" component={IntroPage}/>
                             <Route exact={true} path="/menu" component={MenuPage}/>
+                            <Route exact={true} path="/video-list" component={VideoListPage}/>
                             <Route component={NotFoundPage}/>
                         </Switch>
                     </main>

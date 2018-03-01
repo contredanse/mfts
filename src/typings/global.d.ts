@@ -18,6 +18,12 @@ declare module "*.jpg" {
     export default value;
 }
 
+declare module "*.json" {
+    const value: any;
+    export default value;
+}
+
+
 declare module "*.glsl" {
     const value: any;
     export = value;

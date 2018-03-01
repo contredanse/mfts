@@ -50,7 +50,7 @@ export const AppBarComponent: React.SFC<AppMenuProps> = (props) => {
         {path: '/', label: 'Home'},
         {path: '/intro', label: 'Intro'},
         {path: '/menu', label: 'Menu'},
-        {path: '/about', label: 'About'},
+        {path: '/video-list', label: 'Videos'},
     ].map((menuLinkProps: MenuLinkProps) => {
         return {...menuLinkProps, active: (currentPath == menuLinkProps.path)};
     });

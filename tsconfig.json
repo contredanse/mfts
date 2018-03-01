@@ -6,6 +6,7 @@
       "@src/*": ["src/js/*"], // will enable -> import { ... } from '@src/components'
       "@styles/*": ["src/styles/*"],
       "@public/*": ["public/*"],
+      "@data/*": ["src/data/*"],
       "@shaders/*": ["src/shaders/*"],
       "@assets/*": ["src/assets/*"]
     },
