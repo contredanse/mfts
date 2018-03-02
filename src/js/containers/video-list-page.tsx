@@ -11,6 +11,7 @@ interface IProps {
 interface IState {
     videos: IVideoData[];
     selectedVideo?: string;
+    searchFragment?: string
 }
 
 class VideoListPage extends React.Component<IProps, IState> {
@@ -25,7 +26,8 @@ class VideoListPage extends React.Component<IProps, IState> {
         super(props);
         this.initialData = VideoListData;
         this.state = {
-            videos: this.initialData,
+            videos: this.initialData
+
         }
     }
 
@@ -40,6 +42,7 @@ class VideoListPage extends React.Component<IProps, IState> {
 
         this.setState({
             videos: filtered,
+            searchFragment: fragment,
         });
     }
 
@@ -58,12 +61,13 @@ class VideoListPage extends React.Component<IProps, IState> {
     }
 
     render() {
-        const { videos, selectedVideo } = this.state;
+        const { videos, selectedVideo, searchFragment } = this.state;
         const { videoBaseUrl } = this.props;
         const searchBoxStyle = {
             position: 'fixed',
             top: '70px',
             right: '25px',
+            width: '150px'
         } as React.CSSProperties;
 
         console.log('rerender', selectedVideo);
@@ -86,7 +90,7 @@ class VideoListPage extends React.Component<IProps, IState> {
                 }
                 { (selectedVideo === undefined) &&
                     <div style={searchBoxStyle}>
-                        <SearchBox onChange={(e) => this.updateSearch(e)} />
+                        <SearchBox value={searchFragment} onChange={(e) => this.updateSearch(e)} />
                     </div>
                 }
             </PageOverlay>

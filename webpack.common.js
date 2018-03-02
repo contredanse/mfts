@@ -116,7 +116,6 @@ module.exports = {
       template: './public/index.html',
     }),
     new HtmlWebpackHarddiskPlugin(),
-    new webpack.NamedModulesPlugin(),
     new ManifestPlugin(
       {
         fileName: 'manifest.json',

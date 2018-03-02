@@ -9,14 +9,15 @@
 
   .search {
     width: 100%;
-    line-height: 2em;
+    line-height: 1.5em;
     border: none;
     float: left;
-    background-color: rgba(255,255,255, 0.9);
+    background-color: rgba(255,255,255, 0.7);
+
     padding: 0.2em;
     padding-left: 0.4em;
     margin: 0;
-    border-radius: 5px;
+    border-radius: 3px;
     color: black;
     transition: width .55s ease;
   }

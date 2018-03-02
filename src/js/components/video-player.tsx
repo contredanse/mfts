@@ -1,5 +1,6 @@
 import * as React from 'react';
 import "./video-player.scss";
+import {HTMLAttributes} from "react";
 
 
 export interface IVideoPlayerProps {
@@ -9,13 +10,14 @@ export interface IVideoPlayerProps {
     style?: object;
     controls?: boolean;
     onEnd?: () => void;
+    htmlAttributes?: HTMLAttributes<HTMLVideoElement>
 }
 
 export interface IVideoPlayerState {
 
 }
 
-export class VideoPlayer extends React.Component<IVideoPlayerProps & React.HTMLAttributes<HTMLVideoElement>, IVideoPlayerState> {
+export class VideoPlayer extends React.Component<IVideoPlayerProps, IVideoPlayerState> {
 
     videoNode: HTMLVideoElement;
 
@@ -23,24 +25,28 @@ export class VideoPlayer extends React.Component<IVideoPlayerProps & React.HTMLA
         autoPlay: true,
         muted: false,
         controls: false,
+        htmlAttributes: {},
     }
 
     componentDidMount() {
-        console.log('onEnd', this.props.onEnd);
-
         if (this.props.onEnd !== undefined) {
+            console.log('onEndIsLoaded', this.props.onEnd)
             this.videoNode.addEventListener('ended', this.props.onEnd, false);
+        } else {
+            console.log('onEndIsUndinfed')
         }
     }
 
     componentWillUnmount() {
         if (this.props.onEnd !== undefined) {
+            console.log('onEndIsUnloaded', this.props.onEnd)
             this.videoNode.removeEventListener('ended', this.props.onEnd);
         }
     }
 
     render() {
-        const {sourceUrl, autoPlay, muted, controls, ...restProps} = this.props;
+        const {sourceUrl, autoPlay, muted, controls, htmlAttributes} = this.props;
+
         return (
             <div className="video-player-ctn">
                 <video ref={(node: HTMLVideoElement) => {this.videoNode = node; }}
@@ -48,7 +54,7 @@ export class VideoPlayer extends React.Component<IVideoPlayerProps & React.HTMLA
                        autoPlay={autoPlay}
                        muted={muted}
                        controls={controls}
-                       {...restProps}
+                       {...htmlAttributes}
                 />
             </div>
         );

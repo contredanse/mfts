@@ -4,6 +4,7 @@ const merge = require('webpack-merge');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const common = require('./webpack.common.js');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const PrepackWebpackPlugin = require('prepack-webpack-plugin').default;
 
 
 const extractSass = new ExtractTextPlugin({
@@ -35,25 +36,33 @@ module.exports = merge(common, {
     ]
   },
   plugins: [
+    //new PrepackWebpackPlugin({}),
     new webpack.EnvironmentPlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
       NODE_ENV: JSON.stringify('production')
     }),
-
     new webpack.LoaderOptionsPlugin({
       minimize: true,
       debug: false
     }),
-
     new UglifyJsPlugin({
       parallel: true,
       sourceMap: true,
       uglifyOptions: {
-        comments: false,
-        //ecma: 5,
-        compress: true,
-        warnings: true
+        //ecma: 6,
+        warnings: true,
+        compress: {
+          drop_debugger: true,
+          drop_console: true
+        },
+        output: {
+          comments: false,
+          beautify: false,
+        },
+        ie8: false,
+        safari10: false,
       }
+
     }),
 
     extractSass,

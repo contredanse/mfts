@@ -17,8 +17,8 @@ class MenuPage extends React.Component<IProps, IState> {
     render() {
 
         return (
-            <div>
-                <img src={helixMenuImg} />
+            <div style={{textAlign: 'center'}}>
+                <img src={helixMenuImg} style={{width: '50%', marginTop: '100px'}}/>
             </div>
         );
     }
