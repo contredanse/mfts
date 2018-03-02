@@ -1,0 +1,30 @@
+.video-list-ctn {
+  padding: .5vw;
+  font-size: 0;
+  flex-flow: row wrap;
+  display: flex;
+  bottom: 0%;
+
+
+  .video-card-ctn {
+    flex: auto;
+    width: 150px;
+    max-width: 200px;
+
+    //max-width: 400px;
+    //margin: .5vw;
+    margin: 0;
+    transition: all 0.8s ease;
+    display: flex;
+
+    &:hover {
+      cursor: pointer;
+      filter: brightness(130%);
+    }
+
+    .video-cover-img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

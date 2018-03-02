@@ -20,7 +20,7 @@ class App extends React.Component<{}, {}> {
             <ConnectedRouter history={history}>
                 <div className="page-container">
                     <header>
-                        <AppBarConnected title="MTFS" />
+                        <AppBarConnected  title=""/>
                     </header>
                     <main>
                         <Switch>

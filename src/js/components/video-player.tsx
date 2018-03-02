@@ -1,4 +1,6 @@
 import * as React from 'react';
+import "./video-player.scss";
+
 
 export interface IVideoPlayerProps {
     sourceUrl: string;
@@ -13,22 +15,19 @@ export interface IVideoPlayerState {
 
 }
 
-export class VideoPlayer extends React.Component<IVideoPlayerProps, IVideoPlayerState> {
+export class VideoPlayer extends React.Component<IVideoPlayerProps & React.HTMLAttributes<HTMLVideoElement>, IVideoPlayerState> {
 
     videoNode: HTMLVideoElement;
 
-    public defaultProps: Partial<IVideoPlayerProps> = {
+    public static defaultProps: Partial<IVideoPlayerProps> = {
         autoPlay: true,
         muted: false,
         controls: false,
-        style: {},
-    };
-
-    constructor(props) {
-        super(props);
     }
 
     componentDidMount() {
+        console.log('onEnd', this.props.onEnd);
+
         if (this.props.onEnd !== undefined) {
             this.videoNode.addEventListener('ended', this.props.onEnd, false);
         }
@@ -40,16 +39,18 @@ export class VideoPlayer extends React.Component<IVideoPlayerProps, IVideoPlayer
         }
     }
 
-    render(): JSX.Element {
-        const {sourceUrl, autoPlay, muted, style, controls} = this.props;
+    render() {
+        const {sourceUrl, autoPlay, muted, controls, ...restProps} = this.props;
         return (
-            <video ref={(node: HTMLVideoElement) => {this.videoNode = node; }}
-                   src={sourceUrl}
-                   autoPlay={autoPlay}
-                   muted={muted}
-                   style={style}
-                   controls={controls}
-            />
+            <div className="video-player-ctn">
+                <video ref={(node: HTMLVideoElement) => {this.videoNode = node; }}
+                       src={sourceUrl}
+                       autoPlay={autoPlay}
+                       muted={muted}
+                       controls={controls}
+                       {...restProps}
+                />
+            </div>
         );
     }
 

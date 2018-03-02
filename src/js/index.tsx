@@ -5,8 +5,11 @@ import { Provider as ReduxProvider } from 'react-redux';
 import store from './store';
 import App from './containers/app';
 
-// global styles
+
 import '@public/favicon.ico';
+//import 'typeface-roboto';
+import 'typeface-quicksand';
+
 import '@styles/style.scss';
 
 const renderApp = (Component: any, elementId: string) => {
