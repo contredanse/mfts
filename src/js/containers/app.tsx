@@ -9,9 +9,8 @@ import { AppBarConnected } from '@src/components/app-bar-connected';
 import HomePage from '@src/containers/home-page';
 import IntroPage from '@src/containers/intro-page';
 import MenuPage from '@src/containers/menu-page';
-import NotFoundPage from "@src/containers/notfound-page";
-import VideoListPage from "@src/containers/video-list-page";
-
+import NotFoundPage from '@src/containers/notfound-page';
+import VideoListPage from '@src/containers/video-list-page';
 
 class App extends React.Component<{}, {}> {
 

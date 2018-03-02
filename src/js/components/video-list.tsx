@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {IVideoData} from "@data/video-list-data";
-import "./video-list.scss";
-import {CSSTransition, TransitionGroup} from 'react-transition-group'
+import {IVideoData} from '@data/video-list-data';
+import './video-list.scss';
+import {CSSTransition, TransitionGroup} from 'react-transition-group';
 
 interface IProps {
     videos: IVideoData[];
     baseUrl: string;
-    onSelected: (videoUrl: string) => void
+    onSelected: (videoUrl: string) => void;
 }
 
 interface IState {
@@ -40,9 +40,9 @@ export class VideoList extends React.Component<IProps, IState> {
                                 <img className="video-cover-img" src={coverImg} title={name} />
                             </div>
                         </Fade>
-                    )
+                    );
                 })}
                 </TransitionGroup>
-        )
+        );
     }
 }

@@ -14,16 +14,14 @@ interface IState {
 export class PageOverlay extends React.Component<IProps, IState> {
 
     public static defaultProps = {
-        closeButton: false
-    }
+        closeButton: false,
+    };
 
     close = (e) => {
         if (this.props.onClose !== undefined) {
             this.props.onClose();
         }
     }
-
-
 
     renderThumb = ({ style, ...props }) => {
 
@@ -52,7 +50,6 @@ export class PageOverlay extends React.Component<IProps, IState> {
             <div style={{ ...style, ...trackStyle }} {...props} />
         );
     }
-
 
     render() {
         const {closeButton} = this.props;

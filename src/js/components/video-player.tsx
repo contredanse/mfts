@@ -1,7 +1,6 @@
 import * as React from 'react';
-import "./video-player.scss";
-import {HTMLAttributes} from "react";
-
+import './video-player.scss';
+import {HTMLAttributes} from 'react';
 
 export interface IVideoPlayerProps {
     sourceUrl: string;
@@ -10,7 +9,7 @@ export interface IVideoPlayerProps {
     style?: object;
     controls?: boolean;
     onEnd?: () => void;
-    htmlAttributes?: HTMLAttributes<HTMLVideoElement>
+    htmlAttributes?: HTMLAttributes<HTMLVideoElement>;
 }
 
 export interface IVideoPlayerState {
@@ -26,20 +25,20 @@ export class VideoPlayer extends React.Component<IVideoPlayerProps, IVideoPlayer
         muted: false,
         controls: false,
         htmlAttributes: {},
-    }
+    };
 
     componentDidMount() {
         if (this.props.onEnd !== undefined) {
-            console.log('onEndIsLoaded', this.props.onEnd)
+            console.log('onEndIsLoaded', this.props.onEnd);
             this.videoNode.addEventListener('ended', this.props.onEnd, false);
         } else {
-            console.log('onEndIsUndinfed')
+            console.log('onEndIsUndinfed');
         }
     }
 
     componentWillUnmount() {
         if (this.props.onEnd !== undefined) {
-            console.log('onEndIsUnloaded', this.props.onEnd)
+            console.log('onEndIsUnloaded', this.props.onEnd);
             this.videoNode.removeEventListener('ended', this.props.onEnd);
         }
     }

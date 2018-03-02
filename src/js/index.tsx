@@ -5,7 +5,6 @@ import { Provider as ReduxProvider } from 'react-redux';
 import store from './store';
 import App from './containers/app';
 
-
 import '@public/favicon.ico';
 //import 'typeface-roboto';
 import 'typeface-quicksand';

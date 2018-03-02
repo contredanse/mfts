@@ -1,7 +1,6 @@
 import React from 'react';
 import helixMenuImg from '@assets/helix-menu.gif';
 
-
 interface IProps {
 
 }

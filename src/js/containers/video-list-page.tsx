@@ -1,17 +1,17 @@
 import React from 'react';
 import {IVideoData} from '@data/video-list-data';
 import VideoListData from '@data/video-list-data.json';
-import {VideoList} from "@src/components/video-list";
-import {PageOverlay} from "@src/components/page-overlay";
-import {SearchBox} from "@src/components/search-box";
-import {VideoPlayer} from "@src/components";
+import {VideoList} from '@src/components/video-list';
+import {PageOverlay} from '@src/components/page-overlay';
+import {SearchBox} from '@src/components/search-box';
+import {VideoPlayer} from '@src/components';
 interface IProps {
-    videoBaseUrl: string
+    videoBaseUrl: string;
 }
 interface IState {
     videos: IVideoData[];
     selectedVideo?: string;
-    searchFragment?: string
+    searchFragment?: string;
 }
 
 class VideoListPage extends React.Component<IProps, IState> {
@@ -20,15 +20,15 @@ class VideoListPage extends React.Component<IProps, IState> {
 
     public static defaultProps = {
         videoBaseUrl: 'http://soluble.io/mfts/assets/',
-    }
+    };
 
     constructor(props: IProps) {
         super(props);
         this.initialData = VideoListData;
         this.state = {
-            videos: this.initialData
+            videos: this.initialData,
 
-        }
+        };
     }
 
     updateSearch = (e) => {
@@ -49,14 +49,14 @@ class VideoListPage extends React.Component<IProps, IState> {
     openVideo = (videoUrl: string) => {
         console.log('videoUrl', videoUrl);
         this.setState((state) => ({
-            ...state, selectedVideo: videoUrl
+            ...state, selectedVideo: videoUrl,
         }));
     }
 
     closeVideo = () => {
         console.log('closing selected video');
         this.setState((state) => ({
-            ...state, selectedVideo: undefined
+            ...state, selectedVideo: undefined,
         }));
     }
 
@@ -67,16 +67,16 @@ class VideoListPage extends React.Component<IProps, IState> {
             position: 'fixed',
             top: '70px',
             right: '25px',
-            width: '150px'
+            width: '150px',
         } as React.CSSProperties;
 
         console.log('rerender', selectedVideo);
         return (
             <PageOverlay>
                 { selectedVideo &&
-                    <PageOverlay closeButton={true} onClose={() => { this.closeVideo() }}>
+                    <PageOverlay closeButton={true} onClose={() => { this.closeVideo(); }}>
                         <VideoPlayer sourceUrl={selectedVideo}
-                                     onEnd={() => {this.closeVideo()}}
+                                     onEnd={() => {this.closeVideo();}}
                                      autoPlay={true}
                                      controls={true}
                         />
@@ -85,7 +85,7 @@ class VideoListPage extends React.Component<IProps, IState> {
                 { (selectedVideo === undefined && videos) &&
                     <VideoList videos={videos} baseUrl={videoBaseUrl}
                                onSelected={(videoUrl) => {
-                                    this.openVideo(videoUrl)
+                                    this.openVideo(videoUrl);
                                }}/>
                 }
                 { (selectedVideo === undefined) &&

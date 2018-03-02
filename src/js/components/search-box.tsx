@@ -10,8 +10,8 @@ interface IState {}
 
 export class SearchBox extends React.Component<IProps & React.HTMLAttributes<HTMLInputElement>, IState> {
     public static defaultProps = {
-        placeHolder: 'search'
-    }
+        placeHolder: 'search',
+    };
     render() {
         const { placeHolder, value, ...restProps} = this.props;
         return (

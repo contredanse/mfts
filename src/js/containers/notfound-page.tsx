@@ -10,8 +10,7 @@ export const NotFoundComponent: React.SFC<{}> = (props) => {
     return(
         <h1 style={{color: 'red'}}>Page not found!</h1>
     );
-}
-
+};
 
 class NotFoundPage extends React.Component<IProps, IState> {
 
