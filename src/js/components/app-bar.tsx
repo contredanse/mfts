@@ -49,7 +49,6 @@ export const AppBarComponent: React.SFC<AppMenuProps> = (props) => {
     const menuItems: MenuLinkProps[]  = [
         {path: '/', label: 'Home'},
         {path: '/intro', label: 'Intro'},
-        {path: '/menu', label: 'Menu'},
         {path: '/video-list', label: 'Videos'},
     ].map((menuLinkProps: MenuLinkProps) => {
         return {...menuLinkProps, active: (currentPath == menuLinkProps.path)};
@@ -66,12 +65,17 @@ export const AppBarComponent: React.SFC<AppMenuProps> = (props) => {
         );
     };
 
+    const history = props.history;
+
     return (
         <div className={classes.root}>
             <MaterialAppBar position="fixed" style={{backgroundColor: 'transparent'}}>
                 <Toolbar>
-                    <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-                        <MenuIcon/>
+                    <IconButton className={classes.menuButton}
+                                color="inherit"
+                                aria-label="Menu"
+                                onClick={() => { history.push('/menu') }}>
+                        <MenuIcon />
                     </IconButton>
                     <Typography variant="title" color="inherit" className={classes.flex}>
                         {props.title}

@@ -82,12 +82,12 @@ class VideoListPage extends React.Component<IProps, IState> {
                         />
                     </PageOverlay>
                 }
-                { (selectedVideo === undefined && videos) &&
-                    <VideoList videos={videos} baseUrl={videoBaseUrl}
-                               onSelected={(videoUrl) => {
-                                    this.openVideo(videoUrl);
-                               }}/>
-                }
+
+                <VideoList videos={videos} baseUrl={videoBaseUrl}
+                           onSelected={(videoUrl) => {
+                                this.openVideo(videoUrl);
+                           }}/>
+
                 { (selectedVideo === undefined) &&
                     <div style={searchBoxStyle}>
                         <SearchBox value={searchFragment} onChange={(e) => this.updateSearch(e)} />

@@ -8,7 +8,7 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 module.exports = {
   entry: [
    // 'babel-polyfill',
-    './src/js/index.tsx'
+    './src/js/index.tsx',
   ],
   resolve: {
     extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
@@ -130,7 +130,7 @@ module.exports = {
               "type": "image/x-icon"
             }
           ],
-          "start_url": "./index.html",
+          "start_url": "/",
           "display": "standalone",
           "theme_color": "#000000",
           "background_color": "#ffffff"

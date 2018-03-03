@@ -56,6 +56,7 @@ export class PageOverlay extends React.Component<IProps, IState> {
         return (
             <div className="page-overlay-viewport">
                 <div className="page-overlay-ctn">
+                    <div className="top-bar">
                     { closeButton === true &&
                         <button className="close-button" onClick={(e) => {
                             this.close(e);
@@ -63,6 +64,7 @@ export class PageOverlay extends React.Component<IProps, IState> {
                             X
                         </button>
                     }
+                    </div>
                     <Scrollbars
                         autoHide={false}
                         autoHideDuration={5000}

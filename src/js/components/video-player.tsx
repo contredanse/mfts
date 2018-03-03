@@ -5,6 +5,7 @@ import {HTMLAttributes} from 'react';
 export interface IVideoPlayerProps {
     sourceUrl: string;
     autoPlay?: boolean;
+    loop?: boolean;
     muted?: boolean;
     style?: object;
     controls?: boolean;
@@ -23,29 +24,26 @@ export class VideoPlayer extends React.Component<IVideoPlayerProps, IVideoPlayer
     public static defaultProps: Partial<IVideoPlayerProps> = {
         autoPlay: true,
         muted: false,
+        loop: false,
         controls: false,
         htmlAttributes: {},
     };
 
     componentDidMount() {
         if (this.props.onEnd !== undefined) {
-            console.log('onEndIsLoaded', this.props.onEnd);
             this.videoNode.addEventListener('ended', this.props.onEnd, false);
-        } else {
-            console.log('onEndIsUndinfed');
         }
+
     }
 
     componentWillUnmount() {
         if (this.props.onEnd !== undefined) {
-            console.log('onEndIsUnloaded', this.props.onEnd);
             this.videoNode.removeEventListener('ended', this.props.onEnd);
         }
     }
 
     render() {
         const {sourceUrl, autoPlay, muted, controls, htmlAttributes} = this.props;
-
         return (
             <div className="video-player-ctn">
                 <video ref={(node: HTMLVideoElement) => {this.videoNode = node; }}
@@ -53,6 +51,8 @@ export class VideoPlayer extends React.Component<IVideoPlayerProps, IVideoPlayer
                        autoPlay={autoPlay}
                        muted={muted}
                        controls={controls}
+                       /*crossOrigin="anonymous"*/
+                       webkit-playsinline="webkit-playsinline"
                        {...htmlAttributes}
                 />
             </div>

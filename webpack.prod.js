@@ -4,8 +4,9 @@ const merge = require('webpack-merge');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const common = require('./webpack.common.js');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const PrepackWebpackPlugin = require('prepack-webpack-plugin').default;
-
+//const PrepackWebpackPlugin = require('prepack-webpack-plugin').default;
+const StatsWriterPlugin = require("webpack-stats-plugin").StatsWriterPlugin;
+const DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin")
 
 const extractSass = new ExtractTextPlugin({
   filename: "style.[contenthash].css",
@@ -41,6 +42,7 @@ module.exports = merge(common, {
       'process.env.NODE_ENV': JSON.stringify('production'),
       NODE_ENV: JSON.stringify('production')
     }),
+
     new webpack.LoaderOptionsPlugin({
       minimize: true,
       debug: false
@@ -50,7 +52,7 @@ module.exports = merge(common, {
       sourceMap: true,
       uglifyOptions: {
         //ecma: 6,
-        warnings: true,
+        warnings: false,
         compress: {
           drop_debugger: true,
           drop_console: true
@@ -66,6 +68,14 @@ module.exports = merge(common, {
     }),
 
     extractSass,
+
+    new DuplicatePackageCheckerPlugin({
+      verbose: true
+    }),
+
+    new StatsWriterPlugin({
+      filename: '.webpack-stats.json'
+    }),
 
   ]
 });

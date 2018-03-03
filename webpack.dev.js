@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const common = require('./webpack.common.js');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 
 const extractSass = new ExtractTextPlugin({
@@ -35,7 +36,10 @@ module.exports = merge(common, {
   },
   plugins: [
     new webpack.NamedModulesPlugin(),
-    extractSass
+    extractSass,
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static'
+    })
   ],
   devServer: {
     contentBase: path.resolve(__dirname, "build"),
