@@ -4,7 +4,7 @@ import VideoListData from '@data/video-list-data.json';
 import {VideoList} from '@src/components/video-list';
 import {PageOverlay} from '@src/components/page-overlay';
 import {SearchBox} from '@src/components/search-box';
-import {VideoPlayer} from '@src/components';
+import {ReactVideoPlayer} from "@src/components/react-video-player";
 interface IProps {
     videoBaseUrl: string;
 }
@@ -75,7 +75,7 @@ class VideoListPage extends React.Component<IProps, IState> {
             <PageOverlay>
                 { selectedVideo &&
                     <PageOverlay closeButton={true} onClose={() => { this.closeVideo(); }}>
-                        <VideoPlayer sourceUrl={selectedVideo}
+                        <ReactVideoPlayer sourceUrl={selectedVideo}
                                      onEnd={() => {this.closeVideo();}}
                                      autoPlay={true}
                                      controls={true}

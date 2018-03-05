@@ -6,18 +6,23 @@ const common = require('./webpack.common.js');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 //const PrepackWebpackPlugin = require('prepack-webpack-plugin').default;
 const StatsWriterPlugin = require("webpack-stats-plugin").StatsWriterPlugin;
-const DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin")
+const DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin");
+const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 
 const extractSass = new ExtractTextPlugin({
-  filename: "style.[contenthash].css",
+  filename: "style.[contenthash:6].css",
 });
 
 
 module.exports = merge(common, {
   devtool: 'source-map', // or false if you don't want source map
+  entry: [// 'babel-polyfill',
+    './src/js/index.tsx',
+  ],
+
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[hash].js',
+    filename: '[name].[hash:6].js',
     publicPath: './',
   },
   module: {
@@ -42,7 +47,6 @@ module.exports = merge(common, {
       'process.env.NODE_ENV': JSON.stringify('production'),
       NODE_ENV: JSON.stringify('production')
     }),
-
     new webpack.LoaderOptionsPlugin({
       minimize: true,
       debug: false

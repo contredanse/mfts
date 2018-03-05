@@ -37,9 +37,11 @@ module.exports = merge(common, {
   plugins: [
     new webpack.NamedModulesPlugin(),
     extractSass,
+    /*
     new BundleAnalyzerPlugin({
       analyzerMode: 'static'
     })
+    */
   ],
   devServer: {
     contentBase: path.resolve(__dirname, "build"),
