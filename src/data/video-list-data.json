@@ -483,6 +483,29 @@
     ]
   },
   {
+    "name": "crescent_head_up",
+    "keywords": [],
+    "sources": {
+      "mp4": "crescent_head_up.mp4"
+    },
+    "subs": {
+      "en": null,
+      "fr": null
+    },
+    "meta": {
+      "duration": null,
+      "width": null,
+      "height": null
+    },
+    "covers": [
+      "covers\/crescent_head_up.01.jpg",
+      "covers\/crescent_head_up.02.jpg",
+      "covers\/crescent_head_up.03.jpg",
+      "covers\/crescent_head_up.04.jpg",
+      "covers\/crescent_head_up.05.jpg"
+    ]
+  },
+  {
     "name": "crescent_water",
     "keywords": [],
     "sources": {
@@ -1814,6 +1837,29 @@
       "covers\/wu_psoas.03.jpg",
       "covers\/wu_psoas.04.jpg",
       "covers\/wu_psoas.05.jpg"
+    ]
+  },
+  {
+    "name": "wu_spine_and_arms",
+    "keywords": [],
+    "sources": {
+      "mp4": "wu_spine_and_arms.mp4"
+    },
+    "subs": {
+      "en": null,
+      "fr": null
+    },
+    "meta": {
+      "duration": null,
+      "width": null,
+      "height": null
+    },
+    "covers": [
+      "covers\/wu_spine_and_arms.01.jpg",
+      "covers\/wu_spine_and_arms.02.jpg",
+      "covers\/wu_spine_and_arms.03.jpg",
+      "covers\/wu_spine_and_arms.04.jpg",
+      "covers\/wu_spine_and_arms.05.jpg"
     ]
   },
   {
