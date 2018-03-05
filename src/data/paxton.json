@@ -8,7 +8,13 @@
             },
             "level": 1,
             "pages": [
-                "sensation-and-senses.weight-of-sensation"
+                {
+                    "page_id": "sensation-and-senses.weight-of-sensation",
+                    "label": {
+                        "en": "weight of sensation",
+                        "fr": "le poids de la sensation"
+                    }
+                }
             ],
             "menu": [
                 {
@@ -255,7 +261,13 @@
             },
             "level": 1,
             "pages": [
-                "forms.introduction"
+                {
+                    "page_id": "forms.introduction",
+                    "label": {
+                        "en": "introduction",
+                        "fr": "introduction"
+                    }
+                }
             ],
             "menu": [
                 {
