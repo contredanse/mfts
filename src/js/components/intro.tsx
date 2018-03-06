@@ -5,7 +5,6 @@ interface IProps {
 
 }
 interface IState {
-
 }
 
 export class Intro extends React.Component<IProps, IState> {
