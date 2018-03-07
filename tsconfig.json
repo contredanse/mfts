@@ -8,7 +8,8 @@
       "@public/*": ["public/*"],
       "@data/*": ["src/data/*"],
       "@shaders/*": ["src/shaders/*"],
-      "@assets/*": ["src/assets/*"]
+      "@assets/*": ["src/assets/*"],
+      "@thirdparty/*": ["src/thirdparty/*"]
     },
   //  "outDir": "dist/",                    // target for compiled files
     "allowSyntheticDefaultImports": true,   // no errors on commonjs default import

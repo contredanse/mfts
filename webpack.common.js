@@ -24,7 +24,8 @@ module.exports = {
       '@styles': path.resolve(__dirname, 'src/styles/'),
       '@public': path.resolve(__dirname, 'public/'),
       '@assets': path.resolve(__dirname, 'src/assets/'),
-      '@shaders': path.resolve(__dirname, 'src/shaders')
+      '@shaders': path.resolve(__dirname, 'src/shaders'),
+      '@thirdparty': path.resolve(__dirname, 'src/thirdparty')
     }
   },
   module: {

@@ -1,4 +1,4 @@
-﻿export interface IMenu {
+﻿export interface IDataMenu {
   id: string;
   label: Label;
   level: number;
