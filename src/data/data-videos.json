@@ -12,7 +12,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "hello.jpg",
+        "covers": [
+            "hello.jpg"
+        ],
         "tracks": {
             "en": "hello.en.vtt",
             "fr": "hello.fr.vtt"
@@ -35,7 +37,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "lemmon_en.jpg"
+        "covers": [
+            "lemmon_en.jpg"
+        ]
     },
     {
         "video_id": "lemmon_fr",
@@ -50,7 +54,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "lemmon_fr.jpg"
+        "covers": [
+            "lemmon_fr.jpg"
+        ]
     },
     {
         "video_id": "falls",
@@ -65,7 +71,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "falls.jpg"
+        "covers": [
+            "falls.jpg"
+        ]
     },
     {
         "video_id": "watergravity",
@@ -80,7 +88,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "watergravity.jpg"
+        "covers": [
+            "watergravity.jpg"
+        ]
     },
     {
         "video_id": "adjusting_birds",
@@ -95,7 +105,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "adjusting_birds.jpg"
+        "covers": [
+            "adjusting_birds.jpg"
+        ]
     },
     {
         "video_id": "breathing_en",
@@ -110,7 +122,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "breathing_en.jpg"
+        "covers": [
+            "breathing_en.jpg"
+        ]
     },
     {
         "video_id": "breathing_fr",
@@ -125,7 +139,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "breathing_fr.jpg"
+        "covers": [
+            "breathing_fr.jpg"
+        ]
     },
     {
         "video_id": "smalldance_full",
@@ -140,7 +156,9 @@
             "height": 576,
             "audio_stream": false
         },
-        "thumbnail": "smalldance_full.jpg"
+        "covers": [
+            "smalldance_full.jpg"
+        ]
     },
     {
         "video_id": "pointing",
@@ -155,7 +173,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "pointing.jpg",
+        "covers": [
+            "pointing.jpg"
+        ],
         "tracks": {
             "en": "pointing.en.vtt",
             "fr": "pointing.fr.vtt"
@@ -178,7 +198,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "pointing_scapula.jpg",
+        "covers": [
+            "pointing_scapula.jpg"
+        ],
         "tracks": {
             "en": "pointing_scapula.en.vtt",
             "fr": "pointing_scapula.fr.vtt"
@@ -201,7 +223,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "pelvis.jpg",
+        "covers": [
+            "pelvis.jpg"
+        ],
         "tracks": {
             "en": "pelvis.en.vtt",
             "fr": "pelvis.fr.vtt"
@@ -224,7 +248,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "pointing_heel.jpg",
+        "covers": [
+            "pointing_heel.jpg"
+        ],
         "tracks": {
             "en": "pointing_heel.en.vtt",
             "fr": "pointing_heel.fr.vtt"
@@ -247,7 +273,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "walkasfondation.jpg",
+        "covers": [
+            "walkasfondation.jpg"
+        ],
         "tracks": {
             "en": "walkasfondation.en.vtt",
             "fr": "walkasfondation.fr.vtt"
@@ -270,7 +298,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "birdswalk.jpg",
+        "covers": [
+            "birdswalk.jpg"
+        ],
         "tracks": {
             "en": "birdswalk.en.vtt",
             "fr": "birdswalk.fr.vtt"
@@ -293,7 +323,9 @@
             "height": 576,
             "audio_stream": false
         },
-        "thumbnail": "slowwalk.jpg"
+        "covers": [
+            "slowwalk.jpg"
+        ]
     },
     {
         "video_id": "twist",
@@ -308,7 +340,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "twist.jpg"
+        "covers": [
+            "twist.jpg"
+        ]
     },
     {
         "video_id": "focus_back",
@@ -323,7 +357,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "focus_back.jpg",
+        "covers": [
+            "focus_back.jpg"
+        ],
         "tracks": {
             "en": "focus_back.en.vtt",
             "fr": "focus_back.fr.vtt"
@@ -346,7 +382,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "passage.jpg"
+        "covers": [
+            "passage.jpg"
+        ]
     },
     {
         "video_id": "sphericalspace",
@@ -361,7 +399,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "sphericalspace.jpg",
+        "covers": [
+            "sphericalspace.jpg"
+        ],
         "tracks": {
             "en": "sphericalspace.en.vtt",
             "fr": "sphericalspace.fr.vtt"
@@ -384,7 +424,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "perf_comments_goldberg.jpg",
+        "covers": [
+            "perf_comments_goldberg.jpg"
+        ],
         "tracks": {
             "en": "perf_comments_goldberg.en.vtt",
             "fr": "perf_comments_goldberg.fr.vtt"
@@ -407,7 +449,9 @@
             "height": 480,
             "audio_stream": true
         },
-        "thumbnail": "goldberg.jpg"
+        "covers": [
+            "goldberg.jpg"
+        ]
     },
     {
         "video_id": "perf_comments_english",
@@ -422,7 +466,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "perf_comments_english.jpg",
+        "covers": [
+            "perf_comments_english.jpg"
+        ],
         "tracks": {
             "en": "perf_comments_english.en.vtt",
             "fr": "perf_comments_english.fr.vtt"
@@ -445,7 +491,9 @@
             "height": 480,
             "audio_stream": true
         },
-        "thumbnail": "english.jpg"
+        "covers": [
+            "english.jpg"
+        ]
     },
     {
         "video_id": "perf_techimpro",
@@ -460,7 +508,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "perf_techimpro.jpg",
+        "covers": [
+            "perf_techimpro.jpg"
+        ],
         "tracks": {
             "en": "perf_techimpro.en.vtt",
             "fr": "perf_techimpro.fr.vtt"
@@ -483,7 +533,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "new_intro.jpg",
+        "covers": [
+            "new_intro.jpg"
+        ],
         "tracks": {
             "en": "new_intro.en.vtt",
             "fr": "new_intro.fr.vtt"
@@ -506,7 +558,9 @@
             "height": 288,
             "audio_stream": true
         },
-        "thumbnail": "cbhf_fromside.jpg"
+        "covers": [
+            "cbhf_fromside.jpg"
+        ]
     },
     {
         "video_id": "cbhf_fromtop",
@@ -521,7 +575,9 @@
             "height": 288,
             "audio_stream": false
         },
-        "thumbnail": "cbhf_fromtop.jpg"
+        "covers": [
+            "cbhf_fromtop.jpg"
+        ]
     },
     {
         "video_id": "cbhf_fromhead",
@@ -536,7 +592,9 @@
             "height": 288,
             "audio_stream": true
         },
-        "thumbnail": "cbhf_fromhead.jpg"
+        "covers": [
+            "cbhf_fromhead.jpg"
+        ]
     },
     {
         "video_id": "cbc_fromhead",
@@ -551,7 +609,9 @@
             "height": 384,
             "audio_stream": false
         },
-        "thumbnail": "cbc_fromhead.jpg"
+        "covers": [
+            "cbc_fromhead.jpg"
+        ]
     },
     {
         "video_id": "cbc_fromtop",
@@ -566,7 +626,9 @@
             "height": 384,
             "audio_stream": false
         },
-        "thumbnail": "cbc_fromtop.jpg"
+        "covers": [
+            "cbc_fromtop.jpg"
+        ]
     },
     {
         "video_id": "chu_fromfeet",
@@ -581,7 +643,9 @@
             "height": 432,
             "audio_stream": true
         },
-        "thumbnail": "chu_fromfeet.jpg"
+        "covers": [
+            "chu_fromfeet.jpg"
+        ]
     },
     {
         "video_id": "chu_fromside",
@@ -596,7 +660,9 @@
             "height": 432,
             "audio_stream": true
         },
-        "thumbnail": "chu_fromside.jpg"
+        "covers": [
+            "chu_fromside.jpg"
+        ]
     },
     {
         "video_id": "cbfhu",
@@ -611,7 +677,9 @@
             "height": 576,
             "audio_stream": false
         },
-        "thumbnail": "cbfhu.jpg"
+        "covers": [
+            "cbfhu.jpg"
+        ]
     },
     {
         "video_id": "crescent_water",
@@ -626,7 +694,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "crescent_water.jpg"
+        "covers": [
+            "crescent_water.jpg"
+        ]
     },
     {
         "video_id": "c_comparing",
@@ -641,7 +711,9 @@
             "height": 576,
             "audio_stream": false
         },
-        "thumbnail": "c_comparing.jpg"
+        "covers": [
+            "c_comparing.jpg"
+        ]
     },
     {
         "video_id": "sbf_fromfeet",
@@ -656,7 +728,9 @@
             "height": 288,
             "audio_stream": true
         },
-        "thumbnail": "sbf_fromfeet.jpg"
+        "covers": [
+            "sbf_fromfeet.jpg"
+        ]
     },
     {
         "video_id": "sbf_side",
@@ -671,7 +745,9 @@
             "height": 288,
             "audio_stream": true
         },
-        "thumbnail": "sbf_side.jpg"
+        "covers": [
+            "sbf_side.jpg"
+        ]
     },
     {
         "video_id": "sbf_fromhead",
@@ -686,7 +762,9 @@
             "height": 288,
             "audio_stream": true
         },
-        "thumbnail": "sbf_fromhead.jpg"
+        "covers": [
+            "sbf_fromhead.jpg"
+        ]
     },
     {
         "video_id": "sbh_fromhead",
@@ -701,7 +779,9 @@
             "height": 432,
             "audio_stream": true
         },
-        "thumbnail": "sbh_fromhead.jpg"
+        "covers": [
+            "sbh_fromhead.jpg"
+        ]
     },
     {
         "video_id": "sbh_side",
@@ -716,7 +796,9 @@
             "height": 432,
             "audio_stream": true
         },
-        "thumbnail": "sbh_side.jpg"
+        "covers": [
+            "sbh_side.jpg"
+        ]
     },
     {
         "video_id": "helixinwater",
@@ -731,7 +813,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "helixinwater.jpg"
+        "covers": [
+            "helixinwater.jpg"
+        ]
     },
     {
         "video_id": "h_comparing",
@@ -746,7 +830,9 @@
             "height": 576,
             "audio_stream": false
         },
-        "thumbnail": "h_comparing.jpg"
+        "covers": [
+            "h_comparing.jpg"
+        ]
     },
     {
         "video_id": "puzzle1",
@@ -761,7 +847,9 @@
             "height": null,
             "audio_stream": true
         },
-        "thumbnail": "puzzle1.jpg"
+        "covers": [
+            "puzzle1.jpg"
+        ]
     },
     {
         "video_id": "puzzle2",
@@ -776,7 +864,9 @@
             "height": null,
             "audio_stream": true
         },
-        "thumbnail": "puzzle2.jpg"
+        "covers": [
+            "puzzle2.jpg"
+        ]
     },
     {
         "video_id": "puzzle3",
@@ -791,7 +881,9 @@
             "height": null,
             "audio_stream": true
         },
-        "thumbnail": "puzzle3.jpg"
+        "covers": [
+            "puzzle3.jpg"
+        ]
     },
     {
         "video_id": "puzzle4",
@@ -806,7 +898,9 @@
             "height": null,
             "audio_stream": true
         },
-        "thumbnail": "puzzle4.jpg"
+        "covers": [
+            "puzzle4.jpg"
+        ]
     },
     {
         "video_id": "frontal_head_top",
@@ -821,7 +915,9 @@
             "height": 288,
             "audio_stream": false
         },
-        "thumbnail": "frontal_head_top.jpg"
+        "covers": [
+            "frontal_head_top.jpg"
+        ]
     },
     {
         "video_id": "frontal_head_side",
@@ -836,7 +932,9 @@
             "height": 288,
             "audio_stream": false
         },
-        "thumbnail": "frontal_head_side.jpg"
+        "covers": [
+            "frontal_head_side.jpg"
+        ]
     },
     {
         "video_id": "frontal_head_bottom",
@@ -851,7 +949,9 @@
             "height": 288,
             "audio_stream": false
         },
-        "thumbnail": "frontal_head_bottom.jpg"
+        "covers": [
+            "frontal_head_bottom.jpg"
+        ]
     },
     {
         "video_id": "frontal_pelvis_top",
@@ -866,7 +966,9 @@
             "height": 288,
             "audio_stream": false
         },
-        "thumbnail": "frontal_pelvis_top.jpg"
+        "covers": [
+            "frontal_pelvis_top.jpg"
+        ]
     },
     {
         "video_id": "frontal_pelvis_side",
@@ -881,7 +983,9 @@
             "height": 288,
             "audio_stream": false
         },
-        "thumbnail": "frontal_pelvis_side.jpg"
+        "covers": [
+            "frontal_pelvis_side.jpg"
+        ]
     },
     {
         "video_id": "frontal_pelvis_bottom",
@@ -896,7 +1000,9 @@
             "height": 288,
             "audio_stream": false
         },
-        "thumbnail": "frontal_pelvis_bottom.jpg"
+        "covers": [
+            "frontal_pelvis_bottom.jpg"
+        ]
     },
     {
         "video_id": "lateral_head_front",
@@ -911,7 +1017,9 @@
             "height": 384,
             "audio_stream": false
         },
-        "thumbnail": "lateral_head_front.jpg"
+        "covers": [
+            "lateral_head_front.jpg"
+        ]
     },
     {
         "video_id": "lateral_head_top",
@@ -926,7 +1034,9 @@
             "height": 384,
             "audio_stream": false
         },
-        "thumbnail": "lateral_head_top.jpg"
+        "covers": [
+            "lateral_head_top.jpg"
+        ]
     },
     {
         "video_id": "lateral_pelvis_top",
@@ -941,7 +1051,9 @@
             "height": 384,
             "audio_stream": false
         },
-        "thumbnail": "lateral_pelvis_top.jpg"
+        "covers": [
+            "lateral_pelvis_top.jpg"
+        ]
     },
     {
         "video_id": "lateral_pelvis_front",
@@ -956,7 +1068,9 @@
             "height": 384,
             "audio_stream": false
         },
-        "thumbnail": "lateral_pelvis_front.jpg"
+        "covers": [
+            "lateral_pelvis_front.jpg"
+        ]
     },
     {
         "video_id": "dolphininwater",
@@ -971,7 +1085,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "dolphininwater.jpg"
+        "covers": [
+            "dolphininwater.jpg"
+        ]
     },
     {
         "video_id": "aikido_principle",
@@ -986,7 +1102,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "aikido_principle.jpg",
+        "covers": [
+            "aikido_principle.jpg"
+        ],
         "tracks": {
             "en": "aikido_principle.en.vtt",
             "fr": "aikido_principle.fr.vtt"
@@ -1009,7 +1127,9 @@
             "height": 288,
             "audio_stream": true
         },
-        "thumbnail": "aikido_3D_side.jpg"
+        "covers": [
+            "aikido_3D_side.jpg"
+        ]
     },
     {
         "video_id": "aikido_3D_top",
@@ -1024,7 +1144,9 @@
             "height": 288,
             "audio_stream": true
         },
-        "thumbnail": "aikido_3D_top.jpg"
+        "covers": [
+            "aikido_3D_top.jpg"
+        ]
     },
     {
         "video_id": "aikido_3D_front",
@@ -1039,7 +1161,9 @@
             "height": 288,
             "audio_stream": true
         },
-        "thumbnail": "aikido_3D_front.jpg"
+        "covers": [
+            "aikido_3D_front.jpg"
+        ]
     },
     {
         "video_id": "crescent_head_up",
@@ -1054,7 +1178,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "crescent_head_up.jpg",
+        "covers": [
+            "crescent_head_up.jpg"
+        ],
         "tracks": {
             "en": "crescent_head_up.en.vtt",
             "fr": "crescent_head_up.fr.vtt"
@@ -1077,7 +1203,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "mfs_sbf_seattle.jpg",
+        "covers": [
+            "mfs_sbf_seattle.jpg"
+        ],
         "tracks": {
             "en": "mfs_sbf_seattle.en.vtt",
             "fr": "mfs_sbf_seattle.fr.vtt"
@@ -1100,7 +1228,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "mfs_sbh_seattle.jpg",
+        "covers": [
+            "mfs_sbh_seattle.jpg"
+        ],
         "tracks": {
             "en": "mfs_sbh_seattle.en.vtt",
             "fr": "mfs_sbh_seattle.fr.vtt"
@@ -1123,7 +1253,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "puzzle1_demo_graph.jpg",
+        "covers": [
+            "puzzle1_demo_graph.jpg"
+        ],
         "tracks": {
             "en": "puzzle1_demo_graph.en.vtt",
             "fr": "puzzle1_demo_graph.fr.vtt"
@@ -1146,7 +1278,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "correction_crescent_handsfeet.jpg",
+        "covers": [
+            "correction_crescent_handsfeet.jpg"
+        ],
         "tracks": {
             "en": "correction_crescent_handsfeet.en.vtt",
             "fr": "correction_crescent_handsfeet.fr.vtt"
@@ -1169,7 +1303,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "correction_crescent_center.jpg",
+        "covers": [
+            "correction_crescent_center.jpg"
+        ],
         "tracks": {
             "en": "correction_crescent_center.en.vtt",
             "fr": "correction_crescent_center.fr.vtt"
@@ -1192,7 +1328,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "correction_helix_feet.jpg",
+        "covers": [
+            "correction_helix_feet.jpg"
+        ],
         "tracks": {
             "en": "correction_helix_feet.en.vtt",
             "fr": "correction_helix_feet.fr.vtt"
@@ -1215,7 +1353,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "correction_helix_hands.jpg",
+        "covers": [
+            "correction_helix_hands.jpg"
+        ],
         "tracks": {
             "en": "correction_helix_hands.en.vtt",
             "fr": "correction_helix_hands.fr.vtt"
@@ -1238,7 +1378,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "correction_conclusion.jpg",
+        "covers": [
+            "correction_conclusion.jpg"
+        ],
         "tracks": {
             "en": "correction_conclusion.en.vtt",
             "fr": "correction_conclusion.fr.vtt"
@@ -1261,7 +1403,9 @@
             "height": 576,
             "audio_stream": false
         },
-        "thumbnail": "wu_fingers.jpg"
+        "covers": [
+            "wu_fingers.jpg"
+        ]
     },
     {
         "video_id": "wu_wrist",
@@ -1276,7 +1420,9 @@
             "height": 576,
             "audio_stream": false
         },
-        "thumbnail": "wu_wrist.jpg"
+        "covers": [
+            "wu_wrist.jpg"
+        ]
     },
     {
         "video_id": "wu_hands",
@@ -1291,7 +1437,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "wu_hands.jpg"
+        "covers": [
+            "wu_hands.jpg"
+        ]
     },
     {
         "video_id": "wu_arms",
@@ -1306,7 +1454,9 @@
             "height": 576,
             "audio_stream": false
         },
-        "thumbnail": "wu_arms.jpg"
+        "covers": [
+            "wu_arms.jpg"
+        ]
     },
     {
         "video_id": "wu_spine_and_arms",
@@ -1321,7 +1471,9 @@
             "height": 576,
             "audio_stream": false
         },
-        "thumbnail": "wu_spine_and_arms.jpg"
+        "covers": [
+            "wu_spine_and_arms.jpg"
+        ]
     },
     {
         "video_id": "wu_bendingbone",
@@ -1336,7 +1488,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "wu_bendingbone.jpg",
+        "covers": [
+            "wu_bendingbone.jpg"
+        ],
         "tracks": {
             "en": "wu_bendingbone.en.vtt",
             "fr": "wu_bendingbone.fr.vtt"
@@ -1359,7 +1513,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "wu_aikidostep.jpg"
+        "covers": [
+            "wu_aikidostep.jpg"
+        ]
     },
     {
         "video_id": "wu_twist",
@@ -1374,7 +1530,9 @@
             "height": 576,
             "audio_stream": false
         },
-        "thumbnail": "wu_twist.jpg"
+        "covers": [
+            "wu_twist.jpg"
+        ]
     },
     {
         "video_id": "wu_twistlegs",
@@ -1389,7 +1547,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "wu_twistlegs.jpg",
+        "covers": [
+            "wu_twistlegs.jpg"
+        ],
         "tracks": {
             "en": "wu_twistlegs.en.vtt",
             "fr": "wu_twistlegs.fr.vtt"
@@ -1412,7 +1572,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "wu_legsresistance.jpg",
+        "covers": [
+            "wu_legsresistance.jpg"
+        ],
         "tracks": {
             "en": "wu_legsresistance.en.vtt",
             "fr": "wu_legsresistance.fr.vtt"
@@ -1435,7 +1597,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "wu_trocantere.jpg",
+        "covers": [
+            "wu_trocantere.jpg"
+        ],
         "tracks": {
             "en": "wu_trocantere.en.vtt",
             "fr": "wu_trocantere.fr.vtt"
@@ -1458,7 +1622,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "wu_psoas.jpg",
+        "covers": [
+            "wu_psoas.jpg"
+        ],
         "tracks": {
             "en": "wu_psoas.en.vtt",
             "fr": "wu_psoas.fr.vtt"
@@ -1481,7 +1647,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "wu_wave.jpg",
+        "covers": [
+            "wu_wave.jpg"
+        ],
         "tracks": {
             "en": "wu_wave.en.vtt",
             "fr": "wu_wave.fr.vtt"
@@ -1504,7 +1672,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "wu_wavefloor.jpg",
+        "covers": [
+            "wu_wavefloor.jpg"
+        ],
         "tracks": {
             "en": "wu_wavefloor.en.vtt",
             "fr": "wu_wavefloor.fr.vtt"
@@ -1527,7 +1697,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "wu_asanas.jpg",
+        "covers": [
+            "wu_asanas.jpg"
+        ],
         "tracks": {
             "en": "wu_asanas.en.vtt",
             "fr": "wu_asanas.fr.vtt"
@@ -1550,7 +1722,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "napp.jpg",
+        "covers": [
+            "napp.jpg"
+        ],
         "tracks": {
             "en": "napp.en.vtt",
             "fr": "napp.fr.vtt"
@@ -1573,7 +1747,9 @@
             "height": 576,
             "audio_stream": false
         },
-        "thumbnail": "wu_play.jpg"
+        "covers": [
+            "wu_play.jpg"
+        ]
     },
     {
         "video_id": "dance_culture",
@@ -1588,7 +1764,9 @@
             "height": 576,
             "audio_stream": true
         },
-        "thumbnail": "dance_culture.jpg",
+        "covers": [
+            "dance_culture.jpg"
+        ],
         "tracks": {
             "en": "dance_culture.en.vtt",
             "fr": "dance_culture.fr.vtt"
@@ -1611,6 +1789,8 @@
             "height": 320,
             "audio_stream": true
         },
-        "thumbnail": "cultivating2.jpg"
+        "covers": [
+            "cultivating2.jpg"
+        ]
     }
 ]

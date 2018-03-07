@@ -497,8 +497,9 @@
             "layout": "single-video",
             "video": {
                 "video_id": "slowwalk",
-                "muted": false,
-                "loop": false
+                "muted": true,
+                "loop": false,
+                "advanced_player": true
             }
         }
     },
@@ -1042,8 +1043,9 @@
             "layout": "single-video",
             "video": {
                 "video_id": "cbfhu",
-                "muted": false,
-                "loop": false
+                "muted": true,
+                "loop": false,
+                "advanced_player": true
             }
         }
     },
@@ -1109,8 +1111,9 @@
             "layout": "single-video",
             "video": {
                 "video_id": "c_comparing",
-                "muted": false,
-                "loop": false
+                "muted": true,
+                "loop": false,
+                "advanced_player": true
             }
         }
     },
@@ -1279,8 +1282,9 @@
             "layout": "single-video",
             "video": {
                 "video_id": "h_comparing",
-                "muted": false,
-                "loop": false
+                "muted": true,
+                "loop": false,
+                "advanced_player": true
             }
         }
     },
@@ -1311,7 +1315,8 @@
             "video": {
                 "video_id": "puzzle1",
                 "muted": false,
-                "loop": false
+                "loop": false,
+                "advanced_player": true
             }
         }
     },
@@ -1342,7 +1347,8 @@
             "video": {
                 "video_id": "puzzle2",
                 "muted": false,
-                "loop": false
+                "loop": false,
+                "advanced_player": true
             }
         }
     },
@@ -1373,7 +1379,8 @@
             "video": {
                 "video_id": "puzzle3",
                 "muted": false,
-                "loop": false
+                "loop": false,
+                "advanced_player": true
             }
         }
     },
@@ -1404,7 +1411,8 @@
             "video": {
                 "video_id": "puzzle4",
                 "muted": false,
-                "loop": false
+                "loop": false,
+                "advanced_player": true
             }
         }
     },
@@ -2069,7 +2077,7 @@
             "layout": "single-video",
             "video": {
                 "video_id": "wu_fingers",
-                "muted": false,
+                "muted": true,
                 "loop": false
             }
         }
@@ -2101,7 +2109,7 @@
             "layout": "single-video",
             "video": {
                 "video_id": "wu_wrist",
-                "muted": false,
+                "muted": true,
                 "loop": false
             }
         }
@@ -2165,7 +2173,7 @@
             "layout": "single-video",
             "video": {
                 "video_id": "wu_arms",
-                "muted": false,
+                "muted": true,
                 "loop": false
             }
         }
@@ -2199,7 +2207,7 @@
             "layout": "single-video",
             "video": {
                 "video_id": "wu_spine_and_arms",
-                "muted": false,
+                "muted": true,
                 "loop": false
             }
         }
@@ -2299,7 +2307,7 @@
             "layout": "single-video",
             "video": {
                 "video_id": "wu_twist",
-                "muted": false,
+                "muted": true,
                 "loop": false
             }
         }
@@ -2593,7 +2601,7 @@
             "layout": "single-video",
             "video": {
                 "video_id": "wu_play",
-                "muted": false,
+                "muted": true,
                 "loop": false
             }
         }
