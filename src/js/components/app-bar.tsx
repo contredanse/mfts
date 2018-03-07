@@ -58,7 +58,7 @@ export const AppBarComponent: React.SFC<AppMenuProps> = (props) => {
         return (
             <Button color="inherit"
                     variant={props.active ? 'raised' : undefined}
-                    component={btnProps => <Link to={props.path} {...btnProps} />}
+                    component={(btnProps) => <Link to={props.path} {...btnProps} />}
             >
                 {props.label}
             </Button>
