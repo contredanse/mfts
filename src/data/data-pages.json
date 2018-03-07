@@ -352,8 +352,7 @@
                 "sensation",
                 "sens",
                 "bassin",
-                "initier",
-                "par"
+                "initier"
             ]
         },
         "content": {
@@ -896,7 +895,6 @@
                 "roulé",
                 "croissant",
                 "initié",
-                "par",
                 "mains",
                 "pieds"
             ]
@@ -952,7 +950,6 @@
                 "roulé",
                 "croissant",
                 "initié",
-                "par",
                 "centre"
             ]
         },
@@ -1140,7 +1137,6 @@
                 "roulé",
                 "hélice",
                 "initié",
-                "par",
                 "pieds"
             ]
         },
@@ -1195,7 +1191,6 @@
                 "roulé",
                 "hélice",
                 "initié",
-                "par",
                 "mains"
             ]
         },
@@ -1436,7 +1431,6 @@
                 "l'ondulation",
                 "frontale",
                 "initiée",
-                "par",
                 "tête"
             ]
         },
@@ -1491,7 +1485,6 @@
                 "l'ondulation",
                 "frontale",
                 "initiée",
-                "par",
                 "bassin"
             ]
         },
@@ -1539,7 +1532,6 @@
                 "l'ondulation",
                 "latérale",
                 "initiée",
-                "par",
                 "tête"
             ]
         },
@@ -1582,7 +1574,6 @@
                 "l'ondulation",
                 "latérale",
                 "initiée",
-                "par",
                 "bassin"
             ]
         },
@@ -1784,7 +1775,6 @@
                 "démonstration",
                 "roulé",
                 "hélice",
-                "par",
                 "pieds"
             ]
         },
@@ -1823,7 +1813,6 @@
                 "démonstration",
                 "roulé",
                 "hélice",
-                "par",
                 "mains"
             ]
         },
@@ -1894,7 +1883,6 @@
                 "regarder",
                 "roulé",
                 "croissant",
-                "par",
                 "pieds",
                 "mains,",
                 "commentaires"
@@ -1933,7 +1921,6 @@
                 "regarder",
                 "roulé",
                 "croissant",
-                "par",
                 "centre,",
                 "commentaires"
             ]
@@ -1971,7 +1958,6 @@
                 "regarder",
                 "roulé",
                 "hélice",
-                "par",
                 "pieds,",
                 "commentaires"
             ]
@@ -2009,7 +1995,6 @@
                 "regarder",
                 "roulé",
                 "hélice",
-                "par",
                 "mains,",
                 "commentaires"
             ]
