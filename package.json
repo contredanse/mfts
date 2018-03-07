@@ -54,7 +54,7 @@
     "gulp-real-favicon": "^0.2.2",
     "html-loader": "^0.5.5",
     "html-webpack-harddisk-plugin": "^0.1.0",
-    "html-webpack-plugin": "^3.0.4",
+    "html-webpack-plugin": "^3.0.6",
     "image-webpack-loader": "^4.1.0",
     "jest": "^22.4.2",
     "jest-cli": "^22.4.2",
@@ -77,9 +77,10 @@
     "ts-shader-loader": "^1.0.5",
     "tslint": "^5.9.1",
     "tslint-react": "^3.5.1",
-    "typescript": "2.7.0-rc",
+    "typescript": "^2.7.2",
     "uglifyjs-webpack-plugin": "^1.2.2",
     "url-loader": "^1.0.1",
+    "utility-types": "^1.1.0",
     "wait-on": "^2.1.0",
     "webpack": "^3.10.0",
     "webpack-bundle-analyzer": "^2.11.1",
@@ -111,7 +112,6 @@
     "typeface-quicksand": "^0.0.54",
     "typeface-roboto": "^0.0.54",
     "typesafe-actions": "^1.1.2",
-    "utility-types": "^1.0.0",
     "video-react": "^0.9.4"
   },
   "devEngines": {
