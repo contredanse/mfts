@@ -68,7 +68,7 @@ export default class HelixMenu extends React.Component<IProps, IState> {
     }
 
     openPage = (pageId: string): void => {
-        alert(`We are going to page ${pageId}, but only when we actually did it :)`);
+        alert(`We are going to page ${pageId}, but only at a later point :)`);
         // this.props.openPage(pageId) ?
     }
 
