@@ -7,6 +7,7 @@
       "@styles/*": ["src/styles/*"],
       "@public/*": ["public/*"],
       "@data/*": ["src/data/*"],
+      "@config/*": ["src/config/*"],
       "@shaders/*": ["src/shaders/*"],
       "@assets/*": ["src/assets/*"],
       "@thirdparty/*": ["src/thirdparty/*"]
