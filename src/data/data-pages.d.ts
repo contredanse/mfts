@@ -1,4 +1,4 @@
-﻿export interface IPage {
+﻿export interface IDataPage {
   id: string;
   name: NameOrTitleOrSubs;
   title: NameOrTitleOrSubs;
@@ -10,8 +10,8 @@ export interface NameOrTitleOrSubs {
   fr: string;
 }
 export interface Keywords {
-  en?: (string)[] | null;
-  fr?: (string)[] | null;
+  en?: (string)[];
+  fr?: (string)[];
 }
 export interface Content {
   layout: string;

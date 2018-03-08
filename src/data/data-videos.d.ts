@@ -1,4 +1,4 @@
-﻿export interface IVideo {
+﻿export interface IDataVideo {
   video_id: string;
   legacy_src: string;
   sources: Sources;
