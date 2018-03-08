@@ -10,10 +10,11 @@ import { Player, ControlBar, ReplayControl,
 import './react-video-player.scss';
 
 export interface IVideoPlayerProps {
-    sourceUrl: string;
+    sourceUrl?: string;
     autoPlay?: boolean;
     loop?: boolean;
     muted?: boolean;
+    poster?: string;
     style?: object;
     controls?: boolean;
     onEnd?: () => void;
@@ -45,11 +46,14 @@ export class ReactVideoPlayer extends React.Component<IVideoPlayerProps, IVideoP
 
     render() {
         //const {sourceUrl, autoPlay, muted, controls, htmlAttributes} = this.props;
-        const {sourceUrl, autoPlay, htmlAttributes} = this.props;
+        const {sourceUrl, autoPlay, poster, ...otherAttributes} = this.props;
+
         return (
             <div className="video-player-ctn">
 
-                <Player preload='auto' playsInline={true} fluid={false} src={sourceUrl} autoPlay={autoPlay} {...htmlAttributes}>
+                <Player preload='auto' playsInline={true} poster={poster} fluid={false} src={sourceUrl} autoPlay={autoPlay} {...otherAttributes}>
+
+                    { this.props.children }
 
                     <ControlBar>
                         <ReplayControl seconds={10} order={1.1} />
