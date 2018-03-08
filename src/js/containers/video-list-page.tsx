@@ -1,33 +1,31 @@
 import React from 'react';
-import {IVideoData} from '@data/video-list-data';
-import VideoListData from '@data/video-list-data.json';
 import {VideoList} from '@src/components/video-list';
 import {PageOverlay} from '@src/components/page-overlay';
 import {SearchBox} from '@src/components/search-box';
 import {ReactVideoPlayer} from "@src/components/react-video-player";
+import {IDataVideo} from "@data/data-videos";
+
 interface IProps {
-    videoBaseUrl: string;
+    initialData: IDataVideo[],
+    videosBaseUrl: string;
 }
+
 interface IState {
-    videos: IVideoData[];
-    selectedVideo?: string;
+    videos: IDataVideo[];
+    selectedVideo?: IDataVideo;
     searchFragment?: string;
 }
 
 class VideoListPage extends React.Component<IProps, IState> {
 
-    initialData: IVideoData[];
-
     public static defaultProps = {
-        videoBaseUrl: 'http://soluble.io/mfts/assets/',
+
     };
 
     constructor(props: IProps) {
         super(props);
-        this.initialData = VideoListData;
         this.state = {
-            videos: this.initialData,
-
+            videos: this.props.initialData,
         };
     }
 
@@ -35,8 +33,8 @@ class VideoListPage extends React.Component<IProps, IState> {
         e.preventDefault();
         const fragment = e.target.value;
         const regex = new RegExp(fragment, 'i');
-        const filtered = this.initialData.filter(function(videoData) {
-            const content = videoData.name;
+        const filtered = this.props.initialData.filter(function(videoData) {
+            const content = videoData.video_id;
             return (content.search(regex) > -1);
         });
 
@@ -46,10 +44,10 @@ class VideoListPage extends React.Component<IProps, IState> {
         });
     }
 
-    openVideo = (videoUrl: string) => {
-        console.log('videoUrl', videoUrl);
+    openVideo = (video: IDataVideo) => {
         this.setState((state) => ({
-            ...state, selectedVideo: videoUrl,
+            ...state,
+            selectedVideo: video
         }));
     }
 
@@ -62,7 +60,7 @@ class VideoListPage extends React.Component<IProps, IState> {
 
     render() {
         const { videos, selectedVideo, searchFragment } = this.state;
-        const { videoBaseUrl } = this.props;
+        const { videosBaseUrl } = this.props;
         const searchBoxStyle = {
             position: 'fixed',
             top: '70px',
@@ -70,22 +68,33 @@ class VideoListPage extends React.Component<IProps, IState> {
             width: '150px',
         } as React.CSSProperties;
 
-        console.log('rerender', selectedVideo);
+        let source_mp4, source_webm, poster = '';
+        if (selectedVideo !== undefined) {
+            poster = this.props.videosBaseUrl + selectedVideo.video_id + ".jpg";
+            source_mp4 = this.props.videosBaseUrl + selectedVideo.sources.mp4;
+            source_webm = this.props.videosBaseUrl + selectedVideo.sources.webm;
+        }
+
         return (
             <PageOverlay>
                 { selectedVideo &&
                     <PageOverlay closeButton={true} onClose={() => { this.closeVideo(); }}>
-                        <ReactVideoPlayer sourceUrl={selectedVideo}
-                                     onEnd={() => {this.closeVideo();}}
+                        <ReactVideoPlayer
+                                     poster={poster}
+                                     onEnd={ () => {this.closeVideo();} }
                                      autoPlay={true}
                                      controls={true}
-                        />
+                        >
+                            <source src={source_webm} type="video/webm; codecs=vp9,vorbis" />
+                            <source src={source_mp4} type="video/mp4" />
+                        </ReactVideoPlayer>
                     </PageOverlay>
+
                 }
 
-                <VideoList videos={videos} baseUrl={videoBaseUrl}
-                           onSelected={(videoUrl) => {
-                                this.openVideo(videoUrl);
+                <VideoList videos={videos} baseUrl={videosBaseUrl}
+                           onSelected={(video) => {
+                                this.openVideo(video);
                            }}/>
 
                 { (selectedVideo === undefined) &&

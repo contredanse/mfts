@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {IVideoData} from '@data/video-list-data';
 import './video-list.scss';
 import {CSSTransition, TransitionGroup} from 'react-transition-group';
+import {IDataVideo} from "@data/data-videos";
 
 interface IProps {
-    videos: IVideoData[];
+    videos: IDataVideo[];
     baseUrl: string;
-    onSelected: (videoUrl: string) => void;
+    onSelected: (video: IDataVideo) => void;
 }
 
 interface IState {
@@ -31,13 +31,13 @@ export class VideoList extends React.Component<IProps, IState> {
 
         return (
                 <TransitionGroup className="video-list-ctn">
-                { list && list.map(({name, sources, covers}) => {
-                    const coverImg = baseUrl + (covers[1]) as string;
-                    const videoUrl = baseUrl + sources.mp4;
+                { list && list.map((video) => {
+                    const {video_id} = video;
+                    const coverImg = baseUrl + 'covers/' + video_id + '-02.jpg';
                     return (
-                        <Fade key={name}>
-                            <div className="video-card-ctn" key={name} onClick={() => onSelected(videoUrl)} >
-                                <img className="video-cover-img" src={coverImg} title={name} />
+                        <Fade key={video_id}>
+                            <div className="video-card-ctn" key={name} onClick={() => onSelected(video)} >
+                                <img className="video-cover-img" src={coverImg} title={video_id} />
                             </div>
                         </Fade>
                     );
