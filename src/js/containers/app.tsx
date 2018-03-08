@@ -11,10 +11,19 @@ import IntroPage from '@src/containers/intro-page';
 import MenuPage from '@src/containers/menu-page';
 import NotFoundPage from '@src/containers/notfound-page';
 import VideoListPage from '@src/containers/video-list-page';
+import {AppConfig} from "@config/app-config";
+import PageListPage from "@src/containers/page-list-page";
 
-class App extends React.Component<{}, {}> {
+interface IAppProps {
+    appConfig: AppConfig;
+}
+
+class App extends React.Component<IAppProps, {}> {
 
     public render(): React.ReactElement<App> {
+
+        const { videos_base_url, data } = this.props.appConfig.getConfig();
+        const lang = 'en';
         return (
             <ConnectedRouter history={history}>
                 <div className="page-container">
@@ -26,7 +35,14 @@ class App extends React.Component<{}, {}> {
                             <Route exact={true} path="/" component={HomePage}/>
                             <Route exact={true} path="/intro" component={IntroPage}/>
                             <Route exact={true} path="/menu" component={MenuPage}/>
-                            <Route exact={true} path="/video-list" component={VideoListPage}/>
+                            <Route exact={true} path="/page-list" component={(props) => {
+                                return (
+                                    <PageListPage lang={lang} initialData={data.pages} {...props} />
+                                )
+                            }}/>
+                            <Route exact={true} path="/video-list" component={(props) => (
+                                <VideoListPage initialData={data.videos} videosBaseUrl={videos_base_url} {...props} />
+                            )}/>
                             <Route component={NotFoundPage}/>
                         </Switch>
                     </main>
