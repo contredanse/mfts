@@ -95,7 +95,7 @@
     "gsap": "^1.20.4",
     "history": "^4.7.2",
     "jquery": "^3.3.1",
-    "lodash-es": "^4.17.5",
+    "lodash-es": "^4.17.7",
     "material-ui": "^1.0.0-beta.36",
     "material-ui-icons": "^1.0.0-beta.36",
     "normalize.css": "^8.0.0",
