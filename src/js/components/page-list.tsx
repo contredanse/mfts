@@ -1,5 +1,5 @@
 import * as React from 'react';
-//import './page-list.scss';
+import './page-list.scss';
 import {IDataPage} from "@data/data-pages";
 
 interface IProps {
