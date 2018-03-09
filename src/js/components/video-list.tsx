@@ -19,7 +19,7 @@ export class VideoList extends React.Component<IProps, IState> {
         const Animate = ({ children, ...props }) => (
             <CSSTransition
                 {...props}
-                enter={false}
+                enter={true}
                 appear={true}
                 exit={false}
                 timeout={1000}
