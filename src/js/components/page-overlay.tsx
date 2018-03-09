@@ -42,9 +42,9 @@ export class PageOverlay extends React.Component<IProps, IState> {
             //backgroundColor: 'yellow',
             borderRadius: 3,
             top: '10%',
-            bottom: '5px',
+            bottom: '10%',
             right: '10px',
-            borderRight: '1px dotted rgba(255,255,255, 0.5)',
+            borderRight: '2px dotted rgba(255,255,255, 0.5)',
         };
         return (
             <div style={{ ...style, ...trackStyle }} {...props} />
@@ -53,23 +53,24 @@ export class PageOverlay extends React.Component<IProps, IState> {
 
     render() {
         const {closeButton} = this.props;
+
         return (
             <div className="page-overlay-viewport">
                 <div className="page-overlay-ctn">
-                    <div className="top-bar">
                     { closeButton === true &&
+                    <div className="top-bar">
                         <button className="close-button" onClick={(e) => {
                             this.close(e);
                         }}>
                             X
                         </button>
-                    }
                     </div>
+                    }
                     <Scrollbars
                         autoHide={false}
                         autoHideDuration={5000}
                         hideTracksWhenNotNeeded={true}
-                        style={{ height: '100%' }}
+                        style={{  }}
                         renderThumbVertical={this.renderThumb}
                         renderTrackVertical={this.renderTrack}>
                         {this.props.children}
