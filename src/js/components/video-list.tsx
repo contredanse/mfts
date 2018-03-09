@@ -16,13 +16,13 @@ export class VideoList extends React.Component<IProps, IState> {
     render() {
         const list = this.props.videos;
         const {baseUrl, onSelected} = this.props;
-        const Fade = ({ children, ...props }) => (
+        const Animate = ({ children, ...props }) => (
             <CSSTransition
                 {...props}
-                exit={false}
                 enter={false}
-                appear={false}
-                timeout={200}
+                appear={true}
+                exit={false}
+                timeout={1000}
                 classNames="fade"
             >
                 {children}
@@ -30,19 +30,25 @@ export class VideoList extends React.Component<IProps, IState> {
         );
 
         return (
-                <TransitionGroup className="video-list-ctn">
+            <div className="video-list-wrapper">
+
+                <TransitionGroup className="grid-cards">
                 { list && list.map((video) => {
                     const {video_id} = video;
                     const coverImg = baseUrl + 'covers/' + video_id + '-02.jpg';
                     return (
-                        <Fade key={video_id}>
-                            <div className="video-card-ctn" key={name} onClick={() => onSelected(video)} >
-                                <img className="video-cover-img" src={coverImg} title={video_id} />
+                        <Animate key={video_id}>
+                            <div className="card" style={{backgroundImage: `url(${coverImg})`}} key={video_id} onClick={() => onSelected(video)}>
+                                <h2>{video_id}</h2>
                             </div>
-                        </Fade>
+                        </Animate>
                     );
                 })}
+
                 </TransitionGroup>
+
+            </div>
+
         );
     }
 }

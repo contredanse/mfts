@@ -1,53 +1,97 @@
-.fade-enter {
-  opacity: 0.8;
-}
+/**
+example
+ */
 
-.fade-enter.fade-enter-active {
-  opacity: 1;
-  transition: opacity 80ms ease-in-out;
-}
-
-.fade-exit {
-  display: none;
-}
-
-.fade-exit.fade-exit-active {
-  //display: none;
-  display: none;
-  transition: none;
-}
+.video-list-wrapper {
+  /*
+  margin: 0 auto;
+  width: 100%;
+  */
 
 
-
-.video-list-ctn {
-  padding: .5vw;
-  font-size: 0;
-  flex-flow: row wrap;
-  display: flex;
-  bottom: 0%;
-
-
-  .video-card-ctn {
-    flex: auto;
-    width: 150px;
-    max-width: 200px;
-
-    //max-width: 400px;
-    //margin: .5vw;
+  .grid-cards {
+    list-style: none;
     margin: 0;
-    transition: all 0.8s ease;
-    display: flex;
+    padding: 0;
+    display: grid;
+    //grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    //grid-template-columns: repeat(auto-fill, minmax(200px 1fr));
+    grid-gap: 5px;
 
-    &:hover {
-      cursor: pointer;
-      filter: brightness(130%);
-    }
 
-    .video-cover-img {
-      width: 100%;
-      align-self: center;
-      flex: 0 0 auto;
-      /*height: auto;*/
+    .card {
+      /*border: 2px solid #490A3D;
+      border-radius:5px;*/
+      /*background-color: #BD1550;*/
+      color: #fff;
+      flex: 1 1 200px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-color: rgba(white,.05);
+      background-blend-mode: overlay;
+      /*filter: grayscale(15%);*/
+      transition: 400ms filter ease-in-out;
+      min-height: 150px;
+
+      &:hover {
+        cursor: pointer;
+        //filter: drop-shadow(3px 3px 5px grey)
+        filter: contrast(130%)
+      }
+
+      h2 {
+        /*
+        background-color: #490A3D;
+        */
+        margin: 0;
+        padding: 10px;
+        font-size: 0.8em;
+      }
+
+      p {
+        padding: 15px;
+      }
+
     }
   }
+
+  .fade-enter {
+    opacity: 0.01;
+    transform: scaleY(0) scaleX(0);
+
+
+  }
+
+  .fade-enter.fade-enter-active {
+    opacity: 0.1;
+    transform: scaleY(1) scaleX(1);
+    transition: transform 120ms ease-in, opacity 1000ms ease-in;
+  }
+
+  .fade-appear {
+    opacity: 0.2;
+    transform: scaleY(0.4) scaleX(0.4);
+  }
+
+  .fade-appear.fade-appear-active {
+    opacity: 0.9;
+    transform: scaleY(1) scaleX(1);
+    transition: transform 200ms ease-in, opacity 600ms linear;
+  }
+
+
+  .fade-exit {
+    //opacity: 0.9;
+  }
+
+  .fade-exit.fade-exit-active {
+    opacity: 0.01;
+    transform: scaleY(0) scaleX(0);
+    transition: all 350ms ease-in;
+  }
+
 }
+
+

@@ -59,7 +59,7 @@ class VideoListPage extends React.Component<IProps, IState> {
     }
 
     render() {
-        const { videos, selectedVideo, searchFragment } = this.state;
+        const { videos, selectedVideo } = this.state;
         const { videosBaseUrl } = this.props;
         const searchBoxStyle = {
             position: 'fixed',
@@ -99,7 +99,7 @@ class VideoListPage extends React.Component<IProps, IState> {
 
                 { (selectedVideo === undefined) &&
                     <div style={searchBoxStyle}>
-                        <SearchBox value={searchFragment} onChange={(e) => this.updateSearch(e)} />
+                        <SearchBox onChange={(e) => this.updateSearch(e)} />
                     </div>
                 }
             </PageOverlay>
