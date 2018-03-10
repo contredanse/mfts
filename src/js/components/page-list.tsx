@@ -55,7 +55,7 @@ export default class PageList extends React.Component<IProps, IState> {
         return (
             <div>
 
-                <div className="video-list-wrapper">
+                <div className="page-list-wrapper">
 
                     <TransitionGroup className="grid-cards">
                         { list && list.map((page) => {
@@ -83,7 +83,6 @@ export default class PageList extends React.Component<IProps, IState> {
                                     alert('error ' + content.layout + id);
                             }
 
-                            console.log('videos', videos);
                             const coverImg = baseUrl + 'covers/' + videos[0].video_id + '-02.jpg';
                             return (
                                 <Animate key={id}>
