@@ -6,6 +6,7 @@ import PageList from "@src/components/page-list";
 
 interface IProps {
     initialData: IDataPage[];
+    videosBaseUrl: string;
     lang: 'en' | 'fr';
 }
 interface IState {
@@ -30,10 +31,10 @@ class PageListPage extends React.Component<IProps, IState> {
         e.preventDefault();
         const fragment = e.target.value;
         const regex = new RegExp(fragment, 'i');
-        const filtered = this.props.initialData.filter((page: IDataPage) => {
-            const keywords = page.keywords[this.props.lang] && [];
+        const filtered = this.props.initialData.filter((page: IDataPage, idx: number) => {
+            const keywords = page.keywords[this.props.lang];
             if (keywords !== undefined) {
-                return keywords.join(' ').search(regex) > -1;
+                return keywords.join(' ').concat(page.content.layout).search(regex) > -1;
             }
             return false;
         });
@@ -56,7 +57,7 @@ class PageListPage extends React.Component<IProps, IState> {
     }
 
     render(): JSX.Element {
-        const { pages, selectedPage, searchFragment } = this.state;
+        const { pages, selectedPage } = this.state;
         const searchBoxStyle = {
             position: 'fixed',
             top: '70px',
@@ -66,10 +67,10 @@ class PageListPage extends React.Component<IProps, IState> {
 
         return (
             <PageOverlay>
-                <PageList pages={pages} lang={this.state.lang} />
-                { selectedPage &&
+                <PageList baseUrl={this.props.videosBaseUrl} pages={pages} lang={this.state.lang} />
+                { selectedPage === undefined &&
                     <div style={searchBoxStyle}>
-                        <SearchBox value={searchFragment} onChange={(e) => this.updateSearch(e)} />
+                        <SearchBox onChange={(e) => this.updateSearch(e)} />
                     </div>
                 }
             </PageOverlay>
