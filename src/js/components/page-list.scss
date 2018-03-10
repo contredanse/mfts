@@ -11,27 +11,30 @@ example
 
   .grid-cards {
     list-style: none;
-    margin: 0;
+    margin: 5px;
     padding: 0;
     display: grid;
     //grid-template-columns: repeat(5,1fr);
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     //grid-template-columns: repeat(auto-fill, minmax(200px 1fr));
-    grid-gap: 5px;
+    grid-gap: 15px;
 
 
     .card {
+      border: 1px solid white;
+      border-radius: 5px;
       /*border: 2px solid #490A3D;
       border-radius:5px;*/
       /*background-color: #BD1550;*/
+
       color: #fff;
       //flex: 1 1 200px;
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
-      background-color: rgba(white,.05);
-      background-blend-mode: overlay;
-      /*filter: grayscale(15%);*/
+      background-color: rgba(black,0.7);
+      background-blend-mode: lighten;
+      /*filter: grayscale(95%);*/
       transition: 400ms filter ease-in-out;
       min-height: 150px;
 
@@ -48,7 +51,8 @@ example
         */
         margin: 0;
         padding: 10px;
-        font-size: 0.8em;
+        font-size: 0.7em;
+        font-weight: normal;
       }
 
       p {
@@ -64,13 +68,16 @@ example
         grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
         //grid-template-columns: repeat(auto-fill, minmax(200px 1fr));
         grid-gap: 5px;
-        text-align: center;
+        justify-items: center;
+        div {
+          img {
 
-        img {
-          border: 1px solid white;
-          background-color: rgba(255,255,255, 0.2);
-          width: 100%;
+            border: 1px solid white;
+            background-color: rgba(255, 255, 255, 0.2);
+            width: 100%;
+            justify-self: center;
 
+          }
         }
       }
 
