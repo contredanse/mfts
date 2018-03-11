@@ -13,7 +13,7 @@
     "check": "npm run lint & npm run tsc",
     "lint": "tslint --project './tsconfig.json'",
     "lint:fix": "tslint --project './tsconfig.json' --fix",
-    "prettier": "prettier ./src/*.ts",
+    "prettier:ts": "prettier --write \"./src/js/**/*.{ts,tsx}\"",
     "tsc": "tsc -p . --noEmit"
   },
   "devDependencies": {
