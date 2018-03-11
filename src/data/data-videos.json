@@ -10,7 +10,8 @@
             "duration": 568.48,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "hello.jpg"
@@ -35,7 +36,8 @@
             "duration": 37.2,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "lemmon_en.jpg"
@@ -52,7 +54,8 @@
             "duration": 37.2,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "lemmon_fr.jpg"
@@ -69,7 +72,8 @@
             "duration": 101.32,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "falls.jpg"
@@ -86,7 +90,8 @@
             "duration": 73.28,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 614400
         },
         "covers": [
             "watergravity.jpg"
@@ -103,7 +108,8 @@
             "duration": 318.76,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "adjusting_birds.jpg"
@@ -120,7 +126,8 @@
             "duration": 980.76,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "breathing_en.jpg"
@@ -137,7 +144,8 @@
             "duration": 980.76,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "breathing_fr.jpg"
@@ -154,7 +162,8 @@
             "duration": 609.32,
             "width": 720,
             "height": 576,
-            "audio_stream": false
+            "audio_stream": false,
+            "bitrate": 716800
         },
         "covers": [
             "smalldance_full.jpg"
@@ -171,7 +180,8 @@
             "duration": 661.12,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 614400
         },
         "covers": [
             "pointing.jpg"
@@ -196,7 +206,8 @@
             "duration": 77.441,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "pointing_scapula.jpg"
@@ -221,7 +232,8 @@
             "duration": 519.2,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 614400
         },
         "covers": [
             "pelvis.jpg"
@@ -246,7 +258,8 @@
             "duration": 74.36,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "pointing_heel.jpg"
@@ -271,7 +284,8 @@
             "duration": 126.76,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "walkasfondation.jpg"
@@ -296,7 +310,8 @@
             "duration": 520.159999,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "birdswalk.jpg"
@@ -321,7 +336,8 @@
             "duration": 0,
             "width": 1008,
             "height": 576,
-            "audio_stream": false
+            "audio_stream": false,
+            "bitrate": 0
         },
         "covers": [
             "slowwalk.jpg"
@@ -338,7 +354,8 @@
             "duration": 121.24,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "twist.jpg"
@@ -355,7 +372,8 @@
             "duration": 187.52,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "focus_back.jpg"
@@ -380,7 +398,8 @@
             "duration": 289.32,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "passage.jpg"
@@ -397,7 +416,8 @@
             "duration": 1119.28,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "sphericalspace.jpg"
@@ -422,7 +442,8 @@
             "duration": 316.08,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 614400
         },
         "covers": [
             "perf_comments_goldberg.jpg"
@@ -447,7 +468,8 @@
             "duration": 303.503,
             "width": 720,
             "height": 480,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "goldberg.jpg"
@@ -464,7 +486,8 @@
             "duration": 172.8,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 614400
         },
         "covers": [
             "perf_comments_english.jpg"
@@ -489,7 +512,8 @@
             "duration": 441.241,
             "width": 720,
             "height": 480,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "english.jpg"
@@ -506,7 +530,8 @@
             "duration": 366.72,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "perf_techimpro.jpg"
@@ -531,7 +556,8 @@
             "duration": 690.28,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "new_intro.jpg"
@@ -556,7 +582,8 @@
             "duration": 25.64,
             "width": 360,
             "height": 288,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 614400
         },
         "covers": [
             "cbhf_fromside.jpg"
@@ -573,7 +600,8 @@
             "duration": 25.64,
             "width": 360,
             "height": 288,
-            "audio_stream": false
+            "audio_stream": false,
+            "bitrate": 716800
         },
         "covers": [
             "cbhf_fromtop.jpg"
@@ -590,7 +618,8 @@
             "duration": 25.64,
             "width": 360,
             "height": 288,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 614400
         },
         "covers": [
             "cbhf_fromhead.jpg"
@@ -607,7 +636,8 @@
             "duration": 31.56,
             "width": 480,
             "height": 384,
-            "audio_stream": false
+            "audio_stream": false,
+            "bitrate": 716800
         },
         "covers": [
             "cbc_fromhead.jpg"
@@ -624,7 +654,8 @@
             "duration": 31.56,
             "width": 480,
             "height": 384,
-            "audio_stream": false
+            "audio_stream": false,
+            "bitrate": 716800
         },
         "covers": [
             "cbc_fromtop.jpg"
@@ -641,7 +672,8 @@
             "duration": 10.24,
             "width": 540,
             "height": 432,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 614400
         },
         "covers": [
             "chu_fromfeet.jpg"
@@ -658,7 +690,8 @@
             "duration": 10.24,
             "width": 540,
             "height": 432,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 614400
         },
         "covers": [
             "chu_fromside.jpg"
@@ -675,7 +708,8 @@
             "duration": 0,
             "width": 720,
             "height": 576,
-            "audio_stream": false
+            "audio_stream": false,
+            "bitrate": 0
         },
         "covers": [
             "cbfhu.jpg"
@@ -692,7 +726,8 @@
             "duration": 6.44,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 614400
         },
         "covers": [
             "crescent_water.jpg"
@@ -709,7 +744,8 @@
             "duration": 0,
             "width": 720,
             "height": 576,
-            "audio_stream": false
+            "audio_stream": false,
+            "bitrate": 0
         },
         "covers": [
             "c_comparing.jpg"
@@ -726,7 +762,8 @@
             "duration": 5,
             "width": 360,
             "height": 288,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 614400
         },
         "covers": [
             "sbf_fromfeet.jpg"
@@ -743,7 +780,8 @@
             "duration": 5,
             "width": 360,
             "height": 288,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 614400
         },
         "covers": [
             "sbf_side.jpg"
@@ -760,7 +798,8 @@
             "duration": 5,
             "width": 360,
             "height": 288,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 614400
         },
         "covers": [
             "sbf_fromhead.jpg"
@@ -777,7 +816,8 @@
             "duration": 8.8,
             "width": 540,
             "height": 432,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 614400
         },
         "covers": [
             "sbh_fromhead.jpg"
@@ -794,7 +834,8 @@
             "duration": 8.8,
             "width": 540,
             "height": 432,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 614400
         },
         "covers": [
             "sbh_side.jpg"
@@ -811,7 +852,8 @@
             "duration": 16.52,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 614400
         },
         "covers": [
             "helixinwater.jpg"
@@ -828,7 +870,8 @@
             "duration": 0,
             "width": 720,
             "height": 576,
-            "audio_stream": false
+            "audio_stream": false,
+            "bitrate": 0
         },
         "covers": [
             "h_comparing.jpg"
@@ -843,9 +886,10 @@
         },
         "meta": {
             "duration": 0,
-            "width": null,
-            "height": null,
-            "audio_stream": true
+            "width": 720,
+            "height": 576,
+            "audio_stream": true,
+            "bitrate": 0
         },
         "covers": [
             "puzzle1.jpg"
@@ -860,9 +904,10 @@
         },
         "meta": {
             "duration": 0,
-            "width": null,
-            "height": null,
-            "audio_stream": true
+            "width": 720,
+            "height": 576,
+            "audio_stream": true,
+            "bitrate": 0
         },
         "covers": [
             "puzzle2.jpg"
@@ -877,9 +922,10 @@
         },
         "meta": {
             "duration": 0,
-            "width": null,
-            "height": null,
-            "audio_stream": true
+            "width": 720,
+            "height": 576,
+            "audio_stream": true,
+            "bitrate": 0
         },
         "covers": [
             "puzzle3.jpg"
@@ -894,9 +940,10 @@
         },
         "meta": {
             "duration": 0,
-            "width": null,
-            "height": null,
-            "audio_stream": true
+            "width": 720,
+            "height": 576,
+            "audio_stream": true,
+            "bitrate": 0
         },
         "covers": [
             "puzzle4.jpg"
@@ -913,7 +960,8 @@
             "duration": 71.12,
             "width": 360,
             "height": 288,
-            "audio_stream": false
+            "audio_stream": false,
+            "bitrate": 716800
         },
         "covers": [
             "frontal_head_top.jpg"
@@ -930,7 +978,8 @@
             "duration": 80.04,
             "width": 360,
             "height": 288,
-            "audio_stream": false
+            "audio_stream": false,
+            "bitrate": 716800
         },
         "covers": [
             "frontal_head_side.jpg"
@@ -947,7 +996,8 @@
             "duration": 23.64,
             "width": 360,
             "height": 288,
-            "audio_stream": false
+            "audio_stream": false,
+            "bitrate": 716800
         },
         "covers": [
             "frontal_head_bottom.jpg"
@@ -964,7 +1014,8 @@
             "duration": 43.4,
             "width": 360,
             "height": 288,
-            "audio_stream": false
+            "audio_stream": false,
+            "bitrate": 716800
         },
         "covers": [
             "frontal_pelvis_top.jpg"
@@ -981,7 +1032,8 @@
             "duration": 48.88,
             "width": 360,
             "height": 288,
-            "audio_stream": false
+            "audio_stream": false,
+            "bitrate": 716800
         },
         "covers": [
             "frontal_pelvis_side.jpg"
@@ -998,7 +1050,8 @@
             "duration": 41.68,
             "width": 360,
             "height": 288,
-            "audio_stream": false
+            "audio_stream": false,
+            "bitrate": 716800
         },
         "covers": [
             "frontal_pelvis_bottom.jpg"
@@ -1015,7 +1068,8 @@
             "duration": 51.04,
             "width": 480,
             "height": 384,
-            "audio_stream": false
+            "audio_stream": false,
+            "bitrate": 716800
         },
         "covers": [
             "lateral_head_front.jpg"
@@ -1032,7 +1086,8 @@
             "duration": 30.4,
             "width": 480,
             "height": 384,
-            "audio_stream": false
+            "audio_stream": false,
+            "bitrate": 716800
         },
         "covers": [
             "lateral_head_top.jpg"
@@ -1049,7 +1104,8 @@
             "duration": 25.68,
             "width": 480,
             "height": 384,
-            "audio_stream": false
+            "audio_stream": false,
+            "bitrate": 716800
         },
         "covers": [
             "lateral_pelvis_top.jpg"
@@ -1066,7 +1122,8 @@
             "duration": 45.24,
             "width": 480,
             "height": 384,
-            "audio_stream": false
+            "audio_stream": false,
+            "bitrate": 716800
         },
         "covers": [
             "lateral_pelvis_front.jpg"
@@ -1083,7 +1140,8 @@
             "duration": 6.64,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 614400
         },
         "covers": [
             "dolphininwater.jpg"
@@ -1100,7 +1158,8 @@
             "duration": 185.12,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "aikido_principle.jpg"
@@ -1125,7 +1184,8 @@
             "duration": 19.12,
             "width": 360,
             "height": 288,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 614400
         },
         "covers": [
             "aikido_3D_side.jpg"
@@ -1142,7 +1202,8 @@
             "duration": 19.12,
             "width": 360,
             "height": 288,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 614400
         },
         "covers": [
             "aikido_3D_top.jpg"
@@ -1159,7 +1220,8 @@
             "duration": 19.12,
             "width": 360,
             "height": 288,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 614400
         },
         "covers": [
             "aikido_3D_front.jpg"
@@ -1176,7 +1238,8 @@
             "duration": 73,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "crescent_head_up.jpg"
@@ -1201,7 +1264,8 @@
             "duration": 100.88,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "mfs_sbf_seattle.jpg"
@@ -1226,7 +1290,8 @@
             "duration": 63.12,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "mfs_sbh_seattle.jpg"
@@ -1251,7 +1316,8 @@
             "duration": 37.29,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "puzzle1_demo_graph.jpg"
@@ -1276,7 +1342,8 @@
             "duration": 139.52,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "correction_crescent_handsfeet.jpg"
@@ -1301,7 +1368,8 @@
             "duration": 194.04,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "correction_crescent_center.jpg"
@@ -1326,7 +1394,8 @@
             "duration": 318.2,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "correction_helix_feet.jpg"
@@ -1351,7 +1420,8 @@
             "duration": 281.64,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "correction_helix_hands.jpg"
@@ -1376,7 +1446,8 @@
             "duration": 94.28,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "correction_conclusion.jpg"
@@ -1401,7 +1472,8 @@
             "duration": 46.16,
             "width": 720,
             "height": 576,
-            "audio_stream": false
+            "audio_stream": false,
+            "bitrate": 716800
         },
         "covers": [
             "wu_fingers.jpg"
@@ -1418,7 +1490,8 @@
             "duration": 127,
             "width": 720,
             "height": 576,
-            "audio_stream": false
+            "audio_stream": false,
+            "bitrate": 716800
         },
         "covers": [
             "wu_wrist.jpg"
@@ -1435,7 +1508,8 @@
             "duration": 101.44,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "wu_hands.jpg"
@@ -1452,7 +1526,8 @@
             "duration": 77.16,
             "width": 720,
             "height": 576,
-            "audio_stream": false
+            "audio_stream": false,
+            "bitrate": 716800
         },
         "covers": [
             "wu_arms.jpg"
@@ -1469,7 +1544,8 @@
             "duration": 51.84,
             "width": 720,
             "height": 576,
-            "audio_stream": false
+            "audio_stream": false,
+            "bitrate": 716800
         },
         "covers": [
             "wu_spine_and_arms.jpg"
@@ -1486,7 +1562,8 @@
             "duration": 171.8,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "wu_bendingbone.jpg"
@@ -1511,7 +1588,8 @@
             "duration": 87.52,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "wu_aikidostep.jpg"
@@ -1528,7 +1606,8 @@
             "duration": 144.28,
             "width": 720,
             "height": 576,
-            "audio_stream": false
+            "audio_stream": false,
+            "bitrate": 716800
         },
         "covers": [
             "wu_twist.jpg"
@@ -1545,7 +1624,8 @@
             "duration": 81.2,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "wu_twistlegs.jpg"
@@ -1570,7 +1650,8 @@
             "duration": 417.96,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "wu_legsresistance.jpg"
@@ -1595,7 +1676,8 @@
             "duration": 147.48,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "wu_trocantere.jpg"
@@ -1620,7 +1702,8 @@
             "duration": 222.28,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "wu_psoas.jpg"
@@ -1645,7 +1728,8 @@
             "duration": 112.68,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "wu_wave.jpg"
@@ -1670,7 +1754,8 @@
             "duration": 119.8,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "wu_wavefloor.jpg"
@@ -1695,7 +1780,8 @@
             "duration": 248.32,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "wu_asanas.jpg"
@@ -1720,7 +1806,8 @@
             "duration": 96.12,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "napp.jpg"
@@ -1745,7 +1832,8 @@
             "duration": 119.8,
             "width": 720,
             "height": 576,
-            "audio_stream": false
+            "audio_stream": false,
+            "bitrate": 716800
         },
         "covers": [
             "wu_play.jpg"
@@ -1762,7 +1850,8 @@
             "duration": 260.48,
             "width": 720,
             "height": 576,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "dance_culture.jpg"
@@ -1787,7 +1876,8 @@
             "duration": 462.6,
             "width": 400,
             "height": 320,
-            "audio_stream": true
+            "audio_stream": true,
+            "bitrate": 716800
         },
         "covers": [
             "cultivating2.jpg"
