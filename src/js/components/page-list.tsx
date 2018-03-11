@@ -19,12 +19,6 @@ export default class PageList extends React.Component<IProps, IState> {
         //alert('page selected:' + page.id);
     }
 
-    protected getVideo(video_id: string): IDataVideo {
-        return dataVideos.filter((video: IDataVideo) => {
-            return video.video_id === video_id;
-        });
-    }
-
     render() {
         const list = this.props.pages;
         //const {baseUrl, onSelected} = this.props;
@@ -68,17 +62,17 @@ export default class PageList extends React.Component<IProps, IState> {
                                         });
                                         break;
                                     default:
-                                        alert('error ' + content.layout + id);
+                                        alert(`error${content.layout}${id}`);
                                 }
 
-                                const coverImg = baseUrl + 'covers/' + videos[0].video_id + '-02.jpg';
+                                const coverImg = `${baseUrl}covers/${videos[0].video_id}-02.jpg`;
                                 return (
                                     <Animate key={id}>
                                         <div className="card" style={{ backgroundImage: `url(${coverImg})` }} key={id}>
                                             <h2>{id}</h2>
                                             <div className="grid-page-thumbnail">
                                                 {videos.map(video => {
-                                                    const videoCover = baseUrl + 'covers/' + video.video_id + '-01.jpg';
+                                                    const videoCover = `${baseUrl}covers/${videos[0].video_id}-01.jpg`;
                                                     return (
                                                         <div>
                                                             <img src={videoCover} title={video.video_id} />
@@ -129,5 +123,11 @@ export default class PageList extends React.Component<IProps, IState> {
                 </tbody>
             </table>
         );
+    }
+
+    protected getVideo(video_id: string): IDataVideo {
+        return dataVideos.filter((video: IDataVideo) => {
+            return video.video_id === video_id;
+        });
     }
 }

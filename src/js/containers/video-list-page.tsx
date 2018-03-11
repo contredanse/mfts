@@ -30,7 +30,7 @@ class VideoListPage extends React.Component<IProps, IState> {
         e.preventDefault();
         const fragment = e.target.value;
         const regex = new RegExp(fragment, 'i');
-        const filtered = this.props.initialData.filter(function(videoData) {
+        const filtered = this.props.initialData.filter(videoData => {
             const content = videoData.video_id;
             return content.search(regex) > -1;
         });
@@ -66,13 +66,13 @@ class VideoListPage extends React.Component<IProps, IState> {
             width: '150px',
         } as React.CSSProperties;
 
-        let source_mp4,
-            source_webm,
+        let sourceMp4,
+            sourceWebm,
             poster = '';
         if (selectedVideo !== undefined) {
             poster = this.props.videosBaseUrl + selectedVideo.video_id + '.jpg';
-            source_mp4 = this.props.videosBaseUrl + selectedVideo.sources.mp4;
-            source_webm = this.props.videosBaseUrl + selectedVideo.sources.webm;
+            sourceMp4 = this.props.videosBaseUrl + selectedVideo.sources.mp4;
+            sourceWebm = this.props.videosBaseUrl + selectedVideo.sources.webm;
         }
 
         return (
@@ -92,8 +92,8 @@ class VideoListPage extends React.Component<IProps, IState> {
                             autoPlay={true}
                             controls={true}
                         >
-                            <source src={source_webm} type="video/webm; codecs=vp9,vorbis" />
-                            <source src={source_mp4} type="video/mp4" />
+                            <source src={sourceWebm} type="video/webm; codecs=vp9,vorbis" />
+                            <source src={sourceMp4} type="video/mp4" />
                         </ReactVideoPlayer>
                     </PageOverlay>
                 )}

@@ -10,13 +10,13 @@ import 'typeface-quicksand';
 import '@styles/style.scss';
 import { appConfig, AppConfig } from '@config/app-config';
 
-const renderApp = (App, appConfig: AppConfig, elementId: string) => {
+const renderApp = (Component, config: AppConfig, elementId: string) => {
     render(
         <ReduxProvider store={store}>
-            <App appConfig={appConfig} />
+            <Component appConfig={config} />
         </ReduxProvider>,
         document.getElementById(elementId),
     );
 };
-console.log('appConfig', appConfig);
+//console.log('appConfig', appConfig);
 renderApp(App, appConfig, 'app');

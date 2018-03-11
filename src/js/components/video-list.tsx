@@ -27,7 +27,7 @@ export class VideoList extends React.Component<IProps, IState> {
                     {list &&
                         list.map(video => {
                             const { video_id } = video;
-                            const coverImg = baseUrl + 'covers/' + video_id + '-02.jpg';
+                            const coverImg = `${baseUrl}covers/${video_id}-02.jpg`;
                             return (
                                 <Animate key={video_id}>
                                     <div
