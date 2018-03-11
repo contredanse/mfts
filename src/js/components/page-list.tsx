@@ -65,15 +65,16 @@ export default class PageList extends React.Component<IProps, IState> {
                             switch (content.layout) {
                                 case 'single-video':
                                 case 'single-video-audio':
+                                case 'single-video-audio_i18n':
                                     videos[0] = this.getVideo((content.video as any).video_id)[0];
                                     break;
                                 case 'single-i18n-video':
                                     videos[0] = this.getVideo((content.video_i18n as any)[this.props.lang].video_id)[0];
                                     break;
                                 case 'two-videos-only':
+                                case 'two-videos-audio-subs':
                                 case 'three-videos-only':
                                 case 'three-videos-audio-subs':
-                                case 'four-videos-audio-subs':
                                     videos = (content.videos as VideoOrEnOrFrOrVideosEntity1[]).map((video) => {
                                         return this.getVideo(video.video_id)[0];
                                     });
