@@ -245,7 +245,7 @@
             ]
         },
         "content": {
-            "layout": "single-video-audio",
+            "layout": "single-video-audio_i18n",
             "video": {
                 "video_id": "smalldance_full",
                 "muted": true,
@@ -1198,7 +1198,7 @@
             ]
         },
         "content": {
-            "layout": "four-videos-audio-subs",
+            "layout": "two-videos-audio-subs",
             "videos": [
                 {
                     "video_id": "sbh_fromhead",
