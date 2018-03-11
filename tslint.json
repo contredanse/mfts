@@ -12,7 +12,7 @@
     // end for dev-only
     "arrow-parens": false,
     "arrow-return-shorthand": [false],
-    "comment-format": [true, "check-space"],
+    "comment-format": [true],
     "import-blacklist": [true, "rxjs"],
     "interface-over-type-literal": false,
     "interface-name": false,
@@ -39,7 +39,6 @@
     "prefer-method-signature": false,
     "prefer-template": [true, "allow-single-concat"],
     "quotemark": [true, "single", "jsx-double"],
-    "semicolon": [true, "always"],
     "trailing-comma": [true, {
       "singleline": "never",
       "multiline": {
