@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './video-list.scss';
 import {CSSTransition, TransitionGroup} from 'react-transition-group';
-import {IDataVideo} from "@data/data-videos";
+import {IDataVideo} from '@data/data-videos';
 
 interface IProps {
     videos: IDataVideo[];

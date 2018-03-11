@@ -1,10 +1,9 @@
 import * as React from 'react';
 import './page-list.scss';
-import {IDataPage, VideoOrEnOrFrOrVideosEntity1} from "@data/data-pages";
+import {IDataPage, VideoOrEnOrFrOrVideosEntity1} from '@data/data-pages';
 import {CSSTransition, TransitionGroup} from 'react-transition-group';
-import {IDataVideo} from "@data/data-videos";
+import {IDataVideo} from '@data/data-videos';
 import dataVideos from '@data/data-videos.json';
-
 
 interface IProps {
     pages: IDataPage[];
@@ -49,7 +48,6 @@ export default class PageList extends React.Component<IProps, IState> {
             </CSSTransition>
         );
 
-
         const toc = this.getTocComponent(list);
         const baseUrl = this.props.baseUrl;
         return (
@@ -78,7 +76,6 @@ export default class PageList extends React.Component<IProps, IState> {
                                     videos = (content.videos as VideoOrEnOrFrOrVideosEntity1[]).map((video) => {
                                         return this.getVideo(video.video_id)[0];
                                     });
-
                                     break;
                                 default:
                                     alert('error ' + content.layout + id);
@@ -99,7 +96,7 @@ export default class PageList extends React.Component<IProps, IState> {
                                                     <p>{video.meta.duration}</p>
                                                 </div>
 
-                                            )
+                                            );
                                         })}
                                         </div>
 
@@ -111,7 +108,6 @@ export default class PageList extends React.Component<IProps, IState> {
                     </TransitionGroup>
 
                 </div>
-
 
                 <div>
                     <h2>Table of contents</h2>
@@ -137,7 +133,7 @@ export default class PageList extends React.Component<IProps, IState> {
                 {list.map((page: IDataPage, idx: number) => (
                     <tr key={page.id}>
                         <td>{idx + 1}</td>
-                        <td onClick={e => {this.handlePageClick(page)}}>{page.title[this.props.lang]}</td>
+                        <td onClick={e => {this.handlePageClick(page);}}>{page.title[this.props.lang]}</td>
                         <td>{page.content.layout}</td>
                     </tr>
                 ))}

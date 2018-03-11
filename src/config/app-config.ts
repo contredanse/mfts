@@ -1,13 +1,13 @@
-import {IDataMenu} from "@data/data-menu";
-import {IDataVideo} from "@data/data-videos";
-import {IDataPage} from "@data/data-pages";
+import {IDataMenu} from '@data/data-menu';
+import {IDataVideo} from '@data/data-videos';
+import {IDataPage} from '@data/data-pages';
 import dataMenu from '@data/data-menu.json';
 import dataVideos from '@data/data-videos.json';
 import dataPages from '@data/data-pages.json';
 
-const isProduction: boolean = true;
+const isProduction = true;
 
-let assets_base_url = 'http://soluble.io/mfts/assets/';
+const assets_base_url = 'http://soluble.io/mfts/assets/';
 
 if (!isProduction) {
     // Change some params here if needed
@@ -34,12 +34,12 @@ export class AppConfig {
     getAppData(): IAppDataConfig {
         return this.config.data;
     }
-};
+}
 
 export interface IAppDataConfig {
-    menu: IDataMenu,
-    pages: IDataPage[],
-    videos: IDataVideo[],
+    menu: IDataMenu;
+    pages: IDataPage[];
+    videos: IDataVideo[];
 }
 
 export interface IAppConfig {
@@ -54,10 +54,6 @@ export const appConfig = new AppConfig({
     data: {
         menu: dataMenu,
         pages: dataPages,
-        videos: dataVideos
-    }
-})
-
-
-
-
+        videos: dataVideos,
+    },
+});

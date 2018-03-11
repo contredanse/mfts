@@ -8,7 +8,7 @@ import '@public/favicon.ico';
 import 'typeface-quicksand';
 
 import '@styles/style.scss';
-import {appConfig, AppConfig} from "@config/app-config";
+import {appConfig, AppConfig} from '@config/app-config';
 
 const renderApp = (App, appConfig: AppConfig, elementId: string) => {
     render(

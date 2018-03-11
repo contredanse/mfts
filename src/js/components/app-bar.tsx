@@ -74,7 +74,7 @@ export const AppBarComponent: React.SFC<AppMenuProps> = (props) => {
                     <IconButton className={classes.menuButton}
                                 color="inherit"
                                 aria-label="Menu"
-                                onClick={() => { history.push('/menu') }}>
+                                onClick={() => { history.push('/menu'); }}>
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="title" color="inherit" className={classes.flex}>

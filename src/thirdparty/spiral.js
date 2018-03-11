@@ -2,18 +2,17 @@
 //////////////////////    Vec3     //////////////////////////
 /////////////////////////////////////////////////////////////
 
-var Vec3 = function (x, y, z) {
+var Vec3 = function(x, y, z) {
   this.x = x;
   this.y = y;
   this.z = z;
 };
 
-
 /////////////////////////////////////////////////////////////
 ////////////////////   SpiralMenu     ///////////////////////
 /////////////////////////////////////////////////////////////
 
-var SpiralMenu = function (canvas) {
+var SpiralMenu = function(canvas) {
   // visual elements
   this.canvas = canvas;
   var self = this;
@@ -35,17 +34,15 @@ var SpiralMenu = function (canvas) {
   var leftLabels = [];
   var rightLabels = [];
 
-
   for (var i = 0; i < numSpirals; ++i) {
-    spirals.push(new Spiral(i * Math.PI, Math.PI * 0.8))
+    spirals.push(new Spiral(i * Math.PI, Math.PI * 0.8));
   }
 
-  window.addEventListener('resize', onSpiralResize);
-  this.canvas.addEventListener('mousedown', onSpiralDragMouseDown);
-  this.canvas.addEventListener('mouseup', onSpiralDragMouseUp);
+  window.addEventListener("resize", onSpiralResize);
+  this.canvas.addEventListener("mousedown", onSpiralDragMouseDown);
+  this.canvas.addEventListener("mouseup", onSpiralDragMouseUp);
 
   render();
-
 
   function onSpiralResize(event) {
     configuration.center();
@@ -53,11 +50,11 @@ var SpiralMenu = function (canvas) {
 
   function onSpiralDragMouseDown(event) {
     isMouseDown = true;
-    self.canvas.style.cursor = 'ew-resize';
+    self.canvas.style.cursor = "ew-resize";
     gravity = 0.9;
     pMouseX = event.pageX;
     mouseX = pMouseX;
-    self.canvas.addEventListener('mousemove', onSpiralDragMouseMove);
+    self.canvas.addEventListener("mousemove", onSpiralDragMouseMove);
     if (frameReq == 0) {
       frameReq = requestAnimationFrame(render);
     }
@@ -69,8 +66,8 @@ var SpiralMenu = function (canvas) {
 
   function onSpiralDragMouseUp(event) {
     isMouseDown = false;
-    self.canvas.style.cursor = 'pointer';
-    self.canvas.removeEventListener('mousemove', onSpiralDragMouseMove);
+    self.canvas.style.cursor = "pointer";
+    self.canvas.removeEventListener("mousemove", onSpiralDragMouseMove);
   }
 
   function render() {
@@ -97,7 +94,6 @@ var SpiralMenu = function (canvas) {
 
     // position labels
 
-
     // auto stop frame request when idle
     if (isMouseDown || Math.abs(spiralSpeed) > 0.001) {
       frameReq = requestAnimationFrame(render);
@@ -107,14 +103,13 @@ var SpiralMenu = function (canvas) {
   }
 };
 
-
 /////////////////////////////////////////////////////////////
 ////////////////////  SpiralConfig    ///////////////////////
 /////////////////////////////////////////////////////////////
 
-var SpiralConfig = function (canvas, numPoints) {
+var SpiralConfig = function(canvas, numPoints) {
   this.canvas = canvas;
-  this.context = canvas.getContext('2d');
+  this.context = canvas.getContext("2d");
   this.canvasWidth = this.canvas.clientWidth;
   this.canvasHeight = this.canvas.clientHeight;
   this.centerX = this.canvasWidth / 2;
@@ -124,7 +119,7 @@ var SpiralConfig = function (canvas, numPoints) {
   this.nPoints = numPoints;
 };
 
-SpiralConfig.prototype.center = function () {
+SpiralConfig.prototype.center = function() {
   this.canvasWidth = this.canvas.clientWidth;
   this.canvasHeight = this.canvas.clientHeight;
   this.centerX = this.canvasWidth / 2;
@@ -133,17 +128,16 @@ SpiralConfig.prototype.center = function () {
   this.canvas.height = this.canvasHeight;
 };
 
-
 /////////////////////////////////////////////////////////////
 //////////////////////   Spiral     /////////////////////////
 /////////////////////////////////////////////////////////////
 
-var Spiral = function (offset, length) {
+var Spiral = function(offset, length) {
   this.angleOffset = offset;
   this.length = length;
 };
 
-Spiral.prototype.rotate = function (rotation, config, numPoints) {
+Spiral.prototype.rotate = function(rotation, config, numPoints) {
   var
     vectors = [],
     p = new Vec3(0, 0, 0),
@@ -160,8 +154,8 @@ Spiral.prototype.rotate = function (rotation, config, numPoints) {
 
   p.z = Math.cos(rotation) * 0.4 + 0.6;
   p.x = config.centerX + config.width * Math.sin(rotation);
-  p.y = config.centerY + middle * yStep;// * p.z;
-  config.context.lineCap = 'square';
+  p.y = config.centerY + middle * yStep; // * p.z;
+  config.context.lineCap = "square";
   config.context.beginPath();
   config.context.moveTo(p.x, p.y);
 
@@ -170,11 +164,11 @@ Spiral.prototype.rotate = function (rotation, config, numPoints) {
     z = Math.cos(angle) * 0.4 + 0.6;
     p = new Vec3(
       config.centerX + config.width * Math.sin(angle),
-      config.centerY + (i + middle) * yStep,// * z,
-      z
+      config.centerY + (i + middle) * yStep, // * z,
+      z,
     );
     config.context.lineWidth = z * 8 + 2;
-    config.context.strokeStyle = 'rgba(255,255,255,' + z + ')';
+    config.context.strokeStyle = "rgba(255,255,255," + z + ")";
     config.context.lineTo(p.x, p.y);
     config.context.stroke();
     config.context.beginPath();
@@ -187,7 +181,6 @@ Spiral.prototype.rotate = function (rotation, config, numPoints) {
   }
 
   return vectors;
-}
+};
 
 module.exports = SpiralMenu;
-

@@ -2,11 +2,11 @@ import React from 'react';
 import {VideoList} from '@src/components/video-list';
 import {PageOverlay} from '@src/components/page-overlay';
 import {SearchBox} from '@src/components/search-box';
-import {ReactVideoPlayer} from "@src/components/react-video-player";
-import {IDataVideo} from "@data/data-videos";
+import {ReactVideoPlayer} from '@src/components/react-video-player';
+import {IDataVideo} from '@data/data-videos';
 
 interface IProps {
-    initialData: IDataVideo[],
+    initialData: IDataVideo[];
     videosBaseUrl: string;
 }
 
@@ -47,7 +47,7 @@ class VideoListPage extends React.Component<IProps, IState> {
     openVideo = (video: IDataVideo) => {
         this.setState((state) => ({
             ...state,
-            selectedVideo: video
+            selectedVideo: video,
         }));
     }
 
@@ -70,7 +70,7 @@ class VideoListPage extends React.Component<IProps, IState> {
 
         let source_mp4, source_webm, poster = '';
         if (selectedVideo !== undefined) {
-            poster = this.props.videosBaseUrl + selectedVideo.video_id + ".jpg";
+            poster = this.props.videosBaseUrl + selectedVideo.video_id + '.jpg';
             source_mp4 = this.props.videosBaseUrl + selectedVideo.sources.mp4;
             source_webm = this.props.videosBaseUrl + selectedVideo.sources.webm;
         }
@@ -81,7 +81,7 @@ class VideoListPage extends React.Component<IProps, IState> {
                     <PageOverlay closeButton={true} onClose={() => { this.closeVideo(); }}>
                         <ReactVideoPlayer
                                      poster={poster}
-                                     onEnd={ () => {this.closeVideo();} }
+                                     onEnd={() => {this.closeVideo(); }}
                                      autoPlay={true}
                                      controls={true}
                         >

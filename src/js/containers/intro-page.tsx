@@ -1,8 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 //import {VideoPlayer} from '@src/components';
-import {PageOverlay} from "@src/components/page-overlay";
-import {ReactVideoPlayer} from "@src/components/react-video-player";
+import {PageOverlay} from '@src/components/page-overlay';
+import {ReactVideoPlayer} from '@src/components/react-video-player';
 
 interface IProps {
 

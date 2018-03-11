@@ -51,9 +51,9 @@ export class ReactVideoPlayer extends React.Component<IVideoPlayerProps, IVideoP
         return (
             <div className="video-player-ctn">
 
-                <Player preload='auto' playsInline={true} poster={poster} fluid={false} src={sourceUrl} autoPlay={autoPlay} {...otherAttributes}>
+                <Player preload="auto" playsInline={true} poster={poster} fluid={false} src={sourceUrl} autoPlay={autoPlay} {...otherAttributes}>
 
-                    { this.props.children }
+                    {this.props.children}
 
                     <ControlBar>
                         <ReplayControl seconds={10} order={1.1} />
@@ -74,5 +74,3 @@ export class ReactVideoPlayer extends React.Component<IVideoPlayerProps, IVideoP
     }
 
 }
-
-

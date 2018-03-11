@@ -1,13 +1,13 @@
 import React, {CSSProperties} from 'react';
 import spiralMenu from '@thirdparty/spiral.js';
-import {IDataMenu} from "@data/data-menu";
+import {IDataMenu} from '@data/data-menu';
 
 interface IProps {
-    jsonDataMenu: IDataMenu
+    jsonDataMenu: IDataMenu;
 }
 interface IState {
-    width: number | string,
-    height: number | string,
+    width: number | string;
+    height: number | string;
 }
 
 export default class HelixMenu extends React.Component<IProps, IState> {
@@ -37,12 +37,12 @@ export default class HelixMenu extends React.Component<IProps, IState> {
         // this.spiralMenu.onPageSelected((pageId) => { this.openPage(pageId) } );
 
         // 4. Size handlers (actually does not do the real thing)
-        window.addEventListener("resize", this.updateDimensions, false);
+        window.addEventListener('resize', this.updateDimensions, false);
         window.addEventListener('orientationchange', this.updateDimensions, false);
     }
 
     componentWillUnmount() {
-        window.removeEventListener("resize", this.updateDimensions);
+        window.removeEventListener('resize', this.updateDimensions);
         window.removeEventListener('orientationchange', this.updateDimensions);
 
         // TBD -
@@ -63,7 +63,7 @@ export default class HelixMenu extends React.Component<IProps, IState> {
             return {...prevState,
                 width: '100%', // nothing yet but could be window.innerWidth or parent size...
                 height: '100%',
-            }
+            };
         });
     }
 
@@ -93,7 +93,7 @@ export default class HelixMenu extends React.Component<IProps, IState> {
             left: 0,
             width: '100%',
             height: '100%',
-            cursor: 'pointer'
+            cursor: 'pointer',
         } as CSSProperties;
 
         return (

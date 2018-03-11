@@ -11,8 +11,8 @@ import IntroPage from '@src/containers/intro-page';
 import MenuPage from '@src/containers/menu-page';
 import NotFoundPage from '@src/containers/notfound-page';
 import VideoListPage from '@src/containers/video-list-page';
-import {AppConfig} from "@config/app-config";
-import PageListPage from "@src/containers/page-list-page";
+import {AppConfig} from '@config/app-config';
+import PageListPage from '@src/containers/page-list-page';
 
 interface IAppProps {
     appConfig: AppConfig;
@@ -42,7 +42,7 @@ class App extends React.Component<IAppProps, {}> {
                                         initialData={data.pages}
                                         videosBaseUrl={videos_base_url}
                                         {...props} />
-                                )
+                                );
                             }}/>
                             <Route exact={true} path="/video-list" render={(props) => (
                                 <VideoListPage initialData={data.videos} videosBaseUrl={videos_base_url} {...props} />

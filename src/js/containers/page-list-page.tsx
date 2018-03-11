@@ -1,8 +1,8 @@
 import React from 'react';
 import {PageOverlay} from '@src/components/page-overlay';
 import {SearchBox} from '@src/components/search-box';
-import {IDataPage} from "@data/data-pages";
-import PageList from "@src/components/page-list";
+import {IDataPage} from '@data/data-pages';
+import PageList from '@src/components/page-list';
 
 interface IProps {
     initialData: IDataPage[];
@@ -23,7 +23,7 @@ class PageListPage extends React.Component<IProps, IState> {
 
         this.state = {
             pages: this.props.initialData,
-            lang: this.props.lang
+            lang: this.props.lang,
         };
     }
 
