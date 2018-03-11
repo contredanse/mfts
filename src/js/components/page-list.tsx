@@ -94,7 +94,8 @@ export default class PageList extends React.Component<IProps, IState> {
                                             const videoCover = baseUrl + 'covers/' + video.video_id + '-01.jpg';
                                             return(
                                                 <div>
-                                                    <img src={videoCover} width="30px" />
+                                                    <img src={videoCover} title={video.video_id} />
+                                                    <p>{video.meta.duration}</p>
                                                 </div>
 
                                             )
