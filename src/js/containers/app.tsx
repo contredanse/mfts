@@ -35,7 +35,7 @@ class App extends React.Component<IAppProps, {}> {
                             <Route exact={true} path="/" component={HomePage}/>
                             <Route exact={true} path="/intro" component={IntroPage}/>
                             <Route exact={true} path="/menu" component={MenuPage}/>
-                            <Route exact={true} path="/page-list" component={(props) => {
+                            <Route exact={true} path="/page-list" render={(props) => {
                                 return (
                                     <PageListPage
                                         lang={lang}
@@ -44,7 +44,7 @@ class App extends React.Component<IAppProps, {}> {
                                         {...props} />
                                 )
                             }}/>
-                            <Route exact={true} path="/video-list" component={(props) => (
+                            <Route exact={true} path="/video-list" render={(props) => (
                                 <VideoListPage initialData={data.videos} videosBaseUrl={videos_base_url} {...props} />
                             )}/>
                             <Route component={NotFoundPage}/>
