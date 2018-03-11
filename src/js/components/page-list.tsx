@@ -1,8 +1,8 @@
 import * as React from 'react';
 import './page-list.scss';
-import {IDataPage, VideoOrEnOrFrOrVideosEntity1} from '@data/data-pages';
-import {CSSTransition, TransitionGroup} from 'react-transition-group';
-import {IDataVideo} from '@data/data-videos';
+import { IDataPage, VideoOrEnOrFrOrVideosEntity1 } from '@data/data-pages';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { IDataVideo } from '@data/data-videos';
 import dataVideos from '@data/data-videos.json';
 
 interface IProps {
@@ -12,18 +12,14 @@ interface IProps {
     onSelected?: (page: IDataPage) => void;
 }
 
-interface IState {
-
-}
+interface IState {}
 
 export default class PageList extends React.Component<IProps, IState> {
-
     handlePageClick(page: IDataPage) {
         //alert('page selected:' + page.id);
     }
 
     protected getVideo(video_id: string): IDataVideo {
-
         return dataVideos.filter((video: IDataVideo) => {
             return video.video_id === video_id;
         });
@@ -36,14 +32,7 @@ export default class PageList extends React.Component<IProps, IState> {
         console.log('pages', list);
 
         const Animate = ({ children, ...props }) => (
-            <CSSTransition
-                {...props}
-                enter={true}
-                appear={true}
-                exit={false}
-                timeout={1000}
-                classNames="fade"
-            >
+            <CSSTransition {...props} enter={true} appear={true} exit={false} timeout={1000} classNames="fade">
                 {children}
             </CSSTransition>
         );
@@ -52,69 +41,63 @@ export default class PageList extends React.Component<IProps, IState> {
         const baseUrl = this.props.baseUrl;
         return (
             <div>
-
                 <div className="page-list-wrapper">
-
                     <TransitionGroup className="grid-cards">
-                        { list && list.map((page) => {
-                            const {id, content} = page;
+                        {list &&
+                            list.map(page => {
+                                const { id, content } = page;
 
-                            let videos: IDataVideo[] = [];
-                            switch (content.layout) {
-                                case 'single-video':
-                                case 'single-video-audio':
-                                case 'single-video-audio_i18n':
-                                    videos[0] = this.getVideo((content.video as any).video_id)[0];
-                                    break;
-                                case 'single-i18n-video':
-                                    videos[0] = this.getVideo((content.video_i18n as any)[this.props.lang].video_id)[0];
-                                    break;
-                                case 'two-videos-only':
-                                case 'two-videos-audio-subs':
-                                case 'three-videos-only':
-                                case 'three-videos-audio-subs':
-                                    videos = (content.videos as VideoOrEnOrFrOrVideosEntity1[]).map((video) => {
-                                        return this.getVideo(video.video_id)[0];
-                                    });
-                                    break;
-                                default:
-                                    alert('error ' + content.layout + id);
-                            }
+                                let videos: IDataVideo[] = [];
+                                switch (content.layout) {
+                                    case 'single-video':
+                                    case 'single-video-audio':
+                                    case 'single-video-audio_i18n':
+                                        videos[0] = this.getVideo((content.video as any).video_id)[0];
+                                        break;
+                                    case 'single-i18n-video':
+                                        videos[0] = this.getVideo(
+                                            (content.video_i18n as any)[this.props.lang].video_id,
+                                        )[0];
+                                        break;
+                                    case 'two-videos-only':
+                                    case 'two-videos-audio-subs':
+                                    case 'three-videos-only':
+                                    case 'three-videos-audio-subs':
+                                        videos = (content.videos as VideoOrEnOrFrOrVideosEntity1[]).map(video => {
+                                            return this.getVideo(video.video_id)[0];
+                                        });
+                                        break;
+                                    default:
+                                        alert('error ' + content.layout + id);
+                                }
 
-                            const coverImg = baseUrl + 'covers/' + videos[0].video_id + '-02.jpg';
-                            return (
-                                <Animate key={id}>
-                                    <div className="card"
-                                         style={{backgroundImage: `url(${coverImg})`}} key={id} >
-                                        <h2>{id}</h2>
-                                        <div className="grid-page-thumbnail">
-                                        {videos.map((video) => {
-                                            const videoCover = baseUrl + 'covers/' + video.video_id + '-01.jpg';
-                                            return(
-                                                <div>
-                                                    <img src={videoCover} title={video.video_id} />
-                                                    <p>{video.meta.duration}</p>
-                                                </div>
-
-                                            );
-                                        })}
+                                const coverImg = baseUrl + 'covers/' + videos[0].video_id + '-02.jpg';
+                                return (
+                                    <Animate key={id}>
+                                        <div className="card" style={{ backgroundImage: `url(${coverImg})` }} key={id}>
+                                            <h2>{id}</h2>
+                                            <div className="grid-page-thumbnail">
+                                                {videos.map(video => {
+                                                    const videoCover = baseUrl + 'covers/' + video.video_id + '-01.jpg';
+                                                    return (
+                                                        <div>
+                                                            <img src={videoCover} title={video.video_id} />
+                                                            <p>{video.meta.duration}</p>
+                                                        </div>
+                                                    );
+                                                })}
+                                            </div>
                                         </div>
-
-                                    </div>
-                                </Animate>
-                            );
-                        })}
-
+                                    </Animate>
+                                );
+                            })}
                     </TransitionGroup>
-
                 </div>
 
                 <div>
                     <h2>Table of contents</h2>
                     {toc}
-
                 </div>
-
             </div>
         );
     }
@@ -123,25 +106,28 @@ export default class PageList extends React.Component<IProps, IState> {
         return (
             <table>
                 <thead>
-                <tr>
-                    <td></td>
-                    <td>Title</td>
-                    <td>Layout</td>
-                </tr>
+                    <tr>
+                        <td />
+                        <td>Title</td>
+                        <td>Layout</td>
+                    </tr>
                 </thead>
                 <tbody>
-                {list.map((page: IDataPage, idx: number) => (
-                    <tr key={page.id}>
-                        <td>{idx + 1}</td>
-                        <td onClick={e => {this.handlePageClick(page);}}>{page.title[this.props.lang]}</td>
-                        <td>{page.content.layout}</td>
-                    </tr>
-                ))}
+                    {list.map((page: IDataPage, idx: number) => (
+                        <tr key={page.id}>
+                            <td>{idx + 1}</td>
+                            <td
+                                onClick={e => {
+                                    this.handlePageClick(page);
+                                }}
+                            >
+                                {page.title[this.props.lang]}
+                            </td>
+                            <td>{page.content.layout}</td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
-
         );
-
     }
-
 }

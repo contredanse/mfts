@@ -1,13 +1,10 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-interface IProps {
+interface IProps {}
+interface IState {}
 
-}
-interface IState {
-}
-
-const LangSelector: React.SFC<any> = (props) => {
+const LangSelector: React.SFC<any> = props => {
     return (
         <div className="intro-lang-selection">
             <p>
@@ -21,7 +18,6 @@ const LangSelector: React.SFC<any> = (props) => {
 };
 
 class HomePage extends React.Component<IProps, IState> {
-
     constructor(props: IProps) {
         super(props);
     }
@@ -29,7 +25,7 @@ class HomePage extends React.Component<IProps, IState> {
     render() {
         return (
             <div className="full-page-slide-ctn">
-                <LangSelector/>
+                <LangSelector />
             </div>
         );
     }

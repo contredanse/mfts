@@ -1,7 +1,7 @@
 import React from 'react';
-import {PageOverlay} from '@src/components/page-overlay';
-import {SearchBox} from '@src/components/search-box';
-import {IDataPage} from '@data/data-pages';
+import { PageOverlay } from '@src/components/page-overlay';
+import { SearchBox } from '@src/components/search-box';
+import { IDataPage } from '@data/data-pages';
 import PageList from '@src/components/page-list';
 
 interface IProps {
@@ -17,7 +17,6 @@ interface IState {
 }
 
 class PageListPage extends React.Component<IProps, IState> {
-
     constructor(props: IProps) {
         super(props);
 
@@ -27,14 +26,19 @@ class PageListPage extends React.Component<IProps, IState> {
         };
     }
 
-    updateSearch = (e) => {
+    updateSearch = e => {
         e.preventDefault();
         const fragment = e.target.value;
         const regex = new RegExp(fragment, 'i');
         const filtered = this.props.initialData.filter((page: IDataPage, idx: number) => {
             const keywords = page.keywords[this.props.lang];
             if (keywords !== undefined) {
-                return keywords.join(' ').concat(page.content.layout).search(regex) > -1;
+                return (
+                    keywords
+                        .join(' ')
+                        .concat(page.content.layout)
+                        .search(regex) > -1
+                );
             }
             return false;
         });
@@ -42,19 +46,21 @@ class PageListPage extends React.Component<IProps, IState> {
             pages: filtered,
             searchFragment: fragment,
         });
-    }
+    };
 
     openPage = (pageId: string) => {
         this.setState((prevState): IState => ({
-            ...prevState, selectedPage: pageId,
+            ...prevState,
+            selectedPage: pageId,
         }));
-    }
+    };
 
     closeVideo = () => {
         this.setState((prevState): IState => ({
-            ...prevState, selectedPage: undefined,
+            ...prevState,
+            selectedPage: undefined,
         }));
-    }
+    };
 
     render(): JSX.Element {
         const { pages, selectedPage } = this.state;
@@ -68,11 +74,11 @@ class PageListPage extends React.Component<IProps, IState> {
         return (
             <PageOverlay>
                 <PageList baseUrl={this.props.videosBaseUrl} pages={pages} lang={this.state.lang} />
-                { selectedPage === undefined &&
+                {selectedPage === undefined && (
                     <div style={searchBoxStyle}>
-                        <SearchBox onChange={(e) => this.updateSearch(e)} />
+                        <SearchBox onChange={e => this.updateSearch(e)} />
                     </div>
-                }
+                )}
             </PageOverlay>
         );
     }

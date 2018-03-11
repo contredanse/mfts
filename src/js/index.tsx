@@ -8,14 +8,14 @@ import '@public/favicon.ico';
 import 'typeface-quicksand';
 
 import '@styles/style.scss';
-import {appConfig, AppConfig} from '@config/app-config';
+import { appConfig, AppConfig } from '@config/app-config';
 
 const renderApp = (App, appConfig: AppConfig, elementId: string) => {
     render(
         <ReduxProvider store={store}>
-            <App appConfig={appConfig}/>
+            <App appConfig={appConfig} />
         </ReduxProvider>,
-        document.getElementById(elementId)
+        document.getElementById(elementId),
     );
 };
 console.log('appConfig', appConfig);

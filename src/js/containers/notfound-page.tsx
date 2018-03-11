@@ -1,19 +1,13 @@
 import React from 'react';
 
-interface IProps {
+interface IProps {}
+interface IState {}
 
-}
-interface IState {
-}
-
-export const NotFoundComponent: React.SFC<{}> = (props) => {
-    return(
-        <h1 style={{color: 'red'}}>Page not found!</h1>
-    );
+export const NotFoundComponent: React.SFC<{}> = props => {
+    return <h1 style={{ color: 'red' }}>Page not found!</h1>;
 };
 
 class NotFoundPage extends React.Component<IProps, IState> {
-
     constructor(props: IProps) {
         super(props);
     }
@@ -21,7 +15,7 @@ class NotFoundPage extends React.Component<IProps, IState> {
     render() {
         return (
             <div>
-                <NotFoundComponent/>
+                <NotFoundComponent />
             </div>
         );
     }

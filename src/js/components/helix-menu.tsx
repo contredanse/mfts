@@ -1,6 +1,6 @@
-import React, {CSSProperties} from 'react';
+import React, { CSSProperties } from 'react';
 import spiralMenu from '@thirdparty/spiral.js';
-import {IDataMenu} from '@data/data-menu';
+import { IDataMenu } from '@data/data-menu';
 
 interface IProps {
     jsonDataMenu: IDataMenu;
@@ -11,15 +11,14 @@ interface IState {
 }
 
 export default class HelixMenu extends React.Component<IProps, IState> {
-
     canvas: HTMLCanvasElement;
     spiralMenu: any;
 
     constructor(props) {
         super(props);
         this.state = {
-           width: '100%', // imagine this defaults for now
-           height: '100%',
+            width: '100%', // imagine this defaults for now
+            height: '100%',
         };
     }
 
@@ -31,7 +30,7 @@ export default class HelixMenu extends React.Component<IProps, IState> {
         console.log('jsonDataMenu.rightSpiral', jsonDataMenu[1]);
 
         // 2. Call the spiral menu (automatically renders... maybe better an object)
-        this.spiralMenu = spiralMenu( this.canvas );
+        this.spiralMenu = spiralMenu(this.canvas);
 
         // 3. TBD - handlers
         // this.spiralMenu.onPageSelected((pageId) => { this.openPage(pageId) } );
@@ -60,20 +59,20 @@ export default class HelixMenu extends React.Component<IProps, IState> {
     updateDimensions = () => {
         // Just as an example
         this.setState((prevState: IState): IState => {
-            return {...prevState,
+            return {
+                ...prevState,
                 width: '100%', // nothing yet but could be window.innerWidth or parent size...
                 height: '100%',
             };
         });
-    }
+    };
 
     openPage = (pageId: string): void => {
         alert(`We are going to page ${pageId}, but only at a later point :)`);
         // this.props.openPage(pageId) ?
-    }
+    };
 
     render() {
-
         // TBD:
         // - Who's in charge of the canvasWidth / canvasHeight
         // - For now I let the styles here as plain objects
@@ -98,7 +97,12 @@ export default class HelixMenu extends React.Component<IProps, IState> {
 
         return (
             <div style={spiralContainerStyle}>
-                <canvas style={spiralStyle} ref={(node: HTMLCanvasElement) => { this.canvas = node; }} />
+                <canvas
+                    style={spiralStyle}
+                    ref={(node: HTMLCanvasElement) => {
+                        this.canvas = node;
+                    }}
+                />
             </div>
         );
     }

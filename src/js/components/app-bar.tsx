@@ -8,11 +8,11 @@ import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import IconButton from 'material-ui/IconButton';
 import Button from 'material-ui/Button';
-import {WithStyles} from 'material-ui';
+import { WithStyles } from 'material-ui';
 import MenuIcon from 'material-ui-icons/Menu';
 import withStyles from 'material-ui/styles/withStyles';
-import {Link} from 'react-router-dom';
-import {RouteComponentProps} from 'react-router';
+import { Link } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router';
 
 type ComponentClassNames = 'root' | 'flex' | 'menuButton';
 const styles = {
@@ -41,24 +41,24 @@ interface IAppMenuProps {
 
 export type AppMenuProps = IAppMenuProps & RouteComponentProps<{}> & WithStyles<ComponentClassNames>;
 
-export const AppBarComponent: React.SFC<AppMenuProps> = (props) => {
-
-    const {classes} = props;
+export const AppBarComponent: React.SFC<AppMenuProps> = props => {
+    const { classes } = props;
     const currentPath = props.location.pathname;
 
-    const menuItems: MenuLinkProps[]  = [
-        {path: '/', label: 'Home'},
-        {path: '/page-list', label: 'Pages'},
-        {path: '/video-list', label: 'Videos'},
+    const menuItems: MenuLinkProps[] = [
+        { path: '/', label: 'Home' },
+        { path: '/page-list', label: 'Pages' },
+        { path: '/video-list', label: 'Videos' },
     ].map((menuLinkProps: MenuLinkProps) => {
-        return {...menuLinkProps, active: (currentPath == menuLinkProps.path)};
+        return { ...menuLinkProps, active: currentPath == menuLinkProps.path };
     });
 
     const LinkItem = (props: MenuLinkProps) => {
         return (
-            <Button color="inherit"
-                    variant={props.active ? 'raised' : undefined}
-                    component={(btnProps) => <Link to={props.path} {...btnProps} />}
+            <Button
+                color="inherit"
+                variant={props.active ? 'raised' : undefined}
+                component={btnProps => <Link to={props.path} {...btnProps} />}
             >
                 {props.label}
             </Button>
@@ -69,21 +69,24 @@ export const AppBarComponent: React.SFC<AppMenuProps> = (props) => {
 
     return (
         <div className={classes.root}>
-            <MaterialAppBar position="fixed" style={{backgroundColor: 'transparent'}}>
+            <MaterialAppBar position="fixed" style={{ backgroundColor: 'transparent' }}>
                 <Toolbar>
-                    <IconButton className={classes.menuButton}
-                                color="inherit"
-                                aria-label="Menu"
-                                onClick={() => { history.push('/menu'); }}>
+                    <IconButton
+                        className={classes.menuButton}
+                        color="inherit"
+                        aria-label="Menu"
+                        onClick={() => {
+                            history.push('/menu');
+                        }}
+                    >
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="title" color="inherit" className={classes.flex}>
                         {props.title}
                     </Typography>
-                    {menuItems.map(({path, label, active}) => { return (
-                            <LinkItem key={path} path={path} label={label} active={active} />
-                        ); }
-                    )}
+                    {menuItems.map(({ path, label, active }) => {
+                        return <LinkItem key={path} path={path} label={label} active={active} />;
+                    })}
                 </Toolbar>
             </MaterialAppBar>
         </div>

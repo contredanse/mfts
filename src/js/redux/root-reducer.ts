@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import { routerReducer, RouterState } from 'react-router-redux';
 
-interface StoreEnhancerState { }
+interface StoreEnhancerState {}
 
 export interface RootState extends StoreEnhancerState {
     router: RouterState;

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './video-player.scss';
-import {HTMLAttributes} from 'react';
+import { HTMLAttributes } from 'react';
 
 export interface IVideoPlayerProps {
     sourceUrl: string;
@@ -13,12 +13,9 @@ export interface IVideoPlayerProps {
     htmlAttributes?: HTMLAttributes<HTMLVideoElement>;
 }
 
-export interface IVideoPlayerState {
-
-}
+export interface IVideoPlayerState {}
 
 export class VideoPlayer extends React.Component<IVideoPlayerProps, IVideoPlayerState> {
-
     videoNode: HTMLVideoElement;
 
     public static defaultProps: Partial<IVideoPlayerProps> = {
@@ -33,7 +30,6 @@ export class VideoPlayer extends React.Component<IVideoPlayerProps, IVideoPlayer
         if (this.props.onEnd !== undefined) {
             this.videoNode.addEventListener('ended', this.props.onEnd, false);
         }
-
     }
 
     componentWillUnmount() {
@@ -43,20 +39,22 @@ export class VideoPlayer extends React.Component<IVideoPlayerProps, IVideoPlayer
     }
 
     render() {
-        const {sourceUrl, autoPlay, muted, controls, htmlAttributes} = this.props;
+        const { sourceUrl, autoPlay, muted, controls, htmlAttributes } = this.props;
         return (
             <div className="video-player-ctn">
-                <video ref={(node: HTMLVideoElement) => {this.videoNode = node; }}
-                       src={sourceUrl}
-                       autoPlay={autoPlay}
-                       muted={muted}
-                       controls={controls}
-                       /*crossOrigin="anonymous"*/
-                       webkit-playsinline="webkit-playsinline"
-                       {...htmlAttributes}
+                <video
+                    ref={(node: HTMLVideoElement) => {
+                        this.videoNode = node;
+                    }}
+                    src={sourceUrl}
+                    autoPlay={autoPlay}
+                    muted={muted}
+                    controls={controls}
+                    /*crossOrigin="anonymous"*/
+                    webkit-playsinline="webkit-playsinline"
+                    {...htmlAttributes}
                 />
             </div>
         );
     }
-
 }

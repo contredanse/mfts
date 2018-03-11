@@ -13,7 +13,7 @@ export class SearchBox extends React.Component<IProps & React.HTMLAttributes<HTM
         placeHolder: 'search',
     };
     render() {
-        const { placeHolder, value, ...restProps} = this.props;
+        const { placeHolder, value, ...restProps } = this.props;
         return (
             <div className="search-box-ctn">
                 <input className="search" value={value} type="search" placeholder={placeHolder} {...restProps} />
