@@ -41,6 +41,7 @@
     "@types/react-router-redux": "^5.0.12",
     "@types/react-transition-group": "^2.0.7",
     "@types/source-map-support": "^0.4.0",
+    "@types/tapable": "ts2.7",
     "@types/webpack-env": "^1.13.5",
     "autoprefixer": "^8.1.0",
     "awesome-typescript-loader": "^3.4.1",
@@ -126,6 +127,9 @@
     "typeface-quicksand": "^0.0.54",
     "typeface-roboto": "^0.0.54",
     "video-react": "^0.10.3"
+  },
+  "resolutions": {
+    "@types/tapable": "ts2.7"
   },
   "devEngines": {
     "npm": ">=5.x",
