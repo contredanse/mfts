@@ -8,8 +8,10 @@
   },
   "rules": {
     // For dev-only
-    "no-console": [true, "console.log", "console.error"],
+    //"no-console": [true, "console.log", "console.error"],
     // end for dev-only
+    "no-any": false, // if possible set to true
+    "no-console": true,
     "arrow-parens": false,
     "arrow-return-shorthand": [false],
     "comment-format": [true],
@@ -20,7 +22,6 @@
     "member-access": false,
     "member-ordering": [true, { "order": "fields-first" }],
     "newline-before-return": false,
-    "no-any": false,
     "no-empty-interface": false,
     "no-import-side-effect": [true, { "ignore-pattern": "/*.css/" } ],
     "no-inferrable-types": [true, "ignore-params", "ignore-properties"],
