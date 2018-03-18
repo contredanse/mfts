@@ -35,11 +35,13 @@
     "moduleResolution": "node",
     "noEmitOnError": true,
     "noFallthroughCasesInSwitch": true,
-    // For debug when using react-gl. Typings does not exists yet
-    "noImplicitAny": false,
+    // During dev those 3 params are set to false
+    // They'll be checked in ts-lint
+    "noImplicitAny": false,       // For librairies that does not have typings
+    "noUnusedLocals": false,      // Helps dev with hot-reload (imports)
+    "noUnusedParameters": false,   // Helps dev with hot-reload (unused variables)
     "noImplicitReturns": true,
     "noImplicitThis": true,
-    "noUnusedLocals": true,
     "strict": true,
     "strictFunctionTypes": false,
     // better for using Three.js (for now)
