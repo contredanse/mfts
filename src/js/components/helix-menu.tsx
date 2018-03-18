@@ -11,7 +11,7 @@ interface IState {
 }
 
 export default class HelixMenu extends React.Component<IProps, IState> {
-    canvas: HTMLCanvasElement;
+    canvas!: HTMLCanvasElement;
     spiralMenu: any;
 
     constructor(props) {

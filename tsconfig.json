@@ -45,7 +45,7 @@
     "strict": true,
     "strictFunctionTypes": false,
     // better for using Three.js (for now)
-    "strictPropertyInitialization": false,
+    "strictPropertyInitialization": true,
     "pretty": true,
     "removeComments": true,
     "sourceMap": true

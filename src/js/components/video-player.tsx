@@ -24,7 +24,7 @@ export class VideoPlayer extends React.Component<IVideoPlayerProps, IVideoPlayer
         htmlAttributes: {},
     };
 
-    videoNode: HTMLVideoElement;
+    videoNode!: HTMLVideoElement;
 
     componentDidMount() {
         if (this.props.onEnd !== undefined) {

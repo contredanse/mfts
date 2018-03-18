@@ -38,7 +38,7 @@ export class ReactVideoPlayer extends React.Component<IVideoPlayerProps, IVideoP
         htmlAttributes: {},
     };
 
-    videoNode: HTMLVideoElement;
+    videoNode!: HTMLVideoElement;
 
     render() {
         //const {sourceUrl, autoPlay, muted, controls, htmlAttributes} = this.props;
