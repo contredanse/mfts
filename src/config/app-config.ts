@@ -7,7 +7,7 @@ import dataPages from '@data/data-pages.json';
 
 const isProduction = true;
 
-const assets_base_url = 'http://soluble.io/mfts/assets/';
+const assetsBaseUrl = 'http://soluble.io/mfts/assets/';
 
 if (!isProduction) {
     // Change some params here if needed
@@ -24,11 +24,11 @@ export class AppConfig {
     }
 
     getAssetsBaseUrl(): string {
-        return this.config.assets_base_url;
+        return this.config.assetsBaseUrl;
     }
 
     getVideosBaseUrl(): string {
-        return this.config.videos_base_url;
+        return this.config.videosBaseUrl;
     }
 
     getAppData(): IAppDataConfig {
@@ -43,14 +43,14 @@ export interface IAppDataConfig {
 }
 
 export interface IAppConfig {
-    assets_base_url: string;
-    videos_base_url: string;
+    assetsBaseUrl: string;
+    videosBaseUrl: string;
     data: IAppDataConfig;
 }
 
 export const appConfig = new AppConfig({
-    assets_base_url: assets_base_url,
-    videos_base_url: assets_base_url + 'videos/',
+    assetsBaseUrl: assetsBaseUrl,
+    videosBaseUrl: assetsBaseUrl + 'videos/',
     data: {
         menu: dataMenu,
         pages: dataPages,

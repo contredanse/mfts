@@ -16,7 +16,9 @@ export default class IntroPage extends React.Component<IProps, IState> {
         alert('end of the video -> where to go next ?');
     }
 
-    closeIntro(): void {}
+    closeIntro(): void {
+        alert('todo');
+    }
 
     render() {
         const videoUrl = 'http://soluble.io/mfts/assets/new_intro.mp4';

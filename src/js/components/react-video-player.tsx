@@ -30,8 +30,6 @@ export interface IVideoPlayerProps {
 export interface IVideoPlayerState {}
 
 export class ReactVideoPlayer extends React.Component<IVideoPlayerProps, IVideoPlayerState> {
-    videoNode: HTMLVideoElement;
-
     public static defaultProps: Partial<IVideoPlayerProps> = {
         autoPlay: true,
         muted: false,
@@ -39,6 +37,8 @@ export class ReactVideoPlayer extends React.Component<IVideoPlayerProps, IVideoP
         controls: false,
         htmlAttributes: {},
     };
+
+    videoNode: HTMLVideoElement;
 
     render() {
         //const {sourceUrl, autoPlay, muted, controls, htmlAttributes} = this.props;

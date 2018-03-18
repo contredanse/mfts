@@ -20,7 +20,7 @@ interface IAppProps {
 
 class App extends React.Component<IAppProps, {}> {
     public render(): React.ReactElement<App> {
-        const { videos_base_url, data } = this.props.appConfig.getConfig();
+        const { videosBaseUrl, data } = this.props.appConfig.getConfig();
         const lang = 'en';
         return (
             <ConnectedRouter history={history}>
@@ -41,7 +41,7 @@ class App extends React.Component<IAppProps, {}> {
                                         <PageListPage
                                             lang={lang}
                                             initialData={data.pages}
-                                            videosBaseUrl={videos_base_url}
+                                            videosBaseUrl={videosBaseUrl}
                                             {...props}
                                         />
                                     );
@@ -51,11 +51,7 @@ class App extends React.Component<IAppProps, {}> {
                                 exact={true}
                                 path="/video-list"
                                 render={props => (
-                                    <VideoListPage
-                                        initialData={data.videos}
-                                        videosBaseUrl={videos_base_url}
-                                        {...props}
-                                    />
+                                    <VideoListPage initialData={data.videos} videosBaseUrl={videosBaseUrl} {...props} />
                                 )}
                             />
                             <Route component={NotFoundPage} />

@@ -74,7 +74,7 @@ export default class PageList extends React.Component<IProps, IState> {
                                                 {videos.map(video => {
                                                     const videoCover = `${baseUrl}covers/${videos[0].video_id}-01.jpg`;
                                                     return (
-                                                        <div>
+                                                        <div key={video.video_id}>
                                                             <img src={videoCover} title={video.video_id} />
                                                             <p>{video.meta.duration}</p>
                                                         </div>
