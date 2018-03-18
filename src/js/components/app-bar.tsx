@@ -9,7 +9,7 @@ import Typography from 'material-ui/Typography';
 import IconButton from 'material-ui/IconButton';
 import Button from 'material-ui/Button';
 import { WithStyles } from 'material-ui';
-import { Menu as MenuIcon } from 'material-ui-icons';
+import MenuIcon from 'material-ui-icons/Menu';
 import withStyles from 'material-ui/styles/withStyles';
 import { Link } from 'react-router-dom';
 import { RouteComponentProps } from 'react-router';
