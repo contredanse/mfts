@@ -17,7 +17,7 @@ const LangSelector: React.SFC<any> = props => {
     );
 };
 
-class HomePage extends React.Component<IProps, IState> {
+class HomeContainer extends React.Component<IProps, IState> {
     constructor(props: IProps) {
         super(props);
     }
@@ -31,4 +31,4 @@ class HomePage extends React.Component<IProps, IState> {
     }
 }
 
-export default HomePage;
+export default HomeContainer;

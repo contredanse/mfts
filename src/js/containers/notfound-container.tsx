@@ -7,7 +7,7 @@ export const NotFoundComponent: React.SFC<{}> = props => {
     return <h1 style={{ color: 'red' }}>Page not found!</h1>;
 };
 
-class NotFoundPage extends React.Component<IProps, IState> {
+class NotFoundContainer extends React.Component<IProps, IState> {
     constructor(props: IProps) {
         super(props);
     }
@@ -21,4 +21,4 @@ class NotFoundPage extends React.Component<IProps, IState> {
     }
 }
 
-export default NotFoundPage;
+export default NotFoundContainer;

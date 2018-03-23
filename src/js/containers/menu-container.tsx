@@ -6,7 +6,7 @@ import jsonMenuData from '@data/data-menu.json';
 interface IProps {}
 interface IState {}
 
-class MenuPage extends React.Component<IProps, IState> {
+class MenuContainer extends React.Component<IProps, IState> {
     render() {
         return (
             <div style={{ textAlign: 'center' }}>
@@ -17,4 +17,4 @@ class MenuPage extends React.Component<IProps, IState> {
     }
 }
 
-export default MenuPage;
+export default MenuContainer;

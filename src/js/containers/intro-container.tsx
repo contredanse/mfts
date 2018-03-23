@@ -7,7 +7,7 @@ import { ReactVideoPlayer } from '@src/components/react-video-player';
 interface IProps {}
 interface IState {}
 
-export default class IntroPage extends React.Component<IProps, IState> {
+export default class IntroContainer extends React.Component<IProps, IState> {
     constructor(props: IProps) {
         super(props);
     }
