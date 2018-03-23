@@ -15,15 +15,19 @@ interface IProps {
 interface IState {}
 
 export default class PageList extends React.Component<IProps, IState> {
-    handlePageClick(page: IDataPage) {
-        //alert('page selected:' + page.id);
+
+    handlePageSelection(page: IDataPage) {
+        console.log('pageSelected', page)
+        if (this.props.onSelected !== undefined) {
+            this.props.onSelected(page);
+        }
     }
 
     render() {
         const list = this.props.pages;
         //const {baseUrl, onSelected} = this.props;
 
-        console.log('pages', list);
+        //console.log('pages', list);
 
         const Animate = ({ children, ...props }) => (
             <CSSTransition {...props} enter={true} appear={true} exit={false} timeout={1000} classNames="fade">
@@ -39,7 +43,7 @@ export default class PageList extends React.Component<IProps, IState> {
                     <TransitionGroup className="grid-cards">
                         {list &&
                             list.map(page => {
-                                const { id, content } = page;
+                                const { id: pageId, content } = page;
 
                                 let videos: IDataVideo[] = [];
                                 switch (content.layout) {
@@ -62,14 +66,14 @@ export default class PageList extends React.Component<IProps, IState> {
                                         });
                                         break;
                                     default:
-                                        alert(`error${content.layout}${id}`);
+                                        alert(`error${content.layout}${pageId}`);
                                 }
 
                                 const coverImg = `${baseUrl}covers/${videos[0].video_id}-02.jpg`;
                                 return (
-                                    <Animate key={id}>
-                                        <div className="card" style={{ backgroundImage: `url(${coverImg})` }} key={id}>
-                                            <h2>{id}</h2>
+                                    <Animate key={pageId}>
+                                        <div className="card" style={{ backgroundImage: `url(${coverImg})` }} key={pageId} onClick={() => this.handlePageSelection(page)}>
+                                            <h2>{pageId}</h2>
                                             <div className="grid-page-thumbnail">
                                                 {videos.map(video => {
                                                     const videoCover = `${baseUrl}covers/${videos[0].video_id}-01.jpg`;
@@ -111,8 +115,8 @@ export default class PageList extends React.Component<IProps, IState> {
                         <tr key={page.id}>
                             <td>{idx + 1}</td>
                             <td
-                                onClick={e => {
-                                    this.handlePageClick(page);
+                                onClick={() => {
+                                    this.handlePageSelection(page);
                                 }}
                             >
                                 {page.title[this.props.lang]}
