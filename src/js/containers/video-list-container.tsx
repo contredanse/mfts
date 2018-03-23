@@ -16,7 +16,7 @@ interface IState {
     searchFragment?: string;
 }
 
-class VideoListPage extends React.Component<IProps, IState> {
+class VideoListContainer extends React.Component<IProps, IState> {
     public static defaultProps = {};
 
     constructor(props: IProps) {
@@ -116,4 +116,4 @@ class VideoListPage extends React.Component<IProps, IState> {
     }
 }
 
-export default VideoListPage;
+export default VideoListContainer;
