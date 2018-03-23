@@ -47,6 +47,7 @@ export class PageOverlay extends React.Component<IProps, IState> {
 
         return (
             <div className="page-overlay-viewport">
+
                 <div className="page-overlay-ctn">
                     {closeButton === true && (
                         <div className="top-bar">

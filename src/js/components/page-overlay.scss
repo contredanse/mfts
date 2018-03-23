@@ -17,21 +17,27 @@ $overlay-top-margin: 60px;
   z-index: 1000;
 
   overflow: hidden;
-  display: flex;
+
+
   background-color: black;
 
+  display: flex;
   .page-overlay-ctn {
+    //display: flex;
+    //flex-flow: column;
+    width: 100%;
+    overflow-y: auto;
+
     .top-bar {
       float: right;
-      position: relative;
-      margin-top: 10px;
-      margin-right: 10px;
-      overflow: hidden;
+      position: absolute;
+      z-index: 200;
+      display: inline-flex;
+      justify-content: flex-end;
       .close-button {
 
       }
     }
-    width: 100%;
-    overflow-y: auto;
+
   }
 }
