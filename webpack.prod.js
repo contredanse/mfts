@@ -33,9 +33,24 @@ module.exports = merge(common, {
           fallback: 'style-loader',
           //resolve-url-loader may be chained before sass-loader if necessary
           use: [{
-            loader: "css-loader" // translates CSS into CommonJS
-          }, {
-            loader: "sass-loader" // compiles Sass to CSS
+            loader: "css-loader", // translates CSS into CommonJS
+            options: {
+              sourceMap: true,
+              importLoaders: 1
+            }
+          },{
+            // Runs compiled CSS through postcss for vendor prefixing
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true
+            }
+          },{
+            loader: "sass-loader", // compiles Sass to CSS
+            options: {
+              outputStyle: 'expanded',
+              sourceMap: true,
+              sourceMapContents: true
+            }
           }]
         })
       }
