@@ -7,7 +7,7 @@ import dataPages from '@data/data-pages.json';
 
 const isProduction = true;
 
-const assetsBaseUrl = 'http://soluble.io/mfts/assets/';
+const assetsBaseUrl = 'https://soluble.io/mfts/assets/';
 
 if (!isProduction) {
     // Change some params here if needed
