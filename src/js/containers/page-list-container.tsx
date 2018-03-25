@@ -3,7 +3,7 @@ import { PageOverlay } from '@src/components/page-overlay';
 import { SearchBox } from '@src/components/search-box';
 import { IDataPage } from '@data/data-pages';
 import PageList from '@src/components/page-list';
-import Page from "@src/components/page";
+import Page from '@src/components/page';
 
 interface IProps {
     initialData: IDataPage[];
@@ -74,7 +74,6 @@ class PageListContainer extends React.Component<IProps, IState> {
 
         return (
             <PageOverlay>
-
                 {selectedPage && (
                     <PageOverlay
                         closeButton={true}
@@ -82,14 +81,16 @@ class PageListContainer extends React.Component<IProps, IState> {
                             this.closePage();
                         }}
                     >
-                        <Page page={selectedPage}/>
+                        <Page page={selectedPage} />
                     </PageOverlay>
                 )}
 
-                <PageList baseUrl={this.props.videosBaseUrl}
-                          pages={pages}
-                          lang={this.state.lang}
-                          onSelected={page => this.openPage(page)}/>
+                <PageList
+                    baseUrl={this.props.videosBaseUrl}
+                    pages={pages}
+                    lang={this.state.lang}
+                    onSelected={page => this.openPage(page)}
+                />
                 {selectedPage === undefined && (
                     <div style={searchBoxStyle}>
                         <SearchBox onChange={e => this.updateSearch(e)} />

@@ -15,9 +15,8 @@ interface IProps {
 interface IState {}
 
 export default class PageList extends React.Component<IProps, IState> {
-
     handlePageSelection(page: IDataPage) {
-        console.log('pageSelected', page)
+        console.log('pageSelected', page);
         if (this.props.onSelected !== undefined) {
             this.props.onSelected(page);
         }
@@ -72,7 +71,12 @@ export default class PageList extends React.Component<IProps, IState> {
                                 const coverImg = `${baseUrl}covers/${videos[0].video_id}-02.jpg`;
                                 return (
                                     <Animate key={pageId}>
-                                        <div className="card" style={{ backgroundImage: `url(${coverImg})` }} key={pageId} onClick={() => this.handlePageSelection(page)}>
+                                        <div
+                                            className="card"
+                                            style={{ backgroundImage: `url(${coverImg})` }}
+                                            key={pageId}
+                                            onClick={() => this.handlePageSelection(page)}
+                                        >
                                             <h2>{pageId}</h2>
                                             <div className="grid-page-thumbnail">
                                                 {videos.map(video => {

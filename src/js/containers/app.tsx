@@ -4,7 +4,7 @@ import { ConnectedRouter } from 'react-router-redux';
 import { Route } from 'react-router-dom';
 import { history } from '@src/store';
 
-import {RouteComponentProps, Switch} from 'react-router';
+import { RouteComponentProps, Switch } from 'react-router';
 import { AppBarConnected } from '@src/components/app-bar-connected';
 import HomePage from '@src/containers/home-container';
 import IntroPage from '@src/containers/intro-container';
@@ -13,7 +13,7 @@ import NotFoundPage from '@src/containers/notfound-container';
 import VideoListPage from '@src/containers/video-list-container';
 import { AppConfig } from '@config/app-config';
 import PageListPage from '@src/containers/page-list-container';
-import PageContainer from "@src/containers/page-container";
+import PageContainer from '@src/containers/page-container';
 
 interface IAppProps {
     appConfig: AppConfig;
@@ -60,10 +60,8 @@ class App extends React.Component<IAppProps, {}> {
                                 path="/page/:pageId"
                                 render={(props: RouteComponentProps<any>) => {
                                     console.log('params', props);
-                                    const {params} = props.match;
-                                    return (
-                                        <PageContainer pageId={params.pageId} />
-                                    )
+                                    const { params } = props.match;
+                                    return <PageContainer pageId={params.pageId} />;
                                 }}
                             />
                             <Route component={NotFoundPage} />
