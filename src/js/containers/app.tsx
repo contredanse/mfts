@@ -6,13 +6,13 @@ import { history } from '@src/store';
 
 import { RouteComponentProps, Switch } from 'react-router';
 import { AppBarConnected } from '@src/components/app-bar-connected';
-import HomePage from '@src/containers/home-container';
-import IntroPage from '@src/containers/intro-container';
-import MenuPage from '@src/containers/menu-container';
-import NotFoundPage from '@src/containers/notfound-container';
-import VideoListPage from '@src/containers/video-list-container';
+import HomeContainer from '@src/containers/home-container';
+import IntroContainer from '@src/containers/intro-container';
+import MenuContainer from '@src/containers/menu-container';
+import NotFoundContainer from '@src/containers/notfound-container';
+import VideoListContainer from '@src/containers/video-list-container';
 import { AppConfig } from '@config/app-config';
-import PageListPage from '@src/containers/page-list-container';
+import PageListContainer from '@src/containers/page-list-container';
 import PageContainer from '@src/containers/page-container';
 
 interface IAppProps {
@@ -31,15 +31,15 @@ class App extends React.Component<IAppProps, {}> {
                     </header>
                     <main>
                         <Switch>
-                            <Route exact={true} path="/" component={HomePage} />
-                            <Route exact={true} path="/intro" component={IntroPage} />
-                            <Route exact={true} path="/menu" component={MenuPage} />
+                            <Route exact={true} path="/" component={HomeContainer} />
+                            <Route exact={true} path="/intro" component={IntroContainer} />
+                            <Route exact={true} path="/menu" component={MenuContainer} />
                             <Route
                                 exact={true}
                                 path="/page-list"
                                 render={props => {
                                     return (
-                                        <PageListPage
+                                        <PageListContainer
                                             lang={lang}
                                             initialData={data.pages}
                                             videosBaseUrl={videosBaseUrl}
@@ -52,7 +52,7 @@ class App extends React.Component<IAppProps, {}> {
                                 exact={true}
                                 path="/video-list"
                                 render={props => (
-                                    <VideoListPage initialData={data.videos} videosBaseUrl={videosBaseUrl} {...props} />
+                                    <VideoListContainer initialData={data.videos} videosBaseUrl={videosBaseUrl} {...props} />
                                 )}
                             />
                             <Route
@@ -64,7 +64,7 @@ class App extends React.Component<IAppProps, {}> {
                                     return <PageContainer pageId={params.pageId} />;
                                 }}
                             />
-                            <Route component={NotFoundPage} />
+                            <Route component={NotFoundContainer} />
                         </Switch>
                     </main>
                 </div>

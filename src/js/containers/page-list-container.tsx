@@ -4,6 +4,8 @@ import { SearchBox } from '@src/components/search-box';
 import { IDataPage } from '@data/data-pages';
 import PageList from '@src/components/page-list';
 import Page from '@src/components/page';
+import { withRouter } from 'react-router-dom'
+import {RouteComponentProps} from "react-router";
 
 interface IProps {
     initialData: IDataPage[];
@@ -17,8 +19,8 @@ interface IState {
     searchFragment?: string;
 }
 
-class PageListContainer extends React.Component<IProps, IState> {
-    constructor(props: IProps) {
+class PageListContainer extends React.Component<IProps & RouteComponentProps<any>, IState> {
+    constructor(props) {
         super(props);
 
         this.state = {
@@ -50,10 +52,14 @@ class PageListContainer extends React.Component<IProps, IState> {
     };
 
     openPage = (page: IDataPage) => {
+        this.props.history.push(`/page/${page.id}`);
+        /*
         this.setState((prevState): IState => ({
             ...prevState,
             selectedPage: page,
         }));
+        */
+
     };
 
     closePage = () => {
@@ -74,16 +80,16 @@ class PageListContainer extends React.Component<IProps, IState> {
 
         return (
             <PageOverlay>
-                {selectedPage && (
+                {/*selectedPage && (
                     <PageOverlay
                         closeButton={true}
                         onClose={() => {
                             this.closePage();
                         }}
                     >
-                        <Page page={selectedPage} />
+                        <Page pageId={selectedPage.id} />
                     </PageOverlay>
-                )}
+                )*/}
 
                 <PageList
                     baseUrl={this.props.videosBaseUrl}
@@ -101,4 +107,5 @@ class PageListContainer extends React.Component<IProps, IState> {
     }
 }
 
-export default PageListContainer;
+//export default withRouter<IProps & RouteComponentProps<any>>(PageListContainer);
+export default withRouter(PageListContainer) as typeof PageListContainer;

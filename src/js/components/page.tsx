@@ -1,15 +1,20 @@
 import * as React from 'react';
 import './page.scss';
 import { IDataPage } from '@data/data-pages';
+import {PageOverlay} from "@src/components/page-overlay";
 
 interface IProps {
-    page: IDataPage;
+    pageId: string;
 }
 
 interface IState {}
 
 export default class Page extends React.Component<IProps, IState> {
     render() {
-        return <div className="page-wrapper">Page</div>;
+        return (
+            <PageOverlay closeButton={false}>
+                <div className="page-wrapper">Page {this.props.pageId}</div>
+            </PageOverlay>
+        )
     }
 }

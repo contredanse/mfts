@@ -15,7 +15,8 @@ class PageContainer extends React.Component<IProps, IState> {
     componentDidMount() {}
 
     render() {
-        return <div>cool {this.props.pageId}</div>;
+        return (<Page pageId={this.props.pageId}/>);
+
     }
 }
 
