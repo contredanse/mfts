@@ -1,21 +1,21 @@
 ﻿export interface IDataMenu {
-  id: string;
-  label: Label;
-  level: number;
-  pages?: (PagesEntity)[] | null;
-  menu?: (MenuEntity)[] | null;
+    type: string;
+    id: string;
+    title_en: string;
+    title_fr: string;
+    content?: (ContentEntity)[] | null;
 }
-export interface Label {
-  en: string;
-  fr: string;
+export interface ContentEntity {
+    type: string;
+    page_id?: string | null;
+    title_en: string;
+    title_fr: string;
+    id?: string | null;
+    content?: (ContentEntity1)[] | null;
 }
-export interface PagesEntity {
-  page_id: string;
-  label: Label;
-}
-export interface MenuEntity {
-  id: string;
-  label: Label;
-  pages?: (PagesEntity)[] | null;
-  level: number;
+export interface ContentEntity1 {
+    type: string;
+    page_id: string;
+    title_en: string;
+    title_fr: string;
 }

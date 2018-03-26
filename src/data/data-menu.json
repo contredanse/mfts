@@ -1,696 +1,583 @@
 [
     {
+        "type": "section",
         "id": "sensation-and-senses",
-        "label": {
-            "en": "SENSATION AND SENSES",
-            "fr": "SENSATION ET SENS"
-        },
-        "level": 1,
-        "pages": [
+        "title_en": "SENSATION AND SENSES",
+        "title_fr": "SENSATION ET SENS",
+        "content": [
             {
+                "type": "page",
                 "page_id": "sensation-and-senses.weight-of-sensation",
-                "label": {
-                    "en": "weight of sensation",
-                    "fr": "le poids de la sensation"
-                }
-            }
-        ],
-        "menu": [
+                "title_en": "weight of sensation",
+                "title_fr": "le poids de la sensation"
+            },
             {
+                "type": "section",
                 "id": "sensation-and-senses.gravity",
-                "label": {
-                    "en": "gravity",
-                    "fr": "la pesanteur"
-                },
-                "pages": [
+                "title_en": "gravity",
+                "title_fr": "la pesanteur",
+                "content": [
                     {
+                        "type": "page",
                         "page_id": "sensation-and-senses.gravity.the-flat-the-round",
-                        "label": {
-                            "en": "the flat & the round",
-                            "fr": "le plat et le rond"
-                        }
+                        "title_en": "the flat & the round",
+                        "title_fr": "le plat et le rond"
                     },
                     {
+                        "type": "page",
                         "page_id": "sensation-and-senses.gravity.falls",
-                        "label": {
-                            "en": "falls",
-                            "fr": "chutes"
-                        }
+                        "title_en": "falls",
+                        "title_fr": "chutes"
                     },
                     {
+                        "type": "page",
                         "page_id": "sensation-and-senses.gravity.water-gravity",
-                        "label": {
-                            "en": "water gravity",
-                            "fr": "la pesanteur dans l'eau"
-                        }
+                        "title_en": "water gravity",
+                        "title_fr": "la pesanteur dans l'eau"
                     },
                     {
+                        "type": "page",
                         "page_id": "sensation-and-senses.gravity.adjusting",
-                        "label": {
-                            "en": "adjusting",
-                            "fr": "ajuster"
-                        }
+                        "title_en": "adjusting",
+                        "title_fr": "ajuster"
                     }
-                ],
-                "level": 2
+                ]
             },
             {
+                "type": "section",
                 "id": "sensation-and-senses.basics",
-                "label": {
-                    "en": "basics",
-                    "fr": "à la base"
-                },
-                "pages": [
+                "title_en": "basics",
+                "title_fr": "à la base",
+                "content": [
                     {
+                        "type": "page",
                         "page_id": "sensation-and-senses.basics.an-approach-to-breathing",
-                        "label": {
-                            "en": "an approach to breathing",
-                            "fr": "respirer, une approche"
-                        }
+                        "title_en": "an approach to breathing",
+                        "title_fr": "respirer, une approche"
                     },
                     {
+                        "type": "page",
                         "page_id": "sensation-and-senses.basics.an-approach-to-the-small-dance",
-                        "label": {
-                            "en": "an approach to the small dance",
-                            "fr": "la petite danse, une approche"
-                        }
+                        "title_en": "an approach to the small dance",
+                        "title_fr": "la petite danse, une approche"
                     }
-                ],
-                "level": 2
+                ]
             },
             {
+                "type": "section",
                 "id": "sensation-and-senses.pointing",
-                "label": {
-                    "en": "pointing",
-                    "fr": "pointer"
-                },
-                "pages": [
+                "title_en": "pointing",
+                "title_fr": "pointer",
+                "content": [
                     {
+                        "type": "page",
                         "page_id": "sensation-and-senses.pointing.parts-of-pointing",
-                        "label": {
-                            "en": "parts of pointing",
-                            "fr": "pointer, les différentes parties"
-                        }
+                        "title_en": "parts of pointing",
+                        "title_fr": "pointer, les différentes parties"
                     },
                     {
+                        "type": "page",
                         "page_id": "sensation-and-senses.pointing.relation-to-scapula",
-                        "label": {
-                            "en": "relation to scapula",
-                            "fr": "la relation à l'omoplate"
-                        }
+                        "title_en": "relation to scapula",
+                        "title_fr": "la relation à l'omoplate"
                     }
-                ],
-                "level": 2
+                ]
             },
             {
+                "type": "section",
                 "id": "sensation-and-senses.pelvis",
-                "label": {
-                    "en": "pelvis",
-                    "fr": "le bassin"
-                },
-                "pages": [
+                "title_en": "pelvis",
+                "title_fr": "le bassin",
+                "content": [
                     {
+                        "type": "page",
                         "page_id": "sensation-and-senses.pelvis.pelvis-as-an-initiator",
-                        "label": {
-                            "en": "pelvis as an initiator",
-                            "fr": "initier par le bassin"
-                        }
+                        "title_en": "pelvis as an initiator",
+                        "title_fr": "initier par le bassin"
                     },
                     {
+                        "type": "page",
                         "page_id": "sensation-and-senses.pelvis.exercise-ischia-to-heels",
-                        "label": {
-                            "en": "exercise ischia to heels",
-                            "fr": "exercice: les ischions vers les talons"
-                        }
+                        "title_en": "exercise ischia to heels",
+                        "title_fr": "exercice: les ischions vers les talons"
                     }
-                ],
-                "level": 2
+                ]
             },
             {
+                "type": "section",
                 "id": "sensation-and-senses.walk",
-                "label": {
-                    "en": "walk",
-                    "fr": "la marche"
-                },
-                "pages": [
+                "title_en": "walk",
+                "title_fr": "la marche",
+                "content": [
                     {
+                        "type": "page",
                         "page_id": "sensation-and-senses.walk.walk-as-foundation",
-                        "label": {
-                            "en": "walk as foundation",
-                            "fr": "la marche comme fondement"
-                        }
+                        "title_en": "walk as foundation",
+                        "title_fr": "la marche comme fondement"
                     },
                     {
+                        "type": "page",
                         "page_id": "sensation-and-senses.walk.birds-walk",
-                        "label": {
-                            "en": "birds walk",
-                            "fr": "la marche des oiseaux"
-                        }
+                        "title_en": "birds walk",
+                        "title_fr": "la marche des oiseaux"
                     },
                     {
+                        "type": "page",
                         "page_id": "sensation-and-senses.walk.slow-walk",
-                        "label": {
-                            "en": "slow walk",
-                            "fr": "la marche lente"
-                        }
+                        "title_en": "slow walk",
+                        "title_fr": "la marche lente"
                     },
                     {
+                        "type": "page",
                         "page_id": "sensation-and-senses.walk.twist",
-                        "label": {
-                            "en": "twist",
-                            "fr": "la torsion"
-                        }
+                        "title_en": "twist",
+                        "title_fr": "la torsion"
                     }
-                ],
-                "level": 2
+                ]
             },
             {
+                "type": "section",
                 "id": "sensation-and-senses.the-back",
-                "label": {
-                    "en": "the back",
-                    "fr": "le dos"
-                },
-                "pages": [
+                "title_en": "the back",
+                "title_fr": "le dos",
+                "content": [
                     {
+                        "type": "page",
                         "page_id": "sensation-and-senses.the-back.choosing-to-focus-on-the-back",
-                        "label": {
-                            "en": "choosing to focus on the Back",
-                            "fr": "choisir de se concentrer sur le dos"
-                        }
+                        "title_en": "choosing to focus on the Back",
+                        "title_fr": "choisir de se concentrer sur le dos"
                     },
                     {
+                        "type": "page",
                         "page_id": "sensation-and-senses.the-back.passage",
-                        "label": {
-                            "en": "passage",
-                            "fr": "passage"
-                        }
+                        "title_en": "passage",
+                        "title_fr": "passage"
                     }
-                ],
-                "level": 2
+                ]
             },
             {
+                "type": "section",
                 "id": "sensation-and-senses.space",
-                "label": {
-                    "en": "space",
-                    "fr": "l'espace"
-                },
-                "pages": [
+                "title_en": "space",
+                "title_fr": "l'espace",
+                "content": [
                     {
+                        "type": "page",
                         "page_id": "sensation-and-senses.space.spherical-space",
-                        "label": {
-                            "en": "spherical space",
-                            "fr": "l'espace sphérique"
-                        }
+                        "title_en": "spherical space",
+                        "title_fr": "l'espace sphérique"
                     }
-                ],
-                "level": 2
+                ]
             },
             {
+                "type": "section",
                 "id": "sensation-and-senses.mfs-as-base-for-improvisation",
-                "label": {
-                    "en": "MFS as base for improvisation",
-                    "fr": "MFS comme base pour l'improvisation"
-                },
-                "pages": [
+                "title_en": "MFS as base for improvisation",
+                "title_fr": "MFS comme base pour l'improvisation",
+                "content": [
                     {
+                        "type": "page",
                         "page_id": "sensation-and-senses.mfs-as-base-for-improvisation.looking-at-goldberg-variations",
-                        "label": {
-                            "en": "looking at Goldberg Variations",
-                            "fr": "introduction aux Goldberg Variations"
-                        }
+                        "title_en": "looking at Goldberg Variations",
+                        "title_fr": "introduction aux Goldberg Variations"
                     },
                     {
+                        "type": "page",
                         "page_id": "sensation-and-senses.mfs-as-base-for-improvisation.goldberg-variations-extracts",
-                        "label": {
-                            "en": "Goldberg Variations (extracts)",
-                            "fr": "Goldberg Variations (extraits)"
-                        }
+                        "title_en": "Goldberg Variations (extracts)",
+                        "title_fr": "Goldberg Variations (extraits)"
                     },
                     {
+                        "type": "page",
                         "page_id": "sensation-and-senses.mfs-as-base-for-improvisation.looking-at-english-suites",
-                        "label": {
-                            "en": "looking at English Suites",
-                            "fr": "introduction aux English Suites"
-                        }
+                        "title_en": "looking at English Suites",
+                        "title_fr": "introduction aux English Suites"
                     },
                     {
+                        "type": "page",
                         "page_id": "sensation-and-senses.mfs-as-base-for-improvisation.english-suites",
-                        "label": {
-                            "en": "English Suites",
-                            "fr": "English Suites"
-                        }
+                        "title_en": "English Suites",
+                        "title_fr": "English Suites"
                     },
                     {
+                        "type": "page",
                         "page_id": "sensation-and-senses.mfs-as-base-for-improvisation.a-technique-for-improvisation",
-                        "label": {
-                            "en": "a technique for improvisation",
-                            "fr": "une technique pour l'improvisation"
-                        }
+                        "title_en": "a technique for improvisation",
+                        "title_fr": "une technique pour l'improvisation"
                     }
-                ],
-                "level": 2
+                ]
             }
         ]
     },
     {
+        "type": "section",
         "id": "forms",
-        "label": {
-            "en": "FORMS",
-            "fr": "LES FORMES"
-        },
-        "level": 1,
-        "pages": [
+        "title_en": "FORMS",
+        "title_fr": "LES FORMES",
+        "content": [
             {
+                "type": "page",
                 "page_id": "forms.introduction",
-                "label": {
-                    "en": "introduction",
-                    "fr": "introduction"
-                }
-            }
-        ],
-        "menu": [
+                "title_en": "introduction",
+                "title_fr": "introduction"
+            },
             {
+                "type": "section",
                 "id": "forms.crescent-roll",
-                "label": {
-                    "en": "crescent roll",
-                    "fr": "le roulé en croissant"
-                },
-                "pages": [
+                "title_en": "crescent roll",
+                "title_fr": "le roulé en croissant",
+                "content": [
                     {
+                        "type": "page",
                         "page_id": "forms.crescent-roll.crescent-led-by-feet-and-hands",
-                        "label": {
-                            "en": "crescent led by feet and hands",
-                            "fr": "initié par les mains et les pieds"
-                        }
+                        "title_en": "crescent led by feet and hands",
+                        "title_fr": "initié par les mains et les pieds"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.crescent-roll.crescent-led-by-center",
-                        "label": {
-                            "en": "crescent led by center",
-                            "fr": "initié par le centre"
-                        }
+                        "title_en": "crescent led by center",
+                        "title_fr": "initié par le centre"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.crescent-roll.head-up",
-                        "label": {
-                            "en": "head up",
-                            "fr": "tête dégagée"
-                        }
+                        "title_en": "head up",
+                        "title_fr": "tête dégagée"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.crescent-roll.head-and-feet-up",
-                        "label": {
-                            "en": "head and feet up",
-                            "fr": "tête et pieds vers le haut"
-                        }
+                        "title_en": "head and feet up",
+                        "title_fr": "tête et pieds vers le haut"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.crescent-roll.in-water",
-                        "label": {
-                            "en": "in water",
-                            "fr": "dans l'eau"
-                        }
+                        "title_en": "in water",
+                        "title_fr": "dans l'eau"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.crescent-roll.comparison",
-                        "label": {
-                            "en": "comparison",
-                            "fr": "comparaison"
-                        }
+                        "title_en": "comparison",
+                        "title_fr": "comparaison"
                     }
-                ],
-                "level": 2
+                ]
             },
             {
+                "type": "section",
                 "id": "forms.helix-roll",
-                "label": {
-                    "en": "helix roll",
-                    "fr": "le roulé en hélice"
-                },
-                "pages": [
+                "title_en": "helix roll",
+                "title_fr": "le roulé en hélice",
+                "content": [
                     {
+                        "type": "page",
                         "page_id": "forms.helix-roll.led-by-feet",
-                        "label": {
-                            "en": "led by feet",
-                            "fr": "initié par les pieds"
-                        }
+                        "title_en": "led by feet",
+                        "title_fr": "initié par les pieds"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.helix-roll.led-by-hands",
-                        "label": {
-                            "en": "led by hands",
-                            "fr": "initié par les mains"
-                        }
+                        "title_en": "led by hands",
+                        "title_fr": "initié par les mains"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.helix-roll.in-water",
-                        "label": {
-                            "en": "in water",
-                            "fr": "dans l'eau"
-                        }
+                        "title_en": "in water",
+                        "title_fr": "dans l'eau"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.helix-roll.comparison",
-                        "label": {
-                            "en": "comparison",
-                            "fr": "comparaison"
-                        }
+                        "title_en": "comparison",
+                        "title_fr": "comparaison"
                     }
-                ],
-                "level": 2
+                ]
             },
             {
+                "type": "section",
                 "id": "forms.puzzles",
-                "label": {
-                    "en": "puzzles",
-                    "fr": "les puzzles"
-                },
-                "pages": [
+                "title_en": "puzzles",
+                "title_fr": "les puzzles",
+                "content": [
                     {
+                        "type": "page",
                         "page_id": "forms.puzzles.puzzle-1",
-                        "label": {
-                            "en": "puzzle 1",
-                            "fr": "puzzle 1"
-                        }
+                        "title_en": "puzzle 1",
+                        "title_fr": "puzzle 1"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.puzzles.puzzle-2",
-                        "label": {
-                            "en": "puzzle 2",
-                            "fr": "puzzle 2"
-                        }
+                        "title_en": "puzzle 2",
+                        "title_fr": "puzzle 2"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.puzzles.puzzle-3",
-                        "label": {
-                            "en": "puzzle 3",
-                            "fr": "puzzle 3"
-                        }
+                        "title_en": "puzzle 3",
+                        "title_fr": "puzzle 3"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.puzzles.puzzle-4",
-                        "label": {
-                            "en": "puzzle 4",
-                            "fr": "puzzle 4"
-                        }
+                        "title_en": "puzzle 4",
+                        "title_fr": "puzzle 4"
                     }
-                ],
-                "level": 2
+                ]
             },
             {
+                "type": "section",
                 "id": "forms.undulation",
-                "label": {
-                    "en": "undulation",
-                    "fr": "l'ondulation"
-                },
-                "pages": [
+                "title_en": "undulation",
+                "title_fr": "l'ondulation",
+                "content": [
                     {
+                        "type": "page",
                         "page_id": "forms.undulation.frontal-initiated-by-the-head",
-                        "label": {
-                            "en": "frontal initiated by the head",
-                            "fr": "frontale initiée par la tête"
-                        }
+                        "title_en": "frontal initiated by the head",
+                        "title_fr": "frontale initiée par la tête"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.undulation.frontal-initiated-by-the-pelvis",
-                        "label": {
-                            "en": "frontal initiated by the pelvis",
-                            "fr": "frontale initiée par le bassin"
-                        }
+                        "title_en": "frontal initiated by the pelvis",
+                        "title_fr": "frontale initiée par le bassin"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.undulation.lateral-initiated-by-the-head",
-                        "label": {
-                            "en": "lateral initiated by the head",
-                            "fr": "latérale initiée par la tête"
-                        }
+                        "title_en": "lateral initiated by the head",
+                        "title_fr": "latérale initiée par la tête"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.undulation.lateral-initiated-by-the-pelvis",
-                        "label": {
-                            "en": "lateral initiated by the pelvis",
-                            "fr": "latérale initiée par le bassin"
-                        }
+                        "title_en": "lateral initiated by the pelvis",
+                        "title_fr": "latérale initiée par le bassin"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.undulation.dolphin",
-                        "label": {
-                            "en": "dolphin",
-                            "fr": "le dauphin"
-                        }
+                        "title_en": "dolphin",
+                        "title_fr": "le dauphin"
                     }
-                ],
-                "level": 2
+                ]
             },
             {
+                "type": "section",
                 "id": "forms.aikido-roll",
-                "label": {
-                    "en": "aikido roll",
-                    "fr": "la chute roulée de l'aïkido"
-                },
-                "pages": [
+                "title_en": "aikido roll",
+                "title_fr": "la chute roulée de l'aïkido",
+                "content": [
                     {
+                        "type": "page",
                         "page_id": "forms.aikido-roll.principle",
-                        "label": {
-                            "en": "principle",
-                            "fr": "le principe"
-                        }
+                        "title_en": "principle",
+                        "title_fr": "le principe"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.aikido-roll.3-directions",
-                        "label": {
-                            "en": "3 directions",
-                            "fr": "les 3 directions"
-                        }
+                        "title_en": "3 directions",
+                        "title_fr": "les 3 directions"
                     }
-                ],
-                "level": 2
+                ]
             },
             {
+                "type": "section",
                 "id": "forms.looking-at-the-forms",
-                "label": {
-                    "en": "looking at the forms",
-                    "fr": "regarder les formes"
-                },
-                "pages": [
+                "title_en": "looking at the forms",
+                "title_fr": "regarder les formes",
+                "content": [
                     {
+                        "type": "page",
                         "page_id": "forms.looking-at-the-forms.crescent-roll-head-up-in-workshop",
-                        "label": {
-                            "en": "crescent roll head up in workshop",
-                            "fr": "démonstration du roulé en croissant tête dégagée"
-                        }
+                        "title_en": "crescent roll head up in workshop",
+                        "title_fr": "démonstration du roulé en croissant tête dégagée"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.looking-at-the-forms.helix-roll-led-by-feet-in-workshop",
-                        "label": {
-                            "en": "helix roll led by feet in workshop",
-                            "fr": "démonstration du roulé en hélice par les pieds"
-                        }
+                        "title_en": "helix roll led by feet in workshop",
+                        "title_fr": "démonstration du roulé en hélice par les pieds"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.looking-at-the-forms.helix-roll-led-by-hands-in-workshop",
-                        "label": {
-                            "en": "helix roll led by hands in workshop",
-                            "fr": "démonstration du roulé en hélice par les mains"
-                        }
+                        "title_en": "helix roll led by hands in workshop",
+                        "title_fr": "démonstration du roulé en hélice par les mains"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.looking-at-the-forms.puzzle-1-analyse",
-                        "label": {
-                            "en": "puzzle 1, analyse",
-                            "fr": "puzzle 1, l'analyse"
-                        }
+                        "title_en": "puzzle 1, analyse",
+                        "title_fr": "puzzle 1, l'analyse"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.looking-at-the-forms.comments-on-crescent-roll-feet-and-hands",
-                        "label": {
-                            "en": "comments on crescent roll - feet and hands",
-                            "fr": "le roulé en croissant par pieds et mains, commentaires"
-                        }
+                        "title_en": "comments on crescent roll - feet and hands",
+                        "title_fr": "le roulé en croissant par pieds et mains, commentaires"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.looking-at-the-forms.comments-on-crescent-roll-center",
-                        "label": {
-                            "en": "comments on crescent roll - center",
-                            "fr": "le roulé en croissant par le centre, commentaires"
-                        }
+                        "title_en": "comments on crescent roll - center",
+                        "title_fr": "le roulé en croissant par le centre, commentaires"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.looking-at-the-forms.comments-on-helix-roll-feet",
-                        "label": {
-                            "en": "comments on helix roll - feet",
-                            "fr": "le roulé en hélice par les pieds, commentaires"
-                        }
+                        "title_en": "comments on helix roll - feet",
+                        "title_fr": "le roulé en hélice par les pieds, commentaires"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.looking-at-the-forms.comments-on-helix-roll-hands",
-                        "label": {
-                            "en": "comments on helix roll - hands",
-                            "fr": "le roulé en hélice par les mains, commentaires"
-                        }
+                        "title_en": "comments on helix roll - hands",
+                        "title_fr": "le roulé en hélice par les mains, commentaires"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.looking-at-the-forms.conclusion-on-rolls",
-                        "label": {
-                            "en": "conclusion on rolls",
-                            "fr": "conclusion sur les roulés"
-                        }
+                        "title_en": "conclusion on rolls",
+                        "title_fr": "conclusion sur les roulés"
                     }
-                ],
-                "level": 2
+                ]
             },
             {
+                "type": "section",
                 "id": "forms.warm-ups",
-                "label": {
-                    "en": "warm ups",
-                    "fr": "les échauffements"
-                },
-                "pages": [
+                "title_en": "warm ups",
+                "title_fr": "les échauffements",
+                "content": [
                     {
+                        "type": "page",
                         "page_id": "forms.warm-ups.fingers",
-                        "label": {
-                            "en": "fingers",
-                            "fr": "les doigts"
-                        }
+                        "title_en": "fingers",
+                        "title_fr": "les doigts"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.warm-ups.the-wrist",
-                        "label": {
-                            "en": "the wrist",
-                            "fr": "le poignet"
-                        }
+                        "title_en": "the wrist",
+                        "title_fr": "le poignet"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.warm-ups.hands",
-                        "label": {
-                            "en": "hands",
-                            "fr": "les mains"
-                        }
+                        "title_en": "hands",
+                        "title_fr": "les mains"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.warm-ups.arms",
-                        "label": {
-                            "en": "arms",
-                            "fr": "les bras"
-                        }
+                        "title_en": "arms",
+                        "title_fr": "les bras"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.warm-ups.spine-and-arms",
-                        "label": {
-                            "en": "spine and arms",
-                            "fr": "les bras et la colonne"
-                        }
+                        "title_en": "spine and arms",
+                        "title_fr": "les bras et la colonne"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.warm-ups.bending-bone",
-                        "label": {
-                            "en": "bending bone",
-                            "fr": "courber l'os"
-                        }
+                        "title_en": "bending bone",
+                        "title_fr": "courber l'os"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.warm-ups.aikido-step",
-                        "label": {
-                            "en": "aikido step",
-                            "fr": "le pas aïkido"
-                        }
+                        "title_en": "aikido step",
+                        "title_fr": "le pas aïkido"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.warm-ups.the-twist",
-                        "label": {
-                            "en": "the twist",
-                            "fr": "la torsion"
-                        }
+                        "title_en": "the twist",
+                        "title_fr": "la torsion"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.warm-ups.legs-twist",
-                        "label": {
-                            "en": "legs twist",
-                            "fr": "torsion des jambes"
-                        }
+                        "title_en": "legs twist",
+                        "title_fr": "torsion des jambes"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.warm-ups.legs-resistance",
-                        "label": {
-                            "en": "legs resistance",
-                            "fr": "résistance des jambes"
-                        }
+                        "title_en": "legs resistance",
+                        "title_fr": "résistance des jambes"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.warm-ups.trochanter",
-                        "label": {
-                            "en": "trochanter",
-                            "fr": "trochanter"
-                        }
+                        "title_en": "trochanter",
+                        "title_fr": "trochanter"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.warm-ups.psoas",
-                        "label": {
-                            "en": "psoas",
-                            "fr": "psoas"
-                        }
+                        "title_en": "psoas",
+                        "title_fr": "psoas"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.warm-ups.wave",
-                        "label": {
-                            "en": "wave",
-                            "fr": "ondulation"
-                        }
+                        "title_en": "wave",
+                        "title_fr": "ondulation"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.warm-ups.wave-on-the-floor",
-                        "label": {
-                            "en": "wave on the floor",
-                            "fr": "ondulation au sol"
-                        }
+                        "title_en": "wave on the floor",
+                        "title_fr": "ondulation au sol"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.warm-ups.asanas",
-                        "label": {
-                            "en": "asanas",
-                            "fr": "asanas"
-                        }
+                        "title_en": "asanas",
+                        "title_fr": "asanas"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.warm-ups.napping",
-                        "label": {
-                            "en": "napping",
-                            "fr": "la sieste"
-                        }
+                        "title_en": "napping",
+                        "title_fr": "la sieste"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.warm-ups.and-play",
-                        "label": {
-                            "en": "and play",
-                            "fr": "et jouer"
-                        }
+                        "title_en": "and play",
+                        "title_fr": "et jouer"
                     }
-                ],
-                "level": 2
+                ]
             },
             {
+                "type": "section",
                 "id": "forms.cultivating",
-                "label": {
-                    "en": "cultivating",
-                    "fr": "cultiver"
-                },
-                "pages": [
+                "title_en": "cultivating",
+                "title_fr": "cultiver",
+                "content": [
                     {
+                        "type": "page",
                         "page_id": "forms.cultivating.dance-culture",
-                        "label": {
-                            "en": "dance & culture",
-                            "fr": "la danse & la culture"
-                        }
+                        "title_en": "dance & culture",
+                        "title_fr": "la danse & la culture"
                     },
                     {
+                        "type": "page",
                         "page_id": "forms.cultivating.kindling-scythe",
-                        "label": {
-                            "en": "kindling & scythe",
-                            "fr": "le petit bois & la faux"
-                        }
+                        "title_en": "kindling & scythe",
+                        "title_fr": "le petit bois & la faux"
                     }
-                ],
-                "level": 2
+                ]
             }
         ]
     }
