@@ -3,9 +3,8 @@ import { PageOverlay } from '@src/components/page-overlay';
 import { SearchBox } from '@src/components/search-box';
 import { IDataPage } from '@data/data-pages';
 import PageList from '@src/components/page-list';
-import Page from '@src/components/page';
 import { withRouter } from 'react-router-dom'
-import {RouteComponentProps} from "react-router";
+import {RouteComponentProps} from 'react-router';
 
 interface IProps {
     initialData: IDataPage[];
