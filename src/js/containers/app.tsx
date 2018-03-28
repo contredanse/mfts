@@ -14,15 +14,23 @@ import VideoListContainer from '@src/containers/video-list-container';
 import { AppConfig } from '@config/app-config';
 import PageListContainer from '@src/containers/page-list-container';
 import PageContainer from '@src/containers/page-container';
+import PageRepository from '@src/repositories/page-repository';
 
 interface IAppProps {
     appConfig: AppConfig;
 }
 
 class App extends React.Component<IAppProps, {}> {
+
+    constructor(props) {
+        super(props);
+    }
+
     public render(): React.ReactElement<App> {
         const { videosBaseUrl, data } = this.props.appConfig.getConfig();
         const lang = 'en';
+        const pageRepository = new PageRepository(data.pages);
+
         return (
             <ConnectedRouter history={history}>
                 <div className="page-container">
@@ -59,9 +67,8 @@ class App extends React.Component<IAppProps, {}> {
                                 exact={true}
                                 path="/page/:pageId"
                                 render={(props: RouteComponentProps<any>) => {
-                                    console.log('params', props);
-                                    const { params } = props.match;
-                                    return <PageContainer pageId={params.pageId} />;
+                                    const { pageId } = props.match.params;
+                                    return <PageContainer pageId={pageId} pageRepository={pageRepository} />;
                                 }}
                             />
                             <Route component={NotFoundContainer} />
