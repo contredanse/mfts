@@ -50,7 +50,7 @@ export const AppBarComponent: React.SFC<AppMenuProps> = props => {
         { path: '/page-list', label: 'Pages' },
         { path: '/video-list', label: 'Videos' },
     ].map((menuLinkProps: MenuLinkProps) => {
-        return { ...menuLinkProps, active: currentPath == menuLinkProps.path };
+        return { ...menuLinkProps, active: currentPath === menuLinkProps.path };
     });
 
     const LinkItem = (props: MenuLinkProps) => {
@@ -58,7 +58,7 @@ export const AppBarComponent: React.SFC<AppMenuProps> = props => {
             <Button
                 color="inherit"
                 variant={props.active ? 'raised' : undefined}
-                component={btnProps => <Link to={props.path} {...btnProps} />}
+                component={(btnProps: any) => <Link to={props.path} {...btnProps} />}
             >
                 {props.label}
             </Button>
