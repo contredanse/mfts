@@ -84,10 +84,13 @@ module.exports = {
           name: 'assets/videos/[name].[ext]',
         }
       },{
-        test: /\.woff$|\.woff2?$|\.ttf$|\.eot$|\.otf$/,
+        test: /\.woff$|\.woff2?$/,
         loader: 'file-loader',
         //use: 'url-loader?limit=10000',
+
         options: {
+          limit: 50000,
+          mimetype: "application/font-woff",
           name: 'fonts/[name].[ext]'
         },
       },
