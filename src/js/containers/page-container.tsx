@@ -17,7 +17,7 @@ class PageContainer extends React.Component<IProps, IState> {
 
     readonly state = {
         pageExists: undefined,
-        pageData: undefined
+        pageData: undefined,
     }
 
     constructor(props) {
@@ -30,14 +30,14 @@ class PageContainer extends React.Component<IProps, IState> {
             this.setState((prevState: IState): IState => {
                 return {...prevState,
                         pageExists: true,
-                        pageData: pageData
+                        pageData: pageData,
                 }
             })
         } catch (e) {
             this.setState((prevState: IState): IState => {
                 return {...prevState,
                         pageExists: false,
-                        pageData: undefined
+                        pageData: undefined,
                 }
             })
         }
@@ -47,7 +47,7 @@ class PageContainer extends React.Component<IProps, IState> {
         const { pageExists, pageData } = this.state;
         // should not be required, exit if async loading
         // of pageData is not yet present (see componentDidMount())
-        if (pageExists === undefined) return null;
+        if (pageExists === undefined) { return null; }
         return (
             <div>
                 {pageData ?
