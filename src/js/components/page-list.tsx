@@ -133,9 +133,9 @@ export default class PageList extends React.Component<IProps, IState> {
         );
     }
 
-    protected getVideo(video_id: string): IDataVideo {
+    protected getVideo(videoId: string): IDataVideo {
         return dataVideos.filter((video: IDataVideo) => {
-            return video.video_id === video_id;
+            return video.video_id === videoId;
         });
     }
 }
