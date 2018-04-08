@@ -9,7 +9,7 @@ import Typography from 'material-ui/Typography';
 import IconButton from 'material-ui/IconButton';
 import Button from 'material-ui/Button';
 import { WithStyles } from 'material-ui';
-import MenuIcon from 'material-ui-icons/Menu';
+import MenuIcon from '@material-ui/icons/Menu';
 import withStyles from 'material-ui/styles/withStyles';
 import { Link } from 'react-router-dom';
 import { RouteComponentProps } from 'react-router';
@@ -53,14 +53,14 @@ export const AppBarComponent: React.SFC<AppMenuProps> = props => {
         return { ...menuLinkProps, active: currentPath === menuLinkProps.path };
     });
 
-    const LinkItem = (props: MenuLinkProps) => {
+    const LinkItem = (linkProps: MenuLinkProps) => {
         return (
             <Button
                 color="inherit"
-                variant={props.active ? 'raised' : undefined}
-                component={(btnProps: any) => <Link to={props.path} {...btnProps} />}
+                variant={linkProps.active ? 'raised' : undefined}
+                component={(btnProps: any) => <Link to={linkProps.path} {...btnProps} />}
             >
-                {props.label}
+                {linkProps.label}
             </Button>
         );
     };
