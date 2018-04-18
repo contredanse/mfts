@@ -128,7 +128,7 @@
     "typeface-eczar": "^0.0.54",
     "typeface-quicksand": "^0.0.54",
     "typeface-roboto": "^0.0.54",
-    "video-react": "^0.9.4"
+    "video-react": "^0.10.4"
   },
   "devEngines": {
     "npm": ">=5.x",
