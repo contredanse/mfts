@@ -1,7 +1,6 @@
 import { IDataVideo } from '@data/data-videos';
 
 export default class VideoRepository {
-
     public readonly data: IDataVideo[];
 
     constructor(data: IDataVideo[]) {
@@ -12,12 +11,11 @@ export default class VideoRepository {
         return new Promise<IDataVideo>((resolve, reject) => {
             const video = this.data.find((element: IDataVideo) => {
                 return id === element.video_id;
-            })
+            });
             if (video === undefined) {
                 reject(`Video '${id}' cannot be found`);
             }
             resolve(video);
-        })
+        });
     }
-
 }

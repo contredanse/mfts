@@ -21,7 +21,6 @@ interface IAppProps {
 }
 
 class App extends React.Component<IAppProps, {}> {
-
     constructor(props) {
         super(props);
     }
@@ -60,7 +59,11 @@ class App extends React.Component<IAppProps, {}> {
                                 exact={true}
                                 path="/video-list"
                                 render={props => (
-                                    <VideoListContainer initialData={data.videos} videosBaseUrl={videosBaseUrl} {...props} />
+                                    <VideoListContainer
+                                        initialData={data.videos}
+                                        videosBaseUrl={videosBaseUrl}
+                                        {...props}
+                                    />
                                 )}
                             />
                             <Route

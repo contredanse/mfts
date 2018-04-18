@@ -15,7 +15,7 @@ const renderApp = (Component, config: AppConfig, elementId: string) => {
         <ReduxProvider store={store}>
             <Component appConfig={config} />
         </ReduxProvider>,
-        document.getElementById(elementId)
+        document.getElementById(elementId),
     );
 };
 //console.log('appConfig', appConfig);
