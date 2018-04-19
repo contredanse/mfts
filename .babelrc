@@ -26,13 +26,14 @@
     "syntax-dynamic-import",
     "transform-object-rest-spread",
     "transform-es2015-spread"
-  ],
+  ]
+  /*
   "env": {
     "production": {
       "presets": [
         //["minify"]
       ]
     }
-  }
+  }*/
 
 }

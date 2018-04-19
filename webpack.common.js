@@ -13,7 +13,7 @@ module.exports = {
     index: ['./src/js/index.tsx'],
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
+    extensions: ['.js', '.jsx', '.json', '.ts', '.tsx', '.css', '.scss'],
     modules: [
       path.join(__dirname, 'src'),
       'node_modules'
@@ -112,9 +112,10 @@ module.exports = {
     ]
   },
   plugins: [
+      /*
     new webpack.EnvironmentPlugin([
       'NODE_ENV',
-    ]),
+    ]),*/
     new HtmlWebpackPlugin({
       alwaysWriteToDisk: true,
       hash: false,

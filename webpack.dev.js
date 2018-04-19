@@ -1,16 +1,17 @@
 const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const common = require('./webpack.common.js');
 //const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-const extractSass = new ExtractTextPlugin({
+const extractSass = new MiniCssExtractPlugin({
     filename: "style.css",
 });
 
 module.exports = merge(common, {
     devtool: 'cheap-module-source-map',
+    mode: 'development',
     output: {
         path: path.resolve(__dirname, 'build'),
         filename: '[name].js',
@@ -22,27 +23,26 @@ module.exports = merge(common, {
         rules: [
             {
                 test: /\.(scss)$/,
-                use: ['css-hot-loader'].concat(extractSass.extract({
-                    fallback: 'style-loader',
-                    //resolve-url-loader may be chained before sass-loader if necessary
-                    use: [{
-                        loader: "css-loader" // translates CSS into CommonJS
-                    }, {
-                        loader: "sass-loader" // compiles Sass to CSS
-                    }]
-                }))
+                use: [
+                    'css-hot-loader',
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'sass-loader'
+                ]
             },
         ]
     },
     plugins: [
-        new webpack.NamedModulesPlugin(),
-        extractSass,
+        extractSass
         /*
         new BundleAnalyzerPlugin({
           analyzerMode: 'static'
         })
         */
     ],
+    optimization: {
+        namedModules: true, // NamedModulesPlugin()
+    },
     devServer: {
         contentBase: path.resolve(__dirname, "build"),
         port: 3001,
