@@ -15,12 +15,12 @@ export interface Keywords {
 }
 export interface Content {
   layout: string;
-  video?: VideoOrEnOrFrOrVideosEntity | null;
-  video_i18n?: VideoI18n | null;
-  audio_i18n?: AudioI18n | null;
-  videos?: (VideoOrEnOrFrOrVideosEntity1)[] | null;
-  audio?: EnOrFrOrAudio | null;
-  subs?: NameOrTitleOrSubs1 | null;
+  video?: VideoOrEnOrFrOrVideosEntity;
+  video_i18n?: VideoI18n;
+  audio_i18n?: AudioI18n;
+  videos?: (VideoOrEnOrFrOrVideosEntity1)[];
+  audio?: EnOrFrOrAudio;
+  subs?: NameOrTitleOrSubs1;
 }
 export interface VideoOrEnOrFrOrVideosEntity {
   video_id: string;

@@ -32,7 +32,7 @@ class App extends React.Component<IAppProps, {}> {
 
         return (
             <ConnectedRouter history={history}>
-                <div className="page-container">
+                <div className="window-container">
                     <header>
                         <AppBarConnected title="" />
                     </header>
