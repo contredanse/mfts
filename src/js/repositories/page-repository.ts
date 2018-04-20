@@ -30,7 +30,6 @@ export default class PageRepository {
         });
     }
 
-
     /**
      * Get translated page with infos
      * @param {string} pageId
@@ -45,7 +44,7 @@ export default class PageRepository {
             if (page === undefined) {
                 reject(`Page '${pageId}' cannot be found`);
             }
-            const {content} = page as IDataPage;
+            const { content } = page as IDataPage;
 
             const videos: any[] = [];
             let audio: any;
@@ -57,10 +56,10 @@ export default class PageRepository {
                 videos.push(content.video);
             } else if (content.video_i18n !== undefined) {
                 // translated video
-                videos.push(content.video_i18n[lang])
+                videos.push(content.video_i18n[lang]);
             } else if (content.videos !== undefined) {
                 // multiple videos
-                videos.push(...content.videos)
+                videos.push(...content.videos);
             }
 
             // Step 2: select audio track
@@ -75,14 +74,14 @@ export default class PageRepository {
                 subtitle = content.subs[lang];
             }
 
-            const p = { ...page,
-                        videos: videos,
-                        audio: audio,
-                        subtitle: subtitle
+            const p = {
+                ...page,
+                videos: videos,
+                audio: audio,
+                subtitle: subtitle,
             } as IDataPageWithMedia;
 
             resolve(p);
         });
     }
-
 }
