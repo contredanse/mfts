@@ -100,6 +100,7 @@
             "single",
             "jsx-double"
         ],
+        /* inherited from prettier
         "trailing-comma": [
             true,
             {
@@ -112,7 +113,7 @@
                 },
                 "esSpecCompliant": true
             }
-        ],
+        ],*/
         "triple-equals": [
             true,
             "allow-null-check"
