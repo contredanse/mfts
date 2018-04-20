@@ -5,10 +5,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const common = require('./webpack.common.js');
 //const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-const extractSass = new MiniCssExtractPlugin({
-    filename: "style.css",
-});
-
 module.exports = merge(common, {
     devtool: 'cheap-module-source-map',
     mode: 'development',
@@ -25,7 +21,7 @@ module.exports = merge(common, {
                 test: /\.(s?css)$/,
                 use: [
                     'css-hot-loader',
-                    MiniCssExtractPlugin.loader,
+                    'style-loader',
                     'css-loader',
                     'sass-loader'
                 ]
@@ -33,7 +29,6 @@ module.exports = merge(common, {
         ]
     },
     plugins: [
-        extractSass
         /*
         new BundleAnalyzerPlugin({
           analyzerMode: 'static'
