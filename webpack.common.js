@@ -113,51 +113,6 @@ module.exports = {
     new webpack.EnvironmentPlugin([
       'NODE_ENV',
     ]),*/
-    new HtmlWebpackPlugin({
-      alwaysWriteToDisk: true,
-      hash: false,
-      title: 'Paxton MFTS',
-      template: './public/index.html',
-      collapseWhitespace: true,
-      collapseInlineTagWhitespace: true,
-      preserveLineBreaks: false,
-      removeAttributeQuotes: true,
-      removeComments: true
-    }),
-    new WebpackPwaManifest({
-      short_name: 'Paxton MFTS',
-      name: 'Steve Paxton - Material for the spine',
-      description: 'Material for the spine. Contredanse.org ',
-      background_color: '#000000',
-      theme_color: '#000000',
-      start_url: "/",
-      inject: true,
-      fingerprints: true,
-      ios: true,
-      orientation: "portrait",
-      display: "standalone",
-      icons: [
-        {
-          src: path.resolve('src/assets/icons/logo.png'),
-          sizes: [96, 128, 192, 256, 384, 512],
-          destination: path.join('icons')
-        },
-        {
-          src: path.resolve('src/assets/icons/logo.png'),
-          sizes: [120, 152, 167, 180, 1024],
-          destination: path.join('icons', 'ios'),
-          ios: true
-        }
-      ]
-    }),
-    new ManifestPlugin(
-      {
-        fileName: 'assets-manifest.json',
-        basePath: '',
-        hash: true
-      }
-    ),
-    new HtmlWebpackHarddiskPlugin(),
   ]
 };
 
