@@ -3,12 +3,16 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-//const PrepackWebpackPlugin = require('prepack-webpack-plugin').default;
 const StatsWriterPlugin = require("webpack-stats-plugin").StatsWriterPlugin;
 const DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
+
 
 const extractSass = new MiniCssExtractPlugin({
     filename: "style.[contenthash:8].css",
@@ -148,7 +152,6 @@ module.exports = merge(common, {
 
     plugins: [
         new CleanWebpackPlugin('dist', {}),
-        //new PrepackWebpackPlugin({}),
 
         new webpack.EnvironmentPlugin({
             'process.env.NODE_ENV': JSON.stringify('production'),
@@ -167,6 +170,63 @@ module.exports = merge(common, {
             verbose: true,
             emitError: true,
         }),
+
+        new HtmlWebpackPlugin({
+            alwaysWriteToDisk: true,
+            hash: false,
+            title: 'Paxton MFTS',
+            template: './public/index.html',
+            collapseWhitespace: true,
+            collapseInlineTagWhitespace: true,
+            preserveLineBreaks: false,
+            removeAttributeQuotes: true,
+            removeComments: true
+        }),
+        new WebpackPwaManifest({
+            short_name: 'Paxton MFTS',
+            name: 'Steve Paxton - Material for the spine',
+            description: 'Material for the spine. Contredanse.org ',
+            background_color: '#000000',
+            theme_color: '#000000',
+            start_url: "/",
+            inject: true,
+            fingerprints: true,
+            ios: {
+                'apple-mobile-web-app-title': 'Paxton MFTS',
+                'apple-mobile-web-app-capable': 'yes',
+                'apple-mobile-web-app-status-bar-style': 'black'
+            },
+            orientation: "portrait",
+            display: "standalone",
+            icons: [
+                {
+                    src: path.resolve('src/assets/icons/logo.png'),
+                    sizes: [96, 128, 192, 256, 384, 512],
+                    destination: path.join('icons')
+                },
+                {
+                    src: path.resolve('src/assets/icons/logo.png'),
+                    sizes: [120, 152, 167, 180, 1024],
+                    destination: path.join('icons', 'ios'),
+                    ios: true
+                },
+                {
+                    src: path.resolve('src/assets/icons/logo.png'),
+                    size: 1024,
+                    destination: path.join('icons', 'ios'),
+                    ios: 'startup'
+                },
+            ]
+        }),
+        new ManifestPlugin(
+            {
+                fileName: 'assets-manifest.json',
+                basePath: '',
+                hash: true
+            }
+        ),
+        new HtmlWebpackHarddiskPlugin(),
+
 
         /*
         new StatsWriterPlugin({
