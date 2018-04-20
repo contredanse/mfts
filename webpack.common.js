@@ -75,9 +75,6 @@ module.exports = {
         test: /\.(glsl|vs|fs)$/,
         loader: 'ts-shader-loader'
       },{
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
-      },{
         test: /\.(mp4|m4v|ogv|webm)$/,
         loader: 'file-loader',
         options: {
