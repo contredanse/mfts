@@ -31,7 +31,7 @@ module.exports = merge(common, {
         rules: [
             {
                 test: /\.(css)$/,
-                use: [ MiniCssExtractPlugin.loader, 'css-loader' ]
+                use: [MiniCssExtractPlugin.loader, 'css-loader']
             },
             {
                 test: /\.(scss)$/,
@@ -143,7 +143,7 @@ module.exports = merge(common, {
 
 
     plugins: [
-        new CleanWebpackPlugin('dist', {} ),
+        new CleanWebpackPlugin('dist', {}),
         //new PrepackWebpackPlugin({}),
 
         new webpack.EnvironmentPlugin({
@@ -151,11 +151,11 @@ module.exports = merge(common, {
             NODE_ENV: JSON.stringify('production')
         }),
 
-/*
+
         new webpack.LoaderOptionsPlugin({
             minimize: true,
             debug: false
-        }),*/
+        }),
 
         extractSass,
 
@@ -164,10 +164,10 @@ module.exports = merge(common, {
             emitError: true,
         }),
 
+        /*
         new StatsWriterPlugin({
             filename: '.webpack-stats.json'
-        }),
-
+        }),*/
     ]
 });
 
