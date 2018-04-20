@@ -19,7 +19,7 @@ class PageContainer extends React.Component<IProps, IState> {
         pageData: undefined,
     };
 
-    constructor(props) {
+    constructor(props: IProps) {
         super(props);
     }
 

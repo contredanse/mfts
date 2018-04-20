@@ -6,7 +6,7 @@ import PageList from '@src/components/page-list';
 import { withRouter } from 'react-router-dom';
 import { RouteComponentProps } from 'react-router';
 
-interface IProps {
+interface IProps extends RouteComponentProps<any> {
     initialData: IDataPage[];
     videosBaseUrl: string;
     lang: 'en' | 'fr';
@@ -18,8 +18,8 @@ interface IState {
     searchFragment?: string;
 }
 
-class PageListContainer extends React.Component<IProps & RouteComponentProps<any>, IState> {
-    constructor(props) {
+class PageListContainer extends React.Component<IProps, IState> {
+    constructor(props: IProps) {
         super(props);
 
         this.state = {

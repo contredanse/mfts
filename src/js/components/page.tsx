@@ -10,7 +10,6 @@ interface IProps {
 interface IState {}
 
 export default class Page extends React.Component<IProps, IState> {
-    componentDidMount() {}
 
     render() {
         return (

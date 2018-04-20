@@ -14,7 +14,7 @@ export default class HelixMenu extends React.Component<IProps, IState> {
     canvas!: HTMLCanvasElement;
     spiralMenu: any;
 
-    constructor(props) {
+    constructor(props: IProps) {
         super(props);
         this.state = {
             width: '100%', // imagine this defaults for now

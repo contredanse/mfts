@@ -53,7 +53,7 @@ export default class PageList extends React.Component<IProps, IState> {
                                         break;
                                     case 'single-i18n-video':
                                         videos[0] = this.getVideo(
-                                            (content.video_i18n as any)[this.props.lang].video_id,
+                                            (content.video_i18n as any)[this.props.lang].video_id
                                         )[0];
                                         break;
                                     case 'two-videos-only':
