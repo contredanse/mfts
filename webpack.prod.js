@@ -30,6 +30,10 @@ module.exports = merge(common, {
     module: {
         rules: [
             {
+                include: path.resolve("node_modules", "lodash"),
+                sideEffects: false
+            },
+            {
                 test: /\.(css)$/,
                 use: [MiniCssExtractPlugin.loader, 'css-loader']
             },
