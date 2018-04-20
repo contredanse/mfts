@@ -15,6 +15,10 @@ jobs:
     - stage: Linter
 
   include:
+    - stage: Test
+      script:
+        - yarn test
+
     - stage: Compile
       script:
         - yarn tsc
