@@ -6,7 +6,7 @@
     ],
     "linterOptions": {
         "exclude": [
-            "src/electron/*.js",
+            "src/thirdparty/*.js",
             "**/*.min.js"
         ]
     },
@@ -15,8 +15,6 @@
         "no-console": [true, "console.log", "console.error"],
         // end for dev-only
         "no-any": false,
-        // if possible set to true
-        "no-console": true,
         "no-floating-promises": true,
         "arrow-parens": false,
         "arrow-return-shorthand": [
@@ -66,7 +64,8 @@
             "@src",
             "history",
             "bootstrap",
-            "material-ui"
+            "material-ui",
+            "@material-ui"
         ],
         "no-this-assignment": [
             true,
