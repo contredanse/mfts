@@ -3,6 +3,7 @@
   "transform": {
     ".(ts|tsx)": "./node_modules/ts-jest/preprocessor.js"
   },
+  "collectCoverage": true,
   "testRegex": "(/spec/.*|\\.(test|spec))\\.(ts|tsx|js)$",
   "moduleFileExtensions": ["ts", "tsx", "js"],
   "moduleNameMapper": {
