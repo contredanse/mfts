@@ -3,32 +3,30 @@ declare interface Window {
     __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: any;
 }
 
-declare module "*.png" {
+declare module '*.png' {
     const value: string;
     export default value;
 }
 
-declare module "*.gif" {
+declare module '*.gif' {
     const value: string;
     export default value;
 }
 
-declare module "*.jpg" {
+declare module '*.jpg' {
     const value: string;
     export default value;
 }
 
-declare module "*.json" {
+declare module '*.json' {
     const value: any;
     export default value;
 }
 
-
-declare module "*.glsl" {
+declare module '*.glsl' {
     const value: any;
     export = value;
 }
-
 
 /*
 declare interface System {

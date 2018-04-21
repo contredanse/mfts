@@ -1,6 +1,6 @@
-import {IDataMenu} from '@data/data-menu';
-import {IDataVideo} from '@data/data-videos';
-import {IDataPage} from '@data/data-pages';
+import { IDataMenu } from '@data/data-menu';
+import { IDataVideo } from '@data/data-videos';
+import { IDataPage } from '@data/data-pages';
 import dataMenu from '@data/data-menu.json';
 import dataVideos from '@data/data-videos.json';
 import dataPages from '@data/data-pages.json';

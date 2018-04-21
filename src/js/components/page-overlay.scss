@@ -1,43 +1,39 @@
 $overlay-top-margin: 60px;
 
 .page-overlay-viewport {
-
-  position: fixed;
-  top: $overlay-top-margin;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  max-width: 100%;
-
-  //height: calc(100vh - #{$overlay-top-margin});
-
-  z-index: 1000;
-
-  overflow: hidden;
-
-
-  background-color: black;
-
-  display: flex;
-  .page-overlay-ctn {
-    //display: flex;
-    //flex-flow: column;
+    position: fixed;
+    top: $overlay-top-margin;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0;
+    margin: 0;
     width: 100%;
-    overflow-y: auto;
+    max-width: 100%;
 
-    .top-bar {
-      float: right;
-      position: absolute;
-      z-index: 200;
-      display: inline-flex;
-      justify-content: flex-end;
-      .close-button {
+    //height: calc(100vh - #{$overlay-top-margin});
 
-      }
+    z-index: 1000;
+
+    overflow: hidden;
+
+    background-color: black;
+
+    display: flex;
+    .page-overlay-ctn {
+        //display: flex;
+        //flex-flow: column;
+        width: 100%;
+        overflow-y: auto;
+
+        .top-bar {
+            float: right;
+            position: absolute;
+            z-index: 200;
+            display: inline-flex;
+            justify-content: flex-end;
+            .close-button {
+            }
+        }
     }
-
-  }
 }

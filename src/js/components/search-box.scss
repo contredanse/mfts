@@ -1,25 +1,24 @@
 .search-box-ctn {
-  width: 100%;
-  vertical-align: middle;
-  white-space: nowrap;
-  position: relative;
-  box-sizing: border-box;
-  padding:0;
-  margin: 0;
-
-  .search {
     width: 100%;
-    line-height: 1.5em;
-    border: none;
-    float: left;
-    background-color: rgba(255,255,255, 0.7);
-
-    padding: 0.2em;
-    padding-left: 0.4em;
+    vertical-align: middle;
+    white-space: nowrap;
+    position: relative;
+    box-sizing: border-box;
+    padding: 0;
     margin: 0;
-    border-radius: 3px;
-    color: black;
-    transition: width .55s ease;
-  }
 
+    .search {
+        width: 100%;
+        line-height: 1.5em;
+        border: none;
+        float: left;
+        background-color: rgba(255, 255, 255, 0.7);
+
+        padding: 0.2em;
+        padding-left: 0.4em;
+        margin: 0;
+        border-radius: 3px;
+        color: black;
+        transition: width 0.55s ease;
+    }
 }

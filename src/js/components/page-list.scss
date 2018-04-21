@@ -3,120 +3,109 @@ example
  */
 
 .page-list-wrapper {
-  /*
+    /*
   margin: 0 auto;
   width: 100%;
   */
 
-
-  .grid-cards {
-    list-style: none;
-    margin: 5px;
-    padding: 0;
-    display: grid;
-    //grid-template-columns: repeat(5,1fr);
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    //grid-template-columns: repeat(auto-fill, minmax(200px 1fr));
-    grid-gap: 15px;
-
-
-    .card {
-      border: 1px solid white;
-      border-radius: 5px;
-      /*border: 2px solid #490A3D;
-      border-radius:5px;*/
-      /*background-color: #BD1550;*/
-
-      color: #fff;
-      //flex: 1 1 200px;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      background-color: rgba(black,0.7);
-      background-blend-mode: lighten;
-      /*filter: grayscale(95%);*/
-      transition: 400ms filter ease-in-out;
-      min-height: 150px;
-
-
-      &:hover {
-        cursor: pointer;
-        //filter: drop-shadow(3px 3px 5px grey)
-        filter: contrast(130%)
-      }
-
-      h2 {
-        /*
-        background-color: #490A3D;
-        */
-        margin: 0;
-        padding: 10px;
-        font-size: 0.7em;
-        font-weight: normal;
-      }
-
-      p {
-        padding: 15px;
-      }
-
-
-      .grid-page-thumbnail {
+    .grid-cards {
+        list-style: none;
         margin: 5px;
-        padding: 5px;
+        padding: 0;
         display: grid;
         //grid-template-columns: repeat(5,1fr);
-        grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
         //grid-template-columns: repeat(auto-fill, minmax(200px 1fr));
-        grid-gap: 5px;
-        justify-items: center;
-        div {
-          img {
+        grid-gap: 15px;
 
+        .card {
             border: 1px solid white;
-            background-color: rgba(255, 255, 255, 0.2);
-            width: 100%;
-            justify-self: center;
+            border-radius: 5px;
+            /*border: 2px solid #490A3D;
+      border-radius:5px;*/
+            /*background-color: #BD1550;*/
 
-          }
+            color: #fff;
+            //flex: 1 1 200px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-color: rgba(black, 0.7);
+            background-blend-mode: lighten;
+            /*filter: grayscale(95%);*/
+            transition: 400ms filter ease-in-out;
+            min-height: 150px;
+
+            &:hover {
+                cursor: pointer;
+                //filter: drop-shadow(3px 3px 5px grey)
+                filter: contrast(130%);
+            }
+
+            h2 {
+                /*
+        background-color: #490A3D;
+        */
+                margin: 0;
+                padding: 10px;
+                font-size: 0.7em;
+                font-weight: normal;
+            }
+
+            p {
+                padding: 15px;
+            }
+
+            .grid-page-thumbnail {
+                margin: 5px;
+                padding: 5px;
+                display: grid;
+                //grid-template-columns: repeat(5,1fr);
+                grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+                //grid-template-columns: repeat(auto-fill, minmax(200px 1fr));
+                grid-gap: 5px;
+                justify-items: center;
+                div {
+                    img {
+                        border: 1px solid white;
+                        background-color: rgba(255, 255, 255, 0.2);
+                        width: 100%;
+                        justify-self: center;
+                    }
+                }
+            }
         }
-      }
-
     }
-  }
 
-  .fade-enter {
-    opacity: 0.1;
-    transform: scaleY(0.1) scaleX(0.95);
-  }
+    .fade-enter {
+        opacity: 0.1;
+        transform: scaleY(0.1) scaleX(0.95);
+    }
 
-  .fade-enter.fade-enter-active {
-    opacity: 1;
-    transform: scaleY(1) scaleX(1);
-    transition: transform 300ms ease-in, opacity 700ms ease-in;
-  }
+    .fade-enter.fade-enter-active {
+        opacity: 1;
+        transform: scaleY(1) scaleX(1);
+        transition: transform 300ms ease-in, opacity 700ms ease-in;
+    }
 
-  .fade-appear {
-    opacity: 0.2;
-    transform: scaleY(0.4) scaleX(0.4);
-  }
+    .fade-appear {
+        opacity: 0.2;
+        transform: scaleY(0.4) scaleX(0.4);
+    }
 
-  .fade-appear.fade-appear-active {
-    opacity: 0.9;
-    transform: scaleY(1) scaleX(1);
-    transition: transform 200ms ease-in, opacity 600ms linear;
-  }
+    .fade-appear.fade-appear-active {
+        opacity: 0.9;
+        transform: scaleY(1) scaleX(1);
+        transition: transform 200ms ease-in, opacity 600ms linear;
+    }
 
+    .fade-exit {
+        //opacity: 0.9;
+    }
 
-  .fade-exit {
-    //opacity: 0.9;
-  }
-
-  .fade-exit.fade-exit-active {
-    opacity: 0.01;
-    transform: scaleY(0) scaleX(0);
-    transition: all 350ms ease-in;
-  }
-
+    .fade-exit.fade-exit-active {
+        opacity: 0.01;
+        transform: scaleY(0) scaleX(0);
+        transition: all 350ms ease-in;
+    }
 }
-
-
