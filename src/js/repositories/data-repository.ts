@@ -4,7 +4,7 @@ export interface IParams {
     defaultLang: 'en' | 'fr';
 }
 
-export default class DataRepository<IParams> {
+export default class DataRepository {
     protected readonly params: IParams;
     protected readonly data: any[];
 
