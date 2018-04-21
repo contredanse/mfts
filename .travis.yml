@@ -20,7 +20,8 @@ jobs:
       script:
         - yarn tsc
         - yarn test
-
+      after_success:
+        - codecov
     - stage: Linter
       script:
         - yarn lint
