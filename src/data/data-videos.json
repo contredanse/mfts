@@ -1,7 +1,7 @@
 [
     {
         "video_id": "hello",
-        "legacy_src": "flv\/hello.flv",
+        "legacy_src": "flv/hello.flv",
         "sources": {
             "webm": "hello.webm",
             "mp4": "hello.mp4"
@@ -13,21 +13,19 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "hello.jpg"
-        ],
+        "covers": ["hello.jpg"],
         "tracks": {
             "en": "hello.en.vtt",
             "fr": "hello.fr.vtt"
         },
         "legacy_tracks": {
-            "en": "srt\/hello_en.srt",
-            "fr": "srt\/hello_fr.srt"
+            "en": "srt/hello_en.srt",
+            "fr": "srt/hello_fr.srt"
         }
     },
     {
         "video_id": "lemmon_en",
-        "legacy_src": "flv\/lemmon_en.flv",
+        "legacy_src": "flv/lemmon_en.flv",
         "sources": {
             "webm": "lemmon_en.webm",
             "mp4": "lemmon_en.mp4"
@@ -39,13 +37,11 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "lemmon_en.jpg"
-        ]
+        "covers": ["lemmon_en.jpg"]
     },
     {
         "video_id": "lemmon_fr",
-        "legacy_src": "flv\/lemmon_fr.flv",
+        "legacy_src": "flv/lemmon_fr.flv",
         "sources": {
             "webm": "lemmon_fr.webm",
             "mp4": "lemmon_fr.mp4"
@@ -57,13 +53,11 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "lemmon_fr.jpg"
-        ]
+        "covers": ["lemmon_fr.jpg"]
     },
     {
         "video_id": "falls",
-        "legacy_src": "flv\/falls.flv",
+        "legacy_src": "flv/falls.flv",
         "sources": {
             "webm": "falls.webm",
             "mp4": "falls.mp4"
@@ -75,13 +69,11 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "falls.jpg"
-        ]
+        "covers": ["falls.jpg"]
     },
     {
         "video_id": "watergravity",
-        "legacy_src": "flv\/watergravity.flv",
+        "legacy_src": "flv/watergravity.flv",
         "sources": {
             "webm": "watergravity.webm",
             "mp4": "watergravity.mp4"
@@ -93,13 +85,11 @@
             "audio_stream": true,
             "bitrate": 614400
         },
-        "covers": [
-            "watergravity.jpg"
-        ]
+        "covers": ["watergravity.jpg"]
     },
     {
         "video_id": "adjusting_birds",
-        "legacy_src": "flv\/adjusting_birds.flv",
+        "legacy_src": "flv/adjusting_birds.flv",
         "sources": {
             "webm": "adjusting_birds.webm",
             "mp4": "adjusting_birds.mp4"
@@ -111,13 +101,11 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "adjusting_birds.jpg"
-        ]
+        "covers": ["adjusting_birds.jpg"]
     },
     {
         "video_id": "breathing_en",
-        "legacy_src": "flv\/breathing_en.flv",
+        "legacy_src": "flv/breathing_en.flv",
         "sources": {
             "webm": "breathing_en.webm",
             "mp4": "breathing_en.mp4"
@@ -129,13 +117,11 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "breathing_en.jpg"
-        ]
+        "covers": ["breathing_en.jpg"]
     },
     {
         "video_id": "breathing_fr",
-        "legacy_src": "flv\/breathing_fr.flv",
+        "legacy_src": "flv/breathing_fr.flv",
         "sources": {
             "webm": "breathing_fr.webm",
             "mp4": "breathing_fr.mp4"
@@ -147,13 +133,11 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "breathing_fr.jpg"
-        ]
+        "covers": ["breathing_fr.jpg"]
     },
     {
         "video_id": "smalldance_full",
-        "legacy_src": "flv\/smalldance_full.flv",
+        "legacy_src": "flv/smalldance_full.flv",
         "sources": {
             "webm": "smalldance_full.webm",
             "mp4": "smalldance_full.mp4"
@@ -165,13 +149,11 @@
             "audio_stream": false,
             "bitrate": 716800
         },
-        "covers": [
-            "smalldance_full.jpg"
-        ]
+        "covers": ["smalldance_full.jpg"]
     },
     {
         "video_id": "pointing",
-        "legacy_src": "flv\/pointing.flv",
+        "legacy_src": "flv/pointing.flv",
         "sources": {
             "webm": "pointing.webm",
             "mp4": "pointing.mp4"
@@ -183,21 +165,19 @@
             "audio_stream": true,
             "bitrate": 614400
         },
-        "covers": [
-            "pointing.jpg"
-        ],
+        "covers": ["pointing.jpg"],
         "tracks": {
             "en": "pointing.en.vtt",
             "fr": "pointing.fr.vtt"
         },
         "legacy_tracks": {
-            "en": "srt\/pointing_en.srt",
-            "fr": "srt\/pointing_fr.srt"
+            "en": "srt/pointing_en.srt",
+            "fr": "srt/pointing_fr.srt"
         }
     },
     {
         "video_id": "pointing_scapula",
-        "legacy_src": "flv\/pointing_scapula.flv",
+        "legacy_src": "flv/pointing_scapula.flv",
         "sources": {
             "webm": "pointing_scapula.webm",
             "mp4": "pointing_scapula.mp4"
@@ -209,21 +189,19 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "pointing_scapula.jpg"
-        ],
+        "covers": ["pointing_scapula.jpg"],
         "tracks": {
             "en": "pointing_scapula.en.vtt",
             "fr": "pointing_scapula.fr.vtt"
         },
         "legacy_tracks": {
-            "en": "srt\/pointing_scapula_en.srt",
-            "fr": "srt\/pointing_scapula_fr.srt"
+            "en": "srt/pointing_scapula_en.srt",
+            "fr": "srt/pointing_scapula_fr.srt"
         }
     },
     {
         "video_id": "pelvis",
-        "legacy_src": "flv\/pelvis.flv",
+        "legacy_src": "flv/pelvis.flv",
         "sources": {
             "webm": "pelvis.webm",
             "mp4": "pelvis.mp4"
@@ -235,21 +213,19 @@
             "audio_stream": true,
             "bitrate": 614400
         },
-        "covers": [
-            "pelvis.jpg"
-        ],
+        "covers": ["pelvis.jpg"],
         "tracks": {
             "en": "pelvis.en.vtt",
             "fr": "pelvis.fr.vtt"
         },
         "legacy_tracks": {
-            "en": "srt\/pelvis_en.srt",
-            "fr": "srt\/pelvis_fr.srt"
+            "en": "srt/pelvis_en.srt",
+            "fr": "srt/pelvis_fr.srt"
         }
     },
     {
         "video_id": "pointing_heel",
-        "legacy_src": "flv\/pointing_heel.flv",
+        "legacy_src": "flv/pointing_heel.flv",
         "sources": {
             "webm": "pointing_heel.webm",
             "mp4": "pointing_heel.mp4"
@@ -261,21 +237,19 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "pointing_heel.jpg"
-        ],
+        "covers": ["pointing_heel.jpg"],
         "tracks": {
             "en": "pointing_heel.en.vtt",
             "fr": "pointing_heel.fr.vtt"
         },
         "legacy_tracks": {
-            "en": "srt\/pointing_heel_en.srt",
-            "fr": "srt\/pointing_heel_fr.srt"
+            "en": "srt/pointing_heel_en.srt",
+            "fr": "srt/pointing_heel_fr.srt"
         }
     },
     {
         "video_id": "walkasfondation",
-        "legacy_src": "flv\/walkasfondation.flv",
+        "legacy_src": "flv/walkasfondation.flv",
         "sources": {
             "webm": "walkasfondation.webm",
             "mp4": "walkasfondation.mp4"
@@ -287,21 +261,19 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "walkasfondation.jpg"
-        ],
+        "covers": ["walkasfondation.jpg"],
         "tracks": {
             "en": "walkasfondation.en.vtt",
             "fr": "walkasfondation.fr.vtt"
         },
         "legacy_tracks": {
-            "en": "srt\/walk_fondation_en.srt",
-            "fr": "srt\/walk_fondation_fr.srt"
+            "en": "srt/walk_fondation_en.srt",
+            "fr": "srt/walk_fondation_fr.srt"
         }
     },
     {
         "video_id": "birdswalk",
-        "legacy_src": "flv\/birdswalk.flv",
+        "legacy_src": "flv/birdswalk.flv",
         "sources": {
             "webm": "birdswalk.webm",
             "mp4": "birdswalk.mp4"
@@ -313,21 +285,19 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "birdswalk.jpg"
-        ],
+        "covers": ["birdswalk.jpg"],
         "tracks": {
             "en": "birdswalk.en.vtt",
             "fr": "birdswalk.fr.vtt"
         },
         "legacy_tracks": {
-            "en": "srt\/birdswalk_en.srt",
-            "fr": "srt\/birdswalk_fr.srt"
+            "en": "srt/birdswalk_en.srt",
+            "fr": "srt/birdswalk_fr.srt"
         }
     },
     {
         "video_id": "slowwalk",
-        "legacy_src": "swfvideo\/slowwalk.swf",
+        "legacy_src": "swfvideo/slowwalk.swf",
         "sources": {
             "webm": "slowwalk.webm",
             "mp4": "slowwalk.mp4"
@@ -339,13 +309,11 @@
             "audio_stream": false,
             "bitrate": 0
         },
-        "covers": [
-            "slowwalk.jpg"
-        ]
+        "covers": ["slowwalk.jpg"]
     },
     {
         "video_id": "twist",
-        "legacy_src": "flv\/twist.flv",
+        "legacy_src": "flv/twist.flv",
         "sources": {
             "webm": "twist.webm",
             "mp4": "twist.mp4"
@@ -357,13 +325,11 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "twist.jpg"
-        ]
+        "covers": ["twist.jpg"]
     },
     {
         "video_id": "focus_back",
-        "legacy_src": "flv\/focus_back.flv",
+        "legacy_src": "flv/focus_back.flv",
         "sources": {
             "webm": "focus_back.webm",
             "mp4": "focus_back.mp4"
@@ -375,21 +341,19 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "focus_back.jpg"
-        ],
+        "covers": ["focus_back.jpg"],
         "tracks": {
             "en": "focus_back.en.vtt",
             "fr": "focus_back.fr.vtt"
         },
         "legacy_tracks": {
-            "en": "srt\/back_en.srt",
-            "fr": "srt\/back_fr.srt"
+            "en": "srt/back_en.srt",
+            "fr": "srt/back_fr.srt"
         }
     },
     {
         "video_id": "passage",
-        "legacy_src": "flv\/passage.flv",
+        "legacy_src": "flv/passage.flv",
         "sources": {
             "webm": "passage.webm",
             "mp4": "passage.mp4"
@@ -401,13 +365,11 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "passage.jpg"
-        ]
+        "covers": ["passage.jpg"]
     },
     {
         "video_id": "sphericalspace",
-        "legacy_src": "flv\/sphericalspace.flv",
+        "legacy_src": "flv/sphericalspace.flv",
         "sources": {
             "webm": "sphericalspace.webm",
             "mp4": "sphericalspace.mp4"
@@ -419,21 +381,19 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "sphericalspace.jpg"
-        ],
+        "covers": ["sphericalspace.jpg"],
         "tracks": {
             "en": "sphericalspace.en.vtt",
             "fr": "sphericalspace.fr.vtt"
         },
         "legacy_tracks": {
-            "en": "srt\/space_en.srt",
-            "fr": "srt\/space_fr.srt"
+            "en": "srt/space_en.srt",
+            "fr": "srt/space_fr.srt"
         }
     },
     {
         "video_id": "perf_comments_goldberg",
-        "legacy_src": "flv\/perf_comments_goldberg.flv",
+        "legacy_src": "flv/perf_comments_goldberg.flv",
         "sources": {
             "webm": "perf_comments_goldberg.webm",
             "mp4": "perf_comments_goldberg.mp4"
@@ -445,21 +405,19 @@
             "audio_stream": true,
             "bitrate": 614400
         },
-        "covers": [
-            "perf_comments_goldberg.jpg"
-        ],
+        "covers": ["perf_comments_goldberg.jpg"],
         "tracks": {
             "en": "perf_comments_goldberg.en.vtt",
             "fr": "perf_comments_goldberg.fr.vtt"
         },
         "legacy_tracks": {
-            "en": "srt\/perf_comment_gold_en.srt",
-            "fr": "srt\/perf_comment_gold_fr.srt"
+            "en": "srt/perf_comment_gold_en.srt",
+            "fr": "srt/perf_comment_gold_fr.srt"
         }
     },
     {
         "video_id": "goldberg",
-        "legacy_src": "flv\/goldberg.flv",
+        "legacy_src": "flv/goldberg.flv",
         "sources": {
             "webm": "goldberg.webm",
             "mp4": "goldberg.mp4"
@@ -471,13 +429,11 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "goldberg.jpg"
-        ]
+        "covers": ["goldberg.jpg"]
     },
     {
         "video_id": "perf_comments_english",
-        "legacy_src": "flv\/perf_comments_english.flv",
+        "legacy_src": "flv/perf_comments_english.flv",
         "sources": {
             "webm": "perf_comments_english.webm",
             "mp4": "perf_comments_english.mp4"
@@ -489,21 +445,19 @@
             "audio_stream": true,
             "bitrate": 614400
         },
-        "covers": [
-            "perf_comments_english.jpg"
-        ],
+        "covers": ["perf_comments_english.jpg"],
         "tracks": {
             "en": "perf_comments_english.en.vtt",
             "fr": "perf_comments_english.fr.vtt"
         },
         "legacy_tracks": {
-            "en": "srt\/perf_comment_engl_en.srt",
-            "fr": "srt\/perf_comment_engl_fr.srt"
+            "en": "srt/perf_comment_engl_en.srt",
+            "fr": "srt/perf_comment_engl_fr.srt"
         }
     },
     {
         "video_id": "english",
-        "legacy_src": "flv\/english.flv",
+        "legacy_src": "flv/english.flv",
         "sources": {
             "webm": "english.webm",
             "mp4": "english.mp4"
@@ -515,13 +469,11 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "english.jpg"
-        ]
+        "covers": ["english.jpg"]
     },
     {
         "video_id": "perf_techimpro",
-        "legacy_src": "flv\/perf_techimpro.flv",
+        "legacy_src": "flv/perf_techimpro.flv",
         "sources": {
             "webm": "perf_techimpro.webm",
             "mp4": "perf_techimpro.mp4"
@@ -533,21 +485,19 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "perf_techimpro.jpg"
-        ],
+        "covers": ["perf_techimpro.jpg"],
         "tracks": {
             "en": "perf_techimpro.en.vtt",
             "fr": "perf_techimpro.fr.vtt"
         },
         "legacy_tracks": {
-            "en": "srt\/perf_comment_en.srt",
-            "fr": "srt\/perf_comment_fr.srt"
+            "en": "srt/perf_comment_en.srt",
+            "fr": "srt/perf_comment_fr.srt"
         }
     },
     {
         "video_id": "new_intro",
-        "legacy_src": "flv\/new_intro.flv",
+        "legacy_src": "flv/new_intro.flv",
         "sources": {
             "webm": "new_intro.webm",
             "mp4": "new_intro.mp4"
@@ -559,21 +509,19 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "new_intro.jpg"
-        ],
+        "covers": ["new_intro.jpg"],
         "tracks": {
             "en": "new_intro.en.vtt",
             "fr": "new_intro.fr.vtt"
         },
         "legacy_tracks": {
-            "en": "srt\/intro_en.srt",
-            "fr": "srt\/intro_fr.srt"
+            "en": "srt/intro_en.srt",
+            "fr": "srt/intro_fr.srt"
         }
     },
     {
         "video_id": "cbhf_fromside",
-        "legacy_src": "flv\/cbhf_fromside.flv",
+        "legacy_src": "flv/cbhf_fromside.flv",
         "sources": {
             "webm": "cbhf_fromside.webm",
             "mp4": "cbhf_fromside.mp4"
@@ -585,13 +533,11 @@
             "audio_stream": true,
             "bitrate": 614400
         },
-        "covers": [
-            "cbhf_fromside.jpg"
-        ]
+        "covers": ["cbhf_fromside.jpg"]
     },
     {
         "video_id": "cbhf_fromtop",
-        "legacy_src": "flv\/cbhf_fromtop.flv",
+        "legacy_src": "flv/cbhf_fromtop.flv",
         "sources": {
             "webm": "cbhf_fromtop.webm",
             "mp4": "cbhf_fromtop.mp4"
@@ -603,13 +549,11 @@
             "audio_stream": false,
             "bitrate": 716800
         },
-        "covers": [
-            "cbhf_fromtop.jpg"
-        ]
+        "covers": ["cbhf_fromtop.jpg"]
     },
     {
         "video_id": "cbhf_fromhead",
-        "legacy_src": "flv\/cbhf_fromhead.flv",
+        "legacy_src": "flv/cbhf_fromhead.flv",
         "sources": {
             "webm": "cbhf_fromhead.webm",
             "mp4": "cbhf_fromhead.mp4"
@@ -621,13 +565,11 @@
             "audio_stream": true,
             "bitrate": 614400
         },
-        "covers": [
-            "cbhf_fromhead.jpg"
-        ]
+        "covers": ["cbhf_fromhead.jpg"]
     },
     {
         "video_id": "cbc_fromhead",
-        "legacy_src": "flv\/cbc_fromhead.flv",
+        "legacy_src": "flv/cbc_fromhead.flv",
         "sources": {
             "webm": "cbc_fromhead.webm",
             "mp4": "cbc_fromhead.mp4"
@@ -639,13 +581,11 @@
             "audio_stream": false,
             "bitrate": 716800
         },
-        "covers": [
-            "cbc_fromhead.jpg"
-        ]
+        "covers": ["cbc_fromhead.jpg"]
     },
     {
         "video_id": "cbc_fromtop",
-        "legacy_src": "flv\/cbc_fromtop.flv",
+        "legacy_src": "flv/cbc_fromtop.flv",
         "sources": {
             "webm": "cbc_fromtop.webm",
             "mp4": "cbc_fromtop.mp4"
@@ -657,13 +597,11 @@
             "audio_stream": false,
             "bitrate": 716800
         },
-        "covers": [
-            "cbc_fromtop.jpg"
-        ]
+        "covers": ["cbc_fromtop.jpg"]
     },
     {
         "video_id": "chu_fromfeet",
-        "legacy_src": "flv\/chu_fromfeet.flv",
+        "legacy_src": "flv/chu_fromfeet.flv",
         "sources": {
             "webm": "chu_fromfeet.webm",
             "mp4": "chu_fromfeet.mp4"
@@ -675,13 +613,11 @@
             "audio_stream": true,
             "bitrate": 614400
         },
-        "covers": [
-            "chu_fromfeet.jpg"
-        ]
+        "covers": ["chu_fromfeet.jpg"]
     },
     {
         "video_id": "chu_fromside",
-        "legacy_src": "flv\/chu_fromside.flv",
+        "legacy_src": "flv/chu_fromside.flv",
         "sources": {
             "webm": "chu_fromside.webm",
             "mp4": "chu_fromside.mp4"
@@ -693,13 +629,11 @@
             "audio_stream": true,
             "bitrate": 614400
         },
-        "covers": [
-            "chu_fromside.jpg"
-        ]
+        "covers": ["chu_fromside.jpg"]
     },
     {
         "video_id": "cbfhu",
-        "legacy_src": "swfvideo\/cbfhu.swf",
+        "legacy_src": "swfvideo/cbfhu.swf",
         "sources": {
             "webm": "cbfhu.webm",
             "mp4": "cbfhu.mp4"
@@ -711,13 +645,11 @@
             "audio_stream": false,
             "bitrate": 0
         },
-        "covers": [
-            "cbfhu.jpg"
-        ]
+        "covers": ["cbfhu.jpg"]
     },
     {
         "video_id": "crescent_water",
-        "legacy_src": "flv\/crescent_water.flv",
+        "legacy_src": "flv/crescent_water.flv",
         "sources": {
             "webm": "crescent_water.webm",
             "mp4": "crescent_water.mp4"
@@ -729,13 +661,11 @@
             "audio_stream": true,
             "bitrate": 614400
         },
-        "covers": [
-            "crescent_water.jpg"
-        ]
+        "covers": ["crescent_water.jpg"]
     },
     {
         "video_id": "c_comparing",
-        "legacy_src": "swf\/c_comparing.swf",
+        "legacy_src": "swf/c_comparing.swf",
         "sources": {
             "webm": "c_comparing.webm",
             "mp4": "c_comparing.mp4"
@@ -747,13 +677,11 @@
             "audio_stream": false,
             "bitrate": 0
         },
-        "covers": [
-            "c_comparing.jpg"
-        ]
+        "covers": ["c_comparing.jpg"]
     },
     {
         "video_id": "sbf_fromfeet",
-        "legacy_src": "flv\/sbf_fromfeet.flv",
+        "legacy_src": "flv/sbf_fromfeet.flv",
         "sources": {
             "webm": "sbf_fromfeet.webm",
             "mp4": "sbf_fromfeet.mp4"
@@ -765,13 +693,11 @@
             "audio_stream": true,
             "bitrate": 614400
         },
-        "covers": [
-            "sbf_fromfeet.jpg"
-        ]
+        "covers": ["sbf_fromfeet.jpg"]
     },
     {
         "video_id": "sbf_side",
-        "legacy_src": "flv\/sbf_side.flv",
+        "legacy_src": "flv/sbf_side.flv",
         "sources": {
             "webm": "sbf_side.webm",
             "mp4": "sbf_side.mp4"
@@ -783,13 +709,11 @@
             "audio_stream": true,
             "bitrate": 614400
         },
-        "covers": [
-            "sbf_side.jpg"
-        ]
+        "covers": ["sbf_side.jpg"]
     },
     {
         "video_id": "sbf_fromhead",
-        "legacy_src": "flv\/sbf_fromhead.flv",
+        "legacy_src": "flv/sbf_fromhead.flv",
         "sources": {
             "webm": "sbf_fromhead.webm",
             "mp4": "sbf_fromhead.mp4"
@@ -801,13 +725,11 @@
             "audio_stream": true,
             "bitrate": 614400
         },
-        "covers": [
-            "sbf_fromhead.jpg"
-        ]
+        "covers": ["sbf_fromhead.jpg"]
     },
     {
         "video_id": "sbh_fromhead",
-        "legacy_src": "flv\/sbh_fromhead.flv",
+        "legacy_src": "flv/sbh_fromhead.flv",
         "sources": {
             "webm": "sbh_fromhead.webm",
             "mp4": "sbh_fromhead.mp4"
@@ -819,13 +741,11 @@
             "audio_stream": true,
             "bitrate": 614400
         },
-        "covers": [
-            "sbh_fromhead.jpg"
-        ]
+        "covers": ["sbh_fromhead.jpg"]
     },
     {
         "video_id": "sbh_side",
-        "legacy_src": "flv\/sbh_side.flv",
+        "legacy_src": "flv/sbh_side.flv",
         "sources": {
             "webm": "sbh_side.webm",
             "mp4": "sbh_side.mp4"
@@ -837,13 +757,11 @@
             "audio_stream": true,
             "bitrate": 614400
         },
-        "covers": [
-            "sbh_side.jpg"
-        ]
+        "covers": ["sbh_side.jpg"]
     },
     {
         "video_id": "helixinwater",
-        "legacy_src": "flv\/helixinwater.flv",
+        "legacy_src": "flv/helixinwater.flv",
         "sources": {
             "webm": "helixinwater.webm",
             "mp4": "helixinwater.mp4"
@@ -855,13 +773,11 @@
             "audio_stream": true,
             "bitrate": 614400
         },
-        "covers": [
-            "helixinwater.jpg"
-        ]
+        "covers": ["helixinwater.jpg"]
     },
     {
         "video_id": "h_comparing",
-        "legacy_src": "swf\/h_comparing.swf",
+        "legacy_src": "swf/h_comparing.swf",
         "sources": {
             "webm": "h_comparing.webm",
             "mp4": "h_comparing.mp4"
@@ -873,13 +789,11 @@
             "audio_stream": false,
             "bitrate": 0
         },
-        "covers": [
-            "h_comparing.jpg"
-        ]
+        "covers": ["h_comparing.jpg"]
     },
     {
         "video_id": "puzzle1",
-        "legacy_src": "swfvideo\/puzzle1.swf",
+        "legacy_src": "swfvideo/puzzle1.swf",
         "sources": {
             "webm": "puzzle1.webm",
             "mp4": "puzzle1.mp4"
@@ -891,13 +805,11 @@
             "audio_stream": true,
             "bitrate": 0
         },
-        "covers": [
-            "puzzle1.jpg"
-        ]
+        "covers": ["puzzle1.jpg"]
     },
     {
         "video_id": "puzzle2",
-        "legacy_src": "swfvideo\/puzzle2.swf",
+        "legacy_src": "swfvideo/puzzle2.swf",
         "sources": {
             "webm": "puzzle2.webm",
             "mp4": "puzzle2.mp4"
@@ -909,13 +821,11 @@
             "audio_stream": true,
             "bitrate": 0
         },
-        "covers": [
-            "puzzle2.jpg"
-        ]
+        "covers": ["puzzle2.jpg"]
     },
     {
         "video_id": "puzzle3",
-        "legacy_src": "swfvideo\/puzzle3.swf",
+        "legacy_src": "swfvideo/puzzle3.swf",
         "sources": {
             "webm": "puzzle3.webm",
             "mp4": "puzzle3.mp4"
@@ -927,13 +837,11 @@
             "audio_stream": true,
             "bitrate": 0
         },
-        "covers": [
-            "puzzle3.jpg"
-        ]
+        "covers": ["puzzle3.jpg"]
     },
     {
         "video_id": "puzzle4",
-        "legacy_src": "swfvideo\/puzzle4.swf",
+        "legacy_src": "swfvideo/puzzle4.swf",
         "sources": {
             "webm": "puzzle4.webm",
             "mp4": "puzzle4.mp4"
@@ -945,13 +853,11 @@
             "audio_stream": true,
             "bitrate": 0
         },
-        "covers": [
-            "puzzle4.jpg"
-        ]
+        "covers": ["puzzle4.jpg"]
     },
     {
         "video_id": "frontal_head_top",
-        "legacy_src": "flv\/frontal_head_top.flv",
+        "legacy_src": "flv/frontal_head_top.flv",
         "sources": {
             "webm": "frontal_head_top.webm",
             "mp4": "frontal_head_top.mp4"
@@ -963,13 +869,11 @@
             "audio_stream": false,
             "bitrate": 716800
         },
-        "covers": [
-            "frontal_head_top.jpg"
-        ]
+        "covers": ["frontal_head_top.jpg"]
     },
     {
         "video_id": "frontal_head_side",
-        "legacy_src": "flv\/frontal_head_side.flv",
+        "legacy_src": "flv/frontal_head_side.flv",
         "sources": {
             "webm": "frontal_head_side.webm",
             "mp4": "frontal_head_side.mp4"
@@ -981,13 +885,11 @@
             "audio_stream": false,
             "bitrate": 716800
         },
-        "covers": [
-            "frontal_head_side.jpg"
-        ]
+        "covers": ["frontal_head_side.jpg"]
     },
     {
         "video_id": "frontal_head_bottom",
-        "legacy_src": "flv\/frontal_head_bottom.flv",
+        "legacy_src": "flv/frontal_head_bottom.flv",
         "sources": {
             "webm": "frontal_head_bottom.webm",
             "mp4": "frontal_head_bottom.mp4"
@@ -999,13 +901,11 @@
             "audio_stream": false,
             "bitrate": 716800
         },
-        "covers": [
-            "frontal_head_bottom.jpg"
-        ]
+        "covers": ["frontal_head_bottom.jpg"]
     },
     {
         "video_id": "frontal_pelvis_top",
-        "legacy_src": "flv\/frontal_pelvis_top.flv",
+        "legacy_src": "flv/frontal_pelvis_top.flv",
         "sources": {
             "webm": "frontal_pelvis_top.webm",
             "mp4": "frontal_pelvis_top.mp4"
@@ -1017,13 +917,11 @@
             "audio_stream": false,
             "bitrate": 716800
         },
-        "covers": [
-            "frontal_pelvis_top.jpg"
-        ]
+        "covers": ["frontal_pelvis_top.jpg"]
     },
     {
         "video_id": "frontal_pelvis_side",
-        "legacy_src": "flv\/frontal_pelvis_side.flv",
+        "legacy_src": "flv/frontal_pelvis_side.flv",
         "sources": {
             "webm": "frontal_pelvis_side.webm",
             "mp4": "frontal_pelvis_side.mp4"
@@ -1035,13 +933,11 @@
             "audio_stream": false,
             "bitrate": 716800
         },
-        "covers": [
-            "frontal_pelvis_side.jpg"
-        ]
+        "covers": ["frontal_pelvis_side.jpg"]
     },
     {
         "video_id": "frontal_pelvis_bottom",
-        "legacy_src": "flv\/frontal_pelvis_bottom.flv",
+        "legacy_src": "flv/frontal_pelvis_bottom.flv",
         "sources": {
             "webm": "frontal_pelvis_bottom.webm",
             "mp4": "frontal_pelvis_bottom.mp4"
@@ -1053,13 +949,11 @@
             "audio_stream": false,
             "bitrate": 716800
         },
-        "covers": [
-            "frontal_pelvis_bottom.jpg"
-        ]
+        "covers": ["frontal_pelvis_bottom.jpg"]
     },
     {
         "video_id": "lateral_head_front",
-        "legacy_src": "flv\/lateral_head_front.flv",
+        "legacy_src": "flv/lateral_head_front.flv",
         "sources": {
             "webm": "lateral_head_front.webm",
             "mp4": "lateral_head_front.mp4"
@@ -1071,13 +965,11 @@
             "audio_stream": false,
             "bitrate": 716800
         },
-        "covers": [
-            "lateral_head_front.jpg"
-        ]
+        "covers": ["lateral_head_front.jpg"]
     },
     {
         "video_id": "lateral_head_top",
-        "legacy_src": "flv\/lateral_head_top.flv",
+        "legacy_src": "flv/lateral_head_top.flv",
         "sources": {
             "webm": "lateral_head_top.webm",
             "mp4": "lateral_head_top.mp4"
@@ -1089,13 +981,11 @@
             "audio_stream": false,
             "bitrate": 716800
         },
-        "covers": [
-            "lateral_head_top.jpg"
-        ]
+        "covers": ["lateral_head_top.jpg"]
     },
     {
         "video_id": "lateral_pelvis_top",
-        "legacy_src": "flv\/lateral_pelvis_top.flv",
+        "legacy_src": "flv/lateral_pelvis_top.flv",
         "sources": {
             "webm": "lateral_pelvis_top.webm",
             "mp4": "lateral_pelvis_top.mp4"
@@ -1107,13 +997,11 @@
             "audio_stream": false,
             "bitrate": 716800
         },
-        "covers": [
-            "lateral_pelvis_top.jpg"
-        ]
+        "covers": ["lateral_pelvis_top.jpg"]
     },
     {
         "video_id": "lateral_pelvis_front",
-        "legacy_src": "flv\/lateral_pelvis_front.flv",
+        "legacy_src": "flv/lateral_pelvis_front.flv",
         "sources": {
             "webm": "lateral_pelvis_front.webm",
             "mp4": "lateral_pelvis_front.mp4"
@@ -1125,13 +1013,11 @@
             "audio_stream": false,
             "bitrate": 716800
         },
-        "covers": [
-            "lateral_pelvis_front.jpg"
-        ]
+        "covers": ["lateral_pelvis_front.jpg"]
     },
     {
         "video_id": "dolphininwater",
-        "legacy_src": "flv\/dolphininwater.flv",
+        "legacy_src": "flv/dolphininwater.flv",
         "sources": {
             "webm": "dolphininwater.webm",
             "mp4": "dolphininwater.mp4"
@@ -1143,13 +1029,11 @@
             "audio_stream": true,
             "bitrate": 614400
         },
-        "covers": [
-            "dolphininwater.jpg"
-        ]
+        "covers": ["dolphininwater.jpg"]
     },
     {
         "video_id": "aikido_principle",
-        "legacy_src": "flv\/aikido_principle.flv",
+        "legacy_src": "flv/aikido_principle.flv",
         "sources": {
             "webm": "aikido_principle.webm",
             "mp4": "aikido_principle.mp4"
@@ -1161,21 +1045,19 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "aikido_principle.jpg"
-        ],
+        "covers": ["aikido_principle.jpg"],
         "tracks": {
             "en": "aikido_principle.en.vtt",
             "fr": "aikido_principle.fr.vtt"
         },
         "legacy_tracks": {
-            "en": "srt\/aikido_principle_en.srt",
-            "fr": "srt\/aikido_principle_fr.srt"
+            "en": "srt/aikido_principle_en.srt",
+            "fr": "srt/aikido_principle_fr.srt"
         }
     },
     {
         "video_id": "aikido_3D_side",
-        "legacy_src": "flv\/aikido_3D_side.flv",
+        "legacy_src": "flv/aikido_3D_side.flv",
         "sources": {
             "webm": "aikido_3D_side.webm",
             "mp4": "aikido_3D_side.mp4"
@@ -1187,13 +1069,11 @@
             "audio_stream": true,
             "bitrate": 614400
         },
-        "covers": [
-            "aikido_3D_side.jpg"
-        ]
+        "covers": ["aikido_3D_side.jpg"]
     },
     {
         "video_id": "aikido_3D_top",
-        "legacy_src": "flv\/aikido_3D_top.flv",
+        "legacy_src": "flv/aikido_3D_top.flv",
         "sources": {
             "webm": "aikido_3D_top.webm",
             "mp4": "aikido_3D_top.mp4"
@@ -1205,13 +1085,11 @@
             "audio_stream": true,
             "bitrate": 614400
         },
-        "covers": [
-            "aikido_3D_top.jpg"
-        ]
+        "covers": ["aikido_3D_top.jpg"]
     },
     {
         "video_id": "aikido_3D_front",
-        "legacy_src": "flv\/aikido_3D_front.flv",
+        "legacy_src": "flv/aikido_3D_front.flv",
         "sources": {
             "webm": "aikido_3D_front.webm",
             "mp4": "aikido_3D_front.mp4"
@@ -1223,13 +1101,11 @@
             "audio_stream": true,
             "bitrate": 614400
         },
-        "covers": [
-            "aikido_3D_front.jpg"
-        ]
+        "covers": ["aikido_3D_front.jpg"]
     },
     {
         "video_id": "crescent_head_up",
-        "legacy_src": "flv\/crescent_head_up.flv",
+        "legacy_src": "flv/crescent_head_up.flv",
         "sources": {
             "webm": "crescent_head_up.webm",
             "mp4": "crescent_head_up.mp4"
@@ -1241,21 +1117,19 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "crescent_head_up.jpg"
-        ],
+        "covers": ["crescent_head_up.jpg"],
         "tracks": {
             "en": "crescent_head_up.en.vtt",
             "fr": "crescent_head_up.fr.vtt"
         },
         "legacy_tracks": {
-            "en": "srt\/crescent_headup_en.srt",
-            "fr": "srt\/crescent_headup_fr.srt"
+            "en": "srt/crescent_headup_en.srt",
+            "fr": "srt/crescent_headup_fr.srt"
         }
     },
     {
         "video_id": "mfs_sbf_seattle",
-        "legacy_src": "flv\/mfs_sbf_seattle.flv",
+        "legacy_src": "flv/mfs_sbf_seattle.flv",
         "sources": {
             "webm": "mfs_sbf_seattle.webm",
             "mp4": "mfs_sbf_seattle.mp4"
@@ -1267,21 +1141,19 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "mfs_sbf_seattle.jpg"
-        ],
+        "covers": ["mfs_sbf_seattle.jpg"],
         "tracks": {
             "en": "mfs_sbf_seattle.en.vtt",
             "fr": "mfs_sbf_seattle.fr.vtt"
         },
         "legacy_tracks": {
-            "en": "srt\/mfs_sbf_seattle_en.srt",
-            "fr": "srt\/mfs_sbf_seattle_fr.srt"
+            "en": "srt/mfs_sbf_seattle_en.srt",
+            "fr": "srt/mfs_sbf_seattle_fr.srt"
         }
     },
     {
         "video_id": "mfs_sbh_seattle",
-        "legacy_src": "flv\/mfs_sbh_seattle.flv",
+        "legacy_src": "flv/mfs_sbh_seattle.flv",
         "sources": {
             "webm": "mfs_sbh_seattle.webm",
             "mp4": "mfs_sbh_seattle.mp4"
@@ -1293,21 +1165,19 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "mfs_sbh_seattle.jpg"
-        ],
+        "covers": ["mfs_sbh_seattle.jpg"],
         "tracks": {
             "en": "mfs_sbh_seattle.en.vtt",
             "fr": "mfs_sbh_seattle.fr.vtt"
         },
         "legacy_tracks": {
-            "en": "srt\/mfs_sbh_seattle_en.srt",
-            "fr": "srt\/mfs_sbh_seattle_fr.srt"
+            "en": "srt/mfs_sbh_seattle_en.srt",
+            "fr": "srt/mfs_sbh_seattle_fr.srt"
         }
     },
     {
         "video_id": "puzzle1_demo_graph",
-        "legacy_src": "flv\/puzzle1_demo_graph.flv",
+        "legacy_src": "flv/puzzle1_demo_graph.flv",
         "sources": {
             "webm": "puzzle1_demo_graph.webm",
             "mp4": "puzzle1_demo_graph.mp4"
@@ -1319,21 +1189,19 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "puzzle1_demo_graph.jpg"
-        ],
+        "covers": ["puzzle1_demo_graph.jpg"],
         "tracks": {
             "en": "puzzle1_demo_graph.en.vtt",
             "fr": "puzzle1_demo_graph.fr.vtt"
         },
         "legacy_tracks": {
-            "en": "srt\/mfs_puzzle1_demo_en.srt",
-            "fr": "srt\/mfs_puzzle1_demo_fr.srt"
+            "en": "srt/mfs_puzzle1_demo_en.srt",
+            "fr": "srt/mfs_puzzle1_demo_fr.srt"
         }
     },
     {
         "video_id": "correction_crescent_handsfeet",
-        "legacy_src": "flv\/correction_crescent_handsfeet.flv",
+        "legacy_src": "flv/correction_crescent_handsfeet.flv",
         "sources": {
             "webm": "correction_crescent_handsfeet.webm",
             "mp4": "correction_crescent_handsfeet.mp4"
@@ -1345,21 +1213,19 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "correction_crescent_handsfeet.jpg"
-        ],
+        "covers": ["correction_crescent_handsfeet.jpg"],
         "tracks": {
             "en": "correction_crescent_handsfeet.en.vtt",
             "fr": "correction_crescent_handsfeet.fr.vtt"
         },
         "legacy_tracks": {
-            "en": "srt\/correction_crescent_handsfeet_en.srt",
-            "fr": "srt\/correction_crescent_handsfeet_fr.srt"
+            "en": "srt/correction_crescent_handsfeet_en.srt",
+            "fr": "srt/correction_crescent_handsfeet_fr.srt"
         }
     },
     {
         "video_id": "correction_crescent_center",
-        "legacy_src": "flv\/correction_crescent_center.flv",
+        "legacy_src": "flv/correction_crescent_center.flv",
         "sources": {
             "webm": "correction_crescent_center.webm",
             "mp4": "correction_crescent_center.mp4"
@@ -1371,21 +1237,19 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "correction_crescent_center.jpg"
-        ],
+        "covers": ["correction_crescent_center.jpg"],
         "tracks": {
             "en": "correction_crescent_center.en.vtt",
             "fr": "correction_crescent_center.fr.vtt"
         },
         "legacy_tracks": {
-            "en": "srt\/correction_crescent_center_en.srt",
-            "fr": "srt\/correction_crescent_center_fr.srt"
+            "en": "srt/correction_crescent_center_en.srt",
+            "fr": "srt/correction_crescent_center_fr.srt"
         }
     },
     {
         "video_id": "correction_helix_feet",
-        "legacy_src": "flv\/correction_helix_feet.flv",
+        "legacy_src": "flv/correction_helix_feet.flv",
         "sources": {
             "webm": "correction_helix_feet.webm",
             "mp4": "correction_helix_feet.mp4"
@@ -1397,21 +1261,19 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "correction_helix_feet.jpg"
-        ],
+        "covers": ["correction_helix_feet.jpg"],
         "tracks": {
             "en": "correction_helix_feet.en.vtt",
             "fr": "correction_helix_feet.fr.vtt"
         },
         "legacy_tracks": {
-            "en": "srt\/correction_helix_feet_en.srt",
-            "fr": "srt\/correction_helix_feet_fr.srt"
+            "en": "srt/correction_helix_feet_en.srt",
+            "fr": "srt/correction_helix_feet_fr.srt"
         }
     },
     {
         "video_id": "correction_helix_hands",
-        "legacy_src": "flv\/correction_helix_hands.flv",
+        "legacy_src": "flv/correction_helix_hands.flv",
         "sources": {
             "webm": "correction_helix_hands.webm",
             "mp4": "correction_helix_hands.mp4"
@@ -1423,21 +1285,19 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "correction_helix_hands.jpg"
-        ],
+        "covers": ["correction_helix_hands.jpg"],
         "tracks": {
             "en": "correction_helix_hands.en.vtt",
             "fr": "correction_helix_hands.fr.vtt"
         },
         "legacy_tracks": {
-            "en": "srt\/correction_helix_hands_en.srt",
-            "fr": "srt\/correction_helix_hands_fr.srt"
+            "en": "srt/correction_helix_hands_en.srt",
+            "fr": "srt/correction_helix_hands_fr.srt"
         }
     },
     {
         "video_id": "correction_conclusion",
-        "legacy_src": "flv\/correction_conclusion.flv",
+        "legacy_src": "flv/correction_conclusion.flv",
         "sources": {
             "webm": "correction_conclusion.webm",
             "mp4": "correction_conclusion.mp4"
@@ -1449,21 +1309,19 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "correction_conclusion.jpg"
-        ],
+        "covers": ["correction_conclusion.jpg"],
         "tracks": {
             "en": "correction_conclusion.en.vtt",
             "fr": "correction_conclusion.fr.vtt"
         },
         "legacy_tracks": {
-            "en": "srt\/correction_conclusion_en.srt",
-            "fr": "srt\/correction_conclusion_fr.srt"
+            "en": "srt/correction_conclusion_en.srt",
+            "fr": "srt/correction_conclusion_fr.srt"
         }
     },
     {
         "video_id": "wu_fingers",
-        "legacy_src": "flv\/wu_fingers.flv",
+        "legacy_src": "flv/wu_fingers.flv",
         "sources": {
             "webm": "wu_fingers.webm",
             "mp4": "wu_fingers.mp4"
@@ -1475,13 +1333,11 @@
             "audio_stream": false,
             "bitrate": 716800
         },
-        "covers": [
-            "wu_fingers.jpg"
-        ]
+        "covers": ["wu_fingers.jpg"]
     },
     {
         "video_id": "wu_wrist",
-        "legacy_src": "flv\/wu_wrist.flv",
+        "legacy_src": "flv/wu_wrist.flv",
         "sources": {
             "webm": "wu_wrist.webm",
             "mp4": "wu_wrist.mp4"
@@ -1493,13 +1349,11 @@
             "audio_stream": false,
             "bitrate": 716800
         },
-        "covers": [
-            "wu_wrist.jpg"
-        ]
+        "covers": ["wu_wrist.jpg"]
     },
     {
         "video_id": "wu_hands",
-        "legacy_src": "flv\/wu_hands.flv",
+        "legacy_src": "flv/wu_hands.flv",
         "sources": {
             "webm": "wu_hands.webm",
             "mp4": "wu_hands.mp4"
@@ -1511,13 +1365,11 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "wu_hands.jpg"
-        ]
+        "covers": ["wu_hands.jpg"]
     },
     {
         "video_id": "wu_arms",
-        "legacy_src": "flv\/wu_arms.flv",
+        "legacy_src": "flv/wu_arms.flv",
         "sources": {
             "webm": "wu_arms.webm",
             "mp4": "wu_arms.mp4"
@@ -1529,13 +1381,11 @@
             "audio_stream": false,
             "bitrate": 716800
         },
-        "covers": [
-            "wu_arms.jpg"
-        ]
+        "covers": ["wu_arms.jpg"]
     },
     {
         "video_id": "wu_spine_and_arms",
-        "legacy_src": "flv\/wu_spine_and_arms.flv",
+        "legacy_src": "flv/wu_spine_and_arms.flv",
         "sources": {
             "webm": "wu_spine_and_arms.webm",
             "mp4": "wu_spine_and_arms.mp4"
@@ -1547,13 +1397,11 @@
             "audio_stream": false,
             "bitrate": 716800
         },
-        "covers": [
-            "wu_spine_and_arms.jpg"
-        ]
+        "covers": ["wu_spine_and_arms.jpg"]
     },
     {
         "video_id": "wu_bendingbone",
-        "legacy_src": "flv\/wu_bendingbone.flv",
+        "legacy_src": "flv/wu_bendingbone.flv",
         "sources": {
             "webm": "wu_bendingbone.webm",
             "mp4": "wu_bendingbone.mp4"
@@ -1565,21 +1413,19 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "wu_bendingbone.jpg"
-        ],
+        "covers": ["wu_bendingbone.jpg"],
         "tracks": {
             "en": "wu_bendingbone.en.vtt",
             "fr": "wu_bendingbone.fr.vtt"
         },
         "legacy_tracks": {
-            "en": "srt\/wu_bendingbone_en.srt",
-            "fr": "srt\/wu_bendingbone_fr.srt"
+            "en": "srt/wu_bendingbone_en.srt",
+            "fr": "srt/wu_bendingbone_fr.srt"
         }
     },
     {
         "video_id": "wu_aikidostep",
-        "legacy_src": "flv\/wu_aikidostep.flv",
+        "legacy_src": "flv/wu_aikidostep.flv",
         "sources": {
             "webm": "wu_aikidostep.webm",
             "mp4": "wu_aikidostep.mp4"
@@ -1591,13 +1437,11 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "wu_aikidostep.jpg"
-        ]
+        "covers": ["wu_aikidostep.jpg"]
     },
     {
         "video_id": "wu_twist",
-        "legacy_src": "flv\/wu_twist.flv",
+        "legacy_src": "flv/wu_twist.flv",
         "sources": {
             "webm": "wu_twist.webm",
             "mp4": "wu_twist.mp4"
@@ -1609,13 +1453,11 @@
             "audio_stream": false,
             "bitrate": 716800
         },
-        "covers": [
-            "wu_twist.jpg"
-        ]
+        "covers": ["wu_twist.jpg"]
     },
     {
         "video_id": "wu_twistlegs",
-        "legacy_src": "flv\/wu_twistlegs.flv",
+        "legacy_src": "flv/wu_twistlegs.flv",
         "sources": {
             "webm": "wu_twistlegs.webm",
             "mp4": "wu_twistlegs.mp4"
@@ -1627,21 +1469,19 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "wu_twistlegs.jpg"
-        ],
+        "covers": ["wu_twistlegs.jpg"],
         "tracks": {
             "en": "wu_twistlegs.en.vtt",
             "fr": "wu_twistlegs.fr.vtt"
         },
         "legacy_tracks": {
-            "en": "srt\/wu_twistleg_en.srt",
-            "fr": "srt\/wu_twistleg_fr.srt"
+            "en": "srt/wu_twistleg_en.srt",
+            "fr": "srt/wu_twistleg_fr.srt"
         }
     },
     {
         "video_id": "wu_legsresistance",
-        "legacy_src": "flv\/wu_legsresistance.flv",
+        "legacy_src": "flv/wu_legsresistance.flv",
         "sources": {
             "webm": "wu_legsresistance.webm",
             "mp4": "wu_legsresistance.mp4"
@@ -1653,21 +1493,19 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "wu_legsresistance.jpg"
-        ],
+        "covers": ["wu_legsresistance.jpg"],
         "tracks": {
             "en": "wu_legsresistance.en.vtt",
             "fr": "wu_legsresistance.fr.vtt"
         },
         "legacy_tracks": {
-            "en": "srt\/wu_legsresistance_en.srt",
-            "fr": "srt\/wu_legsresistance_fr.srt"
+            "en": "srt/wu_legsresistance_en.srt",
+            "fr": "srt/wu_legsresistance_fr.srt"
         }
     },
     {
         "video_id": "wu_trocantere",
-        "legacy_src": "flv\/wu_trocantere.flv",
+        "legacy_src": "flv/wu_trocantere.flv",
         "sources": {
             "webm": "wu_trocantere.webm",
             "mp4": "wu_trocantere.mp4"
@@ -1679,21 +1517,19 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "wu_trocantere.jpg"
-        ],
+        "covers": ["wu_trocantere.jpg"],
         "tracks": {
             "en": "wu_trocantere.en.vtt",
             "fr": "wu_trocantere.fr.vtt"
         },
         "legacy_tracks": {
-            "en": "srt\/wu_trochanter_en.srt",
-            "fr": "srt\/wu_trochanter_fr.srt"
+            "en": "srt/wu_trochanter_en.srt",
+            "fr": "srt/wu_trochanter_fr.srt"
         }
     },
     {
         "video_id": "wu_psoas",
-        "legacy_src": "flv\/wu_psoas.flv",
+        "legacy_src": "flv/wu_psoas.flv",
         "sources": {
             "webm": "wu_psoas.webm",
             "mp4": "wu_psoas.mp4"
@@ -1705,21 +1541,19 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "wu_psoas.jpg"
-        ],
+        "covers": ["wu_psoas.jpg"],
         "tracks": {
             "en": "wu_psoas.en.vtt",
             "fr": "wu_psoas.fr.vtt"
         },
         "legacy_tracks": {
-            "en": "srt\/wu_psoas_en.srt",
-            "fr": "srt\/wu_psoas_fr.srt"
+            "en": "srt/wu_psoas_en.srt",
+            "fr": "srt/wu_psoas_fr.srt"
         }
     },
     {
         "video_id": "wu_wave",
-        "legacy_src": "flv\/wu_wave.flv",
+        "legacy_src": "flv/wu_wave.flv",
         "sources": {
             "webm": "wu_wave.webm",
             "mp4": "wu_wave.mp4"
@@ -1731,21 +1565,19 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "wu_wave.jpg"
-        ],
+        "covers": ["wu_wave.jpg"],
         "tracks": {
             "en": "wu_wave.en.vtt",
             "fr": "wu_wave.fr.vtt"
         },
         "legacy_tracks": {
-            "en": "srt\/wu_wave_en.srt",
-            "fr": "srt\/wu_wave_fr.srt"
+            "en": "srt/wu_wave_en.srt",
+            "fr": "srt/wu_wave_fr.srt"
         }
     },
     {
         "video_id": "wu_wavefloor",
-        "legacy_src": "flv\/wu_wavefloor.flv",
+        "legacy_src": "flv/wu_wavefloor.flv",
         "sources": {
             "webm": "wu_wavefloor.webm",
             "mp4": "wu_wavefloor.mp4"
@@ -1757,21 +1589,19 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "wu_wavefloor.jpg"
-        ],
+        "covers": ["wu_wavefloor.jpg"],
         "tracks": {
             "en": "wu_wavefloor.en.vtt",
             "fr": "wu_wavefloor.fr.vtt"
         },
         "legacy_tracks": {
-            "en": "srt\/wu_wavefloor_en.srt",
-            "fr": "srt\/wu_wavefloor_fr.srt"
+            "en": "srt/wu_wavefloor_en.srt",
+            "fr": "srt/wu_wavefloor_fr.srt"
         }
     },
     {
         "video_id": "wu_asanas",
-        "legacy_src": "flv\/wu_asanas.flv",
+        "legacy_src": "flv/wu_asanas.flv",
         "sources": {
             "webm": "wu_asanas.webm",
             "mp4": "wu_asanas.mp4"
@@ -1783,21 +1613,19 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "wu_asanas.jpg"
-        ],
+        "covers": ["wu_asanas.jpg"],
         "tracks": {
             "en": "wu_asanas.en.vtt",
             "fr": "wu_asanas.fr.vtt"
         },
         "legacy_tracks": {
-            "en": "srt\/wu_asanas_en.srt",
-            "fr": "srt\/wu_asanas_fr.srt"
+            "en": "srt/wu_asanas_en.srt",
+            "fr": "srt/wu_asanas_fr.srt"
         }
     },
     {
         "video_id": "napp",
-        "legacy_src": "flv\/napp.flv",
+        "legacy_src": "flv/napp.flv",
         "sources": {
             "webm": "napp.webm",
             "mp4": "napp.mp4"
@@ -1809,21 +1637,19 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "napp.jpg"
-        ],
+        "covers": ["napp.jpg"],
         "tracks": {
             "en": "napp.en.vtt",
             "fr": "napp.fr.vtt"
         },
         "legacy_tracks": {
-            "en": "srt\/napp_en.srt",
-            "fr": "srt\/napp_fr.srt"
+            "en": "srt/napp_en.srt",
+            "fr": "srt/napp_fr.srt"
         }
     },
     {
         "video_id": "wu_play",
-        "legacy_src": "flv\/wu_play.flv",
+        "legacy_src": "flv/wu_play.flv",
         "sources": {
             "webm": "wu_play.webm",
             "mp4": "wu_play.mp4"
@@ -1835,13 +1661,11 @@
             "audio_stream": false,
             "bitrate": 716800
         },
-        "covers": [
-            "wu_play.jpg"
-        ]
+        "covers": ["wu_play.jpg"]
     },
     {
         "video_id": "dance_culture",
-        "legacy_src": "flv\/dance_culture.flv",
+        "legacy_src": "flv/dance_culture.flv",
         "sources": {
             "webm": "dance_culture.webm",
             "mp4": "dance_culture.mp4"
@@ -1853,21 +1677,19 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "dance_culture.jpg"
-        ],
+        "covers": ["dance_culture.jpg"],
         "tracks": {
             "en": "dance_culture.en.vtt",
             "fr": "dance_culture.fr.vtt"
         },
         "legacy_tracks": {
-            "en": "srt\/dance_culture_en.srt",
-            "fr": "srt\/dance_culture_fr.srt"
+            "en": "srt/dance_culture_en.srt",
+            "fr": "srt/dance_culture_fr.srt"
         }
     },
     {
         "video_id": "cultivating2",
-        "legacy_src": "flv\/cultivating2.flv",
+        "legacy_src": "flv/cultivating2.flv",
         "sources": {
             "webm": "cultivating2.webm",
             "mp4": "cultivating2.mp4"
@@ -1879,8 +1701,6 @@
             "audio_stream": true,
             "bitrate": 716800
         },
-        "covers": [
-            "cultivating2.jpg"
-        ]
+        "covers": ["cultivating2.jpg"]
     }
 ]

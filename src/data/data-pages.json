@@ -10,16 +10,8 @@
             "fr": "SENSATION ET SENS - le poids de la sensation"
         },
         "keywords": {
-            "en": [
-                "sensation",
-                "senses",
-                "weight"
-            ],
-            "fr": [
-                "sensation",
-                "sens",
-                "poids"
-            ]
+            "en": ["sensation", "senses", "weight"],
+            "fr": ["sensation", "sens", "poids"]
         },
         "content": {
             "layout": "single-video",
@@ -41,20 +33,8 @@
             "fr": "SENSATION ET SENS - la pesanteur - le plat et le rond"
         },
         "keywords": {
-            "en": [
-                "sensation",
-                "senses",
-                "gravity",
-                "flat",
-                "round"
-            ],
-            "fr": [
-                "sensation",
-                "sens",
-                "pesanteur",
-                "plat",
-                "rond"
-            ]
+            "en": ["sensation", "senses", "gravity", "flat", "round"],
+            "fr": ["sensation", "sens", "pesanteur", "plat", "rond"]
         },
         "content": {
             "layout": "single-i18n-video",
@@ -83,18 +63,8 @@
             "fr": "SENSATION ET SENS - la pesanteur - chutes"
         },
         "keywords": {
-            "en": [
-                "sensation",
-                "senses",
-                "gravity",
-                "falls"
-            ],
-            "fr": [
-                "sensation",
-                "sens",
-                "pesanteur",
-                "chutes"
-            ]
+            "en": ["sensation", "senses", "gravity", "falls"],
+            "fr": ["sensation", "sens", "pesanteur", "chutes"]
         },
         "content": {
             "layout": "single-video",
@@ -116,19 +86,8 @@
             "fr": "SENSATION ET SENS - la pesanteur - la pesanteur dans l'eau"
         },
         "keywords": {
-            "en": [
-                "sensation",
-                "senses",
-                "gravity",
-                "water"
-            ],
-            "fr": [
-                "sensation",
-                "sens",
-                "pesanteur",
-                "dans",
-                "l'eau"
-            ]
+            "en": ["sensation", "senses", "gravity", "water"],
+            "fr": ["sensation", "sens", "pesanteur", "dans", "l'eau"]
         },
         "content": {
             "layout": "single-video",
@@ -150,18 +109,8 @@
             "fr": "SENSATION ET SENS - la pesanteur - ajuster"
         },
         "keywords": {
-            "en": [
-                "sensation",
-                "senses",
-                "gravity",
-                "adjusting"
-            ],
-            "fr": [
-                "sensation",
-                "sens",
-                "pesanteur",
-                "ajuster"
-            ]
+            "en": ["sensation", "senses", "gravity", "adjusting"],
+            "fr": ["sensation", "sens", "pesanteur", "ajuster"]
         },
         "content": {
             "layout": "single-video",
@@ -183,21 +132,8 @@
             "fr": "SENSATION ET SENS - à la base - respirer, une approche"
         },
         "keywords": {
-            "en": [
-                "sensation",
-                "senses",
-                "basics",
-                "approach",
-                "breathing"
-            ],
-            "fr": [
-                "sensation",
-                "sens",
-                "base",
-                "respirer,",
-                "une",
-                "approche"
-            ]
+            "en": ["sensation", "senses", "basics", "approach", "breathing"],
+            "fr": ["sensation", "sens", "base", "respirer,", "une", "approche"]
         },
         "content": {
             "layout": "single-i18n-video",
@@ -226,23 +162,8 @@
             "fr": "SENSATION ET SENS - à la base - la petite danse, une approche"
         },
         "keywords": {
-            "en": [
-                "sensation",
-                "senses",
-                "basics",
-                "approach",
-                "small",
-                "dance"
-            ],
-            "fr": [
-                "sensation",
-                "sens",
-                "base",
-                "petite",
-                "danse,",
-                "une",
-                "approche"
-            ]
+            "en": ["sensation", "senses", "basics", "approach", "small", "dance"],
+            "fr": ["sensation", "sens", "base", "petite", "danse,", "une", "approche"]
         },
         "content": {
             "layout": "single-video-audio_i18n",
@@ -253,10 +174,10 @@
             },
             "audio_i18n": {
                 "en": {
-                    "src": "mp3\/small_dance_en.mp3"
+                    "src": "mp3/small_dance_en.mp3"
                 },
                 "fr": {
-                    "src": "mp3\/small_dance_fr.mp3"
+                    "src": "mp3/small_dance_fr.mp3"
                 }
             }
         }
@@ -272,20 +193,8 @@
             "fr": "SENSATION ET SENS - pointer - pointer, les différentes parties"
         },
         "keywords": {
-            "en": [
-                "sensation",
-                "senses",
-                "pointing",
-                "parts"
-            ],
-            "fr": [
-                "sensation",
-                "sens",
-                "pointer",
-                "pointer,",
-                "différentes",
-                "parties"
-            ]
+            "en": ["sensation", "senses", "pointing", "parts"],
+            "fr": ["sensation", "sens", "pointer", "pointer,", "différentes", "parties"]
         },
         "content": {
             "layout": "single-video",
@@ -307,20 +216,8 @@
             "fr": "SENSATION ET SENS - pointer - la relation à l'omoplate"
         },
         "keywords": {
-            "en": [
-                "sensation",
-                "senses",
-                "pointing",
-                "relation",
-                "scapula"
-            ],
-            "fr": [
-                "sensation",
-                "sens",
-                "pointer",
-                "relation",
-                "l'omoplate"
-            ]
+            "en": ["sensation", "senses", "pointing", "relation", "scapula"],
+            "fr": ["sensation", "sens", "pointer", "relation", "l'omoplate"]
         },
         "content": {
             "layout": "single-video",
@@ -342,18 +239,8 @@
             "fr": "SENSATION ET SENS - le bassin - initier par le bassin"
         },
         "keywords": {
-            "en": [
-                "sensation",
-                "senses",
-                "pelvis",
-                "initiator"
-            ],
-            "fr": [
-                "sensation",
-                "sens",
-                "bassin",
-                "initier"
-            ]
+            "en": ["sensation", "senses", "pelvis", "initiator"],
+            "fr": ["sensation", "sens", "bassin", "initier"]
         },
         "content": {
             "layout": "single-video",
@@ -375,23 +262,8 @@
             "fr": "SENSATION ET SENS - le bassin - exercice: les ischions vers les talons"
         },
         "keywords": {
-            "en": [
-                "sensation",
-                "senses",
-                "pelvis",
-                "exercise",
-                "ischia",
-                "heels"
-            ],
-            "fr": [
-                "sensation",
-                "sens",
-                "bassin",
-                "exercice:",
-                "ischions",
-                "vers",
-                "talons"
-            ]
+            "en": ["sensation", "senses", "pelvis", "exercise", "ischia", "heels"],
+            "fr": ["sensation", "sens", "bassin", "exercice:", "ischions", "vers", "talons"]
         },
         "content": {
             "layout": "single-video",
@@ -413,19 +285,8 @@
             "fr": "SENSATION ET SENS - la marche - la marche comme fondement"
         },
         "keywords": {
-            "en": [
-                "sensation",
-                "senses",
-                "walk",
-                "foundation"
-            ],
-            "fr": [
-                "sensation",
-                "sens",
-                "marche",
-                "comme",
-                "fondement"
-            ]
+            "en": ["sensation", "senses", "walk", "foundation"],
+            "fr": ["sensation", "sens", "marche", "comme", "fondement"]
         },
         "content": {
             "layout": "single-video",
@@ -447,18 +308,8 @@
             "fr": "SENSATION ET SENS - la marche - la marche des oiseaux"
         },
         "keywords": {
-            "en": [
-                "sensation",
-                "senses",
-                "walk",
-                "birds"
-            ],
-            "fr": [
-                "sensation",
-                "sens",
-                "marche",
-                "oiseaux"
-            ]
+            "en": ["sensation", "senses", "walk", "birds"],
+            "fr": ["sensation", "sens", "marche", "oiseaux"]
         },
         "content": {
             "layout": "single-video",
@@ -480,18 +331,8 @@
             "fr": "SENSATION ET SENS - la marche - la marche lente"
         },
         "keywords": {
-            "en": [
-                "sensation",
-                "senses",
-                "walk",
-                "slow"
-            ],
-            "fr": [
-                "sensation",
-                "sens",
-                "marche",
-                "lente"
-            ]
+            "en": ["sensation", "senses", "walk", "slow"],
+            "fr": ["sensation", "sens", "marche", "lente"]
         },
         "content": {
             "layout": "single-video",
@@ -514,18 +355,8 @@
             "fr": "SENSATION ET SENS - la marche - la torsion"
         },
         "keywords": {
-            "en": [
-                "sensation",
-                "senses",
-                "walk",
-                "twist"
-            ],
-            "fr": [
-                "sensation",
-                "sens",
-                "marche",
-                "torsion"
-            ]
+            "en": ["sensation", "senses", "walk", "twist"],
+            "fr": ["sensation", "sens", "marche", "torsion"]
         },
         "content": {
             "layout": "single-video",
@@ -547,21 +378,8 @@
             "fr": "SENSATION ET SENS - le dos - choisir de se concentrer sur le dos"
         },
         "keywords": {
-            "en": [
-                "sensation",
-                "senses",
-                "back",
-                "choosing",
-                "focus"
-            ],
-            "fr": [
-                "sensation",
-                "sens",
-                "dos",
-                "choisir",
-                "concentrer",
-                "sur"
-            ]
+            "en": ["sensation", "senses", "back", "choosing", "focus"],
+            "fr": ["sensation", "sens", "dos", "choisir", "concentrer", "sur"]
         },
         "content": {
             "layout": "single-video",
@@ -583,18 +401,8 @@
             "fr": "SENSATION ET SENS - le dos - passage"
         },
         "keywords": {
-            "en": [
-                "sensation",
-                "senses",
-                "back",
-                "passage"
-            ],
-            "fr": [
-                "sensation",
-                "sens",
-                "dos",
-                "passage"
-            ]
+            "en": ["sensation", "senses", "back", "passage"],
+            "fr": ["sensation", "sens", "dos", "passage"]
         },
         "content": {
             "layout": "single-video",
@@ -616,18 +424,8 @@
             "fr": "SENSATION ET SENS - l'espace - l'espace sphérique"
         },
         "keywords": {
-            "en": [
-                "sensation",
-                "senses",
-                "space",
-                "spherical"
-            ],
-            "fr": [
-                "sensation",
-                "sens",
-                "l'espace",
-                "sphérique"
-            ]
+            "en": ["sensation", "senses", "space", "spherical"],
+            "fr": ["sensation", "sens", "l'espace", "sphérique"]
         },
         "content": {
             "layout": "single-video",
@@ -649,16 +447,7 @@
             "fr": "SENSATION ET SENS - MFS comme base pour l'improvisation - introduction aux Goldberg Variations"
         },
         "keywords": {
-            "en": [
-                "sensation",
-                "senses",
-                "mfs",
-                "base",
-                "improvisation",
-                "looking",
-                "goldberg",
-                "variations"
-            ],
+            "en": ["sensation", "senses", "mfs", "base", "improvisation", "looking", "goldberg", "variations"],
             "fr": [
                 "sensation",
                 "sens",
@@ -691,16 +480,7 @@
             "fr": "SENSATION ET SENS - MFS comme base pour l'improvisation - Goldberg Variations (extraits)"
         },
         "keywords": {
-            "en": [
-                "sensation",
-                "senses",
-                "mfs",
-                "base",
-                "improvisation",
-                "goldberg",
-                "variations",
-                "(extracts)"
-            ],
+            "en": ["sensation", "senses", "mfs", "base", "improvisation", "goldberg", "variations", "(extracts)"],
             "fr": [
                 "sensation",
                 "sens",
@@ -733,27 +513,8 @@
             "fr": "SENSATION ET SENS - MFS comme base pour l'improvisation - introduction aux English Suites"
         },
         "keywords": {
-            "en": [
-                "sensation",
-                "senses",
-                "mfs",
-                "base",
-                "improvisation",
-                "looking",
-                "english",
-                "suites"
-            ],
-            "fr": [
-                "sensation",
-                "sens",
-                "mfs",
-                "comme",
-                "base",
-                "l'improvisation",
-                "introduction",
-                "english",
-                "suites"
-            ]
+            "en": ["sensation", "senses", "mfs", "base", "improvisation", "looking", "english", "suites"],
+            "fr": ["sensation", "sens", "mfs", "comme", "base", "l'improvisation", "introduction", "english", "suites"]
         },
         "content": {
             "layout": "single-video",
@@ -775,25 +536,8 @@
             "fr": "SENSATION ET SENS - MFS comme base pour l'improvisation - English Suites"
         },
         "keywords": {
-            "en": [
-                "sensation",
-                "senses",
-                "mfs",
-                "base",
-                "improvisation",
-                "english",
-                "suites"
-            ],
-            "fr": [
-                "sensation",
-                "sens",
-                "mfs",
-                "comme",
-                "base",
-                "l'improvisation",
-                "english",
-                "suites"
-            ]
+            "en": ["sensation", "senses", "mfs", "base", "improvisation", "english", "suites"],
+            "fr": ["sensation", "sens", "mfs", "comme", "base", "l'improvisation", "english", "suites"]
         },
         "content": {
             "layout": "single-video",
@@ -815,24 +559,8 @@
             "fr": "SENSATION ET SENS - MFS comme base pour l'improvisation - une technique pour l'improvisation"
         },
         "keywords": {
-            "en": [
-                "sensation",
-                "senses",
-                "mfs",
-                "base",
-                "improvisation",
-                "technique"
-            ],
-            "fr": [
-                "sensation",
-                "sens",
-                "mfs",
-                "comme",
-                "base",
-                "l'improvisation",
-                "une",
-                "technique"
-            ]
+            "en": ["sensation", "senses", "mfs", "base", "improvisation", "technique"],
+            "fr": ["sensation", "sens", "mfs", "comme", "base", "l'improvisation", "une", "technique"]
         },
         "content": {
             "layout": "single-video",
@@ -854,14 +582,8 @@
             "fr": "LES FORMES - introduction"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "introduction"
-            ],
-            "fr": [
-                "formes",
-                "introduction"
-            ]
+            "en": ["forms", "introduction"],
+            "fr": ["formes", "introduction"]
         },
         "content": {
             "layout": "single-video",
@@ -883,22 +605,8 @@
             "fr": "LES FORMES - le roulé en croissant - initié par les mains et les pieds"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "crescent",
-                "roll",
-                "led",
-                "feet",
-                "hands"
-            ],
-            "fr": [
-                "formes",
-                "roulé",
-                "croissant",
-                "initié",
-                "mains",
-                "pieds"
-            ]
+            "en": ["forms", "crescent", "roll", "led", "feet", "hands"],
+            "fr": ["formes", "roulé", "croissant", "initié", "mains", "pieds"]
         },
         "content": {
             "layout": "three-videos-audio-subs",
@@ -920,11 +628,11 @@
                 }
             ],
             "audio": {
-                "src": "mp3\/comments_crescent.mp3"
+                "src": "mp3/comments_crescent.mp3"
             },
             "subs": {
-                "en": "srt\/mfs_crescents_comments_en.srt",
-                "fr": "srt\/mfs_crescents_comments_fr.srt"
+                "en": "srt/mfs_crescents_comments_en.srt",
+                "fr": "srt/mfs_crescents_comments_fr.srt"
             }
         }
     },
@@ -939,20 +647,8 @@
             "fr": "LES FORMES - le roulé en croissant - initié par le centre"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "crescent",
-                "roll",
-                "led",
-                "center"
-            ],
-            "fr": [
-                "formes",
-                "roulé",
-                "croissant",
-                "initié",
-                "centre"
-            ]
+            "en": ["forms", "crescent", "roll", "led", "center"],
+            "fr": ["formes", "roulé", "croissant", "initié", "centre"]
         },
         "content": {
             "layout": "two-videos-only",
@@ -981,19 +677,8 @@
             "fr": "LES FORMES - le roulé en croissant - tête dégagée"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "crescent",
-                "roll",
-                "head"
-            ],
-            "fr": [
-                "formes",
-                "roulé",
-                "croissant",
-                "tête",
-                "dégagée"
-            ]
+            "en": ["forms", "crescent", "roll", "head"],
+            "fr": ["formes", "roulé", "croissant", "tête", "dégagée"]
         },
         "content": {
             "layout": "two-videos-only",
@@ -1022,22 +707,8 @@
             "fr": "LES FORMES - le roulé en croissant - tête et pieds vers le haut"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "crescent",
-                "roll",
-                "head",
-                "feet"
-            ],
-            "fr": [
-                "formes",
-                "roulé",
-                "croissant",
-                "tête",
-                "pieds",
-                "vers",
-                "haut"
-            ]
+            "en": ["forms", "crescent", "roll", "head", "feet"],
+            "fr": ["formes", "roulé", "croissant", "tête", "pieds", "vers", "haut"]
         },
         "content": {
             "layout": "single-video",
@@ -1060,19 +731,8 @@
             "fr": "LES FORMES - le roulé en croissant - dans l'eau"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "crescent",
-                "roll",
-                "water"
-            ],
-            "fr": [
-                "formes",
-                "roulé",
-                "croissant",
-                "dans",
-                "l'eau"
-            ]
+            "en": ["forms", "crescent", "roll", "water"],
+            "fr": ["formes", "roulé", "croissant", "dans", "l'eau"]
         },
         "content": {
             "layout": "single-video",
@@ -1094,18 +754,8 @@
             "fr": "LES FORMES - le roulé en croissant - comparaison"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "crescent",
-                "roll",
-                "comparison"
-            ],
-            "fr": [
-                "formes",
-                "roulé",
-                "croissant",
-                "comparaison"
-            ]
+            "en": ["forms", "crescent", "roll", "comparison"],
+            "fr": ["formes", "roulé", "croissant", "comparaison"]
         },
         "content": {
             "layout": "single-video",
@@ -1128,20 +778,8 @@
             "fr": "LES FORMES - le roulé en hélice - initié par les pieds"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "helix",
-                "roll",
-                "led",
-                "feet"
-            ],
-            "fr": [
-                "formes",
-                "roulé",
-                "hélice",
-                "initié",
-                "pieds"
-            ]
+            "en": ["forms", "helix", "roll", "led", "feet"],
+            "fr": ["formes", "roulé", "hélice", "initié", "pieds"]
         },
         "content": {
             "layout": "three-videos-audio-subs",
@@ -1163,11 +801,11 @@
                 }
             ],
             "audio": {
-                "src": "mp3\/mfs_sbf.mp3"
+                "src": "mp3/mfs_sbf.mp3"
             },
             "subs": {
-                "en": "srt\/mfs_sbf_en.srt",
-                "fr": "srt\/mfs_sbf_fr.srt"
+                "en": "srt/mfs_sbf_en.srt",
+                "fr": "srt/mfs_sbf_fr.srt"
             }
         }
     },
@@ -1182,20 +820,8 @@
             "fr": "LES FORMES - le roulé en hélice - initié par les mains"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "helix",
-                "roll",
-                "led",
-                "hands"
-            ],
-            "fr": [
-                "formes",
-                "roulé",
-                "hélice",
-                "initié",
-                "mains"
-            ]
+            "en": ["forms", "helix", "roll", "led", "hands"],
+            "fr": ["formes", "roulé", "hélice", "initié", "mains"]
         },
         "content": {
             "layout": "two-videos-audio-subs",
@@ -1212,11 +838,11 @@
                 }
             ],
             "audio": {
-                "src": "mp3\/mfs_sbh.mp3"
+                "src": "mp3/mfs_sbh.mp3"
             },
             "subs": {
-                "en": "srt\/mfs_sbh_en.srt",
-                "fr": "srt\/mfs_sbh_fr.srt"
+                "en": "srt/mfs_sbh_en.srt",
+                "fr": "srt/mfs_sbh_fr.srt"
             }
         }
     },
@@ -1231,19 +857,8 @@
             "fr": "LES FORMES - le roulé en hélice - dans l'eau"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "helix",
-                "roll",
-                "water"
-            ],
-            "fr": [
-                "formes",
-                "roulé",
-                "hélice",
-                "dans",
-                "l'eau"
-            ]
+            "en": ["forms", "helix", "roll", "water"],
+            "fr": ["formes", "roulé", "hélice", "dans", "l'eau"]
         },
         "content": {
             "layout": "single-video",
@@ -1265,18 +880,8 @@
             "fr": "LES FORMES - le roulé en hélice - comparaison"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "helix",
-                "roll",
-                "comparison"
-            ],
-            "fr": [
-                "formes",
-                "roulé",
-                "hélice",
-                "comparaison"
-            ]
+            "en": ["forms", "helix", "roll", "comparison"],
+            "fr": ["formes", "roulé", "hélice", "comparaison"]
         },
         "content": {
             "layout": "single-video",
@@ -1299,16 +904,8 @@
             "fr": "LES FORMES - les puzzles - puzzle 1"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "puzzles",
-                "puzzle"
-            ],
-            "fr": [
-                "formes",
-                "puzzles",
-                "puzzle"
-            ]
+            "en": ["forms", "puzzles", "puzzle"],
+            "fr": ["formes", "puzzles", "puzzle"]
         },
         "content": {
             "layout": "single-video",
@@ -1331,16 +928,8 @@
             "fr": "LES FORMES - les puzzles - puzzle 2"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "puzzles",
-                "puzzle"
-            ],
-            "fr": [
-                "formes",
-                "puzzles",
-                "puzzle"
-            ]
+            "en": ["forms", "puzzles", "puzzle"],
+            "fr": ["formes", "puzzles", "puzzle"]
         },
         "content": {
             "layout": "single-video",
@@ -1363,16 +952,8 @@
             "fr": "LES FORMES - les puzzles - puzzle 3"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "puzzles",
-                "puzzle"
-            ],
-            "fr": [
-                "formes",
-                "puzzles",
-                "puzzle"
-            ]
+            "en": ["forms", "puzzles", "puzzle"],
+            "fr": ["formes", "puzzles", "puzzle"]
         },
         "content": {
             "layout": "single-video",
@@ -1395,16 +976,8 @@
             "fr": "LES FORMES - les puzzles - puzzle 4"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "puzzles",
-                "puzzle"
-            ],
-            "fr": [
-                "formes",
-                "puzzles",
-                "puzzle"
-            ]
+            "en": ["forms", "puzzles", "puzzle"],
+            "fr": ["formes", "puzzles", "puzzle"]
         },
         "content": {
             "layout": "single-video",
@@ -1427,20 +1000,8 @@
             "fr": "LES FORMES - l'ondulation - frontale initiée par la tête"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "undulation",
-                "frontal",
-                "initiated",
-                "head"
-            ],
-            "fr": [
-                "formes",
-                "l'ondulation",
-                "frontale",
-                "initiée",
-                "tête"
-            ]
+            "en": ["forms", "undulation", "frontal", "initiated", "head"],
+            "fr": ["formes", "l'ondulation", "frontale", "initiée", "tête"]
         },
         "content": {
             "layout": "three-videos-audio-subs",
@@ -1462,11 +1023,11 @@
                 }
             ],
             "audio": {
-                "src": "mp3\/comment_undulation.mp3"
+                "src": "mp3/comment_undulation.mp3"
             },
             "subs": {
-                "en": "srt\/undulations_en.srt",
-                "fr": "srt\/undulations_fr.srt"
+                "en": "srt/undulations_en.srt",
+                "fr": "srt/undulations_fr.srt"
             }
         }
     },
@@ -1481,20 +1042,8 @@
             "fr": "LES FORMES - l'ondulation - frontale initiée par le bassin"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "undulation",
-                "frontal",
-                "initiated",
-                "pelvis"
-            ],
-            "fr": [
-                "formes",
-                "l'ondulation",
-                "frontale",
-                "initiée",
-                "bassin"
-            ]
+            "en": ["forms", "undulation", "frontal", "initiated", "pelvis"],
+            "fr": ["formes", "l'ondulation", "frontale", "initiée", "bassin"]
         },
         "content": {
             "layout": "three-videos-only",
@@ -1528,20 +1077,8 @@
             "fr": "LES FORMES - l'ondulation - latérale initiée par la tête"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "undulation",
-                "lateral",
-                "initiated",
-                "head"
-            ],
-            "fr": [
-                "formes",
-                "l'ondulation",
-                "latérale",
-                "initiée",
-                "tête"
-            ]
+            "en": ["forms", "undulation", "lateral", "initiated", "head"],
+            "fr": ["formes", "l'ondulation", "latérale", "initiée", "tête"]
         },
         "content": {
             "layout": "two-videos-only",
@@ -1570,20 +1107,8 @@
             "fr": "LES FORMES - l'ondulation - latérale initiée par le bassin"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "undulation",
-                "lateral",
-                "initiated",
-                "pelvis"
-            ],
-            "fr": [
-                "formes",
-                "l'ondulation",
-                "latérale",
-                "initiée",
-                "bassin"
-            ]
+            "en": ["forms", "undulation", "lateral", "initiated", "pelvis"],
+            "fr": ["formes", "l'ondulation", "latérale", "initiée", "bassin"]
         },
         "content": {
             "layout": "two-videos-only",
@@ -1612,16 +1137,8 @@
             "fr": "LES FORMES - l'ondulation - le dauphin"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "undulation",
-                "dolphin"
-            ],
-            "fr": [
-                "formes",
-                "l'ondulation",
-                "dauphin"
-            ]
+            "en": ["forms", "undulation", "dolphin"],
+            "fr": ["formes", "l'ondulation", "dauphin"]
         },
         "content": {
             "layout": "single-video",
@@ -1643,19 +1160,8 @@
             "fr": "LES FORMES - la chute roulée de l'aïkido - le principe"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "aikido",
-                "roll",
-                "principle"
-            ],
-            "fr": [
-                "formes",
-                "chute",
-                "roulée",
-                "l'aïkido",
-                "principe"
-            ]
+            "en": ["forms", "aikido", "roll", "principle"],
+            "fr": ["formes", "chute", "roulée", "l'aïkido", "principe"]
         },
         "content": {
             "layout": "single-video",
@@ -1677,19 +1183,8 @@
             "fr": "LES FORMES - la chute roulée de l'aïkido - les 3 directions"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "aikido",
-                "roll",
-                "directions"
-            ],
-            "fr": [
-                "formes",
-                "chute",
-                "roulée",
-                "l'aïkido",
-                "directions"
-            ]
+            "en": ["forms", "aikido", "roll", "directions"],
+            "fr": ["formes", "chute", "roulée", "l'aïkido", "directions"]
         },
         "content": {
             "layout": "three-videos-audio-subs",
@@ -1711,11 +1206,11 @@
                 }
             ],
             "audio": {
-                "src": "mp3\/aikidoform.mp3"
+                "src": "mp3/aikidoform.mp3"
             },
             "subs": {
-                "en": "srt\/aikidoform_en.srt",
-                "fr": "srt\/aikidoform_fr.srt"
+                "en": "srt/aikidoform_en.srt",
+                "fr": "srt/aikidoform_fr.srt"
             }
         }
     },
@@ -1730,23 +1225,8 @@
             "fr": "LES FORMES - regarder les formes - démonstration du roulé en croissant tête dégagée"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "looking",
-                "crescent",
-                "roll",
-                "head",
-                "workshop"
-            ],
-            "fr": [
-                "formes",
-                "regarder",
-                "démonstration",
-                "roulé",
-                "croissant",
-                "tête",
-                "dégagée"
-            ]
+            "en": ["forms", "looking", "crescent", "roll", "head", "workshop"],
+            "fr": ["formes", "regarder", "démonstration", "roulé", "croissant", "tête", "dégagée"]
         },
         "content": {
             "layout": "single-video",
@@ -1768,23 +1248,8 @@
             "fr": "LES FORMES - regarder les formes - démonstration du roulé en hélice par les pieds"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "looking",
-                "helix",
-                "roll",
-                "led",
-                "feet",
-                "workshop"
-            ],
-            "fr": [
-                "formes",
-                "regarder",
-                "démonstration",
-                "roulé",
-                "hélice",
-                "pieds"
-            ]
+            "en": ["forms", "looking", "helix", "roll", "led", "feet", "workshop"],
+            "fr": ["formes", "regarder", "démonstration", "roulé", "hélice", "pieds"]
         },
         "content": {
             "layout": "single-video",
@@ -1806,23 +1271,8 @@
             "fr": "LES FORMES - regarder les formes - démonstration du roulé en hélice par les mains"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "looking",
-                "helix",
-                "roll",
-                "led",
-                "hands",
-                "workshop"
-            ],
-            "fr": [
-                "formes",
-                "regarder",
-                "démonstration",
-                "roulé",
-                "hélice",
-                "mains"
-            ]
+            "en": ["forms", "looking", "helix", "roll", "led", "hands", "workshop"],
+            "fr": ["formes", "regarder", "démonstration", "roulé", "hélice", "mains"]
         },
         "content": {
             "layout": "single-video",
@@ -1844,18 +1294,8 @@
             "fr": "LES FORMES - regarder les formes - puzzle 1, l'analyse"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "looking",
-                "puzzle",
-                "analyse"
-            ],
-            "fr": [
-                "formes",
-                "regarder",
-                "puzzle",
-                "l'analyse"
-            ]
+            "en": ["forms", "looking", "puzzle", "analyse"],
+            "fr": ["formes", "regarder", "puzzle", "l'analyse"]
         },
         "content": {
             "layout": "single-video",
@@ -1877,24 +1317,8 @@
             "fr": "LES FORMES - regarder les formes - le roulé en croissant par pieds et mains, commentaires"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "looking",
-                "comments",
-                "crescent",
-                "roll",
-                "feet",
-                "hands"
-            ],
-            "fr": [
-                "formes",
-                "regarder",
-                "roulé",
-                "croissant",
-                "pieds",
-                "mains,",
-                "commentaires"
-            ]
+            "en": ["forms", "looking", "comments", "crescent", "roll", "feet", "hands"],
+            "fr": ["formes", "regarder", "roulé", "croissant", "pieds", "mains,", "commentaires"]
         },
         "content": {
             "layout": "single-video",
@@ -1916,22 +1340,8 @@
             "fr": "LES FORMES - regarder les formes - le roulé en croissant par le centre, commentaires"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "looking",
-                "comments",
-                "crescent",
-                "roll",
-                "center"
-            ],
-            "fr": [
-                "formes",
-                "regarder",
-                "roulé",
-                "croissant",
-                "centre,",
-                "commentaires"
-            ]
+            "en": ["forms", "looking", "comments", "crescent", "roll", "center"],
+            "fr": ["formes", "regarder", "roulé", "croissant", "centre,", "commentaires"]
         },
         "content": {
             "layout": "single-video",
@@ -1953,22 +1363,8 @@
             "fr": "LES FORMES - regarder les formes - le roulé en hélice par les pieds, commentaires"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "looking",
-                "comments",
-                "helix",
-                "roll",
-                "feet"
-            ],
-            "fr": [
-                "formes",
-                "regarder",
-                "roulé",
-                "hélice",
-                "pieds,",
-                "commentaires"
-            ]
+            "en": ["forms", "looking", "comments", "helix", "roll", "feet"],
+            "fr": ["formes", "regarder", "roulé", "hélice", "pieds,", "commentaires"]
         },
         "content": {
             "layout": "single-video",
@@ -1990,22 +1386,8 @@
             "fr": "LES FORMES - regarder les formes - le roulé en hélice par les mains, commentaires"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "looking",
-                "comments",
-                "helix",
-                "roll",
-                "hands"
-            ],
-            "fr": [
-                "formes",
-                "regarder",
-                "roulé",
-                "hélice",
-                "mains,",
-                "commentaires"
-            ]
+            "en": ["forms", "looking", "comments", "helix", "roll", "hands"],
+            "fr": ["formes", "regarder", "roulé", "hélice", "mains,", "commentaires"]
         },
         "content": {
             "layout": "single-video",
@@ -2027,19 +1409,8 @@
             "fr": "LES FORMES - regarder les formes - conclusion sur les roulés"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "looking",
-                "conclusion",
-                "rolls"
-            ],
-            "fr": [
-                "formes",
-                "regarder",
-                "conclusion",
-                "sur",
-                "roulés"
-            ]
+            "en": ["forms", "looking", "conclusion", "rolls"],
+            "fr": ["formes", "regarder", "conclusion", "sur", "roulés"]
         },
         "content": {
             "layout": "single-video",
@@ -2061,17 +1432,8 @@
             "fr": "LES FORMES - les échauffements - les doigts"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "warm",
-                "ups",
-                "fingers"
-            ],
-            "fr": [
-                "formes",
-                "échauffements",
-                "doigts"
-            ]
+            "en": ["forms", "warm", "ups", "fingers"],
+            "fr": ["formes", "échauffements", "doigts"]
         },
         "content": {
             "layout": "single-video",
@@ -2093,17 +1455,8 @@
             "fr": "LES FORMES - les échauffements - le poignet"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "warm",
-                "ups",
-                "wrist"
-            ],
-            "fr": [
-                "formes",
-                "échauffements",
-                "poignet"
-            ]
+            "en": ["forms", "warm", "ups", "wrist"],
+            "fr": ["formes", "échauffements", "poignet"]
         },
         "content": {
             "layout": "single-video",
@@ -2125,17 +1478,8 @@
             "fr": "LES FORMES - les échauffements - les mains"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "warm",
-                "ups",
-                "hands"
-            ],
-            "fr": [
-                "formes",
-                "échauffements",
-                "mains"
-            ]
+            "en": ["forms", "warm", "ups", "hands"],
+            "fr": ["formes", "échauffements", "mains"]
         },
         "content": {
             "layout": "single-video",
@@ -2157,17 +1501,8 @@
             "fr": "LES FORMES - les échauffements - les bras"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "warm",
-                "ups",
-                "arms"
-            ],
-            "fr": [
-                "formes",
-                "échauffements",
-                "bras"
-            ]
+            "en": ["forms", "warm", "ups", "arms"],
+            "fr": ["formes", "échauffements", "bras"]
         },
         "content": {
             "layout": "single-video",
@@ -2189,19 +1524,8 @@
             "fr": "LES FORMES - les échauffements - les bras et la colonne"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "warm",
-                "ups",
-                "spine",
-                "arms"
-            ],
-            "fr": [
-                "formes",
-                "échauffements",
-                "bras",
-                "colonne"
-            ]
+            "en": ["forms", "warm", "ups", "spine", "arms"],
+            "fr": ["formes", "échauffements", "bras", "colonne"]
         },
         "content": {
             "layout": "single-video",
@@ -2223,19 +1547,8 @@
             "fr": "LES FORMES - les échauffements - courber l'os"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "warm",
-                "ups",
-                "bending",
-                "bone"
-            ],
-            "fr": [
-                "formes",
-                "échauffements",
-                "courber",
-                "l'os"
-            ]
+            "en": ["forms", "warm", "ups", "bending", "bone"],
+            "fr": ["formes", "échauffements", "courber", "l'os"]
         },
         "content": {
             "layout": "single-video",
@@ -2257,19 +1570,8 @@
             "fr": "LES FORMES - les échauffements - le pas aïkido"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "warm",
-                "ups",
-                "aikido",
-                "step"
-            ],
-            "fr": [
-                "formes",
-                "échauffements",
-                "pas",
-                "aïkido"
-            ]
+            "en": ["forms", "warm", "ups", "aikido", "step"],
+            "fr": ["formes", "échauffements", "pas", "aïkido"]
         },
         "content": {
             "layout": "single-video",
@@ -2291,17 +1593,8 @@
             "fr": "LES FORMES - les échauffements - la torsion"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "warm",
-                "ups",
-                "twist"
-            ],
-            "fr": [
-                "formes",
-                "échauffements",
-                "torsion"
-            ]
+            "en": ["forms", "warm", "ups", "twist"],
+            "fr": ["formes", "échauffements", "torsion"]
         },
         "content": {
             "layout": "single-video",
@@ -2323,19 +1616,8 @@
             "fr": "LES FORMES - les échauffements - torsion des jambes"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "warm",
-                "ups",
-                "legs",
-                "twist"
-            ],
-            "fr": [
-                "formes",
-                "échauffements",
-                "torsion",
-                "jambes"
-            ]
+            "en": ["forms", "warm", "ups", "legs", "twist"],
+            "fr": ["formes", "échauffements", "torsion", "jambes"]
         },
         "content": {
             "layout": "single-video",
@@ -2357,19 +1639,8 @@
             "fr": "LES FORMES - les échauffements - résistance des jambes"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "warm",
-                "ups",
-                "legs",
-                "resistance"
-            ],
-            "fr": [
-                "formes",
-                "échauffements",
-                "résistance",
-                "jambes"
-            ]
+            "en": ["forms", "warm", "ups", "legs", "resistance"],
+            "fr": ["formes", "échauffements", "résistance", "jambes"]
         },
         "content": {
             "layout": "single-video",
@@ -2391,17 +1662,8 @@
             "fr": "LES FORMES - les échauffements - trochanter"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "warm",
-                "ups",
-                "trochanter"
-            ],
-            "fr": [
-                "formes",
-                "échauffements",
-                "trochanter"
-            ]
+            "en": ["forms", "warm", "ups", "trochanter"],
+            "fr": ["formes", "échauffements", "trochanter"]
         },
         "content": {
             "layout": "single-video",
@@ -2423,17 +1685,8 @@
             "fr": "LES FORMES - les échauffements - psoas"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "warm",
-                "ups",
-                "psoas"
-            ],
-            "fr": [
-                "formes",
-                "échauffements",
-                "psoas"
-            ]
+            "en": ["forms", "warm", "ups", "psoas"],
+            "fr": ["formes", "échauffements", "psoas"]
         },
         "content": {
             "layout": "single-video",
@@ -2455,17 +1708,8 @@
             "fr": "LES FORMES - les échauffements - ondulation"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "warm",
-                "ups",
-                "wave"
-            ],
-            "fr": [
-                "formes",
-                "échauffements",
-                "ondulation"
-            ]
+            "en": ["forms", "warm", "ups", "wave"],
+            "fr": ["formes", "échauffements", "ondulation"]
         },
         "content": {
             "layout": "single-video",
@@ -2487,19 +1731,8 @@
             "fr": "LES FORMES - les échauffements - ondulation au sol"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "warm",
-                "ups",
-                "wave",
-                "floor"
-            ],
-            "fr": [
-                "formes",
-                "échauffements",
-                "ondulation",
-                "sol"
-            ]
+            "en": ["forms", "warm", "ups", "wave", "floor"],
+            "fr": ["formes", "échauffements", "ondulation", "sol"]
         },
         "content": {
             "layout": "single-video",
@@ -2521,17 +1754,8 @@
             "fr": "LES FORMES - les échauffements - asanas"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "warm",
-                "ups",
-                "asanas"
-            ],
-            "fr": [
-                "formes",
-                "échauffements",
-                "asanas"
-            ]
+            "en": ["forms", "warm", "ups", "asanas"],
+            "fr": ["formes", "échauffements", "asanas"]
         },
         "content": {
             "layout": "single-video",
@@ -2553,17 +1777,8 @@
             "fr": "LES FORMES - les échauffements - la sieste"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "warm",
-                "ups",
-                "napping"
-            ],
-            "fr": [
-                "formes",
-                "échauffements",
-                "sieste"
-            ]
+            "en": ["forms", "warm", "ups", "napping"],
+            "fr": ["formes", "échauffements", "sieste"]
         },
         "content": {
             "layout": "single-video",
@@ -2585,17 +1800,8 @@
             "fr": "LES FORMES - les échauffements - et jouer"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "warm",
-                "ups",
-                "play"
-            ],
-            "fr": [
-                "formes",
-                "échauffements",
-                "jouer"
-            ]
+            "en": ["forms", "warm", "ups", "play"],
+            "fr": ["formes", "échauffements", "jouer"]
         },
         "content": {
             "layout": "single-video",
@@ -2617,18 +1823,8 @@
             "fr": "LES FORMES - cultiver - la danse & la culture"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "cultivating",
-                "dance",
-                "culture"
-            ],
-            "fr": [
-                "formes",
-                "cultiver",
-                "danse",
-                "culture"
-            ]
+            "en": ["forms", "cultivating", "dance", "culture"],
+            "fr": ["formes", "cultiver", "danse", "culture"]
         },
         "content": {
             "layout": "single-video",
@@ -2650,19 +1846,8 @@
             "fr": "LES FORMES - cultiver - le petit bois & la faux"
         },
         "keywords": {
-            "en": [
-                "forms",
-                "cultivating",
-                "kindling",
-                "scythe"
-            ],
-            "fr": [
-                "formes",
-                "cultiver",
-                "petit",
-                "bois",
-                "faux"
-            ]
+            "en": ["forms", "cultivating", "kindling", "scythe"],
+            "fr": ["formes", "cultiver", "petit", "bois", "faux"]
         },
         "content": {
             "layout": "single-video",
