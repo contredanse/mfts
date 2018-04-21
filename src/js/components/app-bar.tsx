@@ -69,7 +69,7 @@ export const AppBarComponent: React.SFC<AppMenuProps> = props => {
 
     return (
         <div className={classes.root}>
-            <MaterialAppBar position="fixed" style={{ backgroundColor: 'transparent' }}>
+            <MaterialAppBar elevation={0} position="fixed" style={{ backgroundColor: 'transparent' }}>
                 <Toolbar>
                     <IconButton
                         className={classes.menuButton}
