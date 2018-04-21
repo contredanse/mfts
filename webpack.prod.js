@@ -3,9 +3,9 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const StatsWriterPlugin = require("webpack-stats-plugin").StatsWriterPlugin;
-const DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const StatsWriterPlugin = require('webpack-stats-plugin').StatsWriterPlugin;
+const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -13,15 +13,15 @@ const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 
-
 const extractSass = new MiniCssExtractPlugin({
-    filename: "style.[contenthash:8].css",
+    filename: 'style.[contenthash:8].css',
 });
 
 module.exports = merge(common, {
     devtool: 'hidden-source-map', // or false if you don't want source map
     mode: 'production',
-    entry: [// 'babel-polyfill',
+    entry: [
+        // 'babel-polyfill',
         './src/js/index.tsx',
     ],
 
@@ -34,12 +34,12 @@ module.exports = merge(common, {
     module: {
         rules: [
             {
-                include: path.resolve("node_modules", "lodash"),
-                sideEffects: false
+                include: path.resolve('node_modules', 'lodash'),
+                sideEffects: false,
             },
             {
                 test: /\.(css)$/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader']
+                use: [MiniCssExtractPlugin.loader, 'css-loader'],
             },
             {
                 test: /\.(scss)$/,
@@ -47,16 +47,16 @@ module.exports = merge(common, {
                     {
                         loader: MiniCssExtractPlugin.loader,
                         options: {
-                            sourceMap: false
-                        }
+                            sourceMap: false,
+                        },
                     },
                     {
-                        loader: "css-loader", // translates CSS into CommonJS
+                        loader: 'css-loader', // translates CSS into CommonJS
                         options: {
                             sourceMap: false,
                             modules: false, // use CSS-Modules to scope styles
-                            importLoader: 2
-                        }
+                            importLoader: 2,
+                        },
                     },
 
                     {
@@ -64,21 +64,21 @@ module.exports = merge(common, {
                         options: {
                             sourceMap: false,
                             config: {
-                                path: path.resolve(__dirname, 'postcss.config.js')
-                            }
+                                path: path.resolve(__dirname, 'postcss.config.js'),
+                            },
                         },
                     },
                     {
-                        loader: "sass-loader", // compiles Sass to CSS
+                        loader: 'sass-loader', // compiles Sass to CSS
                         options: {
                             outputStyle: 'expanded',
                             sourceMap: false,
-                            sourceMapContents: false
-                        }
-                    }
+                            sourceMapContents: false,
+                        },
+                    },
                 ],
-            }
-        ]
+            },
+        ],
     },
 
     optimization: {
@@ -86,7 +86,7 @@ module.exports = merge(common, {
         runtimeChunk: false,
 
         splitChunks: {
-            chunks: "async",
+            chunks: 'async',
             minSize: 30000,
             minChunks: 1,
             maxAsyncRequests: 5,
@@ -100,15 +100,15 @@ module.exports = merge(common, {
                     chunks: 'initial',
                     enforce: true,
                     minSize: 0,
-                    reuseExistingChunk: true
+                    reuseExistingChunk: true,
                 },
                 vendors: {
                     test: /[\\/]node_modules[\\/]/,
                     name: 'vendors',
                     enforce: true,
-                    chunks: 'all'
-                }
-            }
+                    chunks: 'all',
+                },
+            },
         },
 
         noEmitOnErrors: true, // NoEmitOnErrorsPlugin
@@ -121,16 +121,15 @@ module.exports = merge(common, {
                 sourceMap: true, // set to true if you want JS source maps
                 uglifyOptions: {
                     output: {
-                        comments: false
+                        comments: false,
                     },
                     compress: {
                         dead_code: true,
                         drop_debugger: true,
-                        drop_console: true
-                    }
-                }
+                        drop_console: true,
+                    },
+                },
             }),
-
 
             new OptimizeCssAssetsPlugin({
                 cssProcessor: require('cssnano'),
@@ -141,27 +140,25 @@ module.exports = merge(common, {
                         fontFace: false, // to not remmove additional @font-face
                     },
                     discardComments: {
-                        removeAll: true
-                    }
+                        removeAll: true,
+                    },
                 },
-                canPrint: true
-            })
-        ]
+                canPrint: true,
+            }),
+        ],
     },
-
 
     plugins: [
         new CleanWebpackPlugin('dist', {}),
 
         new webpack.EnvironmentPlugin({
             'process.env.NODE_ENV': JSON.stringify('production'),
-            NODE_ENV: JSON.stringify('production')
+            NODE_ENV: JSON.stringify('production'),
         }),
-
 
         new webpack.LoaderOptionsPlugin({
             minimize: true,
-            debug: false
+            debug: false,
         }),
 
         extractSass,
@@ -180,7 +177,7 @@ module.exports = merge(common, {
             collapseInlineTagWhitespace: true,
             preserveLineBreaks: false,
             removeAttributeQuotes: true,
-            removeComments: true
+            removeComments: true,
         }),
         new WebpackPwaManifest({
             short_name: 'Paxton MFTS',
@@ -188,51 +185,46 @@ module.exports = merge(common, {
             description: 'Material for the spine. Contredanse.org ',
             background_color: '#000000',
             theme_color: '#000000',
-            start_url: "/",
+            start_url: '/',
             inject: true,
             fingerprints: true,
             ios: {
                 'apple-mobile-web-app-title': 'Paxton MFTS',
                 'apple-mobile-web-app-capable': 'yes',
-                'apple-mobile-web-app-status-bar-style': 'black'
+                'apple-mobile-web-app-status-bar-style': 'black',
             },
-            orientation: "portrait",
-            display: "standalone",
+            orientation: 'portrait',
+            display: 'standalone',
             icons: [
                 {
                     src: path.resolve('src/assets/icons/logo.png'),
                     sizes: [96, 128, 192, 256, 384, 512],
-                    destination: path.join('icons')
+                    destination: path.join('icons'),
                 },
                 {
                     src: path.resolve('src/assets/icons/logo.png'),
                     sizes: [120, 152, 167, 180, 1024],
                     destination: path.join('icons', 'ios'),
-                    ios: true
+                    ios: true,
                 },
                 {
                     src: path.resolve('src/assets/icons/logo.png'),
                     size: 1024,
                     destination: path.join('icons', 'ios'),
-                    ios: 'startup'
+                    ios: 'startup',
                 },
-            ]
+            ],
         }),
-        new ManifestPlugin(
-            {
-                fileName: 'assets-manifest.json',
-                basePath: '',
-                hash: true
-            }
-        ),
+        new ManifestPlugin({
+            fileName: 'assets-manifest.json',
+            basePath: '',
+            hash: true,
+        }),
         new HtmlWebpackHarddiskPlugin(),
-
 
         /*
         new StatsWriterPlugin({
             filename: '.webpack-stats.json'
         }),*/
-    ]
+    ],
 });
-
-

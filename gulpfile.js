@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var realFavicon = require ('gulp-real-favicon');
+var realFavicon = require('gulp-real-favicon');
 var fs = require('fs');
 
 // File where the favicon markups are stored
@@ -10,65 +10,68 @@ var FAVICON_DATA_FILE = './build/faviconData.json';
 // you should run it whenever RealFaviconGenerator updates its
 // package (see the check-for-favicon-update task below).
 gulp.task('generate-favicon', function(done) {
-  realFavicon.generateFavicon({
-    masterPicture: './src/assets/icons/logo.png',
-    dest: './build/icons',
-    iconsPath: '/icons',
-    design: {
-      ios: {
-        pictureAspect: 'noChange',
-        assets: {
-          ios6AndPriorIcons: true,
-          ios7AndLaterIcons: true,
-          precomposedIcons: true,
-          declareOnlyDefaultIcon: true
-        }
-      },
-      desktopBrowser: {},
-      windows: {
-        pictureAspect: 'noChange',
-        backgroundColor: '#2d89ef',
-        onConflict: 'override',
-        assets: {
-          windows80Ie10Tile: false,
-          windows10Ie11EdgeTiles: {
-            small: false,
-            medium: true,
-            big: false,
-            rectangle: false
-          }
-        }
-      },
-      androidChrome: {
-        pictureAspect: 'noChange',
-        themeColor: '#ffffff',
-        manifest: {
-          display: 'standalone',
-          orientation: 'notSet',
-          onConflict: 'override',
-          declared: true
+    realFavicon.generateFavicon(
+        {
+            masterPicture: './src/assets/icons/logo.png',
+            dest: './build/icons',
+            iconsPath: '/icons',
+            design: {
+                ios: {
+                    pictureAspect: 'noChange',
+                    assets: {
+                        ios6AndPriorIcons: true,
+                        ios7AndLaterIcons: true,
+                        precomposedIcons: true,
+                        declareOnlyDefaultIcon: true,
+                    },
+                },
+                desktopBrowser: {},
+                windows: {
+                    pictureAspect: 'noChange',
+                    backgroundColor: '#2d89ef',
+                    onConflict: 'override',
+                    assets: {
+                        windows80Ie10Tile: false,
+                        windows10Ie11EdgeTiles: {
+                            small: false,
+                            medium: true,
+                            big: false,
+                            rectangle: false,
+                        },
+                    },
+                },
+                androidChrome: {
+                    pictureAspect: 'noChange',
+                    themeColor: '#ffffff',
+                    manifest: {
+                        display: 'standalone',
+                        orientation: 'notSet',
+                        onConflict: 'override',
+                        declared: true,
+                    },
+                    assets: {
+                        legacyIcon: false,
+                        lowResolutionIcons: false,
+                    },
+                },
+                safariPinnedTab: {
+                    pictureAspect: 'silhouette',
+                    themeColor: '#5bbad5',
+                },
+            },
+            settings: {
+                scalingAlgorithm: 'Mitchell',
+                errorOnImageTooSmall: false,
+                readmeFile: false,
+                htmlCodeFile: false,
+                usePathAsIs: false,
+            },
+            markupFile: FAVICON_DATA_FILE,
         },
-        assets: {
-          legacyIcon: false,
-          lowResolutionIcons: false
+        function() {
+            done();
         }
-      },
-      safariPinnedTab: {
-        pictureAspect: 'silhouette',
-        themeColor: '#5bbad5'
-      }
-    },
-    settings: {
-      scalingAlgorithm: 'Mitchell',
-      errorOnImageTooSmall: false,
-      readmeFile: false,
-      htmlCodeFile: false,
-      usePathAsIs: false
-    },
-    markupFile: FAVICON_DATA_FILE
-  }, function() {
-    done();
-  });
+    );
 });
 
 /*
