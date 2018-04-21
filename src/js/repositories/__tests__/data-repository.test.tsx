@@ -19,8 +19,8 @@ describe('Data repository getters', () => {
     const globalDataRepo = new DataRepository(globalPageData, params);
 
     test('getPage must reject for non existing page', async () => {
-        const pageId = 'non-existing-page;';
-        await expect(globalDataRepo.getPage(pageId)).rejects.toThrow(`Page ${pageId} cannot be found`);
+        const pageId = 'non-existing-page';
+        await expect(globalDataRepo.getPage(pageId)).rejects.toThrow(`Page '${pageId}' cannot be found`);
     });
 
     test('getPage existing page must have a name', async () => {
