@@ -12,6 +12,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
+const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
+
+const PUBLIC_URL = 'https://paxton.soluble.io';
 
 const extractSass = new MiniCssExtractPlugin({
     filename: 'style.[contenthash:8].css',
@@ -154,6 +157,7 @@ module.exports = merge(common, {
         new webpack.EnvironmentPlugin({
             'process.env.NODE_ENV': JSON.stringify('production'),
             NODE_ENV: JSON.stringify('production'),
+            PUBLIC_URL: PUBLIC_URL,
         }),
 
         new webpack.LoaderOptionsPlugin({
@@ -185,14 +189,15 @@ module.exports = merge(common, {
             description: 'Material for the spine. Contredanse.org ',
             background_color: '#000000',
             theme_color: '#000000',
-            start_url: '/',
-            inject: true,
-            fingerprints: true,
+            start_url: '.',
+            //inject: true,
+            //fingerprints: true,
+            /*
             ios: {
                 'apple-mobile-web-app-title': 'Paxton MFTS',
                 'apple-mobile-web-app-capable': 'yes',
                 'apple-mobile-web-app-status-bar-style': 'black',
-            },
+            },*/
             orientation: 'portrait',
             display: 'standalone',
             icons: [
@@ -220,6 +225,37 @@ module.exports = merge(common, {
             basePath: '',
             hash: true,
         }),
+
+        new SWPrecacheWebpackPlugin({
+            cacheId: 'paxton-material-for-the-spine',
+            // By default, a cache-busting query parameter is appended to requests
+            // used to populate the caches, to ensure the responses are fresh.
+            // If a URL is already hashed by Webpack, then there is no concern
+            // about it being stale, and the cache-busting can be skipped.
+            dontCacheBustUrlsMatching: /\.\w{8}\./,
+            filename: 'service-worker.js',
+            logger(message) {
+                if (message.indexOf('Total precache size is') === 0) {
+                    // This message occurs for every build and is a bit too noisy.
+                    return;
+                }
+                if (message.indexOf('Skipping static resource') === 0) {
+                    // This message obscures real errors so we ignore it.
+                    // https://github.com/facebookincubator/create-react-app/issues/2612
+                    return;
+                }
+                console.log(message);
+            },
+            minify: false,
+            // For unknown URLs, fallback to the index page
+            navigateFallback: PUBLIC_URL + '/',
+            // Ignores URLs starting from /__ (useful for Firebase):
+            // https://github.com/facebookincubator/create-react-app/issues/2237#issuecomment-302693219
+            navigateFallbackWhitelist: [/^(?!\/__).*/],
+            // Don't precache sourcemaps (they're large) and build asset manifest:
+            staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/, /index\.html/],
+        }),
+
         new HtmlWebpackHarddiskPlugin(),
 
         /*

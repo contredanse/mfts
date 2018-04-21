@@ -84,6 +84,7 @@
         "source-map-explorer": "^1.5.0",
         "source-map-support": "^0.5.4",
         "style-loader": "^0.21.0",
+        "sw-precache-webpack-plugin": "^0.11.5",
         "ts-jest": "^22.4.4",
         "ts-node": "^6.0.0",
         "ts-shader-loader": "^1.0.5",

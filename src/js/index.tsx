@@ -9,6 +9,7 @@ import 'typeface-quicksand';
 
 import '@styles/style.scss';
 import { appConfig, AppConfig } from '@config/app-config';
+import registerServiceWorker from './registerServiceWorker';
 
 const renderApp = (Component, config: AppConfig, elementId: string) => {
     render(
@@ -20,3 +21,5 @@ const renderApp = (Component, config: AppConfig, elementId: string) => {
 };
 //console.log('appConfig', appConfig);
 renderApp(App, appConfig, 'app');
+
+registerServiceWorker();
