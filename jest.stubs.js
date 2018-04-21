@@ -16,7 +16,8 @@ window.requestAnimationFrame = function(callback) {
 window.localStorage = {
     getItem: function() {},
     setItem: function() {},
-    // hello
+    /// EHEHEHEHHEH
+    /// HH
 };
 
 Object.values = () => [];
