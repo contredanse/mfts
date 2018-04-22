@@ -21,6 +21,17 @@ module.exports = merge(common, {
                 test: /\.(s?css)$/,
                 use: ['css-hot-loader', 'style-loader', 'css-loader', 'sass-loader'],
             },
+            {
+                test: /\.woff$|\.woff2?$/,
+                loader: 'file-loader',
+                //use: 'url-loader?limit=10000',
+
+                options: {
+                    limit: 50000,
+                    mimetype: 'application/font-woff',
+                    name: 'fonts/[name].[ext]',
+                },
+            },
         ],
     },
     plugins: [

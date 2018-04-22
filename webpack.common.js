@@ -79,17 +79,6 @@ module.exports = {
                 },
             },
             {
-                test: /\.woff$|\.woff2?$/,
-                loader: 'file-loader',
-                //use: 'url-loader?limit=10000',
-
-                options: {
-                    limit: 50000,
-                    mimetype: 'application/font-woff',
-                    name: 'fonts/[name].[ext]',
-                },
-            },
-            {
                 test: /\.(jpe?g|png|gif|svg)$/i,
                 use: [
                     {
