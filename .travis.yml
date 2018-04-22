@@ -13,7 +13,7 @@ before_install:
 
 jobs:
   allow_failures:
-    - stage: Linter
+    - stage: Lint
 
   include:
     - stage: Test
@@ -22,13 +22,13 @@ jobs:
         - yarn test
       after_success:
         - codecov
-    - stage: Linter
-      script:
-        - yarn lint
-
     - stage: Build
       script:
         - yarn build
+    - stage: Lint
+      script:
+        - yarn lint
+
 
 cache:
   yarn: true
