@@ -94,8 +94,8 @@ type ComponentClassNames = 'root' | 'flex' | 'menuButton';
 const decorate = withStyles(({ palette, spacing }) => ({
     root: {
         width: '100%',
-        padding: spacing.unit,
-        color: palette.primary.main,
+        //padding: spacing.unit,
+        //color: palette.primary.main,
     },
     flex: {
         flex: 1,
