@@ -25,7 +25,7 @@ export default class DataRepository {
     async getPage(pageId: string): Promise<IDataPage> {
         return new Promise<IDataPage>((resolve, reject) => {
             const page = this.data.find((element: IDataPage) => {
-                return pageId === element.id;
+                return pageId === element.page_id;
             });
             if (page === undefined) {
                 reject(`Page '${pageId}' cannot be found`);

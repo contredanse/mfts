@@ -42,7 +42,7 @@ export default class PageList extends React.Component<IProps, IState> {
                     <TransitionGroup className="grid-cards">
                         {list &&
                             list.map(page => {
-                                const { id: pageId, content } = page;
+                                const { page_id: pageId, content } = page;
 
                                 let videos: IDataVideo[] = [];
                                 switch (content.layout) {
@@ -116,7 +116,7 @@ export default class PageList extends React.Component<IProps, IState> {
                 </thead>
                 <tbody>
                     {list.map((page: IDataPage, idx: number) => (
-                        <tr key={page.id}>
+                        <tr key={page.page_id}>
                             <td>{idx + 1}</td>
                             <td
                                 onClick={() => {

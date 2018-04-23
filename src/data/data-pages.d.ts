@@ -1,5 +1,5 @@
 ﻿export interface IDataPage {
-    id: string;
+    page_id: string;
     name: NameOrTitleOrSubs;
     title: NameOrTitleOrSubs;
     keywords: Keywords;

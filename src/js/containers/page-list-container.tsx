@@ -51,7 +51,7 @@ class PageListContainer extends React.Component<IProps, IState> {
     };
 
     openPage = (page: IDataPage) => {
-        this.props.history.push(`/page/${page.id}`);
+        this.props.history.push(`/page/${page.page_id}`);
         /*
         this.setState((prevState): IState => ({
             ...prevState,

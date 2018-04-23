@@ -21,7 +21,7 @@ export default class PageRepository {
     async get(id: string): Promise<IDataPage> {
         return new Promise<IDataPage>((resolve, reject) => {
             const page = this.data.find((element: IDataPage) => {
-                return id === element.id;
+                return id === element.page_id;
             });
             if (page === undefined) {
                 reject(`Page '${id}' cannot be found`);
@@ -39,7 +39,7 @@ export default class PageRepository {
     async getPageWithMedias(pageId: string, lang: string): Promise<IDataPageWithMedia> {
         return new Promise<IDataPageWithMedia>((resolve, reject) => {
             const page = this.data.find((element: IDataPage) => {
-                return pageId === element.id;
+                return pageId === element.page_id;
             });
             if (page === undefined) {
                 reject(`Page '${pageId}' cannot be found`);

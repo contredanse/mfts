@@ -1,6 +1,6 @@
 [
     {
-        "id": "sensation-and-senses.weight-of-sensation",
+        "page_id": "sensation-and-senses.weight-of-sensation",
         "name": {
             "en": "weight of sensation",
             "fr": "le poids de la sensation"
@@ -23,7 +23,7 @@
         }
     },
     {
-        "id": "sensation-and-senses.gravity.the-flat-the-round",
+        "page_id": "sensation-and-senses.gravity.the-flat-the-round",
         "name": {
             "en": "the flat & the round",
             "fr": "le plat et le rond"
@@ -53,7 +53,7 @@
         }
     },
     {
-        "id": "sensation-and-senses.gravity.falls",
+        "page_id": "sensation-and-senses.gravity.falls",
         "name": {
             "en": "falls",
             "fr": "chutes"
@@ -76,7 +76,7 @@
         }
     },
     {
-        "id": "sensation-and-senses.gravity.water-gravity",
+        "page_id": "sensation-and-senses.gravity.water-gravity",
         "name": {
             "en": "water gravity",
             "fr": "la pesanteur dans l'eau"
@@ -99,7 +99,7 @@
         }
     },
     {
-        "id": "sensation-and-senses.gravity.adjusting",
+        "page_id": "sensation-and-senses.gravity.adjusting",
         "name": {
             "en": "adjusting",
             "fr": "ajuster"
@@ -122,7 +122,7 @@
         }
     },
     {
-        "id": "sensation-and-senses.basics.an-approach-to-breathing",
+        "page_id": "sensation-and-senses.basics.an-approach-to-breathing",
         "name": {
             "en": "an approach to breathing",
             "fr": "respirer, une approche"
@@ -152,7 +152,7 @@
         }
     },
     {
-        "id": "sensation-and-senses.basics.an-approach-to-the-small-dance",
+        "page_id": "sensation-and-senses.basics.an-approach-to-the-small-dance",
         "name": {
             "en": "an approach to the small dance",
             "fr": "la petite danse, une approche"
@@ -183,7 +183,7 @@
         }
     },
     {
-        "id": "sensation-and-senses.pointing.parts-of-pointing",
+        "page_id": "sensation-and-senses.pointing.parts-of-pointing",
         "name": {
             "en": "parts of pointing",
             "fr": "pointer, les différentes parties"
@@ -206,7 +206,7 @@
         }
     },
     {
-        "id": "sensation-and-senses.pointing.relation-to-scapula",
+        "page_id": "sensation-and-senses.pointing.relation-to-scapula",
         "name": {
             "en": "relation to scapula",
             "fr": "la relation à l'omoplate"
@@ -229,7 +229,7 @@
         }
     },
     {
-        "id": "sensation-and-senses.pelvis.pelvis-as-an-initiator",
+        "page_id": "sensation-and-senses.pelvis.pelvis-as-an-initiator",
         "name": {
             "en": "pelvis as an initiator",
             "fr": "initier par le bassin"
@@ -252,7 +252,7 @@
         }
     },
     {
-        "id": "sensation-and-senses.pelvis.exercise-ischia-to-heels",
+        "page_id": "sensation-and-senses.pelvis.exercise-ischia-to-heels",
         "name": {
             "en": "exercise ischia to heels",
             "fr": "exercice: les ischions vers les talons"
@@ -275,7 +275,7 @@
         }
     },
     {
-        "id": "sensation-and-senses.walk.walk-as-foundation",
+        "page_id": "sensation-and-senses.walk.walk-as-foundation",
         "name": {
             "en": "walk as foundation",
             "fr": "la marche comme fondement"
@@ -298,7 +298,7 @@
         }
     },
     {
-        "id": "sensation-and-senses.walk.birds-walk",
+        "page_id": "sensation-and-senses.walk.birds-walk",
         "name": {
             "en": "birds walk",
             "fr": "la marche des oiseaux"
@@ -321,7 +321,7 @@
         }
     },
     {
-        "id": "sensation-and-senses.walk.slow-walk",
+        "page_id": "sensation-and-senses.walk.slow-walk",
         "name": {
             "en": "slow walk",
             "fr": "la marche lente"
@@ -345,7 +345,7 @@
         }
     },
     {
-        "id": "sensation-and-senses.walk.twist",
+        "page_id": "sensation-and-senses.walk.twist",
         "name": {
             "en": "twist",
             "fr": "la torsion"
@@ -368,7 +368,7 @@
         }
     },
     {
-        "id": "sensation-and-senses.the-back.choosing-to-focus-on-the-back",
+        "page_id": "sensation-and-senses.the-back.choosing-to-focus-on-the-back",
         "name": {
             "en": "choosing to focus on the Back",
             "fr": "choisir de se concentrer sur le dos"
@@ -391,7 +391,7 @@
         }
     },
     {
-        "id": "sensation-and-senses.the-back.passage",
+        "page_id": "sensation-and-senses.the-back.passage",
         "name": {
             "en": "passage",
             "fr": "passage"
@@ -414,7 +414,7 @@
         }
     },
     {
-        "id": "sensation-and-senses.space.spherical-space",
+        "page_id": "sensation-and-senses.space.spherical-space",
         "name": {
             "en": "spherical space",
             "fr": "l'espace sphérique"
@@ -437,7 +437,7 @@
         }
     },
     {
-        "id": "sensation-and-senses.mfs-as-base-for-improvisation.looking-at-goldberg-variations",
+        "page_id": "sensation-and-senses.mfs-as-base-for-improvisation.looking-at-goldberg-variations",
         "name": {
             "en": "looking at Goldberg Variations",
             "fr": "introduction aux Goldberg Variations"
@@ -470,7 +470,7 @@
         }
     },
     {
-        "id": "sensation-and-senses.mfs-as-base-for-improvisation.goldberg-variations-extracts",
+        "page_id": "sensation-and-senses.mfs-as-base-for-improvisation.goldberg-variations-extracts",
         "name": {
             "en": "Goldberg Variations (extracts)",
             "fr": "Goldberg Variations (extraits)"
@@ -503,7 +503,7 @@
         }
     },
     {
-        "id": "sensation-and-senses.mfs-as-base-for-improvisation.looking-at-english-suites",
+        "page_id": "sensation-and-senses.mfs-as-base-for-improvisation.looking-at-english-suites",
         "name": {
             "en": "looking at English Suites",
             "fr": "introduction aux English Suites"
@@ -526,7 +526,7 @@
         }
     },
     {
-        "id": "sensation-and-senses.mfs-as-base-for-improvisation.english-suites",
+        "page_id": "sensation-and-senses.mfs-as-base-for-improvisation.english-suites",
         "name": {
             "en": "English Suites",
             "fr": "English Suites"
@@ -549,7 +549,7 @@
         }
     },
     {
-        "id": "sensation-and-senses.mfs-as-base-for-improvisation.a-technique-for-improvisation",
+        "page_id": "sensation-and-senses.mfs-as-base-for-improvisation.a-technique-for-improvisation",
         "name": {
             "en": "a technique for improvisation",
             "fr": "une technique pour l'improvisation"
@@ -572,7 +572,7 @@
         }
     },
     {
-        "id": "forms.introduction",
+        "page_id": "forms.introduction",
         "name": {
             "en": "introduction",
             "fr": "introduction"
@@ -595,7 +595,7 @@
         }
     },
     {
-        "id": "forms.crescent-roll.crescent-led-by-feet-and-hands",
+        "page_id": "forms.crescent-roll.crescent-led-by-feet-and-hands",
         "name": {
             "en": "crescent led by feet and hands",
             "fr": "initié par les mains et les pieds"
@@ -637,7 +637,7 @@
         }
     },
     {
-        "id": "forms.crescent-roll.crescent-led-by-center",
+        "page_id": "forms.crescent-roll.crescent-led-by-center",
         "name": {
             "en": "crescent led by center",
             "fr": "initié par le centre"
@@ -667,7 +667,7 @@
         }
     },
     {
-        "id": "forms.crescent-roll.head-up",
+        "page_id": "forms.crescent-roll.head-up",
         "name": {
             "en": "head up",
             "fr": "tête dégagée"
@@ -697,7 +697,7 @@
         }
     },
     {
-        "id": "forms.crescent-roll.head-and-feet-up",
+        "page_id": "forms.crescent-roll.head-and-feet-up",
         "name": {
             "en": "head and feet up",
             "fr": "tête et pieds vers le haut"
@@ -721,7 +721,7 @@
         }
     },
     {
-        "id": "forms.crescent-roll.in-water",
+        "page_id": "forms.crescent-roll.in-water",
         "name": {
             "en": "in water",
             "fr": "dans l'eau"
@@ -744,7 +744,7 @@
         }
     },
     {
-        "id": "forms.crescent-roll.comparison",
+        "page_id": "forms.crescent-roll.comparison",
         "name": {
             "en": "comparison",
             "fr": "comparaison"
@@ -768,7 +768,7 @@
         }
     },
     {
-        "id": "forms.helix-roll.led-by-feet",
+        "page_id": "forms.helix-roll.led-by-feet",
         "name": {
             "en": "led by feet",
             "fr": "initié par les pieds"
@@ -810,7 +810,7 @@
         }
     },
     {
-        "id": "forms.helix-roll.led-by-hands",
+        "page_id": "forms.helix-roll.led-by-hands",
         "name": {
             "en": "led by hands",
             "fr": "initié par les mains"
@@ -847,7 +847,7 @@
         }
     },
     {
-        "id": "forms.helix-roll.in-water",
+        "page_id": "forms.helix-roll.in-water",
         "name": {
             "en": "in water",
             "fr": "dans l'eau"
@@ -870,7 +870,7 @@
         }
     },
     {
-        "id": "forms.helix-roll.comparison",
+        "page_id": "forms.helix-roll.comparison",
         "name": {
             "en": "comparison",
             "fr": "comparaison"
@@ -894,7 +894,7 @@
         }
     },
     {
-        "id": "forms.puzzles.puzzle-1",
+        "page_id": "forms.puzzles.puzzle-1",
         "name": {
             "en": "puzzle 1",
             "fr": "puzzle 1"
@@ -918,7 +918,7 @@
         }
     },
     {
-        "id": "forms.puzzles.puzzle-2",
+        "page_id": "forms.puzzles.puzzle-2",
         "name": {
             "en": "puzzle 2",
             "fr": "puzzle 2"
@@ -942,7 +942,7 @@
         }
     },
     {
-        "id": "forms.puzzles.puzzle-3",
+        "page_id": "forms.puzzles.puzzle-3",
         "name": {
             "en": "puzzle 3",
             "fr": "puzzle 3"
@@ -966,7 +966,7 @@
         }
     },
     {
-        "id": "forms.puzzles.puzzle-4",
+        "page_id": "forms.puzzles.puzzle-4",
         "name": {
             "en": "puzzle 4",
             "fr": "puzzle 4"
@@ -990,7 +990,7 @@
         }
     },
     {
-        "id": "forms.undulation.frontal-initiated-by-the-head",
+        "page_id": "forms.undulation.frontal-initiated-by-the-head",
         "name": {
             "en": "frontal initiated by the head",
             "fr": "frontale initiée par la tête"
@@ -1032,7 +1032,7 @@
         }
     },
     {
-        "id": "forms.undulation.frontal-initiated-by-the-pelvis",
+        "page_id": "forms.undulation.frontal-initiated-by-the-pelvis",
         "name": {
             "en": "frontal initiated by the pelvis",
             "fr": "frontale initiée par le bassin"
@@ -1067,7 +1067,7 @@
         }
     },
     {
-        "id": "forms.undulation.lateral-initiated-by-the-head",
+        "page_id": "forms.undulation.lateral-initiated-by-the-head",
         "name": {
             "en": "lateral initiated by the head",
             "fr": "latérale initiée par la tête"
@@ -1097,7 +1097,7 @@
         }
     },
     {
-        "id": "forms.undulation.lateral-initiated-by-the-pelvis",
+        "page_id": "forms.undulation.lateral-initiated-by-the-pelvis",
         "name": {
             "en": "lateral initiated by the pelvis",
             "fr": "latérale initiée par le bassin"
@@ -1127,7 +1127,7 @@
         }
     },
     {
-        "id": "forms.undulation.dolphin",
+        "page_id": "forms.undulation.dolphin",
         "name": {
             "en": "dolphin",
             "fr": "le dauphin"
@@ -1150,7 +1150,7 @@
         }
     },
     {
-        "id": "forms.aikido-roll.principle",
+        "page_id": "forms.aikido-roll.principle",
         "name": {
             "en": "principle",
             "fr": "le principe"
@@ -1173,7 +1173,7 @@
         }
     },
     {
-        "id": "forms.aikido-roll.3-directions",
+        "page_id": "forms.aikido-roll.3-directions",
         "name": {
             "en": "3 directions",
             "fr": "les 3 directions"
@@ -1215,7 +1215,7 @@
         }
     },
     {
-        "id": "forms.looking-at-the-forms.crescent-roll-head-up-in-workshop",
+        "page_id": "forms.looking-at-the-forms.crescent-roll-head-up-in-workshop",
         "name": {
             "en": "crescent roll head up in workshop",
             "fr": "démonstration du roulé en croissant tête dégagée"
@@ -1238,7 +1238,7 @@
         }
     },
     {
-        "id": "forms.looking-at-the-forms.helix-roll-led-by-feet-in-workshop",
+        "page_id": "forms.looking-at-the-forms.helix-roll-led-by-feet-in-workshop",
         "name": {
             "en": "helix roll led by feet in workshop",
             "fr": "démonstration du roulé en hélice par les pieds"
@@ -1261,7 +1261,7 @@
         }
     },
     {
-        "id": "forms.looking-at-the-forms.helix-roll-led-by-hands-in-workshop",
+        "page_id": "forms.looking-at-the-forms.helix-roll-led-by-hands-in-workshop",
         "name": {
             "en": "helix roll led by hands in workshop",
             "fr": "démonstration du roulé en hélice par les mains"
@@ -1284,7 +1284,7 @@
         }
     },
     {
-        "id": "forms.looking-at-the-forms.puzzle-1-analyse",
+        "page_id": "forms.looking-at-the-forms.puzzle-1-analyse",
         "name": {
             "en": "puzzle 1, analyse",
             "fr": "puzzle 1, l'analyse"
@@ -1307,7 +1307,7 @@
         }
     },
     {
-        "id": "forms.looking-at-the-forms.comments-on-crescent-roll-feet-and-hands",
+        "page_id": "forms.looking-at-the-forms.comments-on-crescent-roll-feet-and-hands",
         "name": {
             "en": "comments on crescent roll - feet and hands",
             "fr": "le roulé en croissant par pieds et mains, commentaires"
@@ -1330,7 +1330,7 @@
         }
     },
     {
-        "id": "forms.looking-at-the-forms.comments-on-crescent-roll-center",
+        "page_id": "forms.looking-at-the-forms.comments-on-crescent-roll-center",
         "name": {
             "en": "comments on crescent roll - center",
             "fr": "le roulé en croissant par le centre, commentaires"
@@ -1353,7 +1353,7 @@
         }
     },
     {
-        "id": "forms.looking-at-the-forms.comments-on-helix-roll-feet",
+        "page_id": "forms.looking-at-the-forms.comments-on-helix-roll-feet",
         "name": {
             "en": "comments on helix roll - feet",
             "fr": "le roulé en hélice par les pieds, commentaires"
@@ -1376,7 +1376,7 @@
         }
     },
     {
-        "id": "forms.looking-at-the-forms.comments-on-helix-roll-hands",
+        "page_id": "forms.looking-at-the-forms.comments-on-helix-roll-hands",
         "name": {
             "en": "comments on helix roll - hands",
             "fr": "le roulé en hélice par les mains, commentaires"
@@ -1399,7 +1399,7 @@
         }
     },
     {
-        "id": "forms.looking-at-the-forms.conclusion-on-rolls",
+        "page_id": "forms.looking-at-the-forms.conclusion-on-rolls",
         "name": {
             "en": "conclusion on rolls",
             "fr": "conclusion sur les roulés"
@@ -1422,7 +1422,7 @@
         }
     },
     {
-        "id": "forms.warm-ups.fingers",
+        "page_id": "forms.warm-ups.fingers",
         "name": {
             "en": "fingers",
             "fr": "les doigts"
@@ -1445,7 +1445,7 @@
         }
     },
     {
-        "id": "forms.warm-ups.the-wrist",
+        "page_id": "forms.warm-ups.the-wrist",
         "name": {
             "en": "the wrist",
             "fr": "le poignet"
@@ -1468,7 +1468,7 @@
         }
     },
     {
-        "id": "forms.warm-ups.hands",
+        "page_id": "forms.warm-ups.hands",
         "name": {
             "en": "hands",
             "fr": "les mains"
@@ -1491,7 +1491,7 @@
         }
     },
     {
-        "id": "forms.warm-ups.arms",
+        "page_id": "forms.warm-ups.arms",
         "name": {
             "en": "arms",
             "fr": "les bras"
@@ -1514,7 +1514,7 @@
         }
     },
     {
-        "id": "forms.warm-ups.spine-and-arms",
+        "page_id": "forms.warm-ups.spine-and-arms",
         "name": {
             "en": "spine and arms",
             "fr": "les bras et la colonne"
@@ -1537,7 +1537,7 @@
         }
     },
     {
-        "id": "forms.warm-ups.bending-bone",
+        "page_id": "forms.warm-ups.bending-bone",
         "name": {
             "en": "bending bone",
             "fr": "courber l'os"
@@ -1560,7 +1560,7 @@
         }
     },
     {
-        "id": "forms.warm-ups.aikido-step",
+        "page_id": "forms.warm-ups.aikido-step",
         "name": {
             "en": "aikido step",
             "fr": "le pas aïkido"
@@ -1583,7 +1583,7 @@
         }
     },
     {
-        "id": "forms.warm-ups.the-twist",
+        "page_id": "forms.warm-ups.the-twist",
         "name": {
             "en": "the twist",
             "fr": "la torsion"
@@ -1606,7 +1606,7 @@
         }
     },
     {
-        "id": "forms.warm-ups.legs-twist",
+        "page_id": "forms.warm-ups.legs-twist",
         "name": {
             "en": "legs twist",
             "fr": "torsion des jambes"
@@ -1629,7 +1629,7 @@
         }
     },
     {
-        "id": "forms.warm-ups.legs-resistance",
+        "page_id": "forms.warm-ups.legs-resistance",
         "name": {
             "en": "legs resistance",
             "fr": "résistance des jambes"
@@ -1652,7 +1652,7 @@
         }
     },
     {
-        "id": "forms.warm-ups.trochanter",
+        "page_id": "forms.warm-ups.trochanter",
         "name": {
             "en": "trochanter",
             "fr": "trochanter"
@@ -1675,7 +1675,7 @@
         }
     },
     {
-        "id": "forms.warm-ups.psoas",
+        "page_id": "forms.warm-ups.psoas",
         "name": {
             "en": "psoas",
             "fr": "psoas"
@@ -1698,7 +1698,7 @@
         }
     },
     {
-        "id": "forms.warm-ups.wave",
+        "page_id": "forms.warm-ups.wave",
         "name": {
             "en": "wave",
             "fr": "ondulation"
@@ -1721,7 +1721,7 @@
         }
     },
     {
-        "id": "forms.warm-ups.wave-on-the-floor",
+        "page_id": "forms.warm-ups.wave-on-the-floor",
         "name": {
             "en": "wave on the floor",
             "fr": "ondulation au sol"
@@ -1744,7 +1744,7 @@
         }
     },
     {
-        "id": "forms.warm-ups.asanas",
+        "page_id": "forms.warm-ups.asanas",
         "name": {
             "en": "asanas",
             "fr": "asanas"
@@ -1767,7 +1767,7 @@
         }
     },
     {
-        "id": "forms.warm-ups.napping",
+        "page_id": "forms.warm-ups.napping",
         "name": {
             "en": "napping",
             "fr": "la sieste"
@@ -1790,7 +1790,7 @@
         }
     },
     {
-        "id": "forms.warm-ups.and-play",
+        "page_id": "forms.warm-ups.and-play",
         "name": {
             "en": "and play",
             "fr": "et jouer"
@@ -1813,7 +1813,7 @@
         }
     },
     {
-        "id": "forms.cultivating.dance-culture",
+        "page_id": "forms.cultivating.dance-culture",
         "name": {
             "en": "dance & culture",
             "fr": "la danse & la culture"
@@ -1836,7 +1836,7 @@
         }
     },
     {
-        "id": "forms.cultivating.kindling-scythe",
+        "page_id": "forms.cultivating.kindling-scythe",
         "name": {
             "en": "kindling & scythe",
             "fr": "le petit bois & la faux"
