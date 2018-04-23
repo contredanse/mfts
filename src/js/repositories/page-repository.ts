@@ -1,4 +1,9 @@
-import { IDataPage } from '@data/data-pages';
+import {
+    IDataPage,
+    IDataPageLocalizedAudioSource,
+    IDataPageLocalizedVideoEntity,
+    IDataPageVideoEntity,
+} from '@data/data-pages';
 
 export interface IDataPageWithMedia extends IDataPage {
     videos: any[];
@@ -46,32 +51,31 @@ export default class PageRepository {
             }
             const { content } = page as IDataPage;
 
-            const videos: any[] = [];
+            const videos: IDataPageVideoEntity[] = [];
             let audio: any;
             let subtitle: any;
 
             // Step 1: select video(s)
-            if (content.video !== undefined) {
-                // single-video
-                videos.push(content.video);
-            } else if (content.video_i18n !== undefined) {
-                // translated video
-                videos.push(content.video_i18n[lang]);
-            } else if (content.videos !== undefined) {
-                // multiple videos
-                videos.push(...content.videos);
-            }
+            content.videos.forEach(video => {
+                let v = <IDataPageVideoEntity>video;
+                if ((<IDataPageLocalizedVideoEntity>video).i18n === true) {
+                    v = (<IDataPageLocalizedVideoEntity>video).versions[lang];
+                }
+                videos.push(v);
+            });
 
             // Step 2: select audio track
-            if (content.audio_i18n !== undefined) {
-                audio = content.audio_i18n[lang];
-            } else if (content.audio !== undefined) {
-                audio = content.audio;
-            }
-
-            // Step 3: general subtitles
-            if (content.subs !== undefined) {
-                subtitle = content.subs[lang];
+            if (content.audio !== undefined) {
+                const { src: audioSrc } = content.audio;
+                if (typeof audioSrc === 'string') {
+                    audio = content.audio;
+                } else if ((<IDataPageLocalizedAudioSource>audioSrc).versions[lang] !== undefined) {
+                    audio = audioSrc.versions[lang];
+                }
+                // Step 3: select audio subtitles
+                if (content.audio.tracks !== undefined) {
+                    subtitle = content.audio.tracks[lang];
+                }
             }
 
             const p = {

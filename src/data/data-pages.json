@@ -9,17 +9,18 @@
             "en": "SENSATION AND SENSES - weight of sensation",
             "fr": "SENSATION ET SENS - le poids de la sensation"
         },
+        "cover": "hello.jpg",
         "keywords": {
             "en": ["sensation", "senses", "weight"],
             "fr": ["sensation", "sens", "poids"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "hello",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "hello"
+                }
+            ]
         }
     },
     {
@@ -32,24 +33,26 @@
             "en": "SENSATION AND SENSES - gravity - the flat & the round",
             "fr": "SENSATION ET SENS - la pesanteur - le plat et le rond"
         },
+        "cover": "lemmon_en.jpg",
         "keywords": {
             "en": ["sensation", "senses", "gravity", "flat", "round"],
             "fr": ["sensation", "sens", "pesanteur", "plat", "rond"]
         },
         "content": {
             "layout": "single-i18n-video",
-            "video_i18n": {
-                "en": {
-                    "video_id": "lemmon_en",
-                    "muted": false,
-                    "loop": false
-                },
-                "fr": {
-                    "video_id": "lemmon_fr",
-                    "muted": false,
-                    "loop": false
+            "videos": [
+                {
+                    "i18n": true,
+                    "versions": {
+                        "en": {
+                            "video_id": "lemmon_en"
+                        },
+                        "fr": {
+                            "video_id": "lemmon_fr"
+                        }
+                    }
                 }
-            }
+            ]
         }
     },
     {
@@ -62,17 +65,18 @@
             "en": "SENSATION AND SENSES - gravity - falls",
             "fr": "SENSATION ET SENS - la pesanteur - chutes"
         },
+        "cover": "falls.jpg",
         "keywords": {
             "en": ["sensation", "senses", "gravity", "falls"],
             "fr": ["sensation", "sens", "pesanteur", "chutes"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "falls",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "falls"
+                }
+            ]
         }
     },
     {
@@ -85,17 +89,18 @@
             "en": "SENSATION AND SENSES - gravity - water gravity",
             "fr": "SENSATION ET SENS - la pesanteur - la pesanteur dans l'eau"
         },
+        "cover": "watergravity.jpg",
         "keywords": {
             "en": ["sensation", "senses", "gravity", "water"],
             "fr": ["sensation", "sens", "pesanteur", "dans", "l'eau"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "watergravity",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "watergravity"
+                }
+            ]
         }
     },
     {
@@ -108,17 +113,18 @@
             "en": "SENSATION AND SENSES - gravity - adjusting",
             "fr": "SENSATION ET SENS - la pesanteur - ajuster"
         },
+        "cover": "adjusting_birds.jpg",
         "keywords": {
             "en": ["sensation", "senses", "gravity", "adjusting"],
             "fr": ["sensation", "sens", "pesanteur", "ajuster"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "adjusting_birds",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "adjusting_birds"
+                }
+            ]
         }
     },
     {
@@ -131,24 +137,26 @@
             "en": "SENSATION AND SENSES - basics - an approach to breathing",
             "fr": "SENSATION ET SENS - à la base - respirer, une approche"
         },
+        "cover": "breathing_en.jpg",
         "keywords": {
             "en": ["sensation", "senses", "basics", "approach", "breathing"],
-            "fr": ["sensation", "sens", "base", "respirer,", "une", "approche"]
+            "fr": ["sensation", "sens", "base", "respirer,", "approche"]
         },
         "content": {
             "layout": "single-i18n-video",
-            "video_i18n": {
-                "en": {
-                    "video_id": "breathing_en",
-                    "muted": false,
-                    "loop": false
-                },
-                "fr": {
-                    "video_id": "breathing_fr",
-                    "muted": false,
-                    "loop": false
+            "videos": [
+                {
+                    "i18n": true,
+                    "versions": {
+                        "en": {
+                            "video_id": "breathing_en"
+                        },
+                        "fr": {
+                            "video_id": "breathing_fr"
+                        }
+                    }
                 }
-            }
+            ]
         }
     },
     {
@@ -161,23 +169,27 @@
             "en": "SENSATION AND SENSES - basics - an approach to the small dance",
             "fr": "SENSATION ET SENS - à la base - la petite danse, une approche"
         },
+        "cover": "smalldance_full.jpg",
         "keywords": {
             "en": ["sensation", "senses", "basics", "approach", "small", "dance"],
-            "fr": ["sensation", "sens", "base", "petite", "danse,", "une", "approche"]
+            "fr": ["sensation", "sens", "base", "petite", "danse,", "approche"]
         },
         "content": {
             "layout": "single-video-audio_i18n",
-            "video": {
-                "video_id": "smalldance_full",
-                "muted": true,
-                "loop": true
-            },
-            "audio_i18n": {
-                "en": {
-                    "src": "mp3/small_dance_en.mp3"
-                },
-                "fr": {
-                    "src": "mp3/small_dance_fr.mp3"
+            "videos": [
+                {
+                    "video_id": "smalldance_full",
+                    "muted": true,
+                    "loop": true
+                }
+            ],
+            "audio": {
+                "src": {
+                    "i18n": true,
+                    "versions": {
+                        "en": "mp3/small_dance_en.mp3",
+                        "fr": "mp3/small_dance_fr.mp3"
+                    }
                 }
             }
         }
@@ -192,17 +204,18 @@
             "en": "SENSATION AND SENSES - pointing - parts of pointing",
             "fr": "SENSATION ET SENS - pointer - pointer, les différentes parties"
         },
+        "cover": "pointing.jpg",
         "keywords": {
             "en": ["sensation", "senses", "pointing", "parts"],
             "fr": ["sensation", "sens", "pointer", "pointer,", "différentes", "parties"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "pointing",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "pointing"
+                }
+            ]
         }
     },
     {
@@ -215,17 +228,18 @@
             "en": "SENSATION AND SENSES - pointing - relation to scapula",
             "fr": "SENSATION ET SENS - pointer - la relation à l'omoplate"
         },
+        "cover": "pointing_scapula.jpg",
         "keywords": {
             "en": ["sensation", "senses", "pointing", "relation", "scapula"],
             "fr": ["sensation", "sens", "pointer", "relation", "l'omoplate"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "pointing_scapula",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "pointing_scapula"
+                }
+            ]
         }
     },
     {
@@ -238,17 +252,18 @@
             "en": "SENSATION AND SENSES - pelvis - pelvis as an initiator",
             "fr": "SENSATION ET SENS - le bassin - initier par le bassin"
         },
+        "cover": "pelvis.jpg",
         "keywords": {
             "en": ["sensation", "senses", "pelvis", "initiator"],
             "fr": ["sensation", "sens", "bassin", "initier"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "pelvis",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "pelvis"
+                }
+            ]
         }
     },
     {
@@ -261,17 +276,18 @@
             "en": "SENSATION AND SENSES - pelvis - exercise ischia to heels",
             "fr": "SENSATION ET SENS - le bassin - exercice: les ischions vers les talons"
         },
+        "cover": "pointing_heel.jpg",
         "keywords": {
             "en": ["sensation", "senses", "pelvis", "exercise", "ischia", "heels"],
             "fr": ["sensation", "sens", "bassin", "exercice:", "ischions", "vers", "talons"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "pointing_heel",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "pointing_heel"
+                }
+            ]
         }
     },
     {
@@ -284,17 +300,18 @@
             "en": "SENSATION AND SENSES - walk - walk as foundation",
             "fr": "SENSATION ET SENS - la marche - la marche comme fondement"
         },
+        "cover": "walkasfondation.jpg",
         "keywords": {
             "en": ["sensation", "senses", "walk", "foundation"],
-            "fr": ["sensation", "sens", "marche", "comme", "fondement"]
+            "fr": ["sensation", "sens", "marche", "fondement"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "walkasfondation",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "walkasfondation"
+                }
+            ]
         }
     },
     {
@@ -307,17 +324,18 @@
             "en": "SENSATION AND SENSES - walk - birds walk",
             "fr": "SENSATION ET SENS - la marche - la marche des oiseaux"
         },
+        "cover": "birdswalk.jpg",
         "keywords": {
             "en": ["sensation", "senses", "walk", "birds"],
             "fr": ["sensation", "sens", "marche", "oiseaux"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "birdswalk",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "birdswalk"
+                }
+            ]
         }
     },
     {
@@ -330,18 +348,19 @@
             "en": "SENSATION AND SENSES - walk - slow walk",
             "fr": "SENSATION ET SENS - la marche - la marche lente"
         },
+        "cover": "slowwalk.jpg",
         "keywords": {
             "en": ["sensation", "senses", "walk", "slow"],
             "fr": ["sensation", "sens", "marche", "lente"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "slowwalk",
-                "muted": true,
-                "loop": false,
-                "advanced_player": true
-            }
+            "videos": [
+                {
+                    "video_id": "slowwalk",
+                    "muted": true
+                }
+            ]
         }
     },
     {
@@ -354,17 +373,18 @@
             "en": "SENSATION AND SENSES - walk - twist",
             "fr": "SENSATION ET SENS - la marche - la torsion"
         },
+        "cover": "twist.jpg",
         "keywords": {
             "en": ["sensation", "senses", "walk", "twist"],
             "fr": ["sensation", "sens", "marche", "torsion"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "twist",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "twist"
+                }
+            ]
         }
     },
     {
@@ -377,17 +397,18 @@
             "en": "SENSATION AND SENSES - the back - choosing to focus on the Back",
             "fr": "SENSATION ET SENS - le dos - choisir de se concentrer sur le dos"
         },
+        "cover": "focus_back.jpg",
         "keywords": {
             "en": ["sensation", "senses", "back", "choosing", "focus"],
-            "fr": ["sensation", "sens", "dos", "choisir", "concentrer", "sur"]
+            "fr": ["sensation", "sens", "dos", "choisir", "concentrer"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "focus_back",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "focus_back"
+                }
+            ]
         }
     },
     {
@@ -400,17 +421,18 @@
             "en": "SENSATION AND SENSES - the back - passage",
             "fr": "SENSATION ET SENS - le dos - passage"
         },
+        "cover": "passage.jpg",
         "keywords": {
             "en": ["sensation", "senses", "back", "passage"],
             "fr": ["sensation", "sens", "dos", "passage"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "passage",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "passage"
+                }
+            ]
         }
     },
     {
@@ -423,17 +445,18 @@
             "en": "SENSATION AND SENSES - space - spherical space",
             "fr": "SENSATION ET SENS - l'espace - l'espace sphérique"
         },
+        "cover": "sphericalspace.jpg",
         "keywords": {
             "en": ["sensation", "senses", "space", "spherical"],
             "fr": ["sensation", "sens", "l'espace", "sphérique"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "sphericalspace",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "sphericalspace"
+                }
+            ]
         }
     },
     {
@@ -446,27 +469,18 @@
             "en": "SENSATION AND SENSES - MFS as base for improvisation - looking at Goldberg Variations",
             "fr": "SENSATION ET SENS - MFS comme base pour l'improvisation - introduction aux Goldberg Variations"
         },
+        "cover": "perf_comments_goldberg.jpg",
         "keywords": {
             "en": ["sensation", "senses", "mfs", "base", "improvisation", "looking", "goldberg", "variations"],
-            "fr": [
-                "sensation",
-                "sens",
-                "mfs",
-                "comme",
-                "base",
-                "l'improvisation",
-                "introduction",
-                "goldberg",
-                "variations"
-            ]
+            "fr": ["sensation", "sens", "mfs", "base", "l'improvisation", "introduction", "goldberg", "variations"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "perf_comments_goldberg",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "perf_comments_goldberg"
+                }
+            ]
         }
     },
     {
@@ -479,27 +493,18 @@
             "en": "SENSATION AND SENSES - MFS as base for improvisation - Goldberg Variations (extracts)",
             "fr": "SENSATION ET SENS - MFS comme base pour l'improvisation - Goldberg Variations (extraits)"
         },
+        "cover": "goldberg.jpg",
         "keywords": {
-            "en": ["sensation", "senses", "mfs", "base", "improvisation", "goldberg", "variations", "(extracts)"],
-            "fr": [
-                "sensation",
-                "sens",
-                "mfs",
-                "comme",
-                "base",
-                "l'improvisation",
-                "goldberg",
-                "variations",
-                "(extraits)"
-            ]
+            "en": ["sensation", "senses", "mfs", "base", "improvisation", "goldberg", "variations"],
+            "fr": ["sensation", "sens", "mfs", "base", "l'improvisation", "goldberg", "variations"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "goldberg",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "goldberg"
+                }
+            ]
         }
     },
     {
@@ -512,17 +517,18 @@
             "en": "SENSATION AND SENSES - MFS as base for improvisation - looking at English Suites",
             "fr": "SENSATION ET SENS - MFS comme base pour l'improvisation - introduction aux English Suites"
         },
+        "cover": "perf_comments_english.jpg",
         "keywords": {
-            "en": ["sensation", "senses", "mfs", "base", "improvisation", "looking", "english", "suites"],
-            "fr": ["sensation", "sens", "mfs", "comme", "base", "l'improvisation", "introduction", "english", "suites"]
+            "en": ["sensation", "senses", "mfs", "base", "improvisation", "looking", "suites"],
+            "fr": ["sensation", "sens", "mfs", "base", "l'improvisation", "introduction", "suites"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "perf_comments_english",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "perf_comments_english"
+                }
+            ]
         }
     },
     {
@@ -535,17 +541,18 @@
             "en": "SENSATION AND SENSES - MFS as base for improvisation - English Suites",
             "fr": "SENSATION ET SENS - MFS comme base pour l'improvisation - English Suites"
         },
+        "cover": "english.jpg",
         "keywords": {
-            "en": ["sensation", "senses", "mfs", "base", "improvisation", "english", "suites"],
-            "fr": ["sensation", "sens", "mfs", "comme", "base", "l'improvisation", "english", "suites"]
+            "en": ["sensation", "senses", "mfs", "base", "improvisation", "suites"],
+            "fr": ["sensation", "sens", "mfs", "base", "l'improvisation", "suites"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "english",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "english"
+                }
+            ]
         }
     },
     {
@@ -558,17 +565,18 @@
             "en": "SENSATION AND SENSES - MFS as base for improvisation - a technique for improvisation",
             "fr": "SENSATION ET SENS - MFS comme base pour l'improvisation - une technique pour l'improvisation"
         },
+        "cover": "perf_techimpro.jpg",
         "keywords": {
             "en": ["sensation", "senses", "mfs", "base", "improvisation", "technique"],
-            "fr": ["sensation", "sens", "mfs", "comme", "base", "l'improvisation", "une", "technique"]
+            "fr": ["sensation", "sens", "mfs", "base", "l'improvisation", "technique"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "perf_techimpro",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "perf_techimpro"
+                }
+            ]
         }
     },
     {
@@ -581,17 +589,18 @@
             "en": "FORMS - introduction",
             "fr": "LES FORMES - introduction"
         },
+        "cover": "new_intro.jpg",
         "keywords": {
             "en": ["forms", "introduction"],
             "fr": ["formes", "introduction"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "new_intro",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "new_intro"
+                }
+            ]
         }
     },
     {
@@ -604,6 +613,7 @@
             "en": "FORMS - crescent roll - crescent led by feet and hands",
             "fr": "LES FORMES - le roulé en croissant - initié par les mains et les pieds"
         },
+        "cover": "cbhf_fromside.jpg",
         "keywords": {
             "en": ["forms", "crescent", "roll", "led", "feet", "hands"],
             "fr": ["formes", "roulé", "croissant", "initié", "mains", "pieds"]
@@ -614,25 +624,55 @@
                 {
                     "video_id": "cbhf_fromside",
                     "muted": true,
-                    "loop": true
+                    "loop": true,
+                    "video_detail": {
+                        "title": {
+                            "en": "-- led by feet and hands - detail from side",
+                            "fr": "-- initié par le les mains et les pieds - détail - depuis le côté"
+                        },
+                        "video": {
+                            "video_id": "cbfh_side",
+                            "muted": true
+                        }
+                    }
                 },
                 {
                     "video_id": "cbhf_fromtop",
                     "muted": true,
-                    "loop": true
+                    "loop": true,
+                    "video_detail": {
+                        "title": {
+                            "en": "-- led by feet and hands - detail from top",
+                            "fr": "-- initié par le les mains et les pieds - détail - depuis le haut"
+                        },
+                        "video": {
+                            "video_id": "cbfh_top",
+                            "muted": true
+                        }
+                    }
                 },
                 {
                     "video_id": "cbhf_fromhead",
                     "muted": true,
-                    "loop": true
+                    "loop": true,
+                    "video_detail": {
+                        "title": {
+                            "en": "-- led by feet and hands - detail from head",
+                            "fr": "-- initié par le les mains et les pieds - détail - depuis la tête"
+                        },
+                        "video": {
+                            "video_id": "cbfh_front",
+                            "muted": true
+                        }
+                    }
                 }
             ],
             "audio": {
-                "src": "mp3/comments_crescent.mp3"
-            },
-            "subs": {
-                "en": "srt/mfs_crescents_comments_en.srt",
-                "fr": "srt/mfs_crescents_comments_fr.srt"
+                "src": "mp3/comments_crescent.mp3",
+                "tracks": {
+                    "en": "srt/mfs_crescents_comments_en.srt",
+                    "fr": "srt/mfs_crescents_comments_fr.srt"
+                }
             }
         }
     },
@@ -646,6 +686,7 @@
             "en": "FORMS - crescent roll - crescent led by center",
             "fr": "LES FORMES - le roulé en croissant - initié par le centre"
         },
+        "cover": "cbc_fromhead.jpg",
         "keywords": {
             "en": ["forms", "crescent", "roll", "led", "center"],
             "fr": ["formes", "roulé", "croissant", "initié", "centre"]
@@ -656,12 +697,30 @@
                 {
                     "video_id": "cbc_fromhead",
                     "muted": true,
-                    "loop": false
+                    "video_detail": {
+                        "title": {
+                            "en": "-- led by center - detail from head",
+                            "fr": "-- initié par le centre - détail - depuis la tête"
+                        },
+                        "video": {
+                            "video_id": "cbc_front",
+                            "muted": true
+                        }
+                    }
                 },
                 {
                     "video_id": "cbc_fromtop",
                     "muted": true,
-                    "loop": false
+                    "video_detail": {
+                        "title": {
+                            "en": "-- led by center - detail from top",
+                            "fr": "-- initié par le centre - détail - depuis le haut"
+                        },
+                        "video": {
+                            "video_id": "cbc_top",
+                            "muted": true
+                        }
+                    }
                 }
             ]
         }
@@ -676,6 +735,7 @@
             "en": "FORMS - crescent roll - head up",
             "fr": "LES FORMES - le roulé en croissant - tête dégagée"
         },
+        "cover": "chu_fromfeet.jpg",
         "keywords": {
             "en": ["forms", "crescent", "roll", "head"],
             "fr": ["formes", "roulé", "croissant", "tête", "dégagée"]
@@ -686,12 +746,30 @@
                 {
                     "video_id": "chu_fromfeet",
                     "muted": true,
-                    "loop": false
+                    "video_detail": {
+                        "title": {
+                            "en": "-- head up - detail from feet",
+                            "fr": "-- la tête haute - détail - depuis les pieds"
+                        },
+                        "video": {
+                            "video_id": "cbhu_front",
+                            "muted": true
+                        }
+                    }
                 },
                 {
                     "video_id": "chu_fromside",
                     "muted": true,
-                    "loop": false
+                    "video_detail": {
+                        "title": {
+                            "en": "-- head up - detail from side",
+                            "fr": "-- la tête haute - détail - depuis le côté"
+                        },
+                        "video": {
+                            "video_id": "cbhu_side",
+                            "muted": true
+                        }
+                    }
                 }
             ]
         }
@@ -706,18 +784,19 @@
             "en": "FORMS - crescent roll - head and feet up",
             "fr": "LES FORMES - le roulé en croissant - tête et pieds vers le haut"
         },
+        "cover": "cbfhu.jpg",
         "keywords": {
             "en": ["forms", "crescent", "roll", "head", "feet"],
             "fr": ["formes", "roulé", "croissant", "tête", "pieds", "vers", "haut"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "cbfhu",
-                "muted": true,
-                "loop": false,
-                "advanced_player": true
-            }
+            "videos": [
+                {
+                    "video_id": "cbfhu",
+                    "muted": true
+                }
+            ]
         }
     },
     {
@@ -730,17 +809,18 @@
             "en": "FORMS - crescent roll - in water",
             "fr": "LES FORMES - le roulé en croissant - dans l'eau"
         },
+        "cover": "crescent_water.jpg",
         "keywords": {
             "en": ["forms", "crescent", "roll", "water"],
             "fr": ["formes", "roulé", "croissant", "dans", "l'eau"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "crescent_water",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "crescent_water"
+                }
+            ]
         }
     },
     {
@@ -753,18 +833,19 @@
             "en": "FORMS - crescent roll - comparison",
             "fr": "LES FORMES - le roulé en croissant - comparaison"
         },
+        "cover": "c_comparing.jpg",
         "keywords": {
             "en": ["forms", "crescent", "roll", "comparison"],
             "fr": ["formes", "roulé", "croissant", "comparaison"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "c_comparing",
-                "muted": true,
-                "loop": false,
-                "advanced_player": true
-            }
+            "videos": [
+                {
+                    "video_id": "c_comparing",
+                    "muted": true
+                }
+            ]
         }
     },
     {
@@ -777,6 +858,7 @@
             "en": "FORMS - helix roll - led by feet",
             "fr": "LES FORMES - le roulé en hélice - initié par les pieds"
         },
+        "cover": "sbf_fromfeet.jpg",
         "keywords": {
             "en": ["forms", "helix", "roll", "led", "feet"],
             "fr": ["formes", "roulé", "hélice", "initié", "pieds"]
@@ -787,25 +869,55 @@
                 {
                     "video_id": "sbf_fromfeet",
                     "muted": true,
-                    "loop": true
+                    "loop": true,
+                    "video_detail": {
+                        "title": {
+                            "en": "-- led by feet - detail from feet",
+                            "fr": "-- initié par les pieds - détail - depuis les pieds"
+                        },
+                        "video": {
+                            "video_id": "sbf_fromfeet",
+                            "muted": true
+                        }
+                    }
                 },
                 {
                     "video_id": "sbf_side",
                     "muted": true,
-                    "loop": true
+                    "loop": true,
+                    "video_detail": {
+                        "title": {
+                            "en": "-- led by feet - detail from side",
+                            "fr": "-- initié par les pieds - détail - depuis le côté"
+                        },
+                        "video": {
+                            "video_id": "sbf_fromside",
+                            "muted": true
+                        }
+                    }
                 },
                 {
                     "video_id": "sbf_fromhead",
                     "muted": true,
-                    "loop": true
+                    "loop": true,
+                    "video_detail": {
+                        "title": {
+                            "en": "-- led by feet - detail from head",
+                            "fr": "-- initié par les pieds - détail - depuis la tête"
+                        },
+                        "video": {
+                            "video_id": "sbf_fromhead",
+                            "muted": true
+                        }
+                    }
                 }
             ],
             "audio": {
-                "src": "mp3/mfs_sbf.mp3"
-            },
-            "subs": {
-                "en": "srt/mfs_sbf_en.srt",
-                "fr": "srt/mfs_sbf_fr.srt"
+                "src": "mp3/mfs_sbf.mp3",
+                "tracks": {
+                    "en": "srt/mfs_sbf_en.srt",
+                    "fr": "srt/mfs_sbf_fr.srt"
+                }
             }
         }
     },
@@ -819,6 +931,7 @@
             "en": "FORMS - helix roll - led by hands",
             "fr": "LES FORMES - le roulé en hélice - initié par les mains"
         },
+        "cover": "sbh_fromhead.jpg",
         "keywords": {
             "en": ["forms", "helix", "roll", "led", "hands"],
             "fr": ["formes", "roulé", "hélice", "initié", "mains"]
@@ -829,20 +942,40 @@
                 {
                     "video_id": "sbh_fromhead",
                     "muted": true,
-                    "loop": true
+                    "loop": true,
+                    "video_detail": {
+                        "title": {
+                            "en": "-- led by hands - detail from head",
+                            "fr": "-- initié par les mains - détail - depuis la tête"
+                        },
+                        "video": {
+                            "video_id": "sbh_fromhead",
+                            "muted": true
+                        }
+                    }
                 },
                 {
                     "video_id": "sbh_side",
                     "muted": true,
-                    "loop": true
+                    "loop": true,
+                    "video_detail": {
+                        "title": {
+                            "en": "-- led by hands - detail from side",
+                            "fr": "-- initié par les mains - détail - depuis le côté"
+                        },
+                        "video": {
+                            "video_id": "sbh_fromside",
+                            "muted": true
+                        }
+                    }
                 }
             ],
             "audio": {
-                "src": "mp3/mfs_sbh.mp3"
-            },
-            "subs": {
-                "en": "srt/mfs_sbh_en.srt",
-                "fr": "srt/mfs_sbh_fr.srt"
+                "src": "mp3/mfs_sbh.mp3",
+                "tracks": {
+                    "en": "srt/mfs_sbh_en.srt",
+                    "fr": "srt/mfs_sbh_fr.srt"
+                }
             }
         }
     },
@@ -856,17 +989,18 @@
             "en": "FORMS - helix roll - in water",
             "fr": "LES FORMES - le roulé en hélice - dans l'eau"
         },
+        "cover": "helixinwater.jpg",
         "keywords": {
             "en": ["forms", "helix", "roll", "water"],
             "fr": ["formes", "roulé", "hélice", "dans", "l'eau"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "helixinwater",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "helixinwater"
+                }
+            ]
         }
     },
     {
@@ -879,18 +1013,19 @@
             "en": "FORMS - helix roll - comparison",
             "fr": "LES FORMES - le roulé en hélice - comparaison"
         },
+        "cover": "h_comparing.jpg",
         "keywords": {
             "en": ["forms", "helix", "roll", "comparison"],
             "fr": ["formes", "roulé", "hélice", "comparaison"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "h_comparing",
-                "muted": true,
-                "loop": false,
-                "advanced_player": true
-            }
+            "videos": [
+                {
+                    "video_id": "h_comparing",
+                    "muted": true
+                }
+            ]
         }
     },
     {
@@ -903,18 +1038,18 @@
             "en": "FORMS - puzzles - puzzle 1",
             "fr": "LES FORMES - les puzzles - puzzle 1"
         },
+        "cover": "puzzle1.jpg",
         "keywords": {
             "en": ["forms", "puzzles", "puzzle"],
             "fr": ["formes", "puzzles", "puzzle"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "puzzle1",
-                "muted": false,
-                "loop": false,
-                "advanced_player": true
-            }
+            "videos": [
+                {
+                    "video_id": "puzzle1"
+                }
+            ]
         }
     },
     {
@@ -927,18 +1062,18 @@
             "en": "FORMS - puzzles - puzzle 2",
             "fr": "LES FORMES - les puzzles - puzzle 2"
         },
+        "cover": "puzzle2.jpg",
         "keywords": {
             "en": ["forms", "puzzles", "puzzle"],
             "fr": ["formes", "puzzles", "puzzle"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "puzzle2",
-                "muted": false,
-                "loop": false,
-                "advanced_player": true
-            }
+            "videos": [
+                {
+                    "video_id": "puzzle2"
+                }
+            ]
         }
     },
     {
@@ -951,18 +1086,18 @@
             "en": "FORMS - puzzles - puzzle 3",
             "fr": "LES FORMES - les puzzles - puzzle 3"
         },
+        "cover": "puzzle3.jpg",
         "keywords": {
             "en": ["forms", "puzzles", "puzzle"],
             "fr": ["formes", "puzzles", "puzzle"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "puzzle3",
-                "muted": false,
-                "loop": false,
-                "advanced_player": true
-            }
+            "videos": [
+                {
+                    "video_id": "puzzle3"
+                }
+            ]
         }
     },
     {
@@ -975,18 +1110,18 @@
             "en": "FORMS - puzzles - puzzle 4",
             "fr": "LES FORMES - les puzzles - puzzle 4"
         },
+        "cover": "puzzle4.jpg",
         "keywords": {
             "en": ["forms", "puzzles", "puzzle"],
             "fr": ["formes", "puzzles", "puzzle"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "puzzle4",
-                "muted": false,
-                "loop": false,
-                "advanced_player": true
-            }
+            "videos": [
+                {
+                    "video_id": "puzzle4"
+                }
+            ]
         }
     },
     {
@@ -999,6 +1134,7 @@
             "en": "FORMS - undulation - frontal initiated by the head",
             "fr": "LES FORMES - l'ondulation - frontale initiée par la tête"
         },
+        "cover": "frontal_head_top.jpg",
         "keywords": {
             "en": ["forms", "undulation", "frontal", "initiated", "head"],
             "fr": ["formes", "l'ondulation", "frontale", "initiée", "tête"]
@@ -1009,25 +1145,55 @@
                 {
                     "video_id": "frontal_head_top",
                     "muted": true,
-                    "loop": true
+                    "loop": true,
+                    "video_detail": {
+                        "title": {
+                            "en": "-- detail from top",
+                            "fr": "-- détail vu d'en haut"
+                        },
+                        "video": {
+                            "video_id": "frontal_head_top",
+                            "muted": true
+                        }
+                    }
                 },
                 {
                     "video_id": "frontal_head_side",
                     "muted": true,
-                    "loop": true
+                    "loop": true,
+                    "video_detail": {
+                        "title": {
+                            "en": "-- detail from side",
+                            "fr": "-- détail vu de côté"
+                        },
+                        "video": {
+                            "video_id": "frontal_head_side",
+                            "muted": true
+                        }
+                    }
                 },
                 {
                     "video_id": "frontal_head_bottom",
                     "muted": true,
-                    "loop": true
+                    "loop": true,
+                    "video_detail": {
+                        "title": {
+                            "en": "-- detail from bottom",
+                            "fr": "-- détail vu d'en bas"
+                        },
+                        "video": {
+                            "video_id": "frontal_head_bottom",
+                            "muted": true
+                        }
+                    }
                 }
             ],
             "audio": {
-                "src": "mp3/comment_undulation.mp3"
-            },
-            "subs": {
-                "en": "srt/undulations_en.srt",
-                "fr": "srt/undulations_fr.srt"
+                "src": "mp3/comment_undulation.mp3",
+                "tracks": {
+                    "en": "srt/undulations_en.srt",
+                    "fr": "srt/undulations_fr.srt"
+                }
             }
         }
     },
@@ -1041,6 +1207,7 @@
             "en": "FORMS - undulation - frontal initiated by the pelvis",
             "fr": "LES FORMES - l'ondulation - frontale initiée par le bassin"
         },
+        "cover": "frontal_pelvis_top.jpg",
         "keywords": {
             "en": ["forms", "undulation", "frontal", "initiated", "pelvis"],
             "fr": ["formes", "l'ondulation", "frontale", "initiée", "bassin"]
@@ -1051,17 +1218,44 @@
                 {
                     "video_id": "frontal_pelvis_top",
                     "muted": true,
-                    "loop": false
+                    "video_detail": {
+                        "title": {
+                            "en": "-- detail from top",
+                            "fr": "-- détail vu d'en haut"
+                        },
+                        "video": {
+                            "video_id": "frontal_pelvis_top",
+                            "muted": true
+                        }
+                    }
                 },
                 {
                     "video_id": "frontal_pelvis_side",
                     "muted": true,
-                    "loop": false
+                    "video_detail": {
+                        "title": {
+                            "en": "-- detail from side",
+                            "fr": "-- détail vu de côté"
+                        },
+                        "video": {
+                            "video_id": "frontal_pelvis_side",
+                            "muted": true
+                        }
+                    }
                 },
                 {
                     "video_id": "frontal_pelvis_bottom",
                     "muted": true,
-                    "loop": false
+                    "video_detail": {
+                        "title": {
+                            "en": "-- detail from bottom",
+                            "fr": "-- détail vu d'en bas"
+                        },
+                        "video": {
+                            "video_id": "frontal_pelvis_bottom",
+                            "muted": true
+                        }
+                    }
                 }
             ]
         }
@@ -1076,6 +1270,7 @@
             "en": "FORMS - undulation - lateral initiated by the head",
             "fr": "LES FORMES - l'ondulation - latérale initiée par la tête"
         },
+        "cover": "lateral_head_front.jpg",
         "keywords": {
             "en": ["forms", "undulation", "lateral", "initiated", "head"],
             "fr": ["formes", "l'ondulation", "latérale", "initiée", "tête"]
@@ -1086,12 +1281,30 @@
                 {
                     "video_id": "lateral_head_front",
                     "muted": true,
-                    "loop": false
+                    "video_detail": {
+                        "title": {
+                            "en": "-- detail from front",
+                            "fr": "-- détail vu de face"
+                        },
+                        "video": {
+                            "video_id": "lateral_head_front",
+                            "muted": true
+                        }
+                    }
                 },
                 {
                     "video_id": "lateral_head_top",
                     "muted": true,
-                    "loop": false
+                    "video_detail": {
+                        "title": {
+                            "en": "-- detail from top",
+                            "fr": "-- détail vu d'en haut"
+                        },
+                        "video": {
+                            "video_id": "lateral_head_top",
+                            "muted": true
+                        }
+                    }
                 }
             ]
         }
@@ -1106,6 +1319,7 @@
             "en": "FORMS - undulation - lateral initiated by the pelvis",
             "fr": "LES FORMES - l'ondulation - latérale initiée par le bassin"
         },
+        "cover": "lateral_pelvis_top.jpg",
         "keywords": {
             "en": ["forms", "undulation", "lateral", "initiated", "pelvis"],
             "fr": ["formes", "l'ondulation", "latérale", "initiée", "bassin"]
@@ -1116,12 +1330,30 @@
                 {
                     "video_id": "lateral_pelvis_top",
                     "muted": true,
-                    "loop": false
+                    "video_detail": {
+                        "title": {
+                            "en": "-- detail from top",
+                            "fr": "-- détail vu d'en haut"
+                        },
+                        "video": {
+                            "video_id": "lateral_pelvis_top",
+                            "muted": true
+                        }
+                    }
                 },
                 {
                     "video_id": "lateral_pelvis_front",
                     "muted": true,
-                    "loop": false
+                    "video_detail": {
+                        "title": {
+                            "en": "-- detail from front",
+                            "fr": "-- détail vu de face"
+                        },
+                        "video": {
+                            "video_id": "lateral_pelvis_front",
+                            "muted": true
+                        }
+                    }
                 }
             ]
         }
@@ -1136,17 +1368,18 @@
             "en": "FORMS - undulation - dolphin",
             "fr": "LES FORMES - l'ondulation - le dauphin"
         },
+        "cover": "dolphininwater.jpg",
         "keywords": {
             "en": ["forms", "undulation", "dolphin"],
             "fr": ["formes", "l'ondulation", "dauphin"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "dolphininwater",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "dolphininwater"
+                }
+            ]
         }
     },
     {
@@ -1159,17 +1392,18 @@
             "en": "FORMS - aikido roll - principle",
             "fr": "LES FORMES - la chute roulée de l'aïkido - le principe"
         },
+        "cover": "aikido_principle.jpg",
         "keywords": {
             "en": ["forms", "aikido", "roll", "principle"],
             "fr": ["formes", "chute", "roulée", "l'aïkido", "principe"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "aikido_principle",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "aikido_principle"
+                }
+            ]
         }
     },
     {
@@ -1182,6 +1416,7 @@
             "en": "FORMS - aikido roll - 3 directions",
             "fr": "LES FORMES - la chute roulée de l'aïkido - les 3 directions"
         },
+        "cover": "aikido_3D_side.jpg",
         "keywords": {
             "en": ["forms", "aikido", "roll", "directions"],
             "fr": ["formes", "chute", "roulée", "l'aïkido", "directions"]
@@ -1192,25 +1427,52 @@
                 {
                     "video_id": "aikido_3D_side",
                     "muted": true,
-                    "loop": true
+                    "loop": true,
+                    "video_detail": {
+                        "title": {
+                            "en": "-- aikido roll from side",
+                            "fr": "-- rouler aikido vu de côté "
+                        },
+                        "video": {
+                            "video_id": "aikido_side"
+                        }
+                    }
                 },
                 {
                     "video_id": "aikido_3D_top",
                     "muted": true,
-                    "loop": true
+                    "loop": true,
+                    "video_detail": {
+                        "title": {
+                            "en": "-- aikido roll from top",
+                            "fr": "-- rouler aikido vu d'en haut "
+                        },
+                        "video": {
+                            "video_id": "aikido_top"
+                        }
+                    }
                 },
                 {
                     "video_id": "aikido_3D_front",
                     "muted": true,
-                    "loop": true
+                    "loop": true,
+                    "video_detail": {
+                        "title": {
+                            "en": "-- aikido roll from front",
+                            "fr": "-- rouler aikido vu de face "
+                        },
+                        "video": {
+                            "video_id": "aikido_front"
+                        }
+                    }
                 }
             ],
             "audio": {
-                "src": "mp3/aikidoform.mp3"
-            },
-            "subs": {
-                "en": "srt/aikidoform_en.srt",
-                "fr": "srt/aikidoform_fr.srt"
+                "src": "mp3/aikidoform.mp3",
+                "tracks": {
+                    "en": "srt/aikidoform_en.srt",
+                    "fr": "srt/aikidoform_fr.srt"
+                }
             }
         }
     },
@@ -1224,17 +1486,18 @@
             "en": "FORMS - looking at the forms - crescent roll head up in workshop",
             "fr": "LES FORMES - regarder les formes - démonstration du roulé en croissant tête dégagée"
         },
+        "cover": "crescent_head_up.jpg",
         "keywords": {
             "en": ["forms", "looking", "crescent", "roll", "head", "workshop"],
             "fr": ["formes", "regarder", "démonstration", "roulé", "croissant", "tête", "dégagée"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "crescent_head_up",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "crescent_head_up"
+                }
+            ]
         }
     },
     {
@@ -1247,17 +1510,18 @@
             "en": "FORMS - looking at the forms - helix roll led by feet in workshop",
             "fr": "LES FORMES - regarder les formes - démonstration du roulé en hélice par les pieds"
         },
+        "cover": "mfs_sbf_seattle.jpg",
         "keywords": {
             "en": ["forms", "looking", "helix", "roll", "led", "feet", "workshop"],
             "fr": ["formes", "regarder", "démonstration", "roulé", "hélice", "pieds"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "mfs_sbf_seattle",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "mfs_sbf_seattle"
+                }
+            ]
         }
     },
     {
@@ -1270,17 +1534,18 @@
             "en": "FORMS - looking at the forms - helix roll led by hands in workshop",
             "fr": "LES FORMES - regarder les formes - démonstration du roulé en hélice par les mains"
         },
+        "cover": "mfs_sbh_seattle.jpg",
         "keywords": {
             "en": ["forms", "looking", "helix", "roll", "led", "hands", "workshop"],
             "fr": ["formes", "regarder", "démonstration", "roulé", "hélice", "mains"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "mfs_sbh_seattle",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "mfs_sbh_seattle"
+                }
+            ]
         }
     },
     {
@@ -1293,17 +1558,18 @@
             "en": "FORMS - looking at the forms - puzzle 1, analyse",
             "fr": "LES FORMES - regarder les formes - puzzle 1, l'analyse"
         },
+        "cover": "puzzle1_demo_graph.jpg",
         "keywords": {
             "en": ["forms", "looking", "puzzle", "analyse"],
             "fr": ["formes", "regarder", "puzzle", "l'analyse"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "puzzle1_demo_graph",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "puzzle1_demo_graph"
+                }
+            ]
         }
     },
     {
@@ -1316,17 +1582,18 @@
             "en": "FORMS - looking at the forms - comments on crescent roll - feet and hands",
             "fr": "LES FORMES - regarder les formes - le roulé en croissant par pieds et mains, commentaires"
         },
+        "cover": "correction_crescent_handsfeet.jpg",
         "keywords": {
             "en": ["forms", "looking", "comments", "crescent", "roll", "feet", "hands"],
             "fr": ["formes", "regarder", "roulé", "croissant", "pieds", "mains,", "commentaires"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "correction_crescent_handsfeet",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "correction_crescent_handsfeet"
+                }
+            ]
         }
     },
     {
@@ -1339,17 +1606,18 @@
             "en": "FORMS - looking at the forms - comments on crescent roll - center",
             "fr": "LES FORMES - regarder les formes - le roulé en croissant par le centre, commentaires"
         },
+        "cover": "correction_crescent_center.jpg",
         "keywords": {
             "en": ["forms", "looking", "comments", "crescent", "roll", "center"],
             "fr": ["formes", "regarder", "roulé", "croissant", "centre,", "commentaires"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "correction_crescent_center",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "correction_crescent_center"
+                }
+            ]
         }
     },
     {
@@ -1362,17 +1630,18 @@
             "en": "FORMS - looking at the forms - comments on helix roll - feet",
             "fr": "LES FORMES - regarder les formes - le roulé en hélice par les pieds, commentaires"
         },
+        "cover": "correction_helix_feet.jpg",
         "keywords": {
             "en": ["forms", "looking", "comments", "helix", "roll", "feet"],
             "fr": ["formes", "regarder", "roulé", "hélice", "pieds,", "commentaires"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "correction_helix_feet",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "correction_helix_feet"
+                }
+            ]
         }
     },
     {
@@ -1385,17 +1654,18 @@
             "en": "FORMS - looking at the forms - comments on helix roll - hands",
             "fr": "LES FORMES - regarder les formes - le roulé en hélice par les mains, commentaires"
         },
+        "cover": "correction_helix_hands.jpg",
         "keywords": {
             "en": ["forms", "looking", "comments", "helix", "roll", "hands"],
             "fr": ["formes", "regarder", "roulé", "hélice", "mains,", "commentaires"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "correction_helix_hands",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "correction_helix_hands"
+                }
+            ]
         }
     },
     {
@@ -1408,17 +1678,18 @@
             "en": "FORMS - looking at the forms - conclusion on rolls",
             "fr": "LES FORMES - regarder les formes - conclusion sur les roulés"
         },
+        "cover": "correction_conclusion.jpg",
         "keywords": {
             "en": ["forms", "looking", "conclusion", "rolls"],
-            "fr": ["formes", "regarder", "conclusion", "sur", "roulés"]
+            "fr": ["formes", "regarder", "conclusion", "roulés"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "correction_conclusion",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "correction_conclusion"
+                }
+            ]
         }
     },
     {
@@ -1431,17 +1702,19 @@
             "en": "FORMS - warm ups - fingers",
             "fr": "LES FORMES - les échauffements - les doigts"
         },
+        "cover": "wu_fingers.jpg",
         "keywords": {
             "en": ["forms", "warm", "ups", "fingers"],
             "fr": ["formes", "échauffements", "doigts"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "wu_fingers",
-                "muted": true,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "wu_fingers",
+                    "muted": true
+                }
+            ]
         }
     },
     {
@@ -1454,17 +1727,19 @@
             "en": "FORMS - warm ups - the wrist",
             "fr": "LES FORMES - les échauffements - le poignet"
         },
+        "cover": "wu_wrist.jpg",
         "keywords": {
             "en": ["forms", "warm", "ups", "wrist"],
             "fr": ["formes", "échauffements", "poignet"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "wu_wrist",
-                "muted": true,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "wu_wrist",
+                    "muted": true
+                }
+            ]
         }
     },
     {
@@ -1477,17 +1752,18 @@
             "en": "FORMS - warm ups - hands",
             "fr": "LES FORMES - les échauffements - les mains"
         },
+        "cover": "wu_hands.jpg",
         "keywords": {
             "en": ["forms", "warm", "ups", "hands"],
             "fr": ["formes", "échauffements", "mains"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "wu_hands",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "wu_hands"
+                }
+            ]
         }
     },
     {
@@ -1500,17 +1776,19 @@
             "en": "FORMS - warm ups - arms",
             "fr": "LES FORMES - les échauffements - les bras"
         },
+        "cover": "wu_arms.jpg",
         "keywords": {
             "en": ["forms", "warm", "ups", "arms"],
             "fr": ["formes", "échauffements", "bras"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "wu_arms",
-                "muted": true,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "wu_arms",
+                    "muted": true
+                }
+            ]
         }
     },
     {
@@ -1523,17 +1801,19 @@
             "en": "FORMS - warm ups - spine and arms",
             "fr": "LES FORMES - les échauffements - les bras et la colonne"
         },
+        "cover": "wu_spine_and_arms.jpg",
         "keywords": {
             "en": ["forms", "warm", "ups", "spine", "arms"],
             "fr": ["formes", "échauffements", "bras", "colonne"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "wu_spine_and_arms",
-                "muted": true,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "wu_spine_and_arms",
+                    "muted": true
+                }
+            ]
         }
     },
     {
@@ -1546,17 +1826,18 @@
             "en": "FORMS - warm ups - bending bone",
             "fr": "LES FORMES - les échauffements - courber l'os"
         },
+        "cover": "wu_bendingbone.jpg",
         "keywords": {
             "en": ["forms", "warm", "ups", "bending", "bone"],
             "fr": ["formes", "échauffements", "courber", "l'os"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "wu_bendingbone",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "wu_bendingbone"
+                }
+            ]
         }
     },
     {
@@ -1569,17 +1850,18 @@
             "en": "FORMS - warm ups - aikido step",
             "fr": "LES FORMES - les échauffements - le pas aïkido"
         },
+        "cover": "wu_aikidostep.jpg",
         "keywords": {
             "en": ["forms", "warm", "ups", "aikido", "step"],
             "fr": ["formes", "échauffements", "pas", "aïkido"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "wu_aikidostep",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "wu_aikidostep"
+                }
+            ]
         }
     },
     {
@@ -1592,17 +1874,19 @@
             "en": "FORMS - warm ups - the twist",
             "fr": "LES FORMES - les échauffements - la torsion"
         },
+        "cover": "wu_twist.jpg",
         "keywords": {
             "en": ["forms", "warm", "ups", "twist"],
             "fr": ["formes", "échauffements", "torsion"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "wu_twist",
-                "muted": true,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "wu_twist",
+                    "muted": true
+                }
+            ]
         }
     },
     {
@@ -1615,17 +1899,18 @@
             "en": "FORMS - warm ups - legs twist",
             "fr": "LES FORMES - les échauffements - torsion des jambes"
         },
+        "cover": "wu_twistlegs.jpg",
         "keywords": {
             "en": ["forms", "warm", "ups", "legs", "twist"],
             "fr": ["formes", "échauffements", "torsion", "jambes"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "wu_twistlegs",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "wu_twistlegs"
+                }
+            ]
         }
     },
     {
@@ -1638,17 +1923,18 @@
             "en": "FORMS - warm ups - legs resistance",
             "fr": "LES FORMES - les échauffements - résistance des jambes"
         },
+        "cover": "wu_legsresistance.jpg",
         "keywords": {
             "en": ["forms", "warm", "ups", "legs", "resistance"],
             "fr": ["formes", "échauffements", "résistance", "jambes"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "wu_legsresistance",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "wu_legsresistance"
+                }
+            ]
         }
     },
     {
@@ -1661,17 +1947,18 @@
             "en": "FORMS - warm ups - trochanter",
             "fr": "LES FORMES - les échauffements - trochanter"
         },
+        "cover": "wu_trocantere.jpg",
         "keywords": {
             "en": ["forms", "warm", "ups", "trochanter"],
             "fr": ["formes", "échauffements", "trochanter"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "wu_trocantere",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "wu_trocantere"
+                }
+            ]
         }
     },
     {
@@ -1684,17 +1971,18 @@
             "en": "FORMS - warm ups - psoas",
             "fr": "LES FORMES - les échauffements - psoas"
         },
+        "cover": "wu_psoas.jpg",
         "keywords": {
             "en": ["forms", "warm", "ups", "psoas"],
             "fr": ["formes", "échauffements", "psoas"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "wu_psoas",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "wu_psoas"
+                }
+            ]
         }
     },
     {
@@ -1707,17 +1995,18 @@
             "en": "FORMS - warm ups - wave",
             "fr": "LES FORMES - les échauffements - ondulation"
         },
+        "cover": "wu_wave.jpg",
         "keywords": {
             "en": ["forms", "warm", "ups", "wave"],
             "fr": ["formes", "échauffements", "ondulation"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "wu_wave",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "wu_wave"
+                }
+            ]
         }
     },
     {
@@ -1730,17 +2019,18 @@
             "en": "FORMS - warm ups - wave on the floor",
             "fr": "LES FORMES - les échauffements - ondulation au sol"
         },
+        "cover": "wu_wavefloor.jpg",
         "keywords": {
             "en": ["forms", "warm", "ups", "wave", "floor"],
             "fr": ["formes", "échauffements", "ondulation", "sol"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "wu_wavefloor",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "wu_wavefloor"
+                }
+            ]
         }
     },
     {
@@ -1753,17 +2043,18 @@
             "en": "FORMS - warm ups - asanas",
             "fr": "LES FORMES - les échauffements - asanas"
         },
+        "cover": "wu_asanas.jpg",
         "keywords": {
             "en": ["forms", "warm", "ups", "asanas"],
             "fr": ["formes", "échauffements", "asanas"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "wu_asanas",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "wu_asanas"
+                }
+            ]
         }
     },
     {
@@ -1776,17 +2067,18 @@
             "en": "FORMS - warm ups - napping",
             "fr": "LES FORMES - les échauffements - la sieste"
         },
+        "cover": "napp.jpg",
         "keywords": {
             "en": ["forms", "warm", "ups", "napping"],
             "fr": ["formes", "échauffements", "sieste"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "napp",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "napp"
+                }
+            ]
         }
     },
     {
@@ -1799,17 +2091,19 @@
             "en": "FORMS - warm ups - and play",
             "fr": "LES FORMES - les échauffements - et jouer"
         },
+        "cover": "wu_play.jpg",
         "keywords": {
             "en": ["forms", "warm", "ups", "play"],
             "fr": ["formes", "échauffements", "jouer"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "wu_play",
-                "muted": true,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "wu_play",
+                    "muted": true
+                }
+            ]
         }
     },
     {
@@ -1822,17 +2116,18 @@
             "en": "FORMS - cultivating - dance & culture",
             "fr": "LES FORMES - cultiver - la danse & la culture"
         },
+        "cover": "dance_culture.jpg",
         "keywords": {
             "en": ["forms", "cultivating", "dance", "culture"],
             "fr": ["formes", "cultiver", "danse", "culture"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "dance_culture",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "dance_culture"
+                }
+            ]
         }
     },
     {
@@ -1845,17 +2140,18 @@
             "en": "FORMS - cultivating - kindling & scythe",
             "fr": "LES FORMES - cultiver - le petit bois & la faux"
         },
+        "cover": "cultivating2.jpg",
         "keywords": {
             "en": ["forms", "cultivating", "kindling", "scythe"],
             "fr": ["formes", "cultiver", "petit", "bois", "faux"]
         },
         "content": {
             "layout": "single-video",
-            "video": {
-                "video_id": "cultivating2",
-                "muted": false,
-                "loop": false
-            }
+            "videos": [
+                {
+                    "video_id": "cultivating2"
+                }
+            ]
         }
     }
 ]

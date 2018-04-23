@@ -49,6 +49,9 @@ export default class DataProxy {
     }
 
     async getPageElements(pageId: string, lang: string): Promise<IDataPage> {
+        const pageData = await this.getPage(pageId);
+        const { videos } = pageData.content;
+
         return new Promise<IDataPage>((resolve, reject) => {
             const page = this.data.pages.find((element: IDataPage) => {
                 return pageId === element.page_id;

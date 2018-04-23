@@ -1,52 +1,63 @@
 ﻿export interface IDataPage {
     page_id: string;
-    name: NameOrTitleOrSubs;
-    title: NameOrTitleOrSubs;
-    keywords: Keywords;
-    content: Content;
+    name: IDataPageLocalizedText;
+    title: IDataPageLocalizedText;
+    cover?: string; // jpg cover for the page
+    keywords: IDataPageLocalizedKeywords;
+    content: IDataPageContent;
 }
-export interface NameOrTitleOrSubs {
+
+export interface IDataPageLocalizedText {
     en: string;
     fr: string;
 }
-export interface Keywords {
+
+export interface IDataPageLocalizedKeywords {
     en?: (string)[];
     fr?: (string)[];
 }
-export interface Content {
+
+export interface IDataPageContent {
     layout: string;
-    video?: VideoOrEnOrFrOrVideosEntity;
-    video_i18n?: VideoI18n;
-    audio_i18n?: AudioI18n;
-    videos?: (VideoOrEnOrFrOrVideosEntity1)[];
-    audio?: EnOrFrOrAudio;
-    subs?: NameOrTitleOrSubs1;
+    videos: (IDataPageVideoEntity | IDataPageLocalizedVideoEntity)[];
+    audio?: IDataPageAudioEntity;
 }
-export interface VideoOrEnOrFrOrVideosEntity {
+
+export interface IDataPageVideoEntity {
     video_id: string;
-    muted: boolean;
-    loop: boolean;
+    muted?: boolean;
+    loop?: boolean;
+    video_detail?: IDataPageVideoDetail;
 }
-export interface VideoI18n {
-    en: VideoOrEnOrFrOrVideosEntity1;
-    fr: VideoOrEnOrFrOrVideosEntity1;
+
+export interface IDataPageVideoDetail {
+    title?: {
+        en: string;
+        fr: string;
+    };
+    video: IDataPageVideoEntity;
 }
-export interface VideoOrEnOrFrOrVideosEntity1 {
-    video_id: string;
-    muted: boolean;
-    loop: boolean;
+
+export interface IDataPageLocalizedVideoEntity {
+    i18n: true;
+    versions: {
+        en: IDataPageVideoEntity;
+        fr: IDataPageVideoEntity;
+    };
 }
-export interface AudioI18n {
-    en: EnOrFrOrAudio1;
-    fr: EnOrFrOrAudio1;
+
+export interface IDataPageAudioEntity {
+    src: string | IDataPageLocalizedAudioSource;
+    tracks?: {
+        en: string;
+        fr: string;
+    };
 }
-export interface EnOrFrOrAudio1 {
-    src: string;
-}
-export interface EnOrFrOrAudio {
-    src: string;
-}
-export interface NameOrTitleOrSubs1 {
-    en: string;
-    fr: string;
-}
+
+export type IDataPageLocalizedAudioSource = {
+    i18n: boolean;
+    versions: {
+        en: string;
+        fr: string;
+    };
+};
