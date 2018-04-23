@@ -37,8 +37,13 @@ module.exports = merge(common, {
     },
     module: {
         rules: [
+            // can be removed when react-router-*:@next set  sideEffects: false
             {
-                include: path.resolve('node_modules', 'lodash'),
+                include: path.resolve('node_modules', 'react-router'),
+                sideEffects: false,
+            },
+            {
+                include: path.resolve('node_modules', 'react-router-dom'),
                 sideEffects: false,
             },
             {
@@ -117,8 +122,17 @@ module.exports = merge(common, {
                     minSize: 0,
                     reuseExistingChunk: true,
                 },
+                data: {
+                    test: /\.json$/,
+                    name: 'data',
+                    enforce: true,
+                    chunks: 'initial',
+                },
                 vendors: {
-                    test: /[\\/]node_modules[\\/]/,
+                    // only js files need to be included
+                    // from vendors
+                    test: /[\\/]node_modules[\\/](.*).js$/,
+                    //test: /[\\/]node_modules[\\/]/,
                     name: 'vendors',
                     enforce: true,
                     chunks: 'all',
@@ -231,6 +245,7 @@ module.exports = merge(common, {
                 },
             ],
         }),
+
         new ManifestPlugin({
             fileName: 'assets-manifest.json',
             basePath: '',
@@ -264,7 +279,7 @@ module.exports = merge(common, {
             // https://github.com/facebookincubator/create-react-app/issues/2237#issuecomment-302693219
             navigateFallbackWhitelist: [/^(?!\/__).*/],
             // Don't precache sourcemaps (they're large) and build asset manifest:
-            staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/, /index\.html/],
+            staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/, /index\.html/, /\.br$/, /\.gz$/],
         }),
 
         new HtmlWebpackHarddiskPlugin(),
