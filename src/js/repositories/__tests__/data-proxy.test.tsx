@@ -1,13 +1,13 @@
-import DataRepository, { IParams } from '../data-repository';
+import DataProxy, { IParams } from '../data-proxy';
 import { appConfig } from '@config/app-config';
 
-describe('Data repository params', () => {
+describe('Data repository getDefaultParams', () => {
     test('getParams returns params from constructor', () => {
         const params: IParams = {
             defaultLang: 'en',
         };
-        const dataRepo = new DataRepository([], params);
-        expect(dataRepo.getParams()).toEqual(params);
+        const dataRepo = new DataProxy({} as any, params);
+        expect(dataRepo.getDefaultParams()).toEqual(params);
     });
 });
 
@@ -15,8 +15,8 @@ describe('Data repository getters', () => {
     const params: IParams = {
         defaultLang: 'en',
     };
-    const { pages: globalPageData } = appConfig.getConfig().data;
-    const globalDataRepo = new DataRepository(globalPageData, params);
+
+    const globalDataRepo = appConfig.getDataProxy(params);
 
     test('getPage must reject for non existing page', async () => {
         const pageId = 'non-existing-page';
