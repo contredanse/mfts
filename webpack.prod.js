@@ -103,7 +103,7 @@ module.exports = merge(common, {
 
     optimization: {
         //namedModules: true, // NamedModulesPlugin(), will increase size
-        runtimeChunk: 'single',
+        //runtimeChunk: 'single',
 
         splitChunks: {
             chunks: 'async',
@@ -115,16 +115,8 @@ module.exports = merge(common, {
             name: true,
 
             cacheGroups: {
-                styles: {
-                    name: 'styles',
-                    test: /\.css$/,
-                    chunks: 'initial',
-                    //enforce: true,
-                    minSize: 0,
-                    reuseExistingChunk: true,
-                },
                 data: {
-                    test: /\.json$/,
+                    test: /[\\/]src\/data\/(.)\.json$/,
                     name: 'data',
                     enforce: true,
                     chunks: 'initial',
@@ -146,6 +138,15 @@ module.exports = merge(common, {
                     priority: -20,
                     enforce: true,
                     chunks: 'all',
+                },
+                styles: {
+                    name: 'styles',
+                    test: /\.css$/,
+                    chunks: 'initial',
+                    //enforce: true,
+                    priority: -30,
+                    minSize: 0,
+                    reuseExistingChunk: true,
                 },
             },
         },
@@ -213,11 +214,14 @@ module.exports = merge(common, {
             hash: false,
             title: 'Paxton MFTS',
             template: './public/index.html',
-            collapseWhitespace: true,
-            collapseInlineTagWhitespace: true,
-            preserveLineBreaks: false,
             removeAttributeQuotes: true,
             removeComments: true,
+            minify: {
+                collapseWhitespace: true,
+                collapseInlineTagWhitespace: true,
+            },
+            //collapseWhitespace: true,
+            //preserveLineBreaks: false,
         }),
         new WebpackPwaManifest({
             short_name: 'Paxton MFTS',
