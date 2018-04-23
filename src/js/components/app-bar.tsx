@@ -1,7 +1,7 @@
 /**
  * Temp debug menu
  */
-import React, { ComponentClass } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 import { RootState } from '@src/redux/index';
