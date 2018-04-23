@@ -103,7 +103,7 @@ module.exports = merge(common, {
 
     optimization: {
         //namedModules: true, // NamedModulesPlugin(), will increase size
-        runtimeChunk: false,
+        runtimeChunk: 'single',
 
         splitChunks: {
             chunks: 'async',
@@ -113,12 +113,13 @@ module.exports = merge(common, {
             maxInitialRequests: 3,
             automaticNameDelimiter: '~',
             name: true,
+
             cacheGroups: {
                 styles: {
                     name: 'styles',
                     test: /\.css$/,
                     chunks: 'initial',
-                    enforce: true,
+                    //enforce: true,
                     minSize: 0,
                     reuseExistingChunk: true,
                 },
@@ -128,12 +129,21 @@ module.exports = merge(common, {
                     enforce: true,
                     chunks: 'initial',
                 },
+                // Extract material-ui and icons in a separate chunk
+                mui: {
+                    test: /[\\/]node_modules\/(@material-ui|material-ui)/,
+                    name: 'mui',
+                    priority: -10,
+                    enforce: true,
+                    chunks: 'all',
+                },
                 vendors: {
                     // only js files need to be included
                     // from vendors
-                    test: /[\\/]node_modules[\\/](.*).js$/,
-                    //test: /[\\/]node_modules[\\/]/,
+                    //test: /[\\/]node_modules[\\/](.*).js$/,
+                    test: /[\\/]node_modules[\\/]/,
                     name: 'vendors',
+                    priority: -20,
                     enforce: true,
                     chunks: 'all',
                 },
@@ -272,14 +282,14 @@ module.exports = merge(common, {
                 }
                 console.log(message);
             },
-            minify: false,
+            minify: true,
             // For unknown URLs, fallback to the index page
             navigateFallback: PUBLIC_URL + '/',
             // Ignores URLs starting from /__ (useful for Firebase):
             // https://github.com/facebookincubator/create-react-app/issues/2237#issuecomment-302693219
             navigateFallbackWhitelist: [/^(?!\/__).*/],
             // Don't precache sourcemaps (they're large) and build asset manifest:
-            staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/, /index\.html/, /\.br$/, /\.gz$/],
+            staticFileGlobsIgnorePatterns: [/\.map$/, /assets-manifest\.json$/, /index\.html/, /\.br$/, /\.gz$/],
         }),
 
         new HtmlWebpackHarddiskPlugin(),
