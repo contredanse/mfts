@@ -6,20 +6,20 @@ import PageList from '@src/components/page-list';
 import { withRouter } from 'react-router-dom';
 import { RouteComponentProps } from 'react-router';
 
-interface IProps extends RouteComponentProps<any> {
+interface PageListContainerProps extends RouteComponentProps<any> {
     initialData: IDataPage[];
     videosBaseUrl: string;
     lang: 'en' | 'fr';
 }
-interface IState {
+interface PageListContainerState {
     pages: IDataPage[];
     lang: 'en' | 'fr';
     selectedPage?: IDataPage;
     searchFragment?: string;
 }
 
-class PageListContainer extends React.Component<IProps, IState> {
-    constructor(props: IProps) {
+class PageListContainer extends React.Component<PageListContainerProps, PageListContainerState> {
+    constructor(props: PageListContainerProps) {
         super(props);
 
         this.state = {
@@ -61,7 +61,7 @@ class PageListContainer extends React.Component<IProps, IState> {
     };
 
     closePage = () => {
-        this.setState((prevState): IState => ({
+        this.setState((prevState): PageListContainerState => ({
             ...prevState,
             selectedPage: undefined,
         }));
@@ -105,5 +105,4 @@ class PageListContainer extends React.Component<IProps, IState> {
     }
 }
 
-//export default withRouter<IProps & RouteComponentProps<any>>(PageListContainer);
-export default withRouter(PageListContainer) as typeof PageListContainer;
+export default withRouter<PageListContainerProps & RouteComponentProps<any>>(PageListContainer);
