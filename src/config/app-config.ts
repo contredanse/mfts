@@ -4,6 +4,7 @@ import { IDataPage } from '@data/data-pages';
 import dataMenu from '@data/data-menu.json';
 import dataVideos from '@data/data-videos.json';
 import dataPages from '@data/data-pages.json';
+import DataProxy from '@src/repositories/data-proxy';
 
 const isProduction = true;
 
@@ -33,6 +34,10 @@ export class AppConfig {
 
     getAppData(): IAppDataConfig {
         return this.config.data;
+    }
+
+    getDataProxy(params): DataProxy {
+        return new DataProxy(this.config.data, params);
     }
 }
 
