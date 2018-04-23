@@ -1,7 +1,7 @@
 /**
  * Temp debug menu
  */
-import React from 'react';
+import React, { ComponentClass } from 'react';
 import { connect } from 'react-redux';
 
 import { RootState } from '@src/redux/index';
@@ -29,10 +29,10 @@ interface AppBarProps {
     // menuLinks: MenuLinkProps[];
 }
 
-export type AppBarWithStyleProps = AppBarProps & WithStyles<ComponentClassNames>;
+export type AppBarWithStylesProps = AppBarProps & WithStyles<ComponentClassNames>;
 export type AppBarWithRouterProps = AppBarProps & RouteComponentProps<{}>;
 
-export const AppBarComponent: React.SFC<AppBarWithStyleProps & AppBarWithRouterProps> = props => {
+export const AppBarComponent: React.SFC<AppBarWithStylesProps & AppBarWithRouterProps> = props => {
     const { classes } = props;
     const currentPath = props.location.pathname;
 
@@ -89,9 +89,12 @@ export const AppBarComponent: React.SFC<AppBarWithStyleProps & AppBarWithRouterP
  */
 
 type ComponentClassNames = 'root' | 'flex' | 'menuButton';
-const styles = {
+
+const decorate = withStyles(({ palette, spacing }) => ({
     root: {
         width: '100%',
+        padding: spacing.unit,
+        color: palette.primary.main,
     },
     flex: {
         flex: 1,
@@ -100,9 +103,9 @@ const styles = {
         marginLeft: -12,
         marginRight: 20,
     },
-};
+}));
 
-export const AppBarWithStyles = withStyles(styles)(AppBarComponent);
+const AppBarWithStyles = decorate<AppBarWithRouterProps>(AppBarComponent);
 
 /**
  * Exporting AppBar with router support and injected styles
