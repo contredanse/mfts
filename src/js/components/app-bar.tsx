@@ -2,21 +2,24 @@
  * Temp debug menu
  */
 import React from 'react';
+
 import { connect } from 'react-redux';
-
-import { RootState } from '@src/redux/index';
 import { withRouter } from 'react-router';
-
-import MaterialAppBar from 'material-ui/AppBar';
-import Toolbar from 'material-ui/Toolbar';
-import Typography from 'material-ui/Typography';
-import IconButton from 'material-ui/IconButton';
-import Button from 'material-ui/Button';
-import { WithStyles } from 'material-ui';
-import { Menu as MenuIcon } from '@material-ui/icons/es';
-import withStyles from 'material-ui/styles/withStyles';
 import { Link } from 'react-router-dom';
 import { RouteComponentProps } from 'react-router';
+
+import {
+    AppBar as MaterialAppBar,
+    Toolbar,
+    Typography,
+    IconButton,
+    Button,
+    WithStyles,
+    withStyles,
+} from 'material-ui/es';
+import { Menu as MenuIcon } from '@material-ui/icons/es';
+
+import { RootState } from '@src/redux/index';
 
 export interface MenuLinkProps {
     path: string;
@@ -33,7 +36,7 @@ export type AppBarWithStylesProps = AppBarProps & WithStyles<ComponentClassNames
 export type AppBarWithRouterProps = AppBarProps & RouteComponentProps<{}>;
 
 export const AppBarComponent: React.SFC<AppBarWithStylesProps & AppBarWithRouterProps> = props => {
-    const { classes } = props;
+    const { classes, history } = props;
     const currentPath = props.location.pathname;
 
     const menuItems: MenuLinkProps[] = [
@@ -55,8 +58,6 @@ export const AppBarComponent: React.SFC<AppBarWithStylesProps & AppBarWithRouter
             </Button>
         );
     };
-
-    const history = props.history;
 
     return (
         <div className={classes.root}>
@@ -110,13 +111,8 @@ const AppBarWithStyles = decorate<AppBarWithRouterProps>(AppBarComponent);
 /**
  * Exporting AppBar with router support and injected styles
  */
+const mapStateToProps = (state: RootState) => ({});
 
-const mapStateToProps = (state: RootState) => ({
-    // mediaInfo: state.media.mediaInfo,
-});
-
-const mapDispatchToProps = (dispatch: any) => ({
-    // dispatch
-});
+const mapDispatchToProps = (dispatch: any) => ({});
 
 export const AppBar = withRouter(connect(mapStateToProps, mapDispatchToProps)(AppBarWithStyles));
