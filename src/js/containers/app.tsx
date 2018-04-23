@@ -16,12 +16,12 @@ import PageListContainer from '@src/containers/page-list-container';
 import PageContainer from '@src/containers/page-container';
 import PageRepository from '@src/repositories/page-repository';
 
-interface IAppProps {
+interface AppProps {
     appConfig: AppConfig;
 }
 
-class App extends React.Component<IAppProps, {}> {
-    constructor(props: IAppProps) {
+class App extends React.Component<AppProps, {}> {
+    constructor(props: AppProps) {
         super(props);
     }
 
