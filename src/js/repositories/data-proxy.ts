@@ -2,20 +2,20 @@ import { IDataPage } from '@data/data-pages';
 import { IAppDataConfig } from '@config/app-config';
 import { IDataVideo } from '@data/data-videos';
 
-export interface IParams {
+export interface IDataProxyParams {
     defaultLang: 'en' | 'fr';
 }
 
 export default class DataProxy {
-    protected readonly defaultParams: IParams;
+    protected readonly defaultParams: IDataProxyParams;
     protected readonly data: IAppDataConfig;
 
-    constructor(data: IAppDataConfig, defaultParams: IParams) {
+    constructor(data: IAppDataConfig, defaultParams: IDataProxyParams) {
         this.defaultParams = defaultParams;
         this.data = data;
     }
 
-    public getDefaultParams(): IParams {
+    public getDefaultParams(): IDataProxyParams {
         return this.defaultParams;
     }
 
@@ -50,7 +50,7 @@ export default class DataProxy {
 
     async getPageElements(pageId: string, lang: string): Promise<IDataPage> {
         const pageData = await this.getPage(pageId);
-        const { videos } = pageData.content;
+        //const { videos } = pageData.content;
 
         return new Promise<IDataPage>((resolve, reject) => {
             const page = this.data.pages.find((element: IDataPage) => {

@@ -1,9 +1,9 @@
-import DataProxy, { IParams } from '../data-proxy';
+import DataProxy, { IDataProxyParams } from '../data-proxy';
 import { appConfig } from '@config/app-config';
 
 describe('Data repository getDefaultParams', () => {
     test('getParams returns params from constructor', () => {
-        const params: IParams = {
+        const params: IDataProxyParams = {
             defaultLang: 'en',
         };
         const dataRepo = new DataProxy({} as any, params);
@@ -12,7 +12,7 @@ describe('Data repository getDefaultParams', () => {
 });
 
 describe('Data repository getters', () => {
-    const params: IParams = {
+    const params: IDataProxyParams = {
         defaultLang: 'en',
     };
 

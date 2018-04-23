@@ -43,20 +43,21 @@ export default class PageList extends React.Component<IProps, IState> {
                         {list &&
                             list.map(page => {
                                 const { page_id: pageId, content } = page;
+                                const { lang } = this.props;
 
                                 let videos: IDataVideo[] = [];
                                 switch (content.layout) {
                                     case 'single-video':
                                     case 'single-video-audio':
                                     case 'single-video-audio_i18n': {
-                                        let video_id = (content.videos as IDataPageVideoEntity[])[0].video_id;
+                                        const video_id = (content.videos as IDataPageVideoEntity[])[0].video_id;
                                         videos[0] = this.getVideo(video_id);
                                         break;
                                     }
                                     case 'single-i18n-video': {
-                                        let video_id = (content.videos as IDataPageLocalizedVideoEntity[])[0][
+                                        const video_id = (content.videos as IDataPageLocalizedVideoEntity[])[0][
                                             'versions'
-                                        ][this.props.lang].video_id;
+                                        ][lang].video_id;
                                         videos[0] = this.getVideo(video_id);
                                         break;
                                     }
