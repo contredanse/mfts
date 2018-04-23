@@ -109,12 +109,12 @@
         "webpack-stats-plugin": "^0.2.1"
     },
     "dependencies": {
-        "@material-ui/icons": "^1.0.0-beta.42",
+        "@material-ui/icons": "^1.0.0-beta.43",
         "gsap": "^1.20.4",
         "history": "^4.7.2",
         "jquery": "^3.3.1",
         "lodash-es": "^4.17.8",
-        "material-ui": "^1.0.0-beta.42",
+        "material-ui": "^1.0.0-beta.43",
         "normalize.css": "^8.0.0",
         "react": "^16.3.2",
         "react-custom-scrollbars": "^4.2.1",
