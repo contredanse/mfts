@@ -3,13 +3,13 @@ import './page.scss';
 import { IDataPage } from '@data/data-pages';
 import { PageOverlay } from '@src/components/page-overlay';
 
-interface IProps {
+export interface PageProps {
     pageData: IDataPage;
 }
 
-interface IState {}
+interface PageState {}
 
-export default class Page extends React.Component<IProps, IState> {
+export default class Page extends React.Component<PageProps, PageState> {
     render() {
         return (
             <PageOverlay closeButton={false}>

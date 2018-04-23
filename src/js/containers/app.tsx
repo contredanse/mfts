@@ -5,7 +5,7 @@ import { Route } from 'react-router-dom';
 import { history } from '@src/store';
 
 import { RouteComponentProps, Switch } from 'react-router';
-import { AppBarConnected } from '@src/components/app-bar-connected';
+import { AppBar } from '@src/components/app-bar';
 import HomeContainer from '@src/containers/home-container';
 import IntroContainer from '@src/containers/intro-container';
 import MenuContainer from '@src/containers/menu-container';
@@ -34,7 +34,7 @@ class App extends React.Component<IAppProps, {}> {
             <ConnectedRouter history={history}>
                 <div className="window-container">
                     <header>
-                        <AppBarConnected title="" />
+                        <AppBar title="" />
                     </header>
                     <main>
                         <Switch>
