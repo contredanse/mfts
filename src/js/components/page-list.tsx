@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './page-list.scss';
-import { IDataPage, IDataPageVideoEntity, IDataPageLocalizedVideoEntity } from '@data/data-pages';
+import { IDataPage, IDataPageVideoEntity } from '@data/data-pages';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { IDataVideo } from '@data/data-videos';
 import dataVideos from '@data/data-videos.json';
@@ -44,29 +44,30 @@ export default class PageList extends React.Component<IProps, IState> {
                             list.map(page => {
                                 const { page_id: pageId, content } = page;
                                 const { lang } = this.props;
+                                const fallbackLang = 'en';
 
                                 let videos: IDataVideo[] = [];
                                 switch (content.layout) {
                                     case 'single-video':
                                     case 'single-video-audio':
-                                    case 'single-video-audio_i18n': {
-                                        const video_id = (content.videos as IDataPageVideoEntity[])[0].video_id;
-                                        videos[0] = this.getVideo(video_id);
-                                        break;
-                                    }
+                                    case 'single-video-audio_i18n':
                                     case 'single-i18n-video': {
-                                        const video_id = (content.videos as IDataPageLocalizedVideoEntity[])[0][
+                                        let video_id = content.videos[0].video_id;
+                                        videos.push(this.getVideo(video_id[lang] || video_id[fallbackLang]));
+                                        /*
+                                        const video_id = (content.videos as IDataPageVideoEntity[])[0][
                                             'versions'
                                         ][lang].video_id;
                                         videos[0] = this.getVideo(video_id);
+                                        */
                                         break;
                                     }
                                     case 'two-videos-only':
                                     case 'two-videos-audio-subs':
                                     case 'three-videos-only':
                                     case 'three-videos-audio-subs': {
-                                        videos = (content.videos as IDataPageVideoEntity[]).map(video => {
-                                            return this.getVideo(video.video_id);
+                                        videos = (content.videos as IDataPageVideoEntity[]).map(({ video_id }) => {
+                                            return this.getVideo(video_id[lang] || video_id[fallbackLang]);
                                         });
                                         break;
                                     }
@@ -76,7 +77,9 @@ export default class PageList extends React.Component<IProps, IState> {
 
                                 // TODO fix the idea of pageCover !!!
                                 //const coverImg = `${baseUrl}covers/${page.cover}`;
-                                const coverImg = `${baseUrl}covers/${videos[0].video_id}-03.jpg`;
+
+                                const firstVideoId = videos[0].video_id;
+                                const coverImg = `${baseUrl}covers/${firstVideoId}-03.jpg`;
 
                                 return (
                                     <Animate key={pageId}>

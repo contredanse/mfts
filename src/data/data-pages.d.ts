@@ -19,42 +19,41 @@ export interface IDataPageLocalizedKeywords {
 
 export interface IDataPageContent {
     layout: string;
-    videos: (IDataPageVideoEntity | IDataPageLocalizedVideoEntity)[];
+    videos: IDataPageVideoEntity[];
     audio?: IDataPageAudioEntity;
 }
 
 export interface IDataPageVideoEntity {
-    video_id: string;
+    video_id: LocalizedVideoId;
     muted?: boolean;
     loop?: boolean;
     video_detail?: IDataPageVideoDetail;
 }
 
 export interface IDataPageVideoDetail {
-    title?: {
+    video_id: LocalizedVideoId;
+    desc?: {
         en: string;
         fr: string;
     };
-    video: IDataPageVideoEntity;
-}
-
-export interface IDataPageLocalizedVideoEntity {
-    i18n: true;
-    versions: {
-        en: IDataPageVideoEntity;
-        fr: IDataPageVideoEntity;
-    };
+    muted?: boolean;
+    loop?: boolean;
 }
 
 export interface IDataPageAudioEntity {
-    src: IDataPageLocalizedAudioSource;
+    src: LocalizedAudioSource;
     tracks?: {
         en: string;
         fr: string;
     };
 }
 
-export type IDataPageLocalizedAudioSource = {
+export type LocalizedAudioSource = {
+    en: string; // Only english is mandatory
+    fr?: string;
+};
+
+export type LocalizedVideoId = {
     en: string; // Only english is mandatory
     fr?: string;
 };

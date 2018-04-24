@@ -1,9 +1,4 @@
-import {
-    IDataPage,
-    IDataPageLocalizedAudioSource,
-    IDataPageLocalizedVideoEntity,
-    IDataPageVideoEntity,
-} from '@data/data-pages';
+import { IDataPage, IDataPageVideoEntity } from '@data/data-pages';
 
 export interface IDataPageWithMedia extends IDataPage {
     videos: any[];
@@ -56,22 +51,20 @@ export default class PageRepository {
             let subtitle: any;
 
             // Step 1: select video(s)
-            content.videos.forEach(video => {
+            content.videos.forEach(video_id => {
+                /*
                 let v = <IDataPageVideoEntity>video;
                 if ((<IDataPageLocalizedVideoEntity>video).i18n === true) {
                     v = (<IDataPageLocalizedVideoEntity>video).versions[lang];
-                }
-                videos.push(v);
+                }*/
+                videos.push(video_id[lang] || video_id['en']);
             });
 
             // Step 2: select audio track
             if (content.audio !== undefined) {
                 const { src: audioSrc } = content.audio;
-                if (typeof audioSrc === 'string') {
-                    audio = content.audio;
-                } else if ((<IDataPageLocalizedAudioSource>audioSrc).versions[lang] !== undefined) {
-                    audio = audioSrc.versions[lang];
-                }
+                audio = audioSrc[lang] || audioSrc['en'];
+
                 // Step 3: select audio subtitles
                 if (content.audio.tracks !== undefined) {
                     subtitle = content.audio.tracks[lang];
