@@ -8,7 +8,15 @@ export interface IDataProxyParams {
     defaultLang: SupportedLangType;
 }
 
-export interface IPageEntity {}
+export interface IPageEntity {
+    pageId: string;
+    title: string;
+    sortIdx: number;
+    name: string;
+    keywords: string[];
+    cover: string;
+    videos: any[];
+}
 
 export default class DataProxy {
     protected readonly defaultParams: IDataProxyParams;
@@ -66,30 +74,29 @@ export default class DataProxy {
         const localizedPage = {
             pageId: pageData.page_id,
             title: pageData.title[lang],
+            sortIdx: pageData.sort_idx,
             name: pageData.name[lang],
             keywords: pageData.keywords[lang],
             cover: pageData.cover,
+            videos: [] as any[],
         };
 
         const { content } = pageData;
 
         // get localized video versions
-        const videos: string[] = [];
-        content.videos.forEach(video => {
-            videos.push(video.video_id[lang] || video.video_id[this.fallbackLang]);
+        const videos: IDataVideo[] = [];
+        content.videos.forEach(async videoContent => {
+            const { muted, loop, video_detail } = videoContent;
+            let video_id = videoContent.video_id[lang] || videoContent.video_id[this.fallbackLang];
+            const video = await this.getVideo(video_id);
+
+            videos.push(video);
         });
-        //const localizedVideos = this.normalizeVideoContent(content.videos, lang);
 
-        //const { videos } = pageData.content;
+        localizedPage.videos = videos;
 
-        return new Promise<IDataPage>((resolve, reject) => {
-            const page = this.data.pages.find((element: IDataPage) => {
-                return pageId === element.page_id;
-            });
-            if (page === undefined) {
-                reject(`Page '${pageId}' cannot be found`);
-            }
-            resolve(page);
+        return new Promise<IPageEntity>((resolve, reject) => {
+            resolve(localizedPage);
         });
     }
 }

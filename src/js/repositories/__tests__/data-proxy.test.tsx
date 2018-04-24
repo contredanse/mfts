@@ -28,3 +28,19 @@ describe('Data repository getters', () => {
         expect(page).toHaveProperty('name');
     });
 });
+
+describe('Data page retrieval', () => {
+    const params: IDataProxyParams = {
+        defaultLang: 'en',
+    };
+    const globalDataRepo = appConfig.getDataProxy(params);
+
+    test('getPageEntity must respect translations', async () => {
+        const pageFr = await globalDataRepo.getPageEntity('forms.helix-roll.led-by-feet', 'fr');
+        const pageEn = await globalDataRepo.getPageEntity('forms.helix-roll.led-by-feet', 'en');
+        expect(pageFr).toHaveProperty('title');
+        expect(pageFr.title).not.toEqual(pageEn.title);
+        expect(pageFr.keywords).not.toEqual(pageEn.keywords);
+        expect(pageFr.name).not.toEqual(pageEn.name);
+    });
+});
