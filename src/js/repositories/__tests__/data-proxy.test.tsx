@@ -40,7 +40,7 @@ describe('Data page retrieval', () => {
         const pageEn = await globalDataRepo.getPageEntity('forms.helix-roll.led-by-feet', 'en');
         expect(pageFr).toHaveProperty('title');
         expect(pageFr.title).not.toEqual(pageEn.title);
-        expect(pageFr.keywords).not.toEqual(pageEn.keywords);
+        expect(pageFr.keywords.concat()).not.toEqual(pageEn.keywords.concat());
         expect(pageFr.name).not.toEqual(pageEn.name);
     });
 });

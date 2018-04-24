@@ -35,6 +35,7 @@ export class PageEntity {
     }
 
     get keywords(): string[] {
+        console.log('keywords', this.data.keywords);
         return this.data.keywords || [];
     }
 
@@ -132,6 +133,7 @@ export default class DataProxy {
             name: pageData.name[lang],
             videos: videos,
             cover: pageData.cover,
+            keywords: pageData.keywords[lang] || pageData.keywords[this.fallbackLang],
             audio: pageData.content.audio,
         };
 
