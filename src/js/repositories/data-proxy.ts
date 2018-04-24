@@ -1,4 +1,4 @@
-import { IDataPage, IDataPageVideoEntity } from '@data/data-pages';
+import { IDataPage, IDataPageAudioEntity, IDataPageVideoEntity } from '@data/data-pages';
 import { IAppDataConfig } from '@config/app-config';
 import { IDataVideo } from '@data/data-videos';
 
@@ -13,9 +13,46 @@ export interface IPageEntity {
     title: string;
     sortIdx: number;
     name: string;
-    keywords: string[];
-    cover: string;
-    videos: any[];
+    keywords?: string[];
+    videos: IDataVideo[];
+    cover?: string;
+    audio?: IDataPageAudioEntity;
+}
+
+export class PageEntity {
+    protected readonly data: IPageEntity;
+
+    constructor(data: IPageEntity) {
+        this.data = data;
+    }
+
+    get name(): string {
+        return this.data.name;
+    }
+
+    get title(): string {
+        return this.data.title;
+    }
+
+    get keywords(): string[] {
+        return this.data.keywords || [];
+    }
+
+    countVideos(): number {
+        return this.data.videos.length;
+    }
+
+    getVideos(): IDataVideo[] {
+        return this.data.videos;
+    }
+
+    hasAudio(): boolean {
+        return this.data.audio !== undefined;
+    }
+
+    getAudio(): IDataPageAudioEntity | undefined {
+        return this.data.audio;
+    }
 }
 
 export default class DataProxy {
@@ -68,18 +105,8 @@ export default class DataProxy {
      * @param {string} lang
      * @returns {Promise<IPageEntity>}
      */
-    async getPageEntity(pageId: string, lang: SupportedLangType): Promise<IPageEntity> {
+    async getPageEntity(pageId: string, lang: SupportedLangType): Promise<PageEntity> {
         const pageData = await this.getPage(pageId);
-
-        const localizedPage = {
-            pageId: pageData.page_id,
-            title: pageData.title[lang],
-            sortIdx: pageData.sort_idx,
-            name: pageData.name[lang],
-            keywords: pageData.keywords[lang],
-            cover: pageData.cover,
-            videos: [] as any[],
-        };
 
         const { content } = pageData;
 
@@ -89,14 +116,30 @@ export default class DataProxy {
             const { muted, loop, video_detail } = videoContent;
             let video_id = videoContent.video_id[lang] || videoContent.video_id[this.fallbackLang];
             const video = await this.getVideo(video_id);
-
             videos.push(video);
         });
 
-        localizedPage.videos = videos;
+        // get localized audio versions
+        let audioSrc = undefined;
+        if (content.audio !== undefined) {
+            audioSrc = content.audio.src[lang] || content.audio[this.fallbackLang];
+        }
 
-        return new Promise<IPageEntity>((resolve, reject) => {
-            resolve(localizedPage);
+        const pageEntityProps: IPageEntity = {
+            pageId: pageData.page_id,
+            title: pageData.title[lang],
+            sortIdx: pageData.sort_idx,
+            name: pageData.name[lang],
+            videos: videos,
+            cover: pageData.cover,
+            audio: pageData.content.audio,
+        };
+
+        //keywords: pageData.keywords[lang],
+        //cover: pageData.cover,
+
+        return new Promise<PageEntity>((resolve, reject) => {
+            resolve(new PageEntity(pageEntityProps));
         });
     }
 }
