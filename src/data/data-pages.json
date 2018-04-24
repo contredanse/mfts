@@ -9,6 +9,7 @@
             "en": "SENSATION AND SENSES - weight of sensation",
             "fr": "SENSATION ET SENS - le poids de la sensation"
         },
+        "sort_idx": 100,
         "cover": "hello.jpg",
         "keywords": {
             "en": ["sensation", "senses", "weight"],
@@ -35,6 +36,7 @@
             "en": "SENSATION AND SENSES - gravity - the flat & the round",
             "fr": "SENSATION ET SENS - la pesanteur - le plat et le rond"
         },
+        "sort_idx": 200,
         "cover": "lemmon_en.jpg",
         "keywords": {
             "en": ["sensation", "senses", "gravity", "flat", "round"],
@@ -62,6 +64,7 @@
             "en": "SENSATION AND SENSES - gravity - falls",
             "fr": "SENSATION ET SENS - la pesanteur - chutes"
         },
+        "sort_idx": 300,
         "cover": "falls.jpg",
         "keywords": {
             "en": ["sensation", "senses", "gravity", "falls"],
@@ -88,6 +91,7 @@
             "en": "SENSATION AND SENSES - gravity - water gravity",
             "fr": "SENSATION ET SENS - la pesanteur - la pesanteur dans l'eau"
         },
+        "sort_idx": 400,
         "cover": "watergravity.jpg",
         "keywords": {
             "en": ["sensation", "senses", "gravity", "water"],
@@ -114,6 +118,7 @@
             "en": "SENSATION AND SENSES - gravity - adjusting",
             "fr": "SENSATION ET SENS - la pesanteur - ajuster"
         },
+        "sort_idx": 500,
         "cover": "adjusting_birds.jpg",
         "keywords": {
             "en": ["sensation", "senses", "gravity", "adjusting"],
@@ -140,6 +145,7 @@
             "en": "SENSATION AND SENSES - basics - an approach to breathing",
             "fr": "SENSATION ET SENS - à la base - respirer, une approche"
         },
+        "sort_idx": 600,
         "cover": "breathing_en.jpg",
         "keywords": {
             "en": ["sensation", "senses", "basics", "approach", "breathing"],
@@ -167,6 +173,7 @@
             "en": "SENSATION AND SENSES - basics - an approach to the small dance",
             "fr": "SENSATION ET SENS - à la base - la petite danse, une approche"
         },
+        "sort_idx": 700,
         "cover": "smalldance_full.jpg",
         "keywords": {
             "en": ["sensation", "senses", "basics", "approach", "small", "dance"],
@@ -199,6 +206,7 @@
             "en": "SENSATION AND SENSES - pointing - parts of pointing",
             "fr": "SENSATION ET SENS - pointer - pointer, les différentes parties"
         },
+        "sort_idx": 800,
         "cover": "pointing.jpg",
         "keywords": {
             "en": ["sensation", "senses", "pointing", "parts"],
@@ -225,6 +233,7 @@
             "en": "SENSATION AND SENSES - pointing - relation to scapula",
             "fr": "SENSATION ET SENS - pointer - la relation à l'omoplate"
         },
+        "sort_idx": 900,
         "cover": "pointing_scapula.jpg",
         "keywords": {
             "en": ["sensation", "senses", "pointing", "relation", "scapula"],
@@ -251,6 +260,7 @@
             "en": "SENSATION AND SENSES - pelvis - pelvis as an initiator",
             "fr": "SENSATION ET SENS - le bassin - initier par le bassin"
         },
+        "sort_idx": 1000,
         "cover": "pelvis.jpg",
         "keywords": {
             "en": ["sensation", "senses", "pelvis", "initiator"],
@@ -277,6 +287,7 @@
             "en": "SENSATION AND SENSES - pelvis - exercise ischia to heels",
             "fr": "SENSATION ET SENS - le bassin - exercice: les ischions vers les talons"
         },
+        "sort_idx": 1100,
         "cover": "pointing_heel.jpg",
         "keywords": {
             "en": ["sensation", "senses", "pelvis", "exercise", "ischia", "heels"],
@@ -303,6 +314,7 @@
             "en": "SENSATION AND SENSES - walk - walk as foundation",
             "fr": "SENSATION ET SENS - la marche - la marche comme fondement"
         },
+        "sort_idx": 1200,
         "cover": "walkasfondation.jpg",
         "keywords": {
             "en": ["sensation", "senses", "walk", "foundation"],
@@ -329,6 +341,7 @@
             "en": "SENSATION AND SENSES - walk - birds walk",
             "fr": "SENSATION ET SENS - la marche - la marche des oiseaux"
         },
+        "sort_idx": 1300,
         "cover": "birdswalk.jpg",
         "keywords": {
             "en": ["sensation", "senses", "walk", "birds"],
@@ -355,6 +368,7 @@
             "en": "SENSATION AND SENSES - walk - slow walk",
             "fr": "SENSATION ET SENS - la marche - la marche lente"
         },
+        "sort_idx": 1400,
         "cover": "slowwalk.jpg",
         "keywords": {
             "en": ["sensation", "senses", "walk", "slow"],
@@ -381,6 +395,7 @@
             "en": "SENSATION AND SENSES - walk - twist",
             "fr": "SENSATION ET SENS - la marche - la torsion"
         },
+        "sort_idx": 1500,
         "cover": "twist.jpg",
         "keywords": {
             "en": ["sensation", "senses", "walk", "twist"],
@@ -407,6 +422,7 @@
             "en": "SENSATION AND SENSES - the back - choosing to focus on the Back",
             "fr": "SENSATION ET SENS - le dos - choisir de se concentrer sur le dos"
         },
+        "sort_idx": 1600,
         "cover": "focus_back.jpg",
         "keywords": {
             "en": ["sensation", "senses", "back", "choosing", "focus"],
@@ -433,6 +449,7 @@
             "en": "SENSATION AND SENSES - the back - passage",
             "fr": "SENSATION ET SENS - le dos - passage"
         },
+        "sort_idx": 1700,
         "cover": "passage.jpg",
         "keywords": {
             "en": ["sensation", "senses", "back", "passage"],
@@ -459,6 +476,7 @@
             "en": "SENSATION AND SENSES - space - spherical space",
             "fr": "SENSATION ET SENS - l'espace - l'espace sphérique"
         },
+        "sort_idx": 1800,
         "cover": "sphericalspace.jpg",
         "keywords": {
             "en": ["sensation", "senses", "space", "spherical"],
@@ -485,6 +503,7 @@
             "en": "SENSATION AND SENSES - MFS as base for improvisation - looking at Goldberg Variations",
             "fr": "SENSATION ET SENS - MFS comme base pour l'improvisation - introduction aux Goldberg Variations"
         },
+        "sort_idx": 1900,
         "cover": "perf_comments_goldberg.jpg",
         "keywords": {
             "en": ["sensation", "senses", "mfs", "base", "improvisation", "looking", "goldberg", "variations"],
@@ -511,6 +530,7 @@
             "en": "SENSATION AND SENSES - MFS as base for improvisation - Goldberg Variations (extracts)",
             "fr": "SENSATION ET SENS - MFS comme base pour l'improvisation - Goldberg Variations (extraits)"
         },
+        "sort_idx": 2000,
         "cover": "goldberg.jpg",
         "keywords": {
             "en": ["sensation", "senses", "mfs", "base", "improvisation", "goldberg", "variations"],
@@ -537,6 +557,7 @@
             "en": "SENSATION AND SENSES - MFS as base for improvisation - looking at English Suites",
             "fr": "SENSATION ET SENS - MFS comme base pour l'improvisation - introduction aux English Suites"
         },
+        "sort_idx": 2100,
         "cover": "perf_comments_english.jpg",
         "keywords": {
             "en": ["sensation", "senses", "mfs", "base", "improvisation", "looking", "suites"],
@@ -563,6 +584,7 @@
             "en": "SENSATION AND SENSES - MFS as base for improvisation - English Suites",
             "fr": "SENSATION ET SENS - MFS comme base pour l'improvisation - English Suites"
         },
+        "sort_idx": 2200,
         "cover": "english.jpg",
         "keywords": {
             "en": ["sensation", "senses", "mfs", "base", "improvisation", "suites"],
@@ -589,6 +611,7 @@
             "en": "SENSATION AND SENSES - MFS as base for improvisation - a technique for improvisation",
             "fr": "SENSATION ET SENS - MFS comme base pour l'improvisation - une technique pour l'improvisation"
         },
+        "sort_idx": 2300,
         "cover": "perf_techimpro.jpg",
         "keywords": {
             "en": ["sensation", "senses", "mfs", "base", "improvisation", "technique"],
@@ -615,6 +638,7 @@
             "en": "FORMS - introduction",
             "fr": "LES FORMES - introduction"
         },
+        "sort_idx": 2400,
         "cover": "new_intro.jpg",
         "keywords": {
             "en": ["forms", "introduction"],
@@ -641,6 +665,7 @@
             "en": "FORMS - crescent roll - crescent led by feet and hands",
             "fr": "LES FORMES - le roulé en croissant - initié par les mains et les pieds"
         },
+        "sort_idx": 2500,
         "cover": "cbhf_fromside.jpg",
         "keywords": {
             "en": ["forms", "crescent", "roll", "led", "feet", "hands"],
@@ -716,6 +741,7 @@
             "en": "FORMS - crescent roll - crescent led by center",
             "fr": "LES FORMES - le roulé en croissant - initié par le centre"
         },
+        "sort_idx": 2600,
         "cover": "cbc_fromhead.jpg",
         "keywords": {
             "en": ["forms", "crescent", "roll", "led", "center"],
@@ -767,6 +793,7 @@
             "en": "FORMS - crescent roll - head up",
             "fr": "LES FORMES - le roulé en croissant - tête dégagée"
         },
+        "sort_idx": 2700,
         "cover": "chu_fromfeet.jpg",
         "keywords": {
             "en": ["forms", "crescent", "roll", "head"],
@@ -818,6 +845,7 @@
             "en": "FORMS - crescent roll - head and feet up",
             "fr": "LES FORMES - le roulé en croissant - tête et pieds vers le haut"
         },
+        "sort_idx": 2800,
         "cover": "cbfhu.jpg",
         "keywords": {
             "en": ["forms", "crescent", "roll", "head", "feet"],
@@ -844,6 +872,7 @@
             "en": "FORMS - crescent roll - in water",
             "fr": "LES FORMES - le roulé en croissant - dans l'eau"
         },
+        "sort_idx": 2900,
         "cover": "crescent_water.jpg",
         "keywords": {
             "en": ["forms", "crescent", "roll", "water"],
@@ -870,6 +899,7 @@
             "en": "FORMS - crescent roll - comparison",
             "fr": "LES FORMES - le roulé en croissant - comparaison"
         },
+        "sort_idx": 3000,
         "cover": "c_comparing.jpg",
         "keywords": {
             "en": ["forms", "crescent", "roll", "comparison"],
@@ -896,6 +926,7 @@
             "en": "FORMS - helix roll - led by feet",
             "fr": "LES FORMES - le roulé en hélice - initié par les pieds"
         },
+        "sort_idx": 3100,
         "cover": "sbf_fromfeet.jpg",
         "keywords": {
             "en": ["forms", "helix", "roll", "led", "feet"],
@@ -971,6 +1002,7 @@
             "en": "FORMS - helix roll - led by hands",
             "fr": "LES FORMES - le roulé en hélice - initié par les mains"
         },
+        "sort_idx": 3200,
         "cover": "sbh_fromhead.jpg",
         "keywords": {
             "en": ["forms", "helix", "roll", "led", "hands"],
@@ -1031,6 +1063,7 @@
             "en": "FORMS - helix roll - in water",
             "fr": "LES FORMES - le roulé en hélice - dans l'eau"
         },
+        "sort_idx": 3300,
         "cover": "helixinwater.jpg",
         "keywords": {
             "en": ["forms", "helix", "roll", "water"],
@@ -1057,6 +1090,7 @@
             "en": "FORMS - helix roll - comparison",
             "fr": "LES FORMES - le roulé en hélice - comparaison"
         },
+        "sort_idx": 3400,
         "cover": "h_comparing.jpg",
         "keywords": {
             "en": ["forms", "helix", "roll", "comparison"],
@@ -1083,6 +1117,7 @@
             "en": "FORMS - puzzles - puzzle 1",
             "fr": "LES FORMES - les puzzles - puzzle 1"
         },
+        "sort_idx": 3500,
         "cover": "puzzle1.jpg",
         "keywords": {
             "en": ["forms", "puzzles", "puzzle"],
@@ -1109,6 +1144,7 @@
             "en": "FORMS - puzzles - puzzle 2",
             "fr": "LES FORMES - les puzzles - puzzle 2"
         },
+        "sort_idx": 3600,
         "cover": "puzzle2.jpg",
         "keywords": {
             "en": ["forms", "puzzles", "puzzle"],
@@ -1135,6 +1171,7 @@
             "en": "FORMS - puzzles - puzzle 3",
             "fr": "LES FORMES - les puzzles - puzzle 3"
         },
+        "sort_idx": 3700,
         "cover": "puzzle3.jpg",
         "keywords": {
             "en": ["forms", "puzzles", "puzzle"],
@@ -1161,6 +1198,7 @@
             "en": "FORMS - puzzles - puzzle 4",
             "fr": "LES FORMES - les puzzles - puzzle 4"
         },
+        "sort_idx": 3800,
         "cover": "puzzle4.jpg",
         "keywords": {
             "en": ["forms", "puzzles", "puzzle"],
@@ -1187,6 +1225,7 @@
             "en": "FORMS - undulation - frontal initiated by the head",
             "fr": "LES FORMES - l'ondulation - frontale initiée par la tête"
         },
+        "sort_idx": 3900,
         "cover": "frontal_head_top.jpg",
         "keywords": {
             "en": ["forms", "undulation", "frontal", "initiated", "head"],
@@ -1262,6 +1301,7 @@
             "en": "FORMS - undulation - frontal initiated by the pelvis",
             "fr": "LES FORMES - l'ondulation - frontale initiée par le bassin"
         },
+        "sort_idx": 4000,
         "cover": "frontal_pelvis_top.jpg",
         "keywords": {
             "en": ["forms", "undulation", "frontal", "initiated", "pelvis"],
@@ -1328,6 +1368,7 @@
             "en": "FORMS - undulation - lateral initiated by the head",
             "fr": "LES FORMES - l'ondulation - latérale initiée par la tête"
         },
+        "sort_idx": 4100,
         "cover": "lateral_head_front.jpg",
         "keywords": {
             "en": ["forms", "undulation", "lateral", "initiated", "head"],
@@ -1379,6 +1420,7 @@
             "en": "FORMS - undulation - lateral initiated by the pelvis",
             "fr": "LES FORMES - l'ondulation - latérale initiée par le bassin"
         },
+        "sort_idx": 4200,
         "cover": "lateral_pelvis_top.jpg",
         "keywords": {
             "en": ["forms", "undulation", "lateral", "initiated", "pelvis"],
@@ -1430,6 +1472,7 @@
             "en": "FORMS - undulation - dolphin",
             "fr": "LES FORMES - l'ondulation - le dauphin"
         },
+        "sort_idx": 4300,
         "cover": "dolphininwater.jpg",
         "keywords": {
             "en": ["forms", "undulation", "dolphin"],
@@ -1456,6 +1499,7 @@
             "en": "FORMS - aikido roll - principle",
             "fr": "LES FORMES - la chute roulée de l'aïkido - le principe"
         },
+        "sort_idx": 4400,
         "cover": "aikido_principle.jpg",
         "keywords": {
             "en": ["forms", "aikido", "roll", "principle"],
@@ -1482,6 +1526,7 @@
             "en": "FORMS - aikido roll - 3 directions",
             "fr": "LES FORMES - la chute roulée de l'aïkido - les 3 directions"
         },
+        "sort_idx": 4500,
         "cover": "aikido_3D_side.jpg",
         "keywords": {
             "en": ["forms", "aikido", "roll", "directions"],
@@ -1557,6 +1602,7 @@
             "en": "FORMS - looking at the forms - crescent roll head up in workshop",
             "fr": "LES FORMES - regarder les formes - démonstration du roulé en croissant tête dégagée"
         },
+        "sort_idx": 4600,
         "cover": "crescent_head_up.jpg",
         "keywords": {
             "en": ["forms", "looking", "crescent", "roll", "head", "workshop"],
@@ -1583,6 +1629,7 @@
             "en": "FORMS - looking at the forms - helix roll led by feet in workshop",
             "fr": "LES FORMES - regarder les formes - démonstration du roulé en hélice par les pieds"
         },
+        "sort_idx": 4700,
         "cover": "mfs_sbf_seattle.jpg",
         "keywords": {
             "en": ["forms", "looking", "helix", "roll", "led", "feet", "workshop"],
@@ -1609,6 +1656,7 @@
             "en": "FORMS - looking at the forms - helix roll led by hands in workshop",
             "fr": "LES FORMES - regarder les formes - démonstration du roulé en hélice par les mains"
         },
+        "sort_idx": 4800,
         "cover": "mfs_sbh_seattle.jpg",
         "keywords": {
             "en": ["forms", "looking", "helix", "roll", "led", "hands", "workshop"],
@@ -1635,6 +1683,7 @@
             "en": "FORMS - looking at the forms - puzzle 1, analyse",
             "fr": "LES FORMES - regarder les formes - puzzle 1, l'analyse"
         },
+        "sort_idx": 4900,
         "cover": "puzzle1_demo_graph.jpg",
         "keywords": {
             "en": ["forms", "looking", "puzzle", "analyse"],
@@ -1661,6 +1710,7 @@
             "en": "FORMS - looking at the forms - comments on crescent roll - feet and hands",
             "fr": "LES FORMES - regarder les formes - le roulé en croissant par pieds et mains, commentaires"
         },
+        "sort_idx": 5000,
         "cover": "correction_crescent_handsfeet.jpg",
         "keywords": {
             "en": ["forms", "looking", "comments", "crescent", "roll", "feet", "hands"],
@@ -1687,6 +1737,7 @@
             "en": "FORMS - looking at the forms - comments on crescent roll - center",
             "fr": "LES FORMES - regarder les formes - le roulé en croissant par le centre, commentaires"
         },
+        "sort_idx": 5100,
         "cover": "correction_crescent_center.jpg",
         "keywords": {
             "en": ["forms", "looking", "comments", "crescent", "roll", "center"],
@@ -1713,6 +1764,7 @@
             "en": "FORMS - looking at the forms - comments on helix roll - feet",
             "fr": "LES FORMES - regarder les formes - le roulé en hélice par les pieds, commentaires"
         },
+        "sort_idx": 5200,
         "cover": "correction_helix_feet.jpg",
         "keywords": {
             "en": ["forms", "looking", "comments", "helix", "roll", "feet"],
@@ -1739,6 +1791,7 @@
             "en": "FORMS - looking at the forms - comments on helix roll - hands",
             "fr": "LES FORMES - regarder les formes - le roulé en hélice par les mains, commentaires"
         },
+        "sort_idx": 5300,
         "cover": "correction_helix_hands.jpg",
         "keywords": {
             "en": ["forms", "looking", "comments", "helix", "roll", "hands"],
@@ -1765,6 +1818,7 @@
             "en": "FORMS - looking at the forms - conclusion on rolls",
             "fr": "LES FORMES - regarder les formes - conclusion sur les roulés"
         },
+        "sort_idx": 5400,
         "cover": "correction_conclusion.jpg",
         "keywords": {
             "en": ["forms", "looking", "conclusion", "rolls"],
@@ -1791,6 +1845,7 @@
             "en": "FORMS - warm ups - fingers",
             "fr": "LES FORMES - les échauffements - les doigts"
         },
+        "sort_idx": 5500,
         "cover": "wu_fingers.jpg",
         "keywords": {
             "en": ["forms", "warm", "ups", "fingers"],
@@ -1817,6 +1872,7 @@
             "en": "FORMS - warm ups - the wrist",
             "fr": "LES FORMES - les échauffements - le poignet"
         },
+        "sort_idx": 5600,
         "cover": "wu_wrist.jpg",
         "keywords": {
             "en": ["forms", "warm", "ups", "wrist"],
@@ -1843,6 +1899,7 @@
             "en": "FORMS - warm ups - hands",
             "fr": "LES FORMES - les échauffements - les mains"
         },
+        "sort_idx": 5700,
         "cover": "wu_hands.jpg",
         "keywords": {
             "en": ["forms", "warm", "ups", "hands"],
@@ -1869,6 +1926,7 @@
             "en": "FORMS - warm ups - arms",
             "fr": "LES FORMES - les échauffements - les bras"
         },
+        "sort_idx": 5800,
         "cover": "wu_arms.jpg",
         "keywords": {
             "en": ["forms", "warm", "ups", "arms"],
@@ -1895,6 +1953,7 @@
             "en": "FORMS - warm ups - spine and arms",
             "fr": "LES FORMES - les échauffements - les bras et la colonne"
         },
+        "sort_idx": 5900,
         "cover": "wu_spine_and_arms.jpg",
         "keywords": {
             "en": ["forms", "warm", "ups", "spine", "arms"],
@@ -1921,6 +1980,7 @@
             "en": "FORMS - warm ups - bending bone",
             "fr": "LES FORMES - les échauffements - courber l'os"
         },
+        "sort_idx": 6000,
         "cover": "wu_bendingbone.jpg",
         "keywords": {
             "en": ["forms", "warm", "ups", "bending", "bone"],
@@ -1947,6 +2007,7 @@
             "en": "FORMS - warm ups - aikido step",
             "fr": "LES FORMES - les échauffements - le pas aïkido"
         },
+        "sort_idx": 6100,
         "cover": "wu_aikidostep.jpg",
         "keywords": {
             "en": ["forms", "warm", "ups", "aikido", "step"],
@@ -1973,6 +2034,7 @@
             "en": "FORMS - warm ups - the twist",
             "fr": "LES FORMES - les échauffements - la torsion"
         },
+        "sort_idx": 6200,
         "cover": "wu_twist.jpg",
         "keywords": {
             "en": ["forms", "warm", "ups", "twist"],
@@ -1999,6 +2061,7 @@
             "en": "FORMS - warm ups - legs twist",
             "fr": "LES FORMES - les échauffements - torsion des jambes"
         },
+        "sort_idx": 6300,
         "cover": "wu_twistlegs.jpg",
         "keywords": {
             "en": ["forms", "warm", "ups", "legs", "twist"],
@@ -2025,6 +2088,7 @@
             "en": "FORMS - warm ups - legs resistance",
             "fr": "LES FORMES - les échauffements - résistance des jambes"
         },
+        "sort_idx": 6400,
         "cover": "wu_legsresistance.jpg",
         "keywords": {
             "en": ["forms", "warm", "ups", "legs", "resistance"],
@@ -2051,6 +2115,7 @@
             "en": "FORMS - warm ups - trochanter",
             "fr": "LES FORMES - les échauffements - trochanter"
         },
+        "sort_idx": 6500,
         "cover": "wu_trocantere.jpg",
         "keywords": {
             "en": ["forms", "warm", "ups", "trochanter"],
@@ -2077,6 +2142,7 @@
             "en": "FORMS - warm ups - psoas",
             "fr": "LES FORMES - les échauffements - psoas"
         },
+        "sort_idx": 6600,
         "cover": "wu_psoas.jpg",
         "keywords": {
             "en": ["forms", "warm", "ups", "psoas"],
@@ -2103,6 +2169,7 @@
             "en": "FORMS - warm ups - wave",
             "fr": "LES FORMES - les échauffements - ondulation"
         },
+        "sort_idx": 6700,
         "cover": "wu_wave.jpg",
         "keywords": {
             "en": ["forms", "warm", "ups", "wave"],
@@ -2129,6 +2196,7 @@
             "en": "FORMS - warm ups - wave on the floor",
             "fr": "LES FORMES - les échauffements - ondulation au sol"
         },
+        "sort_idx": 6800,
         "cover": "wu_wavefloor.jpg",
         "keywords": {
             "en": ["forms", "warm", "ups", "wave", "floor"],
@@ -2155,6 +2223,7 @@
             "en": "FORMS - warm ups - asanas",
             "fr": "LES FORMES - les échauffements - asanas"
         },
+        "sort_idx": 6900,
         "cover": "wu_asanas.jpg",
         "keywords": {
             "en": ["forms", "warm", "ups", "asanas"],
@@ -2181,6 +2250,7 @@
             "en": "FORMS - warm ups - napping",
             "fr": "LES FORMES - les échauffements - la sieste"
         },
+        "sort_idx": 7000,
         "cover": "napp.jpg",
         "keywords": {
             "en": ["forms", "warm", "ups", "napping"],
@@ -2207,6 +2277,7 @@
             "en": "FORMS - warm ups - and play",
             "fr": "LES FORMES - les échauffements - et jouer"
         },
+        "sort_idx": 7100,
         "cover": "wu_play.jpg",
         "keywords": {
             "en": ["forms", "warm", "ups", "play"],
@@ -2233,6 +2304,7 @@
             "en": "FORMS - cultivating - dance & culture",
             "fr": "LES FORMES - cultiver - la danse & la culture"
         },
+        "sort_idx": 7200,
         "cover": "dance_culture.jpg",
         "keywords": {
             "en": ["forms", "cultivating", "dance", "culture"],
@@ -2259,6 +2331,7 @@
             "en": "FORMS - cultivating - kindling & scythe",
             "fr": "LES FORMES - cultiver - le petit bois & la faux"
         },
+        "sort_idx": 7300,
         "cover": "cultivating2.jpg",
         "keywords": {
             "en": ["forms", "cultivating", "kindling", "scythe"],

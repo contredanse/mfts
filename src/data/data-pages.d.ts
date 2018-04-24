@@ -5,6 +5,7 @@
     cover?: string; // jpg cover for the page
     keywords: IDataPageLocalizedKeywords;
     content: IDataPageContent;
+    sort_idx: number;
 }
 
 export interface IDataPageLocalizedText {
