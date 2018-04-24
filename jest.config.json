@@ -13,7 +13,6 @@
         "@thirdparty/(.*)$": "<rootDir>/src/thirdparty/$1",
         "^.+\\.scss$": "identity-obj-proxy"
     },
-    "collectCoverage": true,
     "globals": {
         "window": {},
         "ts-jest": {
