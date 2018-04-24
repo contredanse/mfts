@@ -14,6 +14,7 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const BrotliPlugin = require('brotli-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 const PUBLIC_URL = 'https://paxton.soluble.io';
 
@@ -305,6 +306,9 @@ module.exports = merge(common, {
             minRatio: 0.8,
         }),
 
+        new CompressionPlugin({
+            test: /\.(js|css|html|svg)$/,
+        }),
         /*
         new StatsWriterPlugin({
             filename: '.webpack-stats.json'
