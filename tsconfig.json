@@ -2,8 +2,6 @@
     "compilerOptions": {
         "baseUrl": ".", // enables absolute path imports
         "paths": {
-            // define absolute path mappings
-            "redux": ["src/typings/redux.d.ts"],
             "@src/*": ["src/js/*"], // will enable -> import { ... } from '@src/components'
             "@styles/*": ["src/styles/*"],
             "@public/*": ["public/*"],
