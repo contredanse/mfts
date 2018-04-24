@@ -152,7 +152,7 @@ module.exports = merge(common, {
         },
 
         noEmitOnErrors: true, // NoEmitOnErrorsPlugin
-        //concatenateModules: true, //ModuleConcatenationPlugin
+        concatenateModules: true, //ModuleConcatenationPlugin (scope-hoisting)
 
         minimizer: [
             new UglifyJsPlugin({
