@@ -35,42 +35,28 @@ module.exports = {
                         loader: 'awesome-typescript-loader',
                         options: {
                             configFilename: 'tsconfig.json',
-                            useBabel: true,
+                            useBabel: false,
                             useCache: true,
                             silent: true,
                         },
                     },
                 ],
             },
-            /* OR if we like to chain and mix js and tsx
-      {
-        test: /\.ts(x?)$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: 'babel-loader',
-            //options: babelOptions
-          },
-          {
-            loader: 'awesome-typescript-loader'
-          }
-        ]
-      },
-
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            cacheDirectory: true
-          }
-        }
-      }*/
+            {
+                test: /\.jsx?$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        cacheDirectory: true,
+                    },
+                },
+            },
+            /*
             {
                 test: /\.(glsl|vs|fs)$/,
                 loader: 'ts-shader-loader',
-            },
+            },*/
             {
                 test: /\.(mp4|m4v|ogv|webm)$/,
                 loader: 'file-loader',
@@ -91,7 +77,10 @@ module.exports = {
             },
             {
                 test: /\.ico$/,
-                loader: 'file-loader?name=[name].[ext]', // <-- retain original file name
+                loader: 'file-loader?',
+                options: {
+                    name: '[name].[ext]', // <-- retain original file name
+                },
             },
         ],
     },
