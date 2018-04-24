@@ -47,7 +47,7 @@ export interface IDataPageLocalizedVideoEntity {
 }
 
 export interface IDataPageAudioEntity {
-    src: string | IDataPageLocalizedAudioSource;
+    src: IDataPageLocalizedAudioSource;
     tracks?: {
         en: string;
         fr: string;
@@ -55,9 +55,6 @@ export interface IDataPageAudioEntity {
 }
 
 export type IDataPageLocalizedAudioSource = {
-    i18n: boolean;
-    versions: {
-        en: string;
-        fr: string;
-    };
+    en: string; // Only english is mandatory
+    fr?: string;
 };

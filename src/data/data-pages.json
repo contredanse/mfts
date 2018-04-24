@@ -175,7 +175,7 @@
             "fr": ["sensation", "sens", "base", "petite", "danse,", "approche"]
         },
         "content": {
-            "layout": "single-video-audio_i18n",
+            "layout": "single-video-audio",
             "videos": [
                 {
                     "video_id": "smalldance_full",
@@ -185,11 +185,8 @@
             ],
             "audio": {
                 "src": {
-                    "i18n": true,
-                    "versions": {
-                        "en": "mp3/small_dance_en.mp3",
-                        "fr": "mp3/small_dance_fr.mp3"
-                    }
+                    "en": "mp3/small_dance_en.mp3",
+                    "fr": "mp3/small_dance_fr.mp3"
                 }
             }
         }
@@ -668,7 +665,9 @@
                 }
             ],
             "audio": {
-                "src": "mp3/comments_crescent.mp3",
+                "src": {
+                    "en": "mp3/comments_crescent.mp3"
+                },
                 "tracks": {
                     "en": "srt/mfs_crescents_comments_en.srt",
                     "fr": "srt/mfs_crescents_comments_fr.srt"
@@ -913,7 +912,9 @@
                 }
             ],
             "audio": {
-                "src": "mp3/mfs_sbf.mp3",
+                "src": {
+                    "en": "mp3/mfs_sbf.mp3"
+                },
                 "tracks": {
                     "en": "srt/mfs_sbf_en.srt",
                     "fr": "srt/mfs_sbf_fr.srt"
@@ -971,7 +972,9 @@
                 }
             ],
             "audio": {
-                "src": "mp3/mfs_sbh.mp3",
+                "src": {
+                    "en": "mp3/mfs_sbh.mp3"
+                },
                 "tracks": {
                     "en": "srt/mfs_sbh_en.srt",
                     "fr": "srt/mfs_sbh_fr.srt"
@@ -1189,7 +1192,9 @@
                 }
             ],
             "audio": {
-                "src": "mp3/comment_undulation.mp3",
+                "src": {
+                    "en": "mp3/comment_undulation.mp3"
+                },
                 "tracks": {
                     "en": "srt/undulations_en.srt",
                     "fr": "srt/undulations_fr.srt"
@@ -1468,7 +1473,9 @@
                 }
             ],
             "audio": {
-                "src": "mp3/aikidoform.mp3",
+                "src": {
+                    "en": "mp3/aikidoform.mp3"
+                },
                 "tracks": {
                     "en": "srt/aikidoform_en.srt",
                     "fr": "srt/aikidoform_fr.srt"
