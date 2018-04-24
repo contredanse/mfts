@@ -300,12 +300,14 @@ module.exports = merge(common, {
 
         new HtmlWebpackHarddiskPlugin(),
 
+        /* Disabled because no usage now (can be enabled for nginx with brotli static)
         new BrotliPlugin({
             asset: '[path].br[query]',
             test: /\.(js|css|html|svg)$/,
             threshold: 10240,
             minRatio: 0.8,
         }),
+        */
 
         new CompressionPlugin({
             test: /\.(js|css|html|svg)$/,
