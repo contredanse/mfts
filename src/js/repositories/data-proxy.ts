@@ -1,4 +1,4 @@
-import { IDataPage, IDataPageAudioEntity, IDataPageVideoEntity } from '@data/data-pages';
+import { IDataPage, IDataPageAudioEntity } from '@data/data-pages';
 import { IAppDataConfig } from '@config/app-config';
 import { IDataVideo } from '@data/data-videos';
 
@@ -115,13 +115,13 @@ export default class DataProxy {
         const videos: IDataVideo[] = [];
         content.videos.forEach(async videoContent => {
             const { muted, loop, video_detail } = videoContent;
-            let video_id = videoContent.video_id[lang] || videoContent.video_id[this.fallbackLang];
+            const video_id = videoContent.video_id[lang] || videoContent.video_id[this.fallbackLang];
             const video = await this.getVideo(video_id);
             videos.push(video);
         });
 
         // get localized audio versions
-        let audioSrc = undefined;
+        let audioSrc;
         if (content.audio !== undefined) {
             audioSrc = content.audio.src[lang] || content.audio[this.fallbackLang];
         }

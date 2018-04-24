@@ -51,19 +51,14 @@ export default class PageRepository {
             let subtitle: any;
 
             // Step 1: select video(s)
-            content.videos.forEach(video_id => {
-                /*
-                let v = <IDataPageVideoEntity>video;
-                if ((<IDataPageLocalizedVideoEntity>video).i18n === true) {
-                    v = (<IDataPageLocalizedVideoEntity>video).versions[lang];
-                }*/
-                videos.push(video_id[lang] || video_id['en']);
+            content.videos.forEach(({ video_id }) => {
+                videos.push(video_id[lang] || video_id.en);
             });
 
             // Step 2: select audio track
             if (content.audio !== undefined) {
                 const { src: audioSrc } = content.audio;
-                audio = audioSrc[lang] || audioSrc['en'];
+                audio = audioSrc[lang] || audioSrc.en;
 
                 // Step 3: select audio subtitles
                 if (content.audio.tracks !== undefined) {
