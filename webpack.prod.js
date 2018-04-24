@@ -116,11 +116,21 @@ module.exports = merge(common, {
             name: true,
 
             cacheGroups: {
+                /* Not required
+                styles: {
+                    name: 'styles',
+                    test: /\.css$/,
+                    chunks: 'initial',
+                    //enforce: true,
+                    priority: -30,
+                    minSize: 0,
+                    reuseExistingChunk: true,
+                },*/
                 data: {
-                    test: /[\\/]src\/data\/(.)\.json$/,
+                    test: /[\\/]src\/data\/(.*)\.json$/,
                     name: 'data',
                     enforce: true,
-                    chunks: 'initial',
+                    chunks: 'all',
                 },
                 // Extract material-ui and icons in a separate chunk
                 mui: {
@@ -139,15 +149,6 @@ module.exports = merge(common, {
                     priority: -20,
                     enforce: true,
                     chunks: 'all',
-                },
-                styles: {
-                    name: 'styles',
-                    test: /\.css$/,
-                    chunks: 'initial',
-                    //enforce: true,
-                    priority: -30,
-                    minSize: 0,
-                    reuseExistingChunk: true,
                 },
             },
         },
