@@ -17,8 +17,13 @@ export class VideoComp extends React.Component<{ video: IDataVideo }, {}> {
         const { video } = this.props;
         const muted = true;
         const controls = false;
-        const autoPlay = false;
+        const autoPlay = true;
         const loop = true;
+
+        const videoProps = {
+            poster: video.covers !== undefined ? video.covers[0] : '',
+        };
+
         return (
             <div className="page-video-container">
                 {video.video_id}
@@ -31,6 +36,7 @@ export class VideoComp extends React.Component<{ video: IDataVideo }, {}> {
                     controls={controls}
                     autoPlay={autoPlay}
                     webkit-playsinline="webkit-playsinline"
+                    {...videoProps}
                 >
                     <source src={video.sources.webm} type="video/webm; codecs=vp9" />
                     <source src={video.sources.mp4} type="video/mp4" />
