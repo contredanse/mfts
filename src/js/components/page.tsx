@@ -16,7 +16,7 @@ export class VideoComp extends React.Component<{ video: IDataVideo }, {}> {
     render() {
         const { video } = this.props;
         const muted = true;
-        const controls = false;
+        const controls = true;
         const autoPlay = true;
         const loop = true;
 
@@ -24,9 +24,11 @@ export class VideoComp extends React.Component<{ video: IDataVideo }, {}> {
             poster: video.covers !== undefined ? video.covers[0] : '',
         };
 
+        const { meta } = video;
+        const videoDuration = `${Math.trunc(meta.duration / 60)}:${Math.round(meta.duration) % 60}`;
+
         return (
             <div className="page-video-container">
-                {video.video_id}
                 <video
                     ref={(node: HTMLVideoElement) => {
                         this.videoNode = node;
@@ -41,6 +43,10 @@ export class VideoComp extends React.Component<{ video: IDataVideo }, {}> {
                     <source src={video.sources.webm} type="video/webm; codecs=vp9" />
                     <source src={video.sources.mp4} type="video/mp4" />
                 </video>
+                <div className="overlay">
+                    <div>{video.video_id}</div>
+                    <div>{videoDuration}</div>
+                </div>
             </div>
         );
     }
@@ -55,16 +61,17 @@ export default class Page extends React.Component<PageProps, PageState> {
             <PageOverlay closeButton={false}>
                 <div className="page-wrapper">
                     <div className="page-container">
-                        <div className="page-header">{page.pageId}</div>
+                        <div className="page-header">Page: {page.pageId}</div>
                         <div className="page-content">
                             <div className="page-video-layout">
-                                Page {page.pageId}
                                 {videos.map(video => {
                                     return <VideoComp key={video.video_id} video={video} />;
                                 })}
                             </div>
                         </div>
-                        <div className="page-footer">Here the player controls</div>
+                        <div className="page-footer">
+                            Here will come the player controls... and above subtitles when multiple videos
+                        </div>
                     </div>
                 </div>
             </PageOverlay>
