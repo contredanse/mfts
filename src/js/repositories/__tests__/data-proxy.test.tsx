@@ -1,22 +1,7 @@
-import DataProxy, { IDataProxyParams } from '../data-proxy';
 import { appConfig } from '@config/app-config';
 
-describe('Data repository getDefaultParams', () => {
-    test('getParams returns params from constructor', () => {
-        const params: IDataProxyParams = {
-            defaultLang: 'en',
-        };
-        const dataRepo = new DataProxy({} as any, params);
-        expect(dataRepo.getDefaultParams()).toEqual(params);
-    });
-});
-
 describe('Data repository getters', () => {
-    const params: IDataProxyParams = {
-        defaultLang: 'en',
-    };
-
-    const globalDataRepo = appConfig.getDataProxy(params);
+    const globalDataRepo = appConfig.getDataProxy();
 
     test('getPage must reject for non existing page', async () => {
         const pageId = 'non-existing-page';
@@ -30,10 +15,7 @@ describe('Data repository getters', () => {
 });
 
 describe('Data page retrieval', () => {
-    const params: IDataProxyParams = {
-        defaultLang: 'en',
-    };
-    const globalDataRepo = appConfig.getDataProxy(params);
+    const globalDataRepo = appConfig.getDataProxy();
 
     test('getPageEntity must respect translations', async () => {
         const pageFr = await globalDataRepo.getPageEntity('forms.helix-roll.led-by-feet', 'fr');

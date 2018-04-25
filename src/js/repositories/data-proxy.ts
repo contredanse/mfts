@@ -1,3 +1,6 @@
+/**
+ * @todo Refactor (for now a big test class)
+ */
 import { IDataPage, IDataPageAudioEntity } from '@data/data-pages';
 import { IAppDataConfig } from '@config/app-config';
 import { IDataVideo } from '@data/data-videos';
@@ -6,6 +9,11 @@ export type SupportedLangType = 'en' | 'fr';
 
 export interface IDataProxyParams {
     defaultLang: SupportedLangType;
+    baseUrl: {
+        video: string;
+        audio: string;
+        videoCovers: string;
+    };
 }
 
 export interface IPageEntity {
@@ -17,6 +25,7 @@ export interface IPageEntity {
     videos: IDataVideo[];
     cover?: string;
     audio?: IDataPageAudioEntity;
+    audioTrack?: string;
 }
 
 export class PageEntity {
@@ -24,6 +33,10 @@ export class PageEntity {
 
     constructor(data: IPageEntity) {
         this.data = data;
+    }
+
+    get pageId(): string {
+        return this.data.pageId;
     }
 
     get name(): string {
@@ -51,23 +64,29 @@ export class PageEntity {
         return this.data.audio !== undefined;
     }
 
+    hasAudioTrack(): boolean {
+        return this.data.audioTrack !== undefined;
+    }
+
+    getAudioTrack(): string | undefined {
+        if (!this.hasAudioTrack()) {
+            return undefined;
+        }
+        return this.data.audioTrack;
+    }
     getAudio(): IDataPageAudioEntity | undefined {
         return this.data.audio;
     }
 }
 
 export default class DataProxy {
-    protected readonly defaultParams: IDataProxyParams;
+    public readonly props: IDataProxyParams;
     protected readonly data: IAppDataConfig;
     protected readonly fallbackLang = 'en';
 
-    constructor(data: IAppDataConfig, defaultParams: IDataProxyParams) {
-        this.defaultParams = defaultParams;
+    constructor(data: IAppDataConfig, props: IDataProxyParams) {
+        this.props = props;
         this.data = data;
-    }
-
-    public getDefaultParams(): IDataProxyParams {
-        return this.defaultParams;
     }
 
     /**
@@ -117,13 +136,21 @@ export default class DataProxy {
             const { muted, loop, video_detail } = videoContent;
             const video_id = videoContent.video_id[lang] || videoContent.video_id[this.fallbackLang];
             const video = await this.getVideo(video_id);
+            const { video: videoBaseUrl } = this.props.baseUrl;
+            video.sources.webm = `${videoBaseUrl}${video.sources.webm}`;
+            video.sources.mp4 = `${videoBaseUrl}${video.sources.mp4}`;
             videos.push(video);
         });
 
         // get localized audio versions
         let audioSrc;
+        let audioTrack;
         if (content.audio !== undefined) {
-            audioSrc = content.audio.src[lang] || content.audio[this.fallbackLang];
+            const { audio } = content;
+            audioSrc = audio.src[lang] || audio.src[this.fallbackLang];
+            if (audio.tracks !== undefined) {
+                audioTrack = audio.tracks[lang] || audio.tracks[this.fallbackLang];
+            }
         }
 
         const pageEntityProps: IPageEntity = {
@@ -135,6 +162,7 @@ export default class DataProxy {
             cover: pageData.cover,
             keywords: pageData.keywords[lang] || pageData.keywords[this.fallbackLang],
             audio: pageData.content.audio,
+            audioTrack: audioTrack,
         };
 
         //keywords: pageData.keywords[lang],

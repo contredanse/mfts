@@ -1,0 +1,14 @@
+import { appConfig } from '@config/app-config';
+
+describe('Data page retrieval', () => {
+    const globalDataRepo = appConfig.getDataProxy();
+
+    test('PageEntity must return videos/audio and tracks', async () => {
+        const pageId = 'forms.crescent-roll.crescent-led-by-feet-and-hands';
+        const page = await globalDataRepo.getPageEntity(pageId, 'en');
+        expect(page.countVideos()).toEqual(3);
+        expect(page.getVideos().length).toEqual(3);
+        expect(page.hasAudio()).toBeTruthy();
+        expect(page.hasAudioTrack()).toBeTruthy();
+    });
+});

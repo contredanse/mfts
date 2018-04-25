@@ -36,7 +36,17 @@ export class AppConfig {
         return this.config.data;
     }
 
-    getDataProxy(params: IDataProxyParams): DataProxy {
+    getDataProxy(params?: IDataProxyParams): DataProxy {
+        if (params === undefined) {
+            params = {
+                defaultLang: 'en',
+                baseUrl: {
+                    video: this.getVideosBaseUrl(),
+                    videoCovers: this.getVideosBaseUrl(),
+                    audio: this.getVideosBaseUrl(),
+                },
+            };
+        }
         return new DataProxy(this.config.data, params);
     }
 }

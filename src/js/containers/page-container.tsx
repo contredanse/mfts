@@ -1,22 +1,22 @@
 import React from 'react';
 import Page from '@src/components/page';
-import { IDataPage } from '@data/data-pages';
-import PageRepository from '@src/repositories/page-repository';
 import NotFoundContainer from '@src/containers/notfound-container';
+import DataProxy, { PageEntity, SupportedLangType } from '@src/repositories/data-proxy';
 
 interface IProps {
     pageId: string;
-    pageRepository: PageRepository;
+    lang: SupportedLangType;
+    dataProxy: DataProxy;
 }
 interface IState {
     pageExists: boolean | undefined;
-    pageData: IDataPage | undefined;
+    pageEntity: PageEntity | undefined;
 }
 
 class PageContainer extends React.Component<IProps, IState> {
     readonly state = {
         pageExists: undefined,
-        pageData: undefined,
+        pageEntity: undefined,
     };
 
     constructor(props: IProps) {
@@ -25,12 +25,12 @@ class PageContainer extends React.Component<IProps, IState> {
 
     async componentDidMount() {
         try {
-            const pageData = await this.props.pageRepository.get(this.props.pageId);
+            const pageEntity = await this.props.dataProxy.getPageEntity(this.props.pageId, this.props.lang);
             this.setState((prevState: IState): IState => {
                 return {
                     ...prevState,
                     pageExists: true,
-                    pageData: pageData,
+                    pageEntity: pageEntity,
                 };
             });
         } catch (e) {
@@ -38,20 +38,20 @@ class PageContainer extends React.Component<IProps, IState> {
                 return {
                     ...prevState,
                     pageExists: false,
-                    pageData: undefined,
+                    pageEntity: undefined,
                 };
             });
         }
     }
 
     render() {
-        const { pageExists, pageData } = this.state;
+        const { pageExists, pageEntity } = this.state;
         // should not be required, exit if async loading
         // of pageData is not yet present (see componentDidMount())
         if (pageExists === undefined) {
             return null;
         }
-        return <div>{pageData ? <Page pageData={pageData} /> : <NotFoundContainer />}</div>;
+        return <div>{pageEntity ? <Page pageEntity={pageEntity} /> : <NotFoundContainer />}</div>;
     }
 }
 
