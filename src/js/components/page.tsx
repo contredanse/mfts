@@ -17,15 +17,17 @@ export class VideoComp extends React.Component<{ video: IDataVideo }, {}> {
         const { video } = this.props;
         const muted = true;
         const controls = false;
-        const autoPlay = true;
+        const autoPlay = false;
+        const loop = true;
         return (
-            <div>
+            <div className="page-video-container">
                 {video.video_id}
                 <video
                     ref={(node: HTMLVideoElement) => {
                         this.videoNode = node;
                     }}
                     muted={muted}
+                    loop={loop}
                     controls={controls}
                     autoPlay={autoPlay}
                     webkit-playsinline="webkit-playsinline"
