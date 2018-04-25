@@ -1,5 +1,5 @@
 @import './_variables.scss';
-@import './_reset.scss';
+@import '~normalize.css';
 
 body {
     font-family: $primary-font;
