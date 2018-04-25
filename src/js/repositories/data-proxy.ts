@@ -139,6 +139,14 @@ export default class DataProxy {
             const { video: videoBaseUrl } = this.props.baseUrl;
             video.sources.webm = `${videoBaseUrl}${video.sources.webm}`;
             video.sources.mp4 = `${videoBaseUrl}${video.sources.mp4}`;
+
+            if (video.covers !== undefined) {
+                const covers: string[] = [];
+                video.covers.forEach(cover => {
+                    covers.push(`${videoBaseUrl}${cover}`);
+                });
+                video.covers = covers;
+            }
             videos.push(video);
         });
 
