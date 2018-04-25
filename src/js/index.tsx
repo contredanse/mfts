@@ -1,3 +1,7 @@
+// keep the main scss at top of everything to help webpack
+// mini-css-extract-plugin to place it of top of the bundled styles
+import '@styles/style.scss';
+
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider as ReduxProvider } from 'react-redux';
@@ -7,7 +11,6 @@ import App from './containers/app';
 import '@public/favicon.ico';
 import 'typeface-quicksand';
 
-import '@styles/style.scss';
 import { appConfig, AppConfig } from '@config/app-config';
 import registerServiceWorker from './registerServiceWorker';
 
