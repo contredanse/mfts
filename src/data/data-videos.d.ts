@@ -1,26 +1,22 @@
 ﻿export interface IDataVideo {
     video_id: string;
     legacy_src: string;
-    sources: Sources;
-    meta: Meta;
-    thumbnail: string;
-    tracks?: TracksOrLegacyTracks | null;
-    legacy_tracks?: TracksOrLegacyTracks1 | null;
+    sources: IDataVideoSources;
+    meta: IDataVideoMeta;
+    covers?: string[];
+    tracks?: IDataVideoTracks;
+    legacy_tracks?: IDataVideoTracks;
 }
-export interface Sources {
+export interface IDataVideoSources {
     webm: string;
     mp4: string;
 }
-export interface Meta {
+export interface IDataVideoMeta {
     duration: number;
     width?: number | null;
     height?: number | null;
 }
-export interface TracksOrLegacyTracks {
-    en: string;
-    fr: string;
-}
-export interface TracksOrLegacyTracks1 {
+export interface IDataVideoTracks {
     en: string;
     fr: string;
 }
