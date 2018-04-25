@@ -239,7 +239,7 @@ module.exports = merge(common, {
                 'apple-mobile-web-app-capable': 'yes',
                 'apple-mobile-web-app-status-bar-style': 'black',
             },
-            orientation: 'portrait',
+            orientation: 'any',
             display: 'standalone',
             icons: [
                 {
