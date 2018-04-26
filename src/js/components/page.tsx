@@ -49,10 +49,9 @@ export class VideoComp extends React.Component<VideoCompProps, {}> {
     }
 
     render() {
-        const { video, autoPlay, ...restProps } = this.props;
+        const { video, autoPlay, loop, ...restProps } = this.props;
         const muted = true;
         const controls = true;
-        const loop = true;
 
         const videoProps = {
             poster: video.covers !== undefined ? video.covers[0] : '',
