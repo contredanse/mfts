@@ -13,12 +13,14 @@ interface PageState {}
 export interface VideoCompProps {
     video: IDataVideo;
     autoPlay?: boolean;
+    loop?: boolean;
     onEnd?: () => {};
 }
 
 export class VideoComp extends React.Component<VideoCompProps, {}> {
     static defaultProps: Partial<VideoCompProps> = {
         autoPlay: true,
+        loop: false,
     };
 
     videoNode!: HTMLVideoElement;
@@ -32,6 +34,10 @@ export class VideoComp extends React.Component<VideoCompProps, {}> {
             this.videoNode.addEventListener('ended', this.props.onEnd, false);
         }
         if (this.props.autoPlay && this.videoNode.paused) {
+            if (this.videoNode.ended && this.videoNode.loop) {
+                // assume metadata are loaded (videoNode.ended should do the trick)
+                this.videoNode.currentTime = 0;
+            }
             this.videoNode.play();
         }
     }
