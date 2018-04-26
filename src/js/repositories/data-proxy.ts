@@ -4,6 +4,7 @@
 import { IDataPage, IDataPageAudioEntity } from '@data/data-pages';
 import { IAppDataConfig } from '@config/app-config';
 import { IDataVideo } from '@data/data-videos';
+import { cloneDeep } from 'lodash-es';
 
 export type SupportedLangType = 'en' | 'fr';
 
@@ -108,9 +109,11 @@ export default class DataProxy {
 
     async getVideo(id: string): Promise<IDataVideo> {
         return new Promise<IDataVideo>((resolve, reject) => {
-            const video = this.data.videos.find((element: IDataVideo) => {
-                return id === element.video_id;
-            });
+            const video = cloneDeep(
+                this.data.videos.find((element: IDataVideo) => {
+                    return id === element.video_id;
+                })
+            );
             if (video === undefined) {
                 reject(`Video '${id}' cannot be found`);
             }
@@ -136,7 +139,9 @@ export default class DataProxy {
             const { muted, loop, video_detail } = videoContent;
             const video_id = videoContent.video_id[lang] || videoContent.video_id[this.fallbackLang];
             const video = await this.getVideo(video_id);
+
             const { video: videoBaseUrl } = this.props.baseUrl;
+
             video.sources.webm = `${videoBaseUrl}${video.sources.webm}`;
             video.sources.mp4 = `${videoBaseUrl}${video.sources.mp4}`;
 
