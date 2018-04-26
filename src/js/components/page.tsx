@@ -34,11 +34,26 @@ export class VideoComp extends React.Component<VideoCompProps, {}> {
             this.videoNode.addEventListener('ended', this.props.onEnd, false);
         }
         if (this.props.autoPlay && this.videoNode.paused) {
+            this.play();
+        }
+    }
+
+    play() {
+        if (this.videoNode !== undefined) {
+            // specific behaviour
             if (this.videoNode.ended && this.videoNode.loop) {
                 // assume metadata are loaded (videoNode.ended should do the trick)
                 this.videoNode.currentTime = 0;
             }
-            this.videoNode.play();
+            // play() is a promise... and can be rejected.
+            const playedPromise = this.videoNode.play();
+            if (playedPromise) {
+                playedPromise.catch(e => {
+                    if (e.name === 'NotAllowedError' || e.name === 'NotSupportedError') {
+                        console.log('Cannot autoplay video due to platform restrictions');
+                    }
+                });
+            }
         }
     }
 
