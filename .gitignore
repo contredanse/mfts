@@ -6,3 +6,4 @@ build
 dist
 deploy.sh
 coverage
+shipitfile.js
