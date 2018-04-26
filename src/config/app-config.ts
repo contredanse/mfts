@@ -52,9 +52,9 @@ export class AppConfig {
 }
 
 export interface IAppDataConfig {
-    menu: IDataMenu;
-    pages: IDataPage[];
-    videos: IDataVideo[];
+    readonly menu: IDataMenu;
+    readonly pages: IDataPage[];
+    readonly videos: IDataVideo[];
 }
 
 export interface IAppConfig {
