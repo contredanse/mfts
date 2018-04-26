@@ -10,14 +10,42 @@ export interface PageProps {
 
 interface PageState {}
 
-export class VideoComp extends React.Component<{ video: IDataVideo }, {}> {
+export interface VideoCompProps {
+    video: IDataVideo;
+    autoPlay?: boolean;
+    onEnd?: () => {};
+}
+
+export class VideoComp extends React.Component<VideoCompProps, {}> {
+    static defaultProps: Partial<VideoCompProps> = {
+        autoPlay: true,
+    };
+
     videoNode!: HTMLVideoElement;
 
+    constructor(props: VideoCompProps) {
+        super(props);
+    }
+
+    componentDidMount() {
+        if (this.props.onEnd !== undefined) {
+            this.videoNode.addEventListener('ended', this.props.onEnd, false);
+        }
+        if (this.props.autoPlay && this.videoNode.paused) {
+            this.videoNode.play();
+        }
+    }
+
+    componentWillUnmount() {
+        if (this.props.onEnd !== undefined) {
+            this.videoNode.removeEventListener('ended', this.props.onEnd);
+        }
+    }
+
     render() {
-        const { video } = this.props;
+        const { video, autoPlay, ...restProps } = this.props;
         const muted = true;
         const controls = true;
-        const autoPlay = true;
         const loop = true;
 
         const videoProps = {
