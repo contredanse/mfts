@@ -136,9 +136,9 @@ export default class DataProxy {
         // get localized video versions
         const videos: IDataVideo[] = [];
         content.videos.forEach(async videoContent => {
-            const { muted, loop, video_detail } = videoContent;
-            const video_id = videoContent.video_id[lang] || videoContent.video_id[this.fallbackLang];
-            const video = await this.getVideo(video_id);
+            const { muted, loop, video_detail: videoDetail } = videoContent;
+            const videoId = videoContent.video_id[lang] || videoContent.video_id[this.fallbackLang];
+            const video = await this.getVideo(videoId);
 
             const { video: videoBaseUrl } = this.props.baseUrl;
 
