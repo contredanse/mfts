@@ -3,7 +3,6 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const StatsWriterPlugin = require('webpack-stats-plugin').StatsWriterPlugin;
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -13,8 +12,9 @@ const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
-const BrotliPlugin = require('brotli-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
+const StatsWriterPlugin = require('webpack-stats-plugin').StatsWriterPlugin;
+const BrotliPlugin = require('brotli-webpack-plugin');
 
 const PUBLIC_URL = 'https://paxton.soluble.io';
 
@@ -38,20 +38,10 @@ module.exports = merge(common, {
     },
     module: {
         rules: [
-            // can be removed when react-router-*:@next set  sideEffects: false
-            {
-                include: path.resolve('node_modules', 'react-router'),
-                sideEffects: false,
-            },
-            {
-                include: path.resolve('node_modules', 'react-router-dom'),
-                sideEffects: false,
-            },
             {
                 test: /\.woff$|\.woff2?$/,
                 loader: 'file-loader',
                 //use: 'url-loader?limit=10000',
-
                 options: {
                     limit: 50000,
                     mimetype: 'application/font-woff',
@@ -98,6 +88,19 @@ module.exports = merge(common, {
                         },
                     },
                 ],
+            },
+            /**
+             * To save a few kb's... we can force declaration of sideEffects
+             * directly in the webpack rules section. Use with care, most libraries
+             * will update their declarations in package.json in the future
+             */
+            {
+                include: path.resolve('node_modules', 'react-router'),
+                sideEffects: false,
+            },
+            {
+                include: path.resolve('node_modules', 'react-router-dom'),
+                sideEffects: false,
             },
         ],
     },

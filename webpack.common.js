@@ -1,11 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
-const ManifestPlugin = require('webpack-manifest-plugin');
-const WebpackPwaManifest = require('webpack-pwa-manifest');
-
 module.exports = {
     entry: {
         // 'babel-polyfill',
@@ -15,6 +10,9 @@ module.exports = {
         extensions: ['.js', '.jsx', '.json', '.ts', '.tsx', '.css', '.scss'],
         modules: [path.join(__dirname, 'src'), 'node_modules'],
         alias: {
+            /**
+             * Internal import aliases for convenience.
+             */
             '@src': path.resolve(__dirname, 'src/js/'),
             '@data': path.resolve(__dirname, 'src/data/'),
             '@config': path.resolve(__dirname, 'src/config/'),
@@ -23,6 +21,12 @@ module.exports = {
             '@assets': path.resolve(__dirname, 'src/assets/'),
             '@shaders': path.resolve(__dirname, 'src/shaders'),
             '@thirdparty': path.resolve(__dirname, 'src/thirdparty'),
+            /**
+             * Aliases to avoid duplicates in build.
+             * - react-router alias can be probably removed when react-router-redux
+             *   is upgrade to a later version than alpha.9.
+             */
+            'react-router': path.resolve(__dirname, 'node_modules/react-router'),
         },
     },
     module: {
@@ -84,6 +88,7 @@ module.exports = {
             },
         ],
     },
+
     plugins: [
         /*
     new webpack.EnvironmentPlugin([

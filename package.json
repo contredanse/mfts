@@ -131,7 +131,7 @@
         "react-redux": "^5.0.7",
         "react-router": "^4.3.0-rc.3",
         "react-router-dom": "^4.3.0-rc.3",
-        "react-router-redux": "5.0.0-alpha.9",
+        "react-router-redux": "^5.0.0-alpha.9",
         "react-transition-group": "^2.3.1",
         "redux": "^4.0.0",
         "tslib": "^1.9.0",
