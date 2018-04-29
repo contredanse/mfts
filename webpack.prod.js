@@ -90,9 +90,10 @@ module.exports = merge(common, {
                 ],
             },
             /**
-             * To save a few kb's... we can force declaration of sideEffects
-             * directly in the webpack rules section. Use with care, most libraries
-             * will update their declarations in package.json in the future
+             * To help tree-shaking and save a few kb's...
+             * we can force declaration of sideEffects directly in the webpack
+             * rules section. Use with care, most libraries will update the
+             * sideEffect declaration in package.json anyway
              */
             {
                 include: path.resolve('node_modules', 'react-router'),
