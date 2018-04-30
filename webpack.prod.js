@@ -179,9 +179,9 @@ module.exports = merge(common, {
 
             new OptimizeCssAssetsPlugin({
                 cssProcessor: require('cssnano'),
-
                 cssProcessorOptions: {
                     //map: { inline: false, },
+                    safe: true,
                     discardUnused: {
                         fontFace: false, // to not remmove additional @font-face
                     },
