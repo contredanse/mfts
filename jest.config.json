@@ -8,10 +8,11 @@
     "moduleFileExtensions": ["ts", "tsx", "js"],
     "moduleNameMapper": {
         "@src/(.*)$": "<rootDir>/src/js/$1",
-        "@data/(.*)$": "<rootDir>/src/data/$1",
+        "@data/(.*)$": "<rootDir>/src/js/data/$1",
         "@config/(.*)$": "<rootDir>/src/config/$1",
         "@assets/(.*)$": "<rootDir>/src/assets/$1",
         "@thirdparty/(.*)$": "<rootDir>/src/thirdparty/$1",
+        "@db/(.*)$": "<rootDir>/src/db/$1",
         "^.+\\.scss$": "identity-obj-proxy"
     },
     "globals": {
