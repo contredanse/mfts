@@ -3,8 +3,9 @@ import { IDataVideo } from '@db/data-videos';
 import { IDataPage } from '@db/data-pages';
 import { cloneDeep } from 'lodash-es';
 import { IDataRepository, DataSupportedLangType, IDataRepositoryParams } from '@src/data/data-repository';
-import VideoEntity, { VideoSourceEntity } from '@src/data/video-entity';
+import VideoEntity from '@src/data/video-entity';
 import PageEntity, { MediaTracks, PageAudioEntityProps, PageEntityProps } from '@src/data/page-entity';
+import VideoSourceEntity from '@src/data/video-source-entity';
 
 export default class LocalDataRepository implements IDataRepository {
     public readonly params: IDataRepositoryParams;
@@ -77,7 +78,7 @@ export default class LocalDataRepository implements IDataRepository {
         let tracks;
         if (video.tracks !== undefined) {
             tracks = {} as MediaTracks;
-            for (let lang in video.tracks) {
+            for (const lang in video.tracks) {
                 tracks[lang] = `${videoBaseUrl}/${video.tracks[lang]}`;
             }
         }
@@ -91,7 +92,7 @@ export default class LocalDataRepository implements IDataRepository {
             }, []);
         }
 
-        let meta = video.meta;
+        const meta = video.meta;
 
         return new Promise<VideoEntity>((resolve, reject) => {
             const videoEntity = new VideoEntity({
@@ -118,7 +119,7 @@ export default class LocalDataRepository implements IDataRepository {
 
         const videos: VideoEntity[] = [];
 
-        for (let videoContent of content.videos) {
+        for (const videoContent of content.videos) {
             const { video_id: i18nVideoId, muted, loop, video_detail: videoDetail } = videoContent;
             const videoId = i18nVideoId[lang] || i18nVideoId[this.fallbackLang];
             const video = await this.getVideoEntity(videoId);
@@ -129,7 +130,7 @@ export default class LocalDataRepository implements IDataRepository {
         let audio: PageAudioEntityProps | undefined;
         if (content.audio !== undefined) {
             const { tracks, src: i18nAudioSrc } = content.audio;
-            let src = i18nAudioSrc[lang] || i18nAudioSrc[this.fallbackLang];
+            const src = i18nAudioSrc[lang] || i18nAudioSrc[this.fallbackLang];
 
             audio = {
                 src: src,

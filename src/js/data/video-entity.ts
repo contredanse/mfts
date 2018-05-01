@@ -1,13 +1,6 @@
 import { orderBy } from 'lodash-es';
-import { IDataVideo, IDataVideoSource } from '@db/data-videos';
 import { MediaTracks } from '@src/data/page-entity';
-
-export interface VideoSourceProps {
-    src: string;
-    type?: string; // mimetype (i.e. video/mp4, video/webm)
-    codecs?: string; // extra codec information (i.e. vp9)
-    priority?: number;
-}
+import VideoSourceEntity, { VideoSourceProps } from '@src/data/video-source-entity';
 
 export interface VideoMetaProps {
     duration?: number;
@@ -21,51 +14,6 @@ export interface VideoEntityProps {
     covers?: string[];
     meta?: VideoMetaProps;
     tracks?: MediaTracks;
-}
-
-export class VideoSourceEntity {
-    public static fileTypes = {
-        mp4: 'video/mp4',
-        webm: 'video/webm',
-    };
-
-    constructor(protected readonly data: VideoSourceProps) {}
-
-    get type(): string {
-        if (this.data.type === undefined) {
-            let fileExt = this.data.src.split('.').pop() as string;
-            return VideoSourceEntity.fileTypes[fileExt] && `video/${fileExt}`;
-        }
-        return this.data.type;
-    }
-
-    get codecs(): string | undefined {
-        return this.data.codecs;
-    }
-
-    get priority(): number {
-        return this.data.priority || 0;
-    }
-
-    get src(): string {
-        return this.data.src;
-    }
-
-    getHtmlTypeValue(): string {
-        if (this.codecs !== undefined) {
-            return `${this.type}; ${this.codecs}`;
-        }
-        return this.type;
-    }
-
-    static fromIDataVideoSource(dataVideoSource: IDataVideoSource): VideoSourceEntity {
-        return new VideoSourceEntity({
-            priority: dataVideoSource.priority,
-            type: dataVideoSource.type,
-            codecs: dataVideoSource.codecs,
-            src: dataVideoSource.src,
-        });
-    }
 }
 
 export default class VideoEntity {
@@ -107,7 +55,7 @@ export default class VideoEntity {
         return `${slices.hours}:${slices.minutes}:${slices.seconds}`;
     }
 
-    public getSources(sortByPriority: boolean = true): VideoSourceEntity[] {
+    getSources(sortByPriority: boolean = true): VideoSourceEntity[] {
         let data: VideoSourceProps[] = [];
         if (sortByPriority) {
             data = orderBy(this.data.sources, ['priority'], ['asc']);
@@ -121,29 +69,5 @@ export default class VideoEntity {
             },
             [] as VideoSourceEntity[]
         );
-    }
-
-    public static getFromIDataVideo(dataVideo: IDataVideo): VideoEntity {
-        const sources = dataVideo.sources.reduce((accumulator: VideoSourceProps[], dataVideoSource) => {
-            accumulator.push({
-                priority: dataVideoSource.priority,
-                type: dataVideoSource.type,
-                codecs: dataVideoSource.codecs,
-                src: dataVideoSource.src,
-            });
-            return accumulator;
-        }, []);
-
-        return new VideoEntity({
-            videoId: dataVideo.video_id,
-            sources: sources,
-            tracks: dataVideo.tracks,
-            covers: dataVideo.covers,
-            meta: {
-                duration: dataVideo.meta.duration,
-                width: dataVideo.meta.width,
-                height: dataVideo.meta.height,
-            },
-        });
     }
 }

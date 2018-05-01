@@ -1,7 +1,6 @@
 import * as React from 'react';
 import './page.scss';
 import { PageOverlay } from '@src/components/page-overlay';
-import { IDataVideo } from '@db/data-videos';
 import PageEntity from '@src/data/page-entity';
 import VideoEntity from '@src/data/video-entity';
 
@@ -72,9 +71,6 @@ export class VideoComp extends React.Component<VideoCompProps, {}> {
         const videoProps = {
             poster: video.covers !== undefined ? video.covers[0] : '',
         };
-
-        const { meta } = video;
-        const videoDuration = video.getFormattedDuration();
 
         return (
             <div className="page-video-container">

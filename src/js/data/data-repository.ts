@@ -1,6 +1,5 @@
 import VideoEntity from '@src/data/video-entity';
 import PageEntity from '@src/data/page-entity';
-import { IDataPage } from '@db/data-pages';
 
 export type DataSupportedLangType = 'en' | 'fr';
 
