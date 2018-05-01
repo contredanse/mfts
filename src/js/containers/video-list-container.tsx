@@ -71,10 +71,9 @@ class VideoListContainer extends React.Component<IProps, IState> {
             poster = '';
         if (selectedVideo !== undefined) {
             poster = `${videosBaseUrl}${selectedVideo.video_id}.jpg`;
-            sourceWebm = this.props.videosBaseUrl + selectedVideo.sources[0];
-            sourceMp4 = this.props.videosBaseUrl + selectedVideo.sources[1];
+            sourceWebm = this.props.videosBaseUrl + selectedVideo.sources[0].src;
+            sourceMp4 = this.props.videosBaseUrl + selectedVideo.sources[1].src;
         }
-
         return (
             <PageOverlay>
                 {selectedVideo && (
