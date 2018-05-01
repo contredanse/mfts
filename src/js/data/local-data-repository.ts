@@ -106,6 +106,32 @@ export default class LocalDataRepository implements IDataRepository {
         });
     }
 
+    getAllPages(): IDataPage[] {
+        return this.data.pages;
+    }
+
+    findPages(fragment: string, lang: DataSupportedLangType): IDataPage[] {
+        if (fragment === '') {
+            return this.getAllPages();
+        }
+        const regex = new RegExp(fragment, 'i');
+        const results = this.data.pages.filter((page: IDataPage, idx: number) => {
+            const keywords = page.keywords[lang] || page.keywords[this.fallbackLang];
+            if (keywords !== undefined) {
+                return (
+                    keywords
+                        .join(' ')
+                        .concat(page.title[lang])
+                        .concat(page.content.layout)
+                        .search(regex) > -1
+                );
+            }
+            return false;
+        });
+
+        return results;
+    }
+
     /**
      * Return localized PageEntity
      *

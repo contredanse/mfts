@@ -14,6 +14,7 @@ import VideoListContainer from '@src/containers/video-list-container';
 import { AppConfig } from '@config/app-config';
 import PageListContainer from '@src/containers/page-list-container';
 import PageContainer from '@src/containers/page-container';
+import LocalDataRepository from '@src/data/local-data-repository';
 
 interface AppProps {
     appConfig: AppConfig;
@@ -48,7 +49,7 @@ class App extends React.Component<AppProps, {}> {
                                     return (
                                         <PageListContainer
                                             lang={lang}
-                                            initialData={data.pages}
+                                            dataRepository={dataRepository as LocalDataRepository}
                                             videosBaseUrl={videosBaseUrl}
                                             {...props}
                                         />

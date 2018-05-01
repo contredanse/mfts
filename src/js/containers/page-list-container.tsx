@@ -5,9 +5,11 @@ import { IDataPage } from '@db/data-pages';
 import PageList from '@src/components/page-list';
 import { withRouter } from 'react-router-dom';
 import { RouteComponentProps } from 'react-router';
+import { IDataRepository } from '@src/data/data-repository';
+import LocalDataRepository from '@src/data/local-data-repository';
 
 interface PageListContainerProps extends RouteComponentProps<any> {
-    initialData: IDataPage[];
+    dataRepository: LocalDataRepository;
     videosBaseUrl: string;
     lang: 'en' | 'fr';
 }
@@ -23,7 +25,7 @@ class PageListContainer extends React.Component<PageListContainerProps, PageList
         super(props);
 
         this.state = {
-            pages: this.props.initialData,
+            pages: this.props.dataRepository.getAllPages(),
             lang: this.props.lang,
         };
     }
@@ -31,21 +33,9 @@ class PageListContainer extends React.Component<PageListContainerProps, PageList
     updateSearch = e => {
         e.preventDefault();
         const fragment = e.target.value;
-        const regex = new RegExp(fragment, 'i');
-        const filtered = this.props.initialData.filter((page: IDataPage, idx: number) => {
-            const keywords = page.keywords[this.props.lang];
-            if (keywords !== undefined) {
-                return (
-                    keywords
-                        .join(' ')
-                        .concat(page.content.layout)
-                        .search(regex) > -1
-                );
-            }
-            return false;
-        });
+        const pages = this.props.dataRepository.findPages(fragment, this.props.lang);
         this.setState({
-            pages: filtered,
+            pages: pages,
             searchFragment: fragment,
         });
     };
