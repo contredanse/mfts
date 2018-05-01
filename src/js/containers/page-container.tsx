@@ -1,12 +1,13 @@
 import React from 'react';
 import Page from '@src/components/page';
 import NotFoundContainer from '@src/containers/notfound-container';
-import DataProxy, { PageEntity, SupportedLangType } from '@src/repositories/data-proxy';
+import { DataSupportedLangType, IDataRepository } from '@src/data/data-repository';
+import PageEntity from '@src/data/page-entity';
 
 interface IProps {
     pageId: string;
-    lang: SupportedLangType;
-    dataProxy: DataProxy;
+    lang: DataSupportedLangType;
+    dataRepository: IDataRepository;
 }
 interface IState {
     pageExists: boolean | undefined;
@@ -25,7 +26,7 @@ class PageContainer extends React.Component<IProps, IState> {
 
     async componentDidMount() {
         try {
-            const pageEntity = await this.props.dataProxy.getPageEntity(this.props.pageId, this.props.lang);
+            const pageEntity = await this.props.dataRepository.getPageEntity(this.props.pageId, this.props.lang);
             this.setState((prevState: IState): IState => {
                 return {
                     ...prevState,

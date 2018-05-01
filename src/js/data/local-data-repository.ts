@@ -1,25 +1,18 @@
-import {
-    IDataProxyParams,
-    MediaTracks,
-    PageAudioEntityProps,
-    PageEntity,
-    PageEntityProps,
-    SupportedLangType,
-    VideoEntity,
-    VideoSourceEntity,
-} from '@src/repositories/data-proxy';
 import { IAppDataConfig } from '@config/app-config';
 import { IDataVideo } from '@db/data-videos';
 import { IDataPage } from '@db/data-pages';
 import { cloneDeep } from 'lodash-es';
+import { IDataRepository, DataSupportedLangType, IDataRepositoryParams } from '@src/data/data-repository';
+import VideoEntity, { VideoSourceEntity } from '@src/data/video-entity';
+import PageEntity, { MediaTracks, PageAudioEntityProps, PageEntityProps } from '@src/data/page-entity';
 
-export default class LocalDataRepository {
-    public readonly props: IDataProxyParams;
+export default class LocalDataRepository implements IDataRepository {
+    public readonly params: IDataRepositoryParams;
     protected readonly data: IAppDataConfig;
     protected readonly fallbackLang = 'en';
 
-    constructor(data: IAppDataConfig, props: IDataProxyParams) {
-        this.props = props;
+    constructor(data: IAppDataConfig, params: IDataRepositoryParams) {
+        this.params = params;
         this.data = data;
     }
 
@@ -61,7 +54,7 @@ export default class LocalDataRepository {
      * @returns {Promise<VideoEntity>}
      */
     async getVideoEntity(videoId: string): Promise<VideoEntity> {
-        const { video: videoBaseUrl, videoCovers: videoCoversUrl } = this.props.baseUrl;
+        const { video: videoBaseUrl, videoCovers: videoCoversUrl } = this.params.baseUrl;
         const video = await this.getVideo(videoId);
 
         // Convert and add baseUrl video sources
@@ -119,7 +112,7 @@ export default class LocalDataRepository {
      * @param {string} lang
      * @returns {Promise<PageEntityProps>}
      */
-    async getPageEntity(pageId: string, lang: SupportedLangType): Promise<PageEntity> {
+    async getPageEntity(pageId: string, lang: DataSupportedLangType): Promise<PageEntity> {
         const pageData = await this.getPage(pageId);
         const { content } = pageData;
 

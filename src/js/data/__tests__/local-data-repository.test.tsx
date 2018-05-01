@@ -1,7 +1,8 @@
 import { appConfig } from '@config/app-config';
+import LocalDataRepository from '@src/data/local-data-repository';
 
 describe('Data repository getters', () => {
-    const globalDataRepo = appConfig.getDataProxy();
+    const globalDataRepo = appConfig.getDataRepository() as LocalDataRepository;
 
     test('getPage must reject for non existing page', async () => {
         const pageId = 'non-existing-page';
@@ -15,7 +16,7 @@ describe('Data repository getters', () => {
 });
 
 describe('Data page retrieval', () => {
-    const globalDataRepo = appConfig.getDataProxy();
+    const globalDataRepo = appConfig.getDataRepository() as LocalDataRepository;
 
     test('getPageEntity must respect translations', async () => {
         const pageFr = await globalDataRepo.getPageEntity('forms.helix-roll.led-by-feet', 'fr');

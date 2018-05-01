@@ -28,7 +28,7 @@ class App extends React.Component<AppProps, {}> {
         const { videosBaseUrl, data } = this.props.appConfig.getConfig();
         const lang = 'en';
 
-        const dataProxy = this.props.appConfig.getDataProxy();
+        const dataRepository = this.props.appConfig.getDataRepository();
 
         return (
             <ConnectedRouter history={history}>
@@ -71,7 +71,9 @@ class App extends React.Component<AppProps, {}> {
                                 path="/page/:pageId"
                                 render={(props: RouteComponentProps<any>) => {
                                     const { pageId } = props.match.params;
-                                    return <PageContainer pageId={pageId} lang={lang} dataProxy={dataProxy} />;
+                                    return (
+                                        <PageContainer pageId={pageId} lang={lang} dataRepository={dataRepository} />
+                                    );
                                 }}
                             />
                             <Route component={NotFoundContainer} />

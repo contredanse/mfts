@@ -4,7 +4,8 @@ import { IDataPage } from '@db/data-pages';
 import dataMenu from '@db/data-menu.json';
 import dataVideos from '@db/data-videos.json';
 import dataPages from '@db/data-pages.json';
-import DataProxy, { IDataProxyParams } from '@src/repositories/data-proxy';
+import { IDataRepository, IDataRepositoryParams } from '@src/data/data-repository';
+import LocalDataRepository from '@src/data/local-data-repository';
 
 const isProduction = true;
 
@@ -36,7 +37,7 @@ export class AppConfig {
         return this.config.data;
     }
 
-    getDataProxy(params?: IDataProxyParams): DataProxy {
+    getDataRepository(params?: IDataRepositoryParams): IDataRepository {
         if (params === undefined) {
             params = {
                 defaultLang: 'en',
@@ -47,7 +48,7 @@ export class AppConfig {
                 },
             };
         }
-        return new DataProxy(this.config.data, params);
+        return new LocalDataRepository(this.config.data, params);
     }
 }
 
