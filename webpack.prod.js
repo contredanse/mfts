@@ -130,8 +130,8 @@ module.exports = merge(common, {
                     minSize: 0,
                     reuseExistingChunk: true,
                 },*/
-                data: {
-                    test: /[\\/]src\/data\/(.*)\.json$/,
+                db: {
+                    test: /[\\/]src\/db\/(.*)\.json$/,
                     name: 'data',
                     enforce: true,
                     chunks: 'all',
