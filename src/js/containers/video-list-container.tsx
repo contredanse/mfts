@@ -3,7 +3,7 @@ import { VideoList } from '@src/components/video-list';
 import { PageOverlay } from '@src/components/page-overlay';
 import { SearchBox } from '@src/components/search-box';
 import { ReactVideoPlayer } from '@src/components/react-video-player';
-import { IDataVideo } from '@data/data-videos';
+import { IDataVideo } from '@db/data-videos';
 
 interface IProps {
     initialData: IDataVideo[];
@@ -71,8 +71,8 @@ class VideoListContainer extends React.Component<IProps, IState> {
             poster = '';
         if (selectedVideo !== undefined) {
             poster = `${videosBaseUrl}${selectedVideo.video_id}.jpg`;
-            sourceMp4 = this.props.videosBaseUrl + selectedVideo.sources.mp4;
-            sourceWebm = this.props.videosBaseUrl + selectedVideo.sources.webm;
+            sourceWebm = this.props.videosBaseUrl + selectedVideo.sources[0];
+            sourceMp4 = this.props.videosBaseUrl + selectedVideo.sources[1];
         }
 
         return (

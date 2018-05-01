@@ -1,6 +1,6 @@
 import React, { CSSProperties } from 'react';
 import spiralMenu from '@thirdparty/spiral.js';
-import { IDataMenu } from '@data/data-menu';
+import { IDataMenu } from '@db/data-menu';
 
 interface IProps {
     jsonDataMenu: IDataMenu;

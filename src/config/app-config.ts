@@ -1,9 +1,9 @@
-import { IDataMenu } from '@data/data-menu';
-import { IDataVideo } from '@data/data-videos';
-import { IDataPage } from '@data/data-pages';
-import dataMenu from '@data/data-menu.json';
-import dataVideos from '@data/data-videos.json';
-import dataPages from '@data/data-pages.json';
+import { IDataMenu } from '@db/data-menu';
+import { IDataVideo } from '@db/data-videos';
+import { IDataPage } from '@db/data-pages';
+import dataMenu from '@db/data-menu.json';
+import dataVideos from '@db/data-videos.json';
+import dataPages from '@db/data-pages.json';
 import DataProxy, { IDataProxyParams } from '@src/repositories/data-proxy';
 
 const isProduction = true;

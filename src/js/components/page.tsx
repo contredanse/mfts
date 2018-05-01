@@ -1,8 +1,8 @@
 import * as React from 'react';
 import './page.scss';
 import { PageOverlay } from '@src/components/page-overlay';
-import { PageEntity } from '@src/repositories/data-proxy';
-import { IDataVideo } from '@data/data-videos';
+import { PageEntity, VideoEntity } from '@src/repositories/data-proxy';
+import { IDataVideo } from '@db/data-videos';
 
 export interface PageProps {
     pageEntity: PageEntity;
@@ -11,7 +11,7 @@ export interface PageProps {
 interface PageState {}
 
 export interface VideoCompProps {
-    video: IDataVideo;
+    video: VideoEntity;
     autoPlay?: boolean;
     loop?: boolean;
     onEnd?: () => {};
@@ -73,7 +73,7 @@ export class VideoComp extends React.Component<VideoCompProps, {}> {
         };
 
         const { meta } = video;
-        const videoDuration = `${Math.trunc(meta.duration / 60)}:${Math.round(meta.duration) % 60}`;
+        const videoDuration = video.getFormattedDuration();
 
         return (
             <div className="page-video-container">
@@ -88,12 +88,13 @@ export class VideoComp extends React.Component<VideoCompProps, {}> {
                     webkit-playsinline="webkit-playsinline"
                     {...videoProps}
                 >
-                    <source src={video.sources.webm} type="video/webm; codecs=vp9" />
-                    <source src={video.sources.mp4} type="video/mp4" />
+                    {video.getSources().map((sourceEntity, idx) => {
+                        return <source key={idx} src={sourceEntity.src} type={sourceEntity.getHtmlTypeValue()} />;
+                    })}
                 </video>
                 <div className="overlay">
-                    <div>{video.video_id}</div>
-                    <div>{videoDuration}</div>
+                    <div>{video.videoId}</div>
+                    <div>{video.getFormattedDuration()}</div>
                 </div>
             </div>
         );
@@ -103,8 +104,9 @@ export class VideoComp extends React.Component<VideoCompProps, {}> {
 export default class Page extends React.Component<PageProps, PageState> {
     render() {
         const { pageEntity: page } = this.props;
-        const videos = page.getVideos();
-
+        const videos = page.videos;
+        console.log('page', page);
+        console.log('videos', videos);
         return (
             <PageOverlay closeButton={false}>
                 <div className="page-wrapper">
@@ -113,7 +115,7 @@ export default class Page extends React.Component<PageProps, PageState> {
                         <div className="page-content">
                             <div className="page-video-layout">
                                 {videos.map(video => {
-                                    return <VideoComp key={video.video_id} video={video} />;
+                                    return <VideoComp key={video.videoId} video={video} />;
                                 })}
                             </div>
                         </div>

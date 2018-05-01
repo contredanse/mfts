@@ -1,9 +1,9 @@
 import * as React from 'react';
 import './page-list.scss';
-import { IDataPage, IDataPageVideoEntity } from '@data/data-pages';
+import { IDataPage, IDataPageVideoEntity } from '@db/data-pages';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { IDataVideo } from '@data/data-videos';
-import dataVideos from '@data/data-videos.json';
+import { IDataVideo } from '@db/data-videos';
+import dataVideos from '@db/data-videos.json';
 
 interface IProps {
     pages: IDataPage[];

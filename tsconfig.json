@@ -2,14 +2,15 @@
     "compilerOptions": {
         "baseUrl": ".", // enables absolute path imports
         "paths": {
-            "@src/*": ["src/js/*"], // will enable -> import { ... } from '@src/components'
+            "@src/*": ["src/js/*"],
             "@styles/*": ["src/styles/*"],
             "@public/*": ["public/*"],
             "@data/*": ["src/data/*"],
             "@config/*": ["src/config/*"],
             "@shaders/*": ["src/shaders/*"],
             "@assets/*": ["src/assets/*"],
-            "@thirdparty/*": ["src/thirdparty/*"]
+            "@thirdparty/*": ["src/thirdparty/*"],
+            "@db/*": ["src/db/*"]
         },
         //  "outDir": "dist/",                    // target for compiled files
         "allowSyntheticDefaultImports": true, // no errors on commonjs default import

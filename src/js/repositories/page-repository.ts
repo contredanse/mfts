@@ -1,4 +1,4 @@
-import { IDataPage, IDataPageVideoEntity } from '@data/data-pages';
+import { IDataPage, IDataPageVideoEntity } from '@db/data-pages';
 
 export interface IDataPageWithMedia extends IDataPage {
     videos: any[];

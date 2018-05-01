@@ -7,7 +7,7 @@ describe('Data page retrieval', () => {
         const pageId = 'forms.crescent-roll.crescent-led-by-feet-and-hands';
         const page = await globalDataRepo.getPageEntity(pageId, 'en');
         expect(page.countVideos()).toEqual(3);
-        expect(page.getVideos().length).toEqual(3);
+        expect(page.videos.length).toEqual(3);
         expect(page.hasAudio()).toBeTruthy();
         expect(page.hasAudioTrack()).toBeTruthy();
     });

@@ -1,10 +1,10 @@
 /**
  * @todo Refactor (for now a big test class)
  */
-import { IDataPage, IDataPageAudioEntity } from '@data/data-pages';
+import { IDataPage, IDataPageAudioEntity } from '@db/data-pages';
 import { IAppDataConfig } from '@config/app-config';
-import { IDataVideo } from '@data/data-videos';
-import { cloneDeep } from 'lodash-es';
+import { IDataVideo, IDataVideoSource } from '@db/data-videos';
+import { cloneDeep, orderBy } from 'lodash-es';
 
 export type SupportedLangType = 'en' | 'fr';
 
@@ -17,24 +17,174 @@ export interface IDataProxyParams {
     };
 }
 
-export interface IPageEntity {
+export interface PageAudioEntityProps {
+    src: string;
+    tracks?: MediaTracks;
+}
+
+export interface PageEntityProps {
     pageId: string;
     title: string;
     sortIdx: number;
     name: string;
     keywords?: string[];
-    videos: IDataVideo[];
+    videos: VideoEntity[];
     cover?: string;
-    audio?: IDataPageAudioEntity;
-    audioTrack?: string;
+    audio?: PageAudioEntityProps;
+    audioTrack?: MediaTracks;
+}
+
+export interface VideoSourceProps {
+    src: string;
+    type?: string; // mimetype (i.e. video/mp4, video/webm)
+    codecs?: string; // extra codec information (i.e. vp9)
+    priority?: number;
+}
+
+export interface VideoMetaProps {
+    duration?: number;
+    width?: number;
+    height?: number;
+}
+
+export interface MediaTracks {
+    [key: string]: string;
+}
+export interface VideoEntityProps {
+    videoId: string;
+    sources: VideoSourceProps[];
+    covers?: string[];
+    meta?: VideoMetaProps;
+    tracks?: MediaTracks;
+}
+
+export class VideoSourceEntity {
+    public static fileTypes = {
+        mp4: 'video/mp4',
+        webm: 'video/webm',
+    };
+
+    constructor(protected readonly data: VideoSourceProps) {}
+
+    get type(): string {
+        if (this.data.type === undefined) {
+            let fileExt = this.data.src.split('.').pop() as string;
+            return VideoSourceEntity.fileTypes[fileExt] && `video/${fileExt}`;
+        }
+        return this.data.type;
+    }
+
+    get codecs(): string | undefined {
+        return this.data.codecs;
+    }
+
+    get priority(): number {
+        return this.data.priority || 0;
+    }
+
+    get src(): string {
+        return this.data.src;
+    }
+
+    getHtmlTypeValue(): string {
+        if (this.codecs !== undefined) {
+            return `${this.type}; ${this.codecs}`;
+        }
+        return this.type;
+    }
+
+    static fromIDataVideoSource(dataVideoSource: IDataVideoSource): VideoSourceEntity {
+        return new VideoSourceEntity({
+            priority: dataVideoSource.priority,
+            type: dataVideoSource.type,
+            codecs: dataVideoSource.codecs,
+            src: dataVideoSource.src,
+        });
+    }
+}
+
+export class VideoEntity {
+    constructor(protected readonly data: VideoEntityProps) {}
+
+    get videoId(): string {
+        return this.data.videoId;
+    }
+
+    get sources(): VideoSourceProps[] {
+        return this.data.sources;
+    }
+
+    get covers(): string[] | undefined {
+        return this.data.covers;
+    }
+
+    get meta(): VideoMetaProps | undefined {
+        return this.data.meta;
+    }
+
+    get duration(): number {
+        if (this.meta === undefined || this.meta.duration === undefined) {
+            return 0;
+        }
+        return this.meta.duration;
+    }
+
+    /**
+     * Return formatted duration in hours:minutes:seconds
+     * @returns {string}
+     */
+    getFormattedDuration(): string {
+        const slices = {
+            hours: Math.trunc(this.duration / 3600),
+            minutes: Math.trunc(this.duration / 60),
+            seconds: Math.round(this.duration % 60),
+        };
+        return `${slices.hours}:${slices.minutes}:${slices.seconds}`;
+    }
+
+    public getSources(sortByPriority: boolean = true): VideoSourceEntity[] {
+        let data: VideoSourceProps[] = [];
+        if (sortByPriority) {
+            data = orderBy(this.data.sources, ['priority'], ['asc']);
+        } else {
+            data = this.data.sources;
+        }
+        return data.reduce(
+            (accumulator, sourceProps): VideoSourceEntity[] => {
+                accumulator.push(new VideoSourceEntity(sourceProps));
+                return accumulator;
+            },
+            [] as VideoSourceEntity[]
+        );
+    }
+
+    public static getFromIDataVideo(dataVideo: IDataVideo): VideoEntity {
+        const sources = dataVideo.sources.reduce((accumulator: VideoSourceProps[], dataVideoSource) => {
+            accumulator.push({
+                priority: dataVideoSource.priority,
+                type: dataVideoSource.type,
+                codecs: dataVideoSource.codecs,
+                src: dataVideoSource.src,
+            });
+            return accumulator;
+        }, []);
+
+        return new VideoEntity({
+            videoId: dataVideo.video_id,
+            sources: sources,
+            tracks: dataVideo.tracks,
+            covers: dataVideo.covers,
+            meta: {
+                duration: dataVideo.meta.duration,
+                width: dataVideo.meta.width,
+                height: dataVideo.meta.height,
+            },
+        });
+    }
 }
 
 export class PageEntity {
-    protected readonly data: IPageEntity;
-
-    constructor(data: IPageEntity) {
-        this.data = data;
-    }
+    constructor(protected readonly data: PageEntityProps) {}
 
     get pageId(): string {
         return this.data.pageId;
@@ -49,16 +199,15 @@ export class PageEntity {
     }
 
     get keywords(): string[] {
-        console.log('keywords', this.data.keywords);
         return this.data.keywords || [];
+    }
+
+    get videos(): VideoEntity[] {
+        return this.data.videos;
     }
 
     countVideos(): number {
         return this.data.videos.length;
-    }
-
-    getVideos(): IDataVideo[] {
-        return this.data.videos;
     }
 
     hasAudio(): boolean {
@@ -69,13 +218,13 @@ export class PageEntity {
         return this.data.audioTrack !== undefined;
     }
 
-    getAudioTrack(): string | undefined {
+    getAudioTrack(): MediaTracks | undefined {
         if (!this.hasAudioTrack()) {
             return undefined;
         }
         return this.data.audioTrack;
     }
-    getAudio(): IDataPageAudioEntity | undefined {
+    getAudio(): PageAudioEntityProps | undefined {
         return this.data.audio;
     }
 }
@@ -122,51 +271,98 @@ export default class DataProxy {
     }
 
     /**
+     * Return localized video entity
+     *
+     * @param {string} videoId
+     * @returns {Promise<VideoEntity>}
+     */
+    async getVideoEntity(videoId: string): Promise<VideoEntity> {
+        const { video: videoBaseUrl, videoCovers: videoCoversUrl } = this.props.baseUrl;
+        const video = await this.getVideo(videoId);
+
+        // Convert and add baseUrl video sources
+        const sources = video.sources.reduce(
+            (acc, rawSource) => {
+                acc.push(
+                    new VideoSourceEntity({
+                        src: `${videoBaseUrl}/${rawSource.src}`,
+                        type: rawSource.type,
+                        codecs: rawSource.codecs,
+                        priority: rawSource.priority,
+                    })
+                );
+                return acc;
+            },
+            [] as VideoSourceEntity[]
+        );
+
+        // Convert and add baseUrl to tracks
+        let tracks;
+        if (video.tracks !== undefined) {
+            tracks = {} as MediaTracks;
+            for (let lang in video.tracks) {
+                tracks[lang] = `${videoBaseUrl}/${video.tracks[lang]}`;
+            }
+        }
+
+        // Convert and add baseUrl to covers
+        let covers: string[] | undefined;
+        if (video.covers !== undefined) {
+            covers = video.covers.reduce((acc: string[], cover) => {
+                acc.push(`${videoCoversUrl}/${cover}`);
+                return acc;
+            }, []);
+        }
+
+        let meta = video.meta;
+
+        return new Promise<VideoEntity>((resolve, reject) => {
+            const videoEntity = new VideoEntity({
+                videoId: video.video_id,
+                sources: sources,
+                covers: covers,
+                tracks: tracks,
+                meta: meta,
+            });
+            resolve(videoEntity);
+        });
+    }
+
+    /**
      * Return localized page with medias
      *
      * @param {string} pageId
      * @param {string} lang
-     * @returns {Promise<IPageEntity>}
+     * @returns {Promise<PageEntityProps>}
      */
     async getPageEntity(pageId: string, lang: SupportedLangType): Promise<PageEntity> {
         const pageData = await this.getPage(pageId);
-
         const { content } = pageData;
 
-        // get localized video versions
-        const videos: IDataVideo[] = [];
-        content.videos.forEach(async videoContent => {
-            const { muted, loop, video_detail: videoDetail } = videoContent;
-            const videoId = videoContent.video_id[lang] || videoContent.video_id[this.fallbackLang];
-            const video = await this.getVideo(videoId);
+        const videos: VideoEntity[] = [];
 
-            const { video: videoBaseUrl } = this.props.baseUrl;
-
-            video.sources.webm = `${videoBaseUrl}${video.sources.webm}`;
-            video.sources.mp4 = `${videoBaseUrl}${video.sources.mp4}`;
-
-            if (video.covers !== undefined) {
-                const covers: string[] = [];
-                video.covers.forEach(cover => {
-                    covers.push(`${videoBaseUrl}${cover}`);
-                });
-                video.covers = covers;
-            }
+        for (let videoContent of content.videos) {
+            const { video_id: i18nVideoId, muted, loop, video_detail: videoDetail } = videoContent;
+            const videoId = i18nVideoId[lang] || i18nVideoId[this.fallbackLang];
+            const video = await this.getVideoEntity(videoId);
             videos.push(video);
-        });
+        }
 
         // get localized audio versions
-        let audioSrc;
-        let audioTrack;
+        let audio: PageAudioEntityProps | undefined;
         if (content.audio !== undefined) {
-            const { audio } = content;
-            audioSrc = audio.src[lang] || audio.src[this.fallbackLang];
-            if (audio.tracks !== undefined) {
-                audioTrack = audio.tracks[lang] || audio.tracks[this.fallbackLang];
+            const { tracks, src: i18nAudioSrc } = content.audio;
+            let src = i18nAudioSrc[lang] || i18nAudioSrc[this.fallbackLang];
+
+            audio = {
+                src: src,
+            };
+            if (tracks !== undefined) {
+                audio.tracks = tracks;
             }
         }
 
-        const pageEntityProps: IPageEntity = {
+        const pageEntityProps: PageEntityProps = {
             pageId: pageData.page_id,
             title: pageData.title[lang],
             sortIdx: pageData.sort_idx,
@@ -174,8 +370,7 @@ export default class DataProxy {
             videos: videos,
             cover: pageData.cover,
             keywords: pageData.keywords[lang] || pageData.keywords[this.fallbackLang],
-            audio: pageData.content.audio,
-            audioTrack: audioTrack,
+            audio: audio,
         };
 
         //keywords: pageData.keywords[lang],

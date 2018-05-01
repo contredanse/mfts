@@ -1,4 +1,4 @@
-import { IDataVideo } from '@data/data-videos';
+import { IDataVideo } from '@db/data-videos';
 
 export default class VideoRepository {
     public readonly data: IDataVideo[];
