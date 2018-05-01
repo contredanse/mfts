@@ -10,6 +10,6 @@ describe('Data page retrieval', () => {
         expect(page.countVideos()).toEqual(3);
         expect(page.videos.length).toEqual(3);
         expect(page.hasAudio()).toBeTruthy();
-        expect(page.hasAudioTrack()).toBeTruthy();
+        expect(page.hasAudioTracks()).not.toBeUndefined();
     });
 });

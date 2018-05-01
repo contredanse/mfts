@@ -52,17 +52,23 @@ export default class PageEntity {
         return this.data.audio !== undefined;
     }
 
-    hasAudioTrack(): boolean {
-        return this.data.audioTrack !== undefined;
+    hasAudioTracks(): boolean {
+        return this.data.audio !== undefined && this.data.audio.tracks !== undefined;
     }
 
-    getAudioTrack(): MediaTracks | undefined {
-        if (!this.hasAudioTrack()) {
+    getAudioTracks(): MediaTracks | undefined {
+        if (!this.hasAudioTracks()) {
             return undefined;
         }
-        return this.data.audioTrack;
+        return (this.data.audio as PageAudioEntityProps).tracks;
     }
     getAudio(): PageAudioEntityProps | undefined {
         return this.data.audio;
+    }
+    getAudioSource(): string | undefined {
+        if (!this.hasAudio()) {
+            return undefined;
+        }
+        return (this.data.audio as PageAudioEntityProps).src;
     }
 }
