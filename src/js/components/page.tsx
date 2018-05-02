@@ -128,7 +128,7 @@ export default class Page extends React.Component<PageProps, PageState> {
                                     </div>
                                     {audio && (
                                         <div className="page-audio-subs">
-                                            <video controls={true}>
+                                            <video controls={true} crossOrigin="anonymous">
                                                 <source type="audio/mp3" src={audio.getSrc()} />
                                                 {audio.getAllTracks().map(audioTrack => {
                                                     return (
@@ -138,7 +138,9 @@ export default class Page extends React.Component<PageProps, PageState> {
                                                             kind="subtitles"
                                                             srcLang={audioTrack.lang}
                                                             src={audioTrack.src}
-                                                            default={this.props.lang == audioTrack.lang}
+                                                            {...(this.props.lang == audioTrack.lang
+                                                                ? { default: true }
+                                                                : {})}
                                                         />
                                                     );
                                                 })}
