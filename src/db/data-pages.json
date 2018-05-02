@@ -190,8 +190,8 @@
             ],
             "audio": {
                 "src": {
-                    "en": "mp3/small_dance_en.mp3",
-                    "fr": "mp3/small_dance_fr.mp3"
+                    "en": "audio/small_dance_en.mp3",
+                    "fr": "audio/small_dance_fr.mp3"
                 }
             }
         }
@@ -722,7 +722,7 @@
             ],
             "audio": {
                 "src": {
-                    "en": "mp3/comments_crescent.mp3"
+                    "en": "audio/comments_crescent.mp3"
                 },
                 "tracks": {
                     "en": "srt/mfs_crescents_comments_en.srt",
@@ -983,7 +983,7 @@
             ],
             "audio": {
                 "src": {
-                    "en": "mp3/mfs_sbf.mp3"
+                    "en": "audio/mfs_sbf.mp3"
                 },
                 "tracks": {
                     "en": "srt/mfs_sbf_en.srt",
@@ -1044,7 +1044,7 @@
             ],
             "audio": {
                 "src": {
-                    "en": "mp3/mfs_sbh.mp3"
+                    "en": "audio/mfs_sbh.mp3"
                 },
                 "tracks": {
                     "en": "srt/mfs_sbh_en.srt",
@@ -1282,7 +1282,7 @@
             ],
             "audio": {
                 "src": {
-                    "en": "mp3/comment_undulation.mp3"
+                    "en": "audio/comment_undulation.mp3"
                 },
                 "tracks": {
                     "en": "srt/undulations_en.srt",
@@ -1583,7 +1583,7 @@
             ],
             "audio": {
                 "src": {
-                    "en": "mp3/aikidoform.mp3"
+                    "en": "audio/aikidoform.mp3"
                 },
                 "tracks": {
                     "en": "srt/aikidoform_en.srt",
