@@ -79,7 +79,7 @@ export default class PageList extends React.Component<IProps, IState> {
                                 //const coverImg = `${urlPaths}covers/${page.cover}`;
 
                                 const firstVideoId = videos[0].video_id;
-                                const coverImg = `${baseUrl}covers/${firstVideoId}-03.jpg`;
+                                const coverImg = `${baseUrl}/covers/${firstVideoId}-03.jpg`;
 
                                 return (
                                     <Animate key={pageId}>
@@ -92,7 +92,7 @@ export default class PageList extends React.Component<IProps, IState> {
                                             <h2>{pageId}</h2>
                                             <div className="grid-page-thumbnail">
                                                 {videos.map(video => {
-                                                    const videoCover = `${baseUrl}covers/${video.video_id}-01.jpg`;
+                                                    const videoCover = `${baseUrl}/covers/${video.video_id}-01.jpg`;
                                                     return (
                                                         <div key={video.video_id}>
                                                             <img src={videoCover} title={video.video_id} />

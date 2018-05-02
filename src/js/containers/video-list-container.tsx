@@ -70,9 +70,10 @@ class VideoListContainer extends React.Component<IProps, IState> {
             sourceWebm,
             poster = '';
         if (selectedVideo !== undefined) {
-            poster = `${videosBaseUrl}${selectedVideo.video_id}.jpg`;
-            sourceWebm = this.props.videosBaseUrl + selectedVideo.sources[0].src;
-            sourceMp4 = this.props.videosBaseUrl + selectedVideo.sources[1].src;
+            poster = `${videosBaseUrl}/${selectedVideo.video_id}.jpg`;
+
+            sourceWebm = `${videosBaseUrl}/${selectedVideo.sources[0].src}`;
+            sourceMp4 = `${videosBaseUrl}/${selectedVideo.sources[1].src}`;
         }
         return (
             <PageOverlay>

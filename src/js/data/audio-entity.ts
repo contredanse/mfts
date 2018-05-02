@@ -1,5 +1,5 @@
 import { MediaTracks } from '@src/data/page-entity';
-import { IDataPageAudio, LocalizedAudioSource } from '@db/data-pages';
+import { IDataPageAudio, IDataPageAudioTrack, LocalizedAudioSource } from '@db/data-pages';
 import { BaseEntity, IBaseEntityOptions } from '@src/data/base-entity';
 
 export class AudioEntityFactory {
@@ -16,7 +16,7 @@ export class AudioEntityFactory {
 
 export interface AudioEntityProps {
     src: LocalizedAudioSource;
-    tracks?: MediaTracks;
+    tracks?: IDataPageAudioTrack[];
 }
 
 export interface AudioEntityOptions extends IBaseEntityOptions {}
@@ -39,5 +39,25 @@ export default class AudioEntity extends BaseEntity {
         lang = lang === undefined ? this.options.fallbackLang : lang;
         baseUrl = baseUrl || this.options.baseUrl;
         return [baseUrl, this.data.src[lang]].join('/');
+    }
+
+    hasTracks(): boolean {
+        return this.data.tracks !== undefined;
+    }
+
+    getAllTracks(baseUrl?: string): IDataPageAudioTrack[] {
+        if (!this.hasTracks()) {
+            return [];
+        }
+        baseUrl = baseUrl || this.options.baseUrl;
+        const tracks: IDataPageAudioTrack[] = [];
+        for (const audioTrack of this.data.tracks as IDataPageAudioTrack[]) {
+            tracks.push({
+                lang: audioTrack.lang,
+                src: `${baseUrl}/${audioTrack.src}`,
+            });
+        }
+
+        return tracks;
     }
 }

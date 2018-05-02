@@ -9,7 +9,8 @@ import LocalDataRepository from '@src/data/local-data-repository';
 
 const isProduction = true;
 
-const assetsBaseUrl = 'https://soluble.io/mfts/assets/';
+// without ending slash !
+const assetsBaseUrl = 'https://soluble.io/mfts/assets';
 
 if (!isProduction) {
     // Change some params here if needed
@@ -67,7 +68,8 @@ export interface IAppConfig {
 
 export const appConfig = new AppConfig({
     assetsBaseUrl: assetsBaseUrl,
-    videosBaseUrl: assetsBaseUrl + 'videos/',
+    // without ending slash
+    videosBaseUrl: `${assetsBaseUrl}/videos`,
     data: {
         menu: dataMenu,
         pages: dataPages,

@@ -52,7 +52,9 @@ class PageContainer extends React.Component<IProps, IState> {
         if (pageExists === undefined) {
             return null;
         }
-        return <div>{pageEntity ? <Page pageEntity={pageEntity} /> : <NotFoundContainer />}</div>;
+        return (
+            <div>{pageEntity ? <Page pageEntity={pageEntity} lang={this.props.lang} /> : <NotFoundContainer />}</div>
+        );
     }
 }
 

@@ -6,6 +6,7 @@ import VideoEntity from '@src/data/video-entity';
 
 export interface PageProps {
     pageEntity: PageEntity;
+    lang: string;
 }
 
 interface PageState {}
@@ -129,13 +130,18 @@ export default class Page extends React.Component<PageProps, PageState> {
                                         <div className="page-audio-subs">
                                             <video controls={true}>
                                                 <source type="audio/mp3" src={audio.getSrc()} />
-                                                <track
-                                                    label="English"
-                                                    kind="subtitles"
-                                                    srcLang="en"
-                                                    src="audio-en.vtt"
-                                                    default={true}
-                                                />
+                                                {audio.getAllTracks().map(audioTrack => {
+                                                    return (
+                                                        <track
+                                                            key={audioTrack.src}
+                                                            label={audioTrack.lang}
+                                                            kind="subtitles"
+                                                            srcLang={audioTrack.lang}
+                                                            src={audioTrack.src}
+                                                            default={this.props.lang == audioTrack.lang}
+                                                        />
+                                                    );
+                                                })}
                                             </video>
                                         </div>
                                     )}
