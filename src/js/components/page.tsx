@@ -155,7 +155,7 @@ export default class Page extends React.Component<PageProps, PageState> {
                                 </div>
                             ) : (
                                 <div className="page-single-video-layout">
-                                    <VideoComp video={page.getFirstVideo()} loop={false} />;
+                                    <VideoComp video={page.getFirstVideo()} loop={false} />
                                 </div>
                             )}
                         </div>
