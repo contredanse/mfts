@@ -22,7 +22,7 @@
         'header'
         'content'
         'footer';
-    grid-template-rows: 10% 1fr 20%;
+    grid-template-rows: 7% 1fr 10%;
 
     .page-header {
         grid-area: header;
@@ -78,10 +78,16 @@
         .page-single-video-layout {
             flex: 1;
             display: grid;
+
             .videocomp-container {
-                grid-row: 1;
-                // needed for single-video-layout
+                width: 100%; // needed for single-video-layout
                 max-height: 100%;
+                video {
+                    object-fit: initial;
+                    //max-height: 100%;
+                    //height: 100%;
+                    //width: 100%;
+                }
             }
         }
     }
