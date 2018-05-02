@@ -39,16 +39,20 @@
             grid-template-areas:
                 'video-wall'
                 'audio-subs';
+            /* hack to prevent horizontal scrolling */
+            max-width: 97%;
             grid-template-rows: 1fr 30%;
 
             .page-video-wall {
                 grid-area: video-wall;
+
                 display: flex;
-                margin: 0 -10px;
+                justify-content: space-between;
+                //width: 100%;
+                margin: 0 -5px;
 
                 .videocomp-container {
-                    grid-row: 1;
-                    margin: 0 10px;
+                    margin: 0 5px;
                 }
             }
 
@@ -56,12 +60,12 @@
                 grid-area: audio-subs;
                 max-height: 100%;
                 video {
-                    border: 1px solid #aaa;
                     object-fit: initial;
                     max-height: 100%;
                     height: 100%;
                     width: 100%;
                     &::cue {
+                        font-family: $primary-font;
                         font-size: 1.5em;
                         color: yellow;
                     }
