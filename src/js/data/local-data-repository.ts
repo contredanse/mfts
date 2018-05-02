@@ -4,7 +4,7 @@ import { IDataPage } from '@db/data-pages';
 import { cloneDeep } from 'lodash-es';
 import { IDataRepository, DataSupportedLangType, IDataRepositoryParams } from '@src/data/data-repository';
 import VideoEntity from '@src/data/video-entity';
-import PageEntity, { MediaTracks, PageAudioEntityProps, PageEntityProps } from '@src/data/page-entity';
+import PageEntity, { MediaTracks, PageEntityProps } from '@src/data/page-entity';
 import VideoSourceEntity from '@src/data/video-source-entity';
 
 export default class LocalDataRepository implements IDataRepository {
@@ -55,10 +55,10 @@ export default class LocalDataRepository implements IDataRepository {
      * @returns {Promise<VideoEntity>}
      */
     async getVideoEntity(videoId: string): Promise<VideoEntity> {
-        const { video: videoBaseUrl, videoCovers: videoCoversUrl } = this.params.baseUrl;
+        const { video: videoBaseUrl, videoCovers: videoCoversUrl } = this.params.urlPaths;
         const video = await this.getVideo(videoId);
 
-        // Convert and add baseUrl video sources
+        // Convert and add urlPaths video sources
         const sources = video.sources.reduce(
             (acc, rawSource) => {
                 acc.push(
@@ -74,7 +74,7 @@ export default class LocalDataRepository implements IDataRepository {
             [] as VideoSourceEntity[]
         );
 
-        // Convert and add baseUrl to tracks
+        // Convert and add urlPaths to tracks
         let tracks;
         if (video.tracks !== undefined) {
             tracks = {} as MediaTracks;
@@ -83,7 +83,7 @@ export default class LocalDataRepository implements IDataRepository {
             }
         }
 
-        // Convert and add baseUrl to covers
+        // Convert and add urlPaths to covers
         let covers: string[] | undefined;
         if (video.covers !== undefined) {
             covers = video.covers.reduce((acc: string[], cover) => {
@@ -153,6 +153,7 @@ export default class LocalDataRepository implements IDataRepository {
         }
 
         // get localized audio versions
+        /*
         let audio: PageAudioEntityProps | undefined;
         if (content.audio !== undefined) {
             const { tracks, src: i18nAudioSrc } = content.audio;
@@ -164,7 +165,8 @@ export default class LocalDataRepository implements IDataRepository {
             if (tracks !== undefined) {
                 audio.tracks = tracks;
             }
-        }
+        }*/
+        const audio = content.audio;
 
         const pageEntityProps: PageEntityProps = {
             pageId: pageData.page_id,
@@ -182,7 +184,13 @@ export default class LocalDataRepository implements IDataRepository {
         //cover: pageData.cover,
 
         return new Promise<PageEntity>((resolve, reject) => {
-            resolve(new PageEntity(pageEntityProps));
+            resolve(
+                new PageEntity(pageEntityProps, {
+                    lang: lang,
+                    fallbackLang: 'en',
+                    baseUrl: this.params.assetsBaseUrl,
+                })
+            );
         });
     }
 }

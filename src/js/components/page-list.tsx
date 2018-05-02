@@ -24,7 +24,7 @@ export default class PageList extends React.Component<IProps, IState> {
 
     render() {
         const list = this.props.pages;
-        //const {baseUrl, onSelected} = this.props;
+        //const {urlPaths, onSelected} = this.props;
 
         //console.log('pages', list);
 
@@ -76,7 +76,7 @@ export default class PageList extends React.Component<IProps, IState> {
                                 }
 
                                 // TODO fix the idea of pageCover !!!
-                                //const coverImg = `${baseUrl}covers/${page.cover}`;
+                                //const coverImg = `${urlPaths}covers/${page.cover}`;
 
                                 const firstVideoId = videos[0].video_id;
                                 const coverImg = `${baseUrl}covers/${firstVideoId}-03.jpg`;

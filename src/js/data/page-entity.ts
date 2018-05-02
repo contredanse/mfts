@@ -1,4 +1,7 @@
 import VideoEntity from '@src/data/video-entity';
+import AudioEntity, { AudioEntityFactory } from '@src/data/audio-entity';
+import { BaseEntity } from '@src/data/base-entity';
+import { IDataPageAudio } from '@db/data-pages';
 
 export interface MediaTracks {
     [key: string]: string;
@@ -17,12 +20,14 @@ export interface PageEntityProps {
     keywords?: string[];
     videos: VideoEntity[];
     cover?: string;
-    audio?: PageAudioEntityProps;
+    audio?: IDataPageAudio;
     audioTrack?: MediaTracks;
 }
 
-export default class PageEntity {
-    constructor(protected readonly data: PageEntityProps) {}
+export default class PageEntity extends BaseEntity {
+    constructor(protected readonly data: PageEntityProps, options) {
+        super(options);
+    }
 
     get pageId(): string {
         return this.data.pageId;
@@ -48,27 +53,18 @@ export default class PageEntity {
         return this.data.videos.length;
     }
 
+    getFirstVideo(): VideoEntity {
+        return this.data.videos[0];
+    }
+
     hasAudio(): boolean {
         return this.data.audio !== undefined;
     }
 
-    hasAudioTracks(): boolean {
-        return this.data.audio !== undefined && this.data.audio.tracks !== undefined;
-    }
-
-    getAudioTracks(): MediaTracks | undefined {
-        if (!this.hasAudioTracks()) {
-            return undefined;
-        }
-        return (this.data.audio as PageAudioEntityProps).tracks;
-    }
-    getAudio(): PageAudioEntityProps | undefined {
-        return this.data.audio;
-    }
-    getAudioSource(): string | undefined {
+    getAudioEntity(): AudioEntity | undefined {
         if (!this.hasAudio()) {
             return undefined;
         }
-        return (this.data.audio as PageAudioEntityProps).src;
+        return AudioEntityFactory.createFromData(this.data.audio as IDataPageAudio, this.options);
     }
 }

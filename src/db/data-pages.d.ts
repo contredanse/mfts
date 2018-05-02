@@ -21,7 +21,7 @@ export interface IDataPageLocalizedKeywords {
 export interface IDataPageContent {
     layout: string;
     videos: IDataPageVideoEntity[];
-    audio?: IDataPageAudioEntity;
+    audio?: IDataPageAudio;
 }
 
 export interface IDataPageVideoEntity {
@@ -41,7 +41,7 @@ export interface IDataPageVideoDetail {
     loop?: boolean;
 }
 
-export interface IDataPageAudioEntity {
+export interface IDataPageAudio {
     src: LocalizedAudioSource;
     tracks?: {
         en: string;

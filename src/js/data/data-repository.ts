@@ -5,7 +5,8 @@ export type DataSupportedLangType = 'en' | 'fr';
 
 export interface IDataRepositoryParams {
     defaultLang: DataSupportedLangType;
-    baseUrl: {
+    assetsBaseUrl: string;
+    urlPaths: {
         video: string;
         audio: string;
         videoCovers: string;

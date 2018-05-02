@@ -73,7 +73,7 @@ export class VideoComp extends React.Component<VideoCompProps, {}> {
         };
 
         return (
-            <div className="page-video-container">
+            <div className="videocomp-container">
                 <video
                     ref={(node: HTMLVideoElement) => {
                         this.videoNode = node;
@@ -102,19 +102,49 @@ export default class Page extends React.Component<PageProps, PageState> {
     render() {
         const { pageEntity: page } = this.props;
         const videos = page.videos;
-        console.log('page', page);
-        console.log('videos', videos);
+
+        const audio = page.getAudioEntity();
+
         return (
             <PageOverlay closeButton={false}>
                 <div className="page-wrapper">
                     <div className="page-container">
                         <div className="page-header">Page: {page.pageId}</div>
                         <div className="page-content">
-                            <div className="page-video-layout">
-                                {videos.map(video => {
-                                    return <VideoComp key={video.videoId} video={video} />;
-                                })}
-                            </div>
+                            {page.countVideos() > 1 ? (
+                                <div className="page-multi-video-layout">
+                                    <div className="page-video-wall">
+                                        {videos.map(video => {
+                                            return (
+                                                <VideoComp
+                                                    key={video.videoId}
+                                                    video={video}
+                                                    loop={true}
+                                                    autoPlay={false}
+                                                />
+                                            );
+                                        })}
+                                    </div>
+                                    {audio && (
+                                        <div className="page-audio-subs">
+                                            <video controls={true}>
+                                                <source type="audio/mp3" src={audio.getSrc()} />
+                                                <track
+                                                    label="English"
+                                                    kind="subtitles"
+                                                    srcLang="en"
+                                                    src="audio-en.vtt"
+                                                    default={true}
+                                                />
+                                            </video>
+                                        </div>
+                                    )}
+                                </div>
+                            ) : (
+                                <div className="page-single-video-layout">
+                                    <VideoComp video={page.getFirstVideo()} loop={false} />;
+                                </div>
+                            )}
                         </div>
                         <div className="page-footer">
                             Here will come the player controls... and above subtitles when multiple videos

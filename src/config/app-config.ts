@@ -41,7 +41,8 @@ export class AppConfig {
         if (params === undefined) {
             params = {
                 defaultLang: 'en',
-                baseUrl: {
+                assetsBaseUrl: assetsBaseUrl,
+                urlPaths: {
                     video: this.getVideosBaseUrl(),
                     videoCovers: this.getVideosBaseUrl(),
                     audio: this.getVideosBaseUrl(),
