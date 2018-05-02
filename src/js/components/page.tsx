@@ -106,6 +106,11 @@ export default class Page extends React.Component<PageProps, PageState> {
 
         const audio = page.getAudioEntity();
 
+        // Warning this is an hack...
+        // - audio/mp3 works on desktops but not on mobile
+        // - video/mp4 works on desktops
+        const audioMimeType = 'video/mp4';
+
         return (
             <PageOverlay closeButton={false}>
                 <div className="page-wrapper">
@@ -129,7 +134,7 @@ export default class Page extends React.Component<PageProps, PageState> {
                                     {audio && (
                                         <div className="page-audio-subs">
                                             <video controls={true} crossOrigin="anonymous">
-                                                <source type="audio/mp3" src={audio.getSrc()} />
+                                                <source type={audioMimeType} src={audio.getSrc()} />
                                                 {audio.getAllTracks().map(audioTrack => {
                                                     return (
                                                         <track
