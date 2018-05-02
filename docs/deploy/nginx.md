@@ -102,3 +102,57 @@ server {
     return 404; # managed by Certbot
 }
 ```
+
+# Fix mimetypes
+
+Be sure you have `.vtt` mime type in `/etc/nginx/mime.types`, as an example:
+
+```
+    text/html                             html htm shtml;
+    text/css                              css;
+    text/xml                              xml;
+    text/vtt                              vtt;
+
+```
+
+
+# Setting up CORS
+
+As an example
+
+```
+location /mfts {
+
+        set $cors '';
+	if ($http_origin ~ '^https?://(localhost|www\.soluble\.io|paxton\.soluble\.io|soluble\.io)') {
+    	    set $cors 'true';
+	}
+
+        if ($cors = 'true') {
+            add_header 'Access-Control-Allow-Origin' "$http_origin" always;
+            add_header 'Access-Control-Allow-Credentials' 'true' always;
+            add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, DELETE, OPTIONS' always;
+            add_header 'Access-Control-Allow-Headers' 'Accept,Authorization,Cache-Control,Content-Type,DNT,If-Modified-Since,Keep-Alive,Origin,User-Agent,X-Requested-With' always;
+            # required to be able to read Authorization header in frontend
+            #add_header 'Access-Control-Expose-Headers' 'Authorization' always;
+	}
+
+	if ($request_method = 'OPTIONS') {
+    	    add_header 'Access-Control-Allow-Origin' "$http_origin" always;
+            add_header 'Access-Control-Allow-Credentials' 'true' always;
+            add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, DELETE, OPTIONS' always;
+            add_header 'Access-Control-Allow-Headers' 'Accept,Authorization,Cache-Control,Content-Type,DNT,If-Modified-Since,Keep-Alive,Origin,User-Agent,X-Requested-With' always;
+            # required to be able to read Authorization header in frontend
+            #add_header 'Access-Control-Expose-Headers' 'Authorization' always;
+            # Tell client that this pre-flight info is valid for 20 days
+            add_header 'Access-Control-Max-Age' 1728000;
+            add_header 'Content-Type' 'text/plain charset=UTF-8';
+            add_header 'Content-Length' 0;
+            return 204;
+	}
+
+}
+
+```
+
+ 
