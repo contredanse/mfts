@@ -41,12 +41,14 @@ export interface IDataPageVideoDetail {
     loop?: boolean;
 }
 
+export interface IDataPageAudioTrack {
+    lang: string;
+    src: string;
+}
+
 export interface IDataPageAudio {
     src: LocalizedAudioSource;
-    tracks?: {
-        en: string;
-        fr: string;
-    };
+    tracks?: IDataPageAudioTrack[];
 }
 
 export type LocalizedAudioSource = {
