@@ -1,5 +1,5 @@
 import { IAppDataConfig } from '@config/app-config';
-import { IDataVideo } from '@db/data-videos';
+import { IJsonVideo } from '@db/data-videos';
 import { IDataPage } from '@db/data-pages';
 import { cloneDeep } from 'lodash-es';
 import { IDataRepository, DataSupportedLangType, IDataRepositoryParams } from '@src/data/data-repository';
@@ -34,10 +34,10 @@ export default class LocalDataRepository implements IDataRepository {
         });
     }
 
-    async getVideo(id: string): Promise<IDataVideo> {
-        return new Promise<IDataVideo>((resolve, reject) => {
+    async getVideo(id: string): Promise<IJsonVideo> {
+        return new Promise<IJsonVideo>((resolve, reject) => {
             const video = cloneDeep(
-                this.data.videos.find((element: IDataVideo) => {
+                this.data.videos.find((element: IJsonVideo) => {
                     return id === element.video_id;
                 })
             );

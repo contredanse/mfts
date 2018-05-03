@@ -1,5 +1,5 @@
 import { IDataMenu } from '@db/data-menu';
-import { IDataVideo } from '@db/data-videos';
+import { IJsonVideo } from '@db/data-videos';
 import { IDataPage } from '@db/data-pages';
 import dataMenu from '@db/data-menu.json';
 import dataVideos from '@db/data-videos.json';
@@ -57,7 +57,7 @@ export class AppConfig {
 export interface IAppDataConfig {
     readonly menu: IDataMenu;
     readonly pages: IDataPage[];
-    readonly videos: IDataVideo[];
+    readonly videos: IJsonVideo[];
 }
 
 export interface IAppConfig {

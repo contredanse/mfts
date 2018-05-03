@@ -1,12 +1,12 @@
 import * as React from 'react';
 import './video-list.scss';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { IDataVideo } from '@db/data-videos';
+import { IJsonVideo } from '@db/data-videos';
 
 interface IProps {
-    videos: IDataVideo[];
+    videos: IJsonVideo[];
     baseUrl: string;
-    onSelected: (video: IDataVideo) => void;
+    onSelected: (video: IJsonVideo) => void;
 }
 
 interface IState {}

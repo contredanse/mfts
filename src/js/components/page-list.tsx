@@ -2,7 +2,7 @@ import * as React from 'react';
 import './page-list.scss';
 import { IDataPage, IDataPageVideoEntity } from '@db/data-pages';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { IDataVideo } from '@db/data-videos';
+import { IJsonVideo } from '@db/data-videos';
 import dataVideos from '@db/data-videos.json';
 
 interface IProps {
@@ -46,7 +46,7 @@ export default class PageList extends React.Component<IProps, IState> {
                                 const { lang } = this.props;
                                 const fallbackLang = 'en';
 
-                                let videos: IDataVideo[] = [];
+                                let videos: IJsonVideo[] = [];
                                 switch (content.layout) {
                                     case 'single-video':
                                     case 'single-video-audio':
@@ -145,8 +145,8 @@ export default class PageList extends React.Component<IProps, IState> {
         );
     }
 
-    protected getVideo(videoId: string): IDataVideo {
-        return dataVideos.filter((video: IDataVideo) => {
+    protected getVideo(videoId: string): IJsonVideo {
+        return dataVideos.filter((video: IJsonVideo) => {
             return video.video_id === videoId;
         })[0];
     }

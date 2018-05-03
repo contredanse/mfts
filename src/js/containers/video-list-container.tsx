@@ -3,16 +3,16 @@ import { VideoList } from '@src/components/video-list';
 import { PageOverlay } from '@src/components/page-overlay';
 import { SearchBox } from '@src/components/search-box';
 import { ReactVideoPlayer } from '@src/components/react-video-player';
-import { IDataVideo } from '@db/data-videos';
+import { IJsonVideo } from '@db/data-videos';
 
 interface IProps {
-    initialData: IDataVideo[];
+    initialData: IJsonVideo[];
     videosBaseUrl: string;
 }
 
 interface IState {
-    videos: IDataVideo[];
-    selectedVideo?: IDataVideo;
+    videos: IJsonVideo[];
+    selectedVideo?: IJsonVideo;
     searchFragment?: string;
 }
 
@@ -41,7 +41,7 @@ class VideoListContainer extends React.Component<IProps, IState> {
         });
     };
 
-    openVideo = (video: IDataVideo) => {
+    openVideo = (video: IJsonVideo) => {
         this.setState(state => ({
             ...state,
             selectedVideo: video,
