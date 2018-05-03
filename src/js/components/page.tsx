@@ -1,8 +1,8 @@
 import * as React from 'react';
 import './page.scss';
 import { PageOverlay } from '@src/components/page-overlay';
-import PageEntity from '@model/page-entity';
-import VideoEntity from '@model/video-entity';
+import PageEntity from '@model/entity/page-entity';
+import VideoEntity from '@model/entity/video-entity';
 
 export interface PageProps {
     pageEntity: PageEntity;
@@ -87,7 +87,7 @@ export class VideoComp extends React.Component<VideoCompProps, {}> {
                     {...videoProps}
                 >
                     {video.getSources().map((sourceEntity, idx) => {
-                        return <source key={idx} src={sourceEntity.src} type={sourceEntity.getHtmlTypeValue()} />;
+                        return <source key={idx} src={sourceEntity.src} type={sourceEntity.getHtmlVideoTypeValue()} />;
                     })}
                 </video>
                 <div className="overlay">

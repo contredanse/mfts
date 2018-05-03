@@ -1,7 +1,7 @@
 import { orderBy } from 'lodash-es';
-import { MediaTracks } from '@model/page-entity';
-import VideoSourceEntity, { VideoSourceProps } from '@model/video-source-entity';
-import { BaseEntity, IBaseEntityOptions } from '@model/base-entity';
+import { MediaTracks } from '@model/entity/page-entity';
+import VideoSourceEntity, { VideoSourceProps } from '@model/entity/video-source-entity';
+import { AbstractBaseEntity, IBaseEntityOptions } from '@model/entity/abstract-base-entity';
 
 export class VideoEntityFactory {
     static createFromJson(data: any, options?: VideoEntityOptions): VideoEntity {
@@ -25,7 +25,7 @@ export interface VideoEntityProps {
 
 export interface VideoEntityOptions extends IBaseEntityOptions {}
 
-export default class VideoEntity extends BaseEntity {
+export default class VideoEntity extends AbstractBaseEntity {
     readonly options!: VideoEntityOptions;
 
     constructor(protected readonly data: VideoEntityProps, options?: VideoEntityOptions) {

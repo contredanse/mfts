@@ -2,7 +2,7 @@ import React from 'react';
 import Page from '@src/components/page';
 import NotFoundContainer from '@src/containers/notfound-container';
 import { DataSupportedLangType, IDataRepository } from '@model/data-repository';
-import PageEntity from '@model/page-entity';
+import PageEntity from '@model/entity/page-entity';
 
 interface IProps {
     pageId: string;

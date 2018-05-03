@@ -4,7 +4,7 @@ export interface IBaseEntityOptions {
     baseUrl: string;
 }
 
-export abstract class BaseEntity {
+export abstract class AbstractBaseEntity {
     readonly defaultOptions: IBaseEntityOptions = {
         lang: 'en',
         fallbackLang: 'en',

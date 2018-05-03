@@ -1,4 +1,4 @@
-import { BaseEntity, IBaseEntityOptions } from '@model/base-entity';
+import { AbstractBaseEntity, IBaseEntityOptions } from '@model/entity/abstract-base-entity';
 
 export class VideoSourceEntityFactory {
     static createFromJson(data: any, options?: VideoSourceEntityOptions): VideoSourceEntity {
@@ -15,7 +15,7 @@ export interface VideoSourceProps {
 
 export interface VideoSourceEntityOptions extends IBaseEntityOptions {}
 
-export default class VideoSourceEntity extends BaseEntity {
+export default class VideoSourceEntity extends AbstractBaseEntity {
     /**
      * Mimetypes map for some media formats
      * @type {{mp4: string; webm: string; av1: string; mp3: string}}
@@ -53,7 +53,7 @@ export default class VideoSourceEntity extends BaseEntity {
         return this.data.src;
     }
 
-    getHtmlTypeValue(): string {
+    getHtmlVideoTypeValue(): string {
         if (this.codecs !== undefined) {
             return `${this.type}; ${this.codecs}`;
         }

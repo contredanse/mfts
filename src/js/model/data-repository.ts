@@ -1,5 +1,5 @@
-import VideoEntity from '@model/video-entity';
-import PageEntity from '@model/page-entity';
+import VideoEntity from '@model/entity/video-entity';
+import PageEntity from '@model/entity/page-entity';
 
 export type DataSupportedLangType = 'en' | 'fr';
 

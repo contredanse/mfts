@@ -3,9 +3,9 @@ import { IJsonVideo } from '@data/json/data-videos';
 import { IJsonPage } from '@data/json/data-pages';
 import { cloneDeep } from 'lodash-es';
 import { IDataRepository, DataSupportedLangType, IDataRepositoryParams } from '@model/data-repository';
-import VideoEntity from '@model/video-entity';
-import PageEntity, { MediaTracks, PageEntityProps } from '@model/page-entity';
-import VideoSourceEntity from '@model/video-source-entity';
+import VideoEntity from '@model/entity/video-entity';
+import PageEntity, { MediaTracks, PageEntityProps } from '@model/entity/page-entity';
+import VideoSourceEntity from '@model/entity/video-source-entity';
 
 export default class LocalDataRepository implements IDataRepository {
     public readonly params: IDataRepositoryParams;
@@ -32,6 +32,13 @@ export default class LocalDataRepository implements IDataRepository {
             }
             resolve(page);
         });
+    }
+
+    getPage2(pageId: string): IJsonPage | undefined {
+        const page = this.data.pages.find((element: IJsonPage) => {
+            return pageId === element.page_id;
+        });
+        return page;
     }
 
     async getVideo(id: string): Promise<IJsonVideo> {

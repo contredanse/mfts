@@ -1,7 +1,7 @@
-import VideoEntity from '@model/video-entity';
-import AudioEntity, { AudioEntityFactory } from '@model/audio-entity';
-import { BaseEntity } from '@model/base-entity';
-import { IJsonPageAudio } from '@data/json/data-pages';
+import VideoEntity from '@model/entity/video-entity';
+import AudioEntity, { AudioEntityFactory } from '@model/entity/audio-entity';
+import { AbstractBaseEntity } from '@model/entity/abstract-base-entity';
+import { IJsonPageAudio } from 'src/data/json/data-pages';
 
 export interface MediaTracks {
     [key: string]: string;
@@ -24,7 +24,7 @@ export interface PageEntityProps {
     audioTrack?: MediaTracks;
 }
 
-export default class PageEntity extends BaseEntity {
+export default class PageEntity extends AbstractBaseEntity {
     constructor(protected readonly data: PageEntityProps, options) {
         super(options);
     }
