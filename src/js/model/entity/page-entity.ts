@@ -1,6 +1,6 @@
 import VideoEntity from '@model/entity/video-entity';
 import AudioEntity, { AudioEntityFactory } from '@model/entity/audio-entity';
-import { AbstractBaseEntity } from '@model/entity/abstract-base-entity';
+import { AbstractBaseEntity, IBaseEntityOptions } from '@model/entity/abstract-base-entity';
 import { IJsonPageAudio } from 'src/data/json/data-pages';
 
 export interface MediaTracks {
@@ -12,7 +12,7 @@ export interface PageAudioEntityProps {
     tracks?: MediaTracks;
 }
 
-export interface PageEntityProps {
+export interface IPageEntityData {
     pageId: string;
     title: string;
     sortIdx: number;
@@ -24,8 +24,10 @@ export interface PageEntityProps {
     audioTrack?: MediaTracks;
 }
 
+export interface IPageEntityOptions extends IBaseEntityOptions {}
+
 export default class PageEntity extends AbstractBaseEntity {
-    constructor(protected readonly data: PageEntityProps, options) {
+    constructor(protected readonly data: IPageEntityData, options: IPageEntityOptions) {
         super(options);
     }
 

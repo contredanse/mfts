@@ -4,7 +4,7 @@ import { IJsonPage } from '@data/json/data-pages';
 import { cloneDeep } from 'lodash-es';
 import { IDataRepository, DataSupportedLangType, IDataRepositoryParams } from '@model/repository/data-repository';
 import VideoEntity from '@model/entity/video-entity';
-import PageEntity, { MediaTracks, PageEntityProps } from '@model/entity/page-entity';
+import PageEntity, { MediaTracks, IPageEntityData } from '@model/entity/page-entity';
 import VideoSourceEntity from '@model/entity/video-source-entity';
 
 export default class LocalDataRepository implements IDataRepository {
@@ -144,7 +144,7 @@ export default class LocalDataRepository implements IDataRepository {
      *
      * @param {string} pageId
      * @param {string} lang
-     * @returns {Promise<PageEntityProps>}
+     * @returns {Promise<IPageEntityData>}
      */
     async getPageEntity(pageId: string, lang: DataSupportedLangType): Promise<PageEntity> {
         const pageData = await this.getPage(pageId);
@@ -175,7 +175,7 @@ export default class LocalDataRepository implements IDataRepository {
         }*/
         const audio = content.audio;
 
-        const pageEntityProps: PageEntityProps = {
+        const pageEntityProps: IPageEntityData = {
             pageId: pageData.page_id,
             title: pageData.title[lang],
             sortIdx: pageData.sort_idx,
