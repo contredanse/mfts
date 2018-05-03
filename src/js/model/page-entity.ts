@@ -1,7 +1,7 @@
 import VideoEntity from '@src/model/video-entity';
 import AudioEntity, { AudioEntityFactory } from '@src/model/audio-entity';
 import { BaseEntity } from '@src/model/base-entity';
-import { IJsonPageAudio } from '@data/data-pages';
+import { IJsonPageAudio } from '@data/json/data-pages';
 
 export interface MediaTracks {
     [key: string]: string;

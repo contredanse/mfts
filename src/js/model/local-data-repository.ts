@@ -1,6 +1,6 @@
 import { IAppDataConfig } from '@config/app-config';
-import { IJsonVideo } from '@data/data-videos';
-import { IJsonPage } from '@data/data-pages';
+import { IJsonVideo } from '@data/json/data-videos';
+import { IJsonPage } from '@data/json/data-pages';
 import { cloneDeep } from 'lodash-es';
 import { IDataRepository, DataSupportedLangType, IDataRepositoryParams } from '@src/model/data-repository';
 import VideoEntity from '@src/model/video-entity';

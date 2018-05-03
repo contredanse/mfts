@@ -1,5 +1,5 @@
 import { MediaTracks } from '@src/model/page-entity';
-import { IJsonPageAudio, IJsonPageAudioTrack, IJsonLocalizedAudioSource } from '@data/data-pages';
+import { IJsonPageAudio, IJsonPageAudioTrack, IJsonLocalizedAudioSource } from '@data/json/data-pages';
 import { BaseEntity, IBaseEntityOptions } from '@src/model/base-entity';
 
 export class AudioEntityFactory {

@@ -1,6 +1,6 @@
 import React from 'react';
 import HelixMenu from '@src/components/helix-menu';
-import jsonMenuData from '@data/data-menu.json';
+import jsonMenuData from '@data/json/data-menu.json';
 
 interface IProps {}
 interface IState {}

@@ -1,9 +1,9 @@
-import { IJsonMenu } from '@data/data-menu';
-import { IJsonVideo } from '@data/data-videos';
-import { IJsonPage } from '@data/data-pages';
-import dataMenu from '@data/data-menu.json';
-import dataVideos from '@data/data-videos.json';
-import dataPages from '@data/data-pages.json';
+import { IJsonMenu } from '@data/json/data-menu';
+import { IJsonVideo } from '@data/json/data-videos';
+import { IJsonPage } from '@data/json/data-pages';
+import dataMenu from '@data/json/data-menu.json';
+import dataVideos from '@data/json/data-videos.json';
+import dataPages from '@data/json/data-pages.json';
 import { IDataRepository, IDataRepositoryParams } from '@src/model/data-repository';
 import LocalDataRepository from '@src/model/local-data-repository';
 

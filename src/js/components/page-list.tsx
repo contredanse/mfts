@@ -1,9 +1,9 @@
 import * as React from 'react';
 import './page-list.scss';
-import { IJsonPage, IJsonPageVideoEntity } from '@data/data-pages';
+import { IJsonPage, IJsonPageVideoEntity } from '@data/json/data-pages';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { IJsonVideo } from '@data/data-videos';
-import dataVideos from '@data/data-videos.json';
+import { IJsonVideo } from '@data/json/data-videos';
+import dataVideos from '@data/json/data-videos.json';
 
 interface IProps {
     pages: IJsonPage[];

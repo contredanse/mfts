@@ -1,7 +1,7 @@
 import React from 'react';
 import { PageOverlay } from '@src/components/page-overlay';
 import { SearchBox } from '@src/components/search-box';
-import { IJsonPage } from '@data/data-pages';
+import { IJsonPage } from '@data/json/data-pages';
 import PageList from '@src/components/page-list';
 import { withRouter } from 'react-router-dom';
 import { RouteComponentProps } from 'react-router';
