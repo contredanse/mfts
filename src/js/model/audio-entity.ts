@@ -3,7 +3,7 @@ import { IJsonPageAudio, IJsonPageAudioTrack, IJsonLocalizedAudioSource } from '
 import { BaseEntity, IBaseEntityOptions } from '@src/model/base-entity';
 
 export class AudioEntityFactory {
-    static createFromData(data: IJsonPageAudio, options?: AudioEntityOptions): AudioEntity {
+    static createFromJson(data: IJsonPageAudio, options?: AudioEntityOptions): AudioEntity {
         return new AudioEntity(
             {
                 src: data.src,

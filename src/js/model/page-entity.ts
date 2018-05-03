@@ -65,6 +65,6 @@ export default class PageEntity extends BaseEntity {
         if (!this.hasAudio()) {
             return undefined;
         }
-        return AudioEntityFactory.createFromData(this.data.audio as IJsonPageAudio, this.options);
+        return AudioEntityFactory.createFromJson(this.data.audio as IJsonPageAudio, this.options);
     }
 }
