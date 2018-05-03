@@ -5,8 +5,8 @@ import { IJsonPage } from '@data/json/data-pages';
 import PageList from '@src/components/page-list';
 import { withRouter } from 'react-router-dom';
 import { RouteComponentProps } from 'react-router';
-import { IDataRepository } from '@src/model/data-repository';
-import LocalDataRepository from '@src/model/local-data-repository';
+import { IDataRepository } from '@model/data-repository';
+import LocalDataRepository from '@model/local-data-repository';
 
 interface PageListContainerProps extends RouteComponentProps<any> {
     dataRepository: LocalDataRepository;

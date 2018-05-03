@@ -1,6 +1,6 @@
-import { MediaTracks } from '@src/model/page-entity';
+import { MediaTracks } from '@model/page-entity';
 import { IJsonPageAudio, IJsonPageAudioTrack, IJsonLocalizedAudioSource } from '@data/json/data-pages';
-import { BaseEntity, IBaseEntityOptions } from '@src/model/base-entity';
+import { BaseEntity, IBaseEntityOptions } from '@model/base-entity';
 
 export class AudioEntityFactory {
     static createFromJson(data: IJsonPageAudio, options?: AudioEntityOptions): AudioEntity {

@@ -1,6 +1,6 @@
 import { orderBy } from 'lodash-es';
-import { MediaTracks } from '@src/model/page-entity';
-import VideoSourceEntity, { VideoSourceProps } from '@src/model/video-source-entity';
+import { MediaTracks } from '@model/page-entity';
+import VideoSourceEntity, { VideoSourceProps } from '@model/video-source-entity';
 import { BaseEntity, IBaseEntityOptions } from '@model/base-entity';
 
 export class VideoEntityFactory {

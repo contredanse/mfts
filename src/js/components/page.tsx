@@ -1,8 +1,8 @@
 import * as React from 'react';
 import './page.scss';
 import { PageOverlay } from '@src/components/page-overlay';
-import PageEntity from '@src/model/page-entity';
-import VideoEntity from '@src/model/video-entity';
+import PageEntity from '@model/page-entity';
+import VideoEntity from '@model/video-entity';
 
 export interface PageProps {
     pageEntity: PageEntity;
