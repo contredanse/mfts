@@ -1,6 +1,13 @@
 import { orderBy } from 'lodash-es';
 import { MediaTracks } from '@src/model/page-entity';
 import VideoSourceEntity, { VideoSourceProps } from '@src/model/video-source-entity';
+import { BaseEntity, IBaseEntityOptions } from '@model/base-entity';
+
+export class VideoEntityFactory {
+    static createFromJson(data: any, options?: VideoEntityOptions): VideoEntity {
+        return new VideoEntity({} as any, options);
+    }
+}
 
 export interface VideoMetaProps {
     duration?: number;
@@ -16,8 +23,14 @@ export interface VideoEntityProps {
     tracks?: MediaTracks;
 }
 
-export default class VideoEntity {
-    constructor(protected readonly data: VideoEntityProps) {}
+export interface VideoEntityOptions extends IBaseEntityOptions {}
+
+export default class VideoEntity extends BaseEntity {
+    readonly options!: VideoEntityOptions;
+
+    constructor(protected readonly data: VideoEntityProps, options?: VideoEntityOptions) {
+        super(options);
+    }
 
     get videoId(): string {
         return this.data.videoId;
@@ -48,9 +61,15 @@ export default class VideoEntity {
      */
     getFormattedDuration(): string {
         const slices = {
-            hours: Math.trunc(this.duration / 3600),
-            minutes: Math.trunc(this.duration / 60),
-            seconds: Math.round(this.duration % 60),
+            hours: Math.trunc(this.duration / 3600)
+                .toString()
+                .padStart(2, '0'),
+            minutes: Math.trunc(this.duration / 60)
+                .toString()
+                .padStart(2, '0'),
+            seconds: Math.round(this.duration % 60)
+                .toString()
+                .padStart(2, '0'),
         };
         return `${slices.hours}:${slices.minutes}:${slices.seconds}`;
     }

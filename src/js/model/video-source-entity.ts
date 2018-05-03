@@ -1,3 +1,12 @@
+import { BaseEntity, IBaseEntityOptions } from '@model/base-entity';
+import { VideoEntityProps } from '@model/video-entity';
+
+export class VideoSourceEntityFactory {
+    static createFromJson(data: any, options?: VideoSourceEntityOptions): VideoSourceEntity {
+        return new VideoSourceEntity({} as any, options);
+    }
+}
+
 export interface VideoSourceProps {
     src: string;
     type?: string; // mimetype (i.e. video/mp4, video/webm)
@@ -5,13 +14,19 @@ export interface VideoSourceProps {
     priority?: number;
 }
 
-export default class VideoSourceEntity {
-    public static fileTypes = {
+export interface VideoSourceEntityOptions extends IBaseEntityOptions {}
+
+export default class VideoSourceEntity extends BaseEntity {
+    static fileTypes = {
         mp4: 'video/mp4',
         webm: 'video/webm',
     };
 
-    constructor(protected readonly data: VideoSourceProps) {}
+    readonly options!: VideoSourceEntityOptions;
+
+    constructor(protected readonly data: VideoSourceProps, options?: VideoSourceEntityOptions) {
+        super(options);
+    }
 
     get type(): string {
         if (this.data.type === undefined) {
