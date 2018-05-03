@@ -2,7 +2,7 @@ import { IJsonPageAudio, IJsonPageAudioTrack, IJsonLocalizedAudioSource } from '
 import { AbstractBaseEntity, IBaseEntityOptions } from '@model/entity/abstract-base-entity';
 
 export class AudioEntityFactory {
-    static createFromJson(data: IJsonPageAudio, options?: AudioEntityOptions): AudioEntity {
+    static createFromJson(data: IJsonPageAudio, options?: IAudioEntityOptions): AudioEntity {
         return new AudioEntity(
             {
                 src: data.src,
@@ -13,17 +13,14 @@ export class AudioEntityFactory {
     }
 }
 
-export interface IAudioEntityData {
-    src: IJsonLocalizedAudioSource;
-    tracks?: IJsonPageAudioTrack[];
-}
+export interface IAudioEntityData extends IJsonPageAudio {}
 
-export interface AudioEntityOptions extends IBaseEntityOptions {}
+export interface IAudioEntityOptions extends IBaseEntityOptions {}
 
 export default class AudioEntity extends AbstractBaseEntity {
-    readonly options!: AudioEntityOptions;
+    readonly options!: IAudioEntityOptions;
 
-    constructor(protected readonly data: IAudioEntityData, options?: AudioEntityOptions) {
+    constructor(protected readonly data: IAudioEntityData, options?: IAudioEntityOptions) {
         super(options);
     }
 
@@ -56,7 +53,6 @@ export default class AudioEntity extends AbstractBaseEntity {
                 src: `${baseUrl}/${audioTrack.src}`,
             });
         }
-
         return tracks;
     }
 }
