@@ -14,7 +14,7 @@ import VideoListContainer from '@src/containers/video-list-container';
 import { AppConfig } from '@config/app-config';
 import PageListContainer from '@src/containers/page-list-container';
 import PageContainer from '@src/containers/page-container';
-import LocalDataRepository from '@model/local-data-repository';
+import LocalDataRepository from '@model/repository/local-data-repository';
 
 interface AppProps {
     appConfig: AppConfig;

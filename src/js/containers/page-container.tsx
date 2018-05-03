@@ -1,7 +1,7 @@
 import React from 'react';
 import Page from '@src/components/page';
 import NotFoundContainer from '@src/containers/notfound-container';
-import { DataSupportedLangType, IDataRepository } from '@model/data-repository';
+import { DataSupportedLangType, IDataRepository } from '@model/repository/data-repository';
 import PageEntity from '@model/entity/page-entity';
 
 interface IProps {

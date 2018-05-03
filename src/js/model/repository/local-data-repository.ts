@@ -2,7 +2,7 @@ import { IAppDataConfig } from '@config/app-config';
 import { IJsonVideo } from '@data/json/data-videos';
 import { IJsonPage } from '@data/json/data-pages';
 import { cloneDeep } from 'lodash-es';
-import { IDataRepository, DataSupportedLangType, IDataRepositoryParams } from '@model/data-repository';
+import { IDataRepository, DataSupportedLangType, IDataRepositoryParams } from '@model/repository/data-repository';
 import VideoEntity from '@model/entity/video-entity';
 import PageEntity, { MediaTracks, PageEntityProps } from '@model/entity/page-entity';
 import VideoSourceEntity from '@model/entity/video-source-entity';
