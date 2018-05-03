@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './video-list.scss';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { IJsonVideo } from '@db/data-videos';
+import { IJsonVideo } from '@data/data-videos';
 
 interface IProps {
     videos: IJsonVideo[];

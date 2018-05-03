@@ -1,6 +1,6 @@
 import { orderBy } from 'lodash-es';
-import { MediaTracks } from '@src/data/page-entity';
-import VideoSourceEntity, { VideoSourceProps } from '@src/data/video-source-entity';
+import { MediaTracks } from '@src/model/page-entity';
+import VideoSourceEntity, { VideoSourceProps } from '@src/model/video-source-entity';
 
 export interface VideoMetaProps {
     duration?: number;

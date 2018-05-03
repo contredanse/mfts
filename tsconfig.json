@@ -5,12 +5,12 @@
             "@src/*": ["src/js/*"],
             "@styles/*": ["src/styles/*"],
             "@public/*": ["public/*"],
-            "@data/*": ["src/data/*"],
+            "@model/*": ["src/js/model/*"],
             "@config/*": ["src/config/*"],
             "@shaders/*": ["src/shaders/*"],
             "@assets/*": ["src/assets/*"],
             "@thirdparty/*": ["src/thirdparty/*"],
-            "@db/*": ["src/db/*"]
+            "@data/*": ["src/data/*"]
         },
         //  "outDir": "dist/",                    // target for compiled files
         "allowSyntheticDefaultImports": true, // no errors on commonjs default import

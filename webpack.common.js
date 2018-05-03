@@ -14,14 +14,14 @@ module.exports = {
              * Internal import aliases for convenience.
              */
             '@src': path.resolve(__dirname, 'src/js/'),
-            '@data': path.resolve(__dirname, 'src/js/data'),
+            '@model': path.resolve(__dirname, 'src/js/model'),
             '@config': path.resolve(__dirname, 'src/config/'),
             '@styles': path.resolve(__dirname, 'src/styles/'),
             '@public': path.resolve(__dirname, 'public/'),
             '@assets': path.resolve(__dirname, 'src/assets/'),
             '@shaders': path.resolve(__dirname, 'src/shaders'),
             '@thirdparty': path.resolve(__dirname, 'src/thirdparty'),
-            '@db': path.resolve(__dirname, 'src/db'),
+            '@data': path.resolve(__dirname, 'src/data'),
             /**
              * Aliases to avoid duplicates in build.
              * - react-router alias can be probably removed when react-router-redux

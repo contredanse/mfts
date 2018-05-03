@@ -1,8 +1,8 @@
 import React from 'react';
 import Page from '@src/components/page';
 import NotFoundContainer from '@src/containers/notfound-container';
-import { DataSupportedLangType, IDataRepository } from '@src/data/data-repository';
-import PageEntity from '@src/data/page-entity';
+import { DataSupportedLangType, IDataRepository } from '@src/model/data-repository';
+import PageEntity from '@src/model/page-entity';
 
 interface IProps {
     pageId: string;

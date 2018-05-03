@@ -1,11 +1,11 @@
-import { IJsonMenu } from '@db/data-menu';
-import { IJsonVideo } from '@db/data-videos';
-import { IJsonPage } from '@db/data-pages';
-import dataMenu from '@db/data-menu.json';
-import dataVideos from '@db/data-videos.json';
-import dataPages from '@db/data-pages.json';
-import { IDataRepository, IDataRepositoryParams } from '@src/data/data-repository';
-import LocalDataRepository from '@src/data/local-data-repository';
+import { IJsonMenu } from '@data/data-menu';
+import { IJsonVideo } from '@data/data-videos';
+import { IJsonPage } from '@data/data-pages';
+import dataMenu from '@data/data-menu.json';
+import dataVideos from '@data/data-videos.json';
+import dataPages from '@data/data-pages.json';
+import { IDataRepository, IDataRepositoryParams } from '@src/model/data-repository';
+import LocalDataRepository from '@src/model/local-data-repository';
 
 const isProduction = true;
 

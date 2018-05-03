@@ -1,5 +1,5 @@
 import { appConfig } from '@config/app-config';
-import LocalDataRepository from '@src/data/local-data-repository';
+import LocalDataRepository from '@src/model/local-data-repository';
 
 describe('Data repository getters', () => {
     const globalDataRepo = appConfig.getDataRepository() as LocalDataRepository;

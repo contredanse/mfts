@@ -3,7 +3,7 @@ import { VideoList } from '@src/components/video-list';
 import { PageOverlay } from '@src/components/page-overlay';
 import { SearchBox } from '@src/components/search-box';
 import { ReactVideoPlayer } from '@src/components/react-video-player';
-import { IJsonVideo } from '@db/data-videos';
+import { IJsonVideo } from '@data/data-videos';
 
 interface IProps {
     initialData: IJsonVideo[];

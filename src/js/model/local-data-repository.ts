@@ -1,11 +1,11 @@
 import { IAppDataConfig } from '@config/app-config';
-import { IJsonVideo } from '@db/data-videos';
-import { IJsonPage } from '@db/data-pages';
+import { IJsonVideo } from '@data/data-videos';
+import { IJsonPage } from '@data/data-pages';
 import { cloneDeep } from 'lodash-es';
-import { IDataRepository, DataSupportedLangType, IDataRepositoryParams } from '@src/data/data-repository';
-import VideoEntity from '@src/data/video-entity';
-import PageEntity, { MediaTracks, PageEntityProps } from '@src/data/page-entity';
-import VideoSourceEntity from '@src/data/video-source-entity';
+import { IDataRepository, DataSupportedLangType, IDataRepositoryParams } from '@src/model/data-repository';
+import VideoEntity from '@src/model/video-entity';
+import PageEntity, { MediaTracks, PageEntityProps } from '@src/model/page-entity';
+import VideoSourceEntity from '@src/model/video-source-entity';
 
 export default class LocalDataRepository implements IDataRepository {
     public readonly params: IDataRepositoryParams;

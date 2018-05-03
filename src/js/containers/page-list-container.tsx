@@ -1,12 +1,12 @@
 import React from 'react';
 import { PageOverlay } from '@src/components/page-overlay';
 import { SearchBox } from '@src/components/search-box';
-import { IJsonPage } from '@db/data-pages';
+import { IJsonPage } from '@data/data-pages';
 import PageList from '@src/components/page-list';
 import { withRouter } from 'react-router-dom';
 import { RouteComponentProps } from 'react-router';
-import { IDataRepository } from '@src/data/data-repository';
-import LocalDataRepository from '@src/data/local-data-repository';
+import { IDataRepository } from '@src/model/data-repository';
+import LocalDataRepository from '@src/model/local-data-repository';
 
 interface PageListContainerProps extends RouteComponentProps<any> {
     dataRepository: LocalDataRepository;
