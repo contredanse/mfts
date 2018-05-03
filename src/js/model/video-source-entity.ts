@@ -16,9 +16,15 @@ export interface VideoSourceProps {
 export interface VideoSourceEntityOptions extends IBaseEntityOptions {}
 
 export default class VideoSourceEntity extends BaseEntity {
+    /**
+     * Mimetypes map for some media formats
+     * @type {{mp4: string; webm: string; av1: string; mp3: string}}
+     */
     static fileTypes = {
         mp4: 'video/mp4',
         webm: 'video/webm',
+        av1: 'video/av1',
+        mp3: 'audio/mpeg',
     };
 
     readonly options!: VideoSourceEntityOptions;
