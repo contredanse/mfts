@@ -1,7 +1,7 @@
 import React from 'react';
 import { PageOverlay } from '@src/components/page-overlay';
 import { SearchBox } from '@src/components/search-box';
-import { IDataPage } from '@db/data-pages';
+import { IJsonPage } from '@db/data-pages';
 import PageList from '@src/components/page-list';
 import { withRouter } from 'react-router-dom';
 import { RouteComponentProps } from 'react-router';
@@ -14,9 +14,9 @@ interface PageListContainerProps extends RouteComponentProps<any> {
     lang: 'en' | 'fr';
 }
 interface PageListContainerState {
-    pages: IDataPage[];
+    pages: IJsonPage[];
     lang: 'en' | 'fr';
-    selectedPage?: IDataPage;
+    selectedPage?: IJsonPage;
     searchFragment?: string;
 }
 
@@ -40,7 +40,7 @@ class PageListContainer extends React.Component<PageListContainerProps, PageList
         });
     };
 
-    openPage = (page: IDataPage) => {
+    openPage = (page: IJsonPage) => {
         this.props.history.push(`/page/${page.page_id}`);
         /*
         this.setState((prevState): IState => ({

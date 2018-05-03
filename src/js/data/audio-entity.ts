@@ -1,9 +1,9 @@
 import { MediaTracks } from '@src/data/page-entity';
-import { IDataPageAudio, IDataPageAudioTrack, LocalizedAudioSource } from '@db/data-pages';
+import { IJsonPageAudio, IJsonPageAudioTrack, IJsonLocalizedAudioSource } from '@db/data-pages';
 import { BaseEntity, IBaseEntityOptions } from '@src/data/base-entity';
 
 export class AudioEntityFactory {
-    static createFromData(data: IDataPageAudio, options?: AudioEntityOptions): AudioEntity {
+    static createFromData(data: IJsonPageAudio, options?: AudioEntityOptions): AudioEntity {
         return new AudioEntity(
             {
                 src: data.src,
@@ -15,8 +15,8 @@ export class AudioEntityFactory {
 }
 
 export interface AudioEntityProps {
-    src: LocalizedAudioSource;
-    tracks?: IDataPageAudioTrack[];
+    src: IJsonLocalizedAudioSource;
+    tracks?: IJsonPageAudioTrack[];
 }
 
 export interface AudioEntityOptions extends IBaseEntityOptions {}
@@ -45,13 +45,13 @@ export default class AudioEntity extends BaseEntity {
         return this.data.tracks !== undefined;
     }
 
-    getAllTracks(baseUrl?: string): IDataPageAudioTrack[] {
+    getAllTracks(baseUrl?: string): IJsonPageAudioTrack[] {
         if (!this.hasTracks()) {
             return [];
         }
         baseUrl = baseUrl || this.options.baseUrl;
-        const tracks: IDataPageAudioTrack[] = [];
-        for (const audioTrack of this.data.tracks as IDataPageAudioTrack[]) {
+        const tracks: IJsonPageAudioTrack[] = [];
+        for (const audioTrack of this.data.tracks as IJsonPageAudioTrack[]) {
             tracks.push({
                 lang: audioTrack.lang,
                 src: `${baseUrl}/${audioTrack.src}`,

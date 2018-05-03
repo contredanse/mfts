@@ -1,21 +1,21 @@
 import * as React from 'react';
 import './page-list.scss';
-import { IDataPage, IDataPageVideoEntity } from '@db/data-pages';
+import { IJsonPage, IJsonPageVideoEntity } from '@db/data-pages';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { IJsonVideo } from '@db/data-videos';
 import dataVideos from '@db/data-videos.json';
 
 interface IProps {
-    pages: IDataPage[];
+    pages: IJsonPage[];
     lang: 'en' | 'fr';
     baseUrl: string;
-    onSelected?: (page: IDataPage) => void;
+    onSelected?: (page: IJsonPage) => void;
 }
 
 interface IState {}
 
 export default class PageList extends React.Component<IProps, IState> {
-    handlePageSelection(page: IDataPage) {
+    handlePageSelection(page: IJsonPage) {
         console.log('pageSelected', page);
         if (this.props.onSelected !== undefined) {
             this.props.onSelected(page);
@@ -66,7 +66,7 @@ export default class PageList extends React.Component<IProps, IState> {
                                     case 'two-videos-audio-subs':
                                     case 'three-videos-only':
                                     case 'three-videos-audio-subs': {
-                                        videos = (content.videos as IDataPageVideoEntity[]).map(({ video_id }) => {
+                                        videos = (content.videos as IJsonPageVideoEntity[]).map(({ video_id }) => {
                                             return this.getVideo(video_id[lang] || video_id[fallbackLang]);
                                         });
                                         break;
@@ -116,7 +116,7 @@ export default class PageList extends React.Component<IProps, IState> {
         );
     }
 
-    protected getTocComponent(list: IDataPage[]): JSX.Element {
+    protected getTocComponent(list: IJsonPage[]): JSX.Element {
         return (
             <table>
                 <thead>
@@ -127,7 +127,7 @@ export default class PageList extends React.Component<IProps, IState> {
                     </tr>
                 </thead>
                 <tbody>
-                    {list.map((page: IDataPage, idx: number) => (
+                    {list.map((page: IJsonPage, idx: number) => (
                         <tr key={page.page_id}>
                             <td>{idx + 1}</td>
                             <td

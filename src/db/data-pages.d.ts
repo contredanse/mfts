@@ -1,38 +1,38 @@
-﻿export interface IDataPage {
+﻿export interface IJsonPage {
     page_id: string;
-    name: IDataPageLocalizedText;
-    title: IDataPageLocalizedText;
+    name: IJsonPageLocalizedText;
+    title: IJsonPageLocalizedText;
     cover?: string; // jpg cover for the page
-    keywords: IDataPageLocalizedKeywords;
-    content: IDataPageContent;
+    keywords: IJsonPageLocalizedKeywords;
+    content: IJsonPageContent;
     sort_idx: number;
 }
 
-export interface IDataPageLocalizedText {
+export interface IJsonPageLocalizedText {
     en: string;
     fr: string;
+    [key: string]: string; // subsequent languages
 }
 
-export interface IDataPageLocalizedKeywords {
-    en?: (string)[];
-    fr?: (string)[];
+export interface IJsonPageLocalizedKeywords {
+    [key: string]: string[]; // optional languages codes (en, fr, ...)
 }
 
-export interface IDataPageContent {
+export interface IJsonPageContent {
     layout: string;
-    videos: IDataPageVideoEntity[];
-    audio?: IDataPageAudio;
+    videos: IJsonPageVideoEntity[];
+    audio?: IJsonPageAudio;
 }
 
-export interface IDataPageVideoEntity {
-    video_id: LocalizedVideoId;
+export interface IJsonPageVideoEntity {
+    video_id: IJsonLocalizedVideoId;
     muted?: boolean;
     loop?: boolean;
-    video_detail?: IDataPageVideoDetail;
+    video_detail?: IJsonPageVideoDetail;
 }
 
-export interface IDataPageVideoDetail {
-    video_id: LocalizedVideoId;
+export interface IJsonPageVideoDetail {
+    video_id: IJsonLocalizedVideoId;
     desc?: {
         en: string;
         fr: string;
@@ -41,22 +41,22 @@ export interface IDataPageVideoDetail {
     loop?: boolean;
 }
 
-export interface IDataPageAudioTrack {
+export interface IJsonPageAudioTrack {
     lang: string;
     src: string;
 }
 
-export interface IDataPageAudio {
-    src: LocalizedAudioSource;
-    tracks?: IDataPageAudioTrack[];
+export interface IJsonPageAudio {
+    src: IJsonLocalizedAudioSource;
+    tracks?: IJsonPageAudioTrack[];
 }
 
-export type LocalizedAudioSource = {
+export type IJsonLocalizedAudioSource = {
     en: string; // Only english is mandatory
-    fr?: string;
+    [key: string]: string; // subsequent languages
 };
 
-export type LocalizedVideoId = {
+export type IJsonLocalizedVideoId = {
     en: string; // Only english is mandatory
-    fr?: string;
+    [key: string]: string; // subsequent languages
 };

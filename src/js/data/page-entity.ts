@@ -1,7 +1,7 @@
 import VideoEntity from '@src/data/video-entity';
 import AudioEntity, { AudioEntityFactory } from '@src/data/audio-entity';
 import { BaseEntity } from '@src/data/base-entity';
-import { IDataPageAudio } from '@db/data-pages';
+import { IJsonPageAudio } from '@db/data-pages';
 
 export interface MediaTracks {
     [key: string]: string;
@@ -20,7 +20,7 @@ export interface PageEntityProps {
     keywords?: string[];
     videos: VideoEntity[];
     cover?: string;
-    audio?: IDataPageAudio;
+    audio?: IJsonPageAudio;
     audioTrack?: MediaTracks;
 }
 
@@ -65,6 +65,6 @@ export default class PageEntity extends BaseEntity {
         if (!this.hasAudio()) {
             return undefined;
         }
-        return AudioEntityFactory.createFromData(this.data.audio as IDataPageAudio, this.options);
+        return AudioEntityFactory.createFromData(this.data.audio as IJsonPageAudio, this.options);
     }
 }

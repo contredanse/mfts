@@ -1,6 +1,6 @@
 import { IAppDataConfig } from '@config/app-config';
 import { IJsonVideo } from '@db/data-videos';
-import { IDataPage } from '@db/data-pages';
+import { IJsonPage } from '@db/data-pages';
 import { cloneDeep } from 'lodash-es';
 import { IDataRepository, DataSupportedLangType, IDataRepositoryParams } from '@src/data/data-repository';
 import VideoEntity from '@src/data/video-entity';
@@ -20,11 +20,11 @@ export default class LocalDataRepository implements IDataRepository {
     /**
      * Get raw page information
      * @param {string} pageId
-     * @returns {Promise<IDataPage>}
+     * @returns {Promise<IJsonPage>}
      */
-    async getPage(pageId: string): Promise<IDataPage> {
-        return new Promise<IDataPage>((resolve, reject) => {
-            const page = this.data.pages.find((element: IDataPage) => {
+    async getPage(pageId: string): Promise<IJsonPage> {
+        return new Promise<IJsonPage>((resolve, reject) => {
+            const page = this.data.pages.find((element: IJsonPage) => {
                 return pageId === element.page_id;
             });
             if (page === undefined) {
@@ -106,16 +106,16 @@ export default class LocalDataRepository implements IDataRepository {
         });
     }
 
-    getAllPages(): IDataPage[] {
+    getAllPages(): IJsonPage[] {
         return this.data.pages;
     }
 
-    findPages(fragment: string, lang: DataSupportedLangType): IDataPage[] {
+    findPages(fragment: string, lang: DataSupportedLangType): IJsonPage[] {
         if (fragment === '') {
             return this.getAllPages();
         }
         const regex = new RegExp(fragment, 'i');
-        const results = this.data.pages.filter((page: IDataPage, idx: number) => {
+        const results = this.data.pages.filter((page: IJsonPage, idx: number) => {
             const keywords = page.keywords[lang] || page.keywords[this.fallbackLang];
             if (keywords !== undefined) {
                 return (
