@@ -7,10 +7,9 @@ export type DataSupportedLangType = 'en' | 'fr'; // | 'nl' | 'de' | 'es';
 
 export interface IDataRepositoryParams {
     fallbackLang: DataSupportedLangType;
-    assetsBaseUrl: {
-        video: string;
-        audio: string;
-    };
+    assetsBaseUrl: string;
+    videoBaseUrl: string;
+    audioBaseUrl: string;
 }
 
 export interface IDataRepository {

@@ -30,6 +30,10 @@ export class AppConfig {
         return `${this.assetsBaseUrl}/videos`;
     }
 
+    get audioBaseUrl(): string {
+        return `${this.assetsBaseUrl}`;
+    }
+
     getConfig(): IAppConfig {
         return this.config;
     }
@@ -46,10 +50,9 @@ export class AppConfig {
             // Default params
             params = {
                 fallbackLang: this.config.fallbackLang as DataSupportedLangType,
-                assetsBaseUrl: {
-                    video: `${this.videosBaseUrl}`,
-                    audio: `${this.assetsBaseUrl}`,
-                },
+                assetsBaseUrl: `${this.assetsBaseUrl}`,
+                videoBaseUrl: `${this.videosBaseUrl}`,
+                audioBaseUrl: `${this.audioBaseUrl}`,
             };
         }
         return new LocalDataRepository(this.config.data, params);

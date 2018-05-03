@@ -70,7 +70,7 @@ export class VideoComp extends React.Component<VideoCompProps, {}> {
         const controls = true;
 
         const videoProps = {
-            poster: video.covers !== undefined ? video.covers[0] : '',
+            poster: video.getFirstCover() || '',
         };
 
         return (
@@ -87,7 +87,13 @@ export class VideoComp extends React.Component<VideoCompProps, {}> {
                     {...videoProps}
                 >
                     {video.getSources().map((sourceEntity, idx) => {
-                        return <source key={idx} src={sourceEntity.src} type={sourceEntity.getHtmlVideoTypeValue()} />;
+                        return (
+                            <source
+                                key={idx}
+                                src={sourceEntity.getSource()}
+                                type={sourceEntity.getHtmlVideoTypeValue()}
+                            />
+                        );
                     })}
                 </video>
                 <div className="overlay">

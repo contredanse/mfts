@@ -5,6 +5,7 @@ import { cloneDeep } from 'lodash-es';
 import { IDataRepository, DataSupportedLangType, IDataRepositoryParams } from '@model/repository/data-repository';
 import VideoEntity, { VideoEntityFactory } from '@model/entity/video-entity';
 import PageEntity, { MediaTracks, IPageEntityData, PageEntityFactory } from '@model/entity/page-entity';
+import { IBaseEntityOptions } from '@model/entity/abstract-base-entity';
 
 export default class LocalDataRepository implements IDataRepository {
     public readonly params: IDataRepositoryParams;
@@ -45,7 +46,12 @@ export default class LocalDataRepository implements IDataRepository {
         if (jsonVideo === undefined) {
             return undefined;
         }
-        return VideoEntityFactory.createFromJson(jsonVideo);
+        // TODO clean up dependencies
+        return VideoEntityFactory.createFromJson(jsonVideo, {
+            baseUrl: this.params.videoBaseUrl,
+            fallbackLang: this.params.fallbackLang,
+            lang: this.params.fallbackLang,
+        });
     }
 
     getAllPages(): IJsonPage[] {
@@ -93,11 +99,10 @@ export default class LocalDataRepository implements IDataRepository {
             return undefined;
         }
 
-        // TODO CLEAR UP OPTIONS
         const pageEntity = PageEntityFactory.createFromJson(page, this, {
-            lang: 'en',
-            fallbackLang: this.fallbackLang,
-            baseUrl: this.params.assetsBaseUrl.audio,
+            fallbackLang: this.params.fallbackLang,
+            lang: this.params.fallbackLang,
+            baseUrl: this.params.assetsBaseUrl,
         });
         return pageEntity;
     }
