@@ -1,10 +1,10 @@
 ﻿export interface IJsonVideo {
     video_id: string;
-    legacy_src: string;
     sources: IJsonVideoSource[];
     meta: IJsonVideoMeta;
     covers?: string[];
     tracks: IJsonVideoTracks;
+    legacy_src?: string;
     legacy_tracks?: IJsonVideoTracks;
 }
 export interface IJsonVideoSource {
