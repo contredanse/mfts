@@ -1,4 +1,4 @@
-import { IDataMenu } from '@db/data-menu';
+import { IJsonMenu } from '@db/data-menu';
 import { IJsonVideo } from '@db/data-videos';
 import { IJsonPage } from '@db/data-pages';
 import dataMenu from '@db/data-menu.json';
@@ -55,7 +55,7 @@ export class AppConfig {
 }
 
 export interface IAppDataConfig {
-    readonly menu: IDataMenu;
+    readonly menu: IJsonMenu;
     readonly pages: IJsonPage[];
     readonly videos: IJsonVideo[];
 }

@@ -1,9 +1,9 @@
 import React, { CSSProperties } from 'react';
 import spiralMenu from '@thirdparty/spiral.js';
-import { IDataMenu } from '@db/data-menu';
+import { IJsonMenu } from '@db/data-menu';
 
 interface IProps {
-    jsonDataMenu: IDataMenu;
+    jsonDataMenu: IJsonMenu;
 }
 interface IState {
     width: number | string;
