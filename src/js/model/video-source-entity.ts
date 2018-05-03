@@ -1,5 +1,4 @@
 import { BaseEntity, IBaseEntityOptions } from '@model/base-entity';
-import { VideoEntityProps } from '@model/video-entity';
 
 export class VideoSourceEntityFactory {
     static createFromJson(data: any, options?: VideoSourceEntityOptions): VideoSourceEntity {
