@@ -26,7 +26,8 @@ class App extends React.Component<AppProps, {}> {
     }
 
     public render(): React.ReactElement<App> {
-        const { videosBaseUrl, data } = this.props.appConfig.getConfig();
+        const { assetsBaseUrl, videosBaseUrl } = this.props.appConfig;
+        const data = this.props.appConfig.getAppData();
         const lang = 'en';
 
         const dataRepository = this.props.appConfig.getDataRepository();
@@ -49,8 +50,8 @@ class App extends React.Component<AppProps, {}> {
                                     return (
                                         <PageListContainer
                                             lang={lang}
-                                            dataRepository={dataRepository as LocalDataRepository}
                                             videosBaseUrl={videosBaseUrl}
+                                            dataRepository={dataRepository as LocalDataRepository}
                                             {...props}
                                         />
                                     );
@@ -62,7 +63,7 @@ class App extends React.Component<AppProps, {}> {
                                 render={props => (
                                     <VideoListContainer
                                         initialData={data.videos}
-                                        videosBaseUrl={videosBaseUrl}
+                                        assetsBaseUrl={videosBaseUrl}
                                         {...props}
                                     />
                                 )}

@@ -1,11 +1,11 @@
 import { orderBy } from 'lodash-es';
-import { MediaTracks } from '@model/entity/page-entity';
-import VideoSourceEntity, { VideoSourceProps } from '@model/entity/video-source-entity';
+import VideoSourceEntity, { VideoSourceEntityFactory, IVideoSourceEntityData } from '@model/entity/video-source-entity';
 import { AbstractBaseEntity, IBaseEntityOptions } from '@model/entity/abstract-base-entity';
+import { IJsonVideo, IJsonVideoMeta, IJsonVideoSource, IJsonVideoTracks } from '@data/json/data-videos';
 
 export class VideoEntityFactory {
-    static createFromJson(data: any, options?: VideoEntityOptions): VideoEntity {
-        return new VideoEntity({} as any, options);
+    static createFromJson(data: IJsonVideo, options?: VideoEntityOptions): VideoEntity {
+        return new VideoEntity(data, options);
     }
 }
 
@@ -15,13 +15,7 @@ export interface VideoMetaProps {
     height?: number;
 }
 
-export interface VideoEntityProps {
-    videoId: string;
-    sources: VideoSourceProps[];
-    covers?: string[];
-    meta?: VideoMetaProps;
-    tracks?: MediaTracks;
-}
+export interface VideoEntityProps extends IJsonVideo {}
 
 export interface VideoEntityOptions extends IBaseEntityOptions {}
 
@@ -33,10 +27,10 @@ export default class VideoEntity extends AbstractBaseEntity {
     }
 
     get videoId(): string {
-        return this.data.videoId;
+        return this.data.video_id;
     }
 
-    get sources(): VideoSourceProps[] {
+    get sources(): IJsonVideoSource[] {
         return this.data.sources;
     }
 
@@ -44,7 +38,7 @@ export default class VideoEntity extends AbstractBaseEntity {
         return this.data.covers;
     }
 
-    get meta(): VideoMetaProps | undefined {
+    get meta(): IJsonVideoMeta | undefined {
         return this.data.meta;
     }
 
@@ -53,6 +47,17 @@ export default class VideoEntity extends AbstractBaseEntity {
             return 0;
         }
         return this.meta.duration;
+    }
+
+    hasCover(): boolean {
+        return this.covers !== undefined && this.covers.length !== 0;
+    }
+
+    getFirstCover(baseUrl?: string): string | undefined {
+        if (!this.hasCover()) {
+            return undefined;
+        }
+        return this.getHelper().addBaseUrl((this.covers as string[])[0], baseUrl);
     }
 
     /**
@@ -75,15 +80,15 @@ export default class VideoEntity extends AbstractBaseEntity {
     }
 
     getSources(sortByPriority: boolean = true): VideoSourceEntity[] {
-        let data: VideoSourceProps[] = [];
+        let data: IVideoSourceEntityData[] = [];
         if (sortByPriority) {
             data = orderBy(this.data.sources, ['priority'], ['asc']);
         } else {
             data = this.data.sources;
         }
         return data.reduce(
-            (accumulator, sourceProps): VideoSourceEntity[] => {
-                accumulator.push(new VideoSourceEntity(sourceProps));
+            (accumulator, jsonSource): VideoSourceEntity[] => {
+                accumulator.push(VideoSourceEntityFactory.createFromJson(jsonSource, this.options));
                 return accumulator;
             },
             [] as VideoSourceEntity[]

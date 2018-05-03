@@ -4,7 +4,7 @@ import { IJsonPage } from '@data/json/data-pages';
 import dataMenu from '@data/json/data-menu.json';
 import dataVideos from '@data/json/data-videos.json';
 import dataPages from '@data/json/data-pages.json';
-import { IDataRepository, IDataRepositoryParams } from '@model/repository/data-repository';
+import { DataSupportedLangType, IDataRepository, IDataRepositoryParams } from '@model/repository/data-repository';
 import LocalDataRepository from '@model/repository/local-data-repository';
 
 const isProduction = true;
@@ -22,31 +22,33 @@ export class AppConfig {
         this.config = config;
     }
 
+    get assetsBaseUrl(): string {
+        return this.config.assetsBaseUrl;
+    }
+
+    get videosBaseUrl(): string {
+        return `${this.assetsBaseUrl}/videos`;
+    }
+
     getConfig(): IAppConfig {
         return this.config;
     }
 
-    getAssetsBaseUrl(): string {
-        return this.config.assetsBaseUrl;
-    }
-
-    getVideosBaseUrl(): string {
-        return this.config.videosBaseUrl;
-    }
-
+    /**
+     * @deprecated
+     */
     getAppData(): IAppDataConfig {
         return this.config.data;
     }
 
     getDataRepository(params?: IDataRepositoryParams): IDataRepository {
         if (params === undefined) {
+            // Default params
             params = {
-                defaultLang: 'en',
-                assetsBaseUrl: assetsBaseUrl,
-                urlPaths: {
-                    video: this.getVideosBaseUrl(),
-                    videoCovers: this.getVideosBaseUrl(),
-                    audio: this.getVideosBaseUrl(),
+                fallbackLang: this.config.fallbackLang as DataSupportedLangType,
+                assetsBaseUrl: {
+                    video: `${this.videosBaseUrl}`,
+                    audio: `${this.assetsBaseUrl}`,
                 },
             };
         }
@@ -62,14 +64,13 @@ export interface IAppDataConfig {
 
 export interface IAppConfig {
     assetsBaseUrl: string;
-    videosBaseUrl: string;
+    fallbackLang: string;
     data: IAppDataConfig;
 }
 
 export const appConfig = new AppConfig({
     assetsBaseUrl: assetsBaseUrl,
-    // without ending slash
-    videosBaseUrl: `${assetsBaseUrl}/videos`,
+    fallbackLang: 'en',
     data: {
         menu: dataMenu,
         pages: dataPages,

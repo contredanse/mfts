@@ -26,7 +26,7 @@ class PageContainer extends React.Component<IProps, IState> {
 
     async componentDidMount() {
         try {
-            const pageEntity = await this.props.dataRepository.getPageEntity(this.props.pageId, this.props.lang);
+            const pageEntity = await this.props.dataRepository.getPageEntity(this.props.pageId);
             this.setState((prevState: IState): IState => {
                 return {
                     ...prevState,

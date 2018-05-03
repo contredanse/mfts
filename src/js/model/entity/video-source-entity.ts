@@ -1,19 +1,15 @@
 import { AbstractBaseEntity, IBaseEntityOptions } from '@model/entity/abstract-base-entity';
+import { IJsonVideoSource } from '@data/json/data-videos';
 
 export class VideoSourceEntityFactory {
-    static createFromJson(data: any, options?: VideoSourceEntityOptions): VideoSourceEntity {
-        return new VideoSourceEntity({} as any, options);
+    static createFromJson(data: IJsonVideoSource, options?: IVideoSourceEntityOptions): VideoSourceEntity {
+        return new VideoSourceEntity(data, options);
     }
 }
 
-export interface VideoSourceProps {
-    src: string;
-    type?: string; // mimetype (i.e. video/mp4, video/webm)
-    codecs?: string; // extra codec information (i.e. vp9)
-    priority?: number;
-}
+export interface IVideoSourceEntityData extends IJsonVideoSource {}
 
-export interface VideoSourceEntityOptions extends IBaseEntityOptions {}
+export interface IVideoSourceEntityOptions extends IBaseEntityOptions {}
 
 export default class VideoSourceEntity extends AbstractBaseEntity {
     /**
@@ -27,9 +23,9 @@ export default class VideoSourceEntity extends AbstractBaseEntity {
         mp3: 'audio/mpeg',
     };
 
-    readonly options!: VideoSourceEntityOptions;
+    readonly options!: IVideoSourceEntityOptions;
 
-    constructor(protected readonly data: VideoSourceProps, options?: VideoSourceEntityOptions) {
+    constructor(protected readonly data: IVideoSourceEntityData, options?: IVideoSourceEntityOptions) {
         super(options);
     }
 
@@ -51,6 +47,10 @@ export default class VideoSourceEntity extends AbstractBaseEntity {
 
     get src(): string {
         return this.data.src;
+    }
+
+    getSource(baseUrl?: string): string {
+        return this.getHelper().addBaseUrl(this.src, baseUrl);
     }
 
     getHtmlVideoTypeValue(): string {

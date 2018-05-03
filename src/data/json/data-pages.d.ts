@@ -20,11 +20,11 @@ export interface IJsonPageLocalizedKeywords {
 
 export interface IJsonPageContent {
     layout: string;
-    videos: IJsonPageVideoEntity[];
+    videos: IJsonPageVideo[];
     audio?: IJsonPageAudio;
 }
 
-export interface IJsonPageVideoEntity {
+export interface IJsonPageVideo {
     video_id: IJsonLocalizedVideoId;
     muted?: boolean;
     loop?: boolean;

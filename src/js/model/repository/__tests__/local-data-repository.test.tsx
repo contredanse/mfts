@@ -18,12 +18,8 @@ describe('Data repository getters', () => {
 describe('Data page retrieval', () => {
     const globalDataRepo = appConfig.getDataRepository() as LocalDataRepository;
 
-    test('getPageEntity must respect translations', async () => {
-        const pageFr = await globalDataRepo.getPageEntity('forms.helix-roll.led-by-feet', 'fr');
-        const pageEn = await globalDataRepo.getPageEntity('forms.helix-roll.led-by-feet', 'en');
-        expect(pageFr).toHaveProperty('title');
-        expect(pageFr.title).not.toEqual(pageEn.title);
-        expect(pageFr.keywords).not.toEqual(pageEn.keywords);
-        expect(pageFr.name).not.toEqual(pageEn.name);
+    test('getPageEntity must return existing page', async () => {
+        const page = await globalDataRepo.getPageEntity('forms.helix-roll.led-by-feet');
+        expect(page).toBeDefined();
     });
 });

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './page-list.scss';
-import { IJsonPage, IJsonPageVideoEntity } from '@data/json/data-pages';
+import { IJsonPage, IJsonPageVideo } from '@data/json/data-pages';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { IJsonVideo } from '@data/json/data-videos';
 import dataVideos from '@data/json/data-videos.json';
@@ -66,7 +66,7 @@ export default class PageList extends React.Component<IProps, IState> {
                                     case 'two-videos-audio-subs':
                                     case 'three-videos-only':
                                     case 'three-videos-audio-subs': {
-                                        videos = (content.videos as IJsonPageVideoEntity[]).map(({ video_id }) => {
+                                        videos = (content.videos as IJsonPageVideo[]).map(({ video_id }) => {
                                             return this.getVideo(video_id[lang] || video_id[fallbackLang]);
                                         });
                                         break;

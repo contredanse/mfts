@@ -3,7 +3,7 @@
     sources: IJsonVideoSource[];
     meta: IJsonVideoMeta;
     covers?: string[];
-    tracks: IJsonVideoTracks;
+    tracks?: IJsonVideoTracks;
     legacy_src?: string;
     legacy_tracks?: IJsonVideoTracks;
 }

@@ -102,8 +102,8 @@ export class VideoComp extends React.Component<VideoCompProps, {}> {
 export default class Page extends React.Component<PageProps, PageState> {
     render() {
         const { pageEntity: page } = this.props;
-        const videos = page.videos;
 
+        const videos = page.getVideos(this.props.lang);
         const audio = page.getAudioEntity();
 
         // Warning this is an hack...
@@ -134,7 +134,7 @@ export default class Page extends React.Component<PageProps, PageState> {
                                     {audio && (
                                         <div className="page-audio-subs">
                                             <video controls={true} crossOrigin="anonymous">
-                                                <source type={audioMimeType} src={audio.getSrc()} />
+                                                <source type={audioMimeType} src={audio.getSourceFile()} />
                                                 {audio.getAllTracks().map(audioTrack => {
                                                     return (
                                                         <track
@@ -155,7 +155,7 @@ export default class Page extends React.Component<PageProps, PageState> {
                                 </div>
                             ) : (
                                 <div className="page-single-video-layout">
-                                    <VideoComp video={page.getFirstVideo()} loop={false} />
+                                    <VideoComp video={page.getFirstVideo() as VideoEntity} loop={false} />
                                 </div>
                             )}
                         </div>
