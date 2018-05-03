@@ -1,24 +1,24 @@
 ﻿export interface IJsonVideo {
     video_id: string;
     legacy_src: string;
-    sources: IDataVideoSource[];
-    meta: IDataVideoMeta;
+    sources: IJsonVideoSource[];
+    meta: IJsonVideoMeta;
     covers?: string[];
-    tracks: IDataVideoTracks;
-    legacy_tracks?: IDataVideoTracks;
+    tracks: IJsonVideoTracks;
+    legacy_tracks?: IJsonVideoTracks;
 }
-export interface IDataVideoSource {
+export interface IJsonVideoSource {
     src: string;
     priority?: number;
     type?: string;
     codecs?: string;
 }
-export interface IDataVideoMeta {
+export interface IJsonVideoMeta {
     duration: number;
     width?: number;
     height?: number;
 }
-export interface IDataVideoTracks {
+export interface IJsonVideoTracks {
     // i.e
     //  en: string;
     //  fr: string;
