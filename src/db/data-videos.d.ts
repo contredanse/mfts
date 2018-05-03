@@ -19,8 +19,6 @@ export interface IJsonVideoMeta {
     height?: number;
 }
 export interface IJsonVideoTracks {
-    // i.e
-    //  en: string;
-    //  fr: string;
-    [key: string]: string;
+    en: string; // English is required
+    [key: string]: string; // subsequent languages
 }
