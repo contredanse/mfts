@@ -13,7 +13,7 @@ export class AudioEntityFactory {
     }
 }
 
-export interface AudioEntityProps {
+export interface IAudioEntityData {
     src: IJsonLocalizedAudioSource;
     tracks?: IJsonPageAudioTrack[];
 }
@@ -23,7 +23,7 @@ export interface AudioEntityOptions extends IBaseEntityOptions {}
 export default class AudioEntity extends AbstractBaseEntity {
     readonly options!: AudioEntityOptions;
 
-    constructor(protected readonly data: AudioEntityProps, options?: AudioEntityOptions) {
+    constructor(protected readonly data: IAudioEntityData, options?: AudioEntityOptions) {
         super(options);
     }
 
