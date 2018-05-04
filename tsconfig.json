@@ -5,7 +5,6 @@
             "@src/*": ["src/js/*"],
             "@styles/*": ["src/styles/*"],
             "@public/*": ["public/*"],
-            "@model/*": ["src/js/model/*"],
             "@config/*": ["src/config/*"],
             "@shaders/*": ["src/shaders/*"],
             "@assets/*": ["src/assets/*"],
