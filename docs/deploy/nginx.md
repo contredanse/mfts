@@ -41,13 +41,26 @@ server {
     gzip_vary on;
 
     location / {
-    	try_files $uri /index.html;
-	    add_header Cache-Control 'no-store';
+	try_files $uri /index.html;	
+	    add_header 'Cache-Control' 'no-store, no-cache, must-revalidate, proxy-r
+evalidate, max-age=0';
+        expires off;
+	    proxy_no_cache 1;
+    }
+    
+    
+    location = /index.html {
+    	internal;	
+	    add_header 'Cache-Control' 'no-store, no-cache, must-revalidate, proxy-r
+evalidate, max-age=0';
+        expires off;
+	    proxy_no_cache 1;
     }
 
-    location = /index.html {
-    	internal;
-    	add_header Cache-Control 'no-store';
+    location ~* (service-worker\.js)$ {
+	    add_header 'Cache-Control' 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
+        expires off;
+	    proxy_no_cache 1;
     }
 
     location ~* ^/static/.+\.(woff|woff2|png|jpg|svg)$ {
