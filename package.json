@@ -98,7 +98,7 @@
         "ts-jest": "^22.4.4",
         "ts-node": "^6.0.2",
         "ts-shader-loader": "^1.0.5",
-        "tslint": "^5.9.1",
+        "tslint": "^5.10.0",
         "tslint-config-prettier": "^1.12.0",
         "tslint-react": "^3.5.1",
         "typesafe-actions": "^1.1.2",
