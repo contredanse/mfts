@@ -1,7 +1,7 @@
 import { default as AppConfig, IAppDataConfig } from '@src/core/app-config';
 import { IJsonVideo } from '@data/json/data-videos';
 import { IJsonPage } from '@data/json/data-pages';
-import { IDataRepository, DataSupportedLangType, IDataRepositoryParams } from '@src/model/repository/data-repository';
+import { IDataRepository, DataSupportedLangType } from '@src/model/repository/data-repository';
 import VideoEntity, { VideoEntityFactory } from '@src/model/entity/video-entity';
 import PageEntity, { PageEntityFactory } from '@src/model/entity/page-entity';
 

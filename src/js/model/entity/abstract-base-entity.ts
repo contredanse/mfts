@@ -1,4 +1,3 @@
-import AppConfig from '@src/core/app-config';
 import AppAssetsLocator from '@src/core/app-assets-locator';
 
 export interface IBaseEntityOptions {
