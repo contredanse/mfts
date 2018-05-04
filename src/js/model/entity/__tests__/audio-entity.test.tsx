@@ -1,4 +1,4 @@
-import { AudioEntityFactory } from '@model/entity/audio-entity';
+import { AudioEntityFactory } from '@src/model/entity/audio-entity';
 import { IJsonPageAudio } from '@data/json/data-pages';
 
 describe('AudioEntity from IJsonPageAudio', () => {

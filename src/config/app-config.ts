@@ -4,8 +4,8 @@ import { IJsonPage } from '@data/json/data-pages';
 import dataMenu from '@data/json/data-menu.json';
 import dataVideos from '@data/json/data-videos.json';
 import dataPages from '@data/json/data-pages.json';
-import { DataSupportedLangType, IDataRepository, IDataRepositoryParams } from '@model/repository/data-repository';
-import LocalDataRepository from '@model/repository/local-data-repository';
+import { DataSupportedLangType, IDataRepository, IDataRepositoryParams } from '@src/model/repository/data-repository';
+import LocalDataRepository from '@src/model/repository/local-data-repository';
 
 const isProduction = true;
 

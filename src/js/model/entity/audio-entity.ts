@@ -1,5 +1,5 @@
-import { IJsonPageAudio, IJsonPageAudioTrack } from 'src/data/json/data-pages';
-import { AbstractBaseEntity, IBaseEntityOptions } from '@model/entity/abstract-base-entity';
+import { IJsonPageAudio, IJsonPageAudioTrack } from '@data/json/data-pages';
+import { AbstractBaseEntity, IBaseEntityOptions } from '@src/model/entity/abstract-base-entity';
 
 export class AudioEntityFactory {
     static createFromJson(data: IJsonPageAudio, options?: IAudioEntityOptions): AudioEntity {

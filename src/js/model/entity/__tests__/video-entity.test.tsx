@@ -1,6 +1,6 @@
-import { VideoEntityFactory } from '@model/entity/video-entity';
+import { VideoEntityFactory } from '@src/model/entity/video-entity';
 import { IJsonVideo } from '@data/json/data-videos';
-import { VideoSourceEntityFactory } from '@model/entity/video-source-entity';
+import { VideoSourceEntityFactory } from '@src/model/entity/video-source-entity';
 
 describe('VideoEntity from IJsonVideo', () => {
     const jsonVideo: IJsonVideo = {

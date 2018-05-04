@@ -1,7 +1,7 @@
-import { AbstractBaseEntity } from '@model/entity/abstract-base-entity';
+import { AbstractBaseEntity } from '@src/model/entity/abstract-base-entity';
 
 describe('AbstractBaseEntity test suite', () => {
-    const MockEntity = class MockEntity extends AbstractBaseEntity {};
+    class MockEntity extends AbstractBaseEntity {}
     const defaultOptions = {
         lang: 'en',
         fallbackLang: 'en',

@@ -1,8 +1,8 @@
-import VideoEntity from '@model/entity/video-entity';
-import AudioEntity, { AudioEntityFactory } from '@model/entity/audio-entity';
-import { AbstractBaseEntity, IBaseEntityOptions } from '@model/entity/abstract-base-entity';
-import { IJsonPage, IJsonPageAudio, IJsonPageVideo } from 'src/data/json/data-pages';
-import { IDataRepository } from '@model/repository/data-repository';
+import VideoEntity from '@src/model/entity/video-entity';
+import AudioEntity, { AudioEntityFactory } from '@src/model/entity/audio-entity';
+import { AbstractBaseEntity, IBaseEntityOptions } from '@src/model/entity/abstract-base-entity';
+import { IJsonPage, IJsonPageAudio, IJsonPageVideo } from '@data/json/data-pages';
+import { IDataRepository } from '@src/model/repository/data-repository';
 
 export class PageEntityFactory {
     static createFromJson(data: IJsonPage, repository: IDataRepository, options?: IPageEntityOptions): PageEntity {

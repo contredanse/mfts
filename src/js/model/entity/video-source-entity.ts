@@ -1,4 +1,4 @@
-import { AbstractBaseEntity, IBaseEntityOptions } from '@model/entity/abstract-base-entity';
+import { AbstractBaseEntity, IBaseEntityOptions } from '@src/model/entity/abstract-base-entity';
 import { IJsonVideoSource } from '@data/json/data-videos';
 
 export class VideoSourceEntityFactory {
