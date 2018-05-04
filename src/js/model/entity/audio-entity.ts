@@ -3,13 +3,7 @@ import { AbstractBaseEntity, IBaseEntityOptions } from '@src/model/entity/abstra
 
 export class AudioEntityFactory {
     static createFromJson(data: IJsonPageAudio, options?: IAudioEntityOptions): AudioEntity {
-        return new AudioEntity(
-            {
-                src: data.src,
-                tracks: data.tracks,
-            },
-            options
-        );
+        return new AudioEntity(data, options);
     }
 }
 

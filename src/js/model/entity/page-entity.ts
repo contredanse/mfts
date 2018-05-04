@@ -10,15 +10,6 @@ export class PageEntityFactory {
     }
 }
 
-export interface MediaTracks {
-    [key: string]: string;
-}
-
-export interface PageAudioEntityProps {
-    src: string;
-    tracks?: MediaTracks;
-}
-
 export interface IPageEntityData extends IJsonPage {}
 
 export interface IPageEntityOptions extends IBaseEntityOptions {}

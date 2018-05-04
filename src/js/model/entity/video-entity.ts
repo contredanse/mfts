@@ -7,25 +7,19 @@ import { AbstractBaseEntity, IBaseEntityOptions } from '@src/model/entity/abstra
 import { IJsonVideo, IJsonVideoMeta, IJsonVideoSource } from '@data/json/data-videos';
 
 export class VideoEntityFactory {
-    static createFromJson(data: IJsonVideo, options?: VideoEntityOptions): VideoEntity {
+    static createFromJson(data: IJsonVideo, options?: IVideoEntityOptions): VideoEntity {
         return new VideoEntity(data, options);
     }
 }
 
-export interface VideoMetaProps {
-    duration?: number;
-    width?: number;
-    height?: number;
-}
+export interface IVideoEntityData extends IJsonVideo {}
 
-export interface VideoEntityProps extends IJsonVideo {}
-
-export interface VideoEntityOptions extends IBaseEntityOptions {}
+export interface IVideoEntityOptions extends IBaseEntityOptions {}
 
 export default class VideoEntity extends AbstractBaseEntity {
-    readonly options!: VideoEntityOptions;
+    readonly options!: IVideoEntityOptions;
 
-    constructor(protected readonly data: VideoEntityProps, options?: VideoEntityOptions) {
+    constructor(protected readonly data: IVideoEntityData, options?: IVideoEntityOptions) {
         super(options);
     }
 
