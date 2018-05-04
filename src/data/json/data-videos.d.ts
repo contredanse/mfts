@@ -4,8 +4,6 @@
     meta: IJsonVideoMeta;
     covers?: string[];
     tracks?: IJsonVideoTracks;
-    legacy_src?: string;
-    legacy_tracks?: IJsonVideoTracks;
 }
 export interface IJsonVideoSource {
     src: string;
@@ -17,6 +15,7 @@ export interface IJsonVideoMeta {
     duration: number;
     width?: number;
     height?: number;
+    no_audio?: boolean;
 }
 export interface IJsonVideoTracks {
     en: string; // English is required

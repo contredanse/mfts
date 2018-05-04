@@ -16,18 +16,11 @@
         "meta": {
             "duration": 568.48,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 716800
+            "height": 576
         },
-        "legacy_src": "flv/hello.flv",
         "tracks": {
             "en": "hello.en.vtt",
             "fr": "hello.fr.vtt"
-        },
-        "legacy_tracks": {
-            "en": "srt/hello_en.srt",
-            "fr": "srt/hello_fr.srt"
         }
     },
     {
@@ -47,11 +40,8 @@
         "meta": {
             "duration": 37.2,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 716800
-        },
-        "legacy_src": "flv/lemmon_en.flv"
+            "height": 576
+        }
     },
     {
         "video_id": "lemmon_fr",
@@ -70,11 +60,8 @@
         "meta": {
             "duration": 37.2,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 716800
-        },
-        "legacy_src": "flv/lemmon_fr.flv"
+            "height": 576
+        }
     },
     {
         "video_id": "falls",
@@ -93,11 +80,8 @@
         "meta": {
             "duration": 101.32,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 716800
-        },
-        "legacy_src": "flv/falls.flv"
+            "height": 576
+        }
     },
     {
         "video_id": "watergravity",
@@ -116,11 +100,8 @@
         "meta": {
             "duration": 73.28,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 614400
-        },
-        "legacy_src": "flv/watergravity.flv"
+            "height": 576
+        }
     },
     {
         "video_id": "adjusting_birds",
@@ -139,11 +120,8 @@
         "meta": {
             "duration": 318.76,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 716800
-        },
-        "legacy_src": "flv/adjusting_birds.flv"
+            "height": 576
+        }
     },
     {
         "video_id": "breathing_en",
@@ -162,11 +140,8 @@
         "meta": {
             "duration": 980.76,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 716800
-        },
-        "legacy_src": "flv/breathing_en.flv"
+            "height": 576
+        }
     },
     {
         "video_id": "breathing_fr",
@@ -185,11 +160,8 @@
         "meta": {
             "duration": 980.76,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 716800
-        },
-        "legacy_src": "flv/breathing_fr.flv"
+            "height": 576
+        }
     },
     {
         "video_id": "smalldance_full",
@@ -209,10 +181,8 @@
             "duration": 609.32,
             "width": 720,
             "height": 576,
-            "audio_stream": false,
-            "bitrate": 716800
-        },
-        "legacy_src": "flv/smalldance_full.flv"
+            "no_audio": true
+        }
     },
     {
         "video_id": "pointing",
@@ -231,18 +201,11 @@
         "meta": {
             "duration": 661.12,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 614400
+            "height": 576
         },
-        "legacy_src": "flv/pointing.flv",
         "tracks": {
             "en": "pointing.en.vtt",
             "fr": "pointing.fr.vtt"
-        },
-        "legacy_tracks": {
-            "en": "srt/pointing_en.srt",
-            "fr": "srt/pointing_fr.srt"
         }
     },
     {
@@ -262,18 +225,11 @@
         "meta": {
             "duration": 77.441,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 716800
+            "height": 576
         },
-        "legacy_src": "flv/pointing_scapula.flv",
         "tracks": {
             "en": "pointing_scapula.en.vtt",
             "fr": "pointing_scapula.fr.vtt"
-        },
-        "legacy_tracks": {
-            "en": "srt/pointing_scapula_en.srt",
-            "fr": "srt/pointing_scapula_fr.srt"
         }
     },
     {
@@ -293,18 +249,11 @@
         "meta": {
             "duration": 519.2,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 614400
+            "height": 576
         },
-        "legacy_src": "flv/pelvis.flv",
         "tracks": {
             "en": "pelvis.en.vtt",
             "fr": "pelvis.fr.vtt"
-        },
-        "legacy_tracks": {
-            "en": "srt/pelvis_en.srt",
-            "fr": "srt/pelvis_fr.srt"
         }
     },
     {
@@ -324,18 +273,11 @@
         "meta": {
             "duration": 74.36,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 716800
+            "height": 576
         },
-        "legacy_src": "flv/pointing_heel.flv",
         "tracks": {
             "en": "pointing_heel.en.vtt",
             "fr": "pointing_heel.fr.vtt"
-        },
-        "legacy_tracks": {
-            "en": "srt/pointing_heel_en.srt",
-            "fr": "srt/pointing_heel_fr.srt"
         }
     },
     {
@@ -355,18 +297,11 @@
         "meta": {
             "duration": 126.76,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 716800
+            "height": 576
         },
-        "legacy_src": "flv/walkasfondation.flv",
         "tracks": {
             "en": "walkasfondation.en.vtt",
             "fr": "walkasfondation.fr.vtt"
-        },
-        "legacy_tracks": {
-            "en": "srt/walk_fondation_en.srt",
-            "fr": "srt/walk_fondation_fr.srt"
         }
     },
     {
@@ -386,18 +321,11 @@
         "meta": {
             "duration": 520.159999,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 716800
+            "height": 576
         },
-        "legacy_src": "flv/birdswalk.flv",
         "tracks": {
             "en": "birdswalk.en.vtt",
             "fr": "birdswalk.fr.vtt"
-        },
-        "legacy_tracks": {
-            "en": "srt/birdswalk_en.srt",
-            "fr": "srt/birdswalk_fr.srt"
         }
     },
     {
@@ -418,10 +346,8 @@
             "duration": 0,
             "width": 1008,
             "height": 576,
-            "audio_stream": false,
-            "bitrate": 0
-        },
-        "legacy_src": "swfvideo/slowwalk.swf"
+            "no_audio": true
+        }
     },
     {
         "video_id": "twist",
@@ -440,11 +366,8 @@
         "meta": {
             "duration": 121.24,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 716800
-        },
-        "legacy_src": "flv/twist.flv"
+            "height": 576
+        }
     },
     {
         "video_id": "focus_back",
@@ -463,18 +386,11 @@
         "meta": {
             "duration": 187.52,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 716800
+            "height": 576
         },
-        "legacy_src": "flv/focus_back.flv",
         "tracks": {
             "en": "focus_back.en.vtt",
             "fr": "focus_back.fr.vtt"
-        },
-        "legacy_tracks": {
-            "en": "srt/back_en.srt",
-            "fr": "srt/back_fr.srt"
         }
     },
     {
@@ -494,11 +410,8 @@
         "meta": {
             "duration": 289.32,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 716800
-        },
-        "legacy_src": "flv/passage.flv"
+            "height": 576
+        }
     },
     {
         "video_id": "sphericalspace",
@@ -517,18 +430,11 @@
         "meta": {
             "duration": 1119.28,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 716800
+            "height": 576
         },
-        "legacy_src": "flv/sphericalspace.flv",
         "tracks": {
             "en": "sphericalspace.en.vtt",
             "fr": "sphericalspace.fr.vtt"
-        },
-        "legacy_tracks": {
-            "en": "srt/space_en.srt",
-            "fr": "srt/space_fr.srt"
         }
     },
     {
@@ -548,18 +454,11 @@
         "meta": {
             "duration": 316.08,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 614400
+            "height": 576
         },
-        "legacy_src": "flv/perf_comments_goldberg.flv",
         "tracks": {
             "en": "perf_comments_goldberg.en.vtt",
             "fr": "perf_comments_goldberg.fr.vtt"
-        },
-        "legacy_tracks": {
-            "en": "srt/perf_comment_gold_en.srt",
-            "fr": "srt/perf_comment_gold_fr.srt"
         }
     },
     {
@@ -579,11 +478,8 @@
         "meta": {
             "duration": 303.503,
             "width": 720,
-            "height": 480,
-            "audio_stream": true,
-            "bitrate": 716800
-        },
-        "legacy_src": "flv/goldberg.flv"
+            "height": 480
+        }
     },
     {
         "video_id": "perf_comments_english",
@@ -602,18 +498,11 @@
         "meta": {
             "duration": 172.8,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 614400
+            "height": 576
         },
-        "legacy_src": "flv/perf_comments_english.flv",
         "tracks": {
             "en": "perf_comments_english.en.vtt",
             "fr": "perf_comments_english.fr.vtt"
-        },
-        "legacy_tracks": {
-            "en": "srt/perf_comment_engl_en.srt",
-            "fr": "srt/perf_comment_engl_fr.srt"
         }
     },
     {
@@ -633,11 +522,8 @@
         "meta": {
             "duration": 441.241,
             "width": 720,
-            "height": 480,
-            "audio_stream": true,
-            "bitrate": 716800
-        },
-        "legacy_src": "flv/english.flv"
+            "height": 480
+        }
     },
     {
         "video_id": "perf_techimpro",
@@ -656,18 +542,11 @@
         "meta": {
             "duration": 366.72,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 716800
+            "height": 576
         },
-        "legacy_src": "flv/perf_techimpro.flv",
         "tracks": {
             "en": "perf_techimpro.en.vtt",
             "fr": "perf_techimpro.fr.vtt"
-        },
-        "legacy_tracks": {
-            "en": "srt/perf_comment_en.srt",
-            "fr": "srt/perf_comment_fr.srt"
         }
     },
     {
@@ -687,18 +566,11 @@
         "meta": {
             "duration": 690.28,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 716800
+            "height": 576
         },
-        "legacy_src": "flv/new_intro.flv",
         "tracks": {
             "en": "new_intro.en.vtt",
             "fr": "new_intro.fr.vtt"
-        },
-        "legacy_tracks": {
-            "en": "srt/intro_en.srt",
-            "fr": "srt/intro_fr.srt"
         }
     },
     {
@@ -718,11 +590,8 @@
         "meta": {
             "duration": 25.64,
             "width": 360,
-            "height": 288,
-            "audio_stream": true,
-            "bitrate": 614400
-        },
-        "legacy_src": "flv/cbhf_fromside.flv"
+            "height": 288
+        }
     },
     {
         "video_id": "cbhf_fromtop",
@@ -742,10 +611,8 @@
             "duration": 25.64,
             "width": 360,
             "height": 288,
-            "audio_stream": false,
-            "bitrate": 716800
-        },
-        "legacy_src": "flv/cbhf_fromtop.flv"
+            "no_audio": true
+        }
     },
     {
         "video_id": "cbhf_fromhead",
@@ -764,11 +631,8 @@
         "meta": {
             "duration": 25.64,
             "width": 360,
-            "height": 288,
-            "audio_stream": true,
-            "bitrate": 614400
-        },
-        "legacy_src": "flv/cbhf_fromhead.flv"
+            "height": 288
+        }
     },
     {
         "video_id": "cbc_fromhead",
@@ -788,10 +652,8 @@
             "duration": 31.56,
             "width": 480,
             "height": 384,
-            "audio_stream": false,
-            "bitrate": 716800
-        },
-        "legacy_src": "flv/cbc_fromhead.flv"
+            "no_audio": true
+        }
     },
     {
         "video_id": "cbc_fromtop",
@@ -811,10 +673,8 @@
             "duration": 31.56,
             "width": 480,
             "height": 384,
-            "audio_stream": false,
-            "bitrate": 716800
-        },
-        "legacy_src": "flv/cbc_fromtop.flv"
+            "no_audio": true
+        }
     },
     {
         "video_id": "chu_fromfeet",
@@ -833,11 +693,8 @@
         "meta": {
             "duration": 10.24,
             "width": 540,
-            "height": 432,
-            "audio_stream": true,
-            "bitrate": 614400
-        },
-        "legacy_src": "flv/chu_fromfeet.flv"
+            "height": 432
+        }
     },
     {
         "video_id": "chu_fromside",
@@ -856,11 +713,8 @@
         "meta": {
             "duration": 10.24,
             "width": 540,
-            "height": 432,
-            "audio_stream": true,
-            "bitrate": 614400
-        },
-        "legacy_src": "flv/chu_fromside.flv"
+            "height": 432
+        }
     },
     {
         "video_id": "cbfhu",
@@ -880,10 +734,8 @@
             "duration": 0,
             "width": 720,
             "height": 576,
-            "audio_stream": false,
-            "bitrate": 0
-        },
-        "legacy_src": "swfvideo/cbfhu.swf"
+            "no_audio": true
+        }
     },
     {
         "video_id": "crescent_water",
@@ -902,11 +754,8 @@
         "meta": {
             "duration": 6.44,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 614400
-        },
-        "legacy_src": "flv/crescent_water.flv"
+            "height": 576
+        }
     },
     {
         "video_id": "c_comparing",
@@ -926,10 +775,8 @@
             "duration": 0,
             "width": 720,
             "height": 576,
-            "audio_stream": false,
-            "bitrate": 0
-        },
-        "legacy_src": "swf/c_comparing.swf"
+            "no_audio": true
+        }
     },
     {
         "video_id": "sbf_fromfeet",
@@ -948,11 +795,8 @@
         "meta": {
             "duration": 5,
             "width": 360,
-            "height": 288,
-            "audio_stream": true,
-            "bitrate": 614400
-        },
-        "legacy_src": "flv/sbf_fromfeet.flv"
+            "height": 288
+        }
     },
     {
         "video_id": "sbf_side",
@@ -971,11 +815,8 @@
         "meta": {
             "duration": 5,
             "width": 360,
-            "height": 288,
-            "audio_stream": true,
-            "bitrate": 614400
-        },
-        "legacy_src": "flv/sbf_side.flv"
+            "height": 288
+        }
     },
     {
         "video_id": "sbf_fromhead",
@@ -994,11 +835,8 @@
         "meta": {
             "duration": 5,
             "width": 360,
-            "height": 288,
-            "audio_stream": true,
-            "bitrate": 614400
-        },
-        "legacy_src": "flv/sbf_fromhead.flv"
+            "height": 288
+        }
     },
     {
         "video_id": "sbh_fromhead",
@@ -1017,11 +855,8 @@
         "meta": {
             "duration": 8.8,
             "width": 540,
-            "height": 432,
-            "audio_stream": true,
-            "bitrate": 614400
-        },
-        "legacy_src": "flv/sbh_fromhead.flv"
+            "height": 432
+        }
     },
     {
         "video_id": "sbh_side",
@@ -1040,11 +875,8 @@
         "meta": {
             "duration": 8.8,
             "width": 540,
-            "height": 432,
-            "audio_stream": true,
-            "bitrate": 614400
-        },
-        "legacy_src": "flv/sbh_side.flv"
+            "height": 432
+        }
     },
     {
         "video_id": "helixinwater",
@@ -1063,11 +895,8 @@
         "meta": {
             "duration": 16.52,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 614400
-        },
-        "legacy_src": "flv/helixinwater.flv"
+            "height": 576
+        }
     },
     {
         "video_id": "h_comparing",
@@ -1087,10 +916,8 @@
             "duration": 0,
             "width": 720,
             "height": 576,
-            "audio_stream": false,
-            "bitrate": 0
-        },
-        "legacy_src": "swf/h_comparing.swf"
+            "no_audio": true
+        }
     },
     {
         "video_id": "puzzle1",
@@ -1109,11 +936,8 @@
         "meta": {
             "duration": 0,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 0
-        },
-        "legacy_src": "swfvideo/puzzle1.swf"
+            "height": 576
+        }
     },
     {
         "video_id": "puzzle2",
@@ -1132,11 +956,8 @@
         "meta": {
             "duration": 0,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 0
-        },
-        "legacy_src": "swfvideo/puzzle2.swf"
+            "height": 576
+        }
     },
     {
         "video_id": "puzzle3",
@@ -1155,11 +976,8 @@
         "meta": {
             "duration": 0,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 0
-        },
-        "legacy_src": "swfvideo/puzzle3.swf"
+            "height": 576
+        }
     },
     {
         "video_id": "puzzle4",
@@ -1178,11 +996,8 @@
         "meta": {
             "duration": 0,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 0
-        },
-        "legacy_src": "swfvideo/puzzle4.swf"
+            "height": 576
+        }
     },
     {
         "video_id": "frontal_head_top",
@@ -1202,10 +1017,8 @@
             "duration": 71.12,
             "width": 360,
             "height": 288,
-            "audio_stream": false,
-            "bitrate": 716800
-        },
-        "legacy_src": "flv/frontal_head_top.flv"
+            "no_audio": true
+        }
     },
     {
         "video_id": "frontal_head_side",
@@ -1225,10 +1038,8 @@
             "duration": 80.04,
             "width": 360,
             "height": 288,
-            "audio_stream": false,
-            "bitrate": 716800
-        },
-        "legacy_src": "flv/frontal_head_side.flv"
+            "no_audio": true
+        }
     },
     {
         "video_id": "frontal_head_bottom",
@@ -1248,10 +1059,8 @@
             "duration": 23.64,
             "width": 360,
             "height": 288,
-            "audio_stream": false,
-            "bitrate": 716800
-        },
-        "legacy_src": "flv/frontal_head_bottom.flv"
+            "no_audio": true
+        }
     },
     {
         "video_id": "frontal_pelvis_top",
@@ -1271,10 +1080,8 @@
             "duration": 43.4,
             "width": 360,
             "height": 288,
-            "audio_stream": false,
-            "bitrate": 716800
-        },
-        "legacy_src": "flv/frontal_pelvis_top.flv"
+            "no_audio": true
+        }
     },
     {
         "video_id": "frontal_pelvis_side",
@@ -1294,10 +1101,8 @@
             "duration": 48.88,
             "width": 360,
             "height": 288,
-            "audio_stream": false,
-            "bitrate": 716800
-        },
-        "legacy_src": "flv/frontal_pelvis_side.flv"
+            "no_audio": true
+        }
     },
     {
         "video_id": "frontal_pelvis_bottom",
@@ -1317,10 +1122,8 @@
             "duration": 41.68,
             "width": 360,
             "height": 288,
-            "audio_stream": false,
-            "bitrate": 716800
-        },
-        "legacy_src": "flv/frontal_pelvis_bottom.flv"
+            "no_audio": true
+        }
     },
     {
         "video_id": "lateral_head_front",
@@ -1340,10 +1143,8 @@
             "duration": 51.04,
             "width": 480,
             "height": 384,
-            "audio_stream": false,
-            "bitrate": 716800
-        },
-        "legacy_src": "flv/lateral_head_front.flv"
+            "no_audio": true
+        }
     },
     {
         "video_id": "lateral_head_top",
@@ -1363,10 +1164,8 @@
             "duration": 30.4,
             "width": 480,
             "height": 384,
-            "audio_stream": false,
-            "bitrate": 716800
-        },
-        "legacy_src": "flv/lateral_head_top.flv"
+            "no_audio": true
+        }
     },
     {
         "video_id": "lateral_pelvis_top",
@@ -1386,10 +1185,8 @@
             "duration": 25.68,
             "width": 480,
             "height": 384,
-            "audio_stream": false,
-            "bitrate": 716800
-        },
-        "legacy_src": "flv/lateral_pelvis_top.flv"
+            "no_audio": true
+        }
     },
     {
         "video_id": "lateral_pelvis_front",
@@ -1409,10 +1206,8 @@
             "duration": 45.24,
             "width": 480,
             "height": 384,
-            "audio_stream": false,
-            "bitrate": 716800
-        },
-        "legacy_src": "flv/lateral_pelvis_front.flv"
+            "no_audio": true
+        }
     },
     {
         "video_id": "dolphininwater",
@@ -1431,11 +1226,8 @@
         "meta": {
             "duration": 6.64,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 614400
-        },
-        "legacy_src": "flv/dolphininwater.flv"
+            "height": 576
+        }
     },
     {
         "video_id": "aikido_principle",
@@ -1454,18 +1246,11 @@
         "meta": {
             "duration": 185.12,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 716800
+            "height": 576
         },
-        "legacy_src": "flv/aikido_principle.flv",
         "tracks": {
             "en": "aikido_principle.en.vtt",
             "fr": "aikido_principle.fr.vtt"
-        },
-        "legacy_tracks": {
-            "en": "srt/aikido_principle_en.srt",
-            "fr": "srt/aikido_principle_fr.srt"
         }
     },
     {
@@ -1485,11 +1270,8 @@
         "meta": {
             "duration": 19.12,
             "width": 360,
-            "height": 288,
-            "audio_stream": true,
-            "bitrate": 614400
-        },
-        "legacy_src": "flv/aikido_3D_side.flv"
+            "height": 288
+        }
     },
     {
         "video_id": "aikido_3D_top",
@@ -1508,11 +1290,8 @@
         "meta": {
             "duration": 19.12,
             "width": 360,
-            "height": 288,
-            "audio_stream": true,
-            "bitrate": 614400
-        },
-        "legacy_src": "flv/aikido_3D_top.flv"
+            "height": 288
+        }
     },
     {
         "video_id": "aikido_3D_front",
@@ -1531,11 +1310,8 @@
         "meta": {
             "duration": 19.12,
             "width": 360,
-            "height": 288,
-            "audio_stream": true,
-            "bitrate": 614400
-        },
-        "legacy_src": "flv/aikido_3D_front.flv"
+            "height": 288
+        }
     },
     {
         "video_id": "crescent_head_up",
@@ -1554,18 +1330,11 @@
         "meta": {
             "duration": 73,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 716800
+            "height": 576
         },
-        "legacy_src": "flv/crescent_head_up.flv",
         "tracks": {
             "en": "crescent_head_up.en.vtt",
             "fr": "crescent_head_up.fr.vtt"
-        },
-        "legacy_tracks": {
-            "en": "srt/crescent_headup_en.srt",
-            "fr": "srt/crescent_headup_fr.srt"
         }
     },
     {
@@ -1585,18 +1354,11 @@
         "meta": {
             "duration": 100.88,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 716800
+            "height": 576
         },
-        "legacy_src": "flv/mfs_sbf_seattle.flv",
         "tracks": {
             "en": "mfs_sbf_seattle.en.vtt",
             "fr": "mfs_sbf_seattle.fr.vtt"
-        },
-        "legacy_tracks": {
-            "en": "srt/mfs_sbf_seattle_en.srt",
-            "fr": "srt/mfs_sbf_seattle_fr.srt"
         }
     },
     {
@@ -1616,18 +1378,11 @@
         "meta": {
             "duration": 63.12,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 716800
+            "height": 576
         },
-        "legacy_src": "flv/mfs_sbh_seattle.flv",
         "tracks": {
             "en": "mfs_sbh_seattle.en.vtt",
             "fr": "mfs_sbh_seattle.fr.vtt"
-        },
-        "legacy_tracks": {
-            "en": "srt/mfs_sbh_seattle_en.srt",
-            "fr": "srt/mfs_sbh_seattle_fr.srt"
         }
     },
     {
@@ -1647,18 +1402,11 @@
         "meta": {
             "duration": 37.29,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 716800
+            "height": 576
         },
-        "legacy_src": "flv/puzzle1_demo_graph.flv",
         "tracks": {
             "en": "puzzle1_demo_graph.en.vtt",
             "fr": "puzzle1_demo_graph.fr.vtt"
-        },
-        "legacy_tracks": {
-            "en": "srt/mfs_puzzle1_demo_en.srt",
-            "fr": "srt/mfs_puzzle1_demo_fr.srt"
         }
     },
     {
@@ -1678,18 +1426,11 @@
         "meta": {
             "duration": 139.52,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 716800
+            "height": 576
         },
-        "legacy_src": "flv/correction_crescent_handsfeet.flv",
         "tracks": {
             "en": "correction_crescent_handsfeet.en.vtt",
             "fr": "correction_crescent_handsfeet.fr.vtt"
-        },
-        "legacy_tracks": {
-            "en": "srt/correction_crescent_handsfeet_en.srt",
-            "fr": "srt/correction_crescent_handsfeet_fr.srt"
         }
     },
     {
@@ -1709,18 +1450,11 @@
         "meta": {
             "duration": 194.04,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 716800
+            "height": 576
         },
-        "legacy_src": "flv/correction_crescent_center.flv",
         "tracks": {
             "en": "correction_crescent_center.en.vtt",
             "fr": "correction_crescent_center.fr.vtt"
-        },
-        "legacy_tracks": {
-            "en": "srt/correction_crescent_center_en.srt",
-            "fr": "srt/correction_crescent_center_fr.srt"
         }
     },
     {
@@ -1740,18 +1474,11 @@
         "meta": {
             "duration": 318.2,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 716800
+            "height": 576
         },
-        "legacy_src": "flv/correction_helix_feet.flv",
         "tracks": {
             "en": "correction_helix_feet.en.vtt",
             "fr": "correction_helix_feet.fr.vtt"
-        },
-        "legacy_tracks": {
-            "en": "srt/correction_helix_feet_en.srt",
-            "fr": "srt/correction_helix_feet_fr.srt"
         }
     },
     {
@@ -1771,18 +1498,11 @@
         "meta": {
             "duration": 281.64,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 716800
+            "height": 576
         },
-        "legacy_src": "flv/correction_helix_hands.flv",
         "tracks": {
             "en": "correction_helix_hands.en.vtt",
             "fr": "correction_helix_hands.fr.vtt"
-        },
-        "legacy_tracks": {
-            "en": "srt/correction_helix_hands_en.srt",
-            "fr": "srt/correction_helix_hands_fr.srt"
         }
     },
     {
@@ -1802,18 +1522,11 @@
         "meta": {
             "duration": 94.28,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 716800
+            "height": 576
         },
-        "legacy_src": "flv/correction_conclusion.flv",
         "tracks": {
             "en": "correction_conclusion.en.vtt",
             "fr": "correction_conclusion.fr.vtt"
-        },
-        "legacy_tracks": {
-            "en": "srt/correction_conclusion_en.srt",
-            "fr": "srt/correction_conclusion_fr.srt"
         }
     },
     {
@@ -1834,10 +1547,8 @@
             "duration": 46.16,
             "width": 720,
             "height": 576,
-            "audio_stream": false,
-            "bitrate": 716800
-        },
-        "legacy_src": "flv/wu_fingers.flv"
+            "no_audio": true
+        }
     },
     {
         "video_id": "wu_wrist",
@@ -1857,10 +1568,8 @@
             "duration": 127,
             "width": 720,
             "height": 576,
-            "audio_stream": false,
-            "bitrate": 716800
-        },
-        "legacy_src": "flv/wu_wrist.flv"
+            "no_audio": true
+        }
     },
     {
         "video_id": "wu_hands",
@@ -1879,11 +1588,8 @@
         "meta": {
             "duration": 101.44,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 716800
-        },
-        "legacy_src": "flv/wu_hands.flv"
+            "height": 576
+        }
     },
     {
         "video_id": "wu_arms",
@@ -1903,10 +1609,8 @@
             "duration": 77.16,
             "width": 720,
             "height": 576,
-            "audio_stream": false,
-            "bitrate": 716800
-        },
-        "legacy_src": "flv/wu_arms.flv"
+            "no_audio": true
+        }
     },
     {
         "video_id": "wu_spine_and_arms",
@@ -1926,10 +1630,8 @@
             "duration": 51.84,
             "width": 720,
             "height": 576,
-            "audio_stream": false,
-            "bitrate": 716800
-        },
-        "legacy_src": "flv/wu_spine_and_arms.flv"
+            "no_audio": true
+        }
     },
     {
         "video_id": "wu_bendingbone",
@@ -1948,18 +1650,11 @@
         "meta": {
             "duration": 171.8,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 716800
+            "height": 576
         },
-        "legacy_src": "flv/wu_bendingbone.flv",
         "tracks": {
             "en": "wu_bendingbone.en.vtt",
             "fr": "wu_bendingbone.fr.vtt"
-        },
-        "legacy_tracks": {
-            "en": "srt/wu_bendingbone_en.srt",
-            "fr": "srt/wu_bendingbone_fr.srt"
         }
     },
     {
@@ -1979,11 +1674,8 @@
         "meta": {
             "duration": 87.52,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 716800
-        },
-        "legacy_src": "flv/wu_aikidostep.flv"
+            "height": 576
+        }
     },
     {
         "video_id": "wu_twist",
@@ -2003,10 +1695,8 @@
             "duration": 144.28,
             "width": 720,
             "height": 576,
-            "audio_stream": false,
-            "bitrate": 716800
-        },
-        "legacy_src": "flv/wu_twist.flv"
+            "no_audio": true
+        }
     },
     {
         "video_id": "wu_twistlegs",
@@ -2025,18 +1715,11 @@
         "meta": {
             "duration": 81.2,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 716800
+            "height": 576
         },
-        "legacy_src": "flv/wu_twistlegs.flv",
         "tracks": {
             "en": "wu_twistlegs.en.vtt",
             "fr": "wu_twistlegs.fr.vtt"
-        },
-        "legacy_tracks": {
-            "en": "srt/wu_twistleg_en.srt",
-            "fr": "srt/wu_twistleg_fr.srt"
         }
     },
     {
@@ -2056,18 +1739,11 @@
         "meta": {
             "duration": 417.96,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 716800
+            "height": 576
         },
-        "legacy_src": "flv/wu_legsresistance.flv",
         "tracks": {
             "en": "wu_legsresistance.en.vtt",
             "fr": "wu_legsresistance.fr.vtt"
-        },
-        "legacy_tracks": {
-            "en": "srt/wu_legsresistance_en.srt",
-            "fr": "srt/wu_legsresistance_fr.srt"
         }
     },
     {
@@ -2087,18 +1763,11 @@
         "meta": {
             "duration": 147.48,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 716800
+            "height": 576
         },
-        "legacy_src": "flv/wu_trocantere.flv",
         "tracks": {
             "en": "wu_trocantere.en.vtt",
             "fr": "wu_trocantere.fr.vtt"
-        },
-        "legacy_tracks": {
-            "en": "srt/wu_trochanter_en.srt",
-            "fr": "srt/wu_trochanter_fr.srt"
         }
     },
     {
@@ -2118,18 +1787,11 @@
         "meta": {
             "duration": 222.28,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 716800
+            "height": 576
         },
-        "legacy_src": "flv/wu_psoas.flv",
         "tracks": {
             "en": "wu_psoas.en.vtt",
             "fr": "wu_psoas.fr.vtt"
-        },
-        "legacy_tracks": {
-            "en": "srt/wu_psoas_en.srt",
-            "fr": "srt/wu_psoas_fr.srt"
         }
     },
     {
@@ -2149,18 +1811,11 @@
         "meta": {
             "duration": 112.68,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 716800
+            "height": 576
         },
-        "legacy_src": "flv/wu_wave.flv",
         "tracks": {
             "en": "wu_wave.en.vtt",
             "fr": "wu_wave.fr.vtt"
-        },
-        "legacy_tracks": {
-            "en": "srt/wu_wave_en.srt",
-            "fr": "srt/wu_wave_fr.srt"
         }
     },
     {
@@ -2180,18 +1835,11 @@
         "meta": {
             "duration": 119.8,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 716800
+            "height": 576
         },
-        "legacy_src": "flv/wu_wavefloor.flv",
         "tracks": {
             "en": "wu_wavefloor.en.vtt",
             "fr": "wu_wavefloor.fr.vtt"
-        },
-        "legacy_tracks": {
-            "en": "srt/wu_wavefloor_en.srt",
-            "fr": "srt/wu_wavefloor_fr.srt"
         }
     },
     {
@@ -2211,18 +1859,11 @@
         "meta": {
             "duration": 248.32,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 716800
+            "height": 576
         },
-        "legacy_src": "flv/wu_asanas.flv",
         "tracks": {
             "en": "wu_asanas.en.vtt",
             "fr": "wu_asanas.fr.vtt"
-        },
-        "legacy_tracks": {
-            "en": "srt/wu_asanas_en.srt",
-            "fr": "srt/wu_asanas_fr.srt"
         }
     },
     {
@@ -2242,18 +1883,11 @@
         "meta": {
             "duration": 96.12,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 716800
+            "height": 576
         },
-        "legacy_src": "flv/napp.flv",
         "tracks": {
             "en": "napp.en.vtt",
             "fr": "napp.fr.vtt"
-        },
-        "legacy_tracks": {
-            "en": "srt/napp_en.srt",
-            "fr": "srt/napp_fr.srt"
         }
     },
     {
@@ -2274,10 +1908,8 @@
             "duration": 119.8,
             "width": 720,
             "height": 576,
-            "audio_stream": false,
-            "bitrate": 716800
-        },
-        "legacy_src": "flv/wu_play.flv"
+            "no_audio": true
+        }
     },
     {
         "video_id": "dance_culture",
@@ -2296,18 +1928,11 @@
         "meta": {
             "duration": 260.48,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 716800
+            "height": 576
         },
-        "legacy_src": "flv/dance_culture.flv",
         "tracks": {
             "en": "dance_culture.en.vtt",
             "fr": "dance_culture.fr.vtt"
-        },
-        "legacy_tracks": {
-            "en": "srt/dance_culture_en.srt",
-            "fr": "srt/dance_culture_fr.srt"
         }
     },
     {
@@ -2327,11 +1952,8 @@
         "meta": {
             "duration": 462.6,
             "width": 400,
-            "height": 320,
-            "audio_stream": true,
-            "bitrate": 716800
-        },
-        "legacy_src": "flv/cultivating2.flv"
+            "height": 320
+        }
     },
     {
         "video_id": "cbfh_side",
@@ -2351,10 +1973,8 @@
             "duration": 0,
             "width": 720,
             "height": 576,
-            "audio_stream": false,
-            "bitrate": 0
-        },
-        "legacy_src": "swfvideo/cbfh_side.swf"
+            "no_audio": true
+        }
     },
     {
         "video_id": "cbfh_top",
@@ -2374,10 +1994,8 @@
             "duration": 0,
             "width": 720,
             "height": 576,
-            "audio_stream": false,
-            "bitrate": 0
-        },
-        "legacy_src": "swfvideo/cbfh_top.swf"
+            "no_audio": true
+        }
     },
     {
         "video_id": "cbfh_front",
@@ -2397,10 +2015,8 @@
             "duration": 0,
             "width": 720,
             "height": 576,
-            "audio_stream": false,
-            "bitrate": 0
-        },
-        "legacy_src": "swfvideo/cbfh_front.swf"
+            "no_audio": true
+        }
     },
     {
         "video_id": "cbc_front",
@@ -2420,10 +2036,8 @@
             "duration": 0,
             "width": 720,
             "height": 576,
-            "audio_stream": false,
-            "bitrate": 0
-        },
-        "legacy_src": "swfvideo/cbc_front.swf"
+            "no_audio": true
+        }
     },
     {
         "video_id": "cbc_top",
@@ -2443,10 +2057,8 @@
             "duration": 0,
             "width": 720,
             "height": 576,
-            "audio_stream": false,
-            "bitrate": 0
-        },
-        "legacy_src": "swfvideo/cbc_top.swf"
+            "no_audio": true
+        }
     },
     {
         "video_id": "cbhu_front",
@@ -2466,10 +2078,8 @@
             "duration": 0,
             "width": 720,
             "height": 576,
-            "audio_stream": false,
-            "bitrate": 0
-        },
-        "legacy_src": "swfvideo/cbhu_front.swf"
+            "no_audio": true
+        }
     },
     {
         "video_id": "cbhu_side",
@@ -2489,10 +2099,8 @@
             "duration": 0,
             "width": 720,
             "height": 576,
-            "audio_stream": false,
-            "bitrate": 0
-        },
-        "legacy_src": "swfvideo/cbhu_side.swf"
+            "no_audio": true
+        }
     },
     {
         "video_id": "sbf_fromfeet",
@@ -2512,10 +2120,8 @@
             "duration": 0,
             "width": 720,
             "height": 576,
-            "audio_stream": false,
-            "bitrate": 0
-        },
-        "legacy_src": "swfvideo/sbf_fromfeet.swf"
+            "no_audio": true
+        }
     },
     {
         "video_id": "sbf_fromside",
@@ -2535,10 +2141,8 @@
             "duration": 0,
             "width": 720,
             "height": 576,
-            "audio_stream": false,
-            "bitrate": 0
-        },
-        "legacy_src": "swfvideo/sbf_fromside.swf"
+            "no_audio": true
+        }
     },
     {
         "video_id": "sbf_fromhead",
@@ -2558,10 +2162,8 @@
             "duration": 0,
             "width": 720,
             "height": 576,
-            "audio_stream": false,
-            "bitrate": 0
-        },
-        "legacy_src": "swfvideo/sbf_fromhead.swf"
+            "no_audio": true
+        }
     },
     {
         "video_id": "sbh_fromhead",
@@ -2581,10 +2183,8 @@
             "duration": 0,
             "width": 720,
             "height": 576,
-            "audio_stream": false,
-            "bitrate": 0
-        },
-        "legacy_src": "swfvideo/sbh_fromhead.swf"
+            "no_audio": true
+        }
     },
     {
         "video_id": "sbh_fromside",
@@ -2604,10 +2204,8 @@
             "duration": 0,
             "width": 720,
             "height": 576,
-            "audio_stream": false,
-            "bitrate": 0
-        },
-        "legacy_src": "swfvideo/sbh_fromside.swf"
+            "no_audio": true
+        }
     },
     {
         "video_id": "frontal_head_top",
@@ -2627,10 +2225,8 @@
             "duration": 0,
             "width": 720,
             "height": 576,
-            "audio_stream": false,
-            "bitrate": 0
-        },
-        "legacy_src": "swfvideo/frontal_head_top.swf"
+            "no_audio": true
+        }
     },
     {
         "video_id": "frontal_head_side",
@@ -2650,10 +2246,8 @@
             "duration": 0,
             "width": 720,
             "height": 576,
-            "audio_stream": false,
-            "bitrate": 0
-        },
-        "legacy_src": "swfvideo/frontal_head_side.swf"
+            "no_audio": true
+        }
     },
     {
         "video_id": "frontal_head_bottom",
@@ -2673,10 +2267,8 @@
             "duration": 0,
             "width": 720,
             "height": 576,
-            "audio_stream": false,
-            "bitrate": 0
-        },
-        "legacy_src": "swfvideo/frontal_head_bottom.swf"
+            "no_audio": true
+        }
     },
     {
         "video_id": "frontal_pelvis_top",
@@ -2696,10 +2288,8 @@
             "duration": 0,
             "width": 720,
             "height": 576,
-            "audio_stream": false,
-            "bitrate": 0
-        },
-        "legacy_src": "swfvideo/frontal_pelvis_top.swf"
+            "no_audio": true
+        }
     },
     {
         "video_id": "frontal_pelvis_side",
@@ -2719,10 +2309,8 @@
             "duration": 0,
             "width": 720,
             "height": 576,
-            "audio_stream": false,
-            "bitrate": 0
-        },
-        "legacy_src": "swfvideo/frontal_pelvis_side.swf"
+            "no_audio": true
+        }
     },
     {
         "video_id": "frontal_pelvis_bottom",
@@ -2742,10 +2330,8 @@
             "duration": 0,
             "width": 720,
             "height": 576,
-            "audio_stream": false,
-            "bitrate": 0
-        },
-        "legacy_src": "swfvideo/frontal_pelvis_bottom.swf"
+            "no_audio": true
+        }
     },
     {
         "video_id": "lateral_head_front",
@@ -2765,10 +2351,8 @@
             "duration": 0,
             "width": 720,
             "height": 576,
-            "audio_stream": false,
-            "bitrate": 0
-        },
-        "legacy_src": "swfvideo/lateral_head_front.swf"
+            "no_audio": true
+        }
     },
     {
         "video_id": "lateral_head_top",
@@ -2788,10 +2372,8 @@
             "duration": 0,
             "width": 720,
             "height": 576,
-            "audio_stream": false,
-            "bitrate": 0
-        },
-        "legacy_src": "swfvideo/lateral_head_top.swf"
+            "no_audio": true
+        }
     },
     {
         "video_id": "lateral_pelvis_top",
@@ -2811,10 +2393,8 @@
             "duration": 0,
             "width": 720,
             "height": 576,
-            "audio_stream": false,
-            "bitrate": 0
-        },
-        "legacy_src": "swfvideo/lateral_pelvis_top.swf"
+            "no_audio": true
+        }
     },
     {
         "video_id": "lateral_pelvis_front",
@@ -2834,10 +2414,8 @@
             "duration": 0,
             "width": 720,
             "height": 576,
-            "audio_stream": false,
-            "bitrate": 0
-        },
-        "legacy_src": "swfvideo/lateral_pelvis_front.swf"
+            "no_audio": true
+        }
     },
     {
         "video_id": "aikido_side",
@@ -2856,11 +2434,8 @@
         "meta": {
             "duration": 0,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 0
-        },
-        "legacy_src": "swfvideo/aikido_side.swf"
+            "height": 576
+        }
     },
     {
         "video_id": "aikido_top",
@@ -2879,11 +2454,8 @@
         "meta": {
             "duration": 0,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 0
-        },
-        "legacy_src": "swfvideo/aikido_top.swf"
+            "height": 576
+        }
     },
     {
         "video_id": "aikido_front",
@@ -2902,10 +2474,7 @@
         "meta": {
             "duration": 0,
             "width": 720,
-            "height": 576,
-            "audio_stream": true,
-            "bitrate": 0
-        },
-        "legacy_src": "swfvideo/aikido_front.swf"
+            "height": 576
+        }
     }
 ]
