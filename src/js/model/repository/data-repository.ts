@@ -1,6 +1,5 @@
 import VideoEntity from '@model/entity/video-entity';
 import PageEntity from '@model/entity/page-entity';
-import { cloneDeep } from 'lodash-es';
 import { IJsonVideo } from '@data/json/data-videos';
 
 export type DataSupportedLangType = 'en' | 'fr'; // | 'nl' | 'de' | 'es';
