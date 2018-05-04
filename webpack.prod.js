@@ -12,9 +12,9 @@ const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
-const CompressionPlugin = require('compression-webpack-plugin');
+//const CompressionPlugin = require('compression-webpack-plugin');
+const CompressionPlugin = require('zopfli-webpack-plugin');
 const StatsWriterPlugin = require('webpack-stats-plugin').StatsWriterPlugin;
-const BrotliPlugin = require('brotli-webpack-plugin');
 
 const PUBLIC_URL = 'https://paxton.soluble.io';
 
