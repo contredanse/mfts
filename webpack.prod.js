@@ -314,7 +314,7 @@ module.exports = merge(common, {
         */
 
         new CompressionPlugin({
-            test: /\.(js|css|html|svg)$/,
+            test: /\.(js|css|svg)$/,
         }),
         /*
         new StatsWriterPlugin({
