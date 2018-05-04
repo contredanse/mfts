@@ -7,6 +7,9 @@
 
 WIP
 
+
+
+
 ### Special mentions
 
 > Thanks JetBrains for granting us free licences for our IDE's.
@@ -14,3 +17,11 @@ WIP
 [![PHPStorm](./docs/images/jetbrains/phpstorm.svg)](https://www.jetbrains.com)
 [![IntelJ/Idea](./docs/images/jetbrains/intelj.svg)](https://www.jetbrains.com)
 [![WebStorm](./docs/images/jetbrains/webstorm.svg)](https://www.jetbrains.com)
+
+
+```           _           _     _    ___            _   _                  _         
+ _____ ___| |_ ___ ___|_|___| |  |  _|___ ___   | |_| |_ ___    ___ ___|_|___ ___ 
+|     | .'|  _| -_|  _| | .'| |  |  _| . |  _|  |  _|   | -_|  |_ -| . | |   | -_|
+|_|_|_|__,|_| |___|_| |_|__,|_|  |_| |___|_|    |_| |_|_|___|  |___|  _|_|_|_|___|
+                                                                   |_|            
+```                                                                                                                                                                                             
