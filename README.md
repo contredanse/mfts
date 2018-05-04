@@ -12,12 +12,11 @@
 ```                                                                                                                                                                                             
 
 
-### Special mentions
+### Acknowledgments
 
-> Thanks JetBrains for granting us free licences for our IDE's.
-
-[![PHPStorm](./docs/images/jetbrains/phpstorm.svg)](https://www.jetbrains.com)
-[![IntelJ/Idea](./docs/images/jetbrains/intelj.svg)](https://www.jetbrains.com)
-[![WebStorm](./docs/images/jetbrains/webstorm.svg)](https://www.jetbrains.com)
+> JetBrains for granting free licenses to their IDE's.  
+> [![PHPStorm](./docs/images/jetbrains/phpstorm.svg)](https://www.jetbrains.com)
+> [![IntelJ/Idea](./docs/images/jetbrains/intelj.svg)](https://www.jetbrains.com)
+> [![WebStorm](./docs/images/jetbrains/webstorm.svg)](https://www.jetbrains.com)
 
 
