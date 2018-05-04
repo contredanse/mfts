@@ -53,7 +53,6 @@
         "babel-preset-env": "^1.6.1",
         "babel-preset-react": "^6.24.1",
         "babel-preset-stage-3": "^6.24.1",
-        "brotli-webpack-plugin": "^0.5.0",
         "clean-webpack-plugin": "^0.1.19",
         "compression-webpack-plugin": "^1.1.11",
         "concurrently": "^3.5.1",
@@ -113,7 +112,8 @@
         "webpack-manifest-plugin": "^2.0.2",
         "webpack-merge": "^4.1.2",
         "webpack-pwa-manifest": "^3.6.2",
-        "webpack-stats-plugin": "^0.2.1"
+        "webpack-stats-plugin": "^0.2.1",
+        "zopfli-webpack-plugin": "^0.1.0"
     },
     "dependencies": {
         "@material-ui/icons": "^1.0.0-beta.43",
