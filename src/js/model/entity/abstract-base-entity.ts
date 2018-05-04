@@ -50,7 +50,7 @@ export class BaseEntityHelper {
 }
 
 export abstract class AbstractBaseEntity {
-    readonly defaultOptions: IBaseEntityOptions = {
+    static readonly defaultOptions: IBaseEntityOptions = {
         lang: 'en',
         fallbackLang: 'en',
     };
@@ -61,9 +61,9 @@ export abstract class AbstractBaseEntity {
 
     constructor(options?: IBaseEntityOptions) {
         if (options === undefined) {
-            this.options = this.defaultOptions;
+            this.options = AbstractBaseEntity.defaultOptions;
         } else {
-            this.options = Object.assign(this.defaultOptions, options);
+            this.options = Object.assign(AbstractBaseEntity.defaultOptions, options);
         }
     }
 
