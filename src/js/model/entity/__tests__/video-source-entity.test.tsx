@@ -1,5 +1,6 @@
 import { IJsonVideoSource } from '@data/json/data-videos';
 import { VideoSourceEntityFactory } from '@src/model/entity/video-source-entity';
+import AppAssetsLocator from '@src/core/app-assets-locator';
 
 describe('VideoEntitySource from IJsonVideoSource', () => {
     const jsonSource: IJsonVideoSource = {
@@ -11,7 +12,10 @@ describe('VideoEntitySource from IJsonVideoSource', () => {
 
     const jsonSourceBackup = JSON.stringify(jsonSource);
 
-    const source = VideoSourceEntityFactory.createFromJson(jsonSource);
+    const source = VideoSourceEntityFactory.createFromJson(jsonSource, {
+        fallbackLang: 'en',
+        assetsLocator: new AppAssetsLocator({ assetsUrls: { default: '' } }),
+    });
 
     test('properties', () => {
         expect(source.type).toEqual('video/type/mp4');

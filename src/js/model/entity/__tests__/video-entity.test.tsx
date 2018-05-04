@@ -1,6 +1,7 @@
 import { VideoEntityFactory } from '@src/model/entity/video-entity';
 import { IJsonVideo } from '@data/json/data-videos';
 import { VideoSourceEntityFactory } from '@src/model/entity/video-source-entity';
+import AppAssetsLocator from '@src/core/app-assets-locator';
 
 describe('VideoEntity from IJsonVideo', () => {
     const jsonVideo: IJsonVideo = {
@@ -31,7 +32,13 @@ describe('VideoEntity from IJsonVideo', () => {
 
     const jsonVideoBackup = JSON.stringify(jsonVideo);
 
-    const video = VideoEntityFactory.createFromJson(jsonVideo);
+    const assetsLocator = new AppAssetsLocator({ assetsUrls: { default: '' } });
+    const options = {
+        fallbackLang: 'en',
+        assetsLocator: assetsLocator,
+    };
+
+    const video = VideoEntityFactory.createFromJson(jsonVideo, options);
 
     test('properties', () => {
         expect(video.videoId).toEqual('the_video_id');
@@ -42,7 +49,7 @@ describe('VideoEntity from IJsonVideo', () => {
     test('videoSources', () => {
         const unsortedSrcs = video.getSources(false);
         expect(unsortedSrcs.length).toEqual(2);
-        expect(unsortedSrcs[0]).toEqual(VideoSourceEntityFactory.createFromJson(jsonVideo.sources[0]));
+        expect(unsortedSrcs[0]).toEqual(VideoSourceEntityFactory.createFromJson(jsonVideo.sources[0], options));
     });
 
     test('immutability', () => {

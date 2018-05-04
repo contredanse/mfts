@@ -2,7 +2,7 @@ import { AbstractBaseEntity, IBaseEntityOptions } from '@src/model/entity/abstra
 import { IJsonVideoSource } from '@data/json/data-videos';
 
 export class VideoSourceEntityFactory {
-    static createFromJson(data: IJsonVideoSource, options?: IVideoSourceEntityOptions): VideoSourceEntity {
+    static createFromJson(data: IJsonVideoSource, options: IVideoSourceEntityOptions): VideoSourceEntity {
         return new VideoSourceEntity(data, options);
     }
 }
@@ -25,7 +25,7 @@ export default class VideoSourceEntity extends AbstractBaseEntity {
 
     readonly options!: IVideoSourceEntityOptions;
 
-    constructor(protected readonly data: IVideoSourceEntityData, options?: IVideoSourceEntityOptions) {
+    constructor(protected readonly data: IVideoSourceEntityData, options: IVideoSourceEntityOptions) {
         super(options);
     }
 
@@ -50,6 +50,7 @@ export default class VideoSourceEntity extends AbstractBaseEntity {
     }
 
     getSource(baseUrl?: string): string {
+        baseUrl = baseUrl || this.options.assetsLocator.getMediaTypeBaseUrl('videos');
         return this.getHelper().addBaseUrl(this.src, baseUrl);
     }
 

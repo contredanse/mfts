@@ -2,7 +2,7 @@ import { IJsonPageAudio, IJsonPageAudioTrack } from '@data/json/data-pages';
 import { AbstractBaseEntity, IBaseEntityOptions } from '@src/model/entity/abstract-base-entity';
 
 export class AudioEntityFactory {
-    static createFromJson(data: IJsonPageAudio, options?: IAudioEntityOptions): AudioEntity {
+    static createFromJson(data: IJsonPageAudio, options: IAudioEntityOptions): AudioEntity {
         return new AudioEntity(data, options);
     }
 }
@@ -14,7 +14,7 @@ export interface IAudioEntityOptions extends IBaseEntityOptions {}
 export default class AudioEntity extends AbstractBaseEntity {
     readonly options!: IAudioEntityOptions;
 
-    constructor(protected readonly data: IAudioEntityData, options?: IAudioEntityOptions) {
+    constructor(protected readonly data: IAudioEntityData, options: IAudioEntityOptions) {
         super(options);
     }
 

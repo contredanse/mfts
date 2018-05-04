@@ -11,7 +11,8 @@ import App from './containers/app';
 import '@public/favicon.ico';
 import 'typeface-quicksand';
 
-import { appConfig, AppConfig } from '@config/app-config';
+import { appConfig } from '@config/config.production';
+import AppConfig from '@src/core/app-config';
 import registerServiceWorker from './registerServiceWorker';
 
 const renderApp = (Component, config: AppConfig, elementId: string) => {

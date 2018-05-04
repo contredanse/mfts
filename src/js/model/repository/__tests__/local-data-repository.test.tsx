@@ -1,4 +1,4 @@
-import { appConfig } from '@config/app-config';
+import { appConfig } from '@config/config.production';
 import LocalDataRepository from '@src/model/repository/local-data-repository';
 
 describe('Data repository getters', () => {

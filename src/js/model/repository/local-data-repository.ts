@@ -1,4 +1,4 @@
-import { IAppDataConfig } from '@config/app-config';
+import { default as AppConfig, IAppDataConfig } from '@src/core/app-config';
 import { IJsonVideo } from '@data/json/data-videos';
 import { IJsonPage } from '@data/json/data-pages';
 import { IDataRepository, DataSupportedLangType, IDataRepositoryParams } from '@src/model/repository/data-repository';
@@ -6,13 +6,12 @@ import VideoEntity, { VideoEntityFactory } from '@src/model/entity/video-entity'
 import PageEntity, { PageEntityFactory } from '@src/model/entity/page-entity';
 
 export default class LocalDataRepository implements IDataRepository {
-    public readonly params: IDataRepositoryParams;
     protected readonly data: IAppDataConfig;
-    protected readonly fallbackLang = 'en';
+    protected readonly config: AppConfig;
 
-    constructor(data: IAppDataConfig, params: IDataRepositoryParams) {
-        this.params = params;
-        this.data = data;
+    constructor(config: AppConfig) {
+        this.data = config.getAppData();
+        this.config = config;
     }
 
     /**
@@ -44,11 +43,9 @@ export default class LocalDataRepository implements IDataRepository {
         if (jsonVideo === undefined) {
             return undefined;
         }
-        // TODO clean up dependencies
         return VideoEntityFactory.createFromJson(jsonVideo, {
-            baseUrl: this.params.videoBaseUrl,
-            fallbackLang: this.params.fallbackLang,
-            lang: this.params.fallbackLang,
+            fallbackLang: this.config.fallbackLang,
+            assetsLocator: this.config.assetsLocator,
         });
     }
 
@@ -62,7 +59,7 @@ export default class LocalDataRepository implements IDataRepository {
         }
         const regex = new RegExp(fragment, 'i');
         const results = this.data.pages.filter((page: IJsonPage, idx: number) => {
-            const keywords = page.keywords[lang] || page.keywords[this.fallbackLang];
+            const keywords = page.keywords[lang] || page.keywords[this.config.fallbackLang];
             if (keywords !== undefined) {
                 return (
                     keywords
@@ -98,9 +95,8 @@ export default class LocalDataRepository implements IDataRepository {
         }
 
         const pageEntity = PageEntityFactory.createFromJson(page, this, {
-            fallbackLang: this.params.fallbackLang,
-            lang: this.params.fallbackLang,
-            baseUrl: this.params.assetsBaseUrl,
+            fallbackLang: this.config.fallbackLang,
+            assetsLocator: this.config.assetsLocator,
         });
         return pageEntity;
     }

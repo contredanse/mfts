@@ -5,7 +5,7 @@ import { IJsonPage, IJsonPageAudio, IJsonPageVideo } from '@data/json/data-pages
 import { IDataRepository } from '@src/model/repository/data-repository';
 
 export class PageEntityFactory {
-    static createFromJson(data: IJsonPage, repository: IDataRepository, options?: IPageEntityOptions): PageEntity {
+    static createFromJson(data: IJsonPage, repository: IDataRepository, options: IPageEntityOptions): PageEntity {
         return new PageEntity(data, repository, options);
     }
 }
@@ -18,7 +18,7 @@ export default class PageEntity extends AbstractBaseEntity {
     protected readonly data: IPageEntityData;
     protected readonly repository: IDataRepository;
 
-    constructor(data: IPageEntityData, repository: IDataRepository, options?: IPageEntityOptions) {
+    constructor(data: IPageEntityData, repository: IDataRepository, options: IPageEntityOptions) {
         super(options);
         this.data = data;
         // TO do remove this and use IoC container when time
@@ -50,10 +50,6 @@ export default class PageEntity extends AbstractBaseEntity {
     }
 
     getFirstVideo(lang?: string): VideoEntity | undefined {
-        /*
-        if (this.countVideos() === 0) {
-            return undefined;
-        }*/
         const firstVideo = this.getHelper().getLocalizedValue(this.videos[0].video_id, lang);
         return this.repository.getVideoEntity(firstVideo);
     }

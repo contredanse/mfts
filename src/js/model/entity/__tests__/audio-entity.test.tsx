@@ -1,5 +1,6 @@
 import { AudioEntityFactory } from '@src/model/entity/audio-entity';
 import { IJsonPageAudio } from '@data/json/data-pages';
+import AppAssetsLocator from '@src/core/app-assets-locator';
 
 describe('AudioEntity from IJsonPageAudio', () => {
     const jsonAudio: IJsonPageAudio = {
@@ -12,7 +13,10 @@ describe('AudioEntity from IJsonPageAudio', () => {
 
     const jsonAudioBackup = JSON.stringify(jsonAudio);
 
-    const audio = AudioEntityFactory.createFromJson(jsonAudio);
+    const audio = AudioEntityFactory.createFromJson(jsonAudio, {
+        fallbackLang: 'en',
+        assetsLocator: new AppAssetsLocator({ assetsUrls: { default: '' } }),
+    });
 
     it('should return a source file', () => {
         const srcFile = audio.getSourceFile();

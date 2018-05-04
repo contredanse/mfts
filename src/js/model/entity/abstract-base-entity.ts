@@ -1,11 +1,9 @@
+import AppConfig from '@src/core/app-config';
+import AppAssetsLocator from '@src/core/app-assets-locator';
+
 export interface IBaseEntityOptions {
-    lang: string;
     fallbackLang: string;
-    baseUrl?: string;
-    assetsBaseUrl?: {
-        video: '';
-        audio: '';
-    };
+    assetsLocator: AppAssetsLocator;
 }
 
 export class BaseEntityHelper {
@@ -21,11 +19,10 @@ export class BaseEntityHelper {
      * @returns {string}
      */
     public addBaseUrl(filename: string, baseUrl?: string): string {
-        const url = baseUrl || this.options.baseUrl;
-        if (url === undefined || baseUrl === '') {
-            return filename;
+        if (baseUrl) {
+            return `${baseUrl}/${filename}`;
         }
-        return `${url}/${filename}`;
+        return this.options.assetsLocator.getMediaAssetUrl('default', filename);
     }
 
     /**
@@ -33,9 +30,6 @@ export class BaseEntityHelper {
      * for the specified lang entry. If lang is not provided, fallback to
      * options.fallbackLang.
      *
-     * @param {{[p: string]: any}} obj
-     * @param {string} lang
-     * @returns {any | undefined}
      */
     public getLocalizedValue(obj: { [key: string]: any }, lang?: string): any | undefined {
         const { fallbackLang } = this.options;
@@ -50,21 +44,12 @@ export class BaseEntityHelper {
 }
 
 export abstract class AbstractBaseEntity {
-    static readonly defaultOptions: IBaseEntityOptions = {
-        lang: 'en',
-        fallbackLang: 'en',
-    };
-
     readonly options: IBaseEntityOptions;
 
     protected helper!: BaseEntityHelper;
 
-    constructor(options?: IBaseEntityOptions) {
-        if (options === undefined) {
-            this.options = AbstractBaseEntity.defaultOptions;
-        } else {
-            this.options = Object.assign(AbstractBaseEntity.defaultOptions, options);
-        }
+    constructor(options: IBaseEntityOptions) {
+        this.options = options;
     }
 
     protected getHelper(): BaseEntityHelper {

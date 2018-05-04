@@ -11,7 +11,7 @@ import IntroContainer from '@src/containers/intro-container';
 import MenuContainer from '@src/containers/menu-container';
 import NotFoundContainer from '@src/containers/notfound-container';
 import VideoListContainer from '@src/containers/video-list-container';
-import { AppConfig } from '@config/app-config';
+import AppConfig from '@src/core/app-config';
 import PageListContainer from '@src/containers/page-list-container';
 import PageContainer from '@src/containers/page-container';
 import LocalDataRepository from '@src/model/repository/local-data-repository';
@@ -26,7 +26,7 @@ class App extends React.Component<AppProps, {}> {
     }
 
     public render(): React.ReactElement<App> {
-        const { assetsBaseUrl, videosBaseUrl } = this.props.appConfig;
+        const { assetsLocator } = this.props.appConfig;
         const data = this.props.appConfig.getAppData();
         const lang = 'en';
 
@@ -50,7 +50,7 @@ class App extends React.Component<AppProps, {}> {
                                     return (
                                         <PageListContainer
                                             lang={lang}
-                                            videosBaseUrl={videosBaseUrl}
+                                            videosBaseUrl={assetsLocator.getMediaTypeBaseUrl('videos')}
                                             dataRepository={dataRepository as LocalDataRepository}
                                             {...props}
                                         />
@@ -63,7 +63,7 @@ class App extends React.Component<AppProps, {}> {
                                 render={props => (
                                     <VideoListContainer
                                         initialData={data.videos}
-                                        assetsBaseUrl={videosBaseUrl}
+                                        assetsBaseUrl={assetsLocator.getMediaTypeBaseUrl('videos')}
                                         {...props}
                                     />
                                 )}
