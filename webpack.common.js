@@ -14,7 +14,6 @@ module.exports = {
              * Internal import aliases for convenience.
              */
             '@src': path.resolve(__dirname, 'src/js/'),
-            '@model': path.resolve(__dirname, 'src/js/model'),
             '@config': path.resolve(__dirname, 'src/config/'),
             '@styles': path.resolve(__dirname, 'src/styles/'),
             '@public': path.resolve(__dirname, 'public/'),
