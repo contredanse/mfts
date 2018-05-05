@@ -1,21 +1,17 @@
-﻿export interface IJsonMenu {
-    type: string;
+﻿type JsonMenuNodeType = 'page' | 'section';
+
+export interface IJsonMenu {
+    type: JsonMenuNodeType;
     id: string;
     title_en: string;
     title_fr: string;
-    content?: (IJsonContentEntity)[];
+    content?: (IJsonContent)[];
 }
-export interface IJsonContentEntity {
-    type: string;
-    page_id?: string | null;
+export interface IJsonContent {
+    type: JsonMenuNodeType;
+    id?: string;
+    page_id?: string;
     title_en: string;
     title_fr: string;
-    id?: string | null;
-    content?: (IJsonContentEntity1)[];
-}
-export interface IJsonContentEntity1 {
-    type: string;
-    page_id: string;
-    title_en: string;
-    title_fr: string;
+    content?: (IJsonContent)[];
 }
