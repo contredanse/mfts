@@ -1,4 +1,6 @@
-﻿export interface IJsonPage {
+﻿import { ITranslatedValue } from '@src/model/entity/abstract-base-entity';
+
+export interface IJsonPage {
     page_id: string;
     name: IJsonPageLocalizedText;
     title: IJsonPageLocalizedText;
@@ -8,10 +10,9 @@
     sort_idx: number;
 }
 
-export interface IJsonPageLocalizedText {
+export interface IJsonPageLocalizedText extends ITranslatedValue<string> {
     en: string;
     fr: string;
-    [key: string]: string; // subsequent languages
 }
 
 export interface IJsonPageLocalizedKeywords {

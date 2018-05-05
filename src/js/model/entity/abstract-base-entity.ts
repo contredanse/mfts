@@ -5,6 +5,10 @@ export interface IBaseEntityOptions {
     assetsLocator: AppAssetsLocator;
 }
 
+export interface ITranslatedValue<T> {
+    [key: string]: T;
+}
+
 export class BaseEntityHelper {
     constructor(protected options: IBaseEntityOptions) {}
 
