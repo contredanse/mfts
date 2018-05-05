@@ -19,7 +19,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "hello"
                     }
                 }
@@ -46,7 +46,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "lemmon_en",
                         "fr": "lemmon_fr"
                     }
@@ -74,7 +74,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "falls"
                     }
                 }
@@ -101,7 +101,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "watergravity"
                     }
                 }
@@ -128,7 +128,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "adjusting_birds"
                     }
                 }
@@ -155,7 +155,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "breathing_en",
                         "fr": "breathing_fr"
                     }
@@ -183,7 +183,7 @@
             "layout": "single-video-audio",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "smalldance_full"
                     }
                 }
@@ -216,7 +216,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "pointing"
                     }
                 }
@@ -243,7 +243,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "pointing_scapula"
                     }
                 }
@@ -270,7 +270,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "pelvis"
                     }
                 }
@@ -297,7 +297,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "pointing_heel"
                     }
                 }
@@ -324,7 +324,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "walkasfondation"
                     }
                 }
@@ -351,7 +351,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "birdswalk"
                     }
                 }
@@ -378,7 +378,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "slowwalk"
                     }
                 }
@@ -405,7 +405,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "twist"
                     }
                 }
@@ -432,7 +432,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "focus_back"
                     }
                 }
@@ -459,7 +459,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "passage"
                     }
                 }
@@ -486,7 +486,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "sphericalspace"
                     }
                 }
@@ -513,7 +513,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "perf_comments_goldberg"
                     }
                 }
@@ -540,7 +540,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "goldberg"
                     }
                 }
@@ -567,7 +567,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "perf_comments_english"
                     }
                 }
@@ -594,7 +594,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "english"
                     }
                 }
@@ -621,7 +621,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "perf_techimpro"
                     }
                 }
@@ -648,7 +648,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "new_intro"
                     }
                 }
@@ -675,11 +675,11 @@
             "layout": "three-videos-audio-subs",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "cbhf_fromside"
                     },
                     "video_detail": {
-                        "video_id": {
+                        "lang_video_id": {
                             "en": "cbfh_side"
                         },
                         "muted": true,
@@ -690,11 +690,11 @@
                     }
                 },
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "cbhf_fromtop"
                     },
                     "video_detail": {
-                        "video_id": {
+                        "lang_video_id": {
                             "en": "cbfh_top"
                         },
                         "muted": true,
@@ -705,11 +705,11 @@
                     }
                 },
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "cbhf_fromhead"
                     },
                     "video_detail": {
-                        "video_id": {
+                        "lang_video_id": {
                             "en": "cbfh_front"
                         },
                         "muted": true,
@@ -757,11 +757,11 @@
             "layout": "two-videos-only",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "cbc_fromhead"
                     },
                     "video_detail": {
-                        "video_id": {
+                        "lang_video_id": {
                             "en": "cbc_front"
                         },
                         "muted": true,
@@ -772,11 +772,11 @@
                     }
                 },
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "cbc_fromtop"
                     },
                     "video_detail": {
-                        "video_id": {
+                        "lang_video_id": {
                             "en": "cbc_top"
                         },
                         "muted": true,
@@ -809,11 +809,11 @@
             "layout": "two-videos-only",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "chu_fromfeet"
                     },
                     "video_detail": {
-                        "video_id": {
+                        "lang_video_id": {
                             "en": "cbhu_front"
                         },
                         "muted": true,
@@ -824,11 +824,11 @@
                     }
                 },
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "chu_fromside"
                     },
                     "video_detail": {
-                        "video_id": {
+                        "lang_video_id": {
                             "en": "cbhu_side"
                         },
                         "muted": true,
@@ -861,7 +861,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "cbfhu"
                     }
                 }
@@ -888,7 +888,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "crescent_water"
                     }
                 }
@@ -915,7 +915,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "c_comparing"
                     }
                 }
@@ -942,11 +942,11 @@
             "layout": "three-videos-audio-subs",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "sbf_fromfeet"
                     },
                     "video_detail": {
-                        "video_id": {
+                        "lang_video_id": {
                             "en": "sbf_fromfeet"
                         },
                         "muted": true,
@@ -957,11 +957,11 @@
                     }
                 },
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "sbf_side"
                     },
                     "video_detail": {
-                        "video_id": {
+                        "lang_video_id": {
                             "en": "sbf_fromside"
                         },
                         "muted": true,
@@ -972,11 +972,11 @@
                     }
                 },
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "sbf_fromhead"
                     },
                     "video_detail": {
-                        "video_id": {
+                        "lang_video_id": {
                             "en": "sbf_fromhead"
                         },
                         "muted": true,
@@ -1024,11 +1024,11 @@
             "layout": "two-videos-audio-subs",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "sbh_fromhead"
                     },
                     "video_detail": {
-                        "video_id": {
+                        "lang_video_id": {
                             "en": "sbh_fromhead"
                         },
                         "muted": true,
@@ -1039,11 +1039,11 @@
                     }
                 },
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "sbh_side"
                     },
                     "video_detail": {
-                        "video_id": {
+                        "lang_video_id": {
                             "en": "sbh_fromside"
                         },
                         "muted": true,
@@ -1091,7 +1091,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "helixinwater"
                     }
                 }
@@ -1118,7 +1118,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "h_comparing"
                     }
                 }
@@ -1145,7 +1145,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "puzzle1"
                     }
                 }
@@ -1172,7 +1172,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "puzzle2"
                     }
                 }
@@ -1199,7 +1199,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "puzzle3"
                     }
                 }
@@ -1226,7 +1226,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "puzzle4"
                     }
                 }
@@ -1253,11 +1253,11 @@
             "layout": "three-videos-audio-subs",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "frontal_head_top"
                     },
                     "video_detail": {
-                        "video_id": {
+                        "lang_video_id": {
                             "en": "frontal_head_top"
                         },
                         "muted": true,
@@ -1268,11 +1268,11 @@
                     }
                 },
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "frontal_head_side"
                     },
                     "video_detail": {
-                        "video_id": {
+                        "lang_video_id": {
                             "en": "frontal_head_side"
                         },
                         "muted": true,
@@ -1283,11 +1283,11 @@
                     }
                 },
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "frontal_head_bottom"
                     },
                     "video_detail": {
-                        "video_id": {
+                        "lang_video_id": {
                             "en": "frontal_head_bottom"
                         },
                         "muted": true,
@@ -1335,11 +1335,11 @@
             "layout": "three-videos-only",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "frontal_pelvis_top"
                     },
                     "video_detail": {
-                        "video_id": {
+                        "lang_video_id": {
                             "en": "frontal_pelvis_top"
                         },
                         "muted": true,
@@ -1350,11 +1350,11 @@
                     }
                 },
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "frontal_pelvis_side"
                     },
                     "video_detail": {
-                        "video_id": {
+                        "lang_video_id": {
                             "en": "frontal_pelvis_side"
                         },
                         "muted": true,
@@ -1365,11 +1365,11 @@
                     }
                 },
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "frontal_pelvis_bottom"
                     },
                     "video_detail": {
-                        "video_id": {
+                        "lang_video_id": {
                             "en": "frontal_pelvis_bottom"
                         },
                         "muted": true,
@@ -1402,11 +1402,11 @@
             "layout": "two-videos-only",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "lateral_head_front"
                     },
                     "video_detail": {
-                        "video_id": {
+                        "lang_video_id": {
                             "en": "lateral_head_front"
                         },
                         "muted": true,
@@ -1417,11 +1417,11 @@
                     }
                 },
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "lateral_head_top"
                     },
                     "video_detail": {
-                        "video_id": {
+                        "lang_video_id": {
                             "en": "lateral_head_top"
                         },
                         "muted": true,
@@ -1454,11 +1454,11 @@
             "layout": "two-videos-only",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "lateral_pelvis_top"
                     },
                     "video_detail": {
-                        "video_id": {
+                        "lang_video_id": {
                             "en": "lateral_pelvis_top"
                         },
                         "muted": true,
@@ -1469,11 +1469,11 @@
                     }
                 },
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "lateral_pelvis_front"
                     },
                     "video_detail": {
-                        "video_id": {
+                        "lang_video_id": {
                             "en": "lateral_pelvis_front"
                         },
                         "muted": true,
@@ -1506,7 +1506,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "dolphininwater"
                     }
                 }
@@ -1533,7 +1533,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "aikido_principle"
                     }
                 }
@@ -1560,11 +1560,11 @@
             "layout": "three-videos-audio-subs",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "aikido_3D_side"
                     },
                     "video_detail": {
-                        "video_id": {
+                        "lang_video_id": {
                             "en": "aikido_side"
                         },
                         "muted": true,
@@ -1575,11 +1575,11 @@
                     }
                 },
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "aikido_3D_top"
                     },
                     "video_detail": {
-                        "video_id": {
+                        "lang_video_id": {
                             "en": "aikido_top"
                         },
                         "muted": true,
@@ -1590,11 +1590,11 @@
                     }
                 },
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "aikido_3D_front"
                     },
                     "video_detail": {
-                        "video_id": {
+                        "lang_video_id": {
                             "en": "aikido_front"
                         },
                         "muted": true,
@@ -1642,7 +1642,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "crescent_head_up"
                     }
                 }
@@ -1669,7 +1669,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "mfs_sbf_seattle"
                     }
                 }
@@ -1696,7 +1696,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "mfs_sbh_seattle"
                     }
                 }
@@ -1723,7 +1723,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "puzzle1_demo_graph"
                     }
                 }
@@ -1750,7 +1750,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "correction_crescent_handsfeet"
                     }
                 }
@@ -1777,7 +1777,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "correction_crescent_center"
                     }
                 }
@@ -1804,7 +1804,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "correction_helix_feet"
                     }
                 }
@@ -1831,7 +1831,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "correction_helix_hands"
                     }
                 }
@@ -1858,7 +1858,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "correction_conclusion"
                     }
                 }
@@ -1885,7 +1885,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "wu_fingers"
                     }
                 }
@@ -1912,7 +1912,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "wu_wrist"
                     }
                 }
@@ -1939,7 +1939,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "wu_hands"
                     }
                 }
@@ -1966,7 +1966,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "wu_arms"
                     }
                 }
@@ -1993,7 +1993,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "wu_spine_and_arms"
                     }
                 }
@@ -2020,7 +2020,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "wu_bendingbone"
                     }
                 }
@@ -2047,7 +2047,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "wu_aikidostep"
                     }
                 }
@@ -2074,7 +2074,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "wu_twist"
                     }
                 }
@@ -2101,7 +2101,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "wu_twistlegs"
                     }
                 }
@@ -2128,7 +2128,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "wu_legsresistance"
                     }
                 }
@@ -2155,7 +2155,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "wu_trocantere"
                     }
                 }
@@ -2182,7 +2182,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "wu_psoas"
                     }
                 }
@@ -2209,7 +2209,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "wu_wave"
                     }
                 }
@@ -2236,7 +2236,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "wu_wavefloor"
                     }
                 }
@@ -2263,7 +2263,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "wu_asanas"
                     }
                 }
@@ -2290,7 +2290,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "napp"
                     }
                 }
@@ -2317,7 +2317,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "wu_play"
                     }
                 }
@@ -2344,7 +2344,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "dance_culture"
                     }
                 }
@@ -2371,7 +2371,7 @@
             "layout": "single-video",
             "videos": [
                 {
-                    "video_id": {
+                    "lang_video_id": {
                         "en": "cultivating2"
                     }
                 }

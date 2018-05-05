@@ -26,14 +26,14 @@ export interface IJsonPageContent {
 }
 
 export interface IJsonPageVideo {
-    video_id: IJsonLocalizedVideoId;
+    lang_video_id: IJsonLocalizedVideoId;
     muted?: boolean;
     loop?: boolean;
     video_detail?: IJsonPageVideoDetail;
 }
 
 export interface IJsonPageVideoDetail {
-    video_id: IJsonLocalizedVideoId;
+    lang_video_id: IJsonLocalizedVideoId;
     desc?: ITranslatedValue<string>;
     muted?: boolean;
     loop?: boolean;
