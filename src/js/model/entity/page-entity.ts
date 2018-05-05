@@ -50,7 +50,7 @@ export default class PageEntity extends AbstractBaseEntity {
     }
 
     getFirstVideo(lang?: string): VideoEntity | undefined {
-        const firstVideo = this.getHelper().getLocalizedValue(this.videos[0].video_id, lang);
+        const firstVideo = this.getHelper().getLocalizedValue(this.videos[0].lang_video_id, lang);
         return this.repository.getVideoEntity(firstVideo);
     }
 
@@ -59,8 +59,8 @@ export default class PageEntity extends AbstractBaseEntity {
             return [];
         }
         const videos: VideoEntity[] = [];
-        this.videos.forEach(({ video_id: localizedVideoId }) => {
-            const videoId = this.getHelper().getLocalizedValue(localizedVideoId, lang);
+        this.videos.forEach(({ lang_video_id }) => {
+            const videoId = this.getHelper().getLocalizedValue(lang_video_id, lang);
             const videoJson = this.repository.getVideoEntity(videoId);
             if (videoJson !== undefined) {
                 videos.push(videoJson);
