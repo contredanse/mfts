@@ -15,8 +15,8 @@ export interface IJsonPageLocalizedText extends ITranslatedValue<string> {
     fr: string;
 }
 
-export interface IJsonPageLocalizedKeywords {
-    [key: string]: string[]; // optional languages codes (en, fr, ...)
+export interface IJsonPageLocalizedKeywords extends ITranslatedValue<string[]> {
+    // [key: string]: string[]; // optional languages codes (en, fr, ...)
 }
 
 export interface IJsonPageContent {
@@ -34,10 +34,7 @@ export interface IJsonPageVideo {
 
 export interface IJsonPageVideoDetail {
     video_id: IJsonLocalizedVideoId;
-    desc?: {
-        en: string;
-        fr: string;
-    };
+    desc?: ITranslatedValue<string>;
     muted?: boolean;
     loop?: boolean;
 }
@@ -52,12 +49,10 @@ export interface IJsonPageAudio {
     tracks?: IJsonPageAudioTrack[];
 }
 
-export type IJsonLocalizedAudioSource = {
+export interface IJsonLocalizedAudioSource extends ITranslatedValue<string> {
     en: string; // Only english is mandatory
-    [key: string]: string; // subsequent languages
-};
+}
 
-export type IJsonLocalizedVideoId = {
+export interface IJsonLocalizedVideoId extends ITranslatedValue<string> {
     en: string; // Only english is mandatory
-    [key: string]: string; // subsequent languages
-};
+}
