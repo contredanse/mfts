@@ -1,4 +1,6 @@
-﻿export interface IJsonVideo {
+﻿import { ITranslatedValue } from '@src/model/entity/abstract-base-entity';
+
+export interface IJsonVideo {
     video_id: string;
     sources: IJsonVideoSource[];
     meta: IJsonVideoMeta;
@@ -17,7 +19,6 @@ export interface IJsonVideoMeta {
     height?: number;
     no_audio?: boolean;
 }
-export interface IJsonVideoTracks {
+export interface IJsonVideoTracks extends ITranslatedValue<string> {
     en: string; // English is required
-    [key: string]: string; // subsequent languages
 }
