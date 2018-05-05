@@ -34,13 +34,13 @@ export class BaseEntityHelper {
      * options.fallbackLang.
      *
      */
-    public getLocalizedValue(obj: { [key: string]: any }, lang?: string): any | undefined {
+    public getLocalizedValue<V>(localizedObject: ITranslatedValue<V>, lang?: string): V | undefined {
         const { fallbackLang } = this.options;
         const langCode = lang || this.options.fallbackLang;
-        if (langCode in obj) {
-            return obj[langCode];
-        } else if (fallbackLang in obj) {
-            return obj[fallbackLang];
+        if (langCode in localizedObject) {
+            return localizedObject[langCode];
+        } else if (fallbackLang in localizedObject) {
+            return localizedObject[fallbackLang];
         }
         return undefined;
     }

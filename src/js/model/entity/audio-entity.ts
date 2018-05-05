@@ -18,8 +18,9 @@ export default class AudioEntity extends AbstractBaseEntity {
         super(options);
     }
 
-    getSourceFile(lang?: string, baseUrl?: string): string {
-        const sourceFile = this.getHelper().getLocalizedValue(this.data.src, lang);
+    getSourceFile(lang?: string, baseUrl?: string): string | undefined {
+        const sourceFile = this.getHelper().getLocalizedValue<string>(this.data.src, lang);
+        if (!sourceFile) return undefined;
         return this.getHelper().addBaseUrl(sourceFile, baseUrl);
     }
 
