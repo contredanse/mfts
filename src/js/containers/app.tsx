@@ -63,7 +63,7 @@ class App extends React.Component<AppProps, {}> {
                                 render={props => (
                                     <VideoListContainer
                                         initialData={data.videos}
-                                        assetsBaseUrl={assetsLocator.getMediaTypeBaseUrl('videos')}
+                                        videosBaseUrl={assetsLocator.getMediaTypeBaseUrl('videos')}
                                         {...props}
                                     />
                                 )}
