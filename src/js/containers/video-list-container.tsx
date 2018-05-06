@@ -7,7 +7,7 @@ import { IJsonVideo } from '@data/json/data-videos';
 
 interface IProps {
     initialData: IJsonVideo[];
-    assetsBaseUrl: string;
+    videosBaseUrl: string;
 }
 
 interface IState {
@@ -58,8 +58,7 @@ class VideoListContainer extends React.Component<IProps, IState> {
 
     render() {
         const { videos, selectedVideo } = this.state;
-        const { assetsBaseUrl } = this.props;
-        const videosBaseUrl = `${assetsBaseUrl}/videos`;
+        const { videosBaseUrl } = this.props;
         const searchBoxStyle = {
             position: 'fixed',
             top: '70px',
@@ -71,10 +70,10 @@ class VideoListContainer extends React.Component<IProps, IState> {
             sourceWebm,
             poster = '';
         if (selectedVideo !== undefined) {
-            poster = `${videosBaseUrl}/video/${selectedVideo.video_id}.jpg`;
+            poster = `${videosBaseUrl}/${selectedVideo.video_id}.jpg`;
 
-            sourceWebm = `${videosBaseUrl}/video/${selectedVideo.sources[0].src}`;
-            sourceMp4 = `${videosBaseUrl}/video/${selectedVideo.sources[1].src}`;
+            sourceWebm = `${videosBaseUrl}/${selectedVideo.sources[0].src}`;
+            sourceMp4 = `${videosBaseUrl}/${selectedVideo.sources[1].src}`;
         }
         return (
             <PageOverlay>
