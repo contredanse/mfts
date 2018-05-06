@@ -20,5 +20,5 @@ export interface IJsonVideoMeta {
     no_audio?: boolean;
 }
 export interface IJsonVideoTracks extends ITranslatedValue<string> {
-    en: string; // English is required
+    en: string; // English is required for VideoTracks
 }
