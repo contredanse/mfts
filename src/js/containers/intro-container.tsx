@@ -21,7 +21,7 @@ export default class IntroContainer extends React.Component<IProps, IState> {
     }
 
     render() {
-        const videoUrl = 'http://soluble.io/mfts/assets/new_intro.mp4';
+        const videoUrl = 'https://soluble.io/mfts/assets/new_intro.mp4';
         const videoStyle = {
             display: 'block',
             margin: '0 auto',
