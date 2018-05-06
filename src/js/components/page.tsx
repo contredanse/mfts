@@ -149,7 +149,7 @@ export default class Page extends React.Component<PageProps, PageState> {
                                                             kind="subtitles"
                                                             srcLang={audioTrack.lang}
                                                             src={audioTrack.src}
-                                                            {...(this.props.lang == audioTrack.lang
+                                                            {...(this.props.lang === audioTrack.lang
                                                                 ? { default: true }
                                                                 : {})}
                                                         />

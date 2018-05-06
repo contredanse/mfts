@@ -52,8 +52,8 @@ export default class PageList extends React.Component<IProps, IState> {
                                     case 'single-video-audio':
                                     case 'single-video-audio_i18n':
                                     case 'single-i18n-video': {
-                                        const video_id = content.videos[0].lang_video_id;
-                                        videos.push(this.getVideo(video_id[lang] || video_id[fallbackLang]));
+                                        const langVideoId = content.videos[0].lang_video_id;
+                                        videos.push(this.getVideo(langVideoId[lang] || langVideoId[fallbackLang]));
                                         /*
                                         const video_id = (content.videos as IDataPageVideoEntity[])[0][
                                             'versions'
