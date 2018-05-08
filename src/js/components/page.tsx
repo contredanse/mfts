@@ -3,6 +3,7 @@ import './page.scss';
 import { PageOverlay } from '@src/components/page-overlay';
 import PageEntity from '@src/model/entity/page-entity';
 import VideoEntity from '@src/model/entity/video-entity';
+import { BasicVideoPlayer } from '@src/components/player/basic-video-player';
 
 export interface PageProps {
     pageEntity: PageEntity;
@@ -24,45 +25,11 @@ export class VideoComp extends React.Component<VideoCompProps, {}> {
         loop: false,
     };
 
-    videoNode!: HTMLVideoElement;
-
     constructor(props: VideoCompProps) {
         super(props);
     }
 
-    componentDidMount() {
-        if (this.props.onEnd !== undefined) {
-            this.videoNode.addEventListener('ended', this.props.onEnd, false);
-        }
-        if (this.props.autoPlay && this.videoNode.paused) {
-            this.play();
-        }
-    }
-
-    play() {
-        if (this.videoNode !== undefined) {
-            // specific behaviour
-            if (this.videoNode.ended && this.videoNode.loop) {
-                // assume metadata are loaded (videoNode.ended should do the trick)
-                this.videoNode.currentTime = 0;
-            }
-            // play() is a promise... and can be rejected.
-            const playedPromise = this.videoNode.play();
-            if (playedPromise) {
-                playedPromise.catch(e => {
-                    if (e.name === 'NotAllowedError' || e.name === 'NotSupportedError') {
-                        console.log('Cannot autoplay video due to platform restrictions');
-                    }
-                });
-            }
-        }
-    }
-
-    componentWillUnmount() {
-        if (this.props.onEnd !== undefined) {
-            this.videoNode.removeEventListener('ended', this.props.onEnd);
-        }
-    }
+    play() {}
 
     render() {
         const { video, autoPlay, loop, ...restProps } = this.props;
@@ -73,6 +40,29 @@ export class VideoComp extends React.Component<VideoCompProps, {}> {
             poster: video.getFirstCover() || '',
         };
 
+        return (
+            <div className="videocomp-container">
+                <BasicVideoPlayer
+                    muted={muted}
+                    loop={loop}
+                    controls={controls}
+                    autoPlay={autoPlay}
+                    webkit-playsinline="webkit-playsinline"
+                >
+                    {video.getSources().map((sourceEntity, idx) => {
+                        return (
+                            <source
+                                key={idx}
+                                src={sourceEntity.getSource()}
+                                type={sourceEntity.getHtmlVideoTypeValue()}
+                            />
+                        );
+                    })}
+                </BasicVideoPlayer>
+            </div>
+        );
+
+        /*
         return (
             <div className="videocomp-container">
                 <video
@@ -101,7 +91,7 @@ export class VideoComp extends React.Component<VideoCompProps, {}> {
                     <div>{video.getFormattedDuration()}</div>
                 </div>
             </div>
-        );
+        );*/
     }
 }
 
