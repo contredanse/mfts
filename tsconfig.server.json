@@ -1,0 +1,16 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "module": "esnext",
+        "target": "esnext",
+        "outDir": "production-server/",
+        "jsx": "preserve",
+        "sourceMap": false,
+        "experimentalDecorators": true,
+        "noImplicitUseStrict": true,
+        "removeComments": true,
+        "moduleResolution": "node",
+        "lib": ["es2017", "dom"]
+    },
+    "include": ["server/**/*.ts"]
+}
