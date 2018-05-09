@@ -146,7 +146,7 @@
         "typeface-eczar": "^0.0.54",
         "typeface-quicksand": "^0.0.54",
         "typeface-roboto": "^0.0.54",
-        "video-react": "^0.10.5"
+        "video-react": "^0.10.7"
     },
     "devEngines": {
         "npm": ">=5.x",
