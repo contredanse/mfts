@@ -69,12 +69,13 @@ export default class MediaPlayer extends React.Component<MediaPlayerProps, Media
 
                 if (this.props.effects.updateMetadata) {
                     videoEl.addEventListener('loadedmetadata', (e: Event) => {
-                        const videoEl = e.currentTarget as HTMLVideoElement;
-                        this.props.effects!.updateMetadata!({
-                            duration: videoEl.duration,
-                            videoWidth: videoEl.videoWidth,
-                            videoHeight: videoEl.videoHeight,
-                        });
+                        const videoProps = e.currentTarget as HTMLVideoElement;
+                        const metadata = {
+                            duration: videoProps.duration,
+                            videoWidth: videoProps.videoWidth,
+                            videoHeight: videoProps.videoHeight,
+                        };
+                        this.props.effects!.updateMetadata!(metadata);
                     });
                 }
             }
