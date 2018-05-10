@@ -4,30 +4,30 @@ import NotFoundContainer from '@src/containers/notfound-container';
 import { DataSupportedLangType, IDataRepository } from '@src/model/repository/data-repository';
 import PageEntity from '@src/model/entity/page-entity';
 
-interface IProps {
+type PageContainerProps = {
     pageId: string;
     lang: DataSupportedLangType;
     dataRepository: IDataRepository;
-}
-interface IState {
+};
+type PageContainerState = {
     pageExists: boolean | undefined;
     pageEntity: PageEntity | undefined;
-}
+};
 
-class PageContainer extends React.Component<IProps, IState> {
+class PageContainer extends React.Component<PageContainerProps, PageContainerState> {
     readonly state = {
         pageExists: undefined,
         pageEntity: undefined,
     };
 
-    constructor(props: IProps) {
+    constructor(props: PageContainerProps) {
         super(props);
     }
 
     async componentDidMount() {
         try {
             const pageEntity = await this.props.dataRepository.getPageEntity(this.props.pageId);
-            this.setState((prevState: IState): IState => {
+            this.setState((prevState: PageContainerState): PageContainerState => {
                 return {
                     ...prevState,
                     pageExists: true,
@@ -35,7 +35,7 @@ class PageContainer extends React.Component<IProps, IState> {
                 };
             });
         } catch (e) {
-            this.setState((prevState: IState): IState => {
+            this.setState((prevState: PageContainerState): PageContainerState => {
                 return {
                     ...prevState,
                     pageExists: false,

@@ -3,13 +3,13 @@ import Scrollbars from 'react-custom-scrollbars';
 
 import './page-overlay.scss';
 
-interface IProps {
+type PageOverlayProps = {
     closeButton?: boolean;
     onClose?: () => void;
-}
-interface IState {}
+};
+type PageOverlayState = {};
 
-export class PageOverlay extends React.Component<IProps, IState> {
+export class PageOverlay extends React.Component<PageOverlayProps, PageOverlayState> {
     public static defaultProps = {
         closeButton: false,
     };

@@ -1,14 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-//import {VideoPlayer} from '@src/components';
 import { PageOverlay } from '@src/components/page-overlay';
 import { ReactVideoPlayer } from '@src/components/react-video-player';
 
-interface IProps {}
-interface IState {}
+type IntroContainerProps = {};
+type IntroContainerState = {};
 
-export default class IntroContainer extends React.Component<IProps, IState> {
-    constructor(props: IProps) {
+export default class IntroContainer extends React.Component<IntroContainerProps, IntroContainerState> {
+    constructor(props: IntroContainerProps) {
         super(props);
     }
 

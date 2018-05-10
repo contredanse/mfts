@@ -2,10 +2,10 @@ import React from 'react';
 import HelixMenu from '@src/components/helix-menu';
 import jsonMenuData from '@data/json/data-menu.json';
 
-interface IProps {}
-interface IState {}
+type MenuContainerProps = {};
+type MenuContainerState = {};
 
-class MenuContainer extends React.Component<IProps, IState> {
+class MenuContainer extends React.Component<MenuContainerProps, MenuContainerState> {
     render() {
         return (
             <div style={{ textAlign: 'center' }}>

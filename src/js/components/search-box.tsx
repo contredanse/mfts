@@ -1,14 +1,17 @@
 import React from 'react';
 import './search-box.scss';
 
-interface IProps {
+type SearchBoxProps = {
     placeHolder?: string;
     value?: string;
-}
+};
 
-interface IState {}
+type SearchBoxState = {};
 
-export class SearchBox extends React.Component<IProps & React.HTMLAttributes<HTMLInputElement>, IState> {
+export class SearchBox extends React.Component<
+    SearchBoxProps & React.HTMLAttributes<HTMLInputElement>,
+    SearchBoxState
+> {
     public static defaultProps = {
         placeHolder: 'search',
     };

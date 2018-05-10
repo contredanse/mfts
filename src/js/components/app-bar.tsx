@@ -21,16 +21,16 @@ import { Menu as MenuIcon } from '@material-ui/icons/es';
 
 import { RootState } from '@src/redux/index';
 
-export interface MenuLinkProps {
+type MenuLinkProps = {
     path: string;
     label: string;
     active: boolean;
-}
+};
 
-interface AppBarProps {
+type AppBarProps = {
     title: string;
     // menuLinks: MenuLinkProps[];
-}
+};
 
 export type AppBarWithStylesProps = AppBarProps & WithStyles<ComponentClassNames>;
 export type AppBarWithRouterProps = AppBarProps & RouteComponentProps<{}>;

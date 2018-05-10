@@ -5,21 +5,21 @@ import { SearchBox } from '@src/components/search-box';
 import { ReactVideoPlayer } from '@src/components/react-video-player';
 import { IJsonVideo } from '@data/json/data-videos';
 
-interface IProps {
+type VideoListContainerProps = {
     initialData: IJsonVideo[];
     videosBaseUrl: string;
-}
+};
 
-interface IState {
+type VideoListContainerState = {
     videos: IJsonVideo[];
     selectedVideo?: IJsonVideo;
     searchFragment?: string;
-}
+};
 
-class VideoListContainer extends React.Component<IProps, IState> {
+class VideoListContainer extends React.Component<VideoListContainerProps, VideoListContainerState> {
     public static defaultProps = {};
 
-    constructor(props: IProps) {
+    constructor(props: VideoListContainerProps) {
         super(props);
         this.state = {
             videos: this.props.initialData,

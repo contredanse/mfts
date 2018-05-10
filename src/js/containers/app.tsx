@@ -16,9 +16,9 @@ import PageListContainer from '@src/containers/page-list-container';
 import PageContainer from '@src/containers/page-container';
 import LocalDataRepository from '@src/model/repository/local-data-repository';
 
-interface AppProps {
+type AppProps = {
     appConfig: AppConfig;
-}
+};
 
 class App extends React.Component<AppProps, {}> {
     constructor(props: AppProps) {

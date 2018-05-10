@@ -2,7 +2,7 @@ import * as React from 'react';
 import './video-player.scss';
 import { HTMLAttributes } from 'react';
 
-export interface IVideoPlayerProps {
+export type VideoPlayerProps = {
     sourceUrl: string;
     autoPlay?: boolean;
     loop?: boolean;
@@ -11,12 +11,12 @@ export interface IVideoPlayerProps {
     controls?: boolean;
     onEnd?: () => void;
     htmlAttributes?: HTMLAttributes<HTMLVideoElement>;
-}
+};
 
-export interface IVideoPlayerState {}
+export type VideoPlayerState = {};
 
-export class VideoPlayer extends React.Component<IVideoPlayerProps, IVideoPlayerState> {
-    public static defaultProps: Partial<IVideoPlayerProps> = {
+export class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
+    public static defaultProps: Partial<VideoPlayerProps> = {
         autoPlay: true,
         muted: false,
         loop: false,

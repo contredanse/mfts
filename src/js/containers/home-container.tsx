@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-interface IProps {}
-interface IState {}
+type HomeContainerProps = {};
+type HomeContainerState = {};
 
 const LangSelector: React.SFC<any> = props => {
     return (
@@ -17,8 +17,8 @@ const LangSelector: React.SFC<any> = props => {
     );
 };
 
-class HomeContainer extends React.Component<IProps, IState> {
-    constructor(props: IProps) {
+class HomeContainer extends React.Component<HomeContainerProps, HomeContainerState> {
+    constructor(props: HomeContainerProps) {
         super(props);
     }
 

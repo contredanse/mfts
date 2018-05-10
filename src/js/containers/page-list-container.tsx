@@ -7,17 +7,18 @@ import { withRouter } from 'react-router-dom';
 import { RouteComponentProps } from 'react-router';
 import LocalDataRepository from '@src/model/repository/local-data-repository';
 
-interface PageListContainerProps extends RouteComponentProps<any> {
+type PageListContainerProps = {
     dataRepository: LocalDataRepository;
     videosBaseUrl: string;
     lang: 'en' | 'fr';
-}
-interface PageListContainerState {
+} & RouteComponentProps<any>;
+
+type PageListContainerState = {
     pages: IJsonPage[];
     lang: 'en' | 'fr';
     selectedPage?: IJsonPage;
     searchFragment?: string;
-}
+};
 
 class PageListContainer extends React.Component<PageListContainerProps, PageListContainerState> {
     constructor(props: PageListContainerProps) {
@@ -42,7 +43,7 @@ class PageListContainer extends React.Component<PageListContainerProps, PageList
     openPage = (page: IJsonPage) => {
         this.props.history.push(`/page/${page.page_id}`);
         /*
-        this.setState((prevState): IState => ({
+        this.setState((prevState): HomeContainerState => ({
             ...prevState,
             selectedPage: page,
         }));

@@ -1,14 +1,14 @@
 import React from 'react';
 
-interface IProps {}
-interface IState {}
+type NotFoundContainerProps = {};
+type NotFoundContainerState = {};
 
 export const NotFoundComponent: React.SFC<{}> = props => {
     return <h1 style={{ color: 'red' }}>Page not found!</h1>;
 };
 
-class NotFoundContainer extends React.Component<IProps, IState> {
-    constructor(props: IProps) {
+class NotFoundContainer extends React.Component<NotFoundContainerProps, NotFoundContainerState> {
+    constructor(props: NotFoundContainerProps) {
         super(props);
     }
 

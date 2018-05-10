@@ -5,16 +5,16 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { IJsonVideo } from '@data/json/data-videos';
 import dataVideos from '@data/json/data-videos.json';
 
-interface IProps {
+type PageListProps = {
     pages: IJsonPage[];
     lang: 'en' | 'fr';
     baseUrl: string;
     onSelected?: (page: IJsonPage) => void;
-}
+};
 
-interface IState {}
+type PageListState = {};
 
-export default class PageList extends React.Component<IProps, IState> {
+export default class PageList extends React.Component<PageListProps, PageListState> {
     handlePageSelection(page: IJsonPage) {
         console.log('pageSelected', page);
         if (this.props.onSelected !== undefined) {

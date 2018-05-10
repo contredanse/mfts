@@ -1,11 +1,11 @@
 import React from 'react';
 import './intro.scss';
 
-interface IProps {}
-interface IState {}
+type IntroProps = {};
+type IntroState = {};
 
-export class Intro extends React.Component<IProps, IState> {
-    constructor(props: IProps) {
+export class Intro extends React.Component<IntroProps, IntroState> {
+    constructor(props: IntroProps) {
         super(props);
     }
 

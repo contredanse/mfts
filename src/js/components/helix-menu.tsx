@@ -2,19 +2,19 @@ import React, { CSSProperties } from 'react';
 import spiralMenu from '@thirdparty/spiral.js';
 import { IJsonMenu } from '@data/json/data-menu';
 
-interface IProps {
+type HelixMenuProps = {
     jsonDataMenu: IJsonMenu;
-}
-interface IState {
+};
+type HelixMenuState = {
     width: number | string;
     height: number | string;
-}
+};
 
-export default class HelixMenu extends React.Component<IProps, IState> {
+export default class HelixMenu extends React.Component<HelixMenuProps, HelixMenuState> {
     canvas!: HTMLCanvasElement;
     spiralMenu: any;
 
-    constructor(props: IProps) {
+    constructor(props: HelixMenuProps) {
         super(props);
         this.state = {
             width: '100%', // imagine this defaults for now
@@ -58,7 +58,7 @@ export default class HelixMenu extends React.Component<IProps, IState> {
 
     updateDimensions = () => {
         // Just as an example
-        this.setState((prevState: IState): IState => {
+        this.setState((prevState: HelixMenuState): HelixMenuState => {
             return {
                 ...prevState,
                 width: '100%', // nothing yet but could be window.innerWidth or parent size...

@@ -3,8 +3,7 @@ import './page.scss';
 import { PageOverlay } from '@src/components/page-overlay';
 import PageEntity from '@src/model/entity/page-entity';
 
-import {
-    default as MediaPlayer,
+import MediaPlayer, {
     HTMLMediaMetadata,
     MediaPlayerActions,
     MediaPlayerEffects,
@@ -22,7 +21,7 @@ export type PlaybackState = {
     isMetadataLoaded: boolean;
 };
 
-type PageContextProps = {
+export type PageContextProps = {
     effects: MediaPlayerEffects;
     actions: MediaPlayerActions;
     state: PlaybackState;

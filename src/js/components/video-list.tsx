@@ -3,15 +3,15 @@ import './video-list.scss';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { IJsonVideo } from '@data/json/data-videos';
 
-interface IProps {
+type VideoListProps = {
     videos: IJsonVideo[];
     baseUrl: string;
     onSelected: (video: IJsonVideo) => void;
-}
+};
 
-interface IState {}
+type VideoListState = {};
 
-export class VideoList extends React.Component<IProps, IState> {
+export class VideoList extends React.Component<VideoListProps, VideoListState> {
     render() {
         const list = this.props.videos;
         const { baseUrl, onSelected } = this.props;
