@@ -104,7 +104,7 @@ export default class Page extends React.Component<PageProps, PageState> {
                                                         key={video.videoId}
                                                         video={video}
                                                         loop={true}
-                                                        autoPlay={false}
+                                                        autoPlay={true}
                                                     />
                                                 );
                                             })}
@@ -268,24 +268,23 @@ export class VideoComp extends React.Component<VideoCompProps, {}> {
 
         return (
             <div className="videocomp-container">
-                <ReactVideoPlayer
+                <MediaPlayer
                     muted={muted}
                     loop={loop}
                     controls={controls}
                     autoPlay={autoPlay}
                     webkit-playsinline="webkit-playsinline"
-                    sourceUrl={video.getSources()[0].getSource()}
-                />
-                {/*
-                {video.getSources().map((sourceEntity, idx) => {
-                    return (
-                        <source
-                            key={idx}
-                            src={sourceEntity.getSource()}
-                            type={sourceEntity.getHtmlVideoTypeValue()}
-                        />
-                    );
-                })}*/}
+                >
+                    {video.getSources().map((sourceEntity, idx) => {
+                        return (
+                            <source
+                                key={idx}
+                                src={sourceEntity.getSource()}
+                                type={sourceEntity.getHtmlVideoTypeValue()}
+                            />
+                        );
+                    })}
+                </MediaPlayer>
             </div>
         );
     }
