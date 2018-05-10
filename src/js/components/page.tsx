@@ -111,23 +111,32 @@ export default class Page extends React.Component<PageProps, PageState> {
                                         </div>
                                         {audio && (
                                             <div className="page-audio-subs">
-                                                <video controls={true} crossOrigin="anonymous">
-                                                    <source type={audioMimeType} src={audio.getSourceFile()} />
-                                                    {audio.getAllTracks().map(audioTrack => {
-                                                        return (
-                                                            <track
-                                                                key={audioTrack.src}
-                                                                label={audioTrack.lang}
-                                                                kind="subtitles"
-                                                                srcLang={audioTrack.lang}
-                                                                src={audioTrack.src}
-                                                                {...(this.props.lang === audioTrack.lang
-                                                                    ? { default: true }
-                                                                    : {})}
-                                                            />
-                                                        );
-                                                    })}
-                                                </video>
+                                                <PageContextConsumer>
+                                                    {({ state, effects }) => (
+                                                        <MediaPlayer
+                                                            ref={this.playerRef}
+                                                            autoPlay={true}
+                                                            effects={effects}
+                                                            crossOrigin="anonymous"
+                                                        >
+                                                            <source type={audioMimeType} src={audio.getSourceFile()} />
+                                                            {audio.getAllTracks().map(audioTrack => {
+                                                                return (
+                                                                    <track
+                                                                        key={audioTrack.src}
+                                                                        label={audioTrack.lang}
+                                                                        kind="subtitles"
+                                                                        srcLang={audioTrack.lang}
+                                                                        src={audioTrack.src}
+                                                                        {...(this.props.lang === audioTrack.lang
+                                                                            ? { default: true }
+                                                                            : {})}
+                                                                    />
+                                                                );
+                                                            })}
+                                                        </MediaPlayer>
+                                                    )}
+                                                </PageContextConsumer>
                                             </div>
                                         )}
                                     </div>
@@ -175,10 +184,10 @@ export default class Page extends React.Component<PageProps, PageState> {
         this.mediaPlayerActions = {
             // Actions
             pause: () => {
-                this.playerRef.current!.getVideoElement().pause();
+                this.playerRef.current && this.playerRef.current.getVideoElement().pause();
             },
             play: () => {
-                this.playerRef.current!.getVideoElement().play();
+                this.playerRef.current && this.playerRef.current.getVideoElement().play();
             },
             setPlaybackRate: playbackRate => {
                 console.log('mediaPlayerActions.setPlaybackRate', playbackRate);
@@ -253,13 +262,9 @@ export class VideoComp extends React.Component<VideoCompProps, {}> {
     }
 
     render() {
-        const { video, autoPlay, loop, ...restProps } = this.props;
+        const { video, autoPlay, loop } = this.props;
         const muted = true;
         const controls = true;
-
-        const videoProps = {
-            poster: video.getFirstCover() || '',
-        };
 
         return (
             <div className="videocomp-container">

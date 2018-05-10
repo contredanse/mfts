@@ -89,7 +89,8 @@ export default class MediaPlayer extends React.Component<MediaPlayerProps, Media
 
     componentDidUpdate(prevProps: MediaPlayerProps, prevState: MediaPlayerState): void {
         if (prevState.isPlaying !== this.state.isPlaying) {
-            if (this.state.isPlaying) {
+            const isPlaying = this.state.isPlaying;
+            if (isPlaying) {
                 this.videoRef.current!.play();
             } else {
                 this.videoRef.current!.pause();
