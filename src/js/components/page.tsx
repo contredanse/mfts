@@ -2,8 +2,7 @@ import * as React from 'react';
 import './page.scss';
 import { PageOverlay } from '@src/components/page-overlay';
 import PageEntity from '@src/model/entity/page-entity';
-import VideoEntity from '@src/model/entity/video-entity';
-import { ReactVideoPlayer } from '@src/components/react-video-player';
+
 import {
     default as MediaPlayer,
     HTMLMediaMetadata,
@@ -11,6 +10,7 @@ import {
     MediaPlayerEffects,
 } from '@src/components/player/media-player';
 import MediaPlayerControlBar from '@src/components/player/media-player-controlbar';
+import { PagePlayer } from '@src/components/page-player';
 
 export type PlaybackState = {
     currentTime: number;
@@ -100,7 +100,7 @@ export default class Page extends React.Component<PageProps, PageState> {
                                         <div className="page-video-wall">
                                             {videos.map(video => {
                                                 return (
-                                                    <VideoComp
+                                                    <PagePlayer
                                                         key={video.videoId}
                                                         video={video}
                                                         loop={true}
@@ -237,55 +237,5 @@ export default class Page extends React.Component<PageProps, PageState> {
         this.setState((prevState: PageState) => {
             return { ...prevState, playbackState: { ...prevState.playbackState, ...deltaState } };
         });
-    }
-}
-
-/**
- *
- */
-
-export interface VideoCompProps {
-    video: VideoEntity;
-    autoPlay?: boolean;
-    loop?: boolean;
-    onEnd?: () => {};
-}
-
-export class VideoComp extends React.Component<VideoCompProps, {}> {
-    static defaultProps: Partial<VideoCompProps> = {
-        autoPlay: true,
-        loop: false,
-    };
-
-    constructor(props: VideoCompProps) {
-        super(props);
-    }
-
-    render() {
-        const { video, autoPlay, loop } = this.props;
-        const muted = true;
-        const controls = true;
-
-        return (
-            <div className="videocomp-container">
-                <MediaPlayer
-                    muted={muted}
-                    loop={loop}
-                    controls={controls}
-                    autoPlay={autoPlay}
-                    webkit-playsinline="webkit-playsinline"
-                >
-                    {video.getSources().map((sourceEntity, idx) => {
-                        return (
-                            <source
-                                key={idx}
-                                src={sourceEntity.getSource()}
-                                type={sourceEntity.getHtmlVideoTypeValue()}
-                            />
-                        );
-                    })}
-                </MediaPlayer>
-            </div>
-        );
     }
 }
