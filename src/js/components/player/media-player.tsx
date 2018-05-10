@@ -105,17 +105,15 @@ export default class MediaPlayer extends React.Component<MediaPlayerProps, Media
         const webkitPlaysInlineProp = disableWebkitPlaysInline ? {} : { 'webkit-playsinline': 'webkit-playsinline' };
 
         return (
-            <>
-                <video
-                    ref={this.videoRef}
-                    onPlay={() => this.updateIsPlaying()}
-                    onPause={() => this.updateIsPlaying()}
-                    {...htmlVideoProps}
-                    {...webkitPlaysInlineProp}
-                >
-                    {this.props.children}
-                </video>
-            </>
+            <video
+                ref={this.videoRef}
+                onPlay={() => this.updateIsPlaying()}
+                onPause={() => this.updateIsPlaying()}
+                {...htmlVideoProps}
+                {...webkitPlaysInlineProp}
+            >
+                {this.props.children}
+            </video>
         );
     }
 
