@@ -104,6 +104,7 @@ export default class Page extends React.Component<PageProps, PageState> {
                                                         key={video.videoId}
                                                         video={video}
                                                         loop={true}
+                                                        muted={true}
                                                         autoPlay={true}
                                                     />
                                                 );

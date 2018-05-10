@@ -2,12 +2,12 @@ import * as React from 'react';
 import VideoEntity from '@src/model/entity/video-entity';
 import MediaPlayer from '@src/components/player/media-player';
 
-export interface PagePlayerProps {
+type HTMLVideoProps = React.VideoHTMLAttributes<HTMLVideoElement>;
+
+export type PagePlayerProps = {
     video: VideoEntity;
-    autoPlay?: boolean;
-    loop?: boolean;
     onEnd?: () => {};
-}
+} & HTMLVideoProps;
 
 export class PagePlayer extends React.Component<PagePlayerProps, {}> {
     static defaultProps: Partial<PagePlayerProps> = {
