@@ -1,5 +1,5 @@
-import { DataSupportedLangType, IDataRepository, IDataRepositoryParams } from '@src/model/repository/data-repository';
-import LocalDataRepository from '@src/model/repository/local-data-repository';
+import { DataSupportedLangType, IDataRepository, IDataRepositoryParams } from '@src/models/repository/data-repository';
+import LocalDataRepository from '@src/models/repository/local-data-repository';
 import { IJsonPage } from '@data/json/data-pages';
 import { IJsonVideo } from '@data/json/data-videos';
 import { IJsonMenu } from '@data/json/data-menu';

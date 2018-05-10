@@ -1,9 +1,9 @@
 import { default as AppConfig, IAppDataConfig } from '@src/core/app-config';
 import { IJsonVideo } from '@data/json/data-videos';
 import { IJsonPage } from '@data/json/data-pages';
-import { IDataRepository, DataSupportedLangType } from '@src/model/repository/data-repository';
-import VideoEntity, { VideoEntityFactory } from '@src/model/entity/video-entity';
-import PageEntity, { PageEntityFactory } from '@src/model/entity/page-entity';
+import { IDataRepository, DataSupportedLangType } from '@src/models/repository/data-repository';
+import VideoEntity, { VideoEntityFactory } from '@src/models/entity/video-entity';
+import PageEntity, { PageEntityFactory } from '@src/models/entity/page-entity';
 
 export default class LocalDataRepository implements IDataRepository {
     protected readonly data: IAppDataConfig;

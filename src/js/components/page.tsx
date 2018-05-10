@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './page.scss';
 import { PageOverlay } from '@src/components/page-overlay';
-import PageEntity from '@src/model/entity/page-entity';
+import PageEntity from '@src/models/entity/page-entity';
 
 import MediaPlayer, {
     HTMLMediaMetadata,

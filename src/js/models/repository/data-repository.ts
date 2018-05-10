@@ -1,5 +1,5 @@
-import VideoEntity from '@src/model/entity/video-entity';
-import PageEntity from '@src/model/entity/page-entity';
+import VideoEntity from '@src/models/entity/video-entity';
+import PageEntity from '@src/models/entity/page-entity';
 import { IJsonVideo } from '@data/json/data-videos';
 
 export type DataSupportedLangType = 'en' | 'fr'; // | 'nl' | 'de' | 'es';

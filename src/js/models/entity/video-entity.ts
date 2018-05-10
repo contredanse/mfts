@@ -2,8 +2,8 @@ import { orderBy } from 'lodash-es';
 import VideoSourceEntity, {
     VideoSourceEntityFactory,
     IVideoSourceEntityData,
-} from '@src/model/entity/video-source-entity';
-import { AbstractBaseEntity, IBaseEntityOptions } from '@src/model/entity/abstract-base-entity';
+} from '@src/models/entity/video-source-entity';
+import { AbstractBaseEntity, IBaseEntityOptions } from '@src/models/entity/abstract-base-entity';
 import { IJsonVideo, IJsonVideoMeta, IJsonVideoSource } from '@data/json/data-videos';
 
 export class VideoEntityFactory {

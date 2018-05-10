@@ -1,4 +1,4 @@
-import { AbstractBaseEntity } from '@src/model/entity/abstract-base-entity';
+import { AbstractBaseEntity } from '@src/models/entity/abstract-base-entity';
 import AppAssetsLocator from '@src/core/app-assets-locator';
 
 describe('AbstractBaseEntity test suite', () => {

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import VideoEntity from '@src/model/entity/video-entity';
+import VideoEntity from '@src/models/entity/video-entity';
 import MediaPlayer from '@src/components/player/media-player';
 
 type HTMLVideoProps = React.VideoHTMLAttributes<HTMLVideoElement>;

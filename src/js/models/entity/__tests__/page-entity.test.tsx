@@ -1,5 +1,5 @@
 import { appConfig } from '@config/config.production';
-import LocalDataRepository from '@src/model/repository/local-data-repository';
+import LocalDataRepository from '@src/models/repository/local-data-repository';
 
 describe('Data page retrieval', () => {
     const globalDataRepo = appConfig.getDataRepository() as LocalDataRepository;

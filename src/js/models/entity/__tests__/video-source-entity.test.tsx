@@ -1,5 +1,5 @@
 import { IJsonVideoSource } from '@data/json/data-videos';
-import { VideoSourceEntityFactory } from '@src/model/entity/video-source-entity';
+import { VideoSourceEntityFactory } from '@src/models/entity/video-source-entity';
 import AppAssetsLocator from '@src/core/app-assets-locator';
 
 describe('VideoEntitySource from IJsonVideoSource', () => {

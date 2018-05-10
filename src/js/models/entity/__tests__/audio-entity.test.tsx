@@ -1,4 +1,4 @@
-import { AudioEntityFactory } from '@src/model/entity/audio-entity';
+import { AudioEntityFactory } from '@src/models/entity/audio-entity';
 import { IJsonPageAudio } from '@data/json/data-pages';
 import AppAssetsLocator from '@src/core/app-assets-locator';
 
