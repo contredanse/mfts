@@ -2,7 +2,7 @@
 import * as React from 'react';
 
 import { mount, shallow } from 'enzyme';
-import { BasicVideoPlayer } from '@src/components/player/basic-video-player';
+import { BasicVideoPlayer } from '@src/components/player/basic-video-player.tsx';
 
 describe('Basic media player component', () => {
     it('should render with "video" tag', () => {

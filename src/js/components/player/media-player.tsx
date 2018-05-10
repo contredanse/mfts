@@ -33,6 +33,10 @@ export type MediaPlayerState = {
 };
 
 export default class MediaPlayer extends React.Component<MediaPlayerProps, MediaPlayerState> {
+    static defaultProps: Partial<MediaPlayerProps> = {
+        // loop: false,
+    };
+
     readonly state: MediaPlayerState;
     protected videoRef!: React.RefObject<HTMLVideoElement>;
 
@@ -85,20 +89,23 @@ export default class MediaPlayer extends React.Component<MediaPlayerProps, Media
     componentDidUpdate(prevProps: MediaPlayerProps, prevState: MediaPlayerState): void {
         if (prevState.isPlaying !== this.state.isPlaying) {
             if (this.state.isPlaying) {
-                this.getVideoElement().play();
+                this.videoRef.current!.play();
             } else {
-                this.getVideoElement().pause();
+                this.videoRef.current!.pause();
             }
         }
     }
 
+    getVideoElement(): HTMLVideoElement {
+        return this.videoRef.current as HTMLVideoElement;
+    }
+
     render() {
         const { disableWebkitPlaysInline, effects, ...htmlVideoProps } = this.props;
-
         const webkitPlaysInlineProp = disableWebkitPlaysInline ? {} : { 'webkit-playsinline': 'webkit-playsinline' };
 
         return (
-            <div className="video-player-ctn">
+            <>
                 <video
                     ref={this.videoRef}
                     onPlay={() => this.updateIsPlaying()}
@@ -108,12 +115,8 @@ export default class MediaPlayer extends React.Component<MediaPlayerProps, Media
                 >
                     {this.props.children}
                 </video>
-            </div>
+            </>
         );
-    }
-
-    getVideoElement(): HTMLVideoElement {
-        return this.videoRef.current as HTMLVideoElement;
     }
 
     protected dispatchUpdateIsPlaying(isPlaying: boolean): void {
