@@ -22,9 +22,13 @@
         "test": "jest --config jest.config.json",
         "test:coverage": "jest --config jest.config.json --coverage",
         "test:watch": "jest --config jest.config.json --watch",
-        "test:update": "jest --config jest.config.json -u",
-        "precommit": "lint-staged",
-        "postcommit": "git diff --name-only HEAD^ | xargs git add"
+        "test:update": "jest --config jest.config.json -u"
+    },
+    "husky": {
+        "hooks": {
+            "post-commit": "git diff --name-only HEAD^ | xargs git add",
+            "pre-commit": "lint-staged"
+        }
     },
     "lint-staged": {
         "*.{js,jsx,ts,tsx,json,css,scss}": ["prettier --write", "git add"]
@@ -76,7 +80,7 @@
         "html-minifier": "^3.5.15",
         "html-webpack-harddisk-plugin": "^0.2.0",
         "html-webpack-plugin": "^3.2.0",
-        "husky": "^0.14.3",
+        "husky": "^1.0.0-rc.4",
         "identity-obj-proxy": "^3.0.0",
         "image-webpack-loader": "^4.2.0",
         "jest": "^22.4.3",
