@@ -32,6 +32,7 @@ describe('VideoEntity from IJsonVideo', () => {
     const assetsLocator = new AppAssetsLocator({
         assetsUrls: {
             default: 'http://default',
+            videoSubs: 'http://videosubs',
             audioSubs: 'http://audiosubs',
         },
     });
@@ -57,7 +58,7 @@ describe('VideoEntity from IJsonVideo', () => {
     test('subtitles tracks', () => {
         const tracks = video.getAllTracks();
         expect(tracks.length).toEqual(2);
-        expect(tracks[0]).toEqual({ lang: 'en', src: 'http://audiosubs/test.en.vtt' });
+        expect(tracks[0]).toEqual({ lang: 'en', src: 'http://videosubs/test.en.vtt' });
     });
 
     test('immutability', () => {
