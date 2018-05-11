@@ -5,7 +5,7 @@ export interface IJsonVideo {
     sources: IJsonVideoSource[];
     meta: IJsonVideoMeta;
     covers?: string[];
-    tracks?: IJsonVideoTracks;
+    tracks?: IJsonVideoTrack[];
 }
 export interface IJsonVideoSource {
     src: string;
@@ -19,6 +19,8 @@ export interface IJsonVideoMeta {
     height?: number;
     no_audio?: boolean;
 }
-export interface IJsonVideoTracks extends ITranslatedValue<string> {
-    en: string; // English is required for VideoTracks
+
+export interface IJsonVideoTrack {
+    lang: string;
+    src: string;
 }

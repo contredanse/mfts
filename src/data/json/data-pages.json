@@ -190,8 +190,8 @@
             ],
             "audio": {
                 "src": {
-                    "en": "audio/small_dance_en.mp3",
-                    "fr": "audio/small_dance_fr.mp3"
+                    "en": "small_dance_en.mp3",
+                    "fr": "small_dance_fr.mp3"
                 }
             }
         }
@@ -722,16 +722,16 @@
             ],
             "audio": {
                 "src": {
-                    "en": "audio/comments_crescent.mp3"
+                    "en": "comments_crescent.mp3"
                 },
                 "tracks": [
                     {
                         "lang": "en",
-                        "src": "audio/comments_crescent.en.vtt"
+                        "src": "comments_crescent.en.vtt"
                     },
                     {
                         "lang": "fr",
-                        "src": "audio/comments_crescent.fr.vtt"
+                        "src": "comments_crescent.fr.vtt"
                     }
                 ]
             }
@@ -989,16 +989,16 @@
             ],
             "audio": {
                 "src": {
-                    "en": "audio/mfs_sbf.mp3"
+                    "en": "mfs_sbf.mp3"
                 },
                 "tracks": [
                     {
                         "lang": "en",
-                        "src": "audio/mfs_sbf.en.vtt"
+                        "src": "mfs_sbf.en.vtt"
                     },
                     {
                         "lang": "fr",
-                        "src": "audio/mfs_sbf.fr.vtt"
+                        "src": "mfs_sbf.fr.vtt"
                     }
                 ]
             }
@@ -1056,16 +1056,16 @@
             ],
             "audio": {
                 "src": {
-                    "en": "audio/mfs_sbh.mp3"
+                    "en": "mfs_sbh.mp3"
                 },
                 "tracks": [
                     {
                         "lang": "en",
-                        "src": "audio/mfs_sbh.en.vtt"
+                        "src": "mfs_sbh.en.vtt"
                     },
                     {
                         "lang": "fr",
-                        "src": "audio/mfs_sbh.fr.vtt"
+                        "src": "mfs_sbh.fr.vtt"
                     }
                 ]
             }
@@ -1300,16 +1300,16 @@
             ],
             "audio": {
                 "src": {
-                    "en": "audio/comment_undulation.mp3"
+                    "en": "comment_undulation.mp3"
                 },
                 "tracks": [
                     {
                         "lang": "en",
-                        "src": "audio/comment_undulation.en.vtt"
+                        "src": "comment_undulation.en.vtt"
                     },
                     {
                         "lang": "fr",
-                        "src": "audio/comment_undulation.fr.vtt"
+                        "src": "comment_undulation.fr.vtt"
                     }
                 ]
             }
@@ -1607,16 +1607,16 @@
             ],
             "audio": {
                 "src": {
-                    "en": "audio/aikidoform.mp3"
+                    "en": "aikidoform.mp3"
                 },
                 "tracks": [
                     {
                         "lang": "en",
-                        "src": "audio/aikidoform.en.vtt"
+                        "src": "aikidoform.en.vtt"
                     },
                     {
                         "lang": "fr",
-                        "src": "audio/aikidoform.fr.vtt"
+                        "src": "aikidoform.fr.vtt"
                     }
                 ]
             }
