@@ -184,17 +184,24 @@ export default class Page extends React.Component<PageProps, PageState> {
         this.mediaPlayerActions = {
             // Actions
             pause: () => {
-                this.playerRef.current && this.playerRef.current.getVideoElement().pause();
+                if (this.playerRef.current) {
+                    this.playerRef.current.getVideoElement().pause();
+                }
             },
             play: () => {
-                this.playerRef.current && this.playerRef.current.getVideoElement().play();
+                if (this.playerRef.current) {
+                    this.playerRef.current.getVideoElement().play();
+                }
             },
             setPlaybackRate: playbackRate => {
-                console.log('mediaPlayerActions.setPlaybackRate', playbackRate);
-                this.playerRef.current!.getVideoElement().playbackRate = playbackRate;
+                if (this.playerRef.current) {
+                    this.playerRef.current.getVideoElement().playbackRate = playbackRate;
+                }
             },
             setCurrentTime: time => {
-                this.playerRef.current!.getVideoElement().currentTime = time;
+                if (this.playerRef.current) {
+                    this.playerRef.current.getVideoElement().currentTime = time;
+                }
             },
         };
     }
