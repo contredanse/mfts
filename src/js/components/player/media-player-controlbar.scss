@@ -1,7 +1,27 @@
+/**
+ * (WIP) hack for responsive videos
+ */
+
+video {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 100%;
+}
+
+/**
+ * (WIP) for controlbar
+ */
+
 .control-bar {
     display: grid;
     grid-gap: 5px;
-    grid-template-columns: minmax(20px, 200px) 1fr minmax(20px, 200px) minmax(20px, 200px);
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 /**
