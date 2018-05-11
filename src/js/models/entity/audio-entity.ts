@@ -23,11 +23,16 @@ export default class AudioEntity extends AbstractBaseEntity {
         if (!sourceFile) {
             return undefined;
         }
-        return this.getHelper().addBaseUrl(sourceFile, baseUrl);
+
+        const src = baseUrl
+            ? this.getHelper().addBaseUrl(sourceFile, baseUrl)
+            : this.getHelper().getAssetUrl(sourceFile, 'audios');
+
+        return src;
     }
 
     hasTrack(): boolean {
-        return this.data.tracks !== undefined;
+        return this.data.tracks !== undefined && this.data.tracks.length > 0;
     }
 
     getAllTracks(baseUrl?: string): IJsonPageAudioTrack[] {
@@ -36,9 +41,13 @@ export default class AudioEntity extends AbstractBaseEntity {
         }
         const tracks: IJsonPageAudioTrack[] = [];
         for (const audioTrack of this.data.tracks as IJsonPageAudioTrack[]) {
+            const src = baseUrl
+                ? this.getHelper().addBaseUrl(audioTrack.src, baseUrl)
+                : this.getHelper().getAssetUrl(audioTrack.src, 'audioSubs');
+
             tracks.push({
                 lang: audioTrack.lang,
-                src: this.getHelper().addBaseUrl(audioTrack.src, baseUrl),
+                src: src,
             });
         }
         return tracks;

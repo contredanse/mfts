@@ -4,7 +4,8 @@ import VideoSourceEntity, {
     IVideoSourceEntityData,
 } from '@src/models/entity/video-source-entity';
 import { AbstractBaseEntity, IBaseEntityOptions } from '@src/models/entity/abstract-base-entity';
-import { IJsonVideo, IJsonVideoMeta, IJsonVideoSource } from '@data/json/data-videos';
+import { IJsonVideo, IJsonVideoMeta, IJsonVideoSource, IJsonVideoTrack } from '@data/json/data-videos';
+import { IJsonPageAudioTrack } from '@data/json/data-pages';
 
 export class VideoEntityFactory {
     static createFromJson(data: IJsonVideo, options: IVideoEntityOptions): VideoEntity {
@@ -90,5 +91,27 @@ export default class VideoEntity extends AbstractBaseEntity {
             },
             [] as VideoSourceEntity[]
         );
+    }
+
+    hasTrack(): boolean {
+        return this.data.tracks !== undefined && this.data.tracks.length > 0;
+    }
+
+    getAllTracks(baseUrl?: string): IJsonVideoTrack[] {
+        if (!this.hasTrack()) {
+            return [];
+        }
+        const tracks: IJsonPageAudioTrack[] = [];
+        for (const videoTrack of this.data.tracks as IJsonVideoTrack[]) {
+            const src = baseUrl
+                ? this.getHelper().addBaseUrl(videoTrack.src, baseUrl)
+                : this.getHelper().getAssetUrl(videoTrack.src, 'videoSubs');
+
+            tracks.push({
+                lang: videoTrack.lang,
+                src: src,
+            });
+        }
+        return tracks;
     }
 }

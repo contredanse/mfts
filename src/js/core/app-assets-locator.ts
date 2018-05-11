@@ -12,12 +12,12 @@ export interface IAssetsLocatorProps {
     assetsUrls: IAssetsTypeUrls;
 }
 
-export type MediaAssetsType = keyof IAssetsTypeUrls;
+export type AppAssetsLocatorTypes = keyof IAssetsTypeUrls;
 
 export default class AppAssetsLocator {
     constructor(public readonly props: IAssetsLocatorProps) {}
 
-    getMediaTypeBaseUrl(assetsType: MediaAssetsType): string {
+    getMediaTypeBaseUrl(assetsType: AppAssetsLocatorTypes): string {
         const { assetsUrls } = this.props;
         if (assetsType in this.props.assetsUrls) {
             return assetsUrls[assetsType] || '';
@@ -25,7 +25,7 @@ export default class AppAssetsLocator {
         return assetsUrls.default || '';
     }
 
-    getMediaAssetUrl(assetsType: MediaAssetsType, filename: string): string {
+    getMediaAssetUrl(assetsType: AppAssetsLocatorTypes, filename: string): string {
         const baseUrl = this.getMediaTypeBaseUrl(assetsType);
         if (baseUrl !== '') {
             return `${baseUrl}/${filename}`;

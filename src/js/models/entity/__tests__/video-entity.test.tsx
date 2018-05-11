@@ -19,10 +19,7 @@ describe('VideoEntity from IJsonVideo', () => {
                 codecs: 'vp9',
             },
         ],
-        tracks: {
-            en: 'test.en.vtt',
-            fr: 'test.fr.vtt',
-        },
+        tracks: [{ src: 'test.en.vtt', lang: 'en' }, { src: 'test.fr.vtt', lang: 'fr' }],
         meta: {
             duration: 100,
             width: 720,
@@ -32,7 +29,12 @@ describe('VideoEntity from IJsonVideo', () => {
 
     const jsonVideoBackup = JSON.stringify(jsonVideo);
 
-    const assetsLocator = new AppAssetsLocator({ assetsUrls: { default: '' } });
+    const assetsLocator = new AppAssetsLocator({
+        assetsUrls: {
+            default: 'http://default',
+            audioSubs: 'http://audiosubs',
+        },
+    });
     const options = {
         fallbackLang: 'en',
         assetsLocator: assetsLocator,
@@ -50,6 +52,12 @@ describe('VideoEntity from IJsonVideo', () => {
         const unsortedSrcs = video.getSources(false);
         expect(unsortedSrcs.length).toEqual(2);
         expect(unsortedSrcs[0]).toEqual(VideoSourceEntityFactory.createFromJson(jsonVideo.sources[0], options));
+    });
+
+    test('subtitles tracks', () => {
+        const tracks = video.getAllTracks();
+        expect(tracks.length).toEqual(2);
+        expect(tracks[0]).toEqual({ lang: 'en', src: 'http://audiosubs/test.en.vtt' });
     });
 
     test('immutability', () => {

@@ -82,6 +82,18 @@ export default class MediaPlayer extends React.Component<MediaPlayerProps, Media
         }
     }
 
+    play(): void {
+        this.setState({
+            isPlaying: true,
+        });
+    }
+
+    pause(): void {
+        this.setState({
+            isPlaying: false,
+        });
+    }
+
     componentWillUnmount() {
         // Modern browsers does not require to remove listeners.
         // In case of memory leaks, we can do it here.

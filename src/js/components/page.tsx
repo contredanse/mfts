@@ -120,8 +120,9 @@ export default class Page extends React.Component<PageProps, PageState> {
                                                             crossOrigin="anonymous"
                                                         >
                                                             <source type={audioMimeType} src={audio.getSourceFile()} />
-                                                            {audio.getAllTracks().map(audioTrack => {
-                                                                return (
+                                                            {audio
+                                                                .getAllTracks()
+                                                                .map(audioTrack => (
                                                                     <track
                                                                         key={audioTrack.src}
                                                                         label={audioTrack.lang}
@@ -132,8 +133,7 @@ export default class Page extends React.Component<PageProps, PageState> {
                                                                             ? { default: true }
                                                                             : {})}
                                                                     />
-                                                                );
-                                                            })}
+                                                                ))}
                                                         </MediaPlayer>
                                                     )}
                                                 </PageContextConsumer>
@@ -143,17 +143,41 @@ export default class Page extends React.Component<PageProps, PageState> {
                                 ) : (
                                     <div className="page-single-video-layout">
                                         <PageContextConsumer>
-                                            {({ state, effects }) => (
-                                                <MediaPlayer ref={this.playerRef} autoPlay={true} effects={effects}>
+                                            {({ effects }) => (
+                                                <MediaPlayer
+                                                    ref={this.playerRef}
+                                                    crossOrigin="anonymous"
+                                                    autoPlay={true}
+                                                    effects={effects}
+                                                >
                                                     {page
                                                         .getFirstVideo()!
                                                         .getSources()
-                                                        .map(source => (
+                                                        .map((source, idx) => (
                                                             <source
+                                                                key={`video-${idx}`}
                                                                 src={source.getSource()}
                                                                 type={source.getHtmlVideoTypeValue()}
                                                             />
                                                         ))}
+                                                    {page
+                                                        .getFirstVideo()!
+                                                        .getAllTracks()
+                                                        .map((audioTrack, idx) => {
+                                                            //console.log('audioTrack', audioTrack);
+                                                            return (
+                                                                <track
+                                                                    key={`audio-${idx}`}
+                                                                    label={audioTrack.lang}
+                                                                    kind="subtitles"
+                                                                    srcLang={audioTrack.lang}
+                                                                    src={audioTrack.src}
+                                                                    {...(this.props.lang === audioTrack.lang
+                                                                        ? { default: true }
+                                                                        : {})}
+                                                                />
+                                                            );
+                                                        })}
                                                 </MediaPlayer>
                                             )}
                                         </PageContextConsumer>
@@ -185,12 +209,12 @@ export default class Page extends React.Component<PageProps, PageState> {
             // Actions
             pause: () => {
                 if (this.playerRef.current) {
-                    this.playerRef.current.getVideoElement().pause();
+                    this.playerRef.current.pause();
                 }
             },
             play: () => {
                 if (this.playerRef.current) {
-                    this.playerRef.current.getVideoElement().play();
+                    this.playerRef.current.play();
                 }
             },
             setPlaybackRate: playbackRate => {
@@ -214,7 +238,6 @@ export default class Page extends React.Component<PageProps, PageState> {
                 });
             },
             updateMetadata: (metadata: HTMLMediaMetadata) => {
-                console.log('UPDATING METADATA');
                 const { duration, videoWidth, videoHeight } = metadata;
                 this.updatePlaybackState({
                     duration: duration,

@@ -1,4 +1,4 @@
-import AppAssetsLocator from '@src/core/app-assets-locator';
+import AppAssetsLocator, { AppAssetsLocatorTypes } from '@src/core/app-assets-locator';
 
 export interface IBaseEntityOptions {
     fallbackLang: string;
@@ -11,6 +11,18 @@ export interface ITranslatedValue<T> {
 
 export class BaseEntityHelper {
     constructor(protected options: IBaseEntityOptions) {}
+
+    /**
+     * Return complete url of an assets by type using
+     * the AppAssetsLocator
+     *
+     * @param {string} filename
+     * @param {AppAssetsLocatorTypes} assetType
+     * @returns {string}
+     */
+    public getAssetUrl(filename: string, assetType: AppAssetsLocatorTypes = 'default'): string {
+        return this.options.assetsLocator.getMediaAssetUrl(assetType, filename);
+    }
 
     /**
      * Prefix value/filename with specified baseUrl or fallback
@@ -27,7 +39,6 @@ export class BaseEntityHelper {
         }
         return this.options.assetsLocator.getMediaAssetUrl('default', filename);
     }
-
     /**
      * Search inside an localized value ({fr: 'file.fr.vtt', en: 'file.en.vtt')
      * for the specified lang entry. If lang is not provided, fallback to
