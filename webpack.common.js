@@ -23,11 +23,10 @@ module.exports = {
             '@data': path.resolve(__dirname, 'src/data'),
             /**
              * Aliases to avoid duplicates in build.
-             * - react-router alias can be probably removed when react-router-redux
-             *   is upgrade to a later version than alpha.9.
+             * - react-router alias can be removed when react-router-redux
+             *   is upgraded to a later version than alpha.9.
              */
             'react-router': path.resolve(__dirname, 'node_modules/react-router'),
-            recompose: path.resolve(__dirname, 'node_modules/recompose'),
         },
     },
     module: {

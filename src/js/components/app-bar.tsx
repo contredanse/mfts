@@ -8,16 +8,11 @@ import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 import { RouteComponentProps } from 'react-router';
 
-import {
-    AppBar as MaterialAppBar,
-    Toolbar,
-    Typography,
-    IconButton,
-    Button,
-    WithStyles,
-    withStyles,
-} from 'material-ui/es';
-import { Menu as MenuIcon } from '@material-ui/icons/es';
+import { AppBar as MaterialAppBar, Toolbar, Typography, IconButton, Button } from '@material-ui/core/es';
+
+import { withStyles, WithStyles } from '@material-ui/core/es/styles';
+
+import MenuIcon from '@material-ui/icons/es/Menu';
 
 import { RootState } from '@src/redux/index';
 
