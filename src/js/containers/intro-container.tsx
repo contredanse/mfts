@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { PageOverlay } from '@src/components/page-overlay';
-import { ReactVideoPlayer } from '@src/components/react-video-player';
+import ReactPlayer from 'react-player';
 
 type IntroContainerProps = {};
 type IntroContainerState = {};
@@ -36,13 +36,14 @@ export default class IntroContainer extends React.Component<IntroContainerProps,
                     <Link to="/menu">Skip &gt;&gt;</Link>
                 </div>
                 <div>
-                    <ReactVideoPlayer
-                        sourceUrl={videoUrl}
+                    <ReactPlayer
+                        url={videoUrl}
                         style={videoStyle}
-                        autoPlay={true}
+                        playing={true}
+                        playsinline={true}
                         muted={false}
                         controls={true}
-                        onEnd={() => {
+                        onEnded={() => {
                             this.gotoMenu();
                         }}
                     />

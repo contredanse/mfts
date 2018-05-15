@@ -1,8 +1,10 @@
 import * as React from 'react';
 import { MediaPlayerActions } from '@src/components/player/media-player';
 import './media-player-controlbar.scss';
+import MediaPlayer from '@src/components/player/media-player';
 
 export type MediaPlayerControlBarProps = {
+    videoRef: React.RefObject<MediaPlayer>;
     duration: number;
     currentTime: number;
     isPlaying: boolean;
@@ -10,9 +12,20 @@ export type MediaPlayerControlBarProps = {
     actions: MediaPlayerActions;
 };
 
-export default class MediaPlayerControlBar extends React.Component<MediaPlayerControlBarProps, {}> {
+export type MediaPlayerControlbarState = {
+    currentTime: number;
+};
+
+export default class MediaPlayerControlBar extends React.Component<
+    MediaPlayerControlBarProps,
+    MediaPlayerControlbarState
+> {
+    readonly state: MediaPlayerControlbarState;
     constructor(props: MediaPlayerControlBarProps) {
         super(props);
+        this.state = {
+            currentTime: 0,
+        };
     }
 
     formatMilliseconds(milli: number): string {
@@ -28,6 +41,35 @@ export default class MediaPlayerControlBar extends React.Component<MediaPlayerCo
         return `${hDisplay}${mDisplay}${sDisplay}`;
     }
 
+    componentDidMount() {
+        const videoRef = this.props.videoRef.current;
+        if (videoRef) {
+            const videoEl = videoRef.getVideoElement();
+            videoEl.addEventListener('timeupdate', (e: Event) => {
+                const { currentTime } = e.currentTarget as HTMLVideoElement;
+                this.setState((prevState, props) => {
+                    return { ...prevState, currentTime: currentTime };
+                });
+            });
+        } else {
+            console.warn('videoRef empty');
+        }
+    }
+
+    protected play = () => {
+        const videoEl = this.props.videoRef.current!.getVideoElement();
+        if (videoEl) {
+            videoEl.play();
+        }
+    };
+
+    protected pause = () => {
+        const videoEl = this.props.videoRef.current!.getVideoElement();
+        if (videoEl) {
+            videoEl.pause();
+        }
+    };
+
     render() {
         const props = this.props;
         const activeStyle = {
@@ -39,18 +81,10 @@ export default class MediaPlayerControlBar extends React.Component<MediaPlayerCo
                 <div>
                     <div className="control-bar">
                         <div>
-                            <button
-                                type="button"
-                                style={props.isPlaying ? activeStyle : {}}
-                                onClick={props.actions.play}
-                            >
+                            <button type="button" style={props.isPlaying ? activeStyle : {}} onClick={this.play}>
                                 Play
                             </button>
-                            <button
-                                type="button"
-                                style={props.isPlaying ? {} : activeStyle}
-                                onClick={props.actions.pause}
-                            >
+                            <button type="button" style={props.isPlaying ? {} : activeStyle} onClick={this.pause}>
                                 Pause
                             </button>
                         </div>
@@ -60,7 +94,7 @@ export default class MediaPlayerControlBar extends React.Component<MediaPlayerCo
                                 type="range"
                                 min="0"
                                 max={props.duration}
-                                value={props.currentTime}
+                                value={this.state.currentTime}
                                 onChange={(e: React.SyntheticEvent<HTMLInputElement>) => {
                                     e.persist();
                                     props.actions.setCurrentTime(parseFloat(e.currentTarget.value));
@@ -68,7 +102,7 @@ export default class MediaPlayerControlBar extends React.Component<MediaPlayerCo
                             />
                         </div>
                         <div>
-                            {this.formatMilliseconds(props.currentTime)}/{this.formatMilliseconds(props.duration)}
+                            {this.formatMilliseconds(this.state.currentTime)}/{this.formatMilliseconds(props.duration)}
                         </div>
                         <div>
                             <select

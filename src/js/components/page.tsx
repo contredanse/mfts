@@ -10,6 +10,8 @@ import MediaPlayer, {
 } from '@src/components/player/media-player';
 import MediaPlayerControlBar from '@src/components/player/media-player-controlbar';
 import { PagePlayer } from '@src/components/page-player';
+import { default as ReactPlayer, SourceProps } from 'react-player';
+import FilePlayer from 'react-player/lib/players/FilePlayer';
 
 export type PlaybackState = {
     currentTime: number;
@@ -97,14 +99,38 @@ export default class Page extends React.Component<PageProps, PageState> {
                                 {page.countVideos() > 1 ? (
                                     <div className="page-multi-video-layout">
                                         <div className="page-video-wall">
-                                            {videos.map(video => {
+                                            {videos.map((video, video_idx) => {
+                                                const urls = video.getSources().reduce(
+                                                    (acc, source) => {
+                                                        return [
+                                                            ...acc,
+                                                            {
+                                                                src: source.getSource(),
+                                                                type: source.getHtmlVideoTypeValue(),
+                                                            },
+                                                        ];
+                                                    },
+
+                                                    [] as SourceProps[]
+                                                );
+                                                const firstCover = video.getFirstCover();
                                                 return (
-                                                    <PagePlayer
-                                                        key={video.videoId}
-                                                        video={video}
+                                                    <ReactPlayer
+                                                        key={`video-${video_idx}`}
+                                                        width="100%"
+                                                        height="100%"
+                                                        playing={true}
+                                                        playsinline={true}
                                                         loop={true}
                                                         muted={true}
-                                                        autoPlay={true}
+                                                        url={urls}
+                                                        config={{
+                                                            file: {
+                                                                attributes: {
+                                                                    poster: firstCover,
+                                                                },
+                                                            },
+                                                        }}
                                                     />
                                                 );
                                             })}
@@ -188,6 +214,7 @@ export default class Page extends React.Component<PageProps, PageState> {
                                 <PageContextConsumer>
                                     {({ state, actions }) => (
                                         <MediaPlayerControlBar
+                                            videoRef={this.playerRef}
                                             actions={actions}
                                             duration={state.duration}
                                             currentTime={state.currentTime}
@@ -208,6 +235,7 @@ export default class Page extends React.Component<PageProps, PageState> {
         this.mediaPlayerActions = {
             // Actions
             pause: () => {
+                console.log('calling pause');
                 if (this.playerRef.current) {
                     this.playerRef.current.pause();
                 }
@@ -233,9 +261,10 @@ export default class Page extends React.Component<PageProps, PageState> {
     private initMediaPlayerEffects(): void {
         this.mediaPlayerEffects = {
             updateCurrentTime: (currentTime: number) => {
+                /*
                 this.updatePlaybackState({
                     currentTime: currentTime,
-                });
+                });*/
             },
             updateMetadata: (metadata: HTMLMediaMetadata) => {
                 const { duration, videoWidth, videoHeight } = metadata;

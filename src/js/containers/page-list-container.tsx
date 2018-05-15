@@ -68,17 +68,6 @@ class PageListContainer extends React.Component<PageListContainerProps, PageList
 
         return (
             <PageOverlay>
-                {/*selectedPage && (
-                    <PageOverlay
-                        closeButton={true}
-                        onClose={() => {
-                            this.closePage();
-                        }}
-                    >
-                        <Page pageId={selectedPage.id} />
-                    </PageOverlay>
-                )*/}
-
                 <PageList
                     baseUrl={this.props.videosBaseUrl}
                     pages={pages}

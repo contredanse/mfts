@@ -10,7 +10,6 @@ import HomeContainer from '@src/containers/home-container';
 import IntroContainer from '@src/containers/intro-container';
 import MenuContainer from '@src/containers/menu-container';
 import NotFoundContainer from '@src/containers/notfound-container';
-import VideoListContainer from '@src/containers/video-list-container';
 import AppConfig from '@src/core/app-config';
 import PageListContainer from '@src/containers/page-list-container';
 import PageContainer from '@src/containers/page-container';
@@ -56,17 +55,6 @@ class App extends React.Component<AppProps, {}> {
                                         />
                                     );
                                 }}
-                            />
-                            <Route
-                                exact={true}
-                                path="/video-list"
-                                render={props => (
-                                    <VideoListContainer
-                                        initialData={data.videos}
-                                        videosBaseUrl={assetsLocator.getMediaTypeBaseUrl('videos')}
-                                        {...props}
-                                    />
-                                )}
                             />
                             <Route
                                 exact={true}

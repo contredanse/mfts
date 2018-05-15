@@ -16,17 +16,11 @@ example
         //grid-template-columns: repeat(5,1fr);
         grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
         //grid-template-columns: repeat(auto-fill, minmax(200px 1fr));
-        grid-gap: 15px;
+        grid-gap: 5px;
 
         .card {
-            border: 1px solid white;
-            border-radius: 5px;
-            /*border: 2px solid #490A3D;
-      border-radius:5px;*/
-            /*background-color: #BD1550;*/
-
+            display: flex;
             color: #fff;
-            //flex: 1 1 200px;
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
@@ -35,7 +29,6 @@ example
             /*filter: grayscale(95%);*/
             transition: 400ms filter ease-in-out;
             min-height: 150px;
-
             &:hover {
                 cursor: pointer;
                 //filter: drop-shadow(3px 3px 5px grey)
@@ -50,10 +43,6 @@ example
                 padding: 10px;
                 font-size: 0.7em;
                 font-weight: normal;
-            }
-
-            p {
-                padding: 15px;
             }
 
             .grid-page-thumbnail {

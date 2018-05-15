@@ -34,13 +34,11 @@ export const AppBarComponent: React.SFC<AppBarWithStylesProps & AppBarWithRouter
     const { classes, history } = props;
     const currentPath = props.location.pathname;
 
-    const menuItems: MenuLinkProps[] = [
-        { path: '/', label: 'Home' },
-        { path: '/page-list', label: 'Pages' },
-        { path: '/video-list', label: 'Videos' },
-    ].map((menuLinkProps: MenuLinkProps) => {
-        return { ...menuLinkProps, active: currentPath === menuLinkProps.path };
-    });
+    const menuItems: MenuLinkProps[] = [{ path: '/', label: 'Home' }, { path: '/page-list', label: 'Pages' }].map(
+        (menuLinkProps: MenuLinkProps) => {
+            return { ...menuLinkProps, active: currentPath === menuLinkProps.path };
+        }
+    );
 
     const LinkItem = (linkProps: MenuLinkProps) => {
         return (

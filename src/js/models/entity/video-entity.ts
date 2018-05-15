@@ -55,7 +55,11 @@ export default class VideoEntity extends AbstractBaseEntity {
         if (!this.hasCover()) {
             return undefined;
         }
-        return this.getHelper().addBaseUrl((this.covers as string[])[0], baseUrl);
+        const src = baseUrl
+            ? this.getHelper().addBaseUrl(this.covers![0], baseUrl)
+            : this.getHelper().getAssetUrl(this.covers![0], 'videoCovers');
+
+        return src;
     }
 
     /**
