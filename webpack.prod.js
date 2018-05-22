@@ -237,7 +237,7 @@ module.exports = merge(common, {
             description: 'Material for the spine. Contredanse.org ',
             background_color: '#000000',
             theme_color: '#000000',
-            start_url: PUBLIC_URL + '/',
+            start_url: '/',
             inject: true,
             fingerprints: true,
             ios: {
@@ -294,7 +294,7 @@ module.exports = merge(common, {
                 }
                 console.log(message);
             },
-            minify: true,
+            minify: false,
             // For unknown URLs, fallback to the index page
             navigateFallback: PUBLIC_URL + '/',
             // Ignores URLs starting from /__ (useful for Firebase):
