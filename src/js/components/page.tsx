@@ -9,9 +9,8 @@ import MediaPlayer, {
     MediaPlayerEffects,
 } from '@src/components/player/media-player';
 import MediaPlayerControlBar from '@src/components/player/media-player-controlbar';
-import { PagePlayer } from '@src/components/page-player';
-import { default as ReactPlayer, SourceProps } from 'react-player';
-import FilePlayer from 'react-player/lib/players/FilePlayer';
+import PageVideoGroup from '@src/components/page-video-group';
+import PageAudioPlayer from '@src/components/page-audio-player';
 
 export type PlaybackState = {
     currentTime: number;
@@ -99,44 +98,18 @@ export default class Page extends React.Component<PageProps, PageState> {
                                 {page.countVideos() > 1 ? (
                                     <div className="page-multi-video-layout">
                                         <div className="page-video-wall">
-                                            {videos.map((video, video_idx) => {
-                                                const urls = video.getSources().reduce(
-                                                    (acc, source) => {
-                                                        return [
-                                                            ...acc,
-                                                            {
-                                                                src: source.getSource(),
-                                                                type: source.getHtmlVideoTypeValue(),
-                                                            },
-                                                        ];
-                                                    },
-
-                                                    [] as SourceProps[]
-                                                );
-                                                const firstCover = video.getFirstCover();
-                                                return (
-                                                    <ReactPlayer
-                                                        key={`video-${video_idx}`}
-                                                        width="100%"
-                                                        height="100%"
-                                                        playing={true}
-                                                        playsinline={true}
-                                                        loop={true}
-                                                        muted={true}
-                                                        url={urls}
-                                                        config={{
-                                                            file: {
-                                                                attributes: {
-                                                                    poster: firstCover,
-                                                                },
-                                                            },
-                                                        }}
-                                                    />
-                                                );
-                                            })}
+                                            <PageVideoGroup
+                                                videos={videos}
+                                                playbackState={{
+                                                    playing: this.state.playbackState.isPlaying,
+                                                    playbackRate: this.state.playbackState.playbackRate,
+                                                }}
+                                            />
                                         </div>
                                         {audio && (
                                             <div className="page-audio-subs">
+                                                <PageAudioPlayer audio={audio} width="100%" height="100%" />
+
                                                 <PageContextConsumer>
                                                     {({ state, effects }) => (
                                                         <MediaPlayer

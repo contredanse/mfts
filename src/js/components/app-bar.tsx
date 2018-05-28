@@ -108,4 +108,9 @@ const mapStateToProps = (state: RootState) => ({});
 
 const mapDispatchToProps = (dispatch: any) => ({});
 
-export const AppBar = withRouter(connect(mapStateToProps, mapDispatchToProps)(AppBarWithStyles));
+export const AppBar = withRouter(
+    connect(
+        mapStateToProps,
+        mapDispatchToProps
+    )(AppBarWithStyles)
+);

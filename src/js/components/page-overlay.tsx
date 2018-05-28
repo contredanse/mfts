@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import Scrollbars from 'react-custom-scrollbars';
 
 import './page-overlay.scss';
