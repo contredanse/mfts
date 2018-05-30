@@ -19,9 +19,21 @@ export interface IVideoEntityOptions extends IBaseEntityOptions {}
 
 export default class VideoEntity extends AbstractBaseEntity {
     readonly options!: IVideoEntityOptions;
+    protected links: {
+        video: VideoEntity | null;
+    };
 
     constructor(protected readonly data: IVideoEntityData, options: IVideoEntityOptions) {
         super(options);
+        this.links = { video: null };
+    }
+
+    set videoLink(videoLink: VideoEntity | null) {
+        this.links.video = videoLink;
+    }
+
+    get videoLink(): VideoEntity | null {
+        return this.links.video;
     }
 
     get videoId(): string {
@@ -49,6 +61,10 @@ export default class VideoEntity extends AbstractBaseEntity {
 
     hasCover(): boolean {
         return this.covers !== undefined && this.covers.length !== 0;
+    }
+
+    hasVideoLink(): boolean {
+        return this.links.video !== null;
     }
 
     getFirstCover(baseUrl?: string): string | undefined {

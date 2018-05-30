@@ -62,13 +62,24 @@ export default class PageEntity extends AbstractBaseEntity {
             return [];
         }
         const videos: VideoEntity[] = [];
-        this.videos.forEach(({ lang_video_id }) => {
+        this.videos.forEach(({ lang_video_id, video_detail }) => {
             const videoId = this.getHelper().getLocalizedValue<string>(lang_video_id, lang);
-
             if (videoId !== undefined) {
-                const videoJson = this.repository.getVideoEntity(videoId);
-                if (videoJson !== undefined) {
-                    videos.push(videoJson);
+                const videoEntity = this.repository.getVideoEntity(videoId);
+                if (videoEntity !== undefined) {
+                    if (video_detail) {
+                        const videoDetailId = this.getHelper().getLocalizedValue<string>(
+                            video_detail.lang_video_id,
+                            lang
+                        );
+                        if (videoDetailId) {
+                            const videoDetailEntity = this.repository.getVideoEntity(videoDetailId);
+                            videoEntity.videoLink = videoDetailEntity || null;
+                        }
+                    }
+                    videos.push(videoEntity);
+                } else {
+                    console.warn(`Missing video ${videoId}`);
                 }
             }
         });

@@ -1,23 +1,54 @@
 import React from 'react';
-import ReactPlayer, { ReactPlayerProps, SourceProps as ReactPlayerSourceProps } from 'react-player';
+import ReactPlayer, {
+    Config as ReactPlayerConfig,
+    FileConfig as ReactPlayerFileConfig,
+    ReactPlayerProps,
+    SourceProps as ReactPlayerSourceProps,
+    TrackProps as ReactPlayerTrackProps,
+} from 'react-player';
 
 import VideoEntity from '@src/models/entity/video-entity';
 import VideoSourceEntity from '@src/models/entity/video-source-entity';
 
 type PageVideoPlayerProps = {
     video: VideoEntity;
+    disableSubtitles?: boolean;
+    activeSubtitleLang?: string;
+    crossOrigin?: 'anonymous';
 } & ReactPlayerProps;
 
 type PageVideoPlayerState = {};
 
 export default class PageVideoPlayer extends React.Component<PageVideoPlayerProps, PageVideoPlayerState> {
     protected playerRef: React.RefObject<ReactPlayer>;
+    protected playerConfig: ReactPlayerConfig;
     protected playerSources: ReactPlayerSourceProps[];
 
     constructor(props: PageVideoPlayerProps) {
         super(props);
         this.playerRef = React.createRef();
+        this.playerConfig = this.getReactPlayerConfig(props.video, props.activeSubtitleLang || 'en');
         this.playerSources = this.getReactPlayerSources(props.video.getSources());
+    }
+
+    render() {
+        const { video, activeSubtitleLang, disableSubtitles, crossOrigin, ...playerProps } = this.props;
+
+        /*
+        const videoLink = video.videoLink;
+        if (videoLink) {
+            style=
+        }
+        */
+        return (
+            <ReactPlayer
+                ref={this.playerRef}
+                playsinline={true}
+                {...playerProps}
+                url={this.playerSources}
+                config={this.playerConfig}
+            />
+        );
     }
 
     protected getReactPlayerSources(videoSources: VideoSourceEntity[]): ReactPlayerSourceProps[] {
@@ -36,29 +67,41 @@ export default class PageVideoPlayer extends React.Component<PageVideoPlayerProp
         return sources;
     }
 
-    render() {
-        const { video, ...playerProps } = this.props;
-        const sources = this.playerSources;
+    /**
+     * Get config for video tracks, covers, cross-origin policy...
+     * @param {VideoEntity} video
+     * @param {string} defaultTrackLang
+     */
+    protected getReactPlayerConfig(video: VideoEntity, defaultTrackLang: string): ReactPlayerConfig {
+        const playerTracks = !this.props.disableSubtitles
+            ? this.getReactPlayerTracksConfig(video, defaultTrackLang)
+            : null;
 
-        let config = {
-            file: {
-                attributes: {
-                    crossOrigin: 'anonymous',
-                },
+        const fileConfig: ReactPlayerFileConfig = {
+            attributes: {
+                ...(video.hasCover() ? { poster: video.getFirstCover() } : {}),
+                ...(this.props.crossOrigin ? { crossOrigin: this.props.crossOrigin } : {}),
             },
+            ...(playerTracks ? { tracks: playerTracks } : {}),
         };
 
-        if (video.hasCover()) {
-            const firstCover = video.getFirstCover();
-            config = Object.assign(config, {
-                file: {
-                    attributes: {
-                        poster: firstCover,
-                    },
-                },
-            });
-        }
+        return { file: fileConfig };
+    }
 
-        return <ReactPlayer ref={this.playerRef} playsinline={true} {...playerProps} url={sources} config={config} />;
+    protected getReactPlayerTracksConfig(video: VideoEntity, defaultTrackLang: string): ReactPlayerTrackProps[] | null {
+        if (!video.hasTrack()) {
+            return null;
+        }
+        const playerTracks: ReactPlayerTrackProps[] = [];
+        video.getAllTracks().forEach(videoTrack => {
+            playerTracks.push({
+                kind: 'subtitles',
+                src: videoTrack.src,
+                srcLang: videoTrack.lang,
+                default: defaultTrackLang === videoTrack.lang,
+                label: videoTrack.lang,
+            } as ReactPlayerTrackProps);
+        });
+        return playerTracks;
     }
 }

@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { MediaPlayerActions } from '@src/components/player/media-player';
 import './media-player-controlbar.scss';
-import MediaPlayer from '@src/components/player/media-player';
+import { ProgressBar } from '@src/components/controls/progress-bar';
 
 export type MediaPlayerControlBarProps = {
-    videoRef: React.RefObject<MediaPlayer>;
+    videoEl?: HTMLVideoElement;
     duration: number;
     currentTime: number;
     isPlaying: boolean;
@@ -21,6 +21,12 @@ export default class MediaPlayerControlBar extends React.Component<
     MediaPlayerControlbarState
 > {
     readonly state: MediaPlayerControlbarState;
+
+    /**
+     * Whether the video listeners have been registered
+     */
+    protected listenersRegistered: boolean = false;
+
     constructor(props: MediaPlayerControlBarProps) {
         super(props);
         this.state = {
@@ -28,46 +34,46 @@ export default class MediaPlayerControlBar extends React.Component<
         };
     }
 
-    formatMilliseconds(milli: number): string {
-        const d = Math.trunc(milli);
-        const h = Math.floor(d / 3600);
-        const m = Math.floor((d % 3600) / 60);
-        const s = Math.floor((d % 3600) % 60);
-        const minutes = m.toString().padStart(h > 0 ? 2 : 1, '0');
-        const seconds = s.toString().padStart(2, '0');
-        const hDisplay = h > 0 ? `${h}:` : '';
-        const mDisplay = m > 0 ? `${minutes}:` : `${'0'.padStart(m > 0 ? 2 : 1, '0')}:`;
-        const sDisplay = s > 0 ? `${seconds}` : '00';
-        return `${hDisplay}${mDisplay}${sDisplay}`;
+    componentDidMount() {
+        // If videoEl is initially available, let's register listeners at mount
+        if (this.props.videoEl) {
+            this.registerVideoListeners(this.props.videoEl);
+        }
     }
 
-    componentDidMount() {
-        const videoRef = this.props.videoRef.current;
-        if (videoRef) {
-            const videoEl = videoRef.getVideoElement();
-            videoEl.addEventListener('timeupdate', (e: Event) => {
-                const { currentTime } = e.currentTarget as HTMLVideoElement;
-                this.setState((prevState, props) => {
-                    return { ...prevState, currentTime: currentTime };
-                });
-            });
-        } else {
-            console.warn('videoRef empty');
+    componentDidUpdate(prevProps: MediaPlayerControlBarProps, prevState: MediaPlayerControlbarState): void {
+        // In case of videoEl was not available at initial render
+        // listeners will be initialized at update
+        if (!prevProps.videoEl && this.props.videoEl) {
+            this.registerVideoListeners(this.props.videoEl);
+        }
+    }
+
+    componentWillUnmount() {
+        // Removing the video listeners if they were registered
+        if (this.props.videoEl && this.listenersRegistered) {
+            this.unregisterVideoListeners(this.props.videoEl);
+            this.listenersRegistered = false;
         }
     }
 
     protected play = () => {
-        const videoEl = this.props.videoRef.current!.getVideoElement();
-        if (videoEl) {
-            videoEl.play();
+        const videoRef = this.props.videoEl;
+        if (videoRef) {
+            console.log('CALLING PLAY !!!!!!!');
+            videoRef.play();
         }
+        this.props.actions.play();
     };
 
     protected pause = () => {
-        const videoEl = this.props.videoRef.current!.getVideoElement();
-        if (videoEl) {
-            videoEl.pause();
+        const videoRef = this.props.videoEl;
+        console.log('VIDEOREF', this.props);
+        if (videoRef) {
+            console.log('CALLING PAUSE !!!!!!!');
+            videoRef.pause();
         }
+        this.props.actions.pause();
     };
 
     render() {
@@ -88,6 +94,14 @@ export default class MediaPlayerControlBar extends React.Component<
                                 Pause
                             </button>
                         </div>
+                        <ProgressBar
+                            currentTime={this.state.currentTime}
+                            duration={props.duration}
+                            onSeek={(time: number) => {
+                                props.actions.setCurrentTime(time);
+                            }}
+                        />
+                        {/*
                         <div className="range-slider">
                             <input
                                 className="range-slider__range"
@@ -101,6 +115,7 @@ export default class MediaPlayerControlBar extends React.Component<
                                 }}
                             />
                         </div>
+                        */}
                         <div>
                             {this.formatMilliseconds(this.state.currentTime)}/{this.formatMilliseconds(props.duration)}
                         </div>
@@ -120,5 +135,37 @@ export default class MediaPlayerControlBar extends React.Component<
                 </div>
             </div>
         );
+    }
+
+    protected registerVideoListeners(video: HTMLVideoElement, skipOnRegistered: boolean = true): void {
+        if (skipOnRegistered && this.listenersRegistered) return;
+        console.log('REGISTERING VIDEOLISTENER');
+        video.addEventListener('timeupdate', this.handeTimeUpdate);
+        this.listenersRegistered = true;
+    }
+
+    protected unregisterVideoListeners(video: HTMLVideoElement): void {
+        video.removeEventListener('timeupdate', this.handeTimeUpdate);
+        this.listenersRegistered = false;
+    }
+
+    protected handeTimeUpdate = (e: Event) => {
+        const { currentTime } = e.currentTarget as HTMLVideoElement;
+        this.setState((prevState, prevProps) => {
+            return { ...prevState, currentTime: currentTime };
+        });
+    };
+
+    formatMilliseconds(milli: number): string {
+        const d = Math.trunc(milli);
+        const h = Math.floor(d / 3600);
+        const m = Math.floor((d % 3600) / 60);
+        const s = Math.floor((d % 3600) % 60);
+        const minutes = m.toString().padStart(h > 0 ? 2 : 1, '0');
+        const seconds = s.toString().padStart(2, '0');
+        const hDisplay = h > 0 ? `${h}:` : '';
+        const mDisplay = m > 0 ? `${minutes}:` : `${'0'.padStart(m > 0 ? 2 : 1, '0')}:`;
+        const sDisplay = s > 0 ? `${seconds}` : '00';
+        return `${hDisplay}${mDisplay}${sDisplay}`;
     }
 }

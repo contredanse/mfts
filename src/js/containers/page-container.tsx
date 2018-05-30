@@ -27,21 +27,25 @@ class PageContainer extends React.Component<PageContainerProps, PageContainerSta
     async componentDidMount() {
         try {
             const pageEntity = await this.props.dataRepository.getPageEntity(this.props.pageId);
-            this.setState((prevState: PageContainerState): PageContainerState => {
-                return {
-                    ...prevState,
-                    pageExists: true,
-                    pageEntity: pageEntity,
-                };
-            });
+            this.setState(
+                (prevState: PageContainerState): PageContainerState => {
+                    return {
+                        ...prevState,
+                        pageExists: true,
+                        pageEntity: pageEntity,
+                    };
+                }
+            );
         } catch (e) {
-            this.setState((prevState: PageContainerState): PageContainerState => {
-                return {
-                    ...prevState,
-                    pageExists: false,
-                    pageEntity: undefined,
-                };
-            });
+            this.setState(
+                (prevState: PageContainerState): PageContainerState => {
+                    return {
+                        ...prevState,
+                        pageExists: false,
+                        pageEntity: undefined,
+                    };
+                }
+            );
         }
     }
 

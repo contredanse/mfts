@@ -38,6 +38,13 @@ export default class PageAudioPlayer extends React.Component<PageAudioPlayerProp
         ];
     }
 
+    getHTMLVideoElement(): HTMLVideoElement | null {
+        if (!this.playerRef.current) {
+            return null;
+        }
+        return this.playerRef.current.getInternalPlayer() as HTMLVideoElement;
+    }
+
     render() {
         const { audio, ...playerProps } = this.props;
 

@@ -51,10 +51,12 @@ class PageListContainer extends React.Component<PageListContainerProps, PageList
     };
 
     closePage = () => {
-        this.setState((prevState): PageListContainerState => ({
-            ...prevState,
-            selectedPage: undefined,
-        }));
+        this.setState(
+            (prevState): PageListContainerState => ({
+                ...prevState,
+                selectedPage: undefined,
+            })
+        );
     };
 
     render(): JSX.Element {

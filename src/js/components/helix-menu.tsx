@@ -58,13 +58,15 @@ export default class HelixMenu extends React.Component<HelixMenuProps, HelixMenu
 
     updateDimensions = () => {
         // Just as an example
-        this.setState((prevState: HelixMenuState): HelixMenuState => {
-            return {
-                ...prevState,
-                width: '100%', // nothing yet but could be window.innerWidth or parent size...
-                height: '100%',
-            };
-        });
+        this.setState(
+            (prevState: HelixMenuState): HelixMenuState => {
+                return {
+                    ...prevState,
+                    width: '100%', // nothing yet but could be window.innerWidth or parent size...
+                    height: '100%',
+                };
+            }
+        );
     };
 
     openPage = (pageId: string): void => {

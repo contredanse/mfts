@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { isEqual } from '@src/components/player/utils';
+// import { isEqual } from '@src/components/player/utils';
 
 type HTMLVideoProps = React.VideoHTMLAttributes<HTMLVideoElement>;
 
@@ -51,7 +51,8 @@ export default class MediaPlayer extends React.Component<MediaPlayerProps, Media
     }
 
     shouldComponentUpdate(nextProps) {
-        return !isEqual(this.props, nextProps);
+        return true;
+        //return !isEqual(this.props, nextProps);
     }
 
     componentDidMount() {

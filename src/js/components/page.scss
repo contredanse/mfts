@@ -47,14 +47,23 @@
 
             .page-video-wall {
                 grid-area: video-wall;
-
                 display: flex;
                 justify-content: space-between;
                 //width: 100%;
                 margin: 0 -5px;
 
-                .videocomp-container {
+                div {
+                }
+
+                .video-link {
                     margin: 0 5px;
+                    video {
+                        border: 1px solid yellow;
+                        &:hover {
+                            filter: contrast(115%) drop-shadow(2px 2px 5px yellow);
+                            cursor: pointer;
+                        }
+                    }
                 }
             }
 
