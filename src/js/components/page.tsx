@@ -183,24 +183,15 @@ export default class Page extends React.Component<PageProps, PageState> {
                             <div className="page-footer">
                                 <PageContextConsumer>
                                     {({ state, actions }) => {
-                                        // Check which player (audio/video) instance will
-                                        // be managed by the control bar
-
-                                        let mediaRef: HTMLVideoElement | null = null;
-                                        if (this.audioPlayer.current) {
-                                            mediaRef = this.audioPlayer.current.getHTMLVideoElement();
-                                        } else if (this.playerRef.current) {
-                                            mediaRef = this.playerRef.current.getVideoElement();
-                                        }
-
+                                        const videoEl = this.getMainPlayerVideoElement();
                                         return (
                                             <MediaPlayerControlBar
-                                                {...(mediaRef ? { videoEl: mediaRef } : {})}
+                                                {...(videoEl ? { videoEl: videoEl } : {})}
                                                 actions={actions}
-                                                duration={state.duration}
-                                                currentTime={state.currentTime}
-                                                isPlaying={state.isPlaying}
-                                                playbackRate={state.playbackRate}
+                                                duration={this.state.playbackState.duration}
+                                                currentTime={this.state.playbackState.currentTime}
+                                                isPlaying={this.state.playbackState.isPlaying}
+                                                playbackRate={this.state.playbackState.playbackRate}
                                             />
                                         );
                                     }}
@@ -211,6 +202,20 @@ export default class Page extends React.Component<PageProps, PageState> {
                 </div>
             </PageOverlay>
         );
+    }
+
+    /**
+     * Return the main page media player (audio/video)
+     * @returns {HTMLVideoElement | null}
+     */
+    private getMainPlayerVideoElement(): HTMLVideoElement | null {
+        let videoEl: HTMLVideoElement | null = null;
+        if (this.audioPlayer.current) {
+            videoEl = this.audioPlayer.current.getHTMLVideoElement();
+        } else if (this.playerRef.current) {
+            videoEl = this.playerRef.current.getVideoElement();
+        }
+        return videoEl;
     }
 
     private initMediaPlayerActions(): void {
@@ -246,9 +251,13 @@ export default class Page extends React.Component<PageProps, PageState> {
                 });
             },
             setPlaybackRate: playbackRate => {
-                if (this.playerRef.current) {
-                    this.playerRef.current.getVideoElement().playbackRate = playbackRate;
-                }
+                this.setState((prevState, prevProps) => {
+                    const newState = {
+                        prevState,
+                        ...{ playbackState: { ...prevState.playbackState, playbackRate: playbackRate } },
+                    };
+                    return newState;
+                });
             },
             setCurrentTime: time => {
                 if (this.playerRef.current) {
