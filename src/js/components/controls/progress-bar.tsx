@@ -10,15 +10,18 @@ export type ProgressBarProps = {
 export const ProgressBar: React.SFC<ProgressBarProps> = props => {
     const { currentTime, duration, onSeek } = props;
 
+    // @optimize later, method creation should only be done when onSeek
+    // prop changed
+
     const handleSeek = (e: React.SyntheticEvent<HTMLInputElement>) => {
         e.persist();
         onSeek(parseFloat(e.currentTarget.value));
     };
 
     return (
-        <div className="range-slider">
+        <div className="control-progressbar-slider">
             <input
-                className="range-slider__range"
+                className="control-progressbar-slider__range"
                 type="range"
                 min="0"
                 max={duration}
