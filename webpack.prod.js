@@ -237,7 +237,7 @@ module.exports = merge(common, {
             description: 'Material for the spine. Contredanse.org ',
             background_color: '#000000',
             theme_color: '#000000',
-            start_url: '/',
+            start_url: '/?utm_source=homescreen',
             inject: true,
             fingerprints: true,
             ios: {
