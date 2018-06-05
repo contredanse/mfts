@@ -14,9 +14,7 @@
 
 ### Acknowledgments
 
-> JetBrains for granting free licenses to their IDE's.  
-> [![PHPStorm](./docs/images/jetbrains/phpstorm.svg)](https://www.jetbrains.com)
-> [![IntelJ/Idea](./docs/images/jetbrains/intelj.svg)](https://www.jetbrains.com)
+> WebStorm  
 > [![WebStorm](./docs/images/jetbrains/webstorm.svg)](https://www.jetbrains.com)
 
 
