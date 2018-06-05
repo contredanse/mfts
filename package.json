@@ -36,6 +36,7 @@
     },
     "devDependencies": {
         "@material-ui/icons": "^1.1.0",
+        "@types/classnames": "^2.2.4",
         "@types/enzyme": "^3.1.10",
         "@types/express": "^4.16.0",
         "@types/gsap": "^1.19.2",
@@ -129,6 +130,7 @@
     "dependencies": {
         "@material-ui/core": "^1.2.0",
         "@zeit/next-typescript": "^1.0.1",
+        "classnames": "^2.2.5",
         "express": "^4.16.3",
         "gsap": "^2.0.1",
         "history": "^4.7.2",
