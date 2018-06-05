@@ -1,8 +1,9 @@
 const path = require('path');
-const webpack = require('webpack');
 const merge = require('webpack-merge');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const common = require('./webpack.common.js');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
+
 //const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = merge(common, {
@@ -40,6 +41,20 @@ module.exports = merge(common, {
           analyzerMode: 'static'
         })
         */
+        new HtmlWebpackPlugin({
+            alwaysWriteToDisk: true,
+            hash: false,
+            title: 'Paxton MFTS',
+            template: './public/index.html',
+            removeAttributeQuotes: false,
+            removeComments: false,
+            minify: {
+                collapseWhitespace: false,
+                collapseInlineTagWhitespace: false,
+            },
+        }),
+
+        new HtmlWebpackHarddiskPlugin(),
     ],
     optimization: {
         namedModules: true, // NamedModulesPlugin()
