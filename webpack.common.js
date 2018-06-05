@@ -18,7 +18,6 @@ module.exports = {
             '@styles': path.resolve(__dirname, 'src/styles/'),
             '@public': path.resolve(__dirname, 'public/'),
             '@assets': path.resolve(__dirname, 'src/assets/'),
-            '@shared': path.resolve(__dirname, 'src/shared'),
             '@thirdparty': path.resolve(__dirname, 'src/thirdparty'),
             '@data': path.resolve(__dirname, 'src/data'),
             /**

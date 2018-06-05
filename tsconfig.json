@@ -50,7 +50,6 @@
             "@styles/*": ["src/styles/*"],
             "@public/*": ["public/*"],
             "@config/*": ["src/config/*"],
-            "@shared/*": ["src/shared/*"],
             "@assets/*": ["src/assets/*"],
             "@thirdparty/*": ["src/thirdparty/*"],
             "@data/*": ["src/data/*"]

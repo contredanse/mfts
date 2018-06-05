@@ -11,7 +11,6 @@
         "@config/(.*)$": "<rootDir>/src/config/$1",
         "@assets/(.*)$": "<rootDir>/src/assets/$1",
         "@thirdparty/(.*)$": "<rootDir>/src/thirdparty/$1",
-        "@shared/(.*)$": "<rootDir>/src/shared/$1",
         "@data/(.*)$": "<rootDir>/src/data/$1",
         "^.+\\.scss$": "identity-obj-proxy"
     },
