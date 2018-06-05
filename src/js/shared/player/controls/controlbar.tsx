@@ -71,6 +71,8 @@ export default class Controlbar extends React.Component<MediaPlayerControlBarPro
                 </div>
                 <div>
                     <PlayButton isEnabled={true} onClick={this.play} style={props.isPlaying ? activeStyle : {}} />
+                </div>
+                <div>
                     <PauseButton isEnabled={true} onClick={this.pause} style={props.isPlaying ? {} : activeStyle} />
                 </div>
                 <div>
