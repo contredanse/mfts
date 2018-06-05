@@ -1,0 +1,9 @@
+/**
+ * Hack for responsive videos
+ */
+
+video {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 100%;
+}

@@ -1,5 +1,8 @@
 import * as React from 'react';
 import './page.scss';
+// import temporary hack for reponsive videos
+import '@src/shared/player/styles/player.scss';
+
 import { PageOverlay } from '@src/components/page-overlay';
 import PageEntity from '@src/models/entity/page-entity';
 
@@ -8,7 +11,7 @@ import MediaPlayer, {
     MediaPlayerActions,
     MediaPlayerEffects,
 } from '@src/components/player/media-player';
-import MediaPlayerControlBar from '@src/components/player/media-player-controlbar';
+import Controlbar from '@src/shared/player/controls/controlbar';
 import PageVideoGroup from '@src/components/page-video-group';
 import PageAudioPlayer from '@src/components/page-audio-player';
 
@@ -185,7 +188,7 @@ export default class Page extends React.Component<PageProps, PageState> {
                                     {({ state, actions }) => {
                                         const videoEl = this.getMainPlayerVideoElement();
                                         return (
-                                            <MediaPlayerControlBar
+                                            <Controlbar
                                                 {...(videoEl ? { videoEl: videoEl } : {})}
                                                 actions={actions}
                                                 duration={this.state.playbackState.duration}

@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { MediaPlayerActions } from '@src/components/player/media-player';
-import './media-player-controlbar.scss';
-import { ProgressBar } from '@src/components/controls/progress-bar';
+import { MediaPlayerActions } from '../../../components/player/media-player';
+import './controlbar.scss';
+import { ProgressBar } from '@src/shared/player/controls/progress-bar';
 
 export type MediaPlayerControlBarProps = {
     videoEl?: HTMLVideoElement;
@@ -16,10 +16,7 @@ export type MediaPlayerControlbarState = {
     currentTime: number;
 };
 
-export default class MediaPlayerControlBar extends React.Component<
-    MediaPlayerControlBarProps,
-    MediaPlayerControlbarState
-> {
+export default class Controlbar extends React.Component<MediaPlayerControlBarProps, MediaPlayerControlbarState> {
     readonly state: MediaPlayerControlbarState;
 
     /**
