@@ -12,8 +12,7 @@ const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
-//const CompressionPlugin = require('compression-webpack-plugin');
-const CompressionPlugin = require('zopfli-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 const StatsWriterPlugin = require('webpack-stats-plugin').StatsWriterPlugin;
 
 // Don't forget: no ending slashes - it's used in registerServiceWorker.js too
@@ -214,7 +213,7 @@ module.exports = merge(common, {
 
         new DuplicatePackageCheckerPlugin({
             verbose: true,
-            emitError: true,
+            //emitError: true,
         }),
 
         new HtmlWebpackPlugin({
