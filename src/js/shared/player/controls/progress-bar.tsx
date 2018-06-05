@@ -1,5 +1,5 @@
 import * as React from 'react';
-import '../styles/progress-bar.scss';
+import './progress-bar.scss';
 
 export type ProgressBarProps = {
     currentTime: number;

@@ -2,12 +2,12 @@ import React, { Component, CSSProperties, ReactNode } from 'react';
 import classNames from 'classnames';
 
 export type ButtonProps = {
-    onClick: () => void;
-    isEnabled: boolean;
-    className: string;
-    extraClasses: string;
-    style: CSSProperties;
-    children: ReactNode;
+    onClick?: () => void;
+    isEnabled?: boolean;
+    className?: string;
+    extraClasses?: string;
+    style?: CSSProperties;
+    children?: ReactNode;
 };
 
 class Button extends Component<ButtonProps> {
@@ -35,7 +35,7 @@ class Button extends Component<ButtonProps> {
     }
 
     protected handleClick = () => {
-        if (this.props.isEnabled) {
+        if (this.props.isEnabled && this.props.onClick !== undefined) {
             this.props.onClick();
         }
     };

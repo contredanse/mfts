@@ -2,6 +2,7 @@ import * as React from 'react';
 import { MediaPlayerActions } from '../../../components/player/media-player';
 import './controlbar.scss';
 import { ProgressBar } from '@src/shared/player/controls/progress-bar';
+import PlayButton from '@src/shared/player/controls/play-button';
 
 export type MediaPlayerControlBarProps = {
     videoEl?: HTMLVideoElement;
@@ -54,40 +55,6 @@ export default class Controlbar extends React.Component<MediaPlayerControlBarPro
         }
     }
 
-    protected play = () => {
-        const { videoEl } = this.props;
-        if (videoEl) {
-            videoEl.play();
-        } else {
-            this.logWarning('Cannot play video, videoEl have not been registered');
-        }
-
-        this.props.actions.play();
-    };
-
-    protected pause = () => {
-        const { videoEl } = this.props;
-        if (videoEl) {
-            videoEl.pause();
-        } else {
-            this.logWarning('Cannot pause video, videoEl have not been registered');
-        }
-        this.props.actions.pause();
-    };
-
-    protected seekTo = (time: number) => {
-        const { videoEl } = this.props;
-        if (videoEl) {
-            videoEl.currentTime = time;
-        } else {
-            this.logWarning('Cannot seek to time, videoEl have not been registered');
-        }
-    };
-
-    protected logWarning(msg: string) {
-        console.warn(`Controlbar: ${msg}`);
-    }
-
     render() {
         const props = this.props;
         const activeStyle = {
@@ -99,6 +66,7 @@ export default class Controlbar extends React.Component<MediaPlayerControlBarPro
                 <div>
                     <div className="control-bar">
                         <div>
+                            <PlayButton isEnabled={true} />
                             <button type="button" style={props.isPlaying ? activeStyle : {}} onClick={this.play}>
                                 Play
                             </button>
@@ -160,7 +128,7 @@ export default class Controlbar extends React.Component<MediaPlayerControlBarPro
         }
     };
 
-    formatMilliseconds(milli: number): string {
+    protected formatMilliseconds(milli: number): string {
         const d = Math.trunc(milli);
         const h = Math.floor(d / 3600);
         const m = Math.floor((d % 3600) / 60);
@@ -171,5 +139,39 @@ export default class Controlbar extends React.Component<MediaPlayerControlBarPro
         const mDisplay = m > 0 ? `${minutes}:` : `${'0'.padStart(m > 0 ? 2 : 1, '0')}:`;
         const sDisplay = s > 0 ? `${seconds}` : '00';
         return `${hDisplay}${mDisplay}${sDisplay}`;
+    }
+
+    protected play = () => {
+        const { videoEl } = this.props;
+        if (videoEl) {
+            videoEl.play();
+        } else {
+            this.logWarning('Cannot play video, videoEl have not been registered');
+        }
+
+        this.props.actions.play();
+    };
+
+    protected pause = () => {
+        const { videoEl } = this.props;
+        if (videoEl) {
+            videoEl.pause();
+        } else {
+            this.logWarning('Cannot pause video, videoEl have not been registered');
+        }
+        this.props.actions.pause();
+    };
+
+    protected seekTo = (time: number) => {
+        const { videoEl } = this.props;
+        if (videoEl) {
+            videoEl.currentTime = time;
+        } else {
+            this.logWarning('Cannot seek to time, videoEl have not been registered');
+        }
+    };
+
+    protected logWarning(msg: string) {
+        console.warn(`Controlbar: ${msg}`);
     }
 }
