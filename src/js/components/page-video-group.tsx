@@ -14,19 +14,18 @@ type PageVideoGroupProps = {
 
 type PageVideoGroupState = {};
 
-export default class PageVideoGroup extends React.Component<PageVideoGroupProps, PageVideoGroupState> {
-    //private playerRefs!: Array<React.RefObject<PageVideoPlayer>>;
+const defaultProps = {
+    playbackState: {
+        playing: true,
+        playbackRate: 1,
+    },
+};
 
-    static defaultProps: Partial<PageVideoGroupProps> = {
-        playbackState: {
-            playing: true,
-            playbackRate: 1,
-        },
-    };
+export default class PageVideoGroup extends React.Component<PageVideoGroupProps, PageVideoGroupState> {
+    static defaultProps: Partial<PageVideoGroupProps> = defaultProps;
 
     constructor(props: PageVideoGroupProps) {
         super(props);
-        //this.initializeRefs();
     }
 
     render() {
