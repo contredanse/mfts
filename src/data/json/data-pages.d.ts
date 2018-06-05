@@ -20,7 +20,7 @@ export interface IJsonPageLocalizedKeywords extends ITranslatedValue<string[]> {
 }
 
 export interface IJsonPageContent {
-    layout: string;
+    layout?: string;
     videos: IJsonPageVideo[];
     audio?: IJsonPageAudio;
 }
