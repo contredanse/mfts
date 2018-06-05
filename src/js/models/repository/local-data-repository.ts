@@ -65,7 +65,7 @@ export default class LocalDataRepository implements IDataRepository {
                     keywords
                         .join(' ')
                         .concat(page.title[lang])
-                        .concat(page.content.layout)
+                        .concat(page.content.layout || '')
                         .search(regex) > -1
                 );
             }
