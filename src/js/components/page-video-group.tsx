@@ -34,8 +34,8 @@ export default class PageVideoGroup extends React.Component<PageVideoGroupProps,
         const videos = pageEntity.getVideos();
         return (
             <>
-                {videos.map((video, video_idx) => {
-                    const videoIdx = `video-${video_idx}`;
+                {videos.map((video, idx) => {
+                    const videoIdx = `video-${idx}`;
                     let className = '';
                     if (video.videoLink) {
                         className = 'video-link';

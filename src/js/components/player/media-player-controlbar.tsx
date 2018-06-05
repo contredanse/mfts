@@ -136,7 +136,9 @@ export default class MediaPlayerControlBar extends React.Component<
     }
 
     protected registerVideoListeners(video: HTMLVideoElement, skipOnRegistered: boolean = true): void {
-        if (skipOnRegistered && this.listenersRegistered) return;
+        if (skipOnRegistered && this.listenersRegistered) {
+            return;
+        }
         video.addEventListener('timeupdate', this.updateCurrentTimeState);
         this.listenersRegistered = true;
     }
