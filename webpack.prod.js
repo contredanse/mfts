@@ -15,7 +15,7 @@ const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const StatsWriterPlugin = require('webpack-stats-plugin').StatsWriterPlugin;
 
-// Don't forget: no ending slashes - it's used in registerServiceWorker.js too
+// Don't forget: no ending slashes - it's used in registerServiceWorker.ts too
 const PUBLIC_URL = 'https://paxton.soluble.io';
 
 const extractSass = new MiniCssExtractPlugin({
@@ -200,7 +200,7 @@ module.exports = merge(common, {
         new webpack.EnvironmentPlugin({
             'process.env.NODE_ENV': JSON.stringify('production'),
             NODE_ENV: JSON.stringify('production'),
-            // Don't forget: no ending slashes - it's used in registerServiceWorker.js too
+            // Don't forget: no ending slashes - it's used in registerServiceWorker.ts too
             PUBLIC_URL: PUBLIC_URL,
         }),
 
