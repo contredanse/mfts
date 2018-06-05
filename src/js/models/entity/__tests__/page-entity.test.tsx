@@ -25,7 +25,7 @@ describe('Data page retrieval', () => {
         if (page !== undefined) {
             const videos = await page.getVideos('en');
             expect(videos.length).toBe(page.countVideos());
-            expect(page.getFirstVideo('en')).toEqual(videos[0]);
+            expect(page.getFirstVideo('en')!.videoId).toEqual(videos[0].videoId);
         }
     });
 });
@@ -50,7 +50,6 @@ describe('Data page factory', () => {
             fr: ['mots-clés'],
         },
         content: {
-            layout: 'three-videos-audio-subs',
             videos: [
                 {
                     lang_video_id: {
@@ -62,8 +61,8 @@ describe('Data page factory', () => {
                         },
                         muted: true,
                         desc: {
-                            en: '-- led by feet and hands - detail from side',
-                            fr: '-- initié par le les mains et les pieds - détail - depuis le côté',
+                            en: 'desc_en',
+                            fr: 'desc_fr',
                         },
                     },
                 },
@@ -77,23 +76,8 @@ describe('Data page factory', () => {
                         },
                         muted: true,
                         desc: {
-                            en: '-- led by feet and hands - detail from top',
-                            fr: '-- initié par le les mains et les pieds - détail - depuis le haut',
-                        },
-                    },
-                },
-                {
-                    lang_video_id: {
-                        en: 'cbhf_fromhead',
-                    },
-                    video_detail: {
-                        lang_video_id: {
-                            en: 'cbfh_front',
-                        },
-                        muted: true,
-                        desc: {
-                            en: '-- led by feet and hands - detail from head',
-                            fr: '-- initié par le les mains et les pieds - détail - depuis la tête',
+                            en: 'desc_en',
+                            fr: 'desc_fr',
                         },
                     },
                 },
@@ -135,5 +119,5 @@ describe('Data page factory', () => {
     expect(tracks[0]).toEqual({ lang: 'en', src: 'http://audiosubs/comments_crescent.en.vtt' });
 
     const videoTracks = page.getFirstVideo()!.getAllTracks();
-    console.log('videoTracks', videoTracks);
+    //console.log('videoTracks', videoTracks);
 });
