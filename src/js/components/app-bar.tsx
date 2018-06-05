@@ -12,7 +12,7 @@ import { AppBar as MaterialAppBar, Toolbar, Typography, IconButton, Button } fro
 
 import { withStyles, WithStyles } from '@material-ui/core/es/styles';
 
-import MenuIcon from '@material-ui/icons/es/Menu';
+import { Menu as MenuIcon } from '@material-ui/icons';
 
 import { RootState } from '@src/redux/index';
 

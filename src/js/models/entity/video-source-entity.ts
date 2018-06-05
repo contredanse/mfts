@@ -16,7 +16,7 @@ export default class VideoSourceEntity extends AbstractBaseEntity {
      * Mimetypes map for some media formats
      * @type {{mp4: string; webm: string; av1: string; mp3: string}}
      */
-    static fileTypes = {
+    static fileTypes: { [key: string]: string } = {
         mp4: 'video/mp4',
         webm: 'video/webm',
         av1: 'video/av1',

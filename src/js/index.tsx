@@ -15,7 +15,7 @@ import { appConfig } from '@config/config.production';
 import AppConfig from '@src/core/app-config';
 import registerServiceWorker from './registerServiceWorker';
 
-const renderApp = (Component, config: AppConfig, elementId: string) => {
+const renderApp = (Component: any, config: AppConfig, elementId: string) => {
     render(
         <ReduxProvider store={store}>
             <Component appConfig={config} />

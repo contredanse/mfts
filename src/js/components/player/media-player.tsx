@@ -50,7 +50,7 @@ export default class MediaPlayer extends React.Component<MediaPlayerProps, Media
         this.videoRef = React.createRef<HTMLVideoElement>();
     }
 
-    shouldComponentUpdate(nextProps) {
+    shouldComponentUpdate(nextProps: MediaPlayerProps) {
         return true;
         //return !isEqual(this.props, nextProps);
     }

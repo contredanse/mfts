@@ -30,9 +30,10 @@ class PageListContainer extends React.Component<PageListContainerProps, PageList
         };
     }
 
-    updateSearch = e => {
+    updateSearch = (e: React.SyntheticEvent<HTMLInputElement>) => {
         e.preventDefault();
-        const fragment = e.target.value;
+        e.persist();
+        const fragment = e.currentTarget.value;
         const pages = this.props.dataRepository.findPages(fragment, this.props.lang);
         this.setState({
             pages: pages,
@@ -78,7 +79,7 @@ class PageListContainer extends React.Component<PageListContainerProps, PageList
                 />
                 {selectedPage === undefined && (
                     <div style={searchBoxStyle}>
-                        <SearchBox onChange={e => this.updateSearch(e)} />
+                        <SearchBox onChange={this.updateSearch} />
                     </div>
                 )}
             </PageOverlay>

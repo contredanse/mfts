@@ -1,10 +1,10 @@
-export function isObject(val) {
+export function isObject(val: any) {
     return val !== null && typeof val === 'object';
 }
 
 // Deep comparison of two objects but ignoring
 // functions, for use in shouldComponentUpdate
-export function isEqual(a, b) {
+export function isEqual(a: any, b: any) {
     if (typeof a === 'function' && typeof b === 'function') {
         return true;
     }

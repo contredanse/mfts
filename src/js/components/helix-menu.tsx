@@ -3,7 +3,7 @@ import spiralMenu from '@thirdparty/spiral.js';
 import { IJsonMenu } from '@data/json/data-menu';
 
 type HelixMenuProps = {
-    jsonDataMenu: IJsonMenu;
+    jsonDataMenu: IJsonMenu[];
 };
 type HelixMenuState = {
     width: number | string;

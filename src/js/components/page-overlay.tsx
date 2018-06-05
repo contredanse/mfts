@@ -14,33 +14,6 @@ export class PageOverlay extends React.Component<PageOverlayProps, PageOverlaySt
         closeButton: false,
     };
 
-    protected handleClose = e => {
-        if (this.props.onClose !== undefined) {
-            this.props.onClose();
-        }
-    };
-
-    protected getScrollbarTrack(): React.StatelessComponent<any> {
-        const trackStyle = {
-            width: '5px',
-            borderRadius: 3,
-            top: '10%',
-            bottom: '10%',
-            right: '10px',
-            borderRight: '2px dotted rgba(255,255,255, 0.5)',
-        };
-        return ({ style, ...props }) => <div style={{ ...style, ...trackStyle }} {...props} />;
-    }
-
-    protected getScrollbarThumb(): React.StatelessComponent<any> {
-        const thumbStyle = {
-            backgroundColor: 'rgba(255,255,255, 0.7)',
-            cursor: 'pointer',
-            borderRadius: 'inherit',
-        };
-        return ({ style, props }) => <div style={{ ...style, ...thumbStyle }} {...props} />;
-    }
-
     render() {
         const { closeButton } = this.props;
 
@@ -72,5 +45,32 @@ export class PageOverlay extends React.Component<PageOverlayProps, PageOverlaySt
                 </div>
             </div>
         );
+    }
+
+    protected handleClose = (e: React.MouseEvent<HTMLElement>) => {
+        if (this.props.onClose !== undefined) {
+            this.props.onClose();
+        }
+    };
+
+    protected getScrollbarTrack(): React.StatelessComponent<any> {
+        const trackStyle = {
+            width: '5px',
+            borderRadius: 3,
+            top: '10%',
+            bottom: '10%',
+            right: '10px',
+            borderRight: '2px dotted rgba(255,255,255, 0.5)',
+        };
+        return ({ style, ...props }) => <div style={{ ...style, ...trackStyle }} {...props} />;
+    }
+
+    protected getScrollbarThumb(): React.StatelessComponent<any> {
+        const thumbStyle = {
+            backgroundColor: 'rgba(255,255,255, 0.7)',
+            cursor: 'pointer',
+            borderRadius: 'inherit',
+        };
+        return ({ style, props }) => <div style={{ ...style, ...thumbStyle }} {...props} />;
     }
 }

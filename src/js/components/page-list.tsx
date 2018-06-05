@@ -4,6 +4,7 @@ import { IJsonPage, IJsonPageVideo } from '@data/json/data-pages';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { IJsonVideo } from '@data/json/data-videos';
 import dataVideos from '@data/json/data-videos.json';
+import { ReactNode } from 'react';
 
 type PageListProps = {
     pages: IJsonPage[];
@@ -28,7 +29,7 @@ export default class PageList extends React.Component<PageListProps, PageListSta
 
         //console.log('pages', list);
 
-        const Animate = ({ children, ...props }) => (
+        const Animate = ({ children, ...props }: { children: ReactNode }) => (
             <CSSTransition {...props} enter={true} appear={true} exit={false} timeout={1000} classNames="fade">
                 {children}
             </CSSTransition>
