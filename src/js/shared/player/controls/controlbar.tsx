@@ -65,23 +65,23 @@ export default class Controlbar extends React.Component<MediaPlayerControlBarPro
         };
 
         return (
-            <div className="control-bar">
-                <div>
+            <ul className="control-bar">
+                <li className="control-bar__button">
                     <PrevButton isEnabled={false} />
-                </div>
-                <div>
+                </li>
+                <li className="control-bar__button">
                     <PlayButton isEnabled={true} onClick={this.play} style={props.isPlaying ? activeStyle : {}} />
-                </div>
-                <div>
+                </li>
+                <li className="control-bar__button">
                     <PauseButton isEnabled={true} onClick={this.pause} style={props.isPlaying ? {} : activeStyle} />
-                </div>
-                <div>
+                </li>
+                <li className="control-bar__progress-bar">
                     <ProgressBar currentTime={this.state.currentTime} duration={props.duration} onSeek={this.seekTo} />
-                </div>
-                <div>
+                </li>
+                <li className="control-bar__label">
                     {this.formatMilliseconds(this.state.currentTime)}/{this.formatMilliseconds(props.duration)}
-                </div>
-                <div>
+                </li>
+                <li className="control-bar__select">
                     <select
                         onChange={(e: React.SyntheticEvent<HTMLSelectElement>) => {
                             console.log('onchange', e.currentTarget.value);
@@ -92,11 +92,11 @@ export default class Controlbar extends React.Component<MediaPlayerControlBarPro
                         <option value="0.5">0.5</option>
                         <option value="0.25">0.25</option>
                     </select>
-                </div>
-                <div>
+                </li>
+                <li className="control-bar__button">
                     <NextButton isEnabled={false} />
-                </div>
-            </div>
+                </li>
+            </ul>
         );
     }
 

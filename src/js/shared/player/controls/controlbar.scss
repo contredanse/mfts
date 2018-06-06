@@ -3,22 +3,57 @@
  */
 
 .control-bar {
-    width: 100%;
-    display: grid;
-    grid-gap: 5px;
-    grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
+    padding: 0;
+    list-style: none;
 
-    div {
+    display: flex;
+    flex-direction: row;
+
+    justify-items: center;
+
+    li {
         display: flex;
-        align-items: left;
-        justify-content: left;
-
-        &:last-child {
-            align-items: right;
-            justify-content: right;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        &:first-child {
+            margin-left: 10px;
         }
-
-        .progressbar {
+        &:last-child {
+            margin-right: 10px;
         }
     }
+
+    &__button {
+    }
+
+    &__select {
+    }
+
+    &__progress-bar {
+        /*this will push aside the other flex-items and the progressbar takes the remaining space!*/
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+
+        /* vertically center the progressbar */
+        display: flex;
+        align-items: center;
+    }
 }
+
+/**
+.twitter li:not(:last-child):not(.twitter__bird) {
+  margin-right: 10px;
+}
+.twitter li  i:not(.fa-twitter):not(.fa-search):not(.fa-user-circle-o) {
+  margin-right: 3px;
+}
+.twitter li > button {
+  font-size: 0.8em;
+  border: 0;
+  background: rgba(85,172,238 ,1);
+  color: #fff;
+  border-radius: 100px;
+}
+ */
