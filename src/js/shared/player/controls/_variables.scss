@@ -9,7 +9,7 @@ $green: #72d687;
  * Buttons
  */
 
-$icon-size: 30px;
+$icon-size: 25px;
 
 // $color-hover: saturate(lighten($green, 10%), 20%);
 // $color-active: desaturate(darken($green, 20%), 20%);
@@ -30,7 +30,7 @@ $teal: #1abc9c !default;
 
 // Progress bar
 
-$control-progressbar-width: 100% !default;
+$control-progressbar-width: 100%;
 
 $control-progressbar-handle-color: $shade-10 !default;
 $control-progressbar-handle-color-hover: $teal !default;
@@ -38,6 +38,3 @@ $control-progressbar-handle-size: 20px !default;
 
 $control-progressbar-track-color: $shade-1 !default;
 $control-progressbar-track-height: 10px !default;
-
-$control-progressbar-label-color: $shade-10 !default;
-$control-progressbar-label-width: 60px !default;

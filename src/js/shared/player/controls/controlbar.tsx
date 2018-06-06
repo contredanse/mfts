@@ -78,7 +78,7 @@ export default class Controlbar extends React.Component<MediaPlayerControlBarPro
                 <li className="control-bar__progress-bar">
                     <ProgressBar currentTime={this.state.currentTime} duration={props.duration} onSeek={this.seekTo} />
                 </li>
-                <li className="control-bar__label">
+                <li className="control-bar__progress-label">
                     {this.formatMilliseconds(this.state.currentTime)}/{this.formatMilliseconds(props.duration)}
                 </li>
                 <li className="control-bar__select">

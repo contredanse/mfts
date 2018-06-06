@@ -2,10 +2,10 @@
 
 .control-progressbar-slider {
     width: $control-progressbar-width;
-    // BEM .range-slider__range
+
     &__range {
         -webkit-appearance: none;
-        width: calc(100% - (#{$control-progressbar-label-width + 13px}));
+        width: 100%;
         height: $control-progressbar-track-height;
         border-radius: 5px;
         background: $control-progressbar-track-color;
@@ -68,32 +68,6 @@
             &::-webkit-slider-thumb {
                 box-shadow: 0 0 0 3px $shade-0, 0 0 0 6px $teal;
             }
-        }
-    }
-
-    // BEM .range-slider__value
-    &__value {
-        display: inline-block;
-        position: relative;
-        width: $control-progressbar-label-width;
-        color: $shade-0;
-        line-height: 20px;
-        text-align: center;
-        border-radius: 3px;
-        background: $control-progressbar-label-color;
-        padding: 5px 10px;
-        margin-left: 8px;
-
-        &:after {
-            position: absolute;
-            top: 8px;
-            left: -7px;
-            width: 0;
-            height: 0;
-            border-top: 7px solid transparent;
-            border-right: 7px solid $control-progressbar-label-color;
-            border-bottom: 7px solid transparent;
-            content: '';
         }
     }
 }
