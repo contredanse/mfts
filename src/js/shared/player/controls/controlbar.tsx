@@ -25,6 +25,7 @@ export default class Controlbar extends React.Component<MediaPlayerControlBarPro
 
     /**
      * Whether the video listeners have been registered
+     * @type {boolean}
      */
     protected listenersRegistered: boolean = false;
 
@@ -124,7 +125,7 @@ export default class Controlbar extends React.Component<MediaPlayerControlBarPro
                 return { ...prevState, currentTime: currentTime };
             });
         } else {
-            console.warn("Cannot update currentTime state, no 'event.target.currentTime' available", e);
+            console.warn('Cannot update currentTime state, no "event.target.currentTime" available', e);
         }
     };
 
