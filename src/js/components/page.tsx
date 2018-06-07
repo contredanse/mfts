@@ -1,19 +1,15 @@
 import * as React from 'react';
 import './page.scss';
-// import temporary hack for reponsive videos
+// import temporary hack for responsive videos
 import '@src/shared/player/styles/player.scss';
 
-import { PageOverlay } from '@src/components/page-overlay';
 import PageEntity from '@src/models/entity/page-entity';
 
-import MediaPlayer, {
-    HTMLMediaMetadata,
-    MediaPlayerActions,
-    MediaPlayerEffects,
-} from '@src/components/player/media-player';
 import Controlbar from '@src/shared/player/controls/controlbar';
 import PageVideoGroup from '@src/components/page-video-group';
 import PageAudioPlayer from '@src/components/page-audio-player';
+import PageVideoPlayer from '@src/components/page-video-player';
+import { PlayerActions } from '@src/shared/player/player';
 
 export type PlaybackState = {
     currentTime: number;
@@ -23,12 +19,6 @@ export type PlaybackState = {
     videoHeight: number;
     playbackRate: number;
     isMetadataLoaded: boolean;
-};
-
-export type PageContextProps = {
-    effects: MediaPlayerEffects;
-    actions: MediaPlayerActions;
-    state: PlaybackState;
 };
 
 export type PageProps = {
@@ -42,19 +32,17 @@ export type PageState = {
 
 export default class Page extends React.Component<PageProps, PageState> {
     readonly state: PageState;
-    playerRef!: React.RefObject<MediaPlayer>;
+    playerRef!: React.RefObject<PageVideoPlayer>;
     audioPlayer!: React.RefObject<PageAudioPlayer>;
 
-    pageContext!: React.Context<PageContextProps>;
-    mediaPlayerActions!: MediaPlayerActions;
-    mediaPlayerEffects!: MediaPlayerEffects;
+    mediaPlayerActions!: PlayerActions;
 
     constructor(props: PageProps) {
         super(props);
 
         const playerInitialState: PlaybackState = {
             currentTime: 0,
-            isPlaying: false,
+            isPlaying: true,
             duration: 0,
             playbackRate: 1,
             videoWidth: 0,
@@ -67,10 +55,8 @@ export default class Page extends React.Component<PageProps, PageState> {
         };
 
         this.initMediaPlayerActions();
-        this.initMediaPlayerEffects();
-        this.initContext();
 
-        this.playerRef = React.createRef<MediaPlayer>();
+        this.playerRef = React.createRef<PageVideoPlayer>();
         this.audioPlayer = React.createRef<PageAudioPlayer>();
     }
 
@@ -85,125 +71,87 @@ export default class Page extends React.Component<PageProps, PageState> {
         // - video/mp4 works on desktops
         const audioMimeType = 'video/mp4';
 
-        const PageContextProvider = this.pageContext.Provider;
-        const PageContextConsumer = this.pageContext.Consumer;
-
         return (
-            <PageOverlay closeButton={false}>
-                <div className="page-wrapper">
-                    <PageContextProvider
-                        value={{
-                            effects: this.mediaPlayerEffects,
-                            actions: this.mediaPlayerActions,
-                            state: this.state.playbackState,
-                        }}
-                    >
-                        <div className="page-container">
-                            <div className="page-header">Page: {page.pageId}</div>
-                            <div className="page-content">
-                                {page.countVideos() > 1 ? (
-                                    <div className="page-multi-video-layout">
-                                        <div className="page-video-wall">
-                                            <PageVideoGroup
-                                                videos={videos}
-                                                pageEntity={page}
-                                                playbackState={{
-                                                    playing: this.state.playbackState.isPlaying,
-                                                    playbackRate: this.state.playbackState.playbackRate,
-                                                }}
-                                            />
-                                        </div>
-                                        {audio && (
-                                            <div className="page-audio-subs">
-                                                <PageAudioPlayer
-                                                    ref={this.audioPlayer}
-                                                    audio={audio}
-                                                    onPlay={() => {
-                                                        this.updatePlaybackState({
-                                                            isPlaying: true,
-                                                        });
-                                                    }}
-                                                    onPause={() => {
-                                                        this.updatePlaybackState({
-                                                            isPlaying: false,
-                                                        });
-                                                    }}
-                                                    onDuration={(duration: number) => {
-                                                        this.updatePlaybackState({
-                                                            duration: duration,
-                                                        });
-                                                    }}
-                                                    width="100%"
-                                                    height="100%"
-                                                />
-                                            </div>
-                                        )}
-                                    </div>
-                                ) : (
-                                    <div className="page-single-video-layout">
-                                        <PageContextConsumer>
-                                            {({ effects }) => (
-                                                <MediaPlayer
-                                                    ref={this.playerRef}
-                                                    crossOrigin="anonymous"
-                                                    autoPlay={true}
-                                                    effects={effects}
-                                                >
-                                                    {page
-                                                        .getFirstVideo()!
-                                                        .getSources()
-                                                        .map((source, idx) => (
-                                                            <source
-                                                                key={`video-${idx}`}
-                                                                src={source.getSource()}
-                                                                type={source.getHtmlVideoTypeValue()}
-                                                            />
-                                                        ))}
-                                                    {page
-                                                        .getFirstVideo()!
-                                                        .getAllTracks()
-                                                        .map((audioTrack, idx) => {
-                                                            //console.log('audioTrack', audioTrack);
-                                                            return (
-                                                                <track
-                                                                    key={`audio-${idx}`}
-                                                                    label={audioTrack.lang}
-                                                                    kind="subtitles"
-                                                                    srcLang={audioTrack.lang}
-                                                                    src={audioTrack.src}
-                                                                    {...(this.props.lang === audioTrack.lang
-                                                                        ? { default: true }
-                                                                        : {})}
-                                                                />
-                                                            );
-                                                        })}
-                                                </MediaPlayer>
-                                            )}
-                                        </PageContextConsumer>
-                                    </div>
-                                )}
-                            </div>
-                            <div className="page-footer">
-                                <PageContextConsumer>
-                                    {({ state, actions }) => {
-                                        const videoEl = this.getMainPlayerVideoElement();
-                                        return (
-                                            <Controlbar
-                                                {...(videoEl ? { videoEl: videoEl } : {})}
-                                                actions={actions}
-                                                duration={this.state.playbackState.duration}
-                                                currentTime={this.state.playbackState.currentTime}
-                                                isPlaying={this.state.playbackState.isPlaying}
-                                                playbackRate={this.state.playbackState.playbackRate}
-                                            />
-                                        );
+            <div className="page-container">
+                <div className="page-header">Page: {page.pageId}</div>
+                <div className="page-content">
+                    {page.countVideos() > 1 ? (
+                        <div className="page-multi-video-layout">
+                            <div className="page-video-wall">
+                                <PageVideoGroup
+                                    videos={videos}
+                                    pageEntity={page}
+                                    playbackState={{
+                                        playing: this.state.playbackState.isPlaying,
+                                        playbackRate: this.state.playbackState.playbackRate,
                                     }}
-                                </PageContextConsumer>
+                                />
                             </div>
+                            {audio && (
+                                <div className="page-audio-subs">
+                                    <PageAudioPlayer
+                                        ref={this.audioPlayer}
+                                        audio={audio}
+                                        playing={this.state.playbackState.isPlaying}
+                                        onPlay={() => {
+                                            this.updatePlaybackState({
+                                                isPlaying: true,
+                                            });
+                                        }}
+                                        onPause={() => {
+                                            this.updatePlaybackState({
+                                                isPlaying: false,
+                                            });
+                                        }}
+                                        onDuration={(duration: number) => {
+                                            this.updatePlaybackState({
+                                                duration: duration,
+                                            });
+                                        }}
+                                        width="100%"
+                                        height="100%"
+                                    />
+                                </div>
+                            )}
                         </div>
-                    </PageContextProvider>
+                    ) : (
+                        <div className="page-single-video-layout">
+                            <PageVideoPlayer
+                                ref={this.playerRef}
+                                video={page.getFirstVideo()!}
+                                playing={this.state.playbackState.isPlaying}
+                                onPlay={() => {
+                                    this.updatePlaybackState({
+                                        isPlaying: true,
+                                    });
+                                }}
+                                onPause={() => {
+                                    this.updatePlaybackState({
+                                        isPlaying: false,
+                                    });
+                                }}
+                                onDuration={(duration: number) => {
+                                    this.updatePlaybackState({
+                                        duration: duration,
+                                    });
+                                }}
+                                width="100%"
+                                height="100%"
+                            />
+                        </div>
+                    )}
                 </div>
-            </PageOverlay>
+                <div className="page-footer">
+                    <Controlbar
+                        {...(this.getMainPlayerVideoElement() ? { videoEl: this.getMainPlayerVideoElement()! } : {})}
+                        actions={this.mediaPlayerActions}
+                        duration={this.state.playbackState.duration}
+                        currentTime={this.state.playbackState.currentTime}
+                        isPlaying={this.state.playbackState.isPlaying}
+                        playbackRate={this.state.playbackState.playbackRate}
+                    />
+                </div>
+            </div>
         );
     }
 
@@ -216,7 +164,7 @@ export default class Page extends React.Component<PageProps, PageState> {
         if (this.audioPlayer.current) {
             videoEl = this.audioPlayer.current.getHTMLVideoElement();
         } else if (this.playerRef.current) {
-            videoEl = this.playerRef.current.getVideoElement();
+            videoEl = this.playerRef.current.getHTMLVideoElement();
         }
         return videoEl;
     }
@@ -225,11 +173,6 @@ export default class Page extends React.Component<PageProps, PageState> {
         this.mediaPlayerActions = {
             // Actions
             pause: () => {
-                console.log('calling pause');
-                /*
-                if (this.playerRef.current) {
-                    this.playerRef.current.pause();
-                }*/
                 this.setState((prevState, prevProps) => {
                     const newState = {
                         prevState,
@@ -239,12 +182,6 @@ export default class Page extends React.Component<PageProps, PageState> {
                 });
             },
             play: () => {
-                /*
-                console.log('play action');
-                if (this.playerRef.current) {
-                    this.playerRef.current.play();
-                }*/
-
                 this.setState((prevState, prevProps) => {
                     const newState = {
                         prevState,
@@ -262,46 +199,15 @@ export default class Page extends React.Component<PageProps, PageState> {
                     return newState;
                 });
             },
+
             setCurrentTime: time => {
-                if (this.playerRef.current) {
-                    this.playerRef.current.getVideoElement().currentTime = time;
+                console.log('set current time');
+                const videoEl = this.getMainPlayerVideoElement();
+                if (videoEl) {
+                    videoEl.currentTime = time;
                 }
             },
         };
-    }
-
-    private initMediaPlayerEffects(): void {
-        this.mediaPlayerEffects = {
-            updateCurrentTime: (currentTime: number) => {
-                /*
-                this.updatePlaybackState({
-                    currentTime: currentTime,
-                });*/
-            },
-            updateMetadata: (metadata: HTMLMediaMetadata) => {
-                const { duration, videoWidth, videoHeight } = metadata;
-                this.updatePlaybackState({
-                    duration: duration,
-                    videoWidth: videoWidth,
-                    videoHeight: videoHeight,
-                });
-            },
-            updatePlaybackRate: (playbackRate: number) => {
-                this.updatePlaybackState({
-                    playbackRate: playbackRate,
-                });
-            },
-            updatePlayingState: (isPlaying: boolean) => {
-                this.updatePlaybackState({
-                    isPlaying: isPlaying,
-                });
-            },
-        };
-    }
-    private initContext(): void {
-        this.pageContext = React.createContext<PageContextProps>({
-            state: this.state.playbackState,
-        } as PageContextProps);
     }
 
     private updatePlaybackState(deltaState: Partial<PlaybackState>): void {
