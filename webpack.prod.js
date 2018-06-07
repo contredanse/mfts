@@ -213,7 +213,12 @@ module.exports = merge(common, {
 
         new DuplicatePackageCheckerPlugin({
             verbose: true,
-            //emitError: true,
+            emitError: true,
+            exclude(instance) {
+                // @material-ui/core and history
+                // use different major versions
+                return instance.name === 'warning';
+            },
         }),
 
         new HtmlWebpackPlugin({
