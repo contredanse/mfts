@@ -4,6 +4,7 @@ import { IJsonPage } from '@data/json/data-pages';
 import { IJsonVideo } from '@data/json/data-videos';
 import { IJsonMenu } from '@data/json/data-menu';
 import AppAssetsLocator, { IAssetsLocatorProps } from '@src/core/app-assets-locator';
+import VideoRepository from '@src/models/repository/video-repository';
 
 export default class AppConfig {
     protected _assetsLocator!: AppAssetsLocator;
@@ -32,6 +33,19 @@ export default class AppConfig {
             };
         }
         return new LocalDataRepository(this);
+    }
+
+    getVideoRepository(params?: IDataRepositoryParams): VideoRepository {
+        if (params === undefined) {
+            // Default params
+            params = {
+                fallbackLang: this.config.fallbackLang as DataSupportedLangType,
+                assetsBaseUrl: this.assetsLocator.getMediaTypeBaseUrl('default'),
+                videoBaseUrl: this.assetsLocator.getMediaTypeBaseUrl('videos'),
+                audioBaseUrl: this.assetsLocator.getMediaTypeBaseUrl('audios'),
+            };
+        }
+        return new VideoRepository(this);
     }
 
     getConfig(): IAppConfig {

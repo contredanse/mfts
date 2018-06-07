@@ -1,4 +1,4 @@
-import { default as AppConfig, IAppDataConfig } from '@src/core/app-config';
+import AppConfig, { IAppDataConfig } from '@src/core/app-config';
 import { IJsonVideo } from '@data/json/data-videos';
 import { IJsonPage } from '@data/json/data-pages';
 import { IDataRepository, DataSupportedLangType } from '@src/models/repository/data-repository';
