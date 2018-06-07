@@ -1,5 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
 
 module.exports = {
     entry: {
@@ -22,10 +21,9 @@ module.exports = {
             '@data': path.resolve(__dirname, 'src/data'),
             /**
              * Aliases to avoid duplicates in build.
-             * - react-router alias can be removed when react-router-redux
-             *   is upgraded to a later version than alpha.9.
+             * i.e:
+             *   'react-router': path.resolve(__dirname, 'node_modules/react-router'),
              */
-            'react-router': path.resolve(__dirname, 'node_modules/react-router'),
         },
     },
     module: {
@@ -55,11 +53,6 @@ module.exports = {
                     },
                 },
             },
-            /*
-            {
-                test: /\.(glsl|vs|fs)$/,
-                loader: 'ts-shader-loader',
-            },*/
             {
                 test: /\.(mp4|m4v|ogv|webm)$/,
                 loader: 'file-loader',
@@ -88,10 +81,5 @@ module.exports = {
         ],
     },
 
-    plugins: [
-        /*
-    new webpack.EnvironmentPlugin([
-      'NODE_ENV',
-    ]),*/
-    ],
+    plugins: [],
 };
