@@ -1,12 +1,18 @@
 //declare var jest, describe, it, expect;
 import * as React from 'react';
-
-import { shallow } from 'enzyme';
+// see https://stackoverflow.com/questions/43771517/using-jest-to-test-a-link-from-react-router-v4
+import { StaticRouter } from 'react-router';
+import { MemoryRouter } from 'react-router-dom';
+import { mount } from 'enzyme';
 import Home from '../home';
 
-describe('Home component', () => {
-    it('renders', () => {
-        const wrapper = shallow(<Home />);
-        expect(wrapper.find('div').html()).toMatch(/Home/);
+describe('<Home />', () => {
+    it('should contain title', () => {
+        const wrapper = mount(
+            <MemoryRouter>
+                <Home />
+            </MemoryRouter>
+        );
+        expect(wrapper.find(Home).html()).toContain('Material for the spine');
     });
 });
