@@ -7,7 +7,6 @@ import { history } from '@src/store';
 import { RouteComponentProps, Switch } from 'react-router';
 import { AppBar } from '@src/components/app-bar';
 import HomeContainer from '@src/containers/home-container';
-import IntroContainer from '@src/containers/intro-container';
 import MenuContainer from '@src/containers/menu-container';
 import NotFoundContainer from '@src/containers/notfound-container';
 import AppConfig from '@src/core/app-config';
@@ -30,6 +29,9 @@ class App extends React.Component<AppProps, {}> {
         const lang = 'en';
 
         const dataRepository = this.props.appConfig.getDataRepository();
+        const videoRepository = this.props.appConfig.getVideoRepository();
+
+        console.log('videoRepository', videoRepository);
 
         return (
             <ConnectedRouter history={history}>
@@ -40,12 +42,26 @@ class App extends React.Component<AppProps, {}> {
                     <main>
                         <Switch>
                             <Route exact={true} path="/" component={HomeContainer} />
-                            <Route exact={true} path="/intro" component={IntroContainer} />
                             <Route exact={true} path="/menu" component={MenuContainer} />
+
+                            <Route
+                                exact={true}
+                                path="/:lang(fr|en)?/intro"
+                                render={(props: RouteComponentProps<any>) => {
+                                    const { pageId, lang: routeLang } = props.match.params;
+                                    return (
+                                        <PageContainer
+                                            pageId="forms.introduction"
+                                            lang={routeLang || lang}
+                                            dataRepository={dataRepository}
+                                        />
+                                    );
+                                }}
+                            />
                             <Route
                                 exact={true}
                                 path="/page-list"
-                                render={props => {
+                                render={(props: RouteComponentProps<any>) => {
                                     return (
                                         <PageListContainer
                                             lang={lang}
