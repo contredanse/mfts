@@ -8,9 +8,15 @@ import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 import { RouteComponentProps } from 'react-router';
 
-import { AppBar as MaterialAppBar, Toolbar, Typography, IconButton, Button } from '@material-ui/core/es';
-
-import { withStyles, WithStyles } from '@material-ui/core/es/styles';
+import {
+    AppBar as MaterialAppBar,
+    Toolbar,
+    Typography,
+    IconButton,
+    Button,
+    withStyles,
+    WithStyles,
+} from '@material-ui/core';
 
 import { Menu as MenuIcon } from '@material-ui/icons';
 
