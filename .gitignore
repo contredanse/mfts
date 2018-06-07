@@ -7,3 +7,4 @@ dist
 deploy.sh
 coverage
 shipitfile.js
+.env
