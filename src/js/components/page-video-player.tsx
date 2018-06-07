@@ -26,9 +26,16 @@ export default class PageVideoPlayer extends React.Component<PageVideoPlayerProp
 
     constructor(props: PageVideoPlayerProps) {
         super(props);
-        this.playerRef = React.createRef();
+        this.playerRef = React.createRef<ReactPlayer>();
         this.playerConfig = this.getReactPlayerConfig(props.video, props.activeSubtitleLang || 'en');
         this.playerSources = this.getReactPlayerSources(props.video.getSources());
+    }
+
+    getHTMLVideoElement(): HTMLVideoElement | null {
+        if (!this.playerRef.current) {
+            return null;
+        }
+        return this.playerRef.current.getInternalPlayer() as HTMLVideoElement;
     }
 
     render() {
