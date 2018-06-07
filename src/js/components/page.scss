@@ -42,7 +42,7 @@
                 'video-wall'
                 'audio-subs';
             /* hack to prevent horizontal scrolling */
-            max-width: 97%;
+            max-width: 95%;
             grid-template-rows: 1fr 30%;
 
             .page-video-wall {
@@ -86,16 +86,21 @@
 
         .page-single-video-layout {
             flex: 1;
-            display: grid;
+            display: flex;
+            height: 100%;
 
-            .videocomp-container {
-                width: 100%; // needed for single-video-layout
-                max-height: 100%;
+            div {
+                border: 2px solid green;
                 video {
                     object-fit: initial;
-                    //max-height: 100%;
-                    //height: 100%;
-                    //width: 100%;
+                    max-height: 100%;
+                    height: 100%;
+                    width: 100%;
+                    &::cue {
+                        font-family: $primary-font;
+                        font-size: 1.5em;
+                        color: yellow;
+                    }
                 }
             }
         }
