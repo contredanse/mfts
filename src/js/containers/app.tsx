@@ -31,7 +31,7 @@ class App extends React.Component<AppProps, {}> {
         const dataRepository = this.props.appConfig.getDataRepository();
         const videoRepository = this.props.appConfig.getVideoRepository();
 
-        console.log('videoRepository', videoRepository);
+        //console.log('videoRepository', videoRepository);
 
         return (
             <ConnectedRouter history={history}>
