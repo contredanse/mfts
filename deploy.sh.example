@@ -1,0 +1,5 @@
+#!/bin/sh
+yarn build
+rsync -azP --delete --exclude=/assets ./dist/* USER@HOST:/var/www/SITE/public_html/
+
+
