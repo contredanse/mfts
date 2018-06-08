@@ -62,6 +62,13 @@ module.exports = {
                 },
             },
             {
+                test: /\.(mp3)$/,
+                loader: 'file-loader',
+                options: {
+                    name: 'assets/audios/[name].[ext]',
+                },
+            },
+            {
                 test: /\.(jpe?g|png|gif|svg)$/i,
                 use: [
                     {
