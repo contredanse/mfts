@@ -24,6 +24,7 @@ module.exports = {
              * i.e:
              *   'react-router': path.resolve(__dirname, 'node_modules/react-router'),
              */
+            classnames: path.resolve(__dirname, 'node_modules/classnames'), // enabled: material-ui and local differs
         },
     },
     module: {

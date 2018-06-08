@@ -214,9 +214,12 @@ module.exports = merge(common, {
         new DuplicatePackageCheckerPlugin({
             verbose: true,
             emitError: true,
+            // Warn also if major versions differ (default: true)
+            strict: true,
             exclude(instance) {
                 // @material-ui/core and history
-                // use different major versions
+                // use different major versions for 'warning' package
+                // That can be ignored.
                 return instance.name === 'warning';
             },
         }),
