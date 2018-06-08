@@ -1,7 +1,5 @@
 import * as React from 'react';
 import './page.scss';
-// import temporary hack for responsive videos
-import '@src/shared/player/styles/player.scss';
 
 import PageEntity from '@src/models/entity/page-entity';
 
@@ -116,7 +114,43 @@ export default class Page extends React.Component<PageProps, PageState> {
                         </div>
                     ) : (
                         <div className="page-single-video-layout">
+                            <div className="autoscale-video-container">
+                                {/*
+                                <div className="autoscale-video-wrapper autoscale-video-content">
+                                    <video src={page.getFirstVideo()!.getSources()[0].getSource()}
+                                           controls />
+                                </div>
+                                */}
+                                <PageVideoPlayer
+                                    className="autoscale-video-wrapper autoscale-video-content"
+                                    crossOrigin={'anonymous'}
+                                    style={{}}
+                                    ref={this.playerRef}
+                                    video={page.getFirstVideo()!}
+                                    playing={this.state.playbackState.isPlaying}
+                                    onPlay={() => {
+                                        this.updatePlaybackState({
+                                            isPlaying: true,
+                                        });
+                                    }}
+                                    onPause={() => {
+                                        this.updatePlaybackState({
+                                            isPlaying: false,
+                                        });
+                                    }}
+                                    onDuration={(duration: number) => {
+                                        this.updatePlaybackState({
+                                            duration: duration,
+                                        });
+                                    }}
+                                    width="100%"
+                                    height="100%"
+                                />
+                            </div>
+
+                            {/*
                             <PageVideoPlayer
+                                className="autoscale-video-wrapper autoscale-video-content"
                                 ref={this.playerRef}
                                 video={page.getFirstVideo()!}
                                 playing={this.state.playbackState.isPlaying}
@@ -135,9 +169,10 @@ export default class Page extends React.Component<PageProps, PageState> {
                                         duration: duration,
                                     });
                                 }}
-                                width="100%"
-                                height="100%"
+                                width="auto"
+                                height="auto"
                             />
+                            */}
                         </div>
                     )}
                 </div>

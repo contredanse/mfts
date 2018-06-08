@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import ReactPlayer, {
     Config as ReactPlayerConfig,
     FileConfig as ReactPlayerFileConfig,
@@ -47,6 +47,7 @@ export default class PageVideoPlayer extends React.Component<PageVideoPlayerProp
             style=
         }
         */
+
         return (
             <ReactPlayer
                 ref={this.playerRef}

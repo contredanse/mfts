@@ -14,26 +14,28 @@
         margin: 0;
 
         // Range Handle
-        &::-webkit-slider-thumb {
-            appearance: none;
-            width: $control-progressbar-handle-size;
-            height: $control-progressbar-handle-size;
-            border-radius: 50%;
-            background: $control-progressbar-handle-color;
-            cursor: pointer;
-            transition: background 0.15s ease-in-out;
 
-            &:hover {
-                background: $control-progressbar-handle-color-hover;
-            }
-        }
+        // Track in webkit is not necessary here
+        /*
+        &::-webkit-slider-runnable-track {
+            -webkit-appearance: none;
+            width: 100%;
+            height: $control-progressbar-track-height;
+            border-radius: 5px;
+            background: $control-progressbar-track-color;
+            outline: none;
+            padding: 0;
+            margin: 0;
+        }*/
 
-        &:active::-webkit-slider-thumb {
-            background: $control-progressbar-handle-color-hover;
+        // MS
+
+        &::-ms-track {
+            background: $control-progressbar-track-color;
+            border: 0;
         }
 
         // Firefox
-
         &::-moz-range-track {
             background: $control-progressbar-track-color;
             border: 0;
@@ -44,6 +46,19 @@
         }
         &::-moz-focus-outer {
             border: 0;
+        }
+
+        &::-ms-thumb {
+            width: $control-progressbar-handle-size;
+            height: $control-progressbar-handle-size;
+            border: 0;
+            border-radius: 50%;
+            background: $control-progressbar-handle-color;
+            cursor: pointer;
+            transition: background 0.15s ease-in-out;
+            &:hover {
+                background: $control-progressbar-handle-color-hover;
+            }
         }
 
         &::-moz-range-thumb {
@@ -60,6 +75,24 @@
         }
 
         &:active::-moz-range-thumb {
+            background: $control-progressbar-handle-color-hover;
+        }
+
+        &::-webkit-slider-thumb {
+            appearance: none;
+            width: $control-progressbar-handle-size;
+            height: $control-progressbar-handle-size;
+            border-radius: 50%;
+            background: $control-progressbar-handle-color;
+            cursor: pointer;
+            transition: background 0.15s ease-in-out;
+
+            &:hover {
+                background: $control-progressbar-handle-color-hover;
+            }
+        }
+
+        &:active::-webkit-slider-thumb {
             background: $control-progressbar-handle-color-hover;
         }
 

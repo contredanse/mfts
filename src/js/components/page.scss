@@ -1,5 +1,8 @@
 @import '../../styles/_variables.scss';
 
+$footer-section-height: 20px;
+$header-section-height: 60px;
+
 .page-wrapper {
     background-color: black;
     color: white;
@@ -13,24 +16,19 @@
 }
 
 .page-container {
-    display: grid;
+    display: flex;
+    flex: auto;
+    flex-direction: column;
     height: 100%;
-    width: 100%;
-    grid-gap: 5px;
-
-    grid-template-areas:
-        'header'
-        'content'
-        'footer';
-    grid-template-rows: 7% 1fr 10%;
 
     .page-header {
-        grid-area: header;
-        color: white;
+        padding: 0.75em;
+        height: $footer-section-height;
     }
+
     .page-content {
+        flex: auto;
         text-align: center;
-        grid-area: content;
         display: flex;
         //align-items: center;
         justify-content: center;
@@ -85,81 +83,48 @@
         }
 
         .page-single-video-layout {
-            flex: 1;
-            display: flex;
-            height: 100%;
+            flex: auto;
+            padding: 0.75em;
 
-            div {
-                border: 2px solid green;
-                video {
-                    object-fit: initial;
-                    max-height: 100%;
-                    height: 100%;
+            // Till object-fit: contains works on all browsers...
+            // we use this flex trick to make the video layout
+
+            .autoscale-video-container {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+
+                .autoscale-video-wrapper {
                     width: 100%;
-                    &::cue {
-                        font-family: $primary-font;
-                        font-size: 1.5em;
-                        color: yellow;
+                    flex-basis: 100%; // vertial space used: 100%
+                }
+
+                .autoscale-video-content {
+                    //background-color: #ccffcc;
+                    position: relative;
+                    video {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                        &::cue {
+                            //font-family: $primary-font;
+                            font: italic small-caps bold 16px/2 cursive;
+                            font-size: 1em;
+                            background: rgba(100, 100, 100, 0.1);
+                            //opacity: 0.1;
+                            line-height: 20%;
+                            color: yellow;
+                        }
                     }
                 }
             }
         }
     }
     .page-footer {
-        grid-area: footer;
-    }
-}
-
-.videocomp-container {
-    //border: 1px solid pink;
-    position: relative;
-    video {
-        object-fit: contain;
-
-        max-width: 100%;
-        max-height: 100%;
-        /*
-        width: auto;
-        height: auto;
-
-        //width: 100%;
         //height: auto;
-        //max-height: 100%;
-        top: 50%;
-        left: 50%;
-        height: auto;
-        */
-        /*
-
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translateX(-50%) translateY(-50%);
-        min-width: 100%;
-        min-height: 100%;
-        width: auto;
-        height: auto;
-        z-index: -1000;
-        overflow: hidden;
-*/
-    }
-
-    .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 1;
-        text-align: left;
-        font-size: 0.7em;
-        margin-top: -15px;
-        //border: 1px solid rgba(255,255,255, 0.6);
-        //border-radius: 5px;
-
-        div {
-            position: relative;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
+        //grid-area: footer;
+        padding: 0.75em;
     }
 }
