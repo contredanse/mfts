@@ -4,7 +4,7 @@ import dataPages from '@data/json/data-pages.json';
 import AppConfig from '@src/core/app-config';
 
 // without ending slash !
-const mediaAssetsServerBaseUrl = 'https://soluble.io/mfts/assets';
+const mediaAssetsServerBaseUrl = 'https://paxton.soluble.io/assets';
 
 export const appConfig = new AppConfig({
     assetsLocatorProps: {
