@@ -100,7 +100,7 @@
         "nodemon": "^1.17.5",
         "optimize-css-assets-webpack-plugin": "^4.0.2",
         "postcss-loader": "^2.1.5",
-        "prettier": "^1.13.4",
+        "prettier": "^1.13.5",
         "prop-types": "^15.6.1",
         "react-hot-loader": "^4.3.0",
         "react-mock-router": "^1.0.15",
