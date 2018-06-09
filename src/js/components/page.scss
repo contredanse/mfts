@@ -73,11 +73,6 @@ $header-section-height: 60px;
                     max-height: 100%;
                     height: 100%;
                     width: 100%;
-                    &::cue {
-                        font-family: $primary-font;
-                        font-size: 1.5em;
-                        color: yellow;
-                    }
                 }
             }
         }
@@ -108,15 +103,6 @@ $header-section-height: 60px;
                         top: 0;
                         width: 100%;
                         height: 100%;
-                        &::cue {
-                            //font-family: $primary-font;
-                            font: italic small-caps bold 16px/2 cursive;
-                            //font-size: 1em;
-                            background: rgba(100, 100, 100, 0.1);
-                            //opacity: 0.1;
-                            line-height: 20%;
-                            color: yellow;
-                        }
                     }
                 }
             }
@@ -127,4 +113,47 @@ $header-section-height: 60px;
         //grid-area: footer;
         padding: 0.75em;
     }
+}
+
+/**
+ * WIP for cross-browser subtitles
+ */
+
+$track-font: 22px sans-serif;
+
+video::-webkit-media-text-track-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 5px;
+    text-align: center;
+    color: rgba(255, 255, 255, 1);
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0;
+    text-decoration: none;
+    pointer-events: none;
+    -webkit-user-select: none;
+    word-break: break-word;
+    //flex: 1 1;
+    -webkit-flex: 1 1;
+    -webkit-line-box-contain: block inline-box replaced;
+}
+
+video::cue {
+    background-color: rgba(0, 0, 0, 0.8);
+    font: $track-font;
+}
+
+video::-webkit-media-text-track-display {
+    position: absolute;
+    overflow: hidden;
+    white-space: pre-wrap;
+    -webkit-box-sizing: border-box;
+    font: $track-font;
+}
+
+video::cue(:future) {
+    color: gray;
 }
