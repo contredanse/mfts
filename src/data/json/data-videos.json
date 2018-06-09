@@ -144,7 +144,7 @@
         ],
         "covers": ["breathing_en.jpg"],
         "meta": {
-            "duration": 980.76,
+            "duration": 971.28,
             "width": 720,
             "height": 576
         }
@@ -164,7 +164,7 @@
         ],
         "covers": ["breathing_fr.jpg"],
         "meta": {
-            "duration": 980.76,
+            "duration": 971.28,
             "width": 720,
             "height": 576
         }
@@ -184,10 +184,9 @@
         ],
         "covers": ["smalldance_full.jpg"],
         "meta": {
-            "duration": 609.32,
+            "duration": 609.36,
             "width": 720,
-            "height": 576,
-            "no_audio": true
+            "height": 576
         }
     },
     {
@@ -235,7 +234,7 @@
         ],
         "covers": ["pointing_scapula.jpg"],
         "meta": {
-            "duration": 77.441,
+            "duration": 74.88,
             "width": 720,
             "height": 576
         },
@@ -355,7 +354,7 @@
         ],
         "covers": ["birdswalk.jpg"],
         "meta": {
-            "duration": 520.159999,
+            "duration": 520.16,
             "width": 720,
             "height": 576
         },
@@ -385,8 +384,8 @@
         ],
         "covers": ["slowwalk.jpg"],
         "meta": {
-            "duration": 0,
-            "width": 1008,
+            "duration": 12.04,
+            "width": 1000,
             "height": 576,
             "no_audio": true
         }
@@ -536,7 +535,7 @@
         ],
         "covers": ["goldberg.jpg"],
         "meta": {
-            "duration": 303.503,
+            "duration": 303.503504,
             "width": 720,
             "height": 480
         }
@@ -586,7 +585,7 @@
         ],
         "covers": ["english.jpg"],
         "meta": {
-            "duration": 441.241,
+            "duration": 441.241241,
             "width": 720,
             "height": 480
         }
@@ -667,8 +666,8 @@
         "covers": ["cbhf_fromside.jpg"],
         "meta": {
             "duration": 25.64,
-            "width": 360,
-            "height": 288
+            "width": 720,
+            "height": 576
         }
     },
     {
@@ -687,9 +686,8 @@
         "covers": ["cbhf_fromtop.jpg"],
         "meta": {
             "duration": 25.64,
-            "width": 360,
-            "height": 288,
-            "no_audio": true
+            "width": 720,
+            "height": 576
         }
     },
     {
@@ -708,8 +706,8 @@
         "covers": ["cbhf_fromhead.jpg"],
         "meta": {
             "duration": 25.64,
-            "width": 360,
-            "height": 288
+            "width": 720,
+            "height": 576
         }
     },
     {
@@ -728,9 +726,8 @@
         "covers": ["cbc_fromhead.jpg"],
         "meta": {
             "duration": 31.56,
-            "width": 480,
-            "height": 384,
-            "no_audio": true
+            "width": 720,
+            "height": 576
         }
     },
     {
@@ -749,9 +746,8 @@
         "covers": ["cbc_fromtop.jpg"],
         "meta": {
             "duration": 31.56,
-            "width": 480,
-            "height": 384,
-            "no_audio": true
+            "width": 720,
+            "height": 576
         }
     },
     {
@@ -770,8 +766,8 @@
         "covers": ["chu_fromfeet.jpg"],
         "meta": {
             "duration": 10.24,
-            "width": 540,
-            "height": 432
+            "width": 720,
+            "height": 576
         }
     },
     {
@@ -790,8 +786,8 @@
         "covers": ["chu_fromside.jpg"],
         "meta": {
             "duration": 10.24,
-            "width": 540,
-            "height": 432
+            "width": 720,
+            "height": 576
         }
     },
     {
@@ -809,10 +805,9 @@
         ],
         "covers": ["cbfhu.jpg"],
         "meta": {
-            "duration": 0,
+            "duration": 68.12,
             "width": 720,
-            "height": 576,
-            "no_audio": true
+            "height": 576
         }
     },
     {
@@ -850,10 +845,9 @@
         ],
         "covers": ["c_comparing.jpg"],
         "meta": {
-            "duration": 0,
+            "duration": 13.84,
             "width": 720,
-            "height": 576,
-            "no_audio": true
+            "height": 576
         }
     },
     {
@@ -871,9 +865,10 @@
         ],
         "covers": ["sbf_fromfeet.jpg"],
         "meta": {
-            "duration": 5,
-            "width": 360,
-            "height": 288
+            "duration": 20,
+            "width": 720,
+            "height": 576,
+            "no_audio": true
         }
     },
     {
@@ -892,8 +887,8 @@
         "covers": ["sbf_side.jpg"],
         "meta": {
             "duration": 5,
-            "width": 360,
-            "height": 288
+            "width": 720,
+            "height": 576
         }
     },
     {
@@ -912,8 +907,8 @@
         "covers": ["sbf_fromhead.jpg"],
         "meta": {
             "duration": 5,
-            "width": 360,
-            "height": 288
+            "width": 720,
+            "height": 576
         }
     },
     {
@@ -932,8 +927,8 @@
         "covers": ["sbh_fromhead.jpg"],
         "meta": {
             "duration": 8.8,
-            "width": 540,
-            "height": 432
+            "width": 720,
+            "height": 576
         }
     },
     {
@@ -952,8 +947,8 @@
         "covers": ["sbh_side.jpg"],
         "meta": {
             "duration": 8.8,
-            "width": 540,
-            "height": 432
+            "width": 720,
+            "height": 576
         }
     },
     {
@@ -991,10 +986,9 @@
         ],
         "covers": ["h_comparing.jpg"],
         "meta": {
-            "duration": 0,
+            "duration": 7.84,
             "width": 720,
-            "height": 576,
-            "no_audio": true
+            "height": 576
         }
     },
     {
@@ -1012,7 +1006,7 @@
         ],
         "covers": ["puzzle1.jpg"],
         "meta": {
-            "duration": 0,
+            "duration": 10.8,
             "width": 720,
             "height": 576
         }
@@ -1032,7 +1026,7 @@
         ],
         "covers": ["puzzle2.jpg"],
         "meta": {
-            "duration": 0,
+            "duration": 15.04,
             "width": 720,
             "height": 576
         }
@@ -1052,7 +1046,7 @@
         ],
         "covers": ["puzzle3.jpg"],
         "meta": {
-            "duration": 0,
+            "duration": 19.52,
             "width": 720,
             "height": 576
         }
@@ -1072,7 +1066,7 @@
         ],
         "covers": ["puzzle4.jpg"],
         "meta": {
-            "duration": 0,
+            "duration": 11.28,
             "width": 720,
             "height": 576
         }
@@ -1093,9 +1087,8 @@
         "covers": ["frontal_head_top.jpg"],
         "meta": {
             "duration": 71.12,
-            "width": 360,
-            "height": 288,
-            "no_audio": true
+            "width": 720,
+            "height": 576
         }
     },
     {
@@ -1114,8 +1107,8 @@
         "covers": ["frontal_head_side.jpg"],
         "meta": {
             "duration": 80.04,
-            "width": 360,
-            "height": 288,
+            "width": 720,
+            "height": 576,
             "no_audio": true
         }
     },
@@ -1135,8 +1128,8 @@
         "covers": ["frontal_head_bottom.jpg"],
         "meta": {
             "duration": 23.64,
-            "width": 360,
-            "height": 288,
+            "width": 720,
+            "height": 576,
             "no_audio": true
         }
     },
@@ -1156,8 +1149,8 @@
         "covers": ["frontal_pelvis_top.jpg"],
         "meta": {
             "duration": 43.4,
-            "width": 360,
-            "height": 288,
+            "width": 720,
+            "height": 576,
             "no_audio": true
         }
     },
@@ -1177,8 +1170,8 @@
         "covers": ["frontal_pelvis_side.jpg"],
         "meta": {
             "duration": 48.88,
-            "width": 360,
-            "height": 288,
+            "width": 720,
+            "height": 576,
             "no_audio": true
         }
     },
@@ -1198,8 +1191,8 @@
         "covers": ["frontal_pelvis_bottom.jpg"],
         "meta": {
             "duration": 41.68,
-            "width": 360,
-            "height": 288,
+            "width": 720,
+            "height": 576,
             "no_audio": true
         }
     },
@@ -1219,8 +1212,8 @@
         "covers": ["lateral_head_front.jpg"],
         "meta": {
             "duration": 51.04,
-            "width": 480,
-            "height": 384,
+            "width": 720,
+            "height": 576,
             "no_audio": true
         }
     },
@@ -1240,8 +1233,8 @@
         "covers": ["lateral_head_top.jpg"],
         "meta": {
             "duration": 30.4,
-            "width": 480,
-            "height": 384,
+            "width": 720,
+            "height": 576,
             "no_audio": true
         }
     },
@@ -1261,8 +1254,8 @@
         "covers": ["lateral_pelvis_top.jpg"],
         "meta": {
             "duration": 25.68,
-            "width": 480,
-            "height": 384,
+            "width": 720,
+            "height": 576,
             "no_audio": true
         }
     },
@@ -1282,8 +1275,8 @@
         "covers": ["lateral_pelvis_front.jpg"],
         "meta": {
             "duration": 45.24,
-            "width": 480,
-            "height": 384,
+            "width": 720,
+            "height": 576,
             "no_audio": true
         }
     },
@@ -1353,8 +1346,8 @@
         "covers": ["aikido_3D_side.jpg"],
         "meta": {
             "duration": 19.12,
-            "width": 360,
-            "height": 288
+            "width": 720,
+            "height": 576
         }
     },
     {
@@ -1373,8 +1366,8 @@
         "covers": ["aikido_3D_top.jpg"],
         "meta": {
             "duration": 19.12,
-            "width": 360,
-            "height": 288
+            "width": 720,
+            "height": 576
         }
     },
     {
@@ -1393,8 +1386,8 @@
         "covers": ["aikido_3D_front.jpg"],
         "meta": {
             "duration": 19.12,
-            "width": 360,
-            "height": 288
+            "width": 720,
+            "height": 576
         }
     },
     {
@@ -1684,8 +1677,7 @@
         "meta": {
             "duration": 46.16,
             "width": 720,
-            "height": 576,
-            "no_audio": true
+            "height": 576
         }
     },
     {
@@ -2099,8 +2091,7 @@
         "meta": {
             "duration": 119.8,
             "width": 720,
-            "height": 576,
-            "no_audio": true
+            "height": 576
         }
     },
     {
@@ -2118,7 +2109,7 @@
         ],
         "covers": ["dance_culture.jpg"],
         "meta": {
-            "duration": 260.48,
+            "duration": 260.52,
             "width": 720,
             "height": 576
         },
@@ -2148,30 +2139,29 @@
         ],
         "covers": ["cultivating2.jpg"],
         "meta": {
-            "duration": 462.6,
-            "width": 400,
-            "height": 320
+            "duration": 448.56,
+            "width": 720,
+            "height": 576
         }
     },
     {
-        "video_id": "cbfh_side",
+        "video_id": "cbhf_fromside",
         "sources": [
             {
-                "src": "cbfh_side.webm",
+                "src": "cbhf_fromside.webm",
                 "priority": 10,
                 "codecs": "vp9"
             },
             {
-                "src": "cbfh_side.mp4",
+                "src": "cbhf_fromside.mp4",
                 "priority": 20
             }
         ],
-        "covers": ["cbfh_side.jpg"],
+        "covers": ["cbhf_fromside.jpg"],
         "meta": {
-            "duration": 0,
+            "duration": 25.64,
             "width": 720,
-            "height": 576,
-            "no_audio": true
+            "height": 576
         }
     },
     {
@@ -2189,52 +2179,50 @@
         ],
         "covers": ["cbfh_top.jpg"],
         "meta": {
-            "duration": 0,
+            "duration": 25.64,
             "width": 720,
             "height": 576,
             "no_audio": true
         }
     },
     {
-        "video_id": "cbfh_front",
+        "video_id": "cbhf_fromhead",
         "sources": [
             {
-                "src": "cbfh_front.webm",
+                "src": "cbhf_fromhead.webm",
                 "priority": 10,
                 "codecs": "vp9"
             },
             {
-                "src": "cbfh_front.mp4",
+                "src": "cbhf_fromhead.mp4",
                 "priority": 20
             }
         ],
-        "covers": ["cbfh_front.jpg"],
+        "covers": ["cbhf_fromhead.jpg"],
         "meta": {
-            "duration": 0,
+            "duration": 25.64,
             "width": 720,
-            "height": 576,
-            "no_audio": true
+            "height": 576
         }
     },
     {
-        "video_id": "cbc_front",
+        "video_id": "cbc_fromhead",
         "sources": [
             {
-                "src": "cbc_front.webm",
+                "src": "cbc_fromhead.webm",
                 "priority": 10,
                 "codecs": "vp9"
             },
             {
-                "src": "cbc_front.mp4",
+                "src": "cbc_fromhead.mp4",
                 "priority": 20
             }
         ],
-        "covers": ["cbc_front.jpg"],
+        "covers": ["cbc_fromhead.jpg"],
         "meta": {
-            "duration": 0,
+            "duration": 31.56,
             "width": 720,
-            "height": 576,
-            "no_audio": true
+            "height": 576
         }
     },
     {
@@ -2252,31 +2240,30 @@
         ],
         "covers": ["cbc_top.jpg"],
         "meta": {
-            "duration": 0,
+            "duration": 31.56,
             "width": 720,
             "height": 576,
             "no_audio": true
         }
     },
     {
-        "video_id": "cbhu_front",
+        "video_id": "chu_fromfeet",
         "sources": [
             {
-                "src": "cbhu_front.webm",
+                "src": "chu_fromfeet.webm",
                 "priority": 10,
                 "codecs": "vp9"
             },
             {
-                "src": "cbhu_front.mp4",
+                "src": "chu_fromfeet.mp4",
                 "priority": 20
             }
         ],
-        "covers": ["cbhu_front.jpg"],
+        "covers": ["chu_fromfeet.jpg"],
         "meta": {
-            "duration": 0,
+            "duration": 10.24,
             "width": 720,
-            "height": 576,
-            "no_audio": true
+            "height": 576
         }
     },
     {
@@ -2294,31 +2281,30 @@
         ],
         "covers": ["cbhu_side.jpg"],
         "meta": {
-            "duration": 0,
+            "duration": 20.48,
             "width": 720,
             "height": 576,
             "no_audio": true
         }
     },
     {
-        "video_id": "sbf_fromfeet",
+        "video_id": "sbf_feet",
         "sources": [
             {
-                "src": "sbf_fromfeet.webm",
+                "src": "sbf_feet.webm",
                 "priority": 10,
                 "codecs": "vp9"
             },
             {
-                "src": "sbf_fromfeet.mp4",
+                "src": "sbf_feet.mp4",
                 "priority": 20
             }
         ],
-        "covers": ["sbf_fromfeet.jpg"],
+        "covers": ["sbf_feet.jpg"],
         "meta": {
-            "duration": 0,
+            "duration": 5,
             "width": 720,
-            "height": 576,
-            "no_audio": true
+            "height": 576
         }
     },
     {
@@ -2336,7 +2322,7 @@
         ],
         "covers": ["sbf_fromside.jpg"],
         "meta": {
-            "duration": 0,
+            "duration": 20,
             "width": 720,
             "height": 576,
             "no_audio": true
@@ -2357,28 +2343,27 @@
         ],
         "covers": ["sbf_fromhead.jpg"],
         "meta": {
-            "duration": 0,
+            "duration": 5,
             "width": 720,
-            "height": 576,
-            "no_audio": true
+            "height": 576
         }
     },
     {
-        "video_id": "sbh_fromhead",
+        "video_id": "sbh_head",
         "sources": [
             {
-                "src": "sbh_fromhead.webm",
+                "src": "sbh_head.webm",
                 "priority": 10,
                 "codecs": "vp9"
             },
             {
-                "src": "sbh_fromhead.mp4",
+                "src": "sbh_head.mp4",
                 "priority": 20
             }
         ],
-        "covers": ["sbh_fromhead.jpg"],
+        "covers": ["sbh_head.jpg"],
         "meta": {
-            "duration": 0,
+            "duration": 35.2,
             "width": 720,
             "height": 576,
             "no_audio": true
@@ -2399,7 +2384,7 @@
         ],
         "covers": ["sbh_fromside.jpg"],
         "meta": {
-            "duration": 0,
+            "duration": 35.16,
             "width": 720,
             "height": 576,
             "no_audio": true
@@ -2420,10 +2405,9 @@
         ],
         "covers": ["frontal_head_top.jpg"],
         "meta": {
-            "duration": 0,
+            "duration": 71.12,
             "width": 720,
-            "height": 576,
-            "no_audio": true
+            "height": 576
         }
     },
     {
@@ -2441,7 +2425,7 @@
         ],
         "covers": ["frontal_head_side.jpg"],
         "meta": {
-            "duration": 0,
+            "duration": 80.04,
             "width": 720,
             "height": 576,
             "no_audio": true
@@ -2462,7 +2446,7 @@
         ],
         "covers": ["frontal_head_bottom.jpg"],
         "meta": {
-            "duration": 0,
+            "duration": 23.64,
             "width": 720,
             "height": 576,
             "no_audio": true
@@ -2483,7 +2467,7 @@
         ],
         "covers": ["frontal_pelvis_top.jpg"],
         "meta": {
-            "duration": 0,
+            "duration": 43.4,
             "width": 720,
             "height": 576,
             "no_audio": true
@@ -2504,7 +2488,7 @@
         ],
         "covers": ["frontal_pelvis_side.jpg"],
         "meta": {
-            "duration": 0,
+            "duration": 48.88,
             "width": 720,
             "height": 576,
             "no_audio": true
@@ -2525,7 +2509,7 @@
         ],
         "covers": ["frontal_pelvis_bottom.jpg"],
         "meta": {
-            "duration": 0,
+            "duration": 41.68,
             "width": 720,
             "height": 576,
             "no_audio": true
@@ -2546,7 +2530,7 @@
         ],
         "covers": ["lateral_head_front.jpg"],
         "meta": {
-            "duration": 0,
+            "duration": 51.04,
             "width": 720,
             "height": 576,
             "no_audio": true
@@ -2567,7 +2551,7 @@
         ],
         "covers": ["lateral_head_top.jpg"],
         "meta": {
-            "duration": 0,
+            "duration": 30.4,
             "width": 720,
             "height": 576,
             "no_audio": true
@@ -2588,7 +2572,7 @@
         ],
         "covers": ["lateral_pelvis_top.jpg"],
         "meta": {
-            "duration": 0,
+            "duration": 25.68,
             "width": 720,
             "height": 576,
             "no_audio": true
@@ -2609,7 +2593,7 @@
         ],
         "covers": ["lateral_pelvis_front.jpg"],
         "meta": {
-            "duration": 0,
+            "duration": 45.24,
             "width": 720,
             "height": 576,
             "no_audio": true
@@ -2630,7 +2614,7 @@
         ],
         "covers": ["aikido_side.jpg"],
         "meta": {
-            "duration": 0,
+            "duration": 5.28,
             "width": 720,
             "height": 576
         }
@@ -2650,7 +2634,7 @@
         ],
         "covers": ["aikido_top.jpg"],
         "meta": {
-            "duration": 0,
+            "duration": 9.56,
             "width": 720,
             "height": 576
         }
@@ -2670,7 +2654,7 @@
         ],
         "covers": ["aikido_front.jpg"],
         "meta": {
-            "duration": 0,
+            "duration": 5.32,
             "width": 720,
             "height": 576
         }

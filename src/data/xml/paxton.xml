@@ -167,8 +167,8 @@
                                    loop="true">
                                 <page title_fr="-- initié par le les mains et les pieds - détail - depuis le côté"
                                       title_en="-- led by feet and hands - detail from side">
-                                    <media tope="swfvideo" source_fr="swfvideo/cbfh_side.swf"
-                                           source_en="swfvideo/cbfh_side.swf"/>
+                                    <media tope="swfvideo" source_fr="swfvideo/cbhf_fromside.swf"
+                                           source_en="swfvideo/cbhf_fromside.swf"/>
                                 </page>
                             </media>
                             <media tope="video" source_fr="flv/cbhf_fromtop.flv" source_en="flv/cbhf_fromtop.flv"
@@ -183,8 +183,8 @@
                                    loop="true">
                                 <page title_fr="-- initié par le les mains et les pieds - détail - depuis la tête"
                                       title_en="-- led by feet and hands - detail from head">
-                                    <media tope="swfvideo" source_fr="swfvideo/cbfh_front.swf"
-                                           source_en="swfvideo/cbfh_front.swf"/>
+                                    <media tope="swfvideo" source_fr="swfvideo/cbhf_fromhead.swf"
+                                           source_en="swfvideo/cbhf_fromhead.swf"/>
                                 </page>
                             </media>
                             <media tope="audio" source_fr="mp3/comments_crescent.mp3"
@@ -197,8 +197,8 @@
                                    loop="true">
                                 <page title_fr="-- initié par le centre - détail - depuis la tête"
                                       title_en="-- led by center - detail from head">
-                                    <media tope="swfvideo" source_fr="swfvideo/cbc_front.swf"
-                                           source_en="swfvideo/cbc_front.swf"/>
+                                    <media tope="swfvideo" source_fr="swfvideo/cbc_fromhead.swf"
+                                           source_en="swfvideo/cbc_fromhead.swf"/>
                                 </page>
                             </media>
                             <media tope="video" source_fr="flv/cbc_fromtop.flv" source_en="flv/cbc_fromtop.flv"
@@ -215,8 +215,8 @@
                                    loop="true">
                                 <page title_fr="-- la tête haute - détail - depuis les pieds"
                                       title_en="-- head up - detail from feet">
-                                    <media tope="swfvideo" source_fr="swfvideo/cbhu_front.swf"
-                                           source_en="swfvideo/cbhu_front.swf"/>
+                                    <media tope="swfvideo" source_fr="swfvideo/chu_fromfeet.swf"
+                                           source_en="swfvideo/chu_fromfeet.swf"/>
                                 </page>
                             </media>
                             <media tope="video" source_fr="flv/chu_fromside.flv" source_en="flv/chu_fromside.flv"
@@ -247,8 +247,8 @@
                                    loop="true">
                                 <page title_fr="-- initié par les pieds - détail - depuis les pieds"
                                       title_en="-- led by feet - detail from feet">
-                                    <media tope="swfvideo" source_fr="swfvideo/sbf_fromfeet.swf"
-                                           source_en="swfvideo/sbf_fromfeet.swf"/>
+                                    <media tope="swfvideo" source_fr="swfvideo/sbf_feet.swf"
+                                           source_en="swfvideo/sbf_feet.swf"/>
                                 </page>
                             </media>
                             <media tope="video" source_fr="flv/sbf_side.flv" source_en="flv/sbf_side.flv" loop="true">
@@ -274,8 +274,8 @@
                                    loop="true">
                                 <page title_fr="-- initié par les mains - détail - depuis la tête"
                                       title_en="-- led by hands - detail from head">
-                                    <media tope="swfvideo" source_fr="swfvideo/sbh_fromhead.swf"
-                                           source_en="swfvideo/sbh_fromhead.swf"/>
+                                    <media tope="swfvideo" source_fr="swfvideo/sbh_head.swf"
+                                           source_en="swfvideo/sbh_head.swf"/>
                                 </page>
                             </media>
                             <media tope="video" source_fr="flv/sbh_side.flv" source_en="flv/sbh_side.flv" loop="true">
