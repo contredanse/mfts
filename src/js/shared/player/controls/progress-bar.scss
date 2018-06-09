@@ -80,6 +80,7 @@
 
         &::-webkit-slider-thumb {
             appearance: none;
+            -webkit-appearance: none;
             width: $control-progressbar-handle-size;
             height: $control-progressbar-handle-size;
             border-radius: 50%;
