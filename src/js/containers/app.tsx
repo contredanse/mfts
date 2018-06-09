@@ -48,11 +48,12 @@ class App extends React.Component<AppProps, {}> {
                                 exact={true}
                                 path="/:lang(fr|en)?/intro"
                                 render={(props: RouteComponentProps<any>) => {
-                                    const { lang: routeLang } = props.match.params;
+                                    const { lang: routerLang } = props.match.params;
+                                    console.log('routerLang', routerLang);
                                     return (
                                         <PageContainer
                                             pageId="forms.introduction"
-                                            lang={routeLang || lang}
+                                            lang={routerLang || lang}
                                             dataRepository={dataRepository}
                                         />
                                     );

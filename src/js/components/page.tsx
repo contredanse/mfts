@@ -89,6 +89,7 @@ export default class Page extends React.Component<PageProps, PageState> {
                                 <div className="page-audio-subs">
                                     <PageAudioPlayer
                                         ref={this.audioPlayer}
+                                        activeSubtitleLang={this.props.lang}
                                         audio={audio}
                                         playing={this.state.playbackState.isPlaying}
                                         onPlay={() => {
@@ -122,10 +123,11 @@ export default class Page extends React.Component<PageProps, PageState> {
                                 </div>
                                 */}
                                 <PageVideoPlayer
+                                    ref={this.playerRef}
                                     className="autoscale-video-wrapper autoscale-video-content"
                                     crossOrigin={'anonymous'}
+                                    activeSubtitleLang={this.props.lang}
                                     style={{}}
-                                    ref={this.playerRef}
                                     video={page.getFirstVideo()!}
                                     playing={this.state.playbackState.isPlaying}
                                     onPlay={() => {
