@@ -41,40 +41,81 @@ server {
     gzip_vary on;
 
     location / {
-	try_files $uri /index.html;	
-	    add_header 'Cache-Control' 'no-store, no-cache, must-revalidate, proxy-r
-evalidate, max-age=0';
-        expires off;
-	    proxy_no_cache 1;
+        try_files $uri /index.html;		
+        add_header 'Access-Control-Allow-Origin' '*';
+        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
+        add_header 'Access-Control-Allow-Headers' 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range';
+        add_header 'Access-Control-Expose-Headers' 'Content-Length,Content-Range';    
     }
-    
     
     location = /index.html {
-    	internal;	
-	    add_header 'Cache-Control' 'no-store, no-cache, must-revalidate, proxy-r
-evalidate, max-age=0';
+        internal;	
+    	add_header 'Cache-Control' 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
         expires off;
-	    proxy_no_cache 1;
+    	proxy_no_cache 1;
+        proxy_cache_bypass $http_pragma;
+        proxy_cache_revalidate on;    
     }
 
+    # Do not cache service-worker.js, required for offline-first updates.
     location ~* (service-worker\.js)$ {
-	    add_header 'Cache-Control' 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
-        expires off;
-	    proxy_no_cache 1;
+      add_header 'Cache-Control' 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
+      proxy_no_cache 1; 
+      proxy_cache_bypass $http_pragma;
+      proxy_cache_revalidate on;
+      expires off;
+      access_log off;
+    }
+    
+    # Assets will contain videos, thumbnails, subs,...
+    
+    location ~* ^/assets/.+\.(jpg|mp4|webm|png|mp3|svg|woff2|woff|webp)$ {
+        add_header Cache-Control public;
+        expires 15d;
     }
 
-    location ~* ^/static/.+\.(woff|woff2|png|jpg|svg)$ {
-	    etag off;
-	    add_header Cache-Control public;
-	    expires 365d;
+    location ~* ^/assets/.+\.(vtt|srt)$ {
+        add_header Cache-Control public;
+        expires 1h;
     }
 
+    # Static resources are bundled with webpack
+    # and should be hashed (for js/css at least)
+        
     location ~* ^/static/.+\.(js|css)$ {
-	    etag off;
-	    gzip_static on;
-	    add_header Cache-Control public;
-	    expires 365d;
+        etag off;		
+        gzip_static on;
+        add_header Cache-Control public;
+        expires 365d;
     }
+    
+    location ~* ^/static/.+\.(woff|woff2|png|jpg|svg)$ {
+        add_header Cache-Control public;
+        expires 1d;
+    }
+        
+        
+    
+    ##
+    # If you want to use Node/Rails/etc. API server
+    # on the same port (443) config Nginx as a reverse proxy.
+    # For security reasons use a firewall like ufw in Ubuntu
+    # and deny port 3000/tcp.
+    ##
+    
+    # location /api/ {
+    #
+    #   proxy_pass http://localhost:3000;
+    #   proxy_http_version 1.1;
+    #   proxy_set_header X-Forwarded-Proto https;
+    #   proxy_set_header Upgrade $http_upgrade;
+    #   proxy_set_header Connection 'upgrade';
+    #   proxy_set_header Host $host;
+    #   proxy_cache_bypass $http_upgrade;
+    #
+    # }
+    
+    
 
     # deny access to .htaccess files, if Apache's document root
     # concurs with nginx's one
