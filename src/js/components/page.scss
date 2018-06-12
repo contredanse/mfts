@@ -41,7 +41,7 @@ $header-section-height: 60px;
                 'audio-subs';
             /* hack to prevent horizontal scrolling */
             max-width: 95%;
-            grid-template-rows: 1fr 30%;
+            grid-template-rows: 1fr 15%;
 
             .page-video-wall {
                 grid-area: video-wall;
@@ -119,18 +119,31 @@ $header-section-height: 60px;
  * WIP for cross-browser subtitles
  */
 
-$track-font: 22px sans-serif;
+$track-font: 32px Roboto;
+//$track-font: 32px sans-serif;
+//$track-color: rgba(255, 255, 255, 1);
+//$track-color: rgba(255, 249, 61, 1);
+$track-color: yellow;
+//$track-color: rgba(255, 255, 255, 1);
+$track-background-color: rgba(0, 0, 0, 0);
+//$track-text-shadow:  -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+$track-text-shadow: 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, -1px -1px 0 #000;
+//$track-text-shadow:  none;
 
 video::-webkit-media-text-track-container {
     position: relative;
     width: 100%;
     overflow: hidden;
-    padding-bottom: 5px;
+    padding-bottom: 15px;
+    //margin-bottom: 5px;
     text-align: center;
-    color: rgba(255, 255, 255, 1);
+    color: $track-color;
     letter-spacing: normal;
     word-spacing: normal;
-    text-transform: none;
+    text-transform: unset;
+
+    text-shadow: $track-text-shadow;
+
     text-indent: 0;
     text-decoration: none;
     pointer-events: none;
@@ -141,11 +154,6 @@ video::-webkit-media-text-track-container {
     -webkit-line-box-contain: block inline-box replaced;
 }
 
-video::cue {
-    background-color: rgba(0, 0, 0, 0.8);
-    font: $track-font;
-}
-
 video::-webkit-media-text-track-display {
     position: absolute;
     overflow: hidden;
@@ -154,6 +162,14 @@ video::-webkit-media-text-track-display {
     font: $track-font;
 }
 
+video::cue {
+    background-color: $track-background-color;
+    font: $track-font;
+    color: $track-color;
+    text-shadow: $track-text-shadow;
+}
+
+/*
 video::cue(:future) {
     color: gray;
-}
+}*/
