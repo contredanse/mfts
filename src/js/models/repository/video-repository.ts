@@ -1,4 +1,4 @@
-import AppConfig, { IAppDataConfig } from '@src/core/app-config';
+import AppConfig from '@src/core/app-config';
 import { IJsonVideo } from '@data/json/data-videos';
 import VideoEntity, { VideoEntityFactory } from '@src/models/entity/video-entity';
 

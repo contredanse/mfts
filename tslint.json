@@ -77,7 +77,9 @@
         ],*/
         "triple-equals": [true, "allow-null-check"],
         "type-literal-delimiter": true,
-        "typedef": [true, "parameter", "property-declaration"],
+        "typedef": [true],
+
+        "no-inferrable-types": [true, "ignore-params"],
         "variable-name": [true, "ban-keywords", "check-format", "allow-pascal-case", "allow-leading-underscore"],
         // tslint-react
         "jsx-no-lambda": false,
