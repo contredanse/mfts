@@ -109,7 +109,7 @@ export default class MediaPlayer extends React.Component<MediaPlayerProps, Media
         if (prevState.isPlaying !== this.state.isPlaying) {
             const isPlaying = this.state.isPlaying;
             if (isPlaying) {
-                this.videoRef.current!.play();
+                this.callPlayOnVideoElement();
             } else {
                 this.videoRef.current!.pause();
             }
@@ -135,6 +135,28 @@ export default class MediaPlayer extends React.Component<MediaPlayerProps, Media
                 {this.props.children}
             </video>
         );
+    }
+
+    protected callPlayOnVideoElement() {
+        const videoEl = this.videoRef.current;
+
+        if (videoEl) {
+            const playPromise = videoEl.play();
+
+            // In browsers that don’t yet support this functionality,
+            // playPromise won’t be defined.
+            if (playPromise !== undefined) {
+                playPromise
+                    .then(() => {
+                        // Automatic playback started!
+                    })
+                    .catch(error => {
+                        // Automatic playback failed.
+                    });
+            }
+        } else {
+            // videoEl not registered
+        }
     }
 
     protected dispatchUpdateIsPlaying(isPlaying: boolean): void {

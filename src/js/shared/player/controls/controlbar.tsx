@@ -25,9 +25,8 @@ export default class Controlbar extends React.Component<MediaPlayerControlBarPro
 
     /**
      * Whether the video listeners have been registered
-     * @type {boolean}
      */
-    protected listenersRegistered: boolean = false;
+    protected listenersRegistered = false;
 
     constructor(props: MediaPlayerControlBarProps) {
         super(props);
@@ -144,8 +143,22 @@ export default class Controlbar extends React.Component<MediaPlayerControlBarPro
 
     protected play = () => {
         const { videoEl } = this.props;
+
         if (videoEl) {
-            videoEl.play();
+            const playPromise = videoEl.play();
+
+            // In browsers that don’t yet support this functionality,
+            // playPromise won’t be defined.
+            if (playPromise !== undefined) {
+                playPromise
+                    .then(() => {
+                        // Automatic playback started!
+                    })
+                    .catch(error => {
+                        // Automatic playback failed.
+                        this.logWarning(`Cannot play video, promise rejected: ${error}`);
+                    });
+            }
         } else {
             this.logWarning('Cannot play video, videoEl have not been registered');
         }
