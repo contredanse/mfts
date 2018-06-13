@@ -2,7 +2,7 @@
 import * as React from 'react';
 
 import { shallow } from 'enzyme';
-import MediaPlayer from '@src/components/player/media-player';
+import MediaPlayer from '../media-player';
 
 describe('Media player component', () => {
     it('should render with "video" tag', () => {
