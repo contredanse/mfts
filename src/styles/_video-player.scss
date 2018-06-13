@@ -13,11 +13,13 @@ $track-background-color: rgba(0, 0, 0, 0);
 $track-text-shadow: 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, -1px -1px 0 #000;
 //$track-text-shadow:  none;
 
+$track-padding-bottom: 15px;
+
 video::-webkit-media-text-track-container {
     position: relative;
     width: 100%;
     overflow: hidden;
-    padding-bottom: 15px;
+    padding-bottom: $track-padding-bottom;
     //margin-bottom: 5px;
     text-align: center;
     color: $track-color;
@@ -49,6 +51,7 @@ video::cue {
     background-color: $track-background-color;
     font: $track-font;
     color: $track-color;
+    padding-bottom: $track-padding-bottom;
     text-shadow: $track-text-shadow;
 }
 
