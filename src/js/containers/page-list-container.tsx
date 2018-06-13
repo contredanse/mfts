@@ -1,5 +1,5 @@
 import React from 'react';
-import { PageOverlay } from '@src/components/page-overlay';
+import { PageOverlay } from '@src/components/layout/page-overlay';
 import { SearchBox } from '@src/components/search-box';
 import { IJsonPage } from '@data/json/data-pages';
 import PageList from '@src/components/page-list';
@@ -46,7 +46,7 @@ class PageListContainer extends React.Component<PageListContainerProps, PageList
         /*
         this.setState((prevState): HomeContainerState => ({
             ...prevState,
-            selectedPage: page,
+            selectedPage: player,
         }));
         */
     };

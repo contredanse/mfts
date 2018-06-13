@@ -1,5 +1,5 @@
 import React from 'react';
-import PageVideoPlayer from '@src/components/page-video-player';
+import VideoPlayer from '@src/components/player/video-player';
 import VideoEntity from '@src/models/entity/video-entity';
 import PageEntity from '@src/models/entity/page-entity';
 
@@ -41,7 +41,7 @@ export default class PageVideoGroup extends React.Component<PageVideoGroupProps,
                     }
                     return (
                         <div key={videoIdx} className={className}>
-                            <PageVideoPlayer
+                            <VideoPlayer
                                 crossOrigin={'anonymous'}
                                 className="autoscale-video-wrapper autoscale-video-content"
                                 disableSubtitles={true}

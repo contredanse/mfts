@@ -3,7 +3,7 @@ import Page from '@src/components/page';
 import NotFoundContainer from '@src/containers/notfound-container';
 import { DataSupportedLangType, IDataRepository } from '@src/models/repository/data-repository';
 import PageEntity from '@src/models/entity/page-entity';
-import { PageOverlay } from '@src/components/page-overlay';
+import { PageOverlay } from '@src/components/layout/page-overlay';
 
 type PageContainerProps = {
     pageId: string;

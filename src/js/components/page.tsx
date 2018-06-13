@@ -5,8 +5,8 @@ import PageEntity from '@src/models/entity/page-entity';
 
 import Controlbar from '@src/shared/player/controls/controlbar';
 import PageVideoGroup from '@src/components/page-video-group';
-import PageAudioPlayer from '@src/components/page-audio-player';
-import PageVideoPlayer from '@src/components/page-video-player';
+import AudioPlayer from '@src/components/player/audio-player';
+import VideoPlayer from '@src/components/player/video-player';
 import { PlayerActions } from '@src/shared/player/player';
 
 export type PlaybackState = {
@@ -30,8 +30,8 @@ export type PageState = {
 
 export default class Page extends React.Component<PageProps, PageState> {
     readonly state: PageState;
-    playerRef!: React.RefObject<PageVideoPlayer>;
-    audioPlayer!: React.RefObject<PageAudioPlayer>;
+    playerRef!: React.RefObject<VideoPlayer>;
+    audioPlayer!: React.RefObject<AudioPlayer>;
 
     mediaPlayerActions!: PlayerActions;
 
@@ -54,8 +54,8 @@ export default class Page extends React.Component<PageProps, PageState> {
 
         this.initMediaPlayerActions();
 
-        this.playerRef = React.createRef<PageVideoPlayer>();
-        this.audioPlayer = React.createRef<PageAudioPlayer>();
+        this.playerRef = React.createRef<VideoPlayer>();
+        this.audioPlayer = React.createRef<AudioPlayer>();
     }
 
     render() {
@@ -87,7 +87,7 @@ export default class Page extends React.Component<PageProps, PageState> {
                             </div>
                             {audio && (
                                 <div className="page-audio-subs">
-                                    <PageAudioPlayer
+                                    <AudioPlayer
                                         ref={this.audioPlayer}
                                         activeSubtitleLang={this.props.lang}
                                         audio={audio}
@@ -118,11 +118,11 @@ export default class Page extends React.Component<PageProps, PageState> {
                             <div className="autoscale-video-container">
                                 {/*
                                 <div className="autoscale-video-wrapper autoscale-video-content">
-                                    <video src={page.getFirstVideo()!.getSources()[0].getSource()}
+                                    <video src={player.getFirstVideo()!.getSources()[0].getSource()}
                                            controls />
                                 </div>
                                 */}
-                                <PageVideoPlayer
+                                <VideoPlayer
                                     ref={this.playerRef}
                                     className="autoscale-video-wrapper autoscale-video-content"
                                     crossOrigin={'anonymous'}
@@ -154,7 +154,7 @@ export default class Page extends React.Component<PageProps, PageState> {
                             <PageVideoPlayer
                                 className="autoscale-video-wrapper autoscale-video-content"
                                 ref={this.playerRef}
-                                video={page.getFirstVideo()!}
+                                video={player.getFirstVideo()!}
                                 playing={this.state.playbackState.isPlaying}
                                 onPlay={() => {
                                     this.updatePlaybackState({
@@ -193,7 +193,7 @@ export default class Page extends React.Component<PageProps, PageState> {
     }
 
     /**
-     * Return the main page media player (audio/video)
+     * Return the main player media player (audio/video)
      * @returns {HTMLVideoElement | null}
      */
     private getMainPlayerVideoElement(): HTMLVideoElement | null {
