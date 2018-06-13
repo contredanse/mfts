@@ -10,21 +10,21 @@ import ReactPlayer, {
 import VideoEntity from '@src/models/entity/video-entity';
 import VideoSourceEntity from '@src/models/entity/video-source-entity';
 
-type PageVideoPlayerProps = {
+type VideoPlayerProps = {
     video: VideoEntity;
     disableSubtitles?: boolean;
     activeSubtitleLang?: string;
     crossOrigin?: 'anonymous';
 } & ReactPlayerProps;
 
-type PageVideoPlayerState = {};
+type VideoPlayerState = {};
 
-export default class PageVideoPlayer extends React.Component<PageVideoPlayerProps, PageVideoPlayerState> {
+export default class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
     protected playerRef: React.RefObject<ReactPlayer>;
     protected playerConfig: ReactPlayerConfig;
     protected playerSources: ReactPlayerSourceProps[];
 
-    constructor(props: PageVideoPlayerProps) {
+    constructor(props: VideoPlayerProps) {
         super(props);
         this.playerRef = React.createRef<ReactPlayer>();
         this.playerConfig = this.getReactPlayerConfig(props.video, props.activeSubtitleLang || 'en');
