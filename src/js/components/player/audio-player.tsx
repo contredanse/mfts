@@ -6,20 +6,21 @@ import ReactPlayer, {
     SourceProps as ReactPlayerSourceProps,
     TrackProps as ReactPlayerTrackProps,
 } from 'react-player';
-import AudioEntity from '@src/models/entity/audio-entity';
+import AudioEntity from '../../models/entity/audio-entity';
 
-type PageAudioPlayerProps = {
+type AudioPlayerProps = {
     audio: AudioEntity;
+    lang?: string;
 } & ReactPlayerProps;
 
-type PageAudioPlayerState = {};
+type AudioPlayerState = {};
 
-export default class PageAudioPlayer extends React.Component<PageAudioPlayerProps, PageAudioPlayerState> {
+export default class AudioPlayer extends React.Component<AudioPlayerProps, AudioPlayerState> {
     protected playerRef: React.RefObject<ReactPlayer>;
     protected playerConfig: ReactPlayerConfig;
     protected playerSources: ReactPlayerSourceProps[];
 
-    constructor(props: PageAudioPlayerProps) {
+    constructor(props: AudioPlayerProps) {
         super(props);
         this.playerRef = React.createRef();
         const currentLang = 'en';
@@ -46,7 +47,7 @@ export default class PageAudioPlayer extends React.Component<PageAudioPlayerProp
     }
 
     render() {
-        const { audio, ...playerProps } = this.props;
+        const { audio, lang, ...playerProps } = this.props;
 
         return (
             <ReactPlayer
