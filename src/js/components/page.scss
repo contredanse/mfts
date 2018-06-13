@@ -35,6 +35,7 @@ $header-section-height: 60px;
         background-color: black;
 
         .page-multi-video-layout {
+            flex: auto;
             display: grid;
             grid-template-areas:
                 'video-wall'
@@ -46,16 +47,16 @@ $header-section-height: 60px;
             .page-video-wall {
                 grid-area: video-wall;
                 display: flex;
-                justify-content: space-between;
-                //width: 100%;
+                flex-direction: row;
+                //                justify-content: space-between;
+                width: 100%;
                 margin: 0 -5px;
 
-                div {
-                }
-
-                .video-link {
+                div.video-link {
                     margin: 0 5px;
+                    flex: 1;
                     video {
+                        height: auto;
                         border: 1px solid yellow;
                         &:hover {
                             filter: contrast(115%) drop-shadow(2px 2px 5px yellow);
