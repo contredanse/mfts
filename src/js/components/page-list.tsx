@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import './page-list.scss';
 import { IJsonPage, IJsonPageVideo } from '@data/json/data-pages';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
@@ -17,7 +17,6 @@ type PageListState = {};
 
 export default class PageList extends React.Component<PageListProps, PageListState> {
     handlePageSelection(page: IJsonPage) {
-        console.log('pageSelected', page);
         if (this.props.onSelected !== undefined) {
             this.props.onSelected(page);
         }
@@ -25,9 +24,6 @@ export default class PageList extends React.Component<PageListProps, PageListSta
 
     render() {
         const list = this.props.pages;
-        //const {urlPaths, onSelected} = this.props;
-
-        //console.log('pages', list);
 
         const Animate = ({ children, ...props }: { children: ReactNode }) => (
             <CSSTransition {...props} enter={true} appear={true} exit={false} timeout={1000} classNames="fade">
@@ -97,7 +93,6 @@ export default class PageList extends React.Component<PageListProps, PageListSta
                                                     return (
                                                         <div key={video.video_id}>
                                                             <img src={videoCover} title={video.video_id} />
-                                                            <p>{video.meta.duration}</p>
                                                         </div>
                                                     );
                                                 })}

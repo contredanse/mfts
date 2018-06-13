@@ -42,13 +42,8 @@ class PageListContainer extends React.Component<PageListContainerProps, PageList
     };
 
     openPage = (page: IJsonPage) => {
-        this.props.history.push(`/page/${page.page_id}`);
-        /*
-        this.setState((prevState): HomeContainerState => ({
-            ...prevState,
-            selectedPage: player,
-        }));
-        */
+        const { lang } = this.state;
+        this.props.history.push(`/page/${lang}/${page.page_id}`);
     };
 
     closePage = () => {
@@ -61,7 +56,7 @@ class PageListContainer extends React.Component<PageListContainerProps, PageList
     };
 
     render(): JSX.Element {
-        const { pages, selectedPage } = this.state;
+        const { pages, selectedPage, lang } = this.state;
         const searchBoxStyle = {
             position: 'fixed',
             top: '70px',
@@ -74,7 +69,7 @@ class PageListContainer extends React.Component<PageListContainerProps, PageList
                 <PageList
                     baseUrl={this.props.videosBaseUrl}
                     pages={pages}
-                    lang={this.state.lang}
+                    lang={lang}
                     onSelected={page => this.openPage(page)}
                 />
                 {selectedPage === undefined && (
