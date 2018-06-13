@@ -1,6 +1,18 @@
 import React from 'react';
-const withStorage = WrappedComponent => {
-    class HOC extends React.Component {
+import { Subtract } from 'utility-types';
+
+type InjectedStorageProps = {
+    load: (key: string) => string | null;
+    save: (key: string, data: string) => void;
+    remove: (key: string) => void;
+};
+
+type WithStorageState = {
+    localStorageAvailable: boolean;
+};
+
+const withStorage = <P extends InjectedStorageProps>(WrappedComponent: React.ComponentType<P>) => {
+    class WithStorage extends React.Component<Subtract<P, InjectedStorageProps>, WithStorageState> {
         state = {
             localStorageAvailable: false,
         };
@@ -21,7 +33,7 @@ const withStorage = WrappedComponent => {
             }
         }
 
-        load = key => {
+        load = (key: string): string | null => {
             if (this.state.localStorageAvailable) {
                 return localStorage.getItem(key);
             }
@@ -29,13 +41,13 @@ const withStorage = WrappedComponent => {
             return null;
         };
 
-        save = (key, data) => {
+        save = (key: string, data: any): void => {
             if (this.state.localStorageAvailable) {
                 localStorage.setItem(key, data);
             }
         };
 
-        remove = key => {
+        remove = (key: string): void => {
             if (this.state.localStorageAvailable) {
                 localStorage.removeItem(key);
             }
@@ -46,7 +58,7 @@ const withStorage = WrappedComponent => {
         }
     }
 
-    return HOC;
+    return WithStorage;
 };
 
 export default withStorage;
