@@ -35,7 +35,7 @@ export default class PageVideoGroup extends React.Component<PageVideoGroupProps,
             <>
                 {videos.map((video, idx) => {
                     const videoIdx = `video-${idx}`;
-                    let className = '';
+                    let className = 'autoscale-video-container';
                     if (video.videoLink) {
                         className = 'video-link';
                     }
@@ -43,6 +43,7 @@ export default class PageVideoGroup extends React.Component<PageVideoGroupProps,
                         <div key={videoIdx} className={className}>
                             <PageVideoPlayer
                                 crossOrigin={'anonymous'}
+                                className="autoscale-video-wrapper autoscale-video-content"
                                 disableSubtitles={true}
                                 video={video}
                                 width="100%"
