@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import './page.scss';
 
 import PageEntity from '@src/models/entity/page-entity';

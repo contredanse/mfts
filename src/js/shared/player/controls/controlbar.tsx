@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import './controlbar.scss';
 import { ProgressBar } from '@src/shared/player/controls/progress-bar';
 import PlayButton from '@src/shared/player/controls/play-button';

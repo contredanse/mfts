@@ -72,11 +72,9 @@ class PageListContainer extends React.Component<PageListContainerProps, PageList
                     lang={lang}
                     onSelected={page => this.openPage(page)}
                 />
-                {selectedPage === undefined && (
-                    <div style={searchBoxStyle}>
-                        <SearchBox onChange={this.updateSearch} />
-                    </div>
-                )}
+                <div style={searchBoxStyle}>
+                    <SearchBox onChange={this.updateSearch} />
+                </div>
             </PageOverlay>
         );
     }
