@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { MediaPlayerActions } from '../../../components/player/media-player';
 import './controlbar.scss';
 import { ProgressBar } from '@src/shared/player/controls/progress-bar';
 import PlayButton from '@src/shared/player/controls/play-button';
 import PauseButton from '@src/shared/player/controls/pause-button';
 import PrevButton from '@src/shared/player/controls/prev-button';
 import NextButton from '@src/shared/player/controls/next-button';
+import { PlayerActions } from '@src/shared/player/player';
 
 export type MediaPlayerControlBarProps = {
     videoEl?: HTMLVideoElement;
@@ -13,7 +13,7 @@ export type MediaPlayerControlBarProps = {
     currentTime: number;
     isPlaying: boolean;
     playbackRate: number;
-    actions: MediaPlayerActions;
+    actions: PlayerActions;
 };
 
 export type MediaPlayerControlbarState = {
