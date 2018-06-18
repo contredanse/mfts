@@ -35,19 +35,29 @@ export default class PageVideoGroup extends React.Component<PageVideoGroupProps,
             <>
                 {videos.map((video, idx) => {
                     const videoIdx = `video-${idx}`;
-                    let className = 'autoscale-video-container';
+                    const className = 'autoscale-video-container';
+                    let videoClassName = 'autoscale-video-wrapper autoscale-video-content';
                     if (video.videoLink) {
-                        className = 'video-link';
+                        videoClassName += ' clickable-video';
                     }
+
+                    const coverImg = video.getFirstCover();
+
+                    const containerStyle = {
+                        //backgroundImage: `url(${coverImg})`,
+                        //backgroundSize: 'contain',
+                        //backgroundRepeat: 'cover'
+                    };
+
                     return (
-                        <div key={videoIdx} className={className}>
+                        <div key={videoIdx} className={className} style={containerStyle}>
                             <VideoPlayer
                                 crossOrigin={'anonymous'}
-                                className="autoscale-video-wrapper autoscale-video-content"
+                                className={videoClassName}
                                 disableSubtitles={true}
                                 video={video}
                                 width="100%"
-                                height="100%"
+                                height="auto"
                                 playing={playbackState!.playing}
                                 playbackRate={playbackState!.playbackRate}
                                 loop

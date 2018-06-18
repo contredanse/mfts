@@ -78,25 +78,32 @@ export default class PageList extends React.Component<PageListProps, PageListSta
                                 const firstVideoId = videos[0].video_id;
                                 const coverImg = `${baseUrl}/covers/${firstVideoId}-03.jpg`;
 
+                                const cardBackgroundStyle = {
+                                    backgroundImage: `url(${coverImg})`,
+                                };
+
                                 return (
                                     <Animate key={pageId}>
                                         <div
                                             className="card"
-                                            style={{ backgroundImage: `url(${coverImg})` }}
+                                            style={cardBackgroundStyle}
                                             key={pageId}
                                             onClick={() => this.handlePageSelection(page)}
                                         >
-                                            <h2>{pageId}</h2>
-                                            <div className="grid-page-thumbnail">
-                                                {videos.map(video => {
-                                                    const videoCover = `${baseUrl}/covers/${video.video_id}-01.jpg`;
-                                                    return (
-                                                        <div key={video.video_id}>
-                                                            <img src={videoCover} title={video.video_id} />
-                                                        </div>
-                                                    );
-                                                })}
-                                            </div>
+                                            <span className="page-title">{pageId}</span>
+
+                                            {videos.length > 1 && (
+                                                <div className="grid-page-thumbnail">
+                                                    {videos.map(video => {
+                                                        const videoCover = `${baseUrl}/covers/${video.video_id}-01.jpg`;
+                                                        return (
+                                                            <div key={video.video_id}>
+                                                                <img src={videoCover} title={video.video_id} />
+                                                            </div>
+                                                        );
+                                                    })}
+                                                </div>
+                                            )}
                                         </div>
                                     </Animate>
                                 );

@@ -3,6 +3,36 @@
 $footer-section-height: 20px;
 $header-section-height: 60px;
 
+// Till object-fit: contains works on all browsers...
+// we use this flex trick to make the video layout
+
+.autoscale-video-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .autoscale-video-wrapper {
+        width: 100%;
+
+        //border: 1px solid blue;
+        //height: 100%;
+        flex-basis: 100%; // vertical space used: 100%
+    }
+
+    .autoscale-video-content {
+        //background-color: #ccffcc;
+        position: relative;
+
+        video {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
 .page-wrapper {
     background-color: black;
     color: white;
@@ -40,27 +70,75 @@ $header-section-height: 60px;
             grid-template-areas:
                 'video-wall'
                 'audio-subs';
-            /* hack to prevent horizontal scrolling */
-            max-width: 95%;
             grid-template-rows: 1fr 15%;
 
             .page-video-wall {
+                position: relative;
                 grid-area: video-wall;
                 display: flex;
                 flex-direction: row;
-                //                justify-content: space-between;
-                width: 100%;
-                margin: 0 -5px;
+                align-items: center;
 
-                div.video-link {
-                    margin: 0 5px;
+                .loading-overlay {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background-color: #1abc9c;
+                    //background-color: black;
+                    opacity: 0.2;
+                }
+
+                // hack to vertically center the videos without
+                // sacrifying
+                .vertical-wrapper {
+                    margin-left: 10px;
+                    margin-right: 10px;
+                    display: flex;
                     flex: 1;
-                    video {
-                        height: auto;
-                        border: 1px solid yellow;
-                        &:hover {
-                            filter: contrast(115%) drop-shadow(2px 2px 5px yellow);
-                            cursor: pointer;
+                    //height: 200px;
+                    //border: 5px solid green;
+                    //justify-content: center;
+                    //margin: 0 -5px; // simulate grid-gap
+
+                    .autoscale-video-container {
+                        margin: 0 5px; // simulate grid-gap
+                        flex: 1 1 100%; //flex-basis: 100%; to prevent flickering when adjusting size on load
+
+                        .clickable-video > video {
+                            border: 1px solid yellow;
+                            //filter: drop-shadow(0 1px .15rem yellow)
+                            //box-shadow: 0 1px 2px yellow;
+                            &:hover {
+                                // drop-shadow(0 0 0.40rem yellow);
+                                cursor: pointer;
+                                box-shadow: 0 1px 4px yellow;
+                                filter: contrast(115%);
+                            }
+                        }
+
+                        .autoscale-video-wrapper {
+                            //flex: 1 1 auto;
+                            //border: 1px solid red;
+                            position: relative;
+                            //padding-top: 75.25%;
+
+                            video {
+                                position: relative;
+                                //border: 1px solid white;
+                                //top: 0;
+                                //left: 0;
+                                width: 100%;
+                                height: auto;
+
+                                // We override relative/absolute position
+                                //position: relative;
+
+                                //transition: 700ms filter ease-in-out;
+                                //border: 1px solid yellow;
+                                //display: none;
+                            }
                         }
                     }
                 }
@@ -81,32 +159,6 @@ $header-section-height: 60px;
         .page-single-video-layout {
             flex: auto;
             padding: 0.75em;
-
-            // Till object-fit: contains works on all browsers...
-            // we use this flex trick to make the video layout
-
-            .autoscale-video-container {
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-
-                .autoscale-video-wrapper {
-                    width: 100%;
-                    flex-basis: 100%; // vertial space used: 100%
-                }
-
-                .autoscale-video-content {
-                    //background-color: #ccffcc;
-                    position: relative;
-                    video {
-                        position: absolute;
-                        left: 0;
-                        top: 0;
-                        width: 100%;
-                        height: 100%;
-                    }
-                }
-            }
         }
     }
     .page-footer {

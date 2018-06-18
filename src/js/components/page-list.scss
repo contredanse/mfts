@@ -14,52 +14,72 @@ example
         padding: 0;
         display: grid;
         //grid-template-columns: repeat(5,1fr);
-        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         //grid-template-columns: repeat(auto-fill, minmax(200px 1fr));
-        grid-gap: 5px;
+        grid-gap: 15px;
 
         .card {
-            display: flex;
+            position: relative;
             color: #fff;
             background-repeat: no-repeat;
-            background-size: cover;
             background-position: center;
             background-color: rgba(black, 0.7);
             background-blend-mode: lighten;
-            /*filter: grayscale(95%);*/
-            transition: 400ms filter ease-in-out;
+            background-size: cover;
+
+            transition: 700ms filter ease-in-out;
             min-height: 150px;
+            max-height: 250px;
             &:hover {
                 cursor: pointer;
                 //filter: drop-shadow(3px 3px 5px grey)
-                filter: contrast(130%);
+                //filter: contrast(130%);
+                filter: contrast(130%) drop-shadow(0 0 1px yellow);
+                //box-shadow: 0 1px 2px yellow;
             }
 
-            h2 {
-                /*
-        background-color: #490A3D;
-        */
+            .page-title {
+                background-color: #490a3d;
                 margin: 0;
-                padding: 10px;
+                padding: 2px;
                 font-size: 0.7em;
                 font-weight: normal;
+                line-height: 2em;
             }
 
             .grid-page-thumbnail {
-                margin: 5px;
-                padding: 5px;
-                display: grid;
-                //grid-template-columns: repeat(5,1fr);
-                grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
-                //grid-template-columns: repeat(auto-fill, minmax(200px 1fr));
-                grid-gap: 5px;
-                justify-items: center;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                //  border: 1px solid blue;
+                justify-content: flex-start;
+                align-items: center;
+                display: flex;
+                background-color: rgba(0, 0, 0, 0.5);
+
+                &:hover {
+                    //width: 50%;
+                }
+
+                .thumbnails-container {
+                }
+
                 div {
+                    position: relative;
+                    //border: 1px solid red;
+                    margin-right: 5px;
+                    flex: 1 1 10px;
+                    text-align: center;
+                    //
                     img {
-                        border: 1px solid white;
-                        background-color: rgba(255, 255, 255, 0.2);
-                        width: 100%;
-                        justify-self: center;
+                        position: relative;
+                        max-width: 100%;
+                        //height: 20px;
+                        object-fit: cover;
+                        //border: 1px solid white;
+                        //background-color: rgba(255, 255, 255, 0.2);
                     }
                 }
             }
