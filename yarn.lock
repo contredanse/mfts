@@ -625,9 +625,9 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@material-ui/core@^1.2.1":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-1.2.1.tgz#f8c73da10b875762b37be7167ec2ac79b027499f"
+"@material-ui/core@^1.2.2":
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-1.2.2.tgz#b074bdaa679d68af235b4d3f108f828ddcf6c1bc"
   dependencies:
     "@babel/runtime" "^7.0.0-beta.42"
     "@types/jss" "^9.5.3"
@@ -651,9 +651,9 @@
     prop-types "^15.6.0"
     react-event-listener "^0.6.0"
     react-jss "^8.1.0"
-    react-popper "^0.10.0"
+    react-popper "^1.0.0"
     react-transition-group "^2.2.1"
-    recompose "^0.26.0 || ^0.27.0"
+    recompose "^0.27.0"
     scroll "^2.0.3"
     warning "^4.0.1"
 
@@ -1487,12 +1487,12 @@ autoprefixer@^6.3.1:
     postcss "^5.2.16"
     postcss-value-parser "^3.2.3"
 
-autoprefixer@^8.6.2:
-  version "8.6.2"
-  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-8.6.2.tgz#51d42ff13243820a582a53ecca20dedaeb7f2efd"
+autoprefixer@^8.6.3:
+  version "8.6.3"
+  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-8.6.3.tgz#1d38a129e6a4582a565b6570d16f2d7d3de9cbf9"
   dependencies:
     browserslist "^3.2.8"
-    caniuse-lite "^1.0.30000851"
+    caniuse-lite "^1.0.30000856"
     normalize-range "^0.1.2"
     num2fraction "^1.2.2"
     postcss "^6.0.22"
@@ -2115,7 +2115,7 @@ babel-register@^6.26.0:
     mkdirp "^0.5.1"
     source-map-support "^0.4.15"
 
-babel-runtime@^6.18.0, babel-runtime@^6.22.0, babel-runtime@^6.26.0, babel-runtime@^6.9.2:
+babel-runtime@6.x.x, babel-runtime@^6.18.0, babel-runtime@^6.22.0, babel-runtime@^6.26.0, babel-runtime@^6.9.2:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
   dependencies:
@@ -2660,7 +2660,7 @@ caniuse-db@^1.0.30000529, caniuse-db@^1.0.30000634, caniuse-db@^1.0.30000639:
   version "1.0.30000856"
   resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000856.tgz#fbebb99abe15a5654fc7747ebb5315bdfde3358f"
 
-caniuse-lite@^1.0.30000844, caniuse-lite@^1.0.30000851:
+caniuse-lite@^1.0.30000844, caniuse-lite@^1.0.30000856:
   version "1.0.30000856"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000856.tgz#ecc16978135a6f219b138991eb62009d25ee8daa"
 
@@ -3311,7 +3311,7 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-create-react-context@^0.2.2:
+create-react-context@^0.2.1, create-react-context@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/create-react-context/-/create-react-context-0.2.2.tgz#9836542f9aaa22868cd7d4a6f82667df38019dca"
   dependencies:
@@ -9919,12 +9919,16 @@ react-player@^1.6.4:
     load-script "^1.0.0"
     prop-types "^15.5.6"
 
-react-popper@^0.10.0:
-  version "0.10.4"
-  resolved "https://registry.yarnpkg.com/react-popper/-/react-popper-0.10.4.tgz#af2a415ea22291edd504678d7afda8a6ee3295aa"
+react-popper@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-popper/-/react-popper-1.0.0.tgz#b99452144e8fe4acc77fa3d959a8c79e07a65084"
   dependencies:
+    babel-runtime "6.x.x"
+    create-react-context "^0.2.1"
     popper.js "^1.14.1"
     prop-types "^15.6.1"
+    typed-styles "^0.0.5"
+    warning "^3.0.0"
 
 react-reconciler@^0.7.0:
   version "0.7.0"
@@ -10112,7 +10116,7 @@ rechoir@^0.6.2:
   dependencies:
     resolve "^1.1.6"
 
-"recompose@^0.26.0 || ^0.27.0":
+"recompose@^0.26.0 || ^0.27.0", recompose@^0.27.0:
   version "0.27.1"
   resolved "https://registry.yarnpkg.com/recompose/-/recompose-0.27.1.tgz#1a49e931f183634516633bbb4f4edbfd3f38a7ba"
   dependencies:
@@ -11955,6 +11959,10 @@ type-is@~1.6.15, type-is@~1.6.16:
   dependencies:
     media-typer "0.3.0"
     mime-types "~2.1.18"
+
+typed-styles@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/typed-styles/-/typed-styles-0.0.5.tgz#a60df245d482a9b1adf9c06c078d0f06085ed1cf"
 
 typedarray@^0.0.6:
   version "0.0.6"
