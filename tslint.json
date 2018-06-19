@@ -7,6 +7,7 @@
         // For dev-only, assuming uglifyjs will remove them for prod ;)
         "no-console": [true, "console.log", "console.error"],
         // end for dev-only
+        "no-empty": [true, "allow-empty-catch", "allow-empty-functions"],
         "no-any": false,
         "no-floating-promises": true,
         "arrow-parens": false,

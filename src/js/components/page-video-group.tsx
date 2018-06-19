@@ -32,7 +32,7 @@ export default class PageVideoGroup extends React.Component<PageVideoGroupProps,
         const { pageEntity, playbackState } = this.props;
         const videos = pageEntity.getVideos();
         return (
-            <>
+            <div className="page-video-wall">
                 {videos.map((video, idx) => {
                     const videoIdx = `video-${idx}`;
                     const className = 'autoscale-video-container';
@@ -58,15 +58,24 @@ export default class PageVideoGroup extends React.Component<PageVideoGroupProps,
                                 video={video}
                                 width="100%"
                                 height="auto"
+                                onDuration={duration => {
+                                    // Metadata have been loaded, the browser
+                                    // knows the duration and dimensions too
+                                    // Layout is probably already calculated
+                                    // Let's remove the loading overlay
+                                    console.log('duration');
+                                }}
                                 playing={playbackState!.playing}
                                 playbackRate={playbackState!.playbackRate}
                                 loop
                                 muted
                             />
+
+                            <div className="loading-overlay" />
                         </div>
                     );
                 })}
-            </>
+            </div>
         );
     }
 

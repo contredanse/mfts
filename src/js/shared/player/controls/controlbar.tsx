@@ -6,6 +6,7 @@ import PauseButton from '@src/shared/player/controls/pause-button';
 import PrevButton from '@src/shared/player/controls/prev-button';
 import NextButton from '@src/shared/player/controls/next-button';
 import { PlayerActions } from '@src/shared/player/player';
+import { default as NewProgressBar } from '@src/shared/player/controls/progressbar';
 
 export type MediaPlayerControlBarProps = {
     videoEl?: HTMLVideoElement;
@@ -65,23 +66,27 @@ export default class Controlbar extends React.Component<MediaPlayerControlBarPro
         };
 
         return (
-            <ul className="control-bar">
-                <li className="control-bar__button">
-                    <PrevButton isEnabled={false} />
-                </li>
-                <li className="control-bar__button">
-                    <PlayButton isEnabled={true} onClick={this.play} style={props.isPlaying ? activeStyle : {}} />
-                </li>
-                <li className="control-bar__button">
-                    <PauseButton isEnabled={true} onClick={this.pause} style={props.isPlaying ? {} : activeStyle} />
-                </li>
-                <li className="control-bar__progress-bar">
+            <div>
+                <div className="control-bar__new-progress-bar">
+                    <NewProgressBar
+                        totalTime={props.duration}
+                        currentTime={this.state.currentTime}
+                        bufferedTime={5}
+                        isSeekable={true}
+                        onSeek={this.seekTo}
+                        onSeekStart={() => {}}
+                        onSeekEnd={() => {}}
+                        onIntent={() => {}}
+                    />
+                </div>
+                <div className="control-bar__progress-bar">
                     <ProgressBar currentTime={this.state.currentTime} duration={props.duration} onSeek={this.seekTo} />
-                </li>
-                <li className="control-bar__progress-label">
+                </div>
+                <div className="control-bar__progress-label">
                     {this.formatMilliseconds(this.state.currentTime)}/{this.formatMilliseconds(props.duration)}
-                </li>
-                <li className="control-bar__select">
+                </div>
+
+                <div className="control-bar__select">
                     <select
                         onChange={(e: React.SyntheticEvent<HTMLSelectElement>) => {
                             console.log('onchange', e.currentTarget.value);
@@ -92,11 +97,23 @@ export default class Controlbar extends React.Component<MediaPlayerControlBarPro
                         <option value="0.5">0.5</option>
                         <option value="0.25">0.25</option>
                     </select>
-                </li>
-                <li className="control-bar__button">
-                    <NextButton isEnabled={false} />
-                </li>
-            </ul>
+                </div>
+
+                <ul className="control-bar">
+                    <li className="control-bar__button">
+                        <PrevButton isEnabled={false} />
+                    </li>
+                    <li className="control-bar__button">
+                        <PlayButton isEnabled={true} onClick={this.play} style={props.isPlaying ? activeStyle : {}} />
+                    </li>
+                    <li className="control-bar__button">
+                        <PauseButton isEnabled={true} onClick={this.pause} style={props.isPlaying ? {} : activeStyle} />
+                    </li>
+                    <li className="control-bar__button">
+                        <NextButton isEnabled={false} />
+                    </li>
+                </ul>
+            </div>
         );
     }
 
@@ -141,7 +158,7 @@ export default class Controlbar extends React.Component<MediaPlayerControlBarPro
         return `${hDisplay}${mDisplay}${sDisplay}`;
     }
 
-    protected play = () => {
+    protected play = (): void => {
         const { videoEl } = this.props;
 
         if (videoEl) {
@@ -166,7 +183,7 @@ export default class Controlbar extends React.Component<MediaPlayerControlBarPro
         this.props.actions.play();
     };
 
-    protected pause = () => {
+    protected pause = (): void => {
         const { videoEl } = this.props;
         if (videoEl) {
             videoEl.pause();
@@ -176,7 +193,7 @@ export default class Controlbar extends React.Component<MediaPlayerControlBarPro
         this.props.actions.pause();
     };
 
-    protected seekTo = (time: number) => {
+    protected seekTo = (time: number): void => {
         const { videoEl } = this.props;
         if (videoEl) {
             videoEl.currentTime = time;

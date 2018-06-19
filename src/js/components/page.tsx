@@ -75,19 +75,15 @@ export default class Page extends React.Component<PageProps, PageState> {
                 <div className="page-content">
                     {page.countVideos() > 1 ? (
                         <div className="page-multi-video-layout">
-                            <div className="page-video-wall">
-                                <div className="vertical-wrapper">
-                                    <PageVideoGroup
-                                        videos={videos}
-                                        pageEntity={page}
-                                        playbackState={{
-                                            playing: this.state.playbackState.isPlaying,
-                                            playbackRate: this.state.playbackState.playbackRate,
-                                        }}
-                                    />
-                                </div>
-                                <div className="loading-overlay" />
-                            </div>
+                            <PageVideoGroup
+                                videos={videos}
+                                pageEntity={page}
+                                playbackState={{
+                                    playing: this.state.playbackState.isPlaying,
+                                    playbackRate: this.state.playbackState.playbackRate,
+                                }}
+                            />
+
                             {audio && (
                                 <div className="page-audio-subs">
                                     <AudioPlayer
