@@ -2,8 +2,8 @@ import React, { Component, CSSProperties } from 'react';
 import classNames from 'classnames';
 import './progressbar.scss';
 
-//import { compose, withChildrenStyles, withCustomizableClasses, withChildClasses } from '../utils/composers.js';
 import RangeControlOverlay from './range-control-overlay';
+import withVideoState from '@src/shared/player/controls/with-video-state';
 
 export type ProgressBarChildClasses = {
     elapsed?: string;
@@ -22,7 +22,7 @@ export type ProgressBarChildrenStyles = {
 };
 
 export type ProgressBarProps = {
-    totalTime: number;
+    duration: number;
     currentTime: number;
     bufferedTime: number;
     isSeekable: boolean;
@@ -44,9 +44,9 @@ type ProgressBarState = {
 /**
  * Seekable progress bar
  */
-class ProgressBar extends Component<ProgressBarProps, ProgressBarState> {
+export class ProgressBar extends Component<ProgressBarProps, ProgressBarState> {
     static readonly defaultProps: Partial<ProgressBarProps> = {
-        totalTime: Infinity,
+        duration: Infinity,
         currentTime: 0,
         bufferedTime: 0,
         isSeekable: false,
@@ -74,32 +74,39 @@ class ProgressBar extends Component<ProgressBarProps, ProgressBarState> {
         this.progressbarRef = React.createRef<HTMLDivElement>();
     }
 
-    handleSeek = (relativeTime: number): void => {
-        const { isSeekable, onSeek, totalTime } = this.props;
+    shouldComponentUpdate(nextProps: ProgressBarProps, nextState: ProgressBarState): boolean {
+        return (
+            nextProps.currentTime !== this.props.currentTime ||
+            nextProps.duration !== this.props.duration ||
+            nextProps.bufferedTime !== this.props.bufferedTime
+        );
+    }
 
+    handleSeek = (relativeTime: number): void => {
+        const { isSeekable, onSeek, duration } = this.props;
         if (isSeekable) {
-            onSeek(relativeTime * totalTime);
+            onSeek(relativeTime * duration);
         }
     };
 
     handleSeekStart = (relativeTime: number): void => {
-        const { isSeekable, onSeekStart, totalTime } = this.props;
+        const { isSeekable, onSeekStart, duration } = this.props;
 
         if (isSeekable) {
-            onSeekStart(relativeTime * totalTime);
+            onSeekStart(relativeTime * duration);
         }
     };
 
     handleSeekEnd = (relativeTime: number): void => {
-        const { isSeekable, onSeekEnd, totalTime } = this.props;
+        const { isSeekable, onSeekEnd, duration } = this.props;
 
         if (isSeekable) {
-            onSeekEnd(relativeTime * totalTime);
+            onSeekEnd(relativeTime * duration);
         }
     };
 
     handleIntent = (relativeTime: number): void => {
-        const { isSeekable, onIntent, totalTime } = this.props;
+        const { isSeekable, onIntent, duration } = this.props;
         const intent = isSeekable ? relativeTime : 0;
 
         this.setState({
@@ -108,13 +115,13 @@ class ProgressBar extends Component<ProgressBarProps, ProgressBarState> {
         });
 
         if (isSeekable) {
-            onIntent(relativeTime * totalTime);
+            onIntent(relativeTime * duration);
         }
     };
 
     render() {
         const {
-            totalTime,
+            duration,
             currentTime,
             bufferedTime,
             isSeekable,
@@ -124,12 +131,15 @@ class ProgressBar extends Component<ProgressBarProps, ProgressBarState> {
             style,
             childrenStyles,
         } = this.props;
+
+        console.log('bufferedTime', bufferedTime);
+
         const { currentIntent } = this.state;
 
-        const progressPercent = Math.min(100, (100 * currentTime) / totalTime);
+        const progressPercent = Math.min(100, (100 * currentTime) / duration);
         const styleLeft = `${progressPercent}%`;
 
-        const isRewindIntent = currentIntent !== 0 && currentIntent < currentTime / totalTime;
+        const isRewindIntent = currentIntent !== 0 && currentIntent < currentTime / duration;
 
         return (
             <div
@@ -143,7 +153,7 @@ class ProgressBar extends Component<ProgressBarProps, ProgressBarState> {
                 <div
                     className={childClasses!.buffered || 'ProgressBar-buffered'}
                     style={{
-                        width: `${Math.min(100, (100 * bufferedTime) / totalTime)}%`,
+                        width: `${Math.min(100, (100 * bufferedTime) / duration)}%`,
                         ...(childrenStyles!.buffered || {}),
                     }}
                 />
@@ -179,12 +189,4 @@ class ProgressBar extends Component<ProgressBarProps, ProgressBarState> {
     }
 }
 
-export default ProgressBar;
-
-/*
-export default compose(
-    withChildrenStyles(),
-    withCustomizableClasses('ProgressBar'),
-    withChildClasses()
-)(ProgressBar);
-*/
+export default withVideoState(ProgressBar);
