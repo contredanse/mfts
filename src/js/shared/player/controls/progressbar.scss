@@ -4,6 +4,7 @@ $control-bar-radius: 0px;
 $control-progressbar-track-radius: $control-bar-radius;
 $control-progressbar-value-radius: $control-bar-radius;
 $control-progressbar-buffered-radius: $control-bar-radius;
+$control-progressbar-buffered-track-color: rgba(120, 120, 150, 0.9);
 //
 // Sliders
 //
@@ -71,7 +72,7 @@ $control-progressbar-buffered-radius: $control-bar-radius;
     &-buffered {
         height: 100%;
         border-radius: $control-progressbar-buffered-radius;
-        background: $lightgray;
+        background: $control-progressbar-buffered-track-color;
     }
 
     &-seek {
