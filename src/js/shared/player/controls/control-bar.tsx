@@ -1,12 +1,16 @@
-import React from 'react';
-import './controlbar.scss';
+import React, { CSSProperties } from 'react';
+import './control-bar.scss';
 import { ProgressBar } from '@src/shared/player/controls/progress-bar';
 import PlayButton from '@src/shared/player/controls/play-button';
 import PauseButton from '@src/shared/player/controls/pause-button';
 import PrevButton from '@src/shared/player/controls/prev-button';
 import NextButton from '@src/shared/player/controls/next-button';
 import { PlayerActions } from '@src/shared/player/player';
-import { default as NewProgressBar } from '@src/shared/player/controls/progressbar';
+import {
+    default as NewProgressBar,
+    ProgressBarChildClasses,
+    ProgressBarChildrenStyles,
+} from '@src/shared/player/controls/progressbar';
 
 export type MediaPlayerControlBarProps = {
     videoEl?: HTMLVideoElement;
@@ -19,9 +23,10 @@ export type MediaPlayerControlBarProps = {
 
 export type MediaPlayerControlbarState = {
     currentTime: number;
+    bufferTime: number;
 };
 
-export default class Controlbar extends React.Component<MediaPlayerControlBarProps, MediaPlayerControlbarState> {
+export default class ControlBar extends React.Component<MediaPlayerControlBarProps, MediaPlayerControlbarState> {
     readonly state: MediaPlayerControlbarState;
 
     /**
@@ -33,6 +38,7 @@ export default class Controlbar extends React.Component<MediaPlayerControlBarPro
         super(props);
         this.state = {
             currentTime: 0,
+            bufferTime: 0,
         };
     }
 
@@ -40,6 +46,7 @@ export default class Controlbar extends React.Component<MediaPlayerControlBarPro
         // If videoEl is initially available, let's register listeners at mount
         if (this.props.videoEl) {
             this.registerVideoListeners(this.props.videoEl);
+            //this.progressBar = withVideoState(NewProgressBar);
         }
     }
 
@@ -65,23 +72,36 @@ export default class Controlbar extends React.Component<MediaPlayerControlBarPro
             border: '3px solid yellow',
         };
 
+        /*
+        const PB = withVideoState(({currentTime, duration, bufferedTime}) => {
+            return (
+                <NewProgressBar currentTime={currentTime} ={duration} onSeek={}/>
+            )
+        });*/
+
+        //const PB = withVideoState(NewProgressBar);
+        //const PB = this.progressBar;
+
         return (
             <div>
                 <div className="control-bar__new-progress-bar">
-                    <NewProgressBar
-                        totalTime={props.duration}
-                        currentTime={this.state.currentTime}
-                        bufferedTime={5}
-                        isSeekable={true}
-                        onSeek={this.seekTo}
-                        onSeekStart={() => {}}
-                        onSeekEnd={() => {}}
-                        onIntent={() => {}}
-                    />
+                    {props.videoEl && (
+                        <NewProgressBar
+                            videoEl={props.videoEl}
+                            progressInterval={750}
+                            isSeekable={true}
+                            onSeek={this.seekTo}
+                            onSeekEnd={() => {}}
+                            onSeekStart={() => {}}
+                            onIntent={() => {}}
+                        />
+                    )}
                 </div>
+                {/*
                 <div className="control-bar__progress-bar">
                     <ProgressBar currentTime={this.state.currentTime} duration={props.duration} onSeek={this.seekTo} />
                 </div>
+                */}
                 <div className="control-bar__progress-label">
                     {this.formatMilliseconds(this.state.currentTime)}/{this.formatMilliseconds(props.duration)}
                 </div>
@@ -194,6 +214,7 @@ export default class Controlbar extends React.Component<MediaPlayerControlBarPro
     };
 
     protected seekTo = (time: number): void => {
+        console.log('SEEKTO', time);
         const { videoEl } = this.props;
         if (videoEl) {
             videoEl.currentTime = time;
