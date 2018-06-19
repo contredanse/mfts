@@ -58,6 +58,7 @@ export default class PageVideoGroup extends React.Component<PageVideoGroupProps,
                                 video={video}
                                 width="100%"
                                 height="auto"
+                                preload="preload"
                                 onDuration={duration => {
                                     // Metadata have been loaded, the browser
                                     // knows the duration and dimensions too
