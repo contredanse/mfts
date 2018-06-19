@@ -3,7 +3,7 @@ import './page.scss';
 
 import PageEntity from '@src/models/entity/page-entity';
 
-import Controlbar from '@src/shared/player/controls/controlbar';
+import ControlBar from '@src/shared/player/controls/control-bar';
 import PageVideoGroup from '@src/components/page-video-group';
 import AudioPlayer from '@src/components/player/audio-player';
 import VideoPlayer from '@src/components/player/video-player';
@@ -91,6 +91,7 @@ export default class Page extends React.Component<PageProps, PageState> {
                                         activeSubtitleLang={this.props.lang}
                                         audio={audio}
                                         playing={this.state.playbackState.isPlaying}
+                                        preload="preload"
                                         onPlay={() => {
                                             this.updatePlaybackState({
                                                 isPlaying: true,
@@ -127,6 +128,7 @@ export default class Page extends React.Component<PageProps, PageState> {
                                     crossOrigin={'anonymous'}
                                     activeSubtitleLang={this.props.lang}
                                     style={{}}
+                                    preload="preload"
                                     video={page.getFirstVideo()!}
                                     playing={this.state.playbackState.isPlaying}
                                     onPlay={() => {
@@ -178,7 +180,7 @@ export default class Page extends React.Component<PageProps, PageState> {
                     )}
                 </div>
                 <div className="page-footer">
-                    <Controlbar
+                    <ControlBar
                         {...(this.getMainPlayerVideoElement() ? { videoEl: this.getMainPlayerVideoElement()! } : {})}
                         actions={this.mediaPlayerActions}
                         duration={this.state.playbackState.duration}
