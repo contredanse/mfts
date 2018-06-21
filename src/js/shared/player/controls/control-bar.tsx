@@ -144,13 +144,15 @@ export default class ControlBar extends React.Component<MediaPlayerControlBarPro
                         <div className="control-bar__select">
                             <select
                                 onChange={(e: React.SyntheticEvent<HTMLSelectElement>) => {
-                                    console.log('onchange', e.currentTarget.value);
+                                    //console.log('onchange', e.currentTarget.value);
                                     props.actions.setPlaybackRate(parseFloat(e.currentTarget.value));
                                 }}
                             >
+                                <option value="2">2</option>
                                 <option value="1">1</option>
                                 <option value="0.5">0.5</option>
                                 <option value="0.25">0.25</option>
+                                <option value="0.10">0.10</option>
                             </select>
                         </div>
 
