@@ -35,7 +35,7 @@ class RangeControlOverlay extends Component<RangeControlOverlayProps, RangeContr
         //onIntent: (value: number) => {},
         direction: 'HORIZONTAL',
         style: {},
-        className: 'RangeControlOverlay',
+        className: 'controls__range-control-overlay',
     };
 
     constructor(props: RangeControlOverlayProps) {

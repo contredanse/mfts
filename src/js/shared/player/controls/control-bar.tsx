@@ -68,8 +68,12 @@ export default class ControlBar extends React.Component<MediaPlayerControlBarPro
         };
 
         return (
-            <div className="control-bar-container">
-                <div className="control-bar-container__progress-bar">
+            <div className="control-bar-ctn">
+                <div className="control-bar-ctn__progress-time">
+                    {this.formatMilliseconds(this.state.currentTime)}/{this.formatMilliseconds(props.duration)}
+                </div>
+
+                <div className="control-bar-ctn__progress-bar">
                     {props.videoEl && (
                         <ProgressBar
                             videoEl={props.videoEl}
@@ -87,37 +91,30 @@ export default class ControlBar extends React.Component<MediaPlayerControlBarPro
                     <ProgressBar currentTime={this.state.currentTime} duration={props.duration} onSeek={this.seekTo} />
                 </div>
                 */}
-                <div className="control-bar__progress-label">
-                    {this.formatMilliseconds(this.state.currentTime)}/{this.formatMilliseconds(props.duration)}
-                </div>
 
-                <div className="control-bar__select">
-                    <select
-                        onChange={(e: React.SyntheticEvent<HTMLSelectElement>) => {
-                            console.log('onchange', e.currentTarget.value);
-                            props.actions.setPlaybackRate(parseFloat(e.currentTarget.value));
-                        }}
-                    >
-                        <option value="1">1</option>
-                        <option value="0.5">0.5</option>
-                        <option value="0.25">0.25</option>
-                    </select>
-                </div>
-
-                <ul className="control-bar">
-                    <li className="control-bar__button">
+                <div className="">
+                    <div className="">
                         <PrevButton isEnabled={false} />
-                    </li>
-                    <li className="control-bar__button">
                         <PlayButton isEnabled={true} onClick={this.play} style={props.isPlaying ? activeStyle : {}} />
-                    </li>
-                    <li className="control-bar__button">
                         <PauseButton isEnabled={true} onClick={this.pause} style={props.isPlaying ? {} : activeStyle} />
-                    </li>
-                    <li className="control-bar__button">
+                    </div>
+                    <div className="">
+                        <div className="control-bar__select">
+                            <select
+                                onChange={(e: React.SyntheticEvent<HTMLSelectElement>) => {
+                                    console.log('onchange', e.currentTarget.value);
+                                    props.actions.setPlaybackRate(parseFloat(e.currentTarget.value));
+                                }}
+                            >
+                                <option value="1">1</option>
+                                <option value="0.5">0.5</option>
+                                <option value="0.25">0.25</option>
+                            </select>
+                        </div>
+
                         <NextButton isEnabled={false} />
-                    </li>
-                </ul>
+                    </div>
+                </div>
             </div>
         );
     }

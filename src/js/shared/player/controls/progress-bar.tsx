@@ -55,7 +55,7 @@ export class ProgressBar extends Component<ProgressBarProps, ProgressBarState> {
         onSeekEnd: () => {},
         onIntent: () => {},
         style: {},
-        className: 'ProgressBar',
+        className: 'controls__progress-bar',
         childClasses: {},
         childrenStyles: {
             RangeControlOverlay: {},
@@ -151,7 +151,7 @@ export class ProgressBar extends Component<ProgressBarProps, ProgressBarState> {
                 ref={this.progressbarRef}
             >
                 <div
-                    className={childClasses!.buffered || 'ProgressBar-buffered'}
+                    className={childClasses!.buffered || 'controls__progress-bar-buffered'}
                     style={{
                         width: `${Math.min(100, (100 * bufferedTime) / duration)}%`,
                         ...(childrenStyles!.buffered || {}),
@@ -159,23 +159,23 @@ export class ProgressBar extends Component<ProgressBarProps, ProgressBarState> {
                 />
 
                 <div
-                    className={childClasses!.elapsed || 'ProgressBar-elapsed'}
+                    className={childClasses!.elapsed || 'controls__progress-bar-elapsed'}
                     style={{ width: styleLeft, ...(childrenStyles!.elapsed || {}) }}
                 />
 
                 <div
-                    className={childClasses!.intent || 'ProgressBar-intent'}
+                    className={childClasses!.intent || 'controls__progress-bar-intent'}
                     style={{ width: `${currentIntent * 100}%`, ...(childrenStyles!.intent || {}) }}
                 />
 
                 <div
-                    className={childClasses!.handle || 'ProgressBar-handle'}
+                    className={childClasses!.handle || 'controls__progress-bar-handle'}
                     style={{ left: styleLeft, ...(childrenStyles!.handle || {}) }}
                 />
 
                 {isSeekable && (
                     <RangeControlOverlay
-                        className={childClasses!.seek || 'ProgressBar-seek'}
+                        className={childClasses!.seek || 'controls__progress-bar-seek'}
                         style={childrenStyles!.RangeControlOverlay}
                         bounds={() => this.progressbarRef.current!.getBoundingClientRect()}
                         onValue={this.handleSeek}

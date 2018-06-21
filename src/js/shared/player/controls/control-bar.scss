@@ -2,38 +2,14 @@
  * (WIP) for controlbar
  */
 
-.control-bar-container {
+.control-bar-ctn {
     border: 1px solid white;
-    /*
     display: flex;
-    flex-direction: row;
-    justify-items: center;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    flex-direction: column;
 
-    li {
-        display: flex;
-        align-items: center;
-        &:not(:first-child):not(:last-child) {
-            padding-left: 5px;
-            padding-right: 5px;
-        }
-        &:first-child {
-            margin-left: 10px;
-        }
-        &:last-child {
-            margin-right: 10px;
-        }
-    }
-    */
-    &__button {
-    }
-
-    &__select {
-    }
-
-    &__progress-label {
+    &__progress-time {
+        font-family: Roboto, sans-serif;
+        font-size: 0.75em;
         width: 120px;
     }
 

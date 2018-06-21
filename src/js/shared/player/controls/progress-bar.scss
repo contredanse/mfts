@@ -4,8 +4,8 @@
 // Sliders
 //
 
-.ProgressBar,
-.VolumeSlider {
+.controls__progress-bar,
+.controls__volume-slider {
     position: relative;
     background: $control-progressbar-unplayed-track-color;
     border-radius: $control-progressbar-track-radius;
@@ -34,26 +34,26 @@
     &.isSeekable,
     &.isEnabled {
         &:hover {
-            .ProgressBar-handle,
-            .VolumeSlider-handle {
+            .controls__progress-bar-handle,
+            .controls__volume-slider-handle {
                 transform: scale(1);
             }
 
-            .ProgressBar-intent,
-            .VolumeSlider-intent {
+            .controls__progress-bar-intent,
+            .controls__volume-slider-intent {
                 position: absolute;
                 background: rgba(0, 0, 0, 0.1);
             }
         }
 
-        .ProgressBar-elapsed,
-        .VolumeSlider-value {
+        .controls__progress-bar-elapsed,
+        .controls__volume-slider-elapsed {
             background: $control-progressbar-played-track-color;
         }
     }
 }
 
-.ProgressBar {
+.controls__progress-bar {
     height: $control-progressbar-height;
     margin: $control-progressbar-track-margin;
 
@@ -84,11 +84,11 @@
 
     &.isSeekable {
         &:hover {
-            .ProgressBar-handle {
+            .controls__progress-bar-handle {
                 transform: scale(1);
             }
 
-            .ProgressBar-intent {
+            .controls__progress-bar-intent {
                 top: 0;
                 left: 0;
                 height: 100%;
@@ -103,7 +103,7 @@
     }
 }
 
-.VolumeSlider {
+.controls__volume-slider {
     // margin: 10px 0;
 
     &-value {
@@ -150,11 +150,11 @@
 
     &.isEnabled {
         &:hover {
-            .VolumeSlider-handle {
+            .controls__volume-slider-handle {
                 transform: scale(1);
             }
 
-            .VolumeSlider-intent {
+            .controls__volume-slider-intent {
                 bottom: 0;
                 left: 0;
                 width: 100%;
