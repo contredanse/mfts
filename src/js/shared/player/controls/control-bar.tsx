@@ -14,6 +14,8 @@ export type MediaPlayerControlBarProps = {
     isPlaying: boolean;
     playbackRate: number;
     actions: PlayerActions;
+    enableSpeedControl?: boolean;
+    enableBrowseControl?: boolean;
 };
 
 export type MediaPlayerControlbarState = {
@@ -25,6 +27,11 @@ export type MediaPlayerControlbarState = {
 };
 
 export default class ControlBar extends React.Component<MediaPlayerControlBarProps, MediaPlayerControlbarState> {
+    static readonly defaultProps: Partial<MediaPlayerControlBarProps> = {
+        enableBrowseControl: false,
+        enableSpeedControl: true,
+    };
+
     readonly state: MediaPlayerControlbarState;
 
     /**
@@ -50,8 +57,7 @@ export default class ControlBar extends React.Component<MediaPlayerControlBarPro
             //this.progressBar = withVideoState(NewProgressBar);
         }
 
-        /**
-        // to handle autoHide
+        /*
         this.interval = window.setInterval(() => {
             this.setState(
                 (prevState: MediaPlayerControlbarState): MediaPlayerControlbarState => {
@@ -99,6 +105,7 @@ export default class ControlBar extends React.Component<MediaPlayerControlBarPro
 
     render() {
         const props = this.props;
+        const { videoEl, duration, enableBrowseControl, enableSpeedControl } = this.props;
         const activeStyle = {
             border: '3px solid yellow',
         };
@@ -112,13 +119,13 @@ export default class ControlBar extends React.Component<MediaPlayerControlBarPro
                 onMouseOut={this.handleDisableHover}
             >
                 <div className="control-bar-ctn__progress-time">
-                    {this.formatMilliseconds(this.state.currentTime)}/{this.formatMilliseconds(props.duration)}
+                    {this.formatMilliseconds(this.state.currentTime)}/{this.formatMilliseconds(duration)}
                 </div>
 
                 <div className="control-bar-ctn__progress-bar">
-                    {props.videoEl && (
+                    {videoEl && (
                         <ProgressBar
-                            videoEl={props.videoEl}
+                            videoEl={videoEl}
                             progressInterval={650}
                             isSeekable={true}
                             onSeek={this.seekTo}
@@ -140,21 +147,24 @@ export default class ControlBar extends React.Component<MediaPlayerControlBarPro
                         <PlayButton isEnabled={true} onClick={this.play} style={props.isPlaying ? activeStyle : {}} />
                         <PauseButton isEnabled={true} onClick={this.pause} style={props.isPlaying ? {} : activeStyle} />
                     </div>
+
                     <div className="control-bar-ctn__panel__right">
-                        <div className="control-bar__select">
-                            <select
-                                onChange={(e: React.SyntheticEvent<HTMLSelectElement>) => {
-                                    //console.log('onchange', e.currentTarget.value);
-                                    props.actions.setPlaybackRate(parseFloat(e.currentTarget.value));
-                                }}
-                            >
-                                <option value="2">2</option>
-                                <option value="1">1</option>
-                                <option value="0.5">0.5</option>
-                                <option value="0.25">0.25</option>
-                                <option value="0.10">0.10</option>
-                            </select>
-                        </div>
+                        {props.enableSpeedControl && (
+                            <div className="control-bar__select">
+                                <select
+                                    onChange={(e: React.SyntheticEvent<HTMLSelectElement>) => {
+                                        //console.log('onchange', e.currentTarget.value);
+                                        props.actions.setPlaybackRate(parseFloat(e.currentTarget.value));
+                                    }}
+                                >
+                                    <option value="2">2</option>
+                                    <option value="1">1</option>
+                                    <option value="0.5">0.5</option>
+                                    <option value="0.25">0.25</option>
+                                    <option value="0.10">0.10</option>
+                                </select>
+                            </div>
+                        )}
 
                         <NextButton isEnabled={false} />
                     </div>

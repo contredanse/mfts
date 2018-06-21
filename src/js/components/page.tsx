@@ -127,6 +127,7 @@ export default class Page extends React.Component<PageProps, PageState> {
                                     preload="preload"
                                     video={page.getFirstVideo()!}
                                     playing={this.state.playbackState.isPlaying}
+                                    playbackRate={this.state.playbackState.playbackRate}
                                     onPlay={() => {
                                         this.updatePlaybackState({
                                             isPlaying: true,
