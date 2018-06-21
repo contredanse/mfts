@@ -3,9 +3,37 @@
  */
 
 .control-bar-ctn {
-    border: 1px solid white;
+    //border: 1px solid white;
     display: flex;
     flex-direction: column;
+    position: absolute;
+
+    margin: 0px 10px 0px 10px;
+    left: 0;
+    right: 0;
+    //top: 0;
+    bottom: 25px;
+    z-index: 100;
+
+    transition: all;
+    opacity: 0.7;
+
+    // by default
+    &--active {
+        //background-color: black;
+        opacity: 1;
+        //background: linear-gradient(to bottom, rgba(197,222,234, 0.1) 0%,rgba(138,187,215,0.5) 31%,rgba(6,109,171,1) 100%)
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.5) 31%, rgba(0, 0, 0, 1) 100%);
+    }
+
+    &--hidden {
+        //background-color: black;
+        opacity: 0;
+    }
+
+    &--mini {
+        //background-color: black;
+    }
 
     &__progress-time {
         font-family: Roboto, sans-serif;
@@ -17,6 +45,29 @@
         //background-color: white;
         //height: 60px;
         //width: 100%;
+    }
+
+    &__panel {
+        display: flex;
+        &__left {
+            flex: 1;
+            justify-content: flex-start;
+            align-items: left;
+            border: 1px dashed red;
+            display: flex;
+        }
+        &__center {
+            flex: auto;
+            align-items: center;
+            display: flex;
+        }
+        &__right {
+            flex: 1;
+            justify-content: flex-end;
+            align-items: right;
+            border: 1px dashed blue;
+            display: flex;
+        }
     }
 }
 

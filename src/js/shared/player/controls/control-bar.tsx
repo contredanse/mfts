@@ -1,4 +1,4 @@
-import React, { CSSProperties } from 'react';
+import React, { MouseEvent } from 'react';
 import './control-bar.scss';
 import PlayButton from '@src/shared/player/controls/play-button';
 import PauseButton from '@src/shared/player/controls/pause-button';
@@ -19,6 +19,9 @@ export type MediaPlayerControlBarProps = {
 export type MediaPlayerControlbarState = {
     currentTime: number;
     bufferTime: number;
+    isActive: boolean;
+    isPlaying: boolean;
+    intervalWhilePlaying: number;
 };
 
 export default class ControlBar extends React.Component<MediaPlayerControlBarProps, MediaPlayerControlbarState> {
@@ -32,8 +35,11 @@ export default class ControlBar extends React.Component<MediaPlayerControlBarPro
     constructor(props: MediaPlayerControlBarProps) {
         super(props);
         this.state = {
+            isActive: true,
+            isPlaying: false,
             currentTime: 0,
             bufferTime: 0,
+            intervalWhilePlaying: 0,
         };
     }
 
@@ -43,6 +49,22 @@ export default class ControlBar extends React.Component<MediaPlayerControlBarPro
             this.registerVideoListeners(this.props.videoEl);
             //this.progressBar = withVideoState(NewProgressBar);
         }
+
+        /**
+        // to handle autoHide
+        this.interval = window.setInterval(() => {
+            this.setState(
+                (prevState: MediaPlayerControlbarState): MediaPlayerControlbarState => {
+
+                    return {
+                        ...prevState,
+                        currentTime: this.props.videoEl.currentTime,
+                        bufferedTime: this.getSecondsLoaded(),
+                    };
+                }
+            );
+        }, this.props.progressInterval);
+        */
     }
 
     componentDidUpdate(prevProps: MediaPlayerControlBarProps, prevState: MediaPlayerControlbarState): void {
@@ -59,7 +81,21 @@ export default class ControlBar extends React.Component<MediaPlayerControlBarPro
             this.unregisterVideoListeners(this.props.videoEl);
             this.listenersRegistered = false;
         }
+
+        // to handle autoHide: clearInterval(this.interval);
     }
+
+    handleEnableHover = (e: MouseEvent<HTMLDivElement>): void => {
+        this.setState({
+            isActive: true,
+        });
+    };
+
+    handleDisableHover = (e: MouseEvent<HTMLDivElement>): void => {
+        this.setState({
+            isActive: false,
+        });
+    };
 
     render() {
         const props = this.props;
@@ -67,8 +103,14 @@ export default class ControlBar extends React.Component<MediaPlayerControlBarPro
             border: '3px solid yellow',
         };
 
+        const { isActive } = this.state;
+
         return (
-            <div className="control-bar-ctn">
+            <div
+                className={'control-bar-ctn' + (isActive ? ' control-bar-ctn--active' : '')}
+                onMouseOver={this.handleEnableHover}
+                onMouseOut={this.handleDisableHover}
+            >
                 <div className="control-bar-ctn__progress-time">
                     {this.formatMilliseconds(this.state.currentTime)}/{this.formatMilliseconds(props.duration)}
                 </div>
@@ -92,13 +134,13 @@ export default class ControlBar extends React.Component<MediaPlayerControlBarPro
                 </div>
                 */}
 
-                <div className="">
-                    <div className="">
+                <div className="control-bar-ctn__panel">
+                    <div className="control-bar-ctn__panel__left">
                         <PrevButton isEnabled={false} />
                         <PlayButton isEnabled={true} onClick={this.play} style={props.isPlaying ? activeStyle : {}} />
                         <PauseButton isEnabled={true} onClick={this.pause} style={props.isPlaying ? {} : activeStyle} />
                     </div>
-                    <div className="">
+                    <div className="control-bar-ctn__panel__right">
                         <div className="control-bar__select">
                             <select
                                 onChange={(e: React.SyntheticEvent<HTMLSelectElement>) => {

@@ -132,8 +132,6 @@ export class ProgressBar extends Component<ProgressBarProps, ProgressBarState> {
             childrenStyles,
         } = this.props;
 
-        console.log('bufferedTime', bufferedTime);
-
         const { currentIntent } = this.state;
 
         const progressPercent = Math.min(100, (100 * currentTime) / duration);

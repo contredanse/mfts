@@ -169,7 +169,8 @@ $header-section-height: 20px;
     .page-footer {
         //height: auto;
         //grid-area: footer;
-        padding: 0.75em;
+        position: relative;
+        //padding: 0.75em;
         //padding: 0;
     }
 }
