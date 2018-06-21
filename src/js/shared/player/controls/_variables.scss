@@ -9,32 +9,38 @@ $green: #72d687;
  * Buttons
  */
 
-$icon-size: 15px;
+$button-icon-size: 15px;
 
 // $color-hover: saturate(lighten($green, 10%), 20%);
 // $color-active: desaturate(darken($green, 20%), 20%);
 
-$color-hover: desaturate(darken($green, 20%), 10%);
-$color-active: fade-out($color-hover, 0.5);
+$button-color-hover: desaturate(darken($green, 20%), 10%);
+$button-color-active: fade-out($button-color-hover, 0.5);
+
+$button-background: white;
+$button-border: 2px solid yellow;
+
+$button-icon-fill-color: yellow;
 
 /**
  * Progress-bar
  */
 
-// Base colors
+$control-bar-default-track-radius: 0px;
 
-$shade-10: #2c3e50 !default;
-$shade-1: #d7dcdf !default;
-$shade-0: #fff !default;
-$teal: #1abc9c !default;
+$control-progressbar-track-radius: $control-bar-default-track-radius;
+$control-progressbar-value-radius: $control-bar-default-track-radius;
+$control-progressbar-buffered-radius: $control-bar-default-track-radius;
+//$control-progressbar-buffered-track-color: rgba(120, 120, 150, 0.9);
+$control-progressbar-buffered-track-color: rgba(255, 255, 255, 0.9);
 
-// Progress bar
+//$control-progressbar-played-track-color: rgba(212, 205, 10, 0.9);
+$control-progressbar-played-track-color: rgba(255, 255, 0, 0.9);
+$control-progressbar-unplayed-track-color: #999;
 
-$control-progressbar-width: 100%;
+$control-progressbar-handle-color: rgba(255, 255, 0, 1);
 
-$control-progressbar-handle-color: $shade-10 !default;
-$control-progressbar-handle-color-hover: $teal !default;
-$control-progressbar-handle-size: 20px !default;
-
-$control-progressbar-track-color: $shade-1 !default;
-$control-progressbar-track-height: 10px !default;
+$control-progressbar-height: 5px;
+$control-progressbar-handle-size: 16px;
+$control-progressbar-track-margin: 5px 0 5px 0;
+$control-progressbar-handle-margin: -6px 0 0 -8px; // must change if height change

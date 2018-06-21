@@ -1,6 +1,5 @@
 import React, { CSSProperties } from 'react';
 import './control-bar.scss';
-import { ProgressBar } from '@src/shared/player/controls/progress-bar';
 import PlayButton from '@src/shared/player/controls/play-button';
 import PauseButton from '@src/shared/player/controls/pause-button';
 import PrevButton from '@src/shared/player/controls/prev-button';
@@ -10,7 +9,7 @@ import {
     default as NewProgressBar,
     ProgressBarChildClasses,
     ProgressBarChildrenStyles,
-} from '@src/shared/player/controls/progressbar';
+} from '@src/shared/player/controls/progress-bar';
 
 export type MediaPlayerControlBarProps = {
     videoEl?: HTMLVideoElement;

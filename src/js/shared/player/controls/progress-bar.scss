@@ -1,106 +1,163 @@
 @import '_variables.scss';
 
-.control-progressbar-slider {
-    width: $control-progressbar-width;
+//
+// Sliders
+//
 
-    &__range {
-        -webkit-appearance: none;
+.ProgressBar,
+.VolumeSlider {
+    position: relative;
+    background: $control-progressbar-unplayed-track-color;
+    border-radius: $control-progressbar-track-radius;
+
+    &-elapsed,
+    &-value {
+        background: $gray;
+        border-radius: $control-progressbar-value-radius;
+    }
+
+    &-seek {
+        position: absolute;
+        cursor: pointer;
+    }
+
+    &-handle {
+        position: absolute;
+        width: $control-progressbar-handle-size;
+        height: $control-progressbar-handle-size;
+        background: $control-progressbar-handle-color;
+        border-radius: 100%;
+        transform: scale(0);
+        transition: transform 0.2s;
+    }
+
+    &.isSeekable,
+    &.isEnabled {
+        &:hover {
+            .ProgressBar-handle,
+            .VolumeSlider-handle {
+                transform: scale(1);
+            }
+
+            .ProgressBar-intent,
+            .VolumeSlider-intent {
+                position: absolute;
+                background: rgba(0, 0, 0, 0.1);
+            }
+        }
+
+        .ProgressBar-elapsed,
+        .VolumeSlider-value {
+            background: $control-progressbar-played-track-color;
+        }
+    }
+}
+
+.ProgressBar {
+    height: $control-progressbar-height;
+    margin: $control-progressbar-track-margin;
+
+    &-elapsed {
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    &-buffered {
+        height: 100%;
+        border-radius: $control-progressbar-buffered-radius;
+        background: $control-progressbar-buffered-track-color;
+    }
+
+    &-seek {
+        top: -6px;
+        right: 0;
+        bottom: -6px;
+        left: 0;
+    }
+
+    &-handle {
+        top: 0;
+        margin: $control-progressbar-handle-margin;
+    }
+
+    &.isSeekable {
+        &:hover {
+            .ProgressBar-handle {
+                transform: scale(1);
+            }
+
+            .ProgressBar-intent {
+                top: 0;
+                left: 0;
+                height: 100%;
+            }
+        }
+    }
+
+    &.isLoading {
+        opacity: 0.5;
+        background: #ccc;
+        animation: barLoading 2s infinite;
+    }
+}
+
+.VolumeSlider {
+    // margin: 10px 0;
+
+    &-value {
+        position: absolute;
+    }
+
+    &.isHorizontal {
+        width: 100px;
+        height: 8px;
+        transition: width 0.3s, height 0.05s;
+    }
+
+    &.isHorizontal &-value {
+        height: 100%;
+        left: 0;
+    }
+
+    &.isHorizontal &-handle {
+        margin: -4px 0 0 -8px;
+    }
+
+    &.isVertical {
+        width: 8px;
+        height: 100px;
+        transition: width 0.05s, height 0.3s;
+    }
+
+    &.isVertical &-value {
+        bottom: 0;
         width: 100%;
-        height: $control-progressbar-track-height;
-        border-radius: 5px;
-        background: $control-progressbar-track-color;
-        outline: none;
-        padding: 0;
-        margin: 0;
+    }
 
-        // Range Handle
+    &.isVertical &-handle {
+        left: 0;
+        margin: 0 0 -8px -4px;
+    }
 
-        // Track in webkit is not necessary here
-        /*
-        &::-webkit-slider-runnable-track {
-            -webkit-appearance: none;
-            width: 100%;
-            height: $control-progressbar-track-height;
-            border-radius: 5px;
-            background: $control-progressbar-track-color;
-            outline: none;
-            padding: 0;
-            margin: 0;
-        }*/
+    &-seek {
+        left: -6px;
+        top: 0;
+        right: -6px;
+        bottom: 0;
+    }
 
-        // MS
-
-        &::-ms-track {
-            background: $control-progressbar-track-color;
-            border: 0;
-        }
-
-        // Firefox
-        &::-moz-range-track {
-            background: $control-progressbar-track-color;
-            border: 0;
-        }
-
-        &::-moz-focus-inner {
-            border: 0;
-        }
-        &::-moz-focus-outer {
-            border: 0;
-        }
-
-        &::-ms-thumb {
-            width: $control-progressbar-handle-size;
-            height: $control-progressbar-handle-size;
-            border: 0;
-            border-radius: 50%;
-            background: $control-progressbar-handle-color;
-            cursor: pointer;
-            transition: background 0.15s ease-in-out;
-            &:hover {
-                background: $control-progressbar-handle-color-hover;
+    &.isEnabled {
+        &:hover {
+            .VolumeSlider-handle {
+                transform: scale(1);
             }
-        }
 
-        &::-moz-range-thumb {
-            width: $control-progressbar-handle-size;
-            height: $control-progressbar-handle-size;
-            border: 0;
-            border-radius: 50%;
-            background: $control-progressbar-handle-color;
-            cursor: pointer;
-            transition: background 0.15s ease-in-out;
-            &:hover {
-                background: $control-progressbar-handle-color-hover;
-            }
-        }
-
-        &:active::-moz-range-thumb {
-            background: $control-progressbar-handle-color-hover;
-        }
-
-        &::-webkit-slider-thumb {
-            appearance: none;
-            -webkit-appearance: none;
-            width: $control-progressbar-handle-size;
-            height: $control-progressbar-handle-size;
-            border-radius: 50%;
-            background: $control-progressbar-handle-color;
-            cursor: pointer;
-            transition: background 0.15s ease-in-out;
-
-            &:hover {
-                background: $control-progressbar-handle-color-hover;
-            }
-        }
-
-        &:active::-webkit-slider-thumb {
-            background: $control-progressbar-handle-color-hover;
-        }
-
-        // Focus state
-        &:focus {
-            &::-webkit-slider-thumb {
-                box-shadow: 0 0 0 3px $shade-0, 0 0 0 6px $teal;
+            .VolumeSlider-intent {
+                bottom: 0;
+                left: 0;
+                width: 100%;
             }
         }
     }

@@ -11,8 +11,8 @@
 .SoundOffButton {
     margin: 0;
     padding: 8px;
-    background: $white;
-    border: 2px solid $teal;
+    background: $button-background;
+    border: $button-border;
     border-radius: 100%;
     outline: none;
 
@@ -24,18 +24,18 @@
         cursor: pointer;
 
         &:hover {
-            border-color: $color-hover;
+            border-color: $button-color-hover;
 
             .Icon-shape {
-                fill: $color-hover;
+                fill: $button-color-hover;
             }
         }
 
         &:active {
-            border-color: $color-active;
+            border-color: $button-color-active;
 
             .Icon-shape {
-                fill: $color-active;
+                fill: $button-color-active;
             }
         }
     }
@@ -43,10 +43,10 @@
 
 .Icon {
     display: block;
-    width: $icon-size;
-    height: $icon-size;
+    width: $button-icon-size;
+    height: $button-icon-size;
 }
 
 .Icon-shape {
-    fill: $teal;
+    fill: $button-icon-fill-color;
 }
