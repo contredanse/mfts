@@ -4,10 +4,12 @@ import './page.scss';
 import PageEntity from '@src/models/entity/page-entity';
 
 import ControlBar from '@src/shared/player/controls/control-bar';
-import PageVideoGroup from '@src/components/page-video-group';
+import PanelMultiVideo from '@src/components/panel-multi-video';
 import AudioPlayer from '@src/components/player/audio-player';
 import VideoPlayer from '@src/components/player/video-player';
 import { PlayerActions } from '@src/shared/player/player';
+import VideoSourceEntity, { VideoSourceEntityFactory } from '@src/models/entity/video-source-entity';
+import { IJsonVideoTrack } from '@data/json/data-videos';
 
 export type PlaybackState = {
     currentTime: number;
@@ -61,21 +63,23 @@ export default class Page extends React.Component<PageProps, PageState> {
     render() {
         const { pageEntity: page } = this.props;
 
-        const videos = page.getVideos(this.props.lang);
-        const audio = page.getAudioEntity();
+        const countVideos = page.countVideos();
+        const multiVideoLayout = countVideos > 1;
 
-        // Warning this is an hack...
-        // - audio/mp3 works on desktops but not on mobile
-        // - video/mp4 works on desktops
-        const audioMimeType = 'video/mp4';
+        const videos = page.getVideos(this.props.lang);
+
+        for (const video of videos) {
+        }
+
+        const audio = page.getAudioEntity();
 
         return (
             <div className="page-container">
                 <div className="page-header">Page: {page.pageId}</div>
                 <div className="page-content">
-                    {page.countVideos() > 1 ? (
+                    {multiVideoLayout ? (
                         <div className="page-multi-video-layout">
-                            <PageVideoGroup
+                            <PanelMultiVideo
                                 videos={videos}
                                 pageEntity={page}
                                 playbackState={{
@@ -85,7 +89,7 @@ export default class Page extends React.Component<PageProps, PageState> {
                             />
 
                             {audio && (
-                                <div className="page-audio-subs">
+                                <div className="panel-audio-subs">
                                     <AudioPlayer
                                         ref={this.audioPlayer}
                                         activeSubtitleLang={this.props.lang}
@@ -116,12 +120,6 @@ export default class Page extends React.Component<PageProps, PageState> {
                     ) : (
                         <div className="page-single-video-layout">
                             <div className="autoscale-video-container">
-                                {/*
-                                <div className="autoscale-video-wrapper autoscale-video-content">
-                                    <video src={player.getFirstVideo()!.getSources()[0].getSource()}
-                                           controls />
-                                </div>
-                                */}
                                 <VideoPlayer
                                     ref={this.playerRef}
                                     className="autoscale-video-wrapper autoscale-video-content"
@@ -150,32 +148,6 @@ export default class Page extends React.Component<PageProps, PageState> {
                                     height="100%"
                                 />
                             </div>
-
-                            {/*
-                            <PageVideoPlayer
-                                className="autoscale-video-wrapper autoscale-video-content"
-                                ref={this.playerRef}
-                                video={player.getFirstVideo()!}
-                                playing={this.state.playbackState.isPlaying}
-                                onPlay={() => {
-                                    this.updatePlaybackState({
-                                        isPlaying: true,
-                                    });
-                                }}
-                                onPause={() => {
-                                    this.updatePlaybackState({
-                                        isPlaying: false,
-                                    });
-                                }}
-                                onDuration={(duration: number) => {
-                                    this.updatePlaybackState({
-                                        duration: duration,
-                                    });
-                                }}
-                                width="auto"
-                                height="auto"
-                            />
-                            */}
                         </div>
                     )}
                 </div>

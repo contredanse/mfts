@@ -59,98 +59,26 @@ $header-section-height: 20px;
         flex: auto;
         text-align: center;
         display: flex;
-        //align-items: center;
         justify-content: center;
-        background-color: black;
 
         .page-multi-video-layout {
             flex: auto;
             display: grid;
+
             grid-template-areas:
-                'video-wall'
-                'audio-subs';
+                'multi-video-band'
+                'audio-subs-band';
             grid-template-rows: 1fr 15%;
 
-            .page-video-wall {
-                position: relative;
-                grid-area: video-wall;
-                display: flex;
-                flex-direction: row;
-                //align-items: center;
-
-                .loading-overlay {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    background-color: #1abc9c;
-                    //background-color: black;
-                    opacity: 0.2;
-                }
-
-                // hack to vertically center the videos without
-                // sacrifying
-                //.vertical-wrapper {
-                margin-left: 10px;
-                margin-right: 10px;
-                //display: flex;
-                //flex: 1;
-
-                //height: 200px;
-                border: 5px solid green;
-                //justify-content: center;
-                align-items: center;
-                //margin: 0 -5px; // simulate grid-gap
-
-                .autoscale-video-container {
-                    height: auto; // Fix height !!!
-                    margin: 0 5px; // simulate grid-gap
-                    //border: 1px solid blue;
-                    flex: 1 1 100%; //flex-basis: 100%; to prevent flickering when adjusting size on load
-                    display: flex;
-                    align-items: center;
-
-                    .clickable-video > video {
-                        border: 1px solid yellow;
-                        //filter: drop-shadow(0 1px .15rem yellow)
-                        //box-shadow: 0 1px 2px yellow;
-                        &:hover {
-                            // drop-shadow(0 0 0.40rem yellow);
-                            cursor: pointer;
-                            box-shadow: 0 1px 4px yellow;
-                            filter: contrast(115%);
-                        }
-                    }
-
-                    .autoscale-video-wrapper {
-                        //flex: 1 1 auto;
-                        //border: 1px solid red;
-                        position: relative;
-                        //padding-top: 75.25%;
-
-                        video {
-                            position: relative;
-                            //border: 1px solid white;
-                            //top: 0;
-                            //left: 0;
-                            width: 100%;
-                            height: auto;
-
-                            // We override relative/absolute position
-                            //position: relative;
-
-                            //transition: 700ms filter ease-in-out;
-                            //border: 1px solid yellow;
-                            //display: none;
-                        }
-                    }
-                }
-                //}
+            > .panel-multi-video {
+                grid-area: multi-video-band;
             }
 
-            .page-audio-subs {
-                grid-area: audio-subs;
+            > .panel-audio-subs {
+                grid-area: audio-subs-band;
+            }
+
+            .panel-audio-subs {
                 max-height: 100%;
                 video {
                     object-fit: initial;
@@ -170,7 +98,7 @@ $header-section-height: 20px;
         //height: auto;
         //grid-area: footer;
         position: relative;
-        //padding: 0.75em;
+        padding: 0.75em;
         //padding: 0;
     }
 }
