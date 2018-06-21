@@ -1,10 +1,24 @@
 @import '_variables.scss';
 
 $control-bar-radius: 0px;
+
 $control-progressbar-track-radius: $control-bar-radius;
 $control-progressbar-value-radius: $control-bar-radius;
 $control-progressbar-buffered-radius: $control-bar-radius;
-$control-progressbar-buffered-track-color: rgba(120, 120, 150, 0.9);
+//$control-progressbar-buffered-track-color: rgba(120, 120, 150, 0.9);
+$control-progressbar-buffered-track-color: rgba(255, 255, 255, 0.9);
+
+//$control-progressbar-played-track-color: rgba(212, 205, 10, 0.9);
+$control-progressbar-played-track-color: rgba(255, 255, 0, 0.9);
+$control-progressbar-unplayed-track-color: #999;
+
+$control-progressbar-handle-color: rgba(255, 255, 0, 1);
+
+$control-progressbar-height: 5px;
+$control-progressbar-handle-size: 16px;
+$control-progressbar-track-margin: 5px 0 5px 0;
+$control-progressbar-handle-margin: -6px 0 0 -8px; // must change if height change
+
 //
 // Sliders
 //
@@ -12,7 +26,7 @@ $control-progressbar-buffered-track-color: rgba(120, 120, 150, 0.9);
 .ProgressBar,
 .VolumeSlider {
     position: relative;
-    background: #eee;
+    background: $control-progressbar-unplayed-track-color;
     border-radius: $control-progressbar-track-radius;
 
     &-elapsed,
@@ -28,9 +42,9 @@ $control-progressbar-buffered-track-color: rgba(120, 120, 150, 0.9);
 
     &-handle {
         position: absolute;
-        width: 16px;
-        height: 16px;
-        background: $green;
+        width: $control-progressbar-handle-size;
+        height: $control-progressbar-handle-size;
+        background: $control-progressbar-handle-color;
         border-radius: 100%;
         transform: scale(0);
         transition: transform 0.2s;
@@ -53,14 +67,14 @@ $control-progressbar-buffered-track-color: rgba(120, 120, 150, 0.9);
 
         .ProgressBar-elapsed,
         .VolumeSlider-value {
-            background: $green;
+            background: $control-progressbar-played-track-color;
         }
     }
 }
 
 .ProgressBar {
-    height: 8px;
-    margin: 10px 0;
+    height: $control-progressbar-height;
+    margin: $control-progressbar-track-margin;
 
     &-elapsed {
         height: 100%;
@@ -84,7 +98,7 @@ $control-progressbar-buffered-track-color: rgba(120, 120, 150, 0.9);
 
     &-handle {
         top: 0;
-        margin: -4px 0 0 -8px;
+        margin: $control-progressbar-handle-margin;
     }
 
     &.isSeekable {
