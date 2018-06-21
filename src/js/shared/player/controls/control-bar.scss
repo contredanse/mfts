@@ -2,7 +2,9 @@
  * (WIP) for controlbar
  */
 
-.control-bar {
+.control-bar-container {
+    border: 1px solid white;
+    /*
     display: flex;
     flex-direction: row;
     justify-items: center;
@@ -24,7 +26,7 @@
             margin-right: 10px;
         }
     }
-
+    */
     &__button {
     }
 
@@ -35,25 +37,10 @@
         width: 120px;
     }
 
-    &__new-progress-bar {
+    &__progress-bar {
         //background-color: white;
         //height: 60px;
         //width: 100%;
-    }
-
-    &__progress-bar {
-        /*this will push aside the other flex-items and the progressbar takes the remaining space!*/
-        margin-left: auto;
-        margin-right: auto;
-        width: 100%;
-
-        /* vertically center the progressbar */
-        display: flex;
-        align-items: center;
-
-        div {
-            margin-left: 10px;
-        }
     }
 }
 

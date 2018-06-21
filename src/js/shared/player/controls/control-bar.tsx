@@ -5,11 +5,7 @@ import PauseButton from '@src/shared/player/controls/pause-button';
 import PrevButton from '@src/shared/player/controls/prev-button';
 import NextButton from '@src/shared/player/controls/next-button';
 import { PlayerActions } from '@src/shared/player/player';
-import {
-    default as NewProgressBar,
-    ProgressBarChildClasses,
-    ProgressBarChildrenStyles,
-} from '@src/shared/player/controls/progress-bar';
+import { default as ProgressBar } from '@src/shared/player/controls/progress-bar';
 
 export type MediaPlayerControlBarProps = {
     videoEl?: HTMLVideoElement;
@@ -71,23 +67,13 @@ export default class ControlBar extends React.Component<MediaPlayerControlBarPro
             border: '3px solid yellow',
         };
 
-        /*
-        const PB = withVideoState(({currentTime, duration, bufferedTime}) => {
-            return (
-                <NewProgressBar currentTime={currentTime} ={duration} onSeek={}/>
-            )
-        });*/
-
-        //const PB = withVideoState(NewProgressBar);
-        //const PB = this.progressBar;
-
         return (
-            <div>
-                <div className="control-bar__new-progress-bar">
+            <div className="control-bar-container">
+                <div className="control-bar-container__progress-bar">
                     {props.videoEl && (
-                        <NewProgressBar
+                        <ProgressBar
                             videoEl={props.videoEl}
-                            progressInterval={750}
+                            progressInterval={650}
                             isSeekable={true}
                             onSeek={this.seekTo}
                             onSeekEnd={() => {}}
