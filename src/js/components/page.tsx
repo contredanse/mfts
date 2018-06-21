@@ -8,8 +8,6 @@ import PanelMultiVideo from '@src/components/panel-multi-video';
 import AudioPlayer from '@src/components/player/audio-player';
 import VideoPlayer from '@src/components/player/video-player';
 import { PlayerActions } from '@src/shared/player/player';
-import VideoSourceEntity, { VideoSourceEntityFactory } from '@src/models/entity/video-source-entity';
-import { IJsonVideoTrack } from '@data/json/data-videos';
 
 export type PlaybackState = {
     currentTime: number;
