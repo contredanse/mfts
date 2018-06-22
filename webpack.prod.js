@@ -16,7 +16,7 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const StatsWriterPlugin = require('webpack-stats-plugin').StatsWriterPlugin;
 
 // Don't forget: no ending slashes - it's used in registerServiceWorker.ts too
-const PUBLIC_URL = 'https://paxton.soluble.io';
+const PUBLIC_URL = 'https://preview.materialforthespine.com';
 
 const extractSass = new MiniCssExtractPlugin({
     filename: 'static/css/style.[contenthash:8].css',
