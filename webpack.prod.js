@@ -13,6 +13,8 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
+const BrotliPlugin = require('brotli-webpack-plugin');
+
 const StatsWriterPlugin = require('webpack-stats-plugin').StatsWriterPlugin;
 
 // Don't forget: no ending slashes - it's used in registerServiceWorker.ts too
@@ -325,6 +327,12 @@ module.exports = merge(common, {
         new CompressionPlugin({
             test: /\.(js|css|svg)$/,
         }),
+
+        new BrotliPlugin({
+            asset: '[path].br[query]',
+            test: /\.(js|css|svg)$/,
+        }),
+
         /*
         new StatsWriterPlugin({
             filename: '.webpack-stats.json'
