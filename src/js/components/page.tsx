@@ -8,6 +8,7 @@ import PanelMultiVideo from '@src/components/panel-multi-video';
 import AudioPlayer from '@src/components/player/audio-player';
 import VideoPlayer from '@src/components/player/video-player';
 import { PlayerActions } from '@src/shared/player/player';
+import ControlBarOverlay from '@src/shared/player/controls/control-bar-overlay';
 
 export type PlaybackState = {
     currentTime: number;
@@ -74,6 +75,7 @@ export default class Page extends React.Component<PageProps, PageState> {
         return (
             <div className="page-container">
                 <div className="page-header">Page: {page.pageId}</div>
+
                 <div className="page-content">
                     {multiVideoLayout ? (
                         <div className="page-multi-video-layout">
@@ -150,16 +152,19 @@ export default class Page extends React.Component<PageProps, PageState> {
                         </div>
                     )}
                 </div>
+                {/*
                 <div className="page-footer">
-                    <ControlBar
-                        {...(this.getMainPlayerVideoElement() ? { videoEl: this.getMainPlayerVideoElement()! } : {})}
-                        actions={this.mediaPlayerActions}
-                        duration={this.state.playbackState.duration}
-                        currentTime={this.state.playbackState.currentTime}
-                        isPlaying={this.state.playbackState.isPlaying}
-                        playbackRate={this.state.playbackState.playbackRate}
-                    />
                 </div>
+                */}
+
+                <ControlBar
+                    {...(this.getMainPlayerVideoElement() ? { videoEl: this.getMainPlayerVideoElement()! } : {})}
+                    actions={this.mediaPlayerActions}
+                    duration={this.state.playbackState.duration}
+                    currentTime={this.state.playbackState.currentTime}
+                    isPlaying={this.state.playbackState.isPlaying}
+                    playbackRate={this.state.playbackState.playbackRate}
+                />
             </div>
         );
     }

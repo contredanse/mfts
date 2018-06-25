@@ -6,6 +6,17 @@ import PrevButton from '@src/shared/player/controls/prev-button';
 import NextButton from '@src/shared/player/controls/next-button';
 import { PlayerActions } from '@src/shared/player/player';
 import { default as ProgressBar } from '@src/shared/player/controls/progress-bar';
+import SoundOffButton from '@src/shared/player/controls/sound-off-button';
+import SoundOnButton from '@src/shared/player/controls/sound-on-button';
+
+import {
+    Menu as MenuIcon,
+    Replay as ReplayIcon,
+    VolumeOff as VolumeOffIcon,
+    VolumeMute as VolumeOnIcon,
+    PauseCircleFilled as PauseIcon,
+    PlayCircleOutline as PlayIcon,
+} from '@material-ui/icons';
 
 export type MediaPlayerControlBarProps = {
     videoEl?: HTMLVideoElement;
@@ -26,7 +37,7 @@ export type MediaPlayerControlbarState = {
     intervalWhilePlaying: number;
 };
 
-export default class ControlBar extends React.Component<MediaPlayerControlBarProps, MediaPlayerControlbarState> {
+export class ControlBar extends React.Component<MediaPlayerControlBarProps, MediaPlayerControlbarState> {
     static readonly defaultProps: Partial<MediaPlayerControlBarProps> = {
         enableBrowseControl: false,
         enableSpeedControl: true,
@@ -54,23 +65,8 @@ export default class ControlBar extends React.Component<MediaPlayerControlBarPro
         // If videoEl is initially available, let's register listeners at mount
         if (this.props.videoEl) {
             this.registerVideoListeners(this.props.videoEl);
-            //this.progressBar = withVideoState(NewProgressBar);
+            //this.progressBar = withVideoProgress(NewProgressBar);
         }
-
-        /*
-        this.interval = window.setInterval(() => {
-            this.setState(
-                (prevState: MediaPlayerControlbarState): MediaPlayerControlbarState => {
-
-                    return {
-                        ...prevState,
-                        currentTime: this.props.videoEl.currentTime,
-                        bufferedTime: this.getSecondsLoaded(),
-                    };
-                }
-            );
-        }, this.props.progressInterval);
-        */
     }
 
     componentDidUpdate(prevProps: MediaPlayerControlBarProps, prevState: MediaPlayerControlbarState): void {
@@ -114,59 +110,60 @@ export default class ControlBar extends React.Component<MediaPlayerControlBarPro
 
         return (
             <div
-                className={'control-bar-ctn' + (isActive ? ' control-bar-ctn--active' : '')}
+                className={'control-bar-overlay' + (isActive ? ' control-bar-overlay--active' : '')}
                 onMouseOver={this.handleEnableHover}
                 onMouseOut={this.handleDisableHover}
             >
-                <div className="control-bar-ctn__progress-time">
-                    {this.formatMilliseconds(this.state.currentTime)}/{this.formatMilliseconds(duration)}
-                </div>
+                <div className="control-bar-overlay-top" />
+                <div className="control-bar-overlay-middle" />
+                <div className="control-bar-overlay-bottom">
+                    <div className={'control-bar-ctn'}>
+                        <div className="control-bar-ctn__progress-bar">
+                            {videoEl && (
+                                <ProgressBar
+                                    videoEl={videoEl}
+                                    progressInterval={650}
+                                    isSeekable={true}
+                                    onSeek={this.seekTo}
+                                />
+                            )}
+                        </div>
 
-                <div className="control-bar-ctn__progress-bar">
-                    {videoEl && (
-                        <ProgressBar
-                            videoEl={videoEl}
-                            progressInterval={650}
-                            isSeekable={true}
-                            onSeek={this.seekTo}
-                            onSeekEnd={() => {}}
-                            onSeekStart={() => {}}
-                            onIntent={() => {}}
-                        />
-                    )}
-                </div>
-                {/*
-                <div className="control-bar__progress-bar">
-                    <ProgressBar currentTime={this.state.currentTime} duration={props.duration} onSeek={this.seekTo} />
-                </div>
-                */}
-
-                <div className="control-bar-ctn__panel">
-                    <div className="control-bar-ctn__panel__left">
-                        <PrevButton isEnabled={false} />
-                        <PlayButton isEnabled={true} onClick={this.play} style={props.isPlaying ? activeStyle : {}} />
-                        <PauseButton isEnabled={true} onClick={this.pause} style={props.isPlaying ? {} : activeStyle} />
-                    </div>
-
-                    <div className="control-bar-ctn__panel__right">
-                        {props.enableSpeedControl && (
-                            <div className="control-bar__select">
-                                <select
-                                    onChange={(e: React.SyntheticEvent<HTMLSelectElement>) => {
-                                        //console.log('onchange', e.currentTarget.value);
-                                        props.actions.setPlaybackRate(parseFloat(e.currentTarget.value));
-                                    }}
-                                >
-                                    <option value="2">2</option>
-                                    <option value="1">1</option>
-                                    <option value="0.5">0.5</option>
-                                    <option value="0.25">0.25</option>
-                                    <option value="0.10">0.10</option>
-                                </select>
+                        <div className="control-bar-ctn__panel">
+                            <div className="control-bar-ctn__panel__left">
+                                <PrevButton isEnabled={false} />
+                                {!props.isPlaying && <PlayButton isEnabled={true} onClick={this.play} />}
+                                {props.isPlaying && <PauseButton isEnabled={true} onClick={this.pause} />}
+                                <SoundOnButton isEnabled={true} onClick={this.unMute} />
+                                <SoundOffButton isEnabled={true} onClick={this.mute} />
+                                <ReplayIcon />
+                                <VolumeOffIcon />
+                                <VolumeOnIcon />
+                                <PlayIcon />
+                                <PauseIcon />
                             </div>
-                        )}
 
-                        <NextButton isEnabled={false} />
+                            <div className="control-bar-ctn__panel__right">
+                                {props.enableSpeedControl && (
+                                    <div className="control-bar__select">
+                                        <select
+                                            onChange={(e: React.SyntheticEvent<HTMLSelectElement>) => {
+                                                //console.log('onchange', e.currentTarget.value);
+                                                props.actions.setPlaybackRate(parseFloat(e.currentTarget.value));
+                                            }}
+                                        >
+                                            <option value="2">2</option>
+                                            <option value="1">1</option>
+                                            <option value="0.5">0.5</option>
+                                            <option value="0.25">0.25</option>
+                                            <option value="0.10">0.10</option>
+                                        </select>
+                                    </div>
+                                )}
+
+                                <NextButton isEnabled={false} />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -201,22 +198,8 @@ export default class ControlBar extends React.Component<MediaPlayerControlBarPro
         }
     };
 
-    protected formatMilliseconds(milli: number): string {
-        const d = Math.trunc(milli);
-        const h = Math.floor(d / 3600);
-        const m = Math.floor((d % 3600) / 60);
-        const s = Math.floor((d % 3600) % 60);
-        const minutes = m.toString().padStart(h > 0 ? 2 : 1, '0');
-        const seconds = s.toString().padStart(2, '0');
-        const hDisplay = h > 0 ? `${h}:` : '';
-        const mDisplay = m > 0 ? `${minutes}:` : `${'0'.padStart(m > 0 ? 2 : 1, '0')}:`;
-        const sDisplay = s > 0 ? `${seconds}` : '00';
-        return `${hDisplay}${mDisplay}${sDisplay}`;
-    }
-
     protected play = (): void => {
         const { videoEl } = this.props;
-
         if (videoEl) {
             const playPromise = videoEl.play();
 
@@ -237,6 +220,24 @@ export default class ControlBar extends React.Component<MediaPlayerControlBarPro
         }
 
         this.props.actions.play();
+    };
+
+    protected mute = (): void => {
+        const { videoEl } = this.props;
+        if (videoEl) {
+            videoEl.muted = true;
+        } else {
+            this.logWarning('Cannot mute video, videoEl have not been registered');
+        }
+    };
+
+    protected unMute = (): void => {
+        const { videoEl } = this.props;
+        if (videoEl) {
+            videoEl.muted = false;
+        } else {
+            this.logWarning('Cannot un-mute video, videoEl have not been registered');
+        }
     };
 
     protected pause = (): void => {
@@ -263,3 +264,6 @@ export default class ControlBar extends React.Component<MediaPlayerControlBarPro
         console.warn(`Controlbar: ${msg}`);
     }
 }
+
+//export default withVideoProgress(ControlBar);
+export default ControlBar;

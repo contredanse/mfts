@@ -1,7 +1,9 @@
 import React from 'react';
 
 import Button, { ButtonProps } from './button';
-import { PlayIcon } from '../icons/svg-icons';
+//import { PlayIcon } from '../icons/svg-icons';
+import { PlayCircleOutline as PlayIcon } from '@material-ui/icons';
+
 import './buttons.scss';
 
 class PlayButton extends Button {
@@ -9,6 +11,7 @@ class PlayButton extends Button {
         ...Button.defaultProps,
         className: 'PlayButton',
         children: <PlayIcon />,
+        //children: <PlayIcon />,
         isEnabled: false,
     };
 }

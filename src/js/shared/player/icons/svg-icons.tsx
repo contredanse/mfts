@@ -3,6 +3,7 @@ import React from 'react';
 /**
  * Play
  */
+
 export const PlayIcon = () => (
     <svg className="Icon PlayIcon" viewBox="0 0 100 100">
         <polygon className="Icon-shape" points="24 92 24 7 100 49.4955227" />

@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import './progress-bar.scss';
 
 import RangeControlOverlay from './range-control-overlay';
-import withVideoState from '@src/shared/player/controls/with-video-state';
+import withVideoProgress from '@src/shared/player/controls/with-video-progress';
 
 export type ProgressBarChildClasses = {
     elapsed?: string;
@@ -27,9 +27,9 @@ export type ProgressBarProps = {
     bufferedTime: number;
     isSeekable: boolean;
     onSeek: (time: number) => void;
-    onSeekStart: (time: number) => void;
-    onSeekEnd: (time: number) => void;
-    onIntent: (time: number) => void;
+    onSeekStart?: (time: number) => void;
+    onSeekEnd?: (time: number) => void;
+    onIntent?: (time: number) => void;
     className?: string;
     extraClasses?: string;
     childClasses?: ProgressBarChildClasses;
@@ -93,7 +93,7 @@ export class ProgressBar extends Component<ProgressBarProps, ProgressBarState> {
         const { isSeekable, onSeekStart, duration } = this.props;
 
         if (isSeekable) {
-            onSeekStart(relativeTime * duration);
+            onSeekStart!(relativeTime * duration);
         }
     };
 
@@ -101,7 +101,7 @@ export class ProgressBar extends Component<ProgressBarProps, ProgressBarState> {
         const { isSeekable, onSeekEnd, duration } = this.props;
 
         if (isSeekable) {
-            onSeekEnd(relativeTime * duration);
+            onSeekEnd!(relativeTime * duration);
         }
     };
 
@@ -115,7 +115,7 @@ export class ProgressBar extends Component<ProgressBarProps, ProgressBarState> {
         });
 
         if (isSeekable) {
-            onIntent(relativeTime * duration);
+            onIntent!(relativeTime * duration);
         }
     };
 
@@ -140,51 +140,70 @@ export class ProgressBar extends Component<ProgressBarProps, ProgressBarState> {
         const isRewindIntent = currentIntent !== 0 && currentIntent < currentTime / duration;
 
         return (
-            <div
-                className={classNames(className, extraClasses, {
-                    isSeekable,
-                    isRewindIntent,
-                })}
-                style={style}
-                ref={this.progressbarRef}
-            >
-                <div
-                    className={childClasses!.buffered || 'controls__progress-bar-buffered'}
-                    style={{
-                        width: `${Math.min(100, (100 * bufferedTime) / duration)}%`,
-                        ...(childrenStyles!.buffered || {}),
-                    }}
-                />
+            <>
+                <div>
+                    {this.formatMilliseconds(currentTime)} / {this.formatMilliseconds(duration)}
+                </div>
 
                 <div
-                    className={childClasses!.elapsed || 'controls__progress-bar-elapsed'}
-                    style={{ width: styleLeft, ...(childrenStyles!.elapsed || {}) }}
-                />
-
-                <div
-                    className={childClasses!.intent || 'controls__progress-bar-intent'}
-                    style={{ width: `${currentIntent * 100}%`, ...(childrenStyles!.intent || {}) }}
-                />
-
-                <div
-                    className={childClasses!.handle || 'controls__progress-bar-handle'}
-                    style={{ left: styleLeft, ...(childrenStyles!.handle || {}) }}
-                />
-
-                {isSeekable && (
-                    <RangeControlOverlay
-                        className={childClasses!.seek || 'controls__progress-bar-seek'}
-                        style={childrenStyles!.RangeControlOverlay}
-                        bounds={() => this.progressbarRef.current!.getBoundingClientRect()}
-                        onValue={this.handleSeek}
-                        onChangeStart={this.handleSeekStart}
-                        onChangeEnd={this.handleSeekEnd}
-                        onIntent={this.handleIntent}
+                    className={classNames(className, extraClasses, {
+                        isSeekable,
+                        isRewindIntent,
+                    })}
+                    style={style}
+                    ref={this.progressbarRef}
+                >
+                    <div
+                        className={childClasses!.buffered || 'controls__progress-bar-buffered'}
+                        style={{
+                            width: `${Math.min(100, (100 * bufferedTime) / duration)}%`,
+                            ...(childrenStyles!.buffered || {}),
+                        }}
                     />
-                )}
-            </div>
+
+                    <div
+                        className={childClasses!.elapsed || 'controls__progress-bar-elapsed'}
+                        style={{ width: styleLeft, ...(childrenStyles!.elapsed || {}) }}
+                    />
+
+                    <div
+                        className={childClasses!.intent || 'controls__progress-bar-intent'}
+                        style={{ width: `${currentIntent * 100}%`, ...(childrenStyles!.intent || {}) }}
+                    />
+
+                    <div
+                        className={childClasses!.handle || 'controls__progress-bar-handle'}
+                        style={{ left: styleLeft, ...(childrenStyles!.handle || {}) }}
+                    />
+
+                    {isSeekable && (
+                        <RangeControlOverlay
+                            className={childClasses!.seek || 'controls__progress-bar-seek'}
+                            style={childrenStyles!.RangeControlOverlay}
+                            bounds={() => this.progressbarRef.current!.getBoundingClientRect()}
+                            onValue={this.handleSeek}
+                            onChangeStart={this.handleSeekStart}
+                            onChangeEnd={this.handleSeekEnd}
+                            onIntent={this.handleIntent}
+                        />
+                    )}
+                </div>
+            </>
         );
+    }
+
+    protected formatMilliseconds(milli: number): string {
+        const d = Math.trunc(milli);
+        const h = Math.floor(d / 3600);
+        const m = Math.floor((d % 3600) / 60);
+        const s = Math.floor((d % 3600) % 60);
+        const minutes = m.toString().padStart(h > 0 ? 2 : 1, '0');
+        const seconds = s.toString().padStart(2, '0');
+        const hDisplay = h > 0 ? `${h}:` : '';
+        const mDisplay = m > 0 ? `${minutes}:` : `${'0'.padStart(m > 0 ? 2 : 1, '0')}:`;
+        const sDisplay = s > 0 ? `${seconds}` : '00';
+        return `${hDisplay}${mDisplay}${sDisplay}`;
     }
 }
 
-export default withVideoState(ProgressBar);
+export default withVideoProgress(ProgressBar);
