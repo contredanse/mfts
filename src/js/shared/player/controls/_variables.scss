@@ -9,18 +9,24 @@ $green: #72d687;
  * Buttons
  */
 
-$button-icon-size: 15px;
+$button-icon-size: 18px;
 
 // $color-hover: saturate(lighten($green, 10%), 20%);
 // $color-active: desaturate(darken($green, 20%), 20%);
 
 $button-color-hover: desaturate(darken($green, 20%), 10%);
-$button-color-active: fade-out($button-color-hover, 0.5);
+//$button-color-active: fade-out($button-color-hover, 0.5);
+$button-color-active: white;
 
-$button-background: white;
-$button-border: 2px solid yellow;
+$button-background: black;
 
-$button-icon-fill-color: yellow;
+$button-icon-fill-color: rgba(255, 255, 255, 1);
+
+//$button-border: 2px solid yellow;
+$button-border: 1px solid grey;
+
+$button-padding: 2px;
+$button-margin: 2px;
 
 /**
  * Progress-bar

@@ -9,11 +9,11 @@
 .NextButton,
 .SoundOnButton,
 .SoundOffButton {
-    margin: 0;
-    padding: 8px;
+    margin: $button-margin;
+    padding: $button-padding;
     background: $button-background;
     border: $button-border;
-    border-radius: 100%;
+    //border-radius: 100%;
     outline: none;
 
     &[disabled] {
