@@ -2,9 +2,12 @@ import React from 'react';
 import { Subtract } from 'utility-types';
 
 export type InjectedWithVideoProps = {
-    duration: number;
-    currentTime: number;
-    bufferedTime: number;
+    duration?: number;
+    currentTime?: number;
+    bufferedTime?: number;
+    muted?: boolean;
+    isPlaying?: boolean;
+    playbackRate?: number;
 };
 
 type WithVideoProps = {
@@ -16,12 +19,18 @@ type VideoState = {
     currentTime: number;
     duration: number;
     bufferedTime: number;
+    muted: boolean;
+    isPlaying: boolean;
+    playbackRate: number;
 };
 
 const defaultState: VideoState = {
     currentTime: 0,
     duration: Infinity,
     bufferedTime: 0,
+    muted: false,
+    isPlaying: false,
+    playbackRate: 1,
 };
 
 const withVideoState = <P extends InjectedWithVideoProps>(WrappedComponent: React.ComponentType<P>) => {
@@ -66,10 +75,14 @@ const withVideoState = <P extends InjectedWithVideoProps>(WrappedComponent: Reac
             this.interval = window.setInterval(() => {
                 this.setState(
                     (prevState: VideoState): VideoState => {
+                        const { videoEl } = this.props;
                         return {
                             ...prevState,
-                            currentTime: this.props.videoEl.currentTime,
+                            currentTime: videoEl.currentTime,
                             bufferedTime: this.getSecondsLoaded(),
+                            muted: videoEl.muted,
+                            isPlaying: !videoEl.paused,
+                            playbackRate: videoEl.playbackRate,
                         };
                     }
                 );
@@ -83,13 +96,17 @@ const withVideoState = <P extends InjectedWithVideoProps>(WrappedComponent: Reac
 
         render() {
             const { videoEl, progressInterval, ...componentProps } = this.props as WithVideoProps;
+            const { currentTime, duration, bufferedTime, muted, isPlaying, playbackRate } = this.state;
 
             return (
                 <WrappedComponent
                     {...componentProps}
-                    currentTime={this.state.currentTime}
-                    duration={this.state.duration}
-                    bufferedTime={this.state.bufferedTime}
+                    currentTime={currentTime}
+                    duration={duration}
+                    bufferedTime={bufferedTime}
+                    muted={muted}
+                    isPlaying={isPlaying}
+                    playbackRate={playbackRate}
                 />
             );
         }
