@@ -1,14 +1,15 @@
 import React from 'react';
 
 import Button, { ButtonProps } from './button';
-import { SoundOffIcon } from '../icons/svg-icons';
+import { VolumeOffIcon as SoundOffIcon } from 'mdi-react';
+
 import './buttons.scss';
 
 class SoundOffButton extends Button {
     static defaultProps: Partial<ButtonProps> = {
         ...Button.defaultProps,
         className: 'SoundOffButton',
-        children: <SoundOffIcon />,
+        children: <SoundOffIcon size="100%" />,
         isEnabled: false,
     };
 }

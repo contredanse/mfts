@@ -82,7 +82,14 @@
     }
 
     &__panel {
+        height: 50px;
         display: flex;
+
+        button {
+            width: 50px;
+            height: 40px;
+        }
+
         &__left {
             flex: 1;
             justify-content: flex-start;

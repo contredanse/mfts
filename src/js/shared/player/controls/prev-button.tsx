@@ -1,13 +1,13 @@
 import React from 'react';
 
 import Button, { ButtonProps } from './button';
-import { PreviousIcon } from '../icons/svg-icons';
+import { SkipPreviousIcon as PreviousIcon } from 'mdi-react';
 
 class PrevButton extends Button {
     static defaultProps: Partial<ButtonProps> = {
         ...Button.defaultProps,
         className: 'PrevButton',
-        children: <PreviousIcon />,
+        children: <PreviousIcon size="100%" />,
         isEnabled: false,
     };
 }

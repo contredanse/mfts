@@ -131,16 +131,11 @@ export class ControlBar extends React.Component<MediaPlayerControlBarProps, Medi
 
                         <div className="control-bar-ctn__panel">
                             <div className="control-bar-ctn__panel__left">
-                                <PrevButton isEnabled={false} />
                                 {!props.isPlaying && <PlayButton isEnabled={true} onClick={this.play} />}
                                 {props.isPlaying && <PauseButton isEnabled={true} onClick={this.pause} />}
+                                <PrevButton isEnabled={false} />
                                 <SoundOnButton isEnabled={true} onClick={this.unMute} />
                                 <SoundOffButton isEnabled={true} onClick={this.mute} />
-                                <ReplayIcon />
-                                <VolumeOffIcon />
-                                <VolumeOnIcon />
-                                <PlayIcon />
-                                <PauseIcon />
                             </div>
 
                             <div className="control-bar-ctn__panel__right">
