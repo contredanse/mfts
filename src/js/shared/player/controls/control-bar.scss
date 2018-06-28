@@ -71,7 +71,7 @@
 
     &__progress-time {
         font-family: Roboto, sans-serif;
-        font-size: 0.75em;
+        font-size: 0.65em;
         width: 120px;
     }
 
@@ -82,12 +82,12 @@
     }
 
     &__panel {
-        height: 50px;
+        height: 30px;
         display: flex;
 
         button {
-            width: 50px;
-            height: 40px;
+            width: 30px;
+            height: 30px;
         }
 
         &__left {

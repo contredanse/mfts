@@ -1,10 +1,7 @@
 .panel-multi-video {
     position: relative;
-
     display: flex;
     flex-direction: row;
-
-    //align-items: center;
 
     .loading-overlay {
         position: absolute;
@@ -33,7 +30,10 @@
 
     .autoscale-video-container {
         height: auto; // Fix height !!!
-        margin: 0 5px; // simulate grid-gap
+
+        // Simulate grid-gap
+        // margin: 0 5px;
+
         //border: 1px solid blue;
         flex: 1 1 100%; //flex-basis: 100%; to prevent flickering when adjusting size on load
         display: flex;

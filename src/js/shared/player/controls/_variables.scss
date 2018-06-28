@@ -22,7 +22,7 @@ $button-background: rgba(0, 0, 0, 0.9);
 $button-icon-fill-color: rgba(255, 255, 255, 1);
 
 //$button-border: 2px solid yellow;
-$button-border: 1px solid rgba(255, 255, 255, 0.2);
+$button-border: 0px solid rgba(255, 255, 255, 0.2);
 
 $button-padding: 0px;
 $button-margin: 0px;
@@ -31,7 +31,7 @@ $button-margin: 0px;
  * Progress-bar
  */
 
-$control-bar-default-track-radius: 0px;
+$control-bar-default-track-radius: 5px;
 
 $control-progressbar-track-radius: $control-bar-default-track-radius;
 $control-progressbar-value-radius: $control-bar-default-track-radius;
@@ -45,7 +45,7 @@ $control-progressbar-unplayed-track-color: #999;
 
 $control-progressbar-handle-color: rgba(255, 255, 0, 1);
 
-$control-progressbar-height: 5px;
+$control-progressbar-height: 3px;
 $control-progressbar-handle-size: 16px;
 $control-progressbar-track-margin: 5px 0 5px 0;
 $control-progressbar-handle-margin: -6px 0 0 -8px; // must change if height change
