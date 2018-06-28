@@ -14,6 +14,8 @@ export default class HelixMenu extends React.Component<HelixMenuProps, HelixMenu
     canvas!: HTMLCanvasElement;
     spiralMenu: any;
 
+    readonly state: HelixMenuState;
+
     constructor(props: HelixMenuProps) {
         super(props);
         this.state = {

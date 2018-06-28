@@ -62,6 +62,8 @@ export class ProgressBar extends Component<ProgressBarProps, ProgressBarState> {
         },
     };
 
+    readonly state: ProgressBarState;
+
     protected progressbarRef: React.RefObject<HTMLDivElement>;
 
     constructor(props: ProgressBarProps) {

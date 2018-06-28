@@ -38,6 +38,8 @@ class RangeControlOverlay extends Component<RangeControlOverlayProps, RangeContr
         className: 'controls__range-control-overlay',
     };
 
+    readonly state: RangeControlOverlayState;
+
     constructor(props: RangeControlOverlayProps) {
         super(props);
 

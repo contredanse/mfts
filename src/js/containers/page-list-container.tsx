@@ -21,6 +21,8 @@ type PageListContainerState = {
 };
 
 class PageListContainer extends React.Component<PageListContainerProps, PageListContainerState> {
+    readonly state: PageListContainerState;
+
     constructor(props: PageListContainerProps) {
         super(props);
 

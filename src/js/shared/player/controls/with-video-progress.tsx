@@ -31,6 +31,8 @@ const withVideoProgress = <P extends InjectedWithVideoProgressProps>(WrappedComp
     type VideoProgressInnerProps = Subtract<P, InjectedWithVideoProgressProps> & WithVideoProgressProps;
 
     class WithVideoProgress extends React.Component<VideoProgressInnerProps, VideoProgressState> {
+        readonly state: VideoProgressState;
+
         protected interval!: number;
 
         constructor(props: P & WithVideoProgressProps) {
