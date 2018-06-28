@@ -92,6 +92,7 @@
             "fr": "SENSATION ET SENS - la pesanteur - la pesanteur dans l'eau"
         },
         "sort_idx": 400,
+        "repeat_max": 60,
         "cover": "watergravity.jpg",
         "keywords": {
             "en": ["sensation", "senses", "gravity", "water"],
