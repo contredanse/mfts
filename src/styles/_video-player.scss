@@ -59,13 +59,19 @@ video {
     }
 
     &::cue {
+        position: absolute;
+        left: 0;
+        right: 0;
         display: inline-block;
         pointer-events: none;
         background-color: $track-background-color;
         font: $track-font;
         color: $track-color;
-        padding-bottom: $track-padding-bottom;
+        line-height: normal;
+        white-space: pre-wrap;
+        //transform: translateY(-200px);
         text-shadow: $track-text-shadow;
+        padding-bottom: $track-padding-bottom;
     }
 
     &::cue(:future) {
