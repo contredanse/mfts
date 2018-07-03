@@ -13,48 +13,62 @@ $track-background-color: rgba(0, 0, 0, 0);
 $track-text-shadow: 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, -1px -1px 0 #000;
 //$track-text-shadow:  none;
 
-$track-padding-bottom: 15px;
+$track-padding-bottom: 50px;
 
-video::-webkit-media-text-track-container {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    padding-bottom: $track-padding-bottom;
-    //margin-bottom: 5px;
-    text-align: center;
-    color: $track-color;
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-transform: unset;
+video {
+    &::-webkit-media-text-track-container {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        //border: 2px solid green;
+        padding-bottom: $track-padding-bottom;
+        text-align: center;
+        color: $track-color;
+        letter-spacing: normal;
+        word-spacing: normal;
+        text-transform: unset;
 
-    text-shadow: $track-text-shadow;
+        text-shadow: $track-text-shadow;
 
-    text-indent: 0;
-    text-decoration: none;
-    pointer-events: none;
-    -webkit-user-select: none;
-    word-break: break-word;
-    //flex: 1 1;
-    -webkit-flex: 1 1;
-    -webkit-line-box-contain: block inline-box replaced;
-}
+        text-indent: 0;
+        text-decoration: none;
+        pointer-events: none;
+        user-select: none;
+        //-webkit-user-select: none;
+        word-break: break-word;
+        flex: 1 1;
+        -webkit-flex: 1 1;
+        -webkit-line-box-contain: block inline-box replaced;
 
-video::-webkit-media-text-track-display {
-    position: absolute;
-    overflow: hidden;
-    white-space: pre-wrap;
-    -webkit-box-sizing: border-box;
-    font: $track-font;
-}
+        /* captions styles code specific to native text track rendering */
+        max-height: calc(100% - #{$track-padding-bottom});
+        line-height: normal;
+    }
 
-video::cue {
-    background-color: $track-background-color;
-    font: $track-font;
-    color: $track-color;
-    padding-bottom: $track-padding-bottom;
-    text-shadow: $track-text-shadow;
-}
+    &::-webkit-media-text-track-display {
+        position: relative;
+        overflow: hidden;
+        white-space: pre-wrap;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        font: $track-font;
+        transform: none;
 
-video::cue(:future) {
-    color: gray;
+        /* Ensure captions aren't cropped when the pseudo element's width cannot accommodate all the text */
+        min-width: -webkit-min-content;
+    }
+
+    &::cue {
+        display: inline-block;
+        pointer-events: none;
+        background-color: $track-background-color;
+        font: $track-font;
+        color: $track-color;
+        padding-bottom: $track-padding-bottom;
+        text-shadow: $track-text-shadow;
+    }
+
+    &::cue(:future) {
+        color: gray;
+    }
 }

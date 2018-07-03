@@ -17,14 +17,14 @@ type WithVideoProgressProps = {
 
 type VideoProgressState = {
     currentTime: number;
-    duration: number;
     bufferedTime: number;
+    duration: number;
 };
 
 const defaultState: VideoProgressState = {
     currentTime: 0,
-    duration: Infinity,
     bufferedTime: 0,
+    duration: Infinity,
 };
 
 const withVideoProgress = <P extends InjectedWithVideoProgressProps>(WrappedComponent: React.ComponentType<P>) => {
@@ -51,6 +51,7 @@ const withVideoProgress = <P extends InjectedWithVideoProgressProps>(WrappedComp
                             ...prevState,
                             currentTime: videoEl.currentTime,
                             bufferedTime: this.getSecondsLoaded(),
+                            duration: videoEl.duration,
                         };
                     }
                 );

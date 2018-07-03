@@ -3,23 +3,21 @@ import VideoPlayer from '@src/components/player/video-player';
 import VideoEntity from '@src/models/entity/video-entity';
 import PageEntity from '@src/models/entity/page-entity';
 import './panel-mutli-video.scss';
+import { Simulate } from 'react-dom/test-utils';
+import play = Simulate.play;
 
 type PanelMultiVideoProps = {
     videos: VideoEntity[];
     pageEntity: PageEntity;
-    playbackState?: {
-        playing?: boolean;
-        playbackRate?: number;
-    };
+    playing?: boolean;
+    playbackRate?: number;
 };
 
 type PanelMultiVideoState = {};
 
 const defaultProps = {
-    playbackState: {
-        playing: true,
-        playbackRate: 1,
-    },
+    playing: true,
+    playbackRate: 1,
 };
 
 export default class PanelMultiVideo extends React.Component<PanelMultiVideoProps, PanelMultiVideoState> {
@@ -29,13 +27,8 @@ export default class PanelMultiVideo extends React.Component<PanelMultiVideoProp
         super(props);
     }
 
-    handleVideoClick = (e: MouseEvent<HTMLDivElement>): void => {
-        const target = e.target;
-        console.log('CLICKING VIDEO LINK', target);
-    };
-
     render() {
-        const { pageEntity, playbackState } = this.props;
+        const { pageEntity, playing, playbackRate } = this.props;
         const videos = pageEntity.getVideos();
         return (
             <div className="panel-multi-video">
@@ -72,8 +65,8 @@ export default class PanelMultiVideo extends React.Component<PanelMultiVideoProp
                                     // Let's remove the loading overlay
                                     // console.log('duration');
                                 }}
-                                playing={playbackState!.playing}
-                                playbackRate={playbackState!.playbackRate}
+                                playing={playing}
+                                playbackRate={playbackRate}
                                 loop
                                 muted
                             />
@@ -87,4 +80,9 @@ export default class PanelMultiVideo extends React.Component<PanelMultiVideoProp
             </div>
         );
     }
+
+    protected handleVideoClick = (e: MouseEvent<HTMLDivElement>): void => {
+        const target = e.target;
+        console.log('CLICKING VIDEO LINK', target);
+    };
 }

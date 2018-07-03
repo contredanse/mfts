@@ -33,7 +33,6 @@ export type MediaPlayerControlbarState = {
     currentTime: number;
     bufferTime: number;
     isActive: boolean;
-    isPlaying: boolean;
     intervalWhilePlaying: number;
 };
 
@@ -54,7 +53,6 @@ export class ControlBar extends React.Component<MediaPlayerControlBarProps, Medi
         super(props);
         this.state = {
             isActive: true,
-            isPlaying: false,
             currentTime: 0,
             bufferTime: 0,
             intervalWhilePlaying: 0,
@@ -107,10 +105,11 @@ export class ControlBar extends React.Component<MediaPlayerControlBarProps, Medi
         };
 
         const { isActive } = this.state;
+        const { isPlaying } = this.props;
 
         return (
             <div
-                className={'control-bar-overlay' + (isActive ? ' control-bar-overlay--active' : '')}
+                className={'control-bar-overlay' + (!isPlaying ? ' control-bar-overlay--active' : '')}
                 onMouseOver={this.handleEnableHover}
                 onMouseOut={this.handleDisableHover}
             >
@@ -169,12 +168,12 @@ export class ControlBar extends React.Component<MediaPlayerControlBarProps, Medi
         if (skipOnRegistered && this.listenersRegistered) {
             return;
         }
-        video.addEventListener('timeupdate', this.updateCurrentTimeState);
+        //video.addEventListener('timeupdate', this.updateCurrentTimeState);
         this.listenersRegistered = true;
     }
 
     protected unregisterVideoListeners(video: HTMLVideoElement): void {
-        video.removeEventListener('timeupdate', this.updateCurrentTimeState);
+        //video.removeEventListener('timeupdate', this.updateCurrentTimeState);
         this.listenersRegistered = false;
     }
 

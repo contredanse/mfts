@@ -9,6 +9,7 @@ import AudioPlayer from '@src/components/player/audio-player';
 import VideoPlayer from '@src/components/player/video-player';
 import { PlayerActions } from '@src/shared/player/player';
 import ControlBarOverlay from '@src/shared/player/controls/control-bar-overlay';
+import { ReactPlayerProps } from 'react-player';
 
 export type PlaybackState = {
     currentTime: number;
@@ -29,34 +30,40 @@ export type PageState = {
     playbackState: PlaybackState;
 };
 
+const defaultPlaybackState: PlaybackState = {
+    currentTime: 0,
+    isPlaying: true,
+    duration: 0,
+    playbackRate: 1,
+    videoWidth: 0,
+    videoHeight: 0,
+    isMetadataLoaded: false,
+};
+
 export default class Page extends React.Component<PageProps, PageState> {
     readonly state: PageState;
-    playerRef!: React.RefObject<VideoPlayer>;
-    audioPlayer!: React.RefObject<AudioPlayer>;
+
+    videoPlayerRef!: React.RefObject<VideoPlayer>;
+    audioPlayerRef!: React.RefObject<AudioPlayer>;
+
+    mainPlayerListeners!: Partial<ReactPlayerProps>;
 
     mediaPlayerActions!: PlayerActions;
 
     constructor(props: PageProps) {
         super(props);
 
-        const playerInitialState: PlaybackState = {
-            currentTime: 0,
-            isPlaying: true,
-            duration: 0,
-            playbackRate: 1,
-            videoWidth: 0,
-            videoHeight: 0,
-            isMetadataLoaded: false,
-        };
+        const playerInitialState: PlaybackState = defaultPlaybackState;
 
         this.state = {
             playbackState: playerInitialState,
         };
 
+        this.initPlayerListeners();
         this.initMediaPlayerActions();
 
-        this.playerRef = React.createRef<VideoPlayer>();
-        this.audioPlayer = React.createRef<AudioPlayer>();
+        this.videoPlayerRef = React.createRef<VideoPlayer>();
+        this.audioPlayerRef = React.createRef<AudioPlayer>();
     }
 
     render() {
@@ -66,15 +73,15 @@ export default class Page extends React.Component<PageProps, PageState> {
         const multiVideoLayout = countVideos > 1;
 
         const videos = page.getVideos(this.props.lang);
-
-        for (const video of videos) {
-        }
-
         const audio = page.getAudioEntity();
 
         return (
             <div className="page-container">
-                <div className="page-header">Page: {page.pageId}</div>
+                <div className="page-header">
+                    Page: {page.pageId}
+                    Playing <input id="playing" type={'checkbox'} checked={this.state.playbackState.isPlaying} />
+                    Loading <input id="loading" type={'checkbox'} />
+                </div>
 
                 <div className="page-content">
                     {multiVideoLayout ? (
@@ -82,46 +89,35 @@ export default class Page extends React.Component<PageProps, PageState> {
                             <PanelMultiVideo
                                 videos={videos}
                                 pageEntity={page}
-                                playbackState={{
-                                    playing: this.state.playbackState.isPlaying,
-                                    playbackRate: this.state.playbackState.playbackRate,
-                                }}
+                                playing={this.state.playbackState.isPlaying}
+                                playbackRate={this.state.playbackState.playbackRate}
                             />
 
                             {audio && (
                                 <div className="panel-audio-subs">
                                     <AudioPlayer
-                                        ref={this.audioPlayer}
+                                        ref={this.audioPlayerRef}
                                         activeSubtitleLang={this.props.lang}
                                         audio={audio}
                                         playing={this.state.playbackState.isPlaying}
                                         preload="preload"
-                                        onPlay={() => {
-                                            this.updatePlaybackState({
-                                                isPlaying: true,
-                                            });
-                                        }}
-                                        onPause={() => {
-                                            this.updatePlaybackState({
-                                                isPlaying: false,
-                                            });
-                                        }}
-                                        onDuration={(duration: number) => {
-                                            this.updatePlaybackState({
-                                                duration: duration,
-                                            });
-                                        }}
                                         width="100%"
                                         height="100%"
+                                        {...this.mainPlayerListeners}
                                     />
                                 </div>
                             )}
                         </div>
                     ) : (
                         <div className="page-single-video-layout">
-                            <div className="autoscale-video-container">
+                            <div
+                                className="autoscale-video-container"
+                                onClick={() => {
+                                    this.mediaPlayerActions.play();
+                                }}
+                            >
                                 <VideoPlayer
-                                    ref={this.playerRef}
+                                    ref={this.videoPlayerRef}
                                     className="autoscale-video-wrapper autoscale-video-content"
                                     crossOrigin={'anonymous'}
                                     activeSubtitleLang={this.props.lang}
@@ -130,23 +126,9 @@ export default class Page extends React.Component<PageProps, PageState> {
                                     video={page.getFirstVideo()!}
                                     playing={this.state.playbackState.isPlaying}
                                     playbackRate={this.state.playbackState.playbackRate}
-                                    onPlay={() => {
-                                        this.updatePlaybackState({
-                                            isPlaying: true,
-                                        });
-                                    }}
-                                    onPause={() => {
-                                        this.updatePlaybackState({
-                                            isPlaying: false,
-                                        });
-                                    }}
-                                    onDuration={(duration: number) => {
-                                        this.updatePlaybackState({
-                                            duration: duration,
-                                        });
-                                    }}
                                     width="100%"
                                     height="100%"
+                                    {...this.mainPlayerListeners}
                                 />
                             </div>
                         </div>
@@ -173,17 +155,40 @@ export default class Page extends React.Component<PageProps, PageState> {
      * Return the main player media player (audio/video)
      * @returns {HTMLVideoElement | null}
      */
-    private getMainPlayerVideoElement(): HTMLVideoElement | null {
+    protected getMainPlayerVideoElement(): HTMLVideoElement | null {
         let videoEl: HTMLVideoElement | null = null;
-        if (this.audioPlayer.current) {
-            videoEl = this.audioPlayer.current.getHTMLVideoElement();
-        } else if (this.playerRef.current) {
-            videoEl = this.playerRef.current.getHTMLVideoElement();
+        if (this.audioPlayerRef.current) {
+            videoEl = this.audioPlayerRef.current.getHTMLVideoElement();
+        } else if (this.videoPlayerRef.current) {
+            videoEl = this.videoPlayerRef.current.getHTMLVideoElement();
         }
         return videoEl;
     }
 
-    private initMediaPlayerActions(): void {
+    protected initPlayerListeners(): void {
+        this.mainPlayerListeners = {
+            onPlay: () => {
+                this.updatePlaybackState({
+                    isPlaying: true,
+                });
+            },
+            onEnded: () => {},
+            onError: () => {},
+            onReady: () => {},
+            onPause: () => {
+                this.updatePlaybackState({
+                    isPlaying: false,
+                });
+            },
+            onDuration: (duration: number) => {
+                this.updatePlaybackState({
+                    duration: duration,
+                });
+            },
+        };
+    }
+
+    protected initMediaPlayerActions(): void {
         this.mediaPlayerActions = {
             // Actions
             pause: () => {
