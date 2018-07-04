@@ -1,11 +1,11 @@
 {
     "verbose": true,
     "transform": {
-        ".(ts|tsx)": "./node_modules/ts-jest/preprocessor.js"
+        "^.+\\.(ts|tsx|js)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
     "transformIgnorePatterns": ["<rootDir>/node_modules/(?!lodash-es/.*)"],
-    "testRegex": "(/spec/.*|\\.(test|spec))\\.(ts|tsx|js)$",
-    "moduleFileExtensions": ["ts", "tsx", "js"],
+    "testMatch": ["**/__tests__/*.+(ts|tsx|js)"],
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx"],
     "moduleNameMapper": {
         "^.+\\.scss$": "identity-obj-proxy",
         "@src/(.*)$": "<rootDir>/src/js/$1",
@@ -17,9 +17,10 @@
     "globals": {
         "window": {},
         "ts-jest": {
-            "tsConfigFile": "./tsconfig.json"
+            "tsConfigFile": "tsconfig.jest.json"
         }
     },
     "setupFiles": ["./jest.stubs.js"],
-    "setupTestFrameworkScriptFile": "./jest.tests.js"
+    "setupTestFrameworkScriptFile": "./jest.tests.js",
+    "collectCoverageFrom": ["src/**/*.+(ts|tsx|js|jsx)", "!src/__tests__/*"]
 }
