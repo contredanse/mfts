@@ -8,7 +8,6 @@ import PanelMultiVideo from '@src/components/panel-multi-video';
 import AudioPlayer from '@src/components/player/audio-player';
 import VideoPlayer from '@src/components/player/video-player';
 import { PlayerActions } from '@src/shared/player/player';
-import ControlBarOverlay from '@src/shared/player/controls/control-bar-overlay';
 import { ReactPlayerProps } from 'react-player';
 
 export type PlaybackState = {

@@ -9,15 +9,6 @@ import { default as ProgressBar } from '@src/shared/player/controls/progress-bar
 import SoundOffButton from '@src/shared/player/controls/sound-off-button';
 import SoundOnButton from '@src/shared/player/controls/sound-on-button';
 
-import {
-    Menu as MenuIcon,
-    Replay as ReplayIcon,
-    VolumeOff as VolumeOffIcon,
-    VolumeMute as VolumeOnIcon,
-    PauseCircleFilled as PauseIcon,
-    PlayCircleOutline as PlayIcon,
-} from '@material-ui/icons';
-
 export type MediaPlayerControlBarProps = {
     videoEl?: HTMLVideoElement;
     duration: number;

@@ -1,7 +1,6 @@
 import React, { MouseEvent } from 'react';
 
 import './control-bar-overlay.scss';
-import ControlBar from '@src/shared/player/controls/control-bar';
 
 type ControlBarOverlayState = {
     isActive: boolean;
