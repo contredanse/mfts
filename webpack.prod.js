@@ -183,9 +183,9 @@ module.exports = merge(common, {
                 cssProcessor: require('cssnano'),
                 cssProcessorOptions: {
                     //map: { inline: false, },
-                    safe: true,
+                    //safe: true,
                     discardUnused: {
-                        fontFace: false, // to not remmove additional @font-face
+                        fontFace: false, // to not remove additional @font-face
                     },
                     discardComments: {
                         removeAll: true,
