@@ -731,9 +731,9 @@
   version "21.1.10"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-21.1.10.tgz#dcacb5217ddf997a090cc822bba219b4b2fd7984"
 
-"@types/jest@^23.1.4":
-  version "23.1.4"
-  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-23.1.4.tgz#71e1e2d08b1db742f479ee2795536ebc999a2419"
+"@types/jest@^23.1.5":
+  version "23.1.5"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-23.1.5.tgz#e31be003956e1fa8c860124d99bea9ae327ae37b"
 
 "@types/jss@^9.5.3":
   version "9.5.3"
@@ -802,9 +802,9 @@
     "@types/node" "*"
     "@types/react" "*"
 
-"@types/react-redux@^6.0.3":
-  version "6.0.3"
-  resolved "https://registry.yarnpkg.com/@types/react-redux/-/react-redux-6.0.3.tgz#7e8a86cce1c453166056bce9d4eb5cab5a2cfe13"
+"@types/react-redux@^6.0.4":
+  version "6.0.4"
+  resolved "https://registry.yarnpkg.com/@types/react-redux/-/react-redux-6.0.4.tgz#c1cfce0a0bd88983c75dbf393576f8dc59181586"
   dependencies:
     "@types/react" "*"
     redux "^4.0.0"
@@ -8489,9 +8489,9 @@ node-rest-client@^1.4.1:
     debug "~2.2.0"
     xml2js ">=0.2.4"
 
-node-sass@^4.9.1:
-  version "4.9.1"
-  resolved "https://registry.yarnpkg.com/node-sass/-/node-sass-4.9.1.tgz#5416ae7079d991f0e7002e62c8b0ba3fedc15c79"
+node-sass@^4.9.2:
+  version "4.9.2"
+  resolved "https://registry.yarnpkg.com/node-sass/-/node-sass-4.9.2.tgz#5e63fe6bd0f2ae3ac9d6c14ede8620e2b8bdb437"
   dependencies:
     async-foreach "^0.1.3"
     chalk "^1.1.1"
@@ -10187,9 +10187,9 @@ react-lifecycles-compat@3.0.4, react-lifecycles-compat@^3.0.2, react-lifecycles-
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
 
-react-localize-redux@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/react-localize-redux/-/react-localize-redux-3.2.0.tgz#acaaba228ae536e2fe0522f9fdedb4649ab2e462"
+react-localize-redux@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/react-localize-redux/-/react-localize-redux-3.2.1.tgz#ba27abac6f89bd2fe7f87f3a9633c616cd9421a9"
   dependencies:
     create-react-context "^0.2.2"
     flat "^2.0.1"
