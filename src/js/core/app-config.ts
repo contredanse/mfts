@@ -60,14 +60,14 @@ export default class AppConfig {
     }
 }
 
+export interface IAppDataConfig {
+    readonly menu: IJsonMenu[];
+    readonly pages: IJsonPage[];
+    readonly videos: IJsonVideo[];
+}
+
 export interface IAppConfig {
     assetsLocatorProps: IAssetsLocatorProps;
     fallbackLang: string;
     data: IAppDataConfig;
-}
-
-export interface IAppDataConfig {
-    readonly menu: IJsonMenu;
-    readonly pages: IJsonPage[];
-    readonly videos: IJsonVideo[];
 }

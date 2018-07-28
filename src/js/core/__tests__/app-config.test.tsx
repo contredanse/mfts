@@ -22,7 +22,7 @@ describe('AppConfig test', () => {
         data: {
             pages: [] as IJsonPage[],
             videos: [] as IJsonVideo[],
-            menu: {} as IJsonMenu,
+            menu: [] as IJsonMenu[],
         },
         fallbackLang: 'en',
     });
