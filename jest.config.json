@@ -1,11 +1,12 @@
 {
     "verbose": true,
+    "testURL": "http://localhost/",
     "transform": {
-        "^.+\\.(ts|tsx|js)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+        "^.+\\.(ts|tsx|js)$": "ts-jest"
     },
     "transformIgnorePatterns": ["<rootDir>/node_modules/(?!lodash-es/.*)"],
-    "testMatch": ["**/__tests__/*.+(ts|tsx|js)"],
-    "moduleFileExtensions": ["ts", "tsx", "js", "jsx"],
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
     "moduleNameMapper": {
         "^.+\\.scss$": "identity-obj-proxy",
         "@src/(.*)$": "<rootDir>/src/js/$1",
