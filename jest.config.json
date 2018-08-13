@@ -18,7 +18,9 @@
     "globals": {
         "window": {},
         "ts-jest": {
-            "tsConfigFile": "tsconfig.jest.json"
+            "tsConfigFile": "tsconfig.jest.json",
+            "skipBabel": true,
+            "enableTsDiagnostics": true
         }
     },
     "setupFiles": ["./jest.stubs.js"],
