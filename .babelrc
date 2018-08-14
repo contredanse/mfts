@@ -1,41 +1,42 @@
 {
-  "presets": [
-    [
-      "env",
-      {
-        "modules": false,
-        "useBuiltIns": false,
-        "targets": {
-          "browsers": [
-            ">1%",
-            "last 2 versions",
-            "Firefox ESR",
-            "not ie < 9",
-            "ie 11",
-            "last 3 ios versions",
-            "last 3 safari versions",
-            "last 4 chromeAndroid versions"
-          ]
-        },
-        "debug": false
-      }
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "modules": false,
+                "useBuiltIns": false,
+                "targets": {
+                    "browsers": [
+                        ">10%"
+                    ]
+                },
+                "debug": false
+            }
+        ],
+        "@babel/preset-react",
+        "@babel/typescript"
     ],
-    "react",
-    "stage-3"
-  ],
-  "plugins": [
-    "react-hot-loader/babel",
-    "syntax-dynamic-import",
-    "transform-object-rest-spread",
-    "transform-es2015-spread"
-  ]
-  /*
-  "env": {
-    "production": {
-      "presets": [
-        //["minify"]
-      ]
-    }
-  }*/
-
+    "env": {
+        "test": {
+            "presets": [
+                [
+                    "@babel/preset-env",
+                    {
+                        "modules": "commonjs",
+                    }
+                ],
+                "@babel/preset-react",
+                "@babel/typescript"
+            ]
+        }
+    },
+    "plugins": [
+        "react-hot-loader/babel",
+        "@babel/plugin-proposal-object-rest-spread",
+        "@babel/plugin-transform-spread",
+        "@babel/plugin-syntax-dynamic-import",
+        "@babel/plugin-syntax-import-meta",
+        "@babel/plugin-proposal-class-properties",
+        "@babel/plugin-proposal-json-strings"
+    ]
 }
