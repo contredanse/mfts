@@ -38,6 +38,9 @@ module.exports = {
 
             // We still use because of
             // - https://github.com/babel/babel/issues/7074
+            //
+            // NEED CAREFUL TESTS, BABEL 7 TYPESCRIPT SUPPORT IS
+            // NOT YET USABLE
             {
                 test: /\.ts(x?)$/,
                 exclude: /node_modules/,
