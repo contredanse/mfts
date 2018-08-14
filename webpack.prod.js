@@ -223,7 +223,7 @@ module.exports = merge(common, {
                 // use different major versions for 'warning' package
                 // That can be ignored.
                 //return instance.name === 'warning';
-                ['warning', '@babel/runtime'].includes(instance.name);
+                return ['warning', '@babel/runtime'].includes(instance.name);
             },
         }),
 
