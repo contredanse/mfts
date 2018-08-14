@@ -1,12 +1,16 @@
 {
     "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
     "linterOptions": {
-        "exclude": ["src/thirdparty/*.js", "**/*.min.js"]
+        "exclude": ["src/thirdparty/*.js", "**/*.min.js", "**/*.json"]
     },
     "rules": {
         // For dev-only, assuming uglifyjs will remove them for prod ;)
         "no-console": [true, "console.log", "console.error"],
         // end for dev-only
+
+        // To FIX ISSUES WITH BABEL 7
+        // See: https://github.com/babel/babel/issues/7074
+        "no-parameter-properties": true,
         "no-empty": [true, "allow-empty-catch", "allow-empty-functions"],
         "no-any": false,
         "no-floating-promises": true,
