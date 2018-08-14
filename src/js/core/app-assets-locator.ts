@@ -15,7 +15,11 @@ export interface IAssetsLocatorProps {
 export type AppAssetsLocatorTypes = keyof IAssetsTypeUrls;
 
 export default class AppAssetsLocator {
-    constructor(public readonly props: IAssetsLocatorProps) {}
+    public readonly props: IAssetsLocatorProps;
+
+    constructor(props: IAssetsLocatorProps) {
+        this.props = props;
+    }
 
     getMediaTypeBaseUrl(assetsType: AppAssetsLocatorTypes): string {
         const { assetsUrls } = this.props;

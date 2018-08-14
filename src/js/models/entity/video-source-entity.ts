@@ -25,8 +25,11 @@ export default class VideoSourceEntity extends AbstractBaseEntity {
 
     readonly options!: IVideoSourceEntityOptions;
 
-    constructor(protected readonly data: IVideoSourceEntityData, options: IVideoSourceEntityOptions) {
+    protected readonly data: IVideoSourceEntityData;
+
+    constructor(data: IVideoSourceEntityData, options: IVideoSourceEntityOptions) {
         super(options);
+        this.data = data;
     }
 
     get type(): string {

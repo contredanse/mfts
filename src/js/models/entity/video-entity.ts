@@ -23,9 +23,12 @@ export default class VideoEntity extends AbstractBaseEntity {
         video: VideoEntity | null;
     };
 
-    constructor(protected readonly data: IVideoEntityData, options: IVideoEntityOptions) {
+    protected readonly data: IVideoEntityData;
+
+    constructor(data: IVideoEntityData, options: IVideoEntityOptions) {
         super(options);
         this.links = { video: null };
+        this.data = data;
     }
 
     set videoLink(videoLink: VideoEntity | null) {

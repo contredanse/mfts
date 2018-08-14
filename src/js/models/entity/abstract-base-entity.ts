@@ -10,7 +10,11 @@ export interface ITranslatedValue<T> {
 }
 
 export class BaseEntityHelper {
-    constructor(protected options: IBaseEntityOptions) {}
+    protected options: IBaseEntityOptions;
+
+    constructor(options: IBaseEntityOptions) {
+        this.options = options;
+    }
 
     /**
      * Return complete url of an assets by type using

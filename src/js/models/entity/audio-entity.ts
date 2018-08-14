@@ -14,8 +14,11 @@ export interface IAudioEntityOptions extends IBaseEntityOptions {}
 export default class AudioEntity extends AbstractBaseEntity {
     readonly options!: IAudioEntityOptions;
 
-    constructor(protected readonly data: IAudioEntityData, options: IAudioEntityOptions) {
+    protected readonly data: IAudioEntityData;
+
+    constructor(data: IAudioEntityData, options: IAudioEntityOptions) {
         super(options);
+        this.data = data;
     }
 
     getSourceFile(lang?: string, baseUrl?: string): string | undefined {

@@ -9,7 +9,11 @@ import VideoRepository from '@src/models/repository/video-repository';
 export default class AppConfig {
     protected _assetsLocator!: AppAssetsLocator;
 
-    constructor(protected readonly config: IAppConfig) {}
+    protected readonly config: IAppConfig;
+
+    constructor(config: IAppConfig) {
+        this.config = config;
+    }
 
     get fallbackLang(): string {
         return this.config.fallbackLang;
