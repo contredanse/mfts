@@ -5,7 +5,7 @@
         "^.+\\.(ts|tsx|js|jsx)$": "babel-jest"
     },
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": ["ts", "tsx", "js", "jsx"],
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
     "moduleNameMapper": {
         "^.+\\.scss$": "identity-obj-proxy",
         "@src/(.*)$": "<rootDir>/src/js/$1",
