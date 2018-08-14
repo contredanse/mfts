@@ -222,7 +222,8 @@ module.exports = merge(common, {
                 // @material-ui/core and history
                 // use different major versions for 'warning' package
                 // That can be ignored.
-                return instance.name === 'warning';
+                //return instance.name === 'warning';
+                ['warning', '@babel/runtime'].includes(instance.name);
             },
         }),
 
@@ -237,9 +238,8 @@ module.exports = merge(common, {
                 collapseWhitespace: true,
                 collapseInlineTagWhitespace: true,
             },
-            //collapseWhitespace: true,
-            //preserveLineBreaks: false,
         }),
+
         new WebpackPwaManifest({
             short_name: 'Paxton MFTS',
             name: 'Steve Paxton - Material for the spine',
