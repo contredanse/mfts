@@ -29,13 +29,15 @@ module.exports = {
     },
     module: {
         rules: [
-            /*
             // AWESOME TYPESCRIPT LOADER IS IN THE PROCESS OF
             // BEING DROPPED, SEE BABEL 7 TYPESCRIPT SUPPORT
             // BELOW. SECTION KEPT IN CASE WE FACE ISSUES
             // NOTE THAT BUILD SIZE IS DIFFERENT, BABEL WILL
             // GIVE HEAVIER BUILDS BUT ADDS SUPPORT FOR OLDER BROWSERS,
             // ACCORDING TO ENV IN .babelrc
+
+            // We still use because of
+            // - https://github.com/babel/babel/issues/7074
             {
                 test: /\.ts(x?)$/,
                 exclude: /node_modules/,
@@ -50,9 +52,11 @@ module.exports = {
                         },
                     },
                 ],
-            },*/
+            },
+
             {
-                test: /\.[tj]sx?$/,
+                //test: /\.[tj]sx?$/,
+                test: /\.jsx?$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
