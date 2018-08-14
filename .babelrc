@@ -1,32 +1,31 @@
 {
     "presets": [
         [
-            "@babel/preset-env",
+            "@babel/env",
             {
                 "modules": false,
                 "useBuiltIns": false,
                 "targets": {
                     "browsers": [
-                        ">10%"
+                        "last 2 versions"
                     ]
                 },
                 "debug": false
             }
         ],
-        "@babel/preset-react",
+        "@babel/react",
         "@babel/typescript"
     ],
     "env": {
         "test": {
             "presets": [
                 [
-                    "@babel/preset-env",
+                    "@babel/env",
                     {
-                        "modules": "commonjs",
+                        "modules": "commonjs"
                     }
-                ],
-                "@babel/preset-react",
-                "@babel/typescript"
+                ]
+
             ]
         }
     },
