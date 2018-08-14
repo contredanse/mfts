@@ -3,7 +3,6 @@ import VideoPlayer from '@src/components/player/video-player';
 import VideoEntity from '@src/models/entity/video-entity';
 import PageEntity from '@src/models/entity/page-entity';
 import './panel-mutli-video.scss';
-import { Simulate } from 'react-dom/test-utils';
 
 type PanelMultiVideoProps = {
     videos: VideoEntity[];
