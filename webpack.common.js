@@ -39,7 +39,7 @@ module.exports = {
             // We still use because of
             // - https://github.com/babel/babel/issues/7074
             //
-            // NEED CAREFUL TESTS, BABEL 7 TYPESCRIPT SUPPORT IS
+            // NEED CAREFUL TESTS, BABEL 7.rc.1 TYPESCRIPT SUPPORT IS
             // NOT YET USABLE
             {
                 test: /\.ts(x?)$/,
@@ -49,15 +49,18 @@ module.exports = {
                         loader: 'awesome-typescript-loader',
                         options: {
                             configFilename: 'tsconfig.json',
-                            useBabel: false,
+                            // Use babel to ensure polyfill
+                            useBabel: true,
                             useCache: true,
-                            silent: true,
+                            silent: false,
                         },
                     },
                 ],
             },
 
             {
+                // Whenever babel is ready to fully handle typescript
+                // you can use the following rule
                 //test: /\.[tj]sx?$/,
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
