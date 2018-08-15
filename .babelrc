@@ -4,11 +4,9 @@
             "@babel/env",
             {
                 "modules": false,
-                "useBuiltIns": false,
+                "useBuiltIns": "usage",
                 "targets": {
-                    "browsers": [
-                        "last 2 versions"
-                    ]
+                    "browsers": ["last 2 versions", "safari >= 7" ]
                 },
                 "debug": false
             }

@@ -2,8 +2,9 @@
     "verbose": true,
     "testURL": "http://localhost/",
     "transform": {
-        "^.+\\.(ts|tsx|js|jsx)$": "babel-jest"
+        "^.+\\.(ts|tsx|js|jsx)$": "ts-jest"
     },
+    "transformIgnorePatterns": ["<rootDir>/node_modules/(?!lodash-es/.*)"],
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
     "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
     "moduleNameMapper": {
@@ -15,7 +16,10 @@
         "@data/(.*)$": "<rootDir>/src/data/$1"
     },
     "globals": {
-        "window": {}
+        "window": {},
+        "ts-jest": {
+            "tsConfigFile": "./tsconfig.jest.json"
+        }
     },
     "setupFiles": ["./jest.stubs.js"],
     "setupTestFrameworkScriptFile": "./jest.tests.js",
