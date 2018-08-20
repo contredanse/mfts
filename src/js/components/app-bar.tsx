@@ -16,6 +16,8 @@ import {
     Button,
     withStyles,
     WithStyles,
+    Theme,
+    createStyles,
 } from '@material-ui/core';
 
 import { Menu as MenuIcon } from '@material-ui/icons';
@@ -33,7 +35,21 @@ type AppBarProps = {
     // menuLinks: MenuLinkProps[];
 };
 
-export type AppBarWithStylesProps = AppBarProps & WithStyles<ComponentClassNames>;
+const styles = (theme: Theme) =>
+    createStyles({
+        root: {
+            width: '100%',
+        },
+        flex: {
+            flex: 1,
+        },
+        menuButton: {
+            marginLeft: -12,
+            marginRight: 20,
+        },
+    });
+
+export type AppBarWithStylesProps = AppBarProps & WithStyles<typeof styles>;
 export type AppBarWithRouterProps = AppBarProps & RouteComponentProps<{}>;
 
 export const AppBarComponent: React.SFC<AppBarWithStylesProps & AppBarWithRouterProps> = props => {
@@ -86,38 +102,17 @@ export const AppBarComponent: React.SFC<AppBarWithStylesProps & AppBarWithRouter
 };
 
 /**
- * Exporting AppBarWithStyles component
- */
-
-type ComponentClassNames = 'root' | 'flex' | 'menuButton';
-
-const decorate = withStyles(({ palette, spacing }) => ({
-    root: {
-        width: '100%',
-        //padding: spacing.unit,
-        //color: palette.primary.main,
-    },
-    flex: {
-        flex: 1,
-    },
-    menuButton: {
-        marginLeft: -12,
-        marginRight: 20,
-    },
-}));
-
-const AppBarWithStyles = decorate<AppBarWithRouterProps>(AppBarComponent);
-
-/**
  * Exporting AppBar with router support and injected styles
  */
 const mapStateToProps = (state: RootState) => ({});
 
 const mapDispatchToProps = (dispatch: any) => ({});
 
-export const AppBar = withRouter(
-    connect(
-        mapStateToProps,
-        mapDispatchToProps
-    )(AppBarWithStyles)
+export const AppBar = withStyles(styles)(
+    withRouter(
+        connect(
+            mapStateToProps,
+            mapDispatchToProps
+        )(AppBarComponent)
+    )
 );
