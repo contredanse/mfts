@@ -138,6 +138,13 @@ module.exports = merge(common, {
                     enforce: true,
                     chunks: 'all',
                 },
+                react: {
+                    test: /[\\/]node_modules\/(react|react-dom)/,
+                    name: 'react',
+                    priority: -5,
+                    enforce: true,
+                    chunks: 'all',
+                },
                 // Extract material-ui and icons in a separate chunk
                 mui: {
                     test: /[\\/]node_modules\/(@material-ui|material-ui)/,

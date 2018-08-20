@@ -7,11 +7,11 @@
                 "useBuiltIns": "usage",
                 "targets": {
                     "browsers": [
-                        "chrome >= 57",
-                        "firefox >= 54",
+                        "chrome >= 60",
+                        "firefox >= 56",
                         "safari >= 10.1",
-                        "ie >= 11",
-                        "edge >= 14"
+                        "edge >= 15"
+                        //"ie >= 11",
                     ]
                 },
                 "debug": true
@@ -23,6 +23,16 @@
        // "@babel/typescript"
     ],
     "env": {
+        "development": {
+            "presets": [
+                [
+                    "@babel/env",
+                    {
+                        "useBuiltIns": true
+                    }
+                ]
+            ]
+        },
         "test": {
             "presets": [
                 [
@@ -31,7 +41,6 @@
                         "modules": "commonjs"
                     }
                 ]
-
             ]
         }
     },
