@@ -115,7 +115,7 @@
         "shipit-cli": "^4.1.1",
         "shipit-deploy": "^4.1.1",
         "source-map-explorer": "^1.6.0",
-        "source-map-support": "^0.5.8",
+        "source-map-support": "^0.5.9",
         "style-loader": "^0.22.1",
         "sw-precache-webpack-plugin": "^0.11.5",
         "ts-jest": "^23.1.3",
