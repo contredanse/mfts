@@ -80,7 +80,6 @@ export default class AudioPlayer extends React.Component<AudioPlayerProps, Audio
                     label: audioTrack.lang,
                 } as ReactPlayerTrackProps);
             });
-
             fileConfig.tracks = playerTracks;
         }
 

@@ -73,7 +73,7 @@ $header-section-height: 20px;
             grid-template-areas:
                 'multi-video-band'
                 'audio-subs-band';
-            grid-template-rows: 1fr 15%;
+            grid-template-rows: 1fr minmax(170px, 20%);
 
             > .panel-multi-video {
                 grid-area: multi-video-band;
@@ -85,6 +85,7 @@ $header-section-height: 20px;
 
             .panel-audio-subs {
                 max-height: 100%;
+                //border: 5px solid pink;
                 video {
                     object-fit: initial;
                     max-height: 100%;
