@@ -2,7 +2,8 @@ const path = require('path');
 
 module.exports = {
     entry: {
-        // 'babel-polyfill',
+        // Polyfill needed only in production
+        // index: ['babel-polyfill', './src/js/index.tsx'],
         index: ['./src/js/index.tsx'],
     },
     resolve: {
@@ -45,31 +46,38 @@ module.exports = {
                 test: /\.ts(x?)$/,
                 exclude: /node_modules/,
                 use: [
+                    // For polyfilling
+
+                    {
+                        loader: 'babel-loader',
+                    },
                     {
                         loader: 'awesome-typescript-loader',
                         options: {
                             configFilename: 'tsconfig.json',
                             // Use babel to ensure polyfill
-                            useBabel: true,
+                            // DOES NOT WORK YET
+                            useBabel: false,
                             useCache: true,
                             silent: false,
                         },
                     },
                 ],
             },
-
             {
                 // Whenever babel is ready to fully handle typescript
                 // you can use the following rule
                 //test: /\.[tj]sx?$/,
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        cacheDirectory: true,
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            cacheDirectory: true,
+                        },
                     },
-                },
+                ],
             },
             {
                 test: /\.(mp4|m4v|ogv|webm)$/,
