@@ -28,7 +28,7 @@
                 [
                     "@babel/env",
                     {
-                        "useBuiltIns": true
+                        "useBuiltIns": false
                     }
                 ]
             ]
