@@ -84,9 +84,68 @@
 ```
 
 
-### Location '/assets'
+### Location '/assets' or .htaccess
 
 ```apacheconfig
+
+# VTT still misses in modern apache mime
+
+AddType text/vtt .vtt
+
+<IfModule mod_filter.c>
+    AddOutputFilterByType DEFLATE "application/atom+xml" \
+                                  "application/javascript" \
+                                  "application/json" \
+                                  "application/ld+json" \
+                                  "application/manifest+json" \
+                                  "application/rdf+xml" \
+                                  "application/rss+xml" \
+                                  "application/schema+json" \
+                                  "application/vnd.geo+json" \
+                                  "application/vnd.ms-fontobject" \
+                                  "application/x-font-ttf" \
+                                  "application/x-javascript" \
+                                  "application/x-web-app-manifest+json" \
+                                  "application/xhtml+xml" \
+                                  "application/xml" \
+                                  "font/eot" \
+                                  "font/opentype" \
+                                  "image/bmp" \
+                                  "image/svg+xml" \
+                                  "image/vnd.microsoft.icon" \
+                                  "image/x-icon" \
+                                  "text/cache-manifest" \
+                                  "text/css" \
+                                  "text/html" \
+                                  "text/javascript" \
+                                  "text/plain" \
+                                  "text/vcard" \
+                                  "text/vnd.rim.location.xloc" \
+                                  "text/vtt" \
+                                  "text/x-component" \
+                                  "text/x-cross-domain-policy" \
+                                  "text/xml"
+</IfModule>
+
+# Set CORS Headers
+<FilesMatch "\.(ttf|woff|vtt|mp4|webm|jpg)$">
+    <IfModule mod_headers.c>
+        SetEnvIf Origin "http(s)?://(preview\.|www\.|app\.)?(localhost|materialforthespine.com)$" AccessControlAllowOrigin=$0
+        Header always set Access-Control-Allow-Origin %{AccessControlAllowOrigin}e env=AccessControlAllowOrigin
+	#Header always set Access-Control-Allow-Origin "*"        
+	Header merge Vary Origin
+	Header always set Access-Control-Allow-Methods "POST, GET, OPTIONS, DELETE, PUT"
+	Header always set Access-Control-Max-Age "1000"
+	Header always set Access-Control-Allow-Headers "x-requested-with, Content-Type, origin, authorization, accept, client-security-token"
+
+    </IfModule>
+</FilesMatch>
+
+
+# Added a rewrite to respond with a 200 SUCCESS on every OPTIONS request.
+RewriteEngine On
+RewriteCond %{REQUEST_METHOD} OPTIONS
+RewriteRule ^(.*)$ $1 [R=200,L]
 
 
 ```

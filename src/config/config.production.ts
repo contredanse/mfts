@@ -7,7 +7,8 @@ import { IJsonPage } from '@data/json/data-pages';
 import { IJsonVideo } from '@data/json/data-videos';
 
 // without ending slash !
-const mediaAssetsServerBaseUrl = 'https://paxton.soluble.io/assets';
+//const mediaAssetsServerBaseUrl = 'https://paxton.soluble.io/assets';
+const mediaAssetsServerBaseUrl = 'https://assets.materialforthespine.com';
 
 export const appConfig = new AppConfig({
     assetsLocatorProps: {
