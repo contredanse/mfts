@@ -11,15 +11,15 @@ export default class MenuRepository {
         this.config = config;
     }
 
-    public getFlatMenu(): IJsonMenu[] | undefined {
+    public getFlatMenu(): IJsonMenu[] {
         if (this.flatMenu === undefined) {
             this.flatMenu = this.flatten(this.menu);
         }
         return this.flatMenu;
     }
 
-    public getPreviousPageId(): string {
-        return 'cool';
+    public getJsonMenu(): IJsonMenu[] {
+        return this.menu;
     }
 
     public getPrevAndNextPageIds(
@@ -33,7 +33,7 @@ export default class MenuRepository {
         let previous = undefined;
         let current = undefined;
 
-        const pageMenu = (this.getFlatMenu() || []).filter(item => {
+        const pageMenu = this.getFlatMenu().filter(item => {
             return item.type === 'page';
         });
 
@@ -58,9 +58,6 @@ export default class MenuRepository {
 
     public findMenuByPageId(pageId: string): IJsonMenu | undefined {
         const flatMenu = this.getFlatMenu();
-        if (flatMenu === undefined) {
-            return undefined;
-        }
         const menu = flatMenu.find((element: IJsonMenu) => {
             return pageId === element.page_id;
         });
@@ -69,17 +66,10 @@ export default class MenuRepository {
 
     public findMenu(menuId: string): IJsonMenu | undefined {
         const flatMenu = this.getFlatMenu();
-        if (flatMenu === undefined) {
-            return undefined;
-        }
         const menu = flatMenu.find((element: IJsonMenu) => {
             return menuId === element.id;
         });
         return menu;
-    }
-
-    public findMenuOfPage(pageId: string): IJsonMenu {
-        return {} as IJsonMenu;
     }
 
     protected flatten(data: IJsonMenu[]): any[] {
