@@ -45,7 +45,7 @@ class PageListContainer extends React.Component<PageListContainerProps, PageList
 
     openPage = (page: IJsonPage) => {
         const { lang } = this.state;
-        this.props.history.push(`/page/${lang}/${page.page_id}`);
+        this.props.history.push(`/${lang}/page/${page.page_id}`);
     };
 
     closePage = () => {
