@@ -22,6 +22,51 @@ export default class MenuRepository {
         return 'cool';
     }
 
+    public getPrevAndNextPageIds(
+        pageId: string
+    ): {
+        previous: IJsonMenu | undefined;
+        current: IJsonMenu | undefined;
+        next: IJsonMenu | undefined;
+    } {
+        let next = undefined;
+        let previous = undefined;
+        let current = undefined;
+
+        const pageMenu = (this.getFlatMenu() || []).filter(item => {
+            return item.type === 'page';
+        });
+
+        pageMenu.forEach((item, idx) => {
+            if (item.page_id === pageId) {
+                current = item;
+                if (idx > 0) {
+                    previous = pageMenu[idx - 1];
+                }
+                if (idx < pageMenu.length - 2) {
+                    next = pageMenu[idx + 1];
+                }
+            }
+        });
+
+        return {
+            previous: previous,
+            current: current,
+            next: next,
+        };
+    }
+
+    public findMenuByPageId(pageId: string): IJsonMenu | undefined {
+        const flatMenu = this.getFlatMenu();
+        if (flatMenu === undefined) {
+            return undefined;
+        }
+        const menu = flatMenu.find((element: IJsonMenu) => {
+            return pageId === element.page_id;
+        });
+        return menu;
+    }
+
     public findMenu(menuId: string): IJsonMenu | undefined {
         const flatMenu = this.getFlatMenu();
         if (flatMenu === undefined) {
