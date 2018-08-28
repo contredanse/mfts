@@ -18,6 +18,8 @@ export type MediaPlayerControlBarProps = {
     actions: PlayerActions;
     enableSpeedControl?: boolean;
     enableBrowseControl?: boolean;
+    onNextLinkPressed?: () => void;
+    onPreviousLinkPressed?: () => void;
 };
 
 export type MediaPlayerControlbarState = {
@@ -146,7 +148,12 @@ export class ControlBar extends React.Component<MediaPlayerControlBarProps, Medi
                                     </div>
                                 )}
 
-                                <NextButton isEnabled={false} />
+                                <NextButton
+                                    isEnabled={this.props.onNextLinkPressed !== undefined}
+                                    onClick={() => {
+                                        this.props.onNextLinkPressed!();
+                                    }}
+                                />
                             </div>
                         </div>
                     </div>
