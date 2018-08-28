@@ -6,23 +6,23 @@ export default class VideoRepository {
     protected readonly videos: IJsonVideo[];
     protected readonly config: AppConfig;
 
-    constructor(config: AppConfig) {
-        this.videos = config.getAppData().videos;
+    constructor(config: AppConfig, videos: IJsonVideo[]) {
+        this.videos = videos;
         this.config = config;
     }
 
-    getVideo(videoId: string): IJsonVideo | null {
+    getVideo(videoId: string): IJsonVideo | undefined {
         const video =
             this.videos.find((element: IJsonVideo) => {
                 return videoId === element.video_id;
-            }) || null;
+            }) || undefined;
         return video;
     }
 
-    getVideoEntity(videoId: string): VideoEntity | null {
+    getVideoEntity(videoId: string): VideoEntity | undefined {
         const jsonVideo = this.getVideo(videoId);
-        if (jsonVideo === null) {
-            return null;
+        if (jsonVideo === undefined) {
+            return undefined;
         }
         return VideoEntityFactory.createFromJson(jsonVideo, {
             fallbackLang: this.config.fallbackLang,
