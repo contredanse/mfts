@@ -27,7 +27,7 @@ class App extends React.Component<AppProps, {}> {
         const lang = 'en';
 
         // Init repositories
-        const videoRepository = this.props.appConfig.getVideoRepository();
+        //const videoRepository = this.props.appConfig.getVideoRepository();
         const pageRepository = this.props.appConfig.getPageRepository();
         const menuRepository = this.props.appConfig.getMenuRepository();
 
@@ -79,7 +79,7 @@ class App extends React.Component<AppProps, {}> {
                             />
                             <Route
                                 exact={true}
-                                path="/page/:lang(fr|en)?/:pageId"
+                                path="/:lang(fr|en)?/page/:pageId"
                                 render={(props: RouteComponentProps<any>) => {
                                     const { pageId, lang: routeLang } = props.match.params;
                                     return (
@@ -87,6 +87,7 @@ class App extends React.Component<AppProps, {}> {
                                             pageId={pageId}
                                             lang={routeLang || lang}
                                             pageRepository={pageRepository}
+                                            menuRepository={menuRepository}
                                         />
                                     );
                                 }}
