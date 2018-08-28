@@ -2,10 +2,10 @@ import VideoEntity from '@src/models/entity/video-entity';
 import AudioEntity, { AudioEntityFactory } from '@src/models/entity/audio-entity';
 import { AbstractBaseEntity, IBaseEntityOptions } from '@src/models/entity/abstract-base-entity';
 import { IJsonPage, IJsonPageAudio, IJsonPageVideo } from '@data/json/data-pages';
-import { IDataRepository } from '@src/models/repository/data-repository';
+import VideoRepository from '@src/models/repository/video-repository';
 
 export class PageEntityFactory {
-    static createFromJson(data: IJsonPage, repository: IDataRepository, options: IPageEntityOptions): PageEntity {
+    static createFromJson(data: IJsonPage, repository: VideoRepository, options: IPageEntityOptions): PageEntity {
         return new PageEntity(data, repository, options);
     }
 }
@@ -16,9 +16,9 @@ export interface IPageEntityOptions extends IBaseEntityOptions {}
 
 export default class PageEntity extends AbstractBaseEntity {
     protected readonly data: IPageEntityData;
-    protected readonly repository: IDataRepository;
+    protected readonly repository: VideoRepository;
 
-    constructor(data: IPageEntityData, repository: IDataRepository, options: IPageEntityOptions) {
+    constructor(data: IPageEntityData, repository: VideoRepository, options: IPageEntityOptions) {
         super(options);
         this.data = data;
         // TO do remove this and use IoC container when time

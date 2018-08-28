@@ -1,10 +1,9 @@
 import { appConfig } from '@config/config.production';
-import LocalDataRepository from '@src/models/repository/local-data-repository';
 import { PageEntityFactory } from '@src/models/entity/page-entity';
 import AppAssetsLocator from '@src/core/app-assets-locator';
 
 describe('Data page retrieval', () => {
-    const globalDataRepo = appConfig.getDataRepository() as LocalDataRepository;
+    const globalDataRepo = appConfig.getPageRepository();
     const pageId = 'forms.crescent-roll.crescent-led-by-feet-and-hands';
 
     test('PageEntity properties', async () => {
@@ -31,7 +30,7 @@ describe('Data page retrieval', () => {
 });
 
 describe('Data page factory', () => {
-    const globalDataRepo = appConfig.getDataRepository() as LocalDataRepository;
+    const globalDataRepo = appConfig.getPageRepository();
 
     const jsonPage = {
         page_id: 'page_id',
@@ -109,7 +108,7 @@ describe('Data page factory', () => {
         },
     });
 
-    const page = PageEntityFactory.createFromJson(jsonPage, appConfig.getDataRepository(), {
+    const page = PageEntityFactory.createFromJson(jsonPage, appConfig.getVideoRepository(), {
         assetsLocator: assetsLocator,
         fallbackLang: 'en',
     });

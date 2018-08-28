@@ -1,14 +1,15 @@
 import React from 'react';
 import Page from '@src/components/page';
 import NotFoundContainer from '@src/containers/notfound-container';
-import { DataSupportedLangType, IDataRepository } from '@src/models/repository/data-repository';
+import { DataSupportedLangType } from '@src/models/repository/data-repository';
 import PageEntity from '@src/models/entity/page-entity';
 import { PageOverlay } from '@src/components/layout/page-overlay';
+import PageRepository from '@src/models/repository/page-repository';
 
 type PageContainerProps = {
     pageId: string;
     lang: DataSupportedLangType;
-    dataRepository: IDataRepository;
+    pageRepository: PageRepository;
 };
 type PageContainerState = {
     pageExists: boolean | undefined;
@@ -27,7 +28,7 @@ class PageContainer extends React.Component<PageContainerProps, PageContainerSta
 
     async componentDidMount() {
         try {
-            const pageEntity = await this.props.dataRepository.getPageEntity(this.props.pageId);
+            const pageEntity = await this.props.pageRepository.getPageEntity(this.props.pageId);
             this.setState(
                 (prevState: PageContainerState): PageContainerState => {
                     return {

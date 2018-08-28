@@ -5,10 +5,10 @@ import { IJsonPage } from '@data/json/data-pages';
 import PageList from '@src/components/page-list';
 import { withRouter } from 'react-router-dom';
 import { RouteComponentProps } from 'react-router';
-import LocalDataRepository from '@src/models/repository/local-data-repository';
+import PageRepository from '@src/models/repository/page-repository';
 
 type PageListContainerProps = {
-    dataRepository: LocalDataRepository;
+    pageRepository: PageRepository;
     videosBaseUrl: string;
     lang: 'en' | 'fr';
 } & RouteComponentProps<any>;
@@ -27,7 +27,7 @@ class PageListContainer extends React.Component<PageListContainerProps, PageList
         super(props);
 
         this.state = {
-            pages: this.props.dataRepository.getAllPages(),
+            pages: this.props.pageRepository.getAllPages(),
             lang: this.props.lang,
         };
     }
@@ -36,7 +36,7 @@ class PageListContainer extends React.Component<PageListContainerProps, PageList
         e.preventDefault();
         e.persist();
         const fragment = e.currentTarget.value;
-        const pages = this.props.dataRepository.findPages(fragment, this.props.lang);
+        const pages = this.props.pageRepository.findPages(fragment, this.props.lang);
         this.setState({
             pages: pages,
             searchFragment: fragment,
