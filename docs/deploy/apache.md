@@ -128,7 +128,7 @@ AddType text/vtt .vtt
 </IfModule>
 
 # Set CORS Headers
-<FilesMatch "\.(ttf|woff|vtt|mp4|webm|jpg)$">
+<FilesMatch "\.(ttf|woff|vtt|mp4|webm|jpg|mp3)$">
     <IfModule mod_headers.c>
         SetEnvIf Origin "http(s)?://(preview\.|www\.|app\.)?(localhost|materialforthespine.com)(:\d+)?$" AccessControlAllowOrigin=$0
         Header always set Access-Control-Allow-Origin %{AccessControlAllowOrigin}e env=AccessControlAllowOrigin
