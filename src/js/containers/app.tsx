@@ -12,7 +12,6 @@ import NotFoundContainer from '@src/containers/notfound-container';
 import AppConfig from '@src/core/app-config';
 import PageListContainer from '@src/containers/page-list-container';
 import PageContainer from '@src/containers/page-container';
-import LocalDataRepository from '@src/models/repository/local-data-repository';
 
 type AppProps = {
     appConfig: AppConfig;
@@ -28,8 +27,8 @@ class App extends React.Component<AppProps, {}> {
         const data = this.props.appConfig.getAppData();
         const lang = 'en';
 
-        const dataRepository = this.props.appConfig.getDataRepository();
         const videoRepository = this.props.appConfig.getVideoRepository();
+        const pageRepository = this.props.appConfig.getPageRepository();
 
         //console.log('videoRepository', videoRepository);
 
@@ -54,7 +53,7 @@ class App extends React.Component<AppProps, {}> {
                                         <PageContainer
                                             pageId="forms.introduction"
                                             lang={routerLang || lang}
-                                            dataRepository={dataRepository}
+                                            pageRepository={pageRepository}
                                         />
                                     );
                                 }}
@@ -67,7 +66,7 @@ class App extends React.Component<AppProps, {}> {
                                         <PageListContainer
                                             lang={lang}
                                             videosBaseUrl={assetsLocator.getMediaTypeBaseUrl('videos')}
-                                            dataRepository={dataRepository as LocalDataRepository}
+                                            pageRepository={pageRepository}
                                             {...props}
                                         />
                                     );
@@ -82,7 +81,7 @@ class App extends React.Component<AppProps, {}> {
                                         <PageContainer
                                             pageId={pageId}
                                             lang={routeLang || lang}
-                                            dataRepository={dataRepository}
+                                            pageRepository={pageRepository}
                                         />
                                     );
                                 }}
