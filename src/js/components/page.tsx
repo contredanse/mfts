@@ -145,6 +145,9 @@ export default class Page extends React.Component<PageProps, PageState> {
                     currentTime={this.state.playbackState.currentTime}
                     isPlaying={this.state.playbackState.isPlaying}
                     playbackRate={this.state.playbackState.playbackRate}
+                    onNextLinkPressed={() => {
+                        alert('cool');
+                    }}
                 />
             </div>
         );
