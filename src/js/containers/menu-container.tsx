@@ -1,16 +1,24 @@
 import React from 'react';
 import HelixMenu from '@src/components/helix-menu';
-import jsonMenuData from '@data/json/data-menu.json';
-import { IJsonMenu } from '@data/json/data-menu';
+import MenuRepository from '@src/models/repository/menu-repository';
+import { DataSupportedLangType } from '@src/models/repository/data-repository';
 
-type MenuContainerProps = {};
+type MenuContainerProps = {
+    menuRepository: MenuRepository;
+    lang: DataSupportedLangType;
+};
+
 type MenuContainerState = {};
 
 class MenuContainer extends React.Component<MenuContainerProps, MenuContainerState> {
+    constructor(props: MenuContainerProps) {
+        super(props);
+    }
+
     render() {
         return (
             <div style={{ textAlign: 'center' }}>
-                <HelixMenu jsonDataMenu={jsonMenuData as IJsonMenu[]} />
+                <HelixMenu jsonDataMenu={this.props.menuRepository.getJsonMenu()} />
             </div>
         );
     }

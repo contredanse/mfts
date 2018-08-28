@@ -27,10 +27,10 @@ class App extends React.Component<AppProps, {}> {
         const data = this.props.appConfig.getAppData();
         const lang = 'en';
 
+        // Init repositories
         const videoRepository = this.props.appConfig.getVideoRepository();
         const pageRepository = this.props.appConfig.getPageRepository();
-
-        //console.log('videoRepository', videoRepository);
+        const menuRepository = this.props.appConfig.getMenuRepository();
 
         return (
             <ConnectedRouter history={history}>
@@ -41,8 +41,14 @@ class App extends React.Component<AppProps, {}> {
                     <main>
                         <Switch>
                             <Route exact={true} path="/" component={HomeContainer} />
-                            <Route exact={true} path="/menu" component={MenuContainer} />
-
+                            <Route
+                                exact={true}
+                                path="/:lang(fr|en)?/menu"
+                                render={(props: RouteComponentProps<any>) => {
+                                    const { lang: routerLang } = props.match.params;
+                                    return <MenuContainer lang={routerLang || lang} menuRepository={menuRepository} />;
+                                }}
+                            />
                             <Route
                                 exact={true}
                                 path="/:lang(fr|en)?/intro"
@@ -60,7 +66,7 @@ class App extends React.Component<AppProps, {}> {
                             />
                             <Route
                                 exact={true}
-                                path="/page-list"
+                                path="/:lang(fr|en)?/page-list"
                                 render={(props: RouteComponentProps<any>) => {
                                     return (
                                         <PageListContainer
