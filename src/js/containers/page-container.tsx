@@ -64,6 +64,11 @@ class PageContainer extends React.Component<PageContainerProps, PageContainerSta
         return menuRepository.getPrevAndNextPageEntityMenu(pageId, this.props.lang, this.props.pageRepository);
     }
 
+    navigateToPage = (pageId: string): void => {
+        const { lang } = this.props;
+        this.props.history.push(`/${lang}/page/${pageId}`);
+    };
+
     render() {
         const { pageExists, pageEntity } = this.state;
         // should not be required, exit if async loading
@@ -78,7 +83,13 @@ class PageContainer extends React.Component<PageContainerProps, PageContainerSta
             <PageOverlay closeButton={false}>
                 <div className="page-wrapper">
                     {pageEntity ? (
-                        <Page pageEntity={pageEntity} lang={this.props.lang} {...previous} {...next} />
+                        <Page
+                            pageEntity={pageEntity}
+                            lang={this.props.lang}
+                            previousPage={previous}
+                            nextPage={next}
+                            onPageChangeRequest={this.navigateToPage}
+                        />
                     ) : (
                         <NotFoundContainer />
                     )}

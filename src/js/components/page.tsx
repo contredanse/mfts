@@ -25,6 +25,7 @@ export type PageProps = {
     lang: string;
     nextPage?: PageEntity;
     previousPage?: PageEntity;
+    onPageChangeRequest?: (pageId: string) => void;
 };
 
 export type PageState = {
@@ -148,7 +149,14 @@ class Page extends React.Component<PageProps, PageState> {
                     isPlaying={this.state.playbackState.isPlaying}
                     playbackRate={this.state.playbackState.playbackRate}
                     onNextLinkPressed={() => {
-                        alert('cool');
+                        if (this.props.nextPage !== undefined && this.props.onPageChangeRequest !== undefined) {
+                            this.props.onPageChangeRequest(this.props.nextPage.pageId);
+                        }
+                    }}
+                    onPreviousLinkPressed={() => {
+                        if (this.props.previousPage !== undefined && this.props.onPageChangeRequest !== undefined) {
+                            this.props.onPageChangeRequest(this.props.previousPage.pageId);
+                        }
                     }}
                 />
             </div>
