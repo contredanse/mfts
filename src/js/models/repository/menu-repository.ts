@@ -30,18 +30,7 @@ export default class MenuRepository {
         this.config = config;
     }
 
-    public getFlatMenu(): IJsonMenu[] {
-        if (this.flatMenu === undefined) {
-            this.flatMenu = this.flatten(this.menu);
-        }
-        return this.flatMenu;
-    }
-
-    public getJsonMenu(): IJsonMenu[] {
-        return this.menu;
-    }
-
-    public mapIJsonMenuToPageMenuInfo(item: IJsonMenu, lang: string = 'en'): PageMenuInfo {
+    static mapIJsonMenuToPageMenuInfo(item: IJsonMenu, lang: string = 'en'): PageMenuInfo {
         const { id, page_id, title_en, title_fr } = item;
         return {
             id: id,
@@ -50,25 +39,29 @@ export default class MenuRepository {
         };
     }
 
-    public getPrevAndNextPageEntityMenu(
-        pageId: string,
-        lang: string,
-        pageRepository: PageRepository
-    ): PrevAndNextPageEntity {
+    getFlatMenu(): IJsonMenu[] {
+        if (this.flatMenu === undefined) {
+            this.flatMenu = this.flatten(this.menu);
+        }
+        return this.flatMenu;
+    }
+
+    getJsonMenu(): IJsonMenu[] {
+        return this.menu;
+    }
+
+    getPrevAndNextPageEntityMenu(pageId: string, lang: string, pageRepository: PageRepository): PrevAndNextPageEntity {
         const menuPage: PrevAndNextPageEntity = {};
 
         const { previous, next } = this.getPrevAndNextPageMenu(pageId, lang);
 
-        if (previous !== undefined) {
-            menuPage.previous = pageRepository.getPageEntity(previous.page_id);
-        } else if (next !== undefined) {
-            menuPage.next = pageRepository.getPageEntity(next.page_id);
-        }
+        menuPage.previous = previous !== undefined ? pageRepository.getPageEntity(previous.page_id) : undefined;
+        menuPage.next = next !== undefined ? pageRepository.getPageEntity(next.page_id) : undefined;
 
         return menuPage;
     }
 
-    public getPrevAndNextPageMenu(pageId: string, lang: string): PrevAndNextPageId {
+    getPrevAndNextPageMenu(pageId: string, lang: string): PrevAndNextPageId {
         const prevAndNextMenuPage: PrevAndNextPageId = {};
 
         const pageMenu = this.getFlatMenu().filter(item => {
@@ -77,12 +70,12 @@ export default class MenuRepository {
 
         pageMenu.forEach((item, idx) => {
             if (item.page_id === pageId) {
-                prevAndNextMenuPage.current = this.mapIJsonMenuToPageMenuInfo(item, lang);
+                prevAndNextMenuPage.current = MenuRepository.mapIJsonMenuToPageMenuInfo(item, lang);
                 if (idx > 0) {
-                    prevAndNextMenuPage.previous = this.mapIJsonMenuToPageMenuInfo(pageMenu[idx - 1], lang);
+                    prevAndNextMenuPage.previous = MenuRepository.mapIJsonMenuToPageMenuInfo(pageMenu[idx - 1], lang);
                 }
                 if (idx < pageMenu.length - 2) {
-                    prevAndNextMenuPage.next = this.mapIJsonMenuToPageMenuInfo(pageMenu[idx + 1], lang);
+                    prevAndNextMenuPage.next = MenuRepository.mapIJsonMenuToPageMenuInfo(pageMenu[idx + 1], lang);
                 }
             }
         });
@@ -90,7 +83,7 @@ export default class MenuRepository {
         return prevAndNextMenuPage;
     }
 
-    public findMenuByPageId(pageId: string): IJsonMenu | undefined {
+    findMenuByPageId(pageId: string): IJsonMenu | undefined {
         const flatMenu = this.getFlatMenu();
         const menu = flatMenu.find((element: IJsonMenu) => {
             return pageId === element.page_id;
@@ -98,7 +91,7 @@ export default class MenuRepository {
         return menu;
     }
 
-    public findMenu(menuId: string): IJsonMenu | undefined {
+    findMenu(menuId: string): IJsonMenu | undefined {
         const flatMenu = this.getFlatMenu();
         const menu = flatMenu.find((element: IJsonMenu) => {
             return menuId === element.id;
