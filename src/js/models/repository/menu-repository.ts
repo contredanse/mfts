@@ -1,6 +1,12 @@
 import AppConfig from '@src/core/app-config';
 import { IJsonMenu } from '@data/json/data-menu';
 
+export type PrevAndNextPageId = {
+    previous: IJsonMenu | undefined;
+    current: IJsonMenu | undefined;
+    next: IJsonMenu | undefined;
+};
+
 export default class MenuRepository {
     protected readonly menu: IJsonMenu[];
     protected readonly config: AppConfig;
@@ -22,13 +28,7 @@ export default class MenuRepository {
         return this.menu;
     }
 
-    public getPrevAndNextPageIds(
-        pageId: string
-    ): {
-        previous: IJsonMenu | undefined;
-        current: IJsonMenu | undefined;
-        next: IJsonMenu | undefined;
-    } {
+    public getPrevAndNextPageIds(pageId: string): PrevAndNextPageId {
         let next = undefined;
         let previous = undefined;
         let current = undefined;
