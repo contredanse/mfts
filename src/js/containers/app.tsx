@@ -53,7 +53,6 @@ class App extends React.Component<AppProps, {}> {
                                 path="/:lang(fr|en)?/intro"
                                 render={(props: RouteComponentProps<any>) => {
                                     const { lang: routerLang } = props.match.params;
-                                    console.log('routerLang', routerLang);
                                     return (
                                         <PageContainer
                                             pageId="forms.introduction"
@@ -88,6 +87,7 @@ class App extends React.Component<AppProps, {}> {
                                             lang={routeLang || lang}
                                             pageRepository={pageRepository}
                                             menuRepository={menuRepository}
+                                            {...props}
                                         />
                                     );
                                 }}
