@@ -23,6 +23,8 @@ export type PlaybackState = {
 export type PageProps = {
     pageEntity: PageEntity;
     lang: string;
+    nextPage?: PageEntity;
+    previousPage?: PageEntity;
 };
 
 export type PageState = {
@@ -39,7 +41,7 @@ const defaultPlaybackState: PlaybackState = {
     isMetadataLoaded: false,
 };
 
-export default class Page extends React.Component<PageProps, PageState> {
+class Page extends React.Component<PageProps, PageState> {
     readonly state: PageState;
 
     videoPlayerRef!: React.RefObject<VideoPlayer>;
@@ -237,3 +239,5 @@ export default class Page extends React.Component<PageProps, PageState> {
         });
     }
 }
+
+export default Page;
