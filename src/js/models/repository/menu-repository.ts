@@ -1,10 +1,23 @@
 import AppConfig from '@src/core/app-config';
-import { IJsonMenu } from '@data/json/data-menu';
+import { IJsonMenu, JsonMenuNodeType } from '@data/json/data-menu';
+import PageRepository from '@src/models/repository/page-repository';
+import PageEntity from '@src/models/entity/page-entity';
+
+export type PageMenuInfo = {
+    id: string;
+    page_id: string;
+    title: string;
+};
 
 export type PrevAndNextPageId = {
-    previous: IJsonMenu | undefined;
-    current: IJsonMenu | undefined;
-    next: IJsonMenu | undefined;
+    previous?: PageMenuInfo;
+    current?: PageMenuInfo;
+    next?: PageMenuInfo;
+};
+
+export type PrevAndNextPageEntity = {
+    previous?: PageEntity;
+    next?: PageEntity;
 };
 
 export default class MenuRepository {
@@ -28,10 +41,35 @@ export default class MenuRepository {
         return this.menu;
     }
 
-    public getPrevAndNextPageIds(pageId: string): PrevAndNextPageId {
-        let next = undefined;
-        let previous = undefined;
-        let current = undefined;
+    public mapIJsonMenuToPageMenuInfo(item: IJsonMenu, lang: string = 'en'): PageMenuInfo {
+        const { id, page_id, title_en, title_fr } = item;
+        return {
+            id: id,
+            page_id: page_id !== undefined ? page_id : 'invalid_page_id',
+            title: lang === 'fr' && title_fr !== undefined ? title_fr : title_en,
+        };
+    }
+
+    public getPrevAndNextPageEntityMenu(
+        pageId: string,
+        lang: string,
+        pageRepository: PageRepository
+    ): PrevAndNextPageEntity {
+        const menuPage: PrevAndNextPageEntity = {};
+
+        const { previous, next } = this.getPrevAndNextPageMenu(pageId, lang);
+
+        if (previous !== undefined) {
+            menuPage.previous = pageRepository.getPageEntity(previous.page_id);
+        } else if (next !== undefined) {
+            menuPage.next = pageRepository.getPageEntity(next.page_id);
+        }
+
+        return menuPage;
+    }
+
+    public getPrevAndNextPageMenu(pageId: string, lang: string): PrevAndNextPageId {
+        const prevAndNextMenuPage: PrevAndNextPageId = {};
 
         const pageMenu = this.getFlatMenu().filter(item => {
             return item.type === 'page';
@@ -39,21 +77,17 @@ export default class MenuRepository {
 
         pageMenu.forEach((item, idx) => {
             if (item.page_id === pageId) {
-                current = item;
+                prevAndNextMenuPage.current = this.mapIJsonMenuToPageMenuInfo(item, lang);
                 if (idx > 0) {
-                    previous = pageMenu[idx - 1];
+                    prevAndNextMenuPage.previous = this.mapIJsonMenuToPageMenuInfo(pageMenu[idx - 1], lang);
                 }
                 if (idx < pageMenu.length - 2) {
-                    next = pageMenu[idx + 1];
+                    prevAndNextMenuPage.next = this.mapIJsonMenuToPageMenuInfo(pageMenu[idx + 1], lang);
                 }
             }
         });
 
-        return {
-            previous: previous,
-            current: current,
-            next: next,
-        };
+        return prevAndNextMenuPage;
     }
 
     public findMenuByPageId(pageId: string): IJsonMenu | undefined {
