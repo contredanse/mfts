@@ -5,14 +5,16 @@ import { DataSupportedLangType } from '@src/models/repository/data-repository';
 import PageEntity from '@src/models/entity/page-entity';
 import { PageOverlay } from '@src/components/layout/page-overlay';
 import PageRepository from '@src/models/repository/page-repository';
-import MenuRepository from '@src/models/repository/menu-repository';
+import MenuRepository, { PrevAndNextPageEntity, PrevAndNextPageId } from '@src/models/repository/menu-repository';
+import { RouteComponentProps, withRouter } from 'react-router';
 
 type PageContainerProps = {
     pageId: string;
     lang: DataSupportedLangType;
     pageRepository: PageRepository;
     menuRepository?: MenuRepository;
-};
+} & RouteComponentProps<any>;
+
 type PageContainerState = {
     pageExists: boolean | undefined;
     pageEntity: PageEntity | undefined;
@@ -53,6 +55,15 @@ class PageContainer extends React.Component<PageContainerProps, PageContainerSta
         }
     }
 
+    getPrevAndNextPageEntities(pageId: string): PrevAndNextPageEntity {
+        const { menuRepository } = this.props;
+        if (menuRepository === undefined) {
+            return {};
+        }
+
+        return menuRepository.getPrevAndNextPageEntityMenu(pageId, this.props.lang, this.props.pageRepository);
+    }
+
     render() {
         const { pageExists, pageEntity } = this.state;
         // should not be required, exit if async loading
@@ -60,14 +71,21 @@ class PageContainer extends React.Component<PageContainerProps, PageContainerSta
         if (pageExists === undefined) {
             return null;
         }
+
+        const { previous, next } = this.getPrevAndNextPageEntities(this.props.pageId);
+
         return (
             <PageOverlay closeButton={false}>
                 <div className="page-wrapper">
-                    {pageEntity ? <Page pageEntity={pageEntity} lang={this.props.lang} /> : <NotFoundContainer />}
+                    {pageEntity ? (
+                        <Page pageEntity={pageEntity} lang={this.props.lang} {...previous} {...next} />
+                    ) : (
+                        <NotFoundContainer />
+                    )}
                 </div>
             </PageOverlay>
         );
     }
 }
 
-export default PageContainer;
+export default withRouter(PageContainer);
