@@ -56,6 +56,8 @@ export default class VideoPlayer extends React.Component<VideoPlayerProps, Video
         if (this.playerRef.current !== null) {
             console.log('VideoPlayer rerender, setting srcObject to null');
             const videoEl = this.playerRef.current!.getInternalPlayer() as HTMLVideoElement;
+            // This bug in firefox... we need to reset texttracks
+            this.hideAllSubtitles(videoEl);
             videoEl.srcObject = null;
         }
 
@@ -63,8 +65,14 @@ export default class VideoPlayer extends React.Component<VideoPlayerProps, Video
             <ReactPlayer
                 ref={this.playerRef}
                 onStart={() => {
+                    // When the video starts activate the text track
+                    // this bug is realtes to
                     const video = this.playerRef.current!.getInternalPlayer() as HTMLVideoElement;
-                    console.log('video texttracks', video.textTracks);
+                    const { activeSubtitleLang: lang } = this.props;
+                    if (lang !== undefined) {
+                        // This bug in firefox... we need to reset texttracks whoing
+                        this.showSubtitle(video, lang);
+                    }
                 }}
                 playsinline={true}
                 {...playerProps}
@@ -72,6 +80,27 @@ export default class VideoPlayer extends React.Component<VideoPlayerProps, Video
                 config={playerConfig}
             />
         );
+    }
+
+    protected hideAllSubtitles(video: HTMLVideoElement): void {
+        for (let i = 0; i < video.textTracks.length; i++) {
+            console.log('Hidding', video.textTracks[i]);
+            video.textTracks[i].mode = 'hidden';
+            console.log('New value', video.textTracks[i]);
+        }
+    }
+
+    protected showSubtitle(video: HTMLVideoElement, lang: string): void {
+        for (let i = 0; i < video.textTracks.length; i++) {
+            // For the 'subtitles-off' button, the first condition will never match so all will subtitles be turned off
+            if (video.textTracks[i].language === lang) {
+                console.log('SHOWING', video.textTracks[i]);
+                video.textTracks[i].mode = 'showing';
+                //this.setAttribute('data-state', 'active');
+            } else {
+                video.textTracks[i].mode = 'hidden';
+            }
+        }
     }
 
     protected getReactPlayerSources(videoSources: VideoSourceEntity[]): ReactPlayerSourceProps[] {
