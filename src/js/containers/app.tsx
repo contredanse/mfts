@@ -2,7 +2,7 @@ import React from 'react';
 import { hot } from 'react-hot-loader';
 import { ConnectedRouter } from 'react-router-redux';
 import { Route } from 'react-router-dom';
-import { history } from '@src/store';
+import history from '@src/history';
 import { RouteComponentProps, Switch } from 'react-router';
 import { AppBar } from '@src/components/app-bar';
 import HomeContainer from '@src/containers/home-container';
