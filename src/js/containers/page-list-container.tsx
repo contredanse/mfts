@@ -20,7 +20,7 @@ type PageListContainerState = {
     searchFragment?: string;
 };
 
-class PageListContainer extends React.Component<PageListContainerProps, PageListContainerState> {
+class PageListContainer extends React.PureComponent<PageListContainerProps, PageListContainerState> {
     readonly state: PageListContainerState;
 
     constructor(props: PageListContainerProps) {

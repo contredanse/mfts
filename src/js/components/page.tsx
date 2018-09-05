@@ -67,7 +67,16 @@ class Page extends React.Component<PageProps, PageState> {
         this.videoPlayerRef = React.createRef<VideoPlayer>();
         this.audioPlayerRef = React.createRef<AudioPlayer>();
     }
-
+    /*
+    componentDidUpdate(prevProps: PageProps, prevState: PageState) {
+        if (this.props.pageEntity.pageId !== prevProps.pageEntity.pageId) {
+            this.setState({
+                    playbackState: defaultPlaybackState,
+                }
+            )
+        }
+    }
+*/
     render() {
         const { pageEntity: page } = this.props;
 
@@ -94,7 +103,6 @@ class Page extends React.Component<PageProps, PageState> {
                                 playing={this.state.playbackState.isPlaying}
                                 playbackRate={this.state.playbackState.playbackRate}
                             />
-
                             {audio && (
                                 <div className="panel-audio-subs">
                                     <AudioPlayer
