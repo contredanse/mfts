@@ -13,6 +13,7 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
+const zopfli = require('@gfx/zopfli');
 const BrotliPlugin = require('brotli-webpack-plugin');
 
 const StatsWriterPlugin = require('webpack-stats-plugin').StatsWriterPlugin;
@@ -334,6 +335,12 @@ module.exports = merge(common, {
 
         new CompressionPlugin({
             test: /\.(js|css|svg)$/,
+            compressionOptions: {
+                numiterations: 15,
+            },
+            algorithm(input, compressionOptions, callback) {
+                return zopfli.gzip(input, compressionOptions, callback);
+            },
         }),
 
         new BrotliPlugin({
