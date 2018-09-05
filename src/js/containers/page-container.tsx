@@ -31,27 +31,12 @@ class PageContainer extends React.Component<PageContainerProps, PageContainerSta
     }
 
     async componentDidMount() {
-        try {
-            const pageEntity = await this.props.pageRepository.getPageEntity(this.props.pageId);
-            this.setState(
-                (prevState: PageContainerState): PageContainerState => {
-                    return {
-                        ...prevState,
-                        pageExists: true,
-                        pageEntity: pageEntity,
-                    };
-                }
-            );
-        } catch (e) {
-            this.setState(
-                (prevState: PageContainerState): PageContainerState => {
-                    return {
-                        ...prevState,
-                        pageExists: false,
-                        pageEntity: undefined,
-                    };
-                }
-            );
+        this.loadPageState(this.props.pageId);
+    }
+
+    componentDidUpdate(prevProps: PageContainerProps, prevState: PageContainerState) {
+        if (this.props.pageId !== prevProps.pageId) {
+            this.loadPageState(this.props.pageId);
         }
     }
 
@@ -66,6 +51,7 @@ class PageContainer extends React.Component<PageContainerProps, PageContainerSta
 
     navigateToPage = (pageId: string): void => {
         const { lang } = this.props;
+        this.loadPageState(pageId);
         this.props.history.push(`/${lang}/page/${pageId}`);
     };
 
@@ -88,6 +74,8 @@ class PageContainer extends React.Component<PageContainerProps, PageContainerSta
                             lang={this.props.lang}
                             previousPage={previous}
                             nextPage={next}
+                            // onPageChangeRequest={() => {this.props.history.push('/about')}}
+
                             onPageChangeRequest={this.navigateToPage}
                         />
                     ) : (
@@ -96,6 +84,34 @@ class PageContainer extends React.Component<PageContainerProps, PageContainerSta
                 </div>
             </PageOverlay>
         );
+    }
+
+    /**
+     * @todo find a better way
+     */
+    protected loadPageState(pageId: string) {
+        try {
+            const pageEntity = this.props.pageRepository.getPageEntity(this.props.pageId);
+            this.setState(
+                (prevState: PageContainerState): PageContainerState => {
+                    return {
+                        ...prevState,
+                        pageExists: true,
+                        pageEntity: pageEntity,
+                    };
+                }
+            );
+        } catch (e) {
+            this.setState(
+                (prevState: PageContainerState): PageContainerState => {
+                    return {
+                        ...prevState,
+                        pageExists: false,
+                        pageEntity: undefined,
+                    };
+                }
+            );
+        }
     }
 }
 
