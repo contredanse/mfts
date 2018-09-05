@@ -55,17 +55,17 @@ export default class VideoPlayer extends React.Component<VideoPlayerProps, Video
         // @todo remove when https://github.com/CookPete/react-player/pull/482 is merged
         if (this.playerRef.current !== null) {
             console.log('VideoPlayer rerender, setting srcObject to null');
-            (this.playerRef.current!.getInternalPlayer() as HTMLVideoElement).srcObject = null;
+            const videoEl = this.playerRef.current!.getInternalPlayer() as HTMLVideoElement;
+            videoEl.srcObject = null;
         }
 
         return (
             <ReactPlayer
                 ref={this.playerRef}
-                /*
                 onStart={() => {
-                    const video = (this.playerRef.current!.getInternalPlayer() as HTMLVideoElement);
-                    console.log("video texttracks", video.textTracks);
-                }}*/
+                    const video = this.playerRef.current!.getInternalPlayer() as HTMLVideoElement;
+                    console.log('video texttracks', video.textTracks);
+                }}
                 playsinline={true}
                 {...playerProps}
                 url={playerSources}
