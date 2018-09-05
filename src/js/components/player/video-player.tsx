@@ -21,14 +21,10 @@ type VideoPlayerState = {};
 
 export default class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
     protected playerRef: React.RefObject<ReactPlayer>;
-    protected playerConfig: ReactPlayerConfig;
-    protected playerSources: ReactPlayerSourceProps[];
 
     constructor(props: VideoPlayerProps) {
         super(props);
         this.playerRef = React.createRef<ReactPlayer>();
-        this.playerConfig = this.getReactPlayerConfig(props.video, props.activeSubtitleLang || 'en');
-        this.playerSources = this.getReactPlayerSources(props.video.getSources());
     }
 
     getHTMLVideoElement(): HTMLVideoElement | null {
@@ -38,23 +34,42 @@ export default class VideoPlayer extends React.Component<VideoPlayerProps, Video
         return this.playerRef.current.getInternalPlayer() as HTMLVideoElement;
     }
 
+    shouldComponentUpdate(nextProps: VideoPlayerProps, nextState: VideoPlayerState): boolean {
+        if (nextProps.video.videoId !== this.props.video.videoId) {
+            return true;
+        }
+        // To be tested, a better solution must be found
+        if (nextProps.activeSubtitleLang !== this.props.activeSubtitleLang) {
+            return true;
+        }
+        return false;
+    }
+
     render() {
         const { video, activeSubtitleLang, disableSubtitles, crossOrigin, ...playerProps } = this.props;
 
-        /*
-        const videoLink = video.videoLink;
-        if (videoLink) {
-            style=
+        const playerSources = this.getReactPlayerSources(video.getSources());
+
+        const playerConfig = this.getReactPlayerConfig(video, activeSubtitleLang || 'en');
+
+        // @todo remove when https://github.com/CookPete/react-player/pull/482 is merged
+        if (this.playerRef.current !== null) {
+            console.log('VideoPlayer rerender, setting srcObject to null');
+            (this.playerRef.current!.getInternalPlayer() as HTMLVideoElement).srcObject = null;
         }
-        */
 
         return (
             <ReactPlayer
                 ref={this.playerRef}
+                /*
+                onStart={() => {
+                    const video = (this.playerRef.current!.getInternalPlayer() as HTMLVideoElement);
+                    console.log("video texttracks", video.textTracks);
+                }}*/
                 playsinline={true}
                 {...playerProps}
-                url={this.playerSources}
-                config={this.playerConfig}
+                url={playerSources}
+                config={playerConfig}
             />
         );
     }
@@ -77,8 +92,6 @@ export default class VideoPlayer extends React.Component<VideoPlayerProps, Video
 
     /**
      * Get config for video tracks, covers, cross-origin policy...
-     * @param {VideoEntity} video
-     * @param {string} defaultTrackLang
      */
     protected getReactPlayerConfig(video: VideoEntity, defaultTrackLang: string): ReactPlayerConfig {
         const playerTracks = !this.props.disableSubtitles
