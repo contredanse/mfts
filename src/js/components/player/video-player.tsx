@@ -67,11 +67,11 @@ export default class VideoPlayer extends React.Component<VideoPlayerProps, Video
                 onStart={() => {
                     // When the video starts activate the text track
                     // this bug is realtes to
-                    const video = this.playerRef.current!.getInternalPlayer() as HTMLVideoElement;
+                    const v = this.playerRef.current!.getInternalPlayer() as HTMLVideoElement;
                     const { activeSubtitleLang: lang } = this.props;
                     if (lang !== undefined) {
                         // This bug in firefox... we need to reset texttracks whoing
-                        this.showSubtitle(video, lang);
+                        this.showSubtitle(v, lang);
                     }
                 }}
                 playsinline={true}
