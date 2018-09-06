@@ -5,7 +5,7 @@ import { DataSupportedLangType } from '@src/models/repository/data-repository';
 import PageEntity from '@src/models/entity/page-entity';
 import { PageOverlay } from '@src/components/layout/page-overlay';
 import PageRepository from '@src/models/repository/page-repository';
-import MenuRepository, { PrevAndNextPageEntity } from '@src/models/repository/menu-repository';
+import MenuRepository, { PrevAndNextPageEntities } from '@src/models/repository/menu-repository';
 import { RouteComponentProps, withRouter } from 'react-router';
 
 type PageContainerProps = {
@@ -30,7 +30,7 @@ class PageContainer extends React.Component<PageContainerProps, PageContainerSta
         super(props);
     }
 
-    async componentDidMount() {
+    componentDidMount() {
         this.loadPageState(this.props.pageId);
     }
 
@@ -40,12 +40,11 @@ class PageContainer extends React.Component<PageContainerProps, PageContainerSta
         }
     }
 
-    getPrevAndNextPageEntities(pageId: string): PrevAndNextPageEntity {
+    getPrevAndNextPageEntities(pageId: string): PrevAndNextPageEntities {
         const { menuRepository } = this.props;
         if (menuRepository === undefined) {
             return {};
         }
-
         return menuRepository.getPrevAndNextPageEntityMenu(pageId, this.props.lang, this.props.pageRepository);
     }
 
@@ -63,7 +62,7 @@ class PageContainer extends React.Component<PageContainerProps, PageContainerSta
             return null;
         }
 
-        const { previous, next } = this.getPrevAndNextPageEntities(this.props.pageId);
+        const { previousPage, nextPage } = this.getPrevAndNextPageEntities(this.props.pageId);
 
         return (
             <PageOverlay closeButton={false}>
@@ -72,8 +71,8 @@ class PageContainer extends React.Component<PageContainerProps, PageContainerSta
                         <Page
                             pageEntity={pageEntity}
                             lang={this.props.lang}
-                            previousPage={previous}
-                            nextPage={next}
+                            previousPage={previousPage}
+                            nextPage={nextPage}
                             // onPageChangeRequest={() => {this.props.history.push('/about')}}
 
                             onPageChangeRequest={this.navigateToPage}
