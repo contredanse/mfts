@@ -51,7 +51,6 @@ export default class PanelMultiVideo extends React.Component<PanelMultiVideoProp
                     if (video.hasVideoLink()) {
                         videoClassName += ' clickable-video';
                     }
-                    const coverImg = video.getFirstCover();
 
                     const containerStyle = {};
 
