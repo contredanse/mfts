@@ -5,7 +5,7 @@ import { DataSupportedLangType } from '@src/models/repository/data-repository';
 import PageEntity from '@src/models/entity/page-entity';
 import { PageOverlay } from '@src/components/layout/page-overlay';
 import PageRepository from '@src/models/repository/page-repository';
-import MenuRepository, { PrevAndNextPageEntity, PrevAndNextPageId } from '@src/models/repository/menu-repository';
+import MenuRepository, { PrevAndNextPageEntity } from '@src/models/repository/menu-repository';
 import { RouteComponentProps, withRouter } from 'react-router';
 
 type PageContainerProps = {

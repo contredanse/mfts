@@ -1,5 +1,5 @@
 import AppConfig from '@src/core/app-config';
-import { IJsonMenu, JsonMenuNodeType } from '@data/json/data-menu';
+import { IJsonMenu } from '@data/json/data-menu';
 import PageRepository from '@src/models/repository/page-repository';
 import PageEntity from '@src/models/entity/page-entity';
 
