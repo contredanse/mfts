@@ -81,7 +81,8 @@ class Page extends React.Component<PageProps, PageState> {
         const { pageEntity: page } = this.props;
 
         const countVideos = page.countVideos();
-        const multiVideoLayout = countVideos > 1;
+
+        const multiVideoLayout = page.isMultiLayout();
 
         const videos = page.getVideos(this.props.lang);
         const audio = page.getAudioEntity();

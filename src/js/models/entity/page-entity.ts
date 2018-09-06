@@ -49,6 +49,14 @@ export default class PageEntity extends AbstractBaseEntity {
         return this.data.content.videos.length || 0;
     }
 
+    /**
+     * Whether the page contains only one regular video (image+sound)
+     * or multiple videos/audio that we need to compose at the UI level
+     */
+    isMultiLayout(): boolean {
+        return this.countVideos() > 1 || this.getAudioEntity() !== undefined;
+    }
+
     getFirstVideo(lang?: string): VideoEntity | undefined {
         const firstVideo = this.getHelper().getLocalizedValue(this.videos[0].lang_video_id, lang);
         if (firstVideo === undefined) {
