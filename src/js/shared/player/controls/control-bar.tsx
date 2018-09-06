@@ -18,6 +18,8 @@ export type MediaPlayerControlBarProps = {
     actions: PlayerActions;
     enableSpeedControl?: boolean;
     enableBrowseControl?: boolean;
+    enablePrevControl?: boolean;
+    enableNextControl?: boolean;
     onNextLinkPressed?: () => void;
     onPreviousLinkPressed?: () => void;
 };
@@ -33,6 +35,8 @@ export class ControlBar extends React.Component<MediaPlayerControlBarProps, Medi
     static readonly defaultProps: Partial<MediaPlayerControlBarProps> = {
         enableBrowseControl: false,
         enableSpeedControl: true,
+        enableNextControl: true,
+        enablePrevControl: true,
     };
 
     readonly state: MediaPlayerControlbarState;
@@ -125,7 +129,6 @@ export class ControlBar extends React.Component<MediaPlayerControlBarProps, Medi
                             <div className="control-bar-ctn__panel__left">
                                 {!props.isPlaying && <PlayButton isEnabled={true} onClick={this.play} />}
                                 {props.isPlaying && <PauseButton isEnabled={true} onClick={this.pause} />}
-                                <PrevButton isEnabled={false} />
                                 <SoundOnButton isEnabled={true} onClick={this.unMute} />
                                 <SoundOffButton isEnabled={true} onClick={this.mute} />
                             </div>
@@ -148,19 +151,23 @@ export class ControlBar extends React.Component<MediaPlayerControlBarProps, Medi
                                     </div>
                                 )}
 
-                                <PrevButton
-                                    isEnabled={this.props.onPreviousLinkPressed !== undefined}
-                                    onClick={() => {
-                                        this.props.onPreviousLinkPressed!();
-                                    }}
-                                />
+                                {props.enablePrevControl && (
+                                    <PrevButton
+                                        isEnabled={this.props.onPreviousLinkPressed !== undefined}
+                                        onClick={() => {
+                                            this.props.onPreviousLinkPressed!();
+                                        }}
+                                    />
+                                )}
 
-                                <NextButton
-                                    isEnabled={this.props.onNextLinkPressed !== undefined}
-                                    onClick={() => {
-                                        this.props.onNextLinkPressed!();
-                                    }}
-                                />
+                                {props.enableNextControl && (
+                                    <NextButton
+                                        isEnabled={this.props.onNextLinkPressed !== undefined}
+                                        onClick={() => {
+                                            this.props.onNextLinkPressed!();
+                                        }}
+                                    />
+                                )}
                             </div>
                         </div>
                     </div>
