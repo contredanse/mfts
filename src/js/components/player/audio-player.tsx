@@ -23,7 +23,7 @@ export default class AudioPlayer extends React.Component<AudioPlayerProps, Audio
     constructor(props: AudioPlayerProps) {
         super(props);
         this.playerRef = React.createRef();
-        const currentLang = 'en';
+        const currentLang = this.props.lang || 'en';
         this.playerConfig = this.getReactPlayerConfig(props.audio, currentLang);
 
         // Warning this is an hack...
@@ -33,7 +33,7 @@ export default class AudioPlayer extends React.Component<AudioPlayerProps, Audio
 
         this.playerSources = [
             {
-                src: props.audio.getSourceFile()!,
+                src: props.audio.getSourceFile(currentLang)!,
                 type: audioMimeType,
             },
         ];
