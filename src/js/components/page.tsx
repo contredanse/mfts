@@ -1,4 +1,7 @@
 import React from 'react';
+
+import { translate, InjectedI18nProps } from 'react-i18next';
+
 import './page.scss';
 
 import PageEntity from '@src/models/entity/page-entity';
@@ -26,7 +29,7 @@ export type PageProps = {
     nextPage?: PageEntity;
     previousPage?: PageEntity;
     onPageChangeRequest?: (pageId: string) => void;
-};
+} & InjectedI18nProps;
 
 export type PageState = {
     playbackState: PlaybackState;
@@ -88,19 +91,21 @@ class Page extends React.Component<PageProps, PageState> {
     }
 
     render() {
-        const { pageEntity: page } = this.props;
+        const { pageEntity: page, lang } = this.props;
 
         const countVideos = page.countVideos();
 
         const hasMultipleVideos = countVideos > 1;
 
-        const videos = page.getVideos(this.props.lang);
+        const videos = page.getVideos(lang);
         const audio = page.getAudioEntity();
+
+        const { i18n } = this.props;
 
         return (
             <div className="page-container">
                 <div className="page-header">
-                    Page: {page.pageId}
+                    {i18n.t('page', { lng: lang })}: {page.pageId}
                     Playing <input id="playing" type={'checkbox'} checked={this.state.playbackState.isPlaying} />
                     Loading <input id="loading" type={'checkbox'} />
                 </div>
@@ -258,4 +263,4 @@ class Page extends React.Component<PageProps, PageState> {
     }
 }
 
-export default Page;
+export default translate()(Page);
