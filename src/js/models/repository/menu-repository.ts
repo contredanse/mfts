@@ -15,9 +15,9 @@ export type PrevAndNextPageId = {
     next?: PageMenuInfo;
 };
 
-export type PrevAndNextPageEntity = {
-    previous?: PageEntity;
-    next?: PageEntity;
+export type PrevAndNextPageEntities = {
+    previousPage?: PageEntity;
+    nextPage?: PageEntity;
 };
 
 export default class MenuRepository {
@@ -50,13 +50,17 @@ export default class MenuRepository {
         return this.menu;
     }
 
-    getPrevAndNextPageEntityMenu(pageId: string, lang: string, pageRepository: PageRepository): PrevAndNextPageEntity {
-        const menuPage: PrevAndNextPageEntity = {};
+    getPrevAndNextPageEntityMenu(
+        pageId: string,
+        lang: string,
+        pageRepository: PageRepository
+    ): PrevAndNextPageEntities {
+        const menuPage: PrevAndNextPageEntities = {};
 
         const { previous, next } = this.getPrevAndNextPageMenu(pageId, lang);
 
-        menuPage.previous = previous !== undefined ? pageRepository.getPageEntity(previous.page_id) : undefined;
-        menuPage.next = next !== undefined ? pageRepository.getPageEntity(next.page_id) : undefined;
+        menuPage.previousPage = previous !== undefined ? pageRepository.getPageEntity(previous.page_id) : undefined;
+        menuPage.nextPage = next !== undefined ? pageRepository.getPageEntity(next.page_id) : undefined;
 
         return menuPage;
     }
