@@ -148,6 +148,13 @@ export class ControlBar extends React.Component<MediaPlayerControlBarProps, Medi
                                     </div>
                                 )}
 
+                                <PrevButton
+                                    isEnabled={this.props.onPreviousLinkPressed !== undefined}
+                                    onClick={() => {
+                                        this.props.onPreviousLinkPressed!();
+                                    }}
+                                />
+
                                 <NextButton
                                     isEnabled={this.props.onNextLinkPressed !== undefined}
                                     onClick={() => {
