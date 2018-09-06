@@ -3,7 +3,7 @@ import './page.scss';
 
 import PageEntity from '@src/models/entity/page-entity';
 
-import ControlBar from '@src/shared/player/controls/control-bar';
+import ControlBar, { MediaPlayerControlBarProps } from '@src/shared/player/controls/control-bar';
 import PanelMultiVideo from '@src/components/panel-multi-video';
 import AudioPlayer from '@src/components/player/audio-player';
 import VideoPlayer from '@src/components/player/video-player';
@@ -52,6 +52,8 @@ class Page extends React.Component<PageProps, PageState> {
 
     mediaPlayerActions!: PlayerActions;
 
+    controlBarActions!: Partial<MediaPlayerControlBarProps>;
+
     constructor(props: PageProps) {
         super(props);
 
@@ -66,23 +68,31 @@ class Page extends React.Component<PageProps, PageState> {
 
         this.videoPlayerRef = React.createRef<VideoPlayer>();
         this.audioPlayerRef = React.createRef<AudioPlayer>();
+
+        this.initControlBarActions();
     }
-    /*
-    componentDidUpdate(prevProps: PageProps, prevState: PageState) {
-        if (this.props.pageEntity.pageId !== prevProps.pageEntity.pageId) {
-            this.setState({
-                    playbackState: defaultPlaybackState,
+
+    initControlBarActions(): void {
+        this.controlBarActions = {
+            onNextLinkPressed: () => {
+                if (this.props.nextPage !== undefined && this.props.onPageChangeRequest !== undefined) {
+                    this.props.onPageChangeRequest(this.props.nextPage.pageId);
                 }
-            )
-        }
+            },
+            onPreviousLinkPressed: () => {
+                if (this.props.previousPage !== undefined && this.props.onPageChangeRequest !== undefined) {
+                    this.props.onPageChangeRequest(this.props.previousPage.pageId);
+                }
+            },
+        };
     }
-*/
+
     render() {
         const { pageEntity: page } = this.props;
 
         const countVideos = page.countVideos();
 
-        const multiVideoLayout = page.isMultiLayout();
+        const hasMultipleVideos = countVideos > 1;
 
         const videos = page.getVideos(this.props.lang);
         const audio = page.getAudioEntity();
@@ -96,7 +106,7 @@ class Page extends React.Component<PageProps, PageState> {
                 </div>
 
                 <div className="page-content">
-                    {multiVideoLayout ? (
+                    {hasMultipleVideos ? (
                         <div className="page-multi-video-layout">
                             <PanelMultiVideo
                                 videos={videos}
@@ -109,6 +119,7 @@ class Page extends React.Component<PageProps, PageState> {
                                     <AudioPlayer
                                         ref={this.audioPlayerRef}
                                         activeSubtitleLang={this.props.lang}
+                                        lang={this.props.lang}
                                         audio={audio}
                                         playing={this.state.playbackState.isPlaying}
                                         preload="preload"
@@ -149,7 +160,6 @@ class Page extends React.Component<PageProps, PageState> {
                 <div className="page-footer">
                 </div>
                 */}
-
                 <ControlBar
                     {...(this.getMainPlayerVideoElement() ? { videoEl: this.getMainPlayerVideoElement()! } : {})}
                     actions={this.mediaPlayerActions}
@@ -157,16 +167,7 @@ class Page extends React.Component<PageProps, PageState> {
                     currentTime={this.state.playbackState.currentTime}
                     isPlaying={this.state.playbackState.isPlaying}
                     playbackRate={this.state.playbackState.playbackRate}
-                    onNextLinkPressed={() => {
-                        if (this.props.nextPage !== undefined && this.props.onPageChangeRequest !== undefined) {
-                            this.props.onPageChangeRequest(this.props.nextPage.pageId);
-                        }
-                    }}
-                    onPreviousLinkPressed={() => {
-                        if (this.props.previousPage !== undefined && this.props.onPageChangeRequest !== undefined) {
-                            this.props.onPageChangeRequest(this.props.previousPage.pageId);
-                        }
-                    }}
+                    {...this.controlBarActions}
                 />
             </div>
         );
