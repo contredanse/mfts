@@ -41,13 +41,10 @@ describe('Data page retrieval', () => {
                 expect(p.isMultiLayout()).toEqual(multi);
             }
         });
-        const page = globalDataRepo.getPageEntity('small_dande');
     });
 });
 
 describe('Data page factory', () => {
-    const globalDataRepo = appConfig.getPageRepository();
-
     const jsonPage = {
         page_id: 'page_id',
         name: {
@@ -132,7 +129,4 @@ describe('Data page factory', () => {
     const tracks = page.getAudioEntity()!.getAllTracks();
     expect(tracks.length).toEqual(2);
     expect(tracks[0]).toEqual({ lang: 'en', src: 'http://audiosubs/comments_crescent.en.vtt' });
-
-    const videoTracks = page.getFirstVideo()!.getAllTracks();
-    //console.log('videoTracks', videoTracks);
 });
