@@ -47,4 +47,11 @@ describe('Menu repository', () => {
         expect(nav.next).toBe(undefined);
         expect(nav.previous).toHaveProperty('page_id', 'forms.cultivating.dance-culture');
     });
+
+    test('getPrevAndNextPageMenu must return partial nav for last item', async () => {
+        const pageId = 'forms.cultivating.dance-culture';
+        const nav = await menuRepo.getPrevAndNextPageMenu(pageId, 'en');
+        expect(nav.current).toHaveProperty('page_id', pageId);
+        expect(nav.next).toHaveProperty('page_id', 'forms.cultivating.kindling-scythe');
+    });
 });

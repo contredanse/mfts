@@ -74,7 +74,7 @@ export default class MenuRepository {
                 if (idx > 0) {
                     prevAndNextMenuPage.previous = MenuRepository.mapIJsonMenuToPageMenuInfo(pageMenu[idx - 1], lang);
                 }
-                if (idx < pageMenu.length - 2) {
+                if (idx < pageMenu.length - 1) {
                     prevAndNextMenuPage.next = MenuRepository.mapIJsonMenuToPageMenuInfo(pageMenu[idx + 1], lang);
                 }
             }
