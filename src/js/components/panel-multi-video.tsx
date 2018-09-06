@@ -28,6 +28,18 @@ export default class PanelMultiVideo extends React.Component<PanelMultiVideoProp
     render() {
         const { pageEntity, playing, playbackRate } = this.props;
         const videos = pageEntity.getVideos();
+
+        let sizeConstraints = {
+            width: '100%',
+            height: 'auto',
+        };
+
+        if (videos.length === 1) {
+            sizeConstraints = {
+                width: 'auto',
+                height: '100%',
+            };
+        }
         return (
             <div className="panel-multi-video">
                 {videos.map((video, idx) => {
@@ -53,8 +65,7 @@ export default class PanelMultiVideo extends React.Component<PanelMultiVideoProp
                                 className={videoClassName}
                                 disableSubtitles={true}
                                 video={video}
-                                width="100%"
-                                height="auto"
+                                {...sizeConstraints}
                                 preload="preload"
                                 onDuration={duration => {
                                     // Metadata have been loaded, the browser
