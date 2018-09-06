@@ -34,6 +34,8 @@ export default class PanelMultiVideo extends React.Component<PanelMultiVideoProp
             height: 'auto',
         };
 
+        // If there's only one video we need to swap width and height
+        // values
         if (videos.length === 1) {
             sizeConstraints = {
                 width: 'auto',
