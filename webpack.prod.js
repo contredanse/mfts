@@ -98,14 +98,11 @@ module.exports = merge(common, {
              * rules section. Use with care, most libraries will update the
              * sideEffect declaration in package.json anyway
              */
+            /*
             {
                 include: path.resolve('node_modules', 'react-router'),
                 sideEffects: false,
-            },
-            {
-                include: path.resolve('node_modules', 'react-router-dom'),
-                sideEffects: false,
-            },
+            },*/
         ],
     },
 
@@ -139,13 +136,23 @@ module.exports = merge(common, {
                     enforce: true,
                     chunks: 'all',
                 },
+
+                i18next: {
+                    test: /[\\/]node_modules\/(.*)i18n/,
+                    name: 'i18next',
+                    priority: -2,
+                    enforce: true,
+                    chunks: 'all',
+                },
+
                 react: {
-                    test: /[\\/]node_modules\/(react|react-dom)/,
+                    test: /[\\/]node_modules\/(react|react-dom)\//,
                     name: 'react',
                     priority: -5,
                     enforce: true,
                     chunks: 'all',
                 },
+
                 // Extract material-ui and icons in a separate chunk
                 mui: {
                     test: /[\\/]node_modules\/(@material-ui|material-ui)/,
@@ -323,15 +330,6 @@ module.exports = merge(common, {
         }),
 
         new HtmlWebpackHarddiskPlugin(),
-
-        /* Disabled because no usage now (can be enabled for nginx with brotli static)
-        new BrotliPlugin({
-            asset: '[path].br[query]',
-            test: /\.(js|css|html|svg)$/,
-            threshold: 10240,
-            minRatio: 0.8,
-        }),
-        */
 
         new CompressionPlugin({
             test: /\.(js|css|svg)$/,
