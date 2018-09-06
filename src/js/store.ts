@@ -1,6 +1,8 @@
 import { createStore, compose, applyMiddleware } from 'redux';
 import { rootReducer, RootState } from '@src/redux';
-import { routerMiddleware } from 'react-router-redux';
+
+import { connectRouter, routerMiddleware } from 'connected-react-router';
+
 import history from '@src/history';
 
 const composeEnhancers =
@@ -22,7 +24,7 @@ function configureStore(initialState?: RootState) {
     const enhancers = composeEnhancers(applyMiddleware(...middlewares));
 
     // create store
-    return createStore(rootReducer, initialState!, enhancers);
+    return createStore(connectRouter(history)(rootReducer), initialState!, enhancers);
 }
 
 // pass an optional param to rehydrate state on app start
