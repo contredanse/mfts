@@ -35,9 +35,23 @@ export default class VideoPlayer extends React.Component<VideoPlayerProps, Video
     }
 
     shouldComponentUpdate(nextProps: VideoPlayerProps, nextState: VideoPlayerState): boolean {
+        // A new video have been given
         if (nextProps.video.videoId !== this.props.video.videoId) {
+            // @todo remove when https://github.com/CookPete/react-player/pull/482 is merged
+            if (this.playerRef.current !== null) {
+                console.log('VideoPlayer rerender, hiding subs and setting srcObject to null');
+                const videoEl = this.playerRef.current!.getInternalPlayer() as HTMLVideoElement;
+                // This bug in firefox... we need to reset texttracks
+                this.hideAllSubtitles(videoEl);
+                videoEl.srcObject = null;
+            }
             return true;
         }
+
+        if (nextProps.playbackRate !== this.props.playbackRate) {
+            return true;
+        }
+
         // To be tested, a better solution must be found
         if (nextProps.activeSubtitleLang !== this.props.activeSubtitleLang) {
             return true;
@@ -51,15 +65,6 @@ export default class VideoPlayer extends React.Component<VideoPlayerProps, Video
         const playerSources = this.getReactPlayerSources(video.getSources());
 
         const playerConfig = this.getReactPlayerConfig(video, activeSubtitleLang || 'en');
-
-        // @todo remove when https://github.com/CookPete/react-player/pull/482 is merged
-        if (this.playerRef.current !== null) {
-            console.log('VideoPlayer rerender, setting srcObject to null');
-            const videoEl = this.playerRef.current!.getInternalPlayer() as HTMLVideoElement;
-            // This bug in firefox... we need to reset texttracks
-            this.hideAllSubtitles(videoEl);
-            videoEl.srcObject = null;
-        }
 
         return (
             <ReactPlayer

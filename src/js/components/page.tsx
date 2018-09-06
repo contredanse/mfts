@@ -45,7 +45,7 @@ const defaultPlaybackState: PlaybackState = {
     isMetadataLoaded: false,
 };
 
-class Page extends React.Component<PageProps, PageState> {
+class Page extends React.PureComponent<PageProps, PageState> {
     readonly state: PageState;
 
     videoPlayerRef!: React.RefObject<VideoPlayer>;
@@ -101,7 +101,7 @@ class Page extends React.Component<PageProps, PageState> {
         const audio = page.getAudioEntity();
 
         const { i18n } = this.props;
-
+        console.log('rerender');
         return (
             <div className="page-container">
                 <div className="page-header">
@@ -237,6 +237,7 @@ class Page extends React.Component<PageProps, PageState> {
                 });
             },
             setPlaybackRate: playbackRate => {
+                console.log('set playbackRate', playbackRate);
                 this.setState((prevState, prevProps) => {
                     const newState = {
                         prevState,
@@ -247,7 +248,7 @@ class Page extends React.Component<PageProps, PageState> {
             },
 
             setCurrentTime: time => {
-                console.log('set current time');
+                console.log('set current time', time);
                 const videoEl = this.getMainPlayerVideoElement();
                 if (videoEl) {
                     videoEl.currentTime = time;
