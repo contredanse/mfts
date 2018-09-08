@@ -1,6 +1,12 @@
 declare interface Window {
+    initialReduxState: any;
     __REDUX_DEVTOOLS_EXTENSION__: any;
     __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: any;
+}
+
+declare interface ServiceWorkerConfig {
+    onSuccess: (registration: ServiceWorkerRegistration) => void;
+    onUpdate: (registration: ServiceWorkerRegistration) => void;
 }
 
 declare module '*.png' {
