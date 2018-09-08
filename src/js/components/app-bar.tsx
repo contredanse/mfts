@@ -3,7 +3,6 @@
  */
 import React from 'react';
 
-import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 import { RouteComponentProps } from 'react-router';
@@ -22,8 +21,6 @@ import {
 
 import { Menu as MenuIcon } from '@material-ui/icons';
 
-import { RootState } from '@src/redux/index';
-
 type MenuLinkProps = {
     path: string;
     label: string;
@@ -32,6 +29,7 @@ type MenuLinkProps = {
 
 type AppBarProps = {
     title: string;
+    lang: string;
     // menuLinks: MenuLinkProps[];
 };
 
@@ -53,12 +51,12 @@ export type AppBarWithStylesProps = AppBarProps & WithStyles<typeof styles>;
 export type AppBarWithRouterProps = AppBarProps & RouteComponentProps<{}>;
 
 export const AppBarComponent: React.SFC<AppBarWithStylesProps & AppBarWithRouterProps> = props => {
-    const { classes, history } = props;
+    const { classes, history, lang } = props;
     const currentPath = props.location.pathname;
 
     const menuItems: MenuLinkProps[] = [
         { path: '/', label: 'Home', active: false },
-        { path: '/page-list', label: 'Pages', active: false },
+        { path: `/${lang}/page-list`, label: 'Pages', active: false },
     ].map((menuLinkProps: MenuLinkProps) => {
         return { ...menuLinkProps, active: currentPath === menuLinkProps.path };
     });
@@ -84,7 +82,7 @@ export const AppBarComponent: React.SFC<AppBarWithStylesProps & AppBarWithRouter
                         color="inherit"
                         aria-label="Menu"
                         onClick={() => {
-                            history.push('/menu');
+                            history.push(`/${lang}/menu`);
                         }}
                     >
                         <MenuIcon />
@@ -101,18 +99,4 @@ export const AppBarComponent: React.SFC<AppBarWithStylesProps & AppBarWithRouter
     );
 };
 
-/**
- * Exporting AppBar with router support and injected styles
- */
-const mapStateToProps = (state: RootState) => ({});
-
-const mapDispatchToProps = (dispatch: any) => ({});
-
-export const AppBar = withStyles(styles)(
-    withRouter(
-        connect(
-            mapStateToProps,
-            mapDispatchToProps
-        )(AppBarComponent)
-    )
-);
+export const AppBar = withStyles(styles)(withRouter(AppBarComponent));

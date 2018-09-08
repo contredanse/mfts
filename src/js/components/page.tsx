@@ -104,13 +104,14 @@ class Page extends React.PureComponent<PageProps, PageState> {
         console.log('rerender');
         return (
             <div className="page-container">
-                {/*
                 <div className="page-header">
-                    {i18n.t('page', { lng: lang })}: {page.pageId}
+                    {/* {i18n.t('page', { lng: lang })}: {page.pageId} */}
+                    <h3>{page.getTitle(lang)}</h3>
+                    {/*
                     Playing <input id="playing" type={'checkbox'} checked={this.state.playbackState.isPlaying} />
                     Loading <input id="loading" type={'checkbox'} />
+                    */}
                 </div>
-                */}
 
                 <div className="page-content">
                     {hasMultipleVideos ? (
@@ -152,7 +153,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
                                     activeSubtitleLang={this.props.lang}
                                     style={{}}
                                     preload="preload"
-                                    video={page.getFirstVideo()!}
+                                    video={page.getFirstVideo(lang)!}
                                     playing={this.state.playbackState.isPlaying}
                                     playbackRate={this.state.playbackState.playbackRate}
                                     width="100%"

@@ -7,7 +7,8 @@ import '@babel/polyfill';
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider as ReduxProvider } from 'react-redux';
-import store from './store';
+import history from './history';
+
 import App from './containers/app';
 
 import '@public/favicon.ico';
@@ -16,6 +17,11 @@ import 'typeface-quicksand';
 import { appConfig } from '@config/config.production';
 import AppConfig from '@src/core/app-config';
 import registerServiceWorker from './registerServiceWorker';
+
+import configureStore from './configureStore';
+
+const initialState = window.initialReduxState;
+const store = configureStore(history, initialState);
 
 const renderApp = (Component: any, config: AppConfig, elementId: string) => {
     render(
