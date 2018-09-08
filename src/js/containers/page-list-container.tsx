@@ -15,20 +15,17 @@ type PageListContainerProps = {
 
 type PageListContainerState = {
     pages: IJsonPage[];
-    lang: 'en' | 'fr';
     selectedPage?: IJsonPage;
     searchFragment?: string;
 };
 
-class PageListContainer extends React.PureComponent<PageListContainerProps, PageListContainerState> {
+class PageListContainer extends React.Component<PageListContainerProps, PageListContainerState> {
     readonly state: PageListContainerState;
 
     constructor(props: PageListContainerProps) {
         super(props);
-
         this.state = {
             pages: this.props.pageRepository.getAllPages(),
-            lang: this.props.lang,
         };
     }
 
@@ -44,7 +41,7 @@ class PageListContainer extends React.PureComponent<PageListContainerProps, Page
     };
 
     openPage = (page: IJsonPage) => {
-        const { lang } = this.state;
+        const { lang } = this.props;
         this.props.history.push(`/${lang}/page/${page.page_id}`);
     };
 
@@ -58,7 +55,8 @@ class PageListContainer extends React.PureComponent<PageListContainerProps, Page
     };
 
     render(): JSX.Element {
-        const { pages, selectedPage, lang } = this.state;
+        const { pages, selectedPage } = this.state;
+        const { lang } = this.props;
         const searchBoxStyle = {
             position: 'fixed',
             top: '70px',
