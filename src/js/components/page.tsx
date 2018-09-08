@@ -104,11 +104,13 @@ class Page extends React.PureComponent<PageProps, PageState> {
         console.log('rerender');
         return (
             <div className="page-container">
+                {/*
                 <div className="page-header">
                     {i18n.t('page', { lng: lang })}: {page.pageId}
                     Playing <input id="playing" type={'checkbox'} checked={this.state.playbackState.isPlaying} />
                     Loading <input id="loading" type={'checkbox'} />
                 </div>
+                */}
 
                 <div className="page-content">
                     {hasMultipleVideos ? (
