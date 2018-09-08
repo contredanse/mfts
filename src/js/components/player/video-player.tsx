@@ -54,6 +54,9 @@ export default class VideoPlayer extends React.Component<VideoPlayerProps, Video
 
         // To be tested, a better solution must be found
         if (nextProps.activeSubtitleLang !== this.props.activeSubtitleLang) {
+            console.log('Lang changed, subtitles need to be refreshed');
+            const videoEl = this.playerRef.current!.getInternalPlayer() as HTMLVideoElement;
+            this.showSubtitle(videoEl, nextProps.activeSubtitleLang || 'en');
             return true;
         }
         return false;
