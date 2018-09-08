@@ -16,6 +16,9 @@ import AppConfig from '@src/core/app-config';
 import PageListContainer from '@src/containers/page-list-container';
 import PageContainer from '@src/containers/page-container';
 import { DataSupportedLangType } from '@src/models/repository/data-repository';
+import { connect } from 'react-redux';
+import { ApplicationState } from '@src/store';
+import ConnectedLangSelector from '@src/components/lang-selector';
 
 type AppProps = {
     appConfig: AppConfig;
@@ -63,10 +66,7 @@ class App extends React.Component<AppProps, {}> {
     public render(): React.ReactElement<App> {
         const { assetsLocator } = this.props.appConfig;
 
-        // const lang = 'en';
-
         // Init repositories
-        //const videoRepository = this.props.appConfig.getVideoRepository();
         const pageRepository = this.props.appConfig.getPageRepository();
         const menuRepository = this.props.appConfig.getMenuRepository();
 
@@ -80,16 +80,8 @@ class App extends React.Component<AppProps, {}> {
                                 <ConnectedRouter history={history}>
                                     <div className="window-container">
                                         <header>
-                                            <AppBar title={i18n.t('appbar.title', { lng: lang })} />
-                                            <button
-                                                style={{ position: 'absolute', zIndex: 1500, top: '200px' }}
-                                                onClick={() => {
-                                                    alert('cooo');
-                                                    changeLanguage();
-                                                }}
-                                            >
-                                                Lang {lang}
-                                            </button>
+                                            <AppBar lang={lang} title={i18n.t('appbar.title', { lng: lang })} />
+                                            <ConnectedLangSelector />
                                         </header>
                                         <main>
                                             <Switch>
