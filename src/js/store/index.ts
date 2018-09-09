@@ -1,7 +1,7 @@
 import { combineReducers, Dispatch, Action, AnyAction } from 'redux';
 //import { all, fork } from 'redux-saga/effects'
 
-import { langReducer, LangState } from './lang';
+import { langReducer, LangState } from './locale';
 
 // The top-level state object
 export interface ApplicationState {
