@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -25,6 +26,8 @@ const extractSass = new MiniCssExtractPlugin({
     filename: 'static/css/style.[contenthash:8].css',
 });
 
+const distFolder = path.resolve(__dirname, 'dist');
+
 module.exports = merge(common, {
     devtool: 'hidden-source-map', // or false if you don't want source map
     mode: 'production',
@@ -34,7 +37,7 @@ module.exports = merge(common, {
     ],
 
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(distFolder, 'public'),
         filename: 'static/js/[name].[chunkhash:8].bundle.js',
         chunkFilename: 'static/js/[name].[chunkhash:8].bundle.js',
         publicPath: '/',
@@ -238,7 +241,7 @@ module.exports = merge(common, {
                 // use different major versions for 'warning' package
                 // That can be ignored.
                 //return instance.name === 'warning';
-                return ['warning', '@babel/runtime'].includes(instance.name);
+                return ['warning', '@babel/runtime', 'recompose'].includes(instance.name);
             },
         }),
 
@@ -345,6 +348,13 @@ module.exports = merge(common, {
             asset: '[path].br[query]',
             test: /\.(js|css|svg)$/,
         }),
+
+        new CopyWebpackPlugin([
+            // Copy default .htaccess file
+            { from: './public/.htaccess.dist', to: `${distFolder}/public/.htaccess`, toType: 'file' },
+            // Copy static .htaccess file for static assets
+            { from: './public/static/.htaccess.dist', to: `${distFolder}/public/static/.htaccess`, toType: 'file' },
+        ]),
 
         /*
         new StatsWriterPlugin({
