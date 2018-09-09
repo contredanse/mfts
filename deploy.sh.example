@@ -8,6 +8,6 @@ DEPLOY_PATH=/var/www/my_site/public_html
 yarn build
 
 # Rsync the thing
-rsync -azP --delete --exclude=/assets ./dist/public/* ${DEPLOY_USER}@${DEPLOY_HOST}:{DEPLOY_PATH}
+rsync -azP --delete --exclude=/assets ./dist/public/ ${DEPLOY_USER}@${DEPLOY_HOST}:{DEPLOY_PATH}
 
 
