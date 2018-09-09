@@ -329,7 +329,7 @@ module.exports = merge(common, {
             navigateFallbackWhitelist: [/^(?!\/__).*/],
             // Don't precache sourcemaps (they're large) and build asset manifest:
             //staticFileGlobsIgnorePatterns: [/\.map$/, /assets-manifest\.json$/, /index\.html/, /\.br$/, /\.gz$/],
-            staticFileGlobsIgnorePatterns: [/\.map$/, /assets-manifest\.json$/, /\.br$/, /\.gz$/],
+            staticFileGlobsIgnorePatterns: [/\.map$/, /\.htaccess$/, /assets-manifest\.json$/, /\.br$/, /\.gz$/],
         }),
 
         new HtmlWebpackHarddiskPlugin(),
