@@ -1,4 +1,4 @@
-export type DataSupportedLangType = 'en' | 'fr'; // | 'nl' | 'de' | 'es';
+export type DataSupportedLangType = string;
 
 export interface IDataRepositoryParams {
     fallbackLang: DataSupportedLangType;
