@@ -1,7 +1,7 @@
 import React from 'react';
 import { hot } from 'react-hot-loader';
 
-import { Redirect, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { RouteComponentProps, Switch } from 'react-router';
 import { ConnectedRouter } from 'connected-react-router';
 import { I18nextProvider } from 'react-i18next';
@@ -15,9 +15,6 @@ import NotFoundContainer from '@src/containers/notfound-container';
 import AppConfig from '@src/core/app-config';
 import PageListContainer from '@src/containers/page-list-container';
 import PageContainer from '@src/containers/page-container';
-import { DataSupportedLangType } from '@src/models/repository/data-repository';
-import { connect } from 'react-redux';
-import { ApplicationState } from '@src/store';
 
 import ConnectedLangSelector from '@src/components/lang-selector';
 import { WithStore } from '@src/hoc/with-store';
