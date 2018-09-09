@@ -23,7 +23,7 @@ export default class PageList extends React.Component<PageListProps, PageListSta
     }
 
     render() {
-        const list = this.props.pages;
+        const { pages: list, lang } = this.props;
 
         const Animate = ({ children, ...props }: { children: ReactNode }) => (
             <CSSTransition {...props} enter={true} appear={true} exit={false} timeout={1000} classNames="fade">
@@ -40,7 +40,7 @@ export default class PageList extends React.Component<PageListProps, PageListSta
                         {list &&
                             list.map(page => {
                                 const { page_id: pageId, content } = page;
-                                const { lang } = this.props;
+                                const title = page.title[lang];
                                 const fallbackLang = 'en';
 
                                 let videos: IJsonVideo[] = [];
@@ -90,7 +90,7 @@ export default class PageList extends React.Component<PageListProps, PageListSta
                                             key={pageId}
                                             onClick={() => this.handlePageSelection(page)}
                                         >
-                                            <span className="page-title">{pageId}</span>
+                                            <span className="page-title">{title}</span>
 
                                             {videos.length > 1 && (
                                                 <div className="grid-page-thumbnail">
