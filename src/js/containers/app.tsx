@@ -18,45 +18,14 @@ import PageContainer from '@src/containers/page-container';
 import { DataSupportedLangType } from '@src/models/repository/data-repository';
 import { connect } from 'react-redux';
 import { ApplicationState } from '@src/store';
+
 import ConnectedLangSelector from '@src/components/lang-selector';
+import { WithStore } from '@src/hoc/with-store';
+import { LangState } from '@src/store/locale';
 
 type AppProps = {
     appConfig: AppConfig;
 };
-
-export const LanguageContext = React.createContext({
-    language: 'en', // default language is Swahili
-    changeLanguage: () => null,
-});
-
-export const LanguageConsumer = LanguageContext.Consumer;
-
-export class LanguageProvider extends React.Component<any, any> {
-    readonly state: any;
-    constructor(props: any) {
-        super(props);
-        this.state = { language: 'en' };
-        this.changeLanguage = this.changeLanguage.bind(this);
-    }
-    changeLanguage = (): any => {
-        console.warn('CHANGE LANGUAGE');
-        this.setState({
-            language: this.state!.language === 'en' ? 'en' : 'fr',
-        });
-    };
-    render() {
-        return (
-            <LanguageContext.Provider
-                value={{
-                    language: this.state.language,
-                    changeLanguage: this.changeLanguage,
-                }}
-            >
-                {this.props.children}
-            </LanguageContext.Provider>
-        );
-    }
-}
 
 class App extends React.Component<AppProps, {}> {
     constructor(props: AppProps) {
@@ -71,90 +40,85 @@ class App extends React.Component<AppProps, {}> {
         const menuRepository = this.props.appConfig.getMenuRepository();
 
         return (
-            <LanguageProvider>
-                <LanguageConsumer>
-                    {({ language, changeLanguage }) => {
-                        const lang = language as DataSupportedLangType;
-                        return (
-                            <I18nextProvider i18n={i18n}>
-                                <ConnectedRouter history={history}>
-                                    <div className="window-container">
-                                        <header>
-                                            <AppBar lang={lang} title={i18n.t('appbar.title', { lng: lang })} />
-                                            <ConnectedLangSelector />
-                                        </header>
-                                        <main>
-                                            <Switch>
-                                                <Route exact={true} path="/" component={HomeContainer} />
-                                                <Route
-                                                    exact={true}
-                                                    path="/:lang(fr|en)?/menu"
-                                                    render={(props: RouteComponentProps<any>) => {
-                                                        const { lang: routerLang } = props.match.params;
-                                                        return (
-                                                            <MenuContainer
-                                                                lang={routerLang || lang}
-                                                                menuRepository={menuRepository}
-                                                            />
-                                                        );
-                                                    }}
-                                                />
-                                                <Route
-                                                    exact={true}
-                                                    path="/:lang(fr|en)?/intro"
-                                                    render={(props: RouteComponentProps<any>) => {
-                                                        const { lang: routerLang } = props.match.params;
-                                                        return (
-                                                            <PageContainer
-                                                                pageId="forms.introduction"
-                                                                lang={routerLang || lang}
-                                                                pageRepository={pageRepository}
-                                                            />
-                                                        );
-                                                    }}
-                                                />
-                                                <Route
-                                                    exact={true}
-                                                    path="/:lang(fr|en)?/page-list"
-                                                    render={(props: RouteComponentProps<any>) => {
-                                                        return (
-                                                            <PageListContainer
-                                                                lang={lang}
-                                                                videosBaseUrl={assetsLocator.getMediaTypeBaseUrl(
-                                                                    'videos'
-                                                                )}
-                                                                pageRepository={pageRepository}
-                                                                {...props}
-                                                            />
-                                                        );
-                                                    }}
-                                                />
-                                                <Route
-                                                    exact={true}
-                                                    path="/:lang(fr|en)?/page/:pageId"
-                                                    render={(props: RouteComponentProps<any>) => {
-                                                        const { pageId, lang: routeLang } = props.match.params;
-                                                        return (
-                                                            <PageContainer
-                                                                pageId={pageId}
-                                                                lang={routeLang || lang}
-                                                                pageRepository={pageRepository}
-                                                                menuRepository={menuRepository}
-                                                                {...props}
-                                                            />
-                                                        );
-                                                    }}
-                                                />
-                                                <Route component={NotFoundContainer} />
-                                            </Switch>
-                                        </main>
-                                    </div>
-                                </ConnectedRouter>
-                            </I18nextProvider>
-                        );
-                    }}
-                </LanguageConsumer>
-            </LanguageProvider>
+            <WithStore selector={state => state.lang}>
+                {({ lang }: LangState, dispatch) => {
+                    return (
+                        <I18nextProvider i18n={i18n}>
+                            <ConnectedRouter history={history}>
+                                <div className="window-container">
+                                    <header>
+                                        <AppBar lang={lang} title={i18n.t('appbar.title', { lng: lang })} />
+                                        <ConnectedLangSelector />
+                                    </header>
+                                    <main>
+                                        <Switch>
+                                            <Route exact={true} path="/" component={HomeContainer} />
+                                            <Route
+                                                exact={true}
+                                                path="/:lang(fr|en)?/menu"
+                                                render={(props: RouteComponentProps<any>) => {
+                                                    const { lang: routerLang } = props.match.params;
+                                                    return (
+                                                        <MenuContainer
+                                                            lang={routerLang || lang}
+                                                            menuRepository={menuRepository}
+                                                        />
+                                                    );
+                                                }}
+                                            />
+                                            <Route
+                                                exact={true}
+                                                path="/:lang(fr|en)?/intro"
+                                                render={(props: RouteComponentProps<any>) => {
+                                                    const { lang: routerLang } = props.match.params;
+                                                    return (
+                                                        <PageContainer
+                                                            pageId="forms.introduction"
+                                                            lang={routerLang || lang}
+                                                            pageRepository={pageRepository}
+                                                        />
+                                                    );
+                                                }}
+                                            />
+                                            <Route
+                                                exact={true}
+                                                path="/:lang(fr|en)?/page-list"
+                                                render={(props: RouteComponentProps<any>) => {
+                                                    return (
+                                                        <PageListContainer
+                                                            lang={lang}
+                                                            videosBaseUrl={assetsLocator.getMediaTypeBaseUrl('videos')}
+                                                            pageRepository={pageRepository}
+                                                            {...props}
+                                                        />
+                                                    );
+                                                }}
+                                            />
+                                            <Route
+                                                exact={true}
+                                                path="/:lang(fr|en)?/page/:pageId"
+                                                render={(props: RouteComponentProps<any>) => {
+                                                    const { pageId, lang: routeLang } = props.match.params;
+                                                    return (
+                                                        <PageContainer
+                                                            pageId={pageId}
+                                                            lang={routeLang || lang}
+                                                            pageRepository={pageRepository}
+                                                            menuRepository={menuRepository}
+                                                            {...props}
+                                                        />
+                                                    );
+                                                }}
+                                            />
+                                            <Route component={NotFoundContainer} />
+                                        </Switch>
+                                    </main>
+                                </div>
+                            </ConnectedRouter>
+                        </I18nextProvider>
+                    );
+                }}
+            </WithStore>
         );
     }
 }

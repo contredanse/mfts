@@ -10,7 +10,7 @@ import PageRepository from '@src/models/repository/page-repository';
 type PageListContainerProps = {
     pageRepository: PageRepository;
     videosBaseUrl: string;
-    lang: 'en' | 'fr';
+    lang: string;
 } & RouteComponentProps<any>;
 
 type PageListContainerState = {

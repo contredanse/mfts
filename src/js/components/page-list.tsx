@@ -8,7 +8,7 @@ import { ReactNode } from 'react';
 
 type PageListProps = {
     pages: IJsonPage[];
-    lang: 'en' | 'fr';
+    lang: string;
     baseUrl: string;
     onSelected?: (page: IJsonPage) => void;
 };
