@@ -3,7 +3,7 @@ import { ApplicationState } from '@src/store';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import * as langActions from '@src/store/locale/actions';
-import { RouteComponentProps, RouterProps, withRouter } from 'react-router';
+import { RouteComponentProps, withRouter } from 'react-router';
 
 // Props passed from mapStateToProps
 type PropsFromState = {
