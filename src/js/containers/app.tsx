@@ -120,4 +120,4 @@ class App extends React.Component<AppProps, {}> {
     }
 }
 
-export default hot(module)(App);
+export default (process.env.NODE_ENV === 'development' ? hot(module)(App) : App);

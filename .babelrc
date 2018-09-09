@@ -31,6 +31,10 @@
                         "useBuiltIns": false
                     }
                 ]
+            ],
+            "plugins": [
+                // For dev
+                "react-hot-loader/babel"
             ]
         },
         "test": {
@@ -47,9 +51,6 @@
     "plugins": [
         // Runtime
         "@babel/plugin-transform-runtime",
-
-        // For dev
-        "react-hot-loader/babel",
 
         // Stage 3
         "@babel/plugin-syntax-dynamic-import",
