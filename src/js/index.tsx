@@ -2,7 +2,8 @@
 // mini-css-extract-plugin to place it of top of the bundled styles
 import '@styles/style.scss';
 
-import '@babel/polyfill';
+// Not needed, we use useBuiltins: 'usage' instead
+// import '@babel/polyfill';
 
 import React from 'react';
 import { render } from 'react-dom';
