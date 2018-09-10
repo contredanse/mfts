@@ -16,7 +16,6 @@ import AppConfig from '@src/core/app-config';
 import PageListContainer from '@src/containers/page-list-container';
 import PageContainer from '@src/containers/page-container';
 
-import ConnectedLangSelector from '@src/components/lang-selector';
 import { WithStore } from '@src/hoc/with-store';
 import { LangState } from '@src/store/locale';
 
