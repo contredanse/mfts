@@ -18,9 +18,16 @@ const LangSelector: React.SFC<any> = (props: HomeProps) => {
             className="intro-lang-selection"
             style={{
                 flex: '0 1 100%',
-                maxWidth: '100%',
+                maxWidth: '700px',
             }}
         >
+            <p>
+                <Link to="/en/intro">Material for the spine - a movement study</Link>
+            </p>
+            <p>
+                <Link to="/fr/intro">Material for the spine - une étude du mouvement</Link>
+            </p>
+
             <div
                 className="video-ctn-ctn-ctn"
                 style={{
@@ -34,6 +41,7 @@ const LangSelector: React.SFC<any> = (props: HomeProps) => {
                         display: 'block',
                         //border: '1px solid blue',
                         width: '100%',
+                        maxWidth: '700px',
                     }}
                     playsInline
                     autoPlay
@@ -45,12 +53,6 @@ const LangSelector: React.SFC<any> = (props: HomeProps) => {
                     ))}
                 </video>
             </div>
-            <p>
-                <Link to="/en/intro">Material for the spine - a movement study</Link>
-            </p>
-            <p>
-                <Link to="/fr/intro">Material for the spine - une étude du mouvement</Link>
-            </p>
         </div>
     );
 };

@@ -45,7 +45,6 @@ class App extends React.Component<AppProps, {}> {
                                 <div className="window-container">
                                     <header>
                                         <AppBar lang={lang} title={i18n.t('appbar.title', { lng: lang })} />
-                                        <ConnectedLangSelector />
                                     </header>
                                     <main>
                                         <Switch>

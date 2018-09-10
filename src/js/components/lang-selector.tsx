@@ -20,7 +20,7 @@ type LangSelectorProps = PropsFromDispatch & PropsFromState & RouteComponentProp
 class LangSelector extends React.Component<LangSelectorProps> {
     constructor(props: LangSelectorProps) {
         super(props);
-        console.log('SKDFJS', props);
+        //console.log('SKDFJS', props);
     }
 
     updateLang = (lang: string): void => {
@@ -39,7 +39,7 @@ class LangSelector extends React.Component<LangSelectorProps> {
         const nextLang = currentLang === 'en' ? 'fr' : 'en';
         return (
             <button
-                style={{ position: 'absolute', zIndex: 1500, top: '200px' }}
+                //style={{ position: 'absolute', zIndex: 1500, top: '200px' }}
                 onPointerDown={() => this.updateLang(nextLang)}
             >
                 >> Go {nextLang}

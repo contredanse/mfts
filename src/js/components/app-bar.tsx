@@ -20,6 +20,7 @@ import {
 } from '@material-ui/core';
 
 import { Menu as MenuIcon } from '@material-ui/icons';
+import ConnectedLangSelector from '@src/components/lang-selector';
 
 type MenuLinkProps = {
     path: string;
@@ -87,9 +88,11 @@ export const AppBarComponent: React.SFC<AppBarWithStylesProps & AppBarWithRouter
                     >
                         <MenuIcon />
                     </IconButton>
+
                     <Typography variant="title" color="inherit" className={classes.flex}>
                         {props.title}
                     </Typography>
+                    <ConnectedLangSelector />
                     {menuItems.map(({ path, label, active }) => {
                         return <LinkItem key={path} path={path} label={label} active={active} />;
                     })}
