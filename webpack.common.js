@@ -80,6 +80,10 @@ module.exports = {
                 ],
             },
             {
+                test: /\.worker\.js$/,
+                use: { loader: 'worker-loader' },
+            },
+            {
                 test: /\.(mp4|m4v|ogv|webm)$/,
                 loader: 'file-loader',
                 options: {
