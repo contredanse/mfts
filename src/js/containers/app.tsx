@@ -53,25 +53,20 @@ class App extends React.Component<AppProps, {}> {
                                             <Route
                                                 exact={true}
                                                 path="/:lang(fr|en)?/menu"
-                                                render={(props: RouteComponentProps<any>) => {
-                                                    const { lang: routerLang } = props.match.params;
+                                                render={() => {
                                                     return (
-                                                        <MenuContainer
-                                                            lang={routerLang || lang}
-                                                            menuRepository={menuRepository}
-                                                        />
+                                                        <MenuContainer lang={lang} menuRepository={menuRepository} />
                                                     );
                                                 }}
                                             />
                                             <Route
                                                 exact={true}
                                                 path="/:lang(fr|en)?/intro"
-                                                render={(props: RouteComponentProps<any>) => {
-                                                    const { lang: routerLang } = props.match.params;
+                                                render={() => {
                                                     return (
                                                         <PageContainer
                                                             pageId="forms.introduction"
-                                                            lang={routerLang || lang}
+                                                            lang={lang}
                                                             pageRepository={pageRepository}
                                                         />
                                                     );
