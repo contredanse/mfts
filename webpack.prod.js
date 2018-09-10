@@ -16,6 +16,7 @@ const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const zopfli = require('@gfx/zopfli');
 const BrotliPlugin = require('brotli-webpack-plugin');
+const Workbox = require('workbox-webpack-plugin');
 
 const StatsWriterPlugin = require('webpack-stats-plugin').StatsWriterPlugin;
 
@@ -28,14 +29,14 @@ const extractSass = new MiniCssExtractPlugin({
 
 const distFolder = path.resolve(__dirname, 'dist');
 
+// Workbox worker is manually added to the static folder
+const workboxMainJs = require.resolve('workbox-sw');
+const workboxVersion = require(require.resolve('workbox-sw/package.json')).version;
+
 module.exports = merge(common, {
     devtool: 'hidden-source-map', // or false if you don't want source map
     mode: 'production',
-    entry: [
-        // 'babel-polyfill',
-        './src/js/index.tsx',
-    ],
-
+    entry: ['./src/js/index.tsx'],
     output: {
         path: path.resolve(distFolder, 'public'),
         filename: 'static/js/[name].[chunkhash:8].bundle.js',
@@ -178,8 +179,7 @@ module.exports = merge(common, {
         },
 
         noEmitOnErrors: true, // NoEmitOnErrorsPlugin
-        concatenateModules: true, //ModuleConcatenationPlugin (scope-hoisting)
-
+        //concatenateModules: true, //ModuleConcatenationPlugin (scope-hoisting)
         minimizer: [
             new UglifyJsPlugin({
                 cache: true,
@@ -288,7 +288,7 @@ module.exports = merge(common, {
                 },
                 {
                     src: path.resolve('src/assets/icons/logo.png'),
-                    size: 1024,
+                    size: 512,
                     destination: path.join('static', 'icons', 'ios'),
                     ios: 'startup',
                 },
@@ -301,6 +301,32 @@ module.exports = merge(common, {
             hash: true,
         }),
 
+        new HtmlWebpackHarddiskPlugin(),
+
+        new CopyWebpackPlugin([
+            // Copy default .htaccess file
+            { from: './public/.htaccess.dist', to: `${distFolder}/public/.htaccess`, toType: 'file' },
+            // Copy static .htaccess file for static assets
+            { from: './public/static/.htaccess.dist', to: `${distFolder}/public/static/.htaccess`, toType: 'file' },
+            { from: workboxMainJs, to: `${distFolder}/public/static/js/workbox-sw.${workboxVersion}.js` },
+        ]),
+
+        new CompressionPlugin({
+            test: /\.(js|css|svg)$/,
+            compressionOptions: {
+                numiterations: 15,
+            },
+            algorithm(input, compressionOptions, callback) {
+                return zopfli.gzip(input, compressionOptions, callback);
+            },
+        }),
+
+        new BrotliPlugin({
+            asset: '[path].br[query]',
+            test: /\.(js|css|svg)$/,
+        }),
+
+        /*
         new SWPrecacheWebpackPlugin({
             cacheId: 'paxton-material-for-the-spine',
             // By default, a cache-busting query parameter is appended to requests
@@ -326,35 +352,46 @@ module.exports = merge(common, {
             navigateFallback: PUBLIC_URL + '/',
             // Ignores URLs starting from /__ (useful for Firebase):
             // https://github.com/facebookincubator/create-react-app/issues/2237#issuecomment-302693219
-            navigateFallbackWhitelist: [/^(?!\/__).*/],
+
+            */
+
+        //navigateFallbackWhitelist: [/^(?!\/__).*/],
+
+        /*
             // Don't precache sourcemaps (they're large) and build asset manifest:
             //staticFileGlobsIgnorePatterns: [/\.map$/, /assets-manifest\.json$/, /index\.html/, /\.br$/, /\.gz$/],
             staticFileGlobsIgnorePatterns: [/\.map$/, /\.htaccess$/, /assets-manifest\.json$/, /\.br$/, /\.gz$/],
+        }),*/
+
+        // https://developers.google.com/web/tools/workbox/modules/workbox-webpack-plugin
+
+        new Workbox.InjectManifest({
+            // It's actually a chunk name !!!
+            //importWorkboxFrom: 'workboxSw',
+            importWorkboxFrom: 'disabled',
+            importScripts: [`static/js/workbox-sw.${workboxVersion}.js`],
+            swSrc: './src/js/sw.js',
+            swDest: 'service-worker.js',
+
+            exclude: [/\.map$/, /\.htaccess$/, /assets-manifest\.json$/, /\.br$/, /\.gz$/, /icons\/(.*)\.png/],
+
+            /** Only working with GeneratSwPlugin
+             *
+            navigateFallback: 'index.html',
+
+            // By default, a cache-busting query parameter is appended to requests
+            // used to populate the caches, to ensure the responses are fresh.
+            // If a URL is already hashed by Webpack, then there is no concern
+            // about it being stale, and the cache-busting can be skipped.
+            dontCacheBustUrlsMatching: /\.\w{8}\./,
+            navigateFallbackWhitelist: [/^(?!\/__).*<REMOVEMEWHENUNCOMMENTING>/ ],
+
+            // Whether or not the service worker should start controlling any existing clients as soon as it activates.
+            clientsClaim: true,
+            // Whether or not the service worker should skip over the waiting lifecycle stage. Normally this is used with `clientsClaim: true`.
+            skipWaiting: true
+            */
         }),
-
-        new HtmlWebpackHarddiskPlugin(),
-
-        new CompressionPlugin({
-            test: /\.(js|css|svg)$/,
-            compressionOptions: {
-                numiterations: 15,
-            },
-            algorithm(input, compressionOptions, callback) {
-                return zopfli.gzip(input, compressionOptions, callback);
-            },
-        }),
-
-        new BrotliPlugin({
-            asset: '[path].br[query]',
-            test: /\.(js|css|svg)$/,
-        }),
-
-        new CopyWebpackPlugin([
-            // Copy default .htaccess file
-            { from: './public/.htaccess.dist', to: `${distFolder}/public/.htaccess`, toType: 'file' },
-            // Copy static .htaccess file for static assets
-            { from: './public/static/.htaccess.dist', to: `${distFolder}/public/static/.htaccess`, toType: 'file' },
-        ]),
 
         /*
         new StatsWriterPlugin({
