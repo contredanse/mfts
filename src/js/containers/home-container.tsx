@@ -1,7 +1,8 @@
 import React from 'react';
 import Home from '@src/components/home';
+import { RouteComponentProps, withRouter } from 'react-router';
 
-type HomeContainerProps = {};
+type HomeContainerProps = {} & RouteComponentProps<{}>;
 type HomeContainerState = {};
 
 class HomeContainer extends React.Component<HomeContainerProps, HomeContainerState> {
@@ -18,4 +19,4 @@ class HomeContainer extends React.Component<HomeContainerProps, HomeContainerSta
     }
 }
 
-export default HomeContainer;
+export default withRouter(HomeContainer);
