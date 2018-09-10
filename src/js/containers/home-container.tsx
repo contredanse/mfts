@@ -9,7 +9,6 @@ class HomeContainer extends React.Component<HomeContainerProps, HomeContainerSta
     constructor(props: HomeContainerProps) {
         super(props);
     }
-
     render() {
         return (
             <div className="full-page-slide-ctn">
