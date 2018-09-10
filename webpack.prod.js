@@ -370,22 +370,19 @@ module.exports = merge(common, {
             //importWorkboxFrom: 'workboxSw',
             importWorkboxFrom: 'disabled',
             importScripts: [`static/js/workbox-sw.${workboxVersion}.js`],
-            swSrc: './src/js/sw.js',
+            swSrc: './src/js/service-worker.webpack.stub.js',
             swDest: 'service-worker.js',
 
             exclude: [/\.map$/, /\.htaccess$/, /assets-manifest\.json$/, /\.br$/, /\.gz$/, /icons\/(.*)\.png/],
 
             /** Only working with GeneratSwPlugin
-             *
             navigateFallback: 'index.html',
-
             // By default, a cache-busting query parameter is appended to requests
             // used to populate the caches, to ensure the responses are fresh.
             // If a URL is already hashed by Webpack, then there is no concern
             // about it being stale, and the cache-busting can be skipped.
             dontCacheBustUrlsMatching: /\.\w{8}\./,
             navigateFallbackWhitelist: [/^(?!\/__).*<REMOVEMEWHENUNCOMMENTING>/ ],
-
             // Whether or not the service worker should start controlling any existing clients as soon as it activates.
             clientsClaim: true,
             // Whether or not the service worker should skip over the waiting lifecycle stage. Normally this is used with `clientsClaim: true`.
