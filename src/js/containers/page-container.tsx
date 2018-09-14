@@ -5,7 +5,7 @@ import { DataSupportedLangType } from '@src/models/repository/data-repository';
 import PageEntity from '@src/models/entity/page-entity';
 import { PageOverlay } from '@src/components/layout/page-overlay';
 import PageRepository from '@src/models/repository/page-repository';
-import MenuRepository, { PrevAndNextPageEntities } from '@src/models/repository/menu-repository';
+import MenuRepository, { MenuSectionProps, PrevAndNextPageEntities } from '@src/models/repository/menu-repository';
 import { RouteComponentProps, withRouter } from 'react-router';
 
 type PageContainerProps = {
@@ -48,6 +48,14 @@ class PageContainer extends React.Component<PageContainerProps, PageContainerSta
         return menuRepository.getPrevAndNextPageEntityMenu(pageId, this.props.lang, this.props.pageRepository);
     }
 
+    getMenuBreadcrumb(pageId: string): MenuSectionProps[] {
+        const { menuRepository } = this.props;
+        if (menuRepository === undefined) {
+            return [];
+        }
+        return menuRepository.getPageBreadcrumb(pageId, this.props.lang);
+    }
+
     navigateToPage = (pageId: string): void => {
         const { lang } = this.props;
         this.loadPageState(pageId);
@@ -63,6 +71,7 @@ class PageContainer extends React.Component<PageContainerProps, PageContainerSta
         }
 
         const { previousPage, nextPage } = this.getPrevAndNextPageEntities(this.props.pageId);
+        const breadcrumb = this.getMenuBreadcrumb(this.props.pageId);
 
         return (
             <PageOverlay closeButton={false}>
@@ -70,6 +79,7 @@ class PageContainer extends React.Component<PageContainerProps, PageContainerSta
                     {pageEntity ? (
                         <Page
                             pageEntity={pageEntity}
+                            menuBreadcrumb={breadcrumb}
                             lang={this.props.lang}
                             previousPage={previousPage}
                             nextPage={nextPage}

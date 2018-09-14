@@ -12,6 +12,7 @@ import AudioPlayer from '@src/components/player/audio-player';
 import VideoPlayer from '@src/components/player/video-player';
 import { PlayerActions } from '@src/shared/player/player';
 import { ReactPlayerProps } from 'react-player';
+import { MenuSectionProps } from '@src/models/repository/menu-repository';
 
 export type PlaybackState = {
     currentTime: number;
@@ -26,6 +27,7 @@ export type PlaybackState = {
 export type PageProps = {
     pageEntity: PageEntity;
     lang: string;
+    menuBreadcrumb: MenuSectionProps[];
     nextPage?: PageEntity;
     previousPage?: PageEntity;
     onPageChangeRequest?: (pageId: string) => void;
@@ -101,12 +103,23 @@ class Page extends React.PureComponent<PageProps, PageState> {
         const audio = page.getAudioEntity();
 
         const { i18n } = this.props;
-        console.log('rerender');
+
+        const breadcrumb = console.log('rerender');
         return (
             <div className="page-container">
                 <div className="page-header">
                     {/* {i18n.t('page', { lng: lang })}: {page.pageId} */}
-                    <h3>{page.getTitle(lang)}</h3>
+                    <h3>
+                        {this.props.menuBreadcrumb.map(item => (
+                            <>
+                                <a ref={item.id} href={item.id}>
+                                    {item.title}
+                                </a>
+                                &gt;&gt;
+                            </>
+                        ))}
+                        {page.getTitle(lang)}
+                    </h3>
                     {/*
                     Playing <input id="playing" type={'checkbox'} checked={this.state.playbackState.isPlaying} />
                     Loading <input id="loading" type={'checkbox'} />
