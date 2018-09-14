@@ -138,9 +138,10 @@ export default class MenuRepository {
 
             for (let i = 0; result === null && i < children.length; i++) {
                 if (breadcrumb !== undefined && children[i].type === 'section') {
-                    const level = children[i].id!.split('.').length;
+                    const child = children[i] as IJsonMenuSection;
+                    const level = child.id.split('.').length;
                     breadcrumb[level - 1] = {
-                        id: children[i].id,
+                        id: child.id,
                         title_fr: children[i].title_fr,
                         title_en: children[i].title_en,
                     };
