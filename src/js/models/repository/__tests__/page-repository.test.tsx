@@ -8,9 +8,9 @@ describe('Page repository getters', () => {
         expect(pageRepo.getPage(pageId)).not.toBeDefined();
     });
 
-    test('getPage existing page must have a name', async () => {
+    test('getPage existing page must have a title', async () => {
         const page = await pageRepo.getPage('forms.helix-roll.in-water');
-        expect(page).toHaveProperty('name');
+        expect(page).toHaveProperty('title');
     });
 });
 

@@ -61,7 +61,7 @@ describe('Menu repository', () => {
         expect(breadcrumb).toHaveLength(2);
         expect(breadcrumb[0]).toEqual({
             id: 'forms',
-            title: 'FORMS',
+            title: 'Forms',
         });
     });
 });
