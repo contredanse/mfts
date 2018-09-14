@@ -58,6 +58,10 @@ describe('Menu repository', () => {
     test('getPageBreadcrumbTest', async () => {
         const pageId = 'forms.cultivating.dance-culture';
         const breadcrumb = menuRepo.getPageBreadcrumb(pageId, 'en');
-        console.log('breadcrumb', breadcrumb);
+        expect(breadcrumb).toHaveLength(2);
+        expect(breadcrumb[0]).toEqual({
+            id: 'forms',
+            title: 'FORMS',
+        });
     });
 });
