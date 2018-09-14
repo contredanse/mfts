@@ -33,10 +33,6 @@ export default class PageEntity extends AbstractBaseEntity {
         return this.data.content.videos || [];
     }
 
-    getName(lang?: string): string {
-        return this.getHelper().getLocalizedValue(this.data.name, lang) || '';
-    }
-
     getTitle(lang?: string): string {
         return this.getHelper().getLocalizedValue(this.data.title, lang) || '';
     }
