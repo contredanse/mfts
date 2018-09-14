@@ -14,9 +14,8 @@
         ],
         "covers": ["hello.jpg"],
         "meta": {
-            "duration": 568.48,
-            "width": 720,
-            "height": 576
+            "duration": 568.5,
+            "size": "720x576"
         },
         "tracks": [
             {
@@ -44,9 +43,8 @@
         ],
         "covers": ["lemmon_en.jpg"],
         "meta": {
-            "duration": 37.2,
-            "width": 720,
-            "height": 576
+            "duration": 37.3,
+            "size": "720x576"
         }
     },
     {
@@ -64,9 +62,8 @@
         ],
         "covers": ["lemmon_fr.jpg"],
         "meta": {
-            "duration": 37.2,
-            "width": 720,
-            "height": 576
+            "duration": 37.3,
+            "size": "720x576"
         }
     },
     {
@@ -84,9 +81,8 @@
         ],
         "covers": ["falls.jpg"],
         "meta": {
-            "duration": 101.32,
-            "width": 720,
-            "height": 576
+            "duration": 101.4,
+            "size": "720x576"
         }
     },
     {
@@ -104,9 +100,8 @@
         ],
         "covers": ["watergravity.jpg"],
         "meta": {
-            "duration": 73.28,
-            "width": 720,
-            "height": 576
+            "duration": 73.3,
+            "size": "720x576"
         }
     },
     {
@@ -124,9 +119,8 @@
         ],
         "covers": ["adjusting_birds.jpg"],
         "meta": {
-            "duration": 318.76,
-            "width": 720,
-            "height": 576
+            "duration": 318.8,
+            "size": "720x576"
         }
     },
     {
@@ -144,9 +138,8 @@
         ],
         "covers": ["breathing_en.jpg"],
         "meta": {
-            "duration": 971.28,
-            "width": 720,
-            "height": 576
+            "duration": 980.8,
+            "size": "720x576"
         }
     },
     {
@@ -164,9 +157,8 @@
         ],
         "covers": ["breathing_fr.jpg"],
         "meta": {
-            "duration": 971.28,
-            "width": 720,
-            "height": 576
+            "duration": 980.8,
+            "size": "720x576"
         }
     },
     {
@@ -184,9 +176,8 @@
         ],
         "covers": ["smalldance_full.jpg"],
         "meta": {
-            "duration": 609.36,
-            "width": 720,
-            "height": 576
+            "duration": 609.4,
+            "size": "720x576"
         }
     },
     {
@@ -204,9 +195,8 @@
         ],
         "covers": ["pointing.jpg"],
         "meta": {
-            "duration": 661.12,
-            "width": 720,
-            "height": 576
+            "duration": 661.1,
+            "size": "720x576"
         },
         "tracks": [
             {
@@ -234,9 +224,8 @@
         ],
         "covers": ["pointing_scapula.jpg"],
         "meta": {
-            "duration": 74.88,
-            "width": 720,
-            "height": 576
+            "duration": 77.5,
+            "size": "720x576"
         },
         "tracks": [
             {
@@ -264,9 +253,8 @@
         ],
         "covers": ["pelvis.jpg"],
         "meta": {
-            "duration": 519.2,
-            "width": 720,
-            "height": 576
+            "duration": 519.3,
+            "size": "720x576"
         },
         "tracks": [
             {
@@ -294,9 +282,8 @@
         ],
         "covers": ["pointing_heel.jpg"],
         "meta": {
-            "duration": 74.36,
-            "width": 720,
-            "height": 576
+            "duration": 74.4,
+            "size": "720x576"
         },
         "tracks": [
             {
@@ -324,9 +311,8 @@
         ],
         "covers": ["walkasfondation.jpg"],
         "meta": {
-            "duration": 126.76,
-            "width": 720,
-            "height": 576
+            "duration": 126.8,
+            "size": "720x576"
         },
         "tracks": [
             {
@@ -354,9 +340,8 @@
         ],
         "covers": ["birdswalk.jpg"],
         "meta": {
-            "duration": 520.16,
-            "width": 720,
-            "height": 576
+            "duration": 520.2,
+            "size": "720x576"
         },
         "tracks": [
             {
@@ -384,9 +369,8 @@
         ],
         "covers": ["slowwalk.jpg"],
         "meta": {
-            "duration": 12.04,
-            "width": 1000,
-            "height": 576,
+            "duration": 12,
+            "size": "1000x576",
             "no_audio": true
         }
     },
@@ -405,9 +389,8 @@
         ],
         "covers": ["twist.jpg"],
         "meta": {
-            "duration": 121.24,
-            "width": 720,
-            "height": 576
+            "duration": 121.2,
+            "size": "720x576"
         }
     },
     {
@@ -425,9 +408,8 @@
         ],
         "covers": ["focus_back.jpg"],
         "meta": {
-            "duration": 187.52,
-            "width": 720,
-            "height": 576
+            "duration": 187.5,
+            "size": "720x576"
         },
         "tracks": [
             {
@@ -455,9 +437,8 @@
         ],
         "covers": ["passage.jpg"],
         "meta": {
-            "duration": 289.32,
-            "width": 720,
-            "height": 576
+            "duration": 289.3,
+            "size": "720x576"
         }
     },
     {
@@ -475,9 +456,8 @@
         ],
         "covers": ["sphericalspace.jpg"],
         "meta": {
-            "duration": 1119.28,
-            "width": 720,
-            "height": 576
+            "duration": 1119.3,
+            "size": "720x576"
         },
         "tracks": [
             {
@@ -505,9 +485,8 @@
         ],
         "covers": ["perf_comments_goldberg.jpg"],
         "meta": {
-            "duration": 316.08,
-            "width": 720,
-            "height": 576
+            "duration": 316.1,
+            "size": "720x576"
         },
         "tracks": [
             {
@@ -535,9 +514,8 @@
         ],
         "covers": ["goldberg.jpg"],
         "meta": {
-            "duration": 303.503504,
-            "width": 720,
-            "height": 480
+            "duration": 303.5,
+            "size": "720x480"
         }
     },
     {
@@ -556,8 +534,7 @@
         "covers": ["perf_comments_english.jpg"],
         "meta": {
             "duration": 172.8,
-            "width": 720,
-            "height": 576
+            "size": "720x576"
         },
         "tracks": [
             {
@@ -585,9 +562,8 @@
         ],
         "covers": ["english.jpg"],
         "meta": {
-            "duration": 441.241241,
-            "width": 720,
-            "height": 480
+            "duration": 441.2,
+            "size": "720x480"
         }
     },
     {
@@ -605,9 +581,8 @@
         ],
         "covers": ["perf_techimpro.jpg"],
         "meta": {
-            "duration": 366.72,
-            "width": 720,
-            "height": 576
+            "duration": 366.7,
+            "size": "720x576"
         },
         "tracks": [
             {
@@ -635,9 +610,8 @@
         ],
         "covers": ["new_intro.jpg"],
         "meta": {
-            "duration": 690.28,
-            "width": 720,
-            "height": 576
+            "duration": 690.4,
+            "size": "720x576"
         },
         "tracks": [
             {
@@ -665,9 +639,8 @@
         ],
         "covers": ["cbhf_fromside.jpg"],
         "meta": {
-            "duration": 25.64,
-            "width": 720,
-            "height": 576
+            "duration": 25.6,
+            "size": "720x576"
         }
     },
     {
@@ -685,9 +658,8 @@
         ],
         "covers": ["cbhf_fromtop.jpg"],
         "meta": {
-            "duration": 25.64,
-            "width": 720,
-            "height": 576
+            "duration": 25.6,
+            "size": "720x576"
         }
     },
     {
@@ -705,9 +677,8 @@
         ],
         "covers": ["cbhf_fromhead.jpg"],
         "meta": {
-            "duration": 25.64,
-            "width": 720,
-            "height": 576
+            "duration": 25.6,
+            "size": "720x576"
         }
     },
     {
@@ -725,9 +696,8 @@
         ],
         "covers": ["cbc_fromhead.jpg"],
         "meta": {
-            "duration": 31.56,
-            "width": 720,
-            "height": 576
+            "duration": 31.6,
+            "size": "720x576"
         }
     },
     {
@@ -745,9 +715,8 @@
         ],
         "covers": ["cbc_fromtop.jpg"],
         "meta": {
-            "duration": 31.56,
-            "width": 720,
-            "height": 576
+            "duration": 31.6,
+            "size": "720x576"
         }
     },
     {
@@ -765,9 +734,8 @@
         ],
         "covers": ["chu_fromfeet.jpg"],
         "meta": {
-            "duration": 10.24,
-            "width": 720,
-            "height": 576
+            "duration": 10.2,
+            "size": "720x576"
         }
     },
     {
@@ -785,9 +753,8 @@
         ],
         "covers": ["chu_fromside.jpg"],
         "meta": {
-            "duration": 10.24,
-            "width": 720,
-            "height": 576
+            "duration": 10.2,
+            "size": "720x576"
         }
     },
     {
@@ -805,9 +772,8 @@
         ],
         "covers": ["cbfhu.jpg"],
         "meta": {
-            "duration": 68.12,
-            "width": 720,
-            "height": 576
+            "duration": 68.1,
+            "size": "720x576"
         }
     },
     {
@@ -825,9 +791,8 @@
         ],
         "covers": ["crescent_water.jpg"],
         "meta": {
-            "duration": 6.44,
-            "width": 720,
-            "height": 576
+            "duration": 6.4,
+            "size": "720x576"
         }
     },
     {
@@ -845,9 +810,8 @@
         ],
         "covers": ["c_comparing.jpg"],
         "meta": {
-            "duration": 13.84,
-            "width": 720,
-            "height": 576
+            "duration": 13.8,
+            "size": "720x576"
         }
     },
     {
@@ -865,10 +829,8 @@
         ],
         "covers": ["sbf_fromfeet.jpg"],
         "meta": {
-            "duration": 20,
-            "width": 720,
-            "height": 576,
-            "no_audio": true
+            "duration": 5,
+            "size": "720x576"
         }
     },
     {
@@ -887,8 +849,7 @@
         "covers": ["sbf_side.jpg"],
         "meta": {
             "duration": 5,
-            "width": 720,
-            "height": 576
+            "size": "720x576"
         }
     },
     {
@@ -907,8 +868,7 @@
         "covers": ["sbf_fromhead.jpg"],
         "meta": {
             "duration": 5,
-            "width": 720,
-            "height": 576
+            "size": "720x576"
         }
     },
     {
@@ -927,8 +887,7 @@
         "covers": ["sbh_fromhead.jpg"],
         "meta": {
             "duration": 8.8,
-            "width": 720,
-            "height": 576
+            "size": "720x576"
         }
     },
     {
@@ -947,8 +906,7 @@
         "covers": ["sbh_side.jpg"],
         "meta": {
             "duration": 8.8,
-            "width": 720,
-            "height": 576
+            "size": "720x576"
         }
     },
     {
@@ -966,9 +924,8 @@
         ],
         "covers": ["helixinwater.jpg"],
         "meta": {
-            "duration": 16.52,
-            "width": 720,
-            "height": 576
+            "duration": 16.5,
+            "size": "720x576"
         }
     },
     {
@@ -986,9 +943,8 @@
         ],
         "covers": ["h_comparing.jpg"],
         "meta": {
-            "duration": 7.84,
-            "width": 720,
-            "height": 576
+            "duration": 7.8,
+            "size": "720x576"
         }
     },
     {
@@ -1007,8 +963,7 @@
         "covers": ["puzzle1.jpg"],
         "meta": {
             "duration": 10.8,
-            "width": 720,
-            "height": 576
+            "size": "720x576"
         }
     },
     {
@@ -1026,9 +981,8 @@
         ],
         "covers": ["puzzle2.jpg"],
         "meta": {
-            "duration": 15.04,
-            "width": 720,
-            "height": 576
+            "duration": 15,
+            "size": "720x576"
         }
     },
     {
@@ -1046,9 +1000,8 @@
         ],
         "covers": ["puzzle3.jpg"],
         "meta": {
-            "duration": 19.52,
-            "width": 720,
-            "height": 576
+            "duration": 19.5,
+            "size": "720x576"
         }
     },
     {
@@ -1066,9 +1019,8 @@
         ],
         "covers": ["puzzle4.jpg"],
         "meta": {
-            "duration": 11.28,
-            "width": 720,
-            "height": 576
+            "duration": 11.3,
+            "size": "720x576"
         }
     },
     {
@@ -1086,9 +1038,8 @@
         ],
         "covers": ["frontal_head_top.jpg"],
         "meta": {
-            "duration": 71.12,
-            "width": 720,
-            "height": 576
+            "duration": 71.1,
+            "size": "720x576"
         }
     },
     {
@@ -1106,9 +1057,8 @@
         ],
         "covers": ["frontal_head_side.jpg"],
         "meta": {
-            "duration": 80.04,
-            "width": 720,
-            "height": 576,
+            "duration": 80,
+            "size": "720x576",
             "no_audio": true
         }
     },
@@ -1127,9 +1077,8 @@
         ],
         "covers": ["frontal_head_bottom.jpg"],
         "meta": {
-            "duration": 23.64,
-            "width": 720,
-            "height": 576,
+            "duration": 23.6,
+            "size": "720x576",
             "no_audio": true
         }
     },
@@ -1149,8 +1098,7 @@
         "covers": ["frontal_pelvis_top.jpg"],
         "meta": {
             "duration": 43.4,
-            "width": 720,
-            "height": 576,
+            "size": "720x576",
             "no_audio": true
         }
     },
@@ -1169,9 +1117,8 @@
         ],
         "covers": ["frontal_pelvis_side.jpg"],
         "meta": {
-            "duration": 48.88,
-            "width": 720,
-            "height": 576,
+            "duration": 48.9,
+            "size": "720x576",
             "no_audio": true
         }
     },
@@ -1190,9 +1137,8 @@
         ],
         "covers": ["frontal_pelvis_bottom.jpg"],
         "meta": {
-            "duration": 41.68,
-            "width": 720,
-            "height": 576,
+            "duration": 41.7,
+            "size": "720x576",
             "no_audio": true
         }
     },
@@ -1211,9 +1157,8 @@
         ],
         "covers": ["lateral_head_front.jpg"],
         "meta": {
-            "duration": 51.04,
-            "width": 720,
-            "height": 576,
+            "duration": 51,
+            "size": "720x576",
             "no_audio": true
         }
     },
@@ -1233,8 +1178,7 @@
         "covers": ["lateral_head_top.jpg"],
         "meta": {
             "duration": 30.4,
-            "width": 720,
-            "height": 576,
+            "size": "720x576",
             "no_audio": true
         }
     },
@@ -1253,9 +1197,8 @@
         ],
         "covers": ["lateral_pelvis_top.jpg"],
         "meta": {
-            "duration": 25.68,
-            "width": 720,
-            "height": 576,
+            "duration": 25.7,
+            "size": "720x576",
             "no_audio": true
         }
     },
@@ -1274,9 +1217,8 @@
         ],
         "covers": ["lateral_pelvis_front.jpg"],
         "meta": {
-            "duration": 45.24,
-            "width": 720,
-            "height": 576,
+            "duration": 45.2,
+            "size": "720x576",
             "no_audio": true
         }
     },
@@ -1295,9 +1237,8 @@
         ],
         "covers": ["dolphininwater.jpg"],
         "meta": {
-            "duration": 6.64,
-            "width": 720,
-            "height": 576
+            "duration": 6.6,
+            "size": "720x576"
         }
     },
     {
@@ -1315,9 +1256,8 @@
         ],
         "covers": ["aikido_principle.jpg"],
         "meta": {
-            "duration": 185.12,
-            "width": 720,
-            "height": 576
+            "duration": 185.1,
+            "size": "720x576"
         },
         "tracks": [
             {
@@ -1345,9 +1285,8 @@
         ],
         "covers": ["aikido_3D_side.jpg"],
         "meta": {
-            "duration": 19.12,
-            "width": 720,
-            "height": 576
+            "duration": 19.1,
+            "size": "720x576"
         }
     },
     {
@@ -1365,9 +1304,8 @@
         ],
         "covers": ["aikido_3D_top.jpg"],
         "meta": {
-            "duration": 19.12,
-            "width": 720,
-            "height": 576
+            "duration": 19.1,
+            "size": "720x576"
         }
     },
     {
@@ -1385,9 +1323,8 @@
         ],
         "covers": ["aikido_3D_front.jpg"],
         "meta": {
-            "duration": 19.12,
-            "width": 720,
-            "height": 576
+            "duration": 19.1,
+            "size": "720x576"
         }
     },
     {
@@ -1406,8 +1343,7 @@
         "covers": ["crescent_head_up.jpg"],
         "meta": {
             "duration": 73,
-            "width": 720,
-            "height": 576
+            "size": "720x576"
         },
         "tracks": [
             {
@@ -1435,9 +1371,8 @@
         ],
         "covers": ["mfs_sbf_seattle.jpg"],
         "meta": {
-            "duration": 100.88,
-            "width": 720,
-            "height": 576
+            "duration": 100.9,
+            "size": "720x576"
         },
         "tracks": [
             {
@@ -1465,9 +1400,8 @@
         ],
         "covers": ["mfs_sbh_seattle.jpg"],
         "meta": {
-            "duration": 63.12,
-            "width": 720,
-            "height": 576
+            "duration": 63.1,
+            "size": "720x576"
         },
         "tracks": [
             {
@@ -1495,9 +1429,8 @@
         ],
         "covers": ["puzzle1_demo_graph.jpg"],
         "meta": {
-            "duration": 37.29,
-            "width": 720,
-            "height": 576
+            "duration": 37.4,
+            "size": "720x576"
         },
         "tracks": [
             {
@@ -1525,9 +1458,8 @@
         ],
         "covers": ["correction_crescent_handsfeet.jpg"],
         "meta": {
-            "duration": 139.52,
-            "width": 720,
-            "height": 576
+            "duration": 139.5,
+            "size": "720x576"
         },
         "tracks": [
             {
@@ -1555,9 +1487,8 @@
         ],
         "covers": ["correction_crescent_center.jpg"],
         "meta": {
-            "duration": 194.04,
-            "width": 720,
-            "height": 576
+            "duration": 194,
+            "size": "720x576"
         },
         "tracks": [
             {
@@ -1586,8 +1517,7 @@
         "covers": ["correction_helix_feet.jpg"],
         "meta": {
             "duration": 318.2,
-            "width": 720,
-            "height": 576
+            "size": "720x576"
         },
         "tracks": [
             {
@@ -1615,9 +1545,8 @@
         ],
         "covers": ["correction_helix_hands.jpg"],
         "meta": {
-            "duration": 281.64,
-            "width": 720,
-            "height": 576
+            "duration": 281.6,
+            "size": "720x576"
         },
         "tracks": [
             {
@@ -1645,9 +1574,8 @@
         ],
         "covers": ["correction_conclusion.jpg"],
         "meta": {
-            "duration": 94.28,
-            "width": 720,
-            "height": 576
+            "duration": 94.3,
+            "size": "720x576"
         },
         "tracks": [
             {
@@ -1675,9 +1603,8 @@
         ],
         "covers": ["wu_fingers.jpg"],
         "meta": {
-            "duration": 46.16,
-            "width": 720,
-            "height": 576
+            "duration": 46.2,
+            "size": "720x576"
         }
     },
     {
@@ -1696,8 +1623,7 @@
         "covers": ["wu_wrist.jpg"],
         "meta": {
             "duration": 127,
-            "width": 720,
-            "height": 576,
+            "size": "720x576",
             "no_audio": true
         }
     },
@@ -1716,9 +1642,8 @@
         ],
         "covers": ["wu_hands.jpg"],
         "meta": {
-            "duration": 101.44,
-            "width": 720,
-            "height": 576
+            "duration": 101.4,
+            "size": "720x576"
         }
     },
     {
@@ -1736,9 +1661,8 @@
         ],
         "covers": ["wu_arms.jpg"],
         "meta": {
-            "duration": 77.16,
-            "width": 720,
-            "height": 576,
+            "duration": 77.2,
+            "size": "720x576",
             "no_audio": true
         }
     },
@@ -1757,9 +1681,8 @@
         ],
         "covers": ["wu_spine_and_arms.jpg"],
         "meta": {
-            "duration": 51.84,
-            "width": 720,
-            "height": 576,
+            "duration": 51.8,
+            "size": "720x576",
             "no_audio": true
         }
     },
@@ -1779,8 +1702,7 @@
         "covers": ["wu_bendingbone.jpg"],
         "meta": {
             "duration": 171.8,
-            "width": 720,
-            "height": 576
+            "size": "720x576"
         },
         "tracks": [
             {
@@ -1808,9 +1730,8 @@
         ],
         "covers": ["wu_aikidostep.jpg"],
         "meta": {
-            "duration": 87.52,
-            "width": 720,
-            "height": 576
+            "duration": 87.5,
+            "size": "720x576"
         }
     },
     {
@@ -1828,9 +1749,8 @@
         ],
         "covers": ["wu_twist.jpg"],
         "meta": {
-            "duration": 144.28,
-            "width": 720,
-            "height": 576,
+            "duration": 144.3,
+            "size": "720x576",
             "no_audio": true
         }
     },
@@ -1850,8 +1770,7 @@
         "covers": ["wu_twistlegs.jpg"],
         "meta": {
             "duration": 81.2,
-            "width": 720,
-            "height": 576
+            "size": "720x576"
         },
         "tracks": [
             {
@@ -1879,9 +1798,8 @@
         ],
         "covers": ["wu_legsresistance.jpg"],
         "meta": {
-            "duration": 417.96,
-            "width": 720,
-            "height": 576
+            "duration": 418,
+            "size": "720x576"
         },
         "tracks": [
             {
@@ -1909,9 +1827,8 @@
         ],
         "covers": ["wu_trocantere.jpg"],
         "meta": {
-            "duration": 147.48,
-            "width": 720,
-            "height": 576
+            "duration": 147.5,
+            "size": "720x576"
         },
         "tracks": [
             {
@@ -1939,9 +1856,8 @@
         ],
         "covers": ["wu_psoas.jpg"],
         "meta": {
-            "duration": 222.28,
-            "width": 720,
-            "height": 576
+            "duration": 222.3,
+            "size": "720x576"
         },
         "tracks": [
             {
@@ -1969,9 +1885,8 @@
         ],
         "covers": ["wu_wave.jpg"],
         "meta": {
-            "duration": 112.68,
-            "width": 720,
-            "height": 576
+            "duration": 112.7,
+            "size": "720x576"
         },
         "tracks": [
             {
@@ -2000,8 +1915,7 @@
         "covers": ["wu_wavefloor.jpg"],
         "meta": {
             "duration": 119.8,
-            "width": 720,
-            "height": 576
+            "size": "720x576"
         },
         "tracks": [
             {
@@ -2029,9 +1943,8 @@
         ],
         "covers": ["wu_asanas.jpg"],
         "meta": {
-            "duration": 248.32,
-            "width": 720,
-            "height": 576
+            "duration": 248.3,
+            "size": "720x576"
         },
         "tracks": [
             {
@@ -2059,9 +1972,8 @@
         ],
         "covers": ["napp.jpg"],
         "meta": {
-            "duration": 96.12,
-            "width": 720,
-            "height": 576
+            "duration": 96.2,
+            "size": "720x576"
         },
         "tracks": [
             {
@@ -2090,8 +2002,7 @@
         "covers": ["wu_play.jpg"],
         "meta": {
             "duration": 119.8,
-            "width": 720,
-            "height": 576
+            "size": "720x576"
         }
     },
     {
@@ -2109,9 +2020,8 @@
         ],
         "covers": ["dance_culture.jpg"],
         "meta": {
-            "duration": 260.52,
-            "width": 720,
-            "height": 576
+            "duration": 260.5,
+            "size": "720x576"
         },
         "tracks": [
             {
@@ -2139,9 +2049,8 @@
         ],
         "covers": ["cultivating2.jpg"],
         "meta": {
-            "duration": 448.56,
-            "width": 720,
-            "height": 576
+            "duration": 448.6,
+            "size": "720x576"
         }
     },
     {
@@ -2159,9 +2068,8 @@
         ],
         "covers": ["cbhf_fromside.jpg"],
         "meta": {
-            "duration": 25.64,
-            "width": 720,
-            "height": 576
+            "duration": 25.6,
+            "size": "720x576"
         }
     },
     {
@@ -2179,9 +2087,8 @@
         ],
         "covers": ["cbfh_top.jpg"],
         "meta": {
-            "duration": 25.64,
-            "width": 720,
-            "height": 576,
+            "duration": 25.6,
+            "size": "720x576",
             "no_audio": true
         }
     },
@@ -2200,9 +2107,8 @@
         ],
         "covers": ["cbhf_fromhead.jpg"],
         "meta": {
-            "duration": 25.64,
-            "width": 720,
-            "height": 576
+            "duration": 25.6,
+            "size": "720x576"
         }
     },
     {
@@ -2220,9 +2126,8 @@
         ],
         "covers": ["cbc_fromhead.jpg"],
         "meta": {
-            "duration": 31.56,
-            "width": 720,
-            "height": 576
+            "duration": 31.6,
+            "size": "720x576"
         }
     },
     {
@@ -2240,9 +2145,8 @@
         ],
         "covers": ["cbc_top.jpg"],
         "meta": {
-            "duration": 31.56,
-            "width": 720,
-            "height": 576,
+            "duration": 31.6,
+            "size": "720x576",
             "no_audio": true
         }
     },
@@ -2261,9 +2165,8 @@
         ],
         "covers": ["chu_fromfeet.jpg"],
         "meta": {
-            "duration": 10.24,
-            "width": 720,
-            "height": 576
+            "duration": 10.2,
+            "size": "720x576"
         }
     },
     {
@@ -2281,9 +2184,8 @@
         ],
         "covers": ["cbhu_side.jpg"],
         "meta": {
-            "duration": 20.48,
-            "width": 720,
-            "height": 576,
+            "duration": 20.5,
+            "size": "720x576",
             "no_audio": true
         }
     },
@@ -2302,9 +2204,9 @@
         ],
         "covers": ["sbf_feet.jpg"],
         "meta": {
-            "duration": 5,
-            "width": 720,
-            "height": 576
+            "duration": 20,
+            "size": "720x576",
+            "no_audio": true
         }
     },
     {
@@ -2323,8 +2225,7 @@
         "covers": ["sbf_fromside.jpg"],
         "meta": {
             "duration": 20,
-            "width": 720,
-            "height": 576,
+            "size": "720x576",
             "no_audio": true
         }
     },
@@ -2344,8 +2245,7 @@
         "covers": ["sbf_fromhead.jpg"],
         "meta": {
             "duration": 5,
-            "width": 720,
-            "height": 576
+            "size": "720x576"
         }
     },
     {
@@ -2364,8 +2264,7 @@
         "covers": ["sbh_head.jpg"],
         "meta": {
             "duration": 35.2,
-            "width": 720,
-            "height": 576,
+            "size": "720x576",
             "no_audio": true
         }
     },
@@ -2384,9 +2283,8 @@
         ],
         "covers": ["sbh_fromside.jpg"],
         "meta": {
-            "duration": 35.16,
-            "width": 720,
-            "height": 576,
+            "duration": 35.2,
+            "size": "720x576",
             "no_audio": true
         }
     },
@@ -2405,9 +2303,8 @@
         ],
         "covers": ["frontal_head_top.jpg"],
         "meta": {
-            "duration": 71.12,
-            "width": 720,
-            "height": 576
+            "duration": 71.1,
+            "size": "720x576"
         }
     },
     {
@@ -2425,9 +2322,8 @@
         ],
         "covers": ["frontal_head_side.jpg"],
         "meta": {
-            "duration": 80.04,
-            "width": 720,
-            "height": 576,
+            "duration": 80,
+            "size": "720x576",
             "no_audio": true
         }
     },
@@ -2446,9 +2342,8 @@
         ],
         "covers": ["frontal_head_bottom.jpg"],
         "meta": {
-            "duration": 23.64,
-            "width": 720,
-            "height": 576,
+            "duration": 23.6,
+            "size": "720x576",
             "no_audio": true
         }
     },
@@ -2468,8 +2363,7 @@
         "covers": ["frontal_pelvis_top.jpg"],
         "meta": {
             "duration": 43.4,
-            "width": 720,
-            "height": 576,
+            "size": "720x576",
             "no_audio": true
         }
     },
@@ -2488,9 +2382,8 @@
         ],
         "covers": ["frontal_pelvis_side.jpg"],
         "meta": {
-            "duration": 48.88,
-            "width": 720,
-            "height": 576,
+            "duration": 48.9,
+            "size": "720x576",
             "no_audio": true
         }
     },
@@ -2509,9 +2402,8 @@
         ],
         "covers": ["frontal_pelvis_bottom.jpg"],
         "meta": {
-            "duration": 41.68,
-            "width": 720,
-            "height": 576,
+            "duration": 41.7,
+            "size": "720x576",
             "no_audio": true
         }
     },
@@ -2530,9 +2422,8 @@
         ],
         "covers": ["lateral_head_front.jpg"],
         "meta": {
-            "duration": 51.04,
-            "width": 720,
-            "height": 576,
+            "duration": 51,
+            "size": "720x576",
             "no_audio": true
         }
     },
@@ -2552,8 +2443,7 @@
         "covers": ["lateral_head_top.jpg"],
         "meta": {
             "duration": 30.4,
-            "width": 720,
-            "height": 576,
+            "size": "720x576",
             "no_audio": true
         }
     },
@@ -2572,9 +2462,8 @@
         ],
         "covers": ["lateral_pelvis_top.jpg"],
         "meta": {
-            "duration": 25.68,
-            "width": 720,
-            "height": 576,
+            "duration": 25.7,
+            "size": "720x576",
             "no_audio": true
         }
     },
@@ -2593,9 +2482,8 @@
         ],
         "covers": ["lateral_pelvis_front.jpg"],
         "meta": {
-            "duration": 45.24,
-            "width": 720,
-            "height": 576,
+            "duration": 45.2,
+            "size": "720x576",
             "no_audio": true
         }
     },
@@ -2614,9 +2502,8 @@
         ],
         "covers": ["aikido_side.jpg"],
         "meta": {
-            "duration": 5.28,
-            "width": 720,
-            "height": 576
+            "duration": 5.3,
+            "size": "720x576"
         }
     },
     {
@@ -2634,9 +2521,8 @@
         ],
         "covers": ["aikido_top.jpg"],
         "meta": {
-            "duration": 9.56,
-            "width": 720,
-            "height": 576
+            "duration": 9.6,
+            "size": "720x576"
         }
     },
     {
@@ -2654,9 +2540,8 @@
         ],
         "covers": ["aikido_front.jpg"],
         "meta": {
-            "duration": 5.32,
-            "width": 720,
-            "height": 576
+            "duration": 5.3,
+            "size": "720x576"
         }
     }
 ]

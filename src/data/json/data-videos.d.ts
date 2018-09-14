@@ -15,8 +15,7 @@ export interface IJsonVideoSource {
 }
 export interface IJsonVideoMeta {
     duration: number;
-    width?: number;
-    height?: number;
+    size?: string;
     no_audio?: boolean;
 }
 
