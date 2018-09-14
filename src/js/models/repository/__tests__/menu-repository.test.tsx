@@ -3,9 +3,9 @@ import { appConfig } from '@config/config.production';
 describe('Menu repository', () => {
     const menuRepo = appConfig.getMenuRepository();
 
-    test('findMenu must return correct id', async () => {
+    test('findMenuSection must return correct id', async () => {
         const menuId = 'sensation-and-senses.pelvis';
-        const menu = await menuRepo.findMenu(menuId);
+        const menu = await menuRepo.findMenuSection(menuId);
         expect(menu).toHaveProperty('id', menuId);
     });
 
@@ -53,5 +53,11 @@ describe('Menu repository', () => {
         const nav = await menuRepo.getPrevAndNextPageMenu(pageId, 'en');
         expect(nav.current).toHaveProperty('page_id', pageId);
         expect(nav.next).toHaveProperty('page_id', 'forms.cultivating.kindling-scythe');
+    });
+
+    test('getPageBreadcrumbTest', async () => {
+        const pageId = 'forms.cultivating.dance-culture';
+        const breadcrumb = menuRepo.getPageBreadcrumb(pageId, 'en');
+        console.log('breadcrumb', breadcrumb);
     });
 });
