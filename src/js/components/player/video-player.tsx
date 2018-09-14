@@ -43,7 +43,8 @@ export default class VideoPlayer extends React.Component<VideoPlayerProps, Video
                 const videoEl = this.playerRef.current!.getInternalPlayer() as HTMLVideoElement;
                 // This bug in firefox... we need to reset texttracks
                 this.hideAllSubtitles(videoEl);
-                videoEl.srcObject = null;
+                //videoEl.srcObject = null;
+                videoEl.load();
             }
             return true;
         }
