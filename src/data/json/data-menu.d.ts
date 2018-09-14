@@ -14,12 +14,12 @@ export type IJsonMenuPage = {
     page_id: string;
 } & IJsonMenuLocalizedTitles;
 
-export type IJsonMenu = IJsonMenuSection &
-    IJsonMenuPage & {
-        type: JsonMenuNodeType;
-        id?: string;
-        page_id?: string;
-    };
+export type IJsonMenu = {
+    type: JsonMenuNodeType;
+    id?: string;
+    page_id?: string;
+    content?: IJsonMenu[];
+} & IJsonMenuLocalizedTitles;
 
 /*
 type JsonMenuNodeType = 'page' | 'section';
