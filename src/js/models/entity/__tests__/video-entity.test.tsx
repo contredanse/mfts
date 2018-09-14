@@ -22,8 +22,7 @@ describe('VideoEntity from IJsonVideo', () => {
         tracks: [{ src: 'test.en.vtt', lang: 'en' }, { src: 'test.fr.vtt', lang: 'fr' }],
         meta: {
             duration: 100,
-            width: 720,
-            height: 596,
+            size: '720x596',
         },
     };
 
