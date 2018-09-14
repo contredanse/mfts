@@ -1,13 +1,9 @@
 [
     {
         "page_id": "sensation-and-senses.weight-of-sensation",
-        "name": {
-            "en": "weight of sensation",
-            "fr": "le poids de la sensation"
-        },
         "title": {
-            "en": "SENSATION AND SENSES - weight of sensation",
-            "fr": "SENSATION ET SENS - le poids de la sensation"
+            "en": "Weight of sensation",
+            "fr": "Le poids de la sensation"
         },
         "sort_idx": 100,
         "cover": "hello.jpg",
@@ -28,13 +24,9 @@
     },
     {
         "page_id": "sensation-and-senses.gravity.the-flat-the-round",
-        "name": {
-            "en": "the flat & the round",
-            "fr": "le plat et le rond"
-        },
         "title": {
-            "en": "SENSATION AND SENSES - gravity - the flat & the round",
-            "fr": "SENSATION ET SENS - la pesanteur - le plat et le rond"
+            "en": "The flat & the round",
+            "fr": "Le plat et le rond"
         },
         "sort_idx": 200,
         "cover": "lemmon_en.jpg",
@@ -56,13 +48,9 @@
     },
     {
         "page_id": "sensation-and-senses.gravity.falls",
-        "name": {
-            "en": "falls",
-            "fr": "chutes"
-        },
         "title": {
-            "en": "SENSATION AND SENSES - gravity - falls",
-            "fr": "SENSATION ET SENS - la pesanteur - chutes"
+            "en": "Falls",
+            "fr": "Chutes"
         },
         "sort_idx": 300,
         "cover": "falls.jpg",
@@ -83,16 +71,11 @@
     },
     {
         "page_id": "sensation-and-senses.gravity.water-gravity",
-        "name": {
-            "en": "water gravity",
-            "fr": "la pesanteur dans l'eau"
-        },
         "title": {
-            "en": "SENSATION AND SENSES - gravity - water gravity",
-            "fr": "SENSATION ET SENS - la pesanteur - la pesanteur dans l'eau"
+            "en": "Water gravity",
+            "fr": "La pesanteur dans l'eau"
         },
         "sort_idx": 400,
-        "repeat_max": 60,
         "cover": "watergravity.jpg",
         "keywords": {
             "en": ["sensation", "senses", "gravity", "water"],
@@ -111,13 +94,9 @@
     },
     {
         "page_id": "sensation-and-senses.gravity.adjusting",
-        "name": {
-            "en": "adjusting",
-            "fr": "ajuster"
-        },
         "title": {
-            "en": "SENSATION AND SENSES - gravity - adjusting",
-            "fr": "SENSATION ET SENS - la pesanteur - ajuster"
+            "en": "Adjusting",
+            "fr": "Ajuster"
         },
         "sort_idx": 500,
         "cover": "adjusting_birds.jpg",
@@ -138,13 +117,9 @@
     },
     {
         "page_id": "sensation-and-senses.basics.an-approach-to-breathing",
-        "name": {
-            "en": "an approach to breathing",
-            "fr": "respirer, une approche"
-        },
         "title": {
-            "en": "SENSATION AND SENSES - basics - an approach to breathing",
-            "fr": "SENSATION ET SENS - à la base - respirer, une approche"
+            "en": "An approach to breathing",
+            "fr": "Respirer, une approche"
         },
         "sort_idx": 600,
         "cover": "breathing_en.jpg",
@@ -166,13 +141,9 @@
     },
     {
         "page_id": "sensation-and-senses.basics.an-approach-to-the-small-dance",
-        "name": {
-            "en": "an approach to the small dance",
-            "fr": "la petite danse, une approche"
-        },
         "title": {
-            "en": "SENSATION AND SENSES - basics - an approach to the small dance",
-            "fr": "SENSATION ET SENS - à la base - la petite danse, une approche"
+            "en": "An approach to the small dance",
+            "fr": "La petite danse, une approche"
         },
         "sort_idx": 700,
         "cover": "smalldance_full.jpg",
@@ -199,13 +170,9 @@
     },
     {
         "page_id": "sensation-and-senses.pointing.parts-of-pointing",
-        "name": {
-            "en": "parts of pointing",
-            "fr": "pointer, les différentes parties"
-        },
         "title": {
-            "en": "SENSATION AND SENSES - pointing - parts of pointing",
-            "fr": "SENSATION ET SENS - pointer - pointer, les différentes parties"
+            "en": "Parts of pointing",
+            "fr": "Pointer, les différentes parties"
         },
         "sort_idx": 800,
         "cover": "pointing.jpg",
@@ -226,13 +193,9 @@
     },
     {
         "page_id": "sensation-and-senses.pointing.relation-to-scapula",
-        "name": {
-            "en": "relation to scapula",
-            "fr": "la relation à l'omoplate"
-        },
         "title": {
-            "en": "SENSATION AND SENSES - pointing - relation to scapula",
-            "fr": "SENSATION ET SENS - pointer - la relation à l'omoplate"
+            "en": "Relation to scapula",
+            "fr": "La relation à l'omoplate"
         },
         "sort_idx": 900,
         "cover": "pointing_scapula.jpg",
@@ -253,13 +216,9 @@
     },
     {
         "page_id": "sensation-and-senses.pelvis.pelvis-as-an-initiator",
-        "name": {
-            "en": "pelvis as an initiator",
-            "fr": "initier par le bassin"
-        },
         "title": {
-            "en": "SENSATION AND SENSES - pelvis - pelvis as an initiator",
-            "fr": "SENSATION ET SENS - le bassin - initier par le bassin"
+            "en": "Pelvis as an initiator",
+            "fr": "Initier par le bassin"
         },
         "sort_idx": 1000,
         "cover": "pelvis.jpg",
@@ -280,13 +239,9 @@
     },
     {
         "page_id": "sensation-and-senses.pelvis.exercise-ischia-to-heels",
-        "name": {
-            "en": "exercise ischia to heels",
-            "fr": "exercice: les ischions vers les talons"
-        },
         "title": {
-            "en": "SENSATION AND SENSES - pelvis - exercise ischia to heels",
-            "fr": "SENSATION ET SENS - le bassin - exercice: les ischions vers les talons"
+            "en": "Exercise ischia to heels",
+            "fr": "Exercice: les ischions vers les talons"
         },
         "sort_idx": 1100,
         "cover": "pointing_heel.jpg",
@@ -307,13 +262,9 @@
     },
     {
         "page_id": "sensation-and-senses.walk.walk-as-foundation",
-        "name": {
-            "en": "walk as foundation",
-            "fr": "la marche comme fondement"
-        },
         "title": {
-            "en": "SENSATION AND SENSES - walk - walk as foundation",
-            "fr": "SENSATION ET SENS - la marche - la marche comme fondement"
+            "en": "Walk as foundation",
+            "fr": "La marche comme fondement"
         },
         "sort_idx": 1200,
         "cover": "walkasfondation.jpg",
@@ -334,13 +285,9 @@
     },
     {
         "page_id": "sensation-and-senses.walk.birds-walk",
-        "name": {
-            "en": "birds walk",
-            "fr": "la marche des oiseaux"
-        },
         "title": {
-            "en": "SENSATION AND SENSES - walk - birds walk",
-            "fr": "SENSATION ET SENS - la marche - la marche des oiseaux"
+            "en": "Birds walk",
+            "fr": "La marche des oiseaux"
         },
         "sort_idx": 1300,
         "cover": "birdswalk.jpg",
@@ -361,13 +308,9 @@
     },
     {
         "page_id": "sensation-and-senses.walk.slow-walk",
-        "name": {
-            "en": "slow walk",
-            "fr": "la marche lente"
-        },
         "title": {
-            "en": "SENSATION AND SENSES - walk - slow walk",
-            "fr": "SENSATION ET SENS - la marche - la marche lente"
+            "en": "Slow walk",
+            "fr": "La marche lente"
         },
         "sort_idx": 1400,
         "cover": "slowwalk.jpg",
@@ -388,13 +331,9 @@
     },
     {
         "page_id": "sensation-and-senses.walk.twist",
-        "name": {
-            "en": "twist",
-            "fr": "la torsion"
-        },
         "title": {
-            "en": "SENSATION AND SENSES - walk - twist",
-            "fr": "SENSATION ET SENS - la marche - la torsion"
+            "en": "Twist",
+            "fr": "La torsion"
         },
         "sort_idx": 1500,
         "cover": "twist.jpg",
@@ -415,13 +354,9 @@
     },
     {
         "page_id": "sensation-and-senses.the-back.choosing-to-focus-on-the-back",
-        "name": {
-            "en": "choosing to focus on the Back",
-            "fr": "choisir de se concentrer sur le dos"
-        },
         "title": {
-            "en": "SENSATION AND SENSES - the back - choosing to focus on the Back",
-            "fr": "SENSATION ET SENS - le dos - choisir de se concentrer sur le dos"
+            "en": "Choosing to focus on the Back",
+            "fr": "Choisir de se concentrer sur le dos"
         },
         "sort_idx": 1600,
         "cover": "focus_back.jpg",
@@ -442,13 +377,9 @@
     },
     {
         "page_id": "sensation-and-senses.the-back.passage",
-        "name": {
-            "en": "passage",
-            "fr": "passage"
-        },
         "title": {
-            "en": "SENSATION AND SENSES - the back - passage",
-            "fr": "SENSATION ET SENS - le dos - passage"
+            "en": "Passage",
+            "fr": "Passage"
         },
         "sort_idx": 1700,
         "cover": "passage.jpg",
@@ -469,13 +400,9 @@
     },
     {
         "page_id": "sensation-and-senses.space.spherical-space",
-        "name": {
-            "en": "spherical space",
-            "fr": "l'espace sphérique"
-        },
         "title": {
-            "en": "SENSATION AND SENSES - space - spherical space",
-            "fr": "SENSATION ET SENS - l'espace - l'espace sphérique"
+            "en": "Spherical space",
+            "fr": "L'espace sphérique"
         },
         "sort_idx": 1800,
         "cover": "sphericalspace.jpg",
@@ -496,13 +423,9 @@
     },
     {
         "page_id": "sensation-and-senses.mfs-as-base-for-improvisation.looking-at-goldberg-variations",
-        "name": {
-            "en": "looking at Goldberg Variations",
-            "fr": "introduction aux Goldberg Variations"
-        },
         "title": {
-            "en": "SENSATION AND SENSES - MFS as base for improvisation - looking at Goldberg Variations",
-            "fr": "SENSATION ET SENS - MFS comme base pour l'improvisation - introduction aux Goldberg Variations"
+            "en": "Looking at Goldberg Variations",
+            "fr": "Introduction aux Goldberg Variations"
         },
         "sort_idx": 1900,
         "cover": "perf_comments_goldberg.jpg",
@@ -523,13 +446,9 @@
     },
     {
         "page_id": "sensation-and-senses.mfs-as-base-for-improvisation.goldberg-variations-extracts",
-        "name": {
+        "title": {
             "en": "Goldberg Variations (extracts)",
             "fr": "Goldberg Variations (extraits)"
-        },
-        "title": {
-            "en": "SENSATION AND SENSES - MFS as base for improvisation - Goldberg Variations (extracts)",
-            "fr": "SENSATION ET SENS - MFS comme base pour l'improvisation - Goldberg Variations (extraits)"
         },
         "sort_idx": 2000,
         "cover": "goldberg.jpg",
@@ -550,13 +469,9 @@
     },
     {
         "page_id": "sensation-and-senses.mfs-as-base-for-improvisation.looking-at-english-suites",
-        "name": {
-            "en": "looking at English Suites",
-            "fr": "introduction aux English Suites"
-        },
         "title": {
-            "en": "SENSATION AND SENSES - MFS as base for improvisation - looking at English Suites",
-            "fr": "SENSATION ET SENS - MFS comme base pour l'improvisation - introduction aux English Suites"
+            "en": "Looking at English Suites",
+            "fr": "Introduction aux English Suites"
         },
         "sort_idx": 2100,
         "cover": "perf_comments_english.jpg",
@@ -577,13 +492,9 @@
     },
     {
         "page_id": "sensation-and-senses.mfs-as-base-for-improvisation.english-suites",
-        "name": {
+        "title": {
             "en": "English Suites",
             "fr": "English Suites"
-        },
-        "title": {
-            "en": "SENSATION AND SENSES - MFS as base for improvisation - English Suites",
-            "fr": "SENSATION ET SENS - MFS comme base pour l'improvisation - English Suites"
         },
         "sort_idx": 2200,
         "cover": "english.jpg",
@@ -604,13 +515,9 @@
     },
     {
         "page_id": "sensation-and-senses.mfs-as-base-for-improvisation.a-technique-for-improvisation",
-        "name": {
-            "en": "a technique for improvisation",
-            "fr": "une technique pour l'improvisation"
-        },
         "title": {
-            "en": "SENSATION AND SENSES - MFS as base for improvisation - a technique for improvisation",
-            "fr": "SENSATION ET SENS - MFS comme base pour l'improvisation - une technique pour l'improvisation"
+            "en": "A technique for improvisation",
+            "fr": "Une technique pour l'improvisation"
         },
         "sort_idx": 2300,
         "cover": "perf_techimpro.jpg",
@@ -631,13 +538,9 @@
     },
     {
         "page_id": "forms.introduction",
-        "name": {
-            "en": "introduction",
-            "fr": "introduction"
-        },
         "title": {
-            "en": "FORMS - introduction",
-            "fr": "LES FORMES - introduction"
+            "en": "Introduction",
+            "fr": "Introduction"
         },
         "sort_idx": 2400,
         "cover": "new_intro.jpg",
@@ -658,13 +561,9 @@
     },
     {
         "page_id": "forms.crescent-roll.crescent-led-by-feet-and-hands",
-        "name": {
-            "en": "crescent led by feet and hands",
-            "fr": "initié par les mains et les pieds"
-        },
         "title": {
-            "en": "FORMS - crescent roll - crescent led by feet and hands",
-            "fr": "LES FORMES - le roulé en croissant - initié par les mains et les pieds"
+            "en": "Crescent led by feet and hands",
+            "fr": "Initié par les mains et les pieds"
         },
         "sort_idx": 2500,
         "cover": "cbhf_fromside.jpg",
@@ -740,13 +639,9 @@
     },
     {
         "page_id": "forms.crescent-roll.crescent-led-by-center",
-        "name": {
-            "en": "crescent led by center",
-            "fr": "initié par le centre"
-        },
         "title": {
-            "en": "FORMS - crescent roll - crescent led by center",
-            "fr": "LES FORMES - le roulé en croissant - initié par le centre"
+            "en": "Crescent led by center",
+            "fr": "Initié par le centre"
         },
         "sort_idx": 2600,
         "cover": "cbc_fromhead.jpg",
@@ -792,13 +687,9 @@
     },
     {
         "page_id": "forms.crescent-roll.head-up",
-        "name": {
-            "en": "head up",
-            "fr": "tête dégagée"
-        },
         "title": {
-            "en": "FORMS - crescent roll - head up",
-            "fr": "LES FORMES - le roulé en croissant - tête dégagée"
+            "en": "Head up",
+            "fr": "Tête dégagée"
         },
         "sort_idx": 2700,
         "cover": "chu_fromfeet.jpg",
@@ -844,13 +735,9 @@
     },
     {
         "page_id": "forms.crescent-roll.head-and-feet-up",
-        "name": {
-            "en": "head and feet up",
-            "fr": "tête et pieds vers le haut"
-        },
         "title": {
-            "en": "FORMS - crescent roll - head and feet up",
-            "fr": "LES FORMES - le roulé en croissant - tête et pieds vers le haut"
+            "en": "Head and feet up",
+            "fr": "Tête et pieds vers le haut"
         },
         "sort_idx": 2800,
         "cover": "cbfhu.jpg",
@@ -871,13 +758,9 @@
     },
     {
         "page_id": "forms.crescent-roll.in-water",
-        "name": {
-            "en": "in water",
-            "fr": "dans l'eau"
-        },
         "title": {
-            "en": "FORMS - crescent roll - in water",
-            "fr": "LES FORMES - le roulé en croissant - dans l'eau"
+            "en": "In water",
+            "fr": "Dans l'eau"
         },
         "sort_idx": 2900,
         "cover": "crescent_water.jpg",
@@ -898,13 +781,9 @@
     },
     {
         "page_id": "forms.crescent-roll.comparison",
-        "name": {
-            "en": "comparison",
-            "fr": "comparaison"
-        },
         "title": {
-            "en": "FORMS - crescent roll - comparison",
-            "fr": "LES FORMES - le roulé en croissant - comparaison"
+            "en": "Comparison",
+            "fr": "Comparaison"
         },
         "sort_idx": 3000,
         "cover": "c_comparing.jpg",
@@ -925,13 +804,9 @@
     },
     {
         "page_id": "forms.helix-roll.led-by-feet",
-        "name": {
-            "en": "led by feet",
-            "fr": "initié par les pieds"
-        },
         "title": {
-            "en": "FORMS - helix roll - led by feet",
-            "fr": "LES FORMES - le roulé en hélice - initié par les pieds"
+            "en": "Led by feet",
+            "fr": "Initié par les pieds"
         },
         "sort_idx": 3100,
         "cover": "sbf_fromfeet.jpg",
@@ -1007,13 +882,9 @@
     },
     {
         "page_id": "forms.helix-roll.led-by-hands",
-        "name": {
-            "en": "led by hands",
-            "fr": "initié par les mains"
-        },
         "title": {
-            "en": "FORMS - helix roll - led by hands",
-            "fr": "LES FORMES - le roulé en hélice - initié par les mains"
+            "en": "Led by hands",
+            "fr": "Initié par les mains"
         },
         "sort_idx": 3200,
         "cover": "sbh_fromhead.jpg",
@@ -1074,13 +945,9 @@
     },
     {
         "page_id": "forms.helix-roll.in-water",
-        "name": {
-            "en": "in water",
-            "fr": "dans l'eau"
-        },
         "title": {
-            "en": "FORMS - helix roll - in water",
-            "fr": "LES FORMES - le roulé en hélice - dans l'eau"
+            "en": "In water",
+            "fr": "Dans l'eau"
         },
         "sort_idx": 3300,
         "cover": "helixinwater.jpg",
@@ -1101,13 +968,9 @@
     },
     {
         "page_id": "forms.helix-roll.comparison",
-        "name": {
-            "en": "comparison",
-            "fr": "comparaison"
-        },
         "title": {
-            "en": "FORMS - helix roll - comparison",
-            "fr": "LES FORMES - le roulé en hélice - comparaison"
+            "en": "Comparison",
+            "fr": "Comparaison"
         },
         "sort_idx": 3400,
         "cover": "h_comparing.jpg",
@@ -1128,13 +991,9 @@
     },
     {
         "page_id": "forms.puzzles.puzzle-1",
-        "name": {
-            "en": "puzzle 1",
-            "fr": "puzzle 1"
-        },
         "title": {
-            "en": "FORMS - puzzles - puzzle 1",
-            "fr": "LES FORMES - les puzzles - puzzle 1"
+            "en": "Puzzle 1",
+            "fr": "Puzzle 1"
         },
         "sort_idx": 3500,
         "cover": "puzzle1.jpg",
@@ -1155,13 +1014,9 @@
     },
     {
         "page_id": "forms.puzzles.puzzle-2",
-        "name": {
-            "en": "puzzle 2",
-            "fr": "puzzle 2"
-        },
         "title": {
-            "en": "FORMS - puzzles - puzzle 2",
-            "fr": "LES FORMES - les puzzles - puzzle 2"
+            "en": "Puzzle 2",
+            "fr": "Puzzle 2"
         },
         "sort_idx": 3600,
         "cover": "puzzle2.jpg",
@@ -1182,13 +1037,9 @@
     },
     {
         "page_id": "forms.puzzles.puzzle-3",
-        "name": {
-            "en": "puzzle 3",
-            "fr": "puzzle 3"
-        },
         "title": {
-            "en": "FORMS - puzzles - puzzle 3",
-            "fr": "LES FORMES - les puzzles - puzzle 3"
+            "en": "Puzzle 3",
+            "fr": "Puzzle 3"
         },
         "sort_idx": 3700,
         "cover": "puzzle3.jpg",
@@ -1209,13 +1060,9 @@
     },
     {
         "page_id": "forms.puzzles.puzzle-4",
-        "name": {
-            "en": "puzzle 4",
-            "fr": "puzzle 4"
-        },
         "title": {
-            "en": "FORMS - puzzles - puzzle 4",
-            "fr": "LES FORMES - les puzzles - puzzle 4"
+            "en": "Puzzle 4",
+            "fr": "Puzzle 4"
         },
         "sort_idx": 3800,
         "cover": "puzzle4.jpg",
@@ -1236,13 +1083,9 @@
     },
     {
         "page_id": "forms.undulation.frontal-initiated-by-the-head",
-        "name": {
-            "en": "frontal initiated by the head",
-            "fr": "frontale initiée par la tête"
-        },
         "title": {
-            "en": "FORMS - undulation - frontal initiated by the head",
-            "fr": "LES FORMES - l'ondulation - frontale initiée par la tête"
+            "en": "Frontal initiated by the head",
+            "fr": "Frontale initiée par la tête"
         },
         "sort_idx": 3900,
         "cover": "frontal_head_top.jpg",
@@ -1318,13 +1161,9 @@
     },
     {
         "page_id": "forms.undulation.frontal-initiated-by-the-pelvis",
-        "name": {
-            "en": "frontal initiated by the pelvis",
-            "fr": "frontale initiée par le bassin"
-        },
         "title": {
-            "en": "FORMS - undulation - frontal initiated by the pelvis",
-            "fr": "LES FORMES - l'ondulation - frontale initiée par le bassin"
+            "en": "Frontal initiated by the pelvis",
+            "fr": "Frontale initiée par le bassin"
         },
         "sort_idx": 4000,
         "cover": "frontal_pelvis_top.jpg",
@@ -1385,13 +1224,9 @@
     },
     {
         "page_id": "forms.undulation.lateral-initiated-by-the-head",
-        "name": {
-            "en": "lateral initiated by the head",
-            "fr": "latérale initiée par la tête"
-        },
         "title": {
-            "en": "FORMS - undulation - lateral initiated by the head",
-            "fr": "LES FORMES - l'ondulation - latérale initiée par la tête"
+            "en": "Lateral initiated by the head",
+            "fr": "Latérale initiée par la tête"
         },
         "sort_idx": 4100,
         "cover": "lateral_head_front.jpg",
@@ -1437,13 +1272,9 @@
     },
     {
         "page_id": "forms.undulation.lateral-initiated-by-the-pelvis",
-        "name": {
-            "en": "lateral initiated by the pelvis",
-            "fr": "latérale initiée par le bassin"
-        },
         "title": {
-            "en": "FORMS - undulation - lateral initiated by the pelvis",
-            "fr": "LES FORMES - l'ondulation - latérale initiée par le bassin"
+            "en": "Lateral initiated by the pelvis",
+            "fr": "Latérale initiée par le bassin"
         },
         "sort_idx": 4200,
         "cover": "lateral_pelvis_top.jpg",
@@ -1489,13 +1320,9 @@
     },
     {
         "page_id": "forms.undulation.dolphin",
-        "name": {
-            "en": "dolphin",
-            "fr": "le dauphin"
-        },
         "title": {
-            "en": "FORMS - undulation - dolphin",
-            "fr": "LES FORMES - l'ondulation - le dauphin"
+            "en": "Dolphin",
+            "fr": "Le dauphin"
         },
         "sort_idx": 4300,
         "cover": "dolphininwater.jpg",
@@ -1516,13 +1343,9 @@
     },
     {
         "page_id": "forms.aikido-roll.principle",
-        "name": {
-            "en": "principle",
-            "fr": "le principe"
-        },
         "title": {
-            "en": "FORMS - aikido roll - principle",
-            "fr": "LES FORMES - la chute roulée de l'aïkido - le principe"
+            "en": "Principle",
+            "fr": "Le principe"
         },
         "sort_idx": 4400,
         "cover": "aikido_principle.jpg",
@@ -1543,13 +1366,9 @@
     },
     {
         "page_id": "forms.aikido-roll.3-directions",
-        "name": {
-            "en": "3 directions",
-            "fr": "les 3 directions"
-        },
         "title": {
-            "en": "FORMS - aikido roll - 3 directions",
-            "fr": "LES FORMES - la chute roulée de l'aïkido - les 3 directions"
+            "en": "3 directions",
+            "fr": "Les 3 directions"
         },
         "sort_idx": 4500,
         "cover": "aikido_3D_side.jpg",
@@ -1625,13 +1444,9 @@
     },
     {
         "page_id": "forms.looking-at-the-forms.crescent-roll-head-up-in-workshop",
-        "name": {
-            "en": "crescent roll head up in workshop",
-            "fr": "démonstration du roulé en croissant tête dégagée"
-        },
         "title": {
-            "en": "FORMS - looking at the forms - crescent roll head up in workshop",
-            "fr": "LES FORMES - regarder les formes - démonstration du roulé en croissant tête dégagée"
+            "en": "Crescent roll head up in workshop",
+            "fr": "Démonstration du roulé en croissant tête dégagée"
         },
         "sort_idx": 4600,
         "cover": "crescent_head_up.jpg",
@@ -1652,13 +1467,9 @@
     },
     {
         "page_id": "forms.looking-at-the-forms.helix-roll-led-by-feet-in-workshop",
-        "name": {
-            "en": "helix roll led by feet in workshop",
-            "fr": "démonstration du roulé en hélice par les pieds"
-        },
         "title": {
-            "en": "FORMS - looking at the forms - helix roll led by feet in workshop",
-            "fr": "LES FORMES - regarder les formes - démonstration du roulé en hélice par les pieds"
+            "en": "Helix roll led by feet in workshop",
+            "fr": "Démonstration du roulé en hélice par les pieds"
         },
         "sort_idx": 4700,
         "cover": "mfs_sbf_seattle.jpg",
@@ -1679,13 +1490,9 @@
     },
     {
         "page_id": "forms.looking-at-the-forms.helix-roll-led-by-hands-in-workshop",
-        "name": {
-            "en": "helix roll led by hands in workshop",
-            "fr": "démonstration du roulé en hélice par les mains"
-        },
         "title": {
-            "en": "FORMS - looking at the forms - helix roll led by hands in workshop",
-            "fr": "LES FORMES - regarder les formes - démonstration du roulé en hélice par les mains"
+            "en": "Helix roll led by hands in workshop",
+            "fr": "Démonstration du roulé en hélice par les mains"
         },
         "sort_idx": 4800,
         "cover": "mfs_sbh_seattle.jpg",
@@ -1706,13 +1513,9 @@
     },
     {
         "page_id": "forms.looking-at-the-forms.puzzle-1-analyse",
-        "name": {
-            "en": "puzzle 1, analyse",
-            "fr": "puzzle 1, l'analyse"
-        },
         "title": {
-            "en": "FORMS - looking at the forms - puzzle 1, analyse",
-            "fr": "LES FORMES - regarder les formes - puzzle 1, l'analyse"
+            "en": "Puzzle 1, analyse",
+            "fr": "Puzzle 1, l'analyse"
         },
         "sort_idx": 4900,
         "cover": "puzzle1_demo_graph.jpg",
@@ -1733,13 +1536,9 @@
     },
     {
         "page_id": "forms.looking-at-the-forms.comments-on-crescent-roll-feet-and-hands",
-        "name": {
-            "en": "comments on crescent roll - feet and hands",
-            "fr": "le roulé en croissant par pieds et mains, commentaires"
-        },
         "title": {
-            "en": "FORMS - looking at the forms - comments on crescent roll - feet and hands",
-            "fr": "LES FORMES - regarder les formes - le roulé en croissant par pieds et mains, commentaires"
+            "en": "Comments on crescent roll - feet and hands",
+            "fr": "Le roulé en croissant par pieds et mains, commentaires"
         },
         "sort_idx": 5000,
         "cover": "correction_crescent_handsfeet.jpg",
@@ -1760,13 +1559,9 @@
     },
     {
         "page_id": "forms.looking-at-the-forms.comments-on-crescent-roll-center",
-        "name": {
-            "en": "comments on crescent roll - center",
-            "fr": "le roulé en croissant par le centre, commentaires"
-        },
         "title": {
-            "en": "FORMS - looking at the forms - comments on crescent roll - center",
-            "fr": "LES FORMES - regarder les formes - le roulé en croissant par le centre, commentaires"
+            "en": "Comments on crescent roll - center",
+            "fr": "Le roulé en croissant par le centre, commentaires"
         },
         "sort_idx": 5100,
         "cover": "correction_crescent_center.jpg",
@@ -1787,13 +1582,9 @@
     },
     {
         "page_id": "forms.looking-at-the-forms.comments-on-helix-roll-feet",
-        "name": {
-            "en": "comments on helix roll - feet",
-            "fr": "le roulé en hélice par les pieds, commentaires"
-        },
         "title": {
-            "en": "FORMS - looking at the forms - comments on helix roll - feet",
-            "fr": "LES FORMES - regarder les formes - le roulé en hélice par les pieds, commentaires"
+            "en": "Comments on helix roll - feet",
+            "fr": "Le roulé en hélice par les pieds, commentaires"
         },
         "sort_idx": 5200,
         "cover": "correction_helix_feet.jpg",
@@ -1814,13 +1605,9 @@
     },
     {
         "page_id": "forms.looking-at-the-forms.comments-on-helix-roll-hands",
-        "name": {
-            "en": "comments on helix roll - hands",
-            "fr": "le roulé en hélice par les mains, commentaires"
-        },
         "title": {
-            "en": "FORMS - looking at the forms - comments on helix roll - hands",
-            "fr": "LES FORMES - regarder les formes - le roulé en hélice par les mains, commentaires"
+            "en": "Comments on helix roll - hands",
+            "fr": "Le roulé en hélice par les mains, commentaires"
         },
         "sort_idx": 5300,
         "cover": "correction_helix_hands.jpg",
@@ -1841,13 +1628,9 @@
     },
     {
         "page_id": "forms.looking-at-the-forms.conclusion-on-rolls",
-        "name": {
-            "en": "conclusion on rolls",
-            "fr": "conclusion sur les roulés"
-        },
         "title": {
-            "en": "FORMS - looking at the forms - conclusion on rolls",
-            "fr": "LES FORMES - regarder les formes - conclusion sur les roulés"
+            "en": "Conclusion on rolls",
+            "fr": "Conclusion sur les roulés"
         },
         "sort_idx": 5400,
         "cover": "correction_conclusion.jpg",
@@ -1868,13 +1651,9 @@
     },
     {
         "page_id": "forms.warm-ups.fingers",
-        "name": {
-            "en": "fingers",
-            "fr": "les doigts"
-        },
         "title": {
-            "en": "FORMS - warm ups - fingers",
-            "fr": "LES FORMES - les échauffements - les doigts"
+            "en": "Fingers",
+            "fr": "Les doigts"
         },
         "sort_idx": 5500,
         "cover": "wu_fingers.jpg",
@@ -1895,13 +1674,9 @@
     },
     {
         "page_id": "forms.warm-ups.the-wrist",
-        "name": {
-            "en": "the wrist",
-            "fr": "le poignet"
-        },
         "title": {
-            "en": "FORMS - warm ups - the wrist",
-            "fr": "LES FORMES - les échauffements - le poignet"
+            "en": "The wrist",
+            "fr": "Le poignet"
         },
         "sort_idx": 5600,
         "cover": "wu_wrist.jpg",
@@ -1922,13 +1697,9 @@
     },
     {
         "page_id": "forms.warm-ups.hands",
-        "name": {
-            "en": "hands",
-            "fr": "les mains"
-        },
         "title": {
-            "en": "FORMS - warm ups - hands",
-            "fr": "LES FORMES - les échauffements - les mains"
+            "en": "Hands",
+            "fr": "Les mains"
         },
         "sort_idx": 5700,
         "cover": "wu_hands.jpg",
@@ -1949,13 +1720,9 @@
     },
     {
         "page_id": "forms.warm-ups.arms",
-        "name": {
-            "en": "arms",
-            "fr": "les bras"
-        },
         "title": {
-            "en": "FORMS - warm ups - arms",
-            "fr": "LES FORMES - les échauffements - les bras"
+            "en": "Arms",
+            "fr": "Les bras"
         },
         "sort_idx": 5800,
         "cover": "wu_arms.jpg",
@@ -1976,13 +1743,9 @@
     },
     {
         "page_id": "forms.warm-ups.spine-and-arms",
-        "name": {
-            "en": "spine and arms",
-            "fr": "les bras et la colonne"
-        },
         "title": {
-            "en": "FORMS - warm ups - spine and arms",
-            "fr": "LES FORMES - les échauffements - les bras et la colonne"
+            "en": "Spine and arms",
+            "fr": "Les bras et la colonne"
         },
         "sort_idx": 5900,
         "cover": "wu_spine_and_arms.jpg",
@@ -2003,13 +1766,9 @@
     },
     {
         "page_id": "forms.warm-ups.bending-bone",
-        "name": {
-            "en": "bending bone",
-            "fr": "courber l'os"
-        },
         "title": {
-            "en": "FORMS - warm ups - bending bone",
-            "fr": "LES FORMES - les échauffements - courber l'os"
+            "en": "Bending bone",
+            "fr": "Courber l'os"
         },
         "sort_idx": 6000,
         "cover": "wu_bendingbone.jpg",
@@ -2030,13 +1789,9 @@
     },
     {
         "page_id": "forms.warm-ups.aikido-step",
-        "name": {
-            "en": "aikido step",
-            "fr": "le pas aïkido"
-        },
         "title": {
-            "en": "FORMS - warm ups - aikido step",
-            "fr": "LES FORMES - les échauffements - le pas aïkido"
+            "en": "Aikido step",
+            "fr": "Le pas aïkido"
         },
         "sort_idx": 6100,
         "cover": "wu_aikidostep.jpg",
@@ -2057,13 +1812,9 @@
     },
     {
         "page_id": "forms.warm-ups.the-twist",
-        "name": {
-            "en": "the twist",
-            "fr": "la torsion"
-        },
         "title": {
-            "en": "FORMS - warm ups - the twist",
-            "fr": "LES FORMES - les échauffements - la torsion"
+            "en": "The twist",
+            "fr": "La torsion"
         },
         "sort_idx": 6200,
         "cover": "wu_twist.jpg",
@@ -2084,13 +1835,9 @@
     },
     {
         "page_id": "forms.warm-ups.legs-twist",
-        "name": {
-            "en": "legs twist",
-            "fr": "torsion des jambes"
-        },
         "title": {
-            "en": "FORMS - warm ups - legs twist",
-            "fr": "LES FORMES - les échauffements - torsion des jambes"
+            "en": "Legs twist",
+            "fr": "Torsion des jambes"
         },
         "sort_idx": 6300,
         "cover": "wu_twistlegs.jpg",
@@ -2111,13 +1858,9 @@
     },
     {
         "page_id": "forms.warm-ups.legs-resistance",
-        "name": {
-            "en": "legs resistance",
-            "fr": "résistance des jambes"
-        },
         "title": {
-            "en": "FORMS - warm ups - legs resistance",
-            "fr": "LES FORMES - les échauffements - résistance des jambes"
+            "en": "Legs resistance",
+            "fr": "Résistance des jambes"
         },
         "sort_idx": 6400,
         "cover": "wu_legsresistance.jpg",
@@ -2138,13 +1881,9 @@
     },
     {
         "page_id": "forms.warm-ups.trochanter",
-        "name": {
-            "en": "trochanter",
-            "fr": "trochanter"
-        },
         "title": {
-            "en": "FORMS - warm ups - trochanter",
-            "fr": "LES FORMES - les échauffements - trochanter"
+            "en": "Trochanter",
+            "fr": "Trochanter"
         },
         "sort_idx": 6500,
         "cover": "wu_trocantere.jpg",
@@ -2165,13 +1904,9 @@
     },
     {
         "page_id": "forms.warm-ups.psoas",
-        "name": {
-            "en": "psoas",
-            "fr": "psoas"
-        },
         "title": {
-            "en": "FORMS - warm ups - psoas",
-            "fr": "LES FORMES - les échauffements - psoas"
+            "en": "Psoas",
+            "fr": "Psoas"
         },
         "sort_idx": 6600,
         "cover": "wu_psoas.jpg",
@@ -2192,13 +1927,9 @@
     },
     {
         "page_id": "forms.warm-ups.wave",
-        "name": {
-            "en": "wave",
-            "fr": "ondulation"
-        },
         "title": {
-            "en": "FORMS - warm ups - wave",
-            "fr": "LES FORMES - les échauffements - ondulation"
+            "en": "Wave",
+            "fr": "Ondulation"
         },
         "sort_idx": 6700,
         "cover": "wu_wave.jpg",
@@ -2219,13 +1950,9 @@
     },
     {
         "page_id": "forms.warm-ups.wave-on-the-floor",
-        "name": {
-            "en": "wave on the floor",
-            "fr": "ondulation au sol"
-        },
         "title": {
-            "en": "FORMS - warm ups - wave on the floor",
-            "fr": "LES FORMES - les échauffements - ondulation au sol"
+            "en": "Wave on the floor",
+            "fr": "Ondulation au sol"
         },
         "sort_idx": 6800,
         "cover": "wu_wavefloor.jpg",
@@ -2246,13 +1973,9 @@
     },
     {
         "page_id": "forms.warm-ups.asanas",
-        "name": {
-            "en": "asanas",
-            "fr": "asanas"
-        },
         "title": {
-            "en": "FORMS - warm ups - asanas",
-            "fr": "LES FORMES - les échauffements - asanas"
+            "en": "Asanas",
+            "fr": "Asanas"
         },
         "sort_idx": 6900,
         "cover": "wu_asanas.jpg",
@@ -2273,13 +1996,9 @@
     },
     {
         "page_id": "forms.warm-ups.napping",
-        "name": {
-            "en": "napping",
-            "fr": "la sieste"
-        },
         "title": {
-            "en": "FORMS - warm ups - napping",
-            "fr": "LES FORMES - les échauffements - la sieste"
+            "en": "Napping",
+            "fr": "La sieste"
         },
         "sort_idx": 7000,
         "cover": "napp.jpg",
@@ -2300,13 +2019,9 @@
     },
     {
         "page_id": "forms.warm-ups.and-play",
-        "name": {
-            "en": "and play",
-            "fr": "et jouer"
-        },
         "title": {
-            "en": "FORMS - warm ups - and play",
-            "fr": "LES FORMES - les échauffements - et jouer"
+            "en": "And play",
+            "fr": "Et jouer"
         },
         "sort_idx": 7100,
         "cover": "wu_play.jpg",
@@ -2327,13 +2042,9 @@
     },
     {
         "page_id": "forms.cultivating.dance-culture",
-        "name": {
-            "en": "dance & culture",
-            "fr": "la danse & la culture"
-        },
         "title": {
-            "en": "FORMS - cultivating - dance & culture",
-            "fr": "LES FORMES - cultiver - la danse & la culture"
+            "en": "Dance & culture",
+            "fr": "La danse & la culture"
         },
         "sort_idx": 7200,
         "cover": "dance_culture.jpg",
@@ -2354,13 +2065,9 @@
     },
     {
         "page_id": "forms.cultivating.kindling-scythe",
-        "name": {
-            "en": "kindling & scythe",
-            "fr": "le petit bois & la faux"
-        },
         "title": {
-            "en": "FORMS - cultivating - kindling & scythe",
-            "fr": "LES FORMES - cultiver - le petit bois & la faux"
+            "en": "Kindling & scythe",
+            "fr": "Le petit bois & la faux"
         },
         "sort_idx": 7300,
         "cover": "cultivating2.jpg",

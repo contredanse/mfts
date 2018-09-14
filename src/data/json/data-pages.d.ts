@@ -2,7 +2,6 @@
 
 export interface IJsonPage {
     page_id: string;
-    name: IJsonPageLocalizedText;
     title: IJsonPageLocalizedText;
     cover?: string; // jpg cover for the page
     keywords: IJsonPageLocalizedKeywords;
