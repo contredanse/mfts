@@ -2,7 +2,7 @@ import React from 'react';
 import Page from '@src/components/page';
 import NotFoundContainer from '@src/containers/notfound-container';
 import { DataSupportedLangType } from '@src/models/repository/data-repository';
-import PageEntity from '@src/models/entity/page-entity';
+import PageProxy from '@src/models/proxy/page-proxy';
 import { PageOverlay } from '@src/components/layout/page-overlay';
 import PageRepository from '@src/models/repository/page-repository';
 import MenuRepository, { MenuSectionProps, PrevAndNextPageEntities } from '@src/models/repository/menu-repository';
@@ -17,13 +17,13 @@ type PageContainerProps = {
 
 type PageContainerState = {
     pageExists: boolean | undefined;
-    pageEntity: PageEntity | undefined;
+    pageProxy: PageProxy | undefined;
 };
 
 class PageContainer extends React.Component<PageContainerProps, PageContainerState> {
     readonly state = {
         pageExists: undefined,
-        pageEntity: undefined,
+        pageProxy: undefined,
     };
 
     constructor(props: PageContainerProps) {
@@ -63,7 +63,7 @@ class PageContainer extends React.Component<PageContainerProps, PageContainerSta
     };
 
     render() {
-        const { pageExists, pageEntity } = this.state;
+        const { pageExists, pageProxy } = this.state;
         // should not be required, exit if async loading
         // of pageData is not yet present (see componentDidMount())
         if (pageExists === undefined) {
@@ -76,9 +76,9 @@ class PageContainer extends React.Component<PageContainerProps, PageContainerSta
         return (
             <PageOverlay closeButton={false}>
                 <div className="page-wrapper">
-                    {pageEntity ? (
+                    {pageProxy ? (
                         <Page
-                            pageEntity={pageEntity}
+                            pageProxy={pageProxy}
                             menuBreadcrumb={breadcrumb}
                             lang={this.props.lang}
                             previousPage={previousPage}
@@ -100,13 +100,13 @@ class PageContainer extends React.Component<PageContainerProps, PageContainerSta
      */
     protected loadPageState(pageId: string) {
         try {
-            const pageEntity = this.props.pageRepository.getPageEntity(this.props.pageId);
+            const pageProxy = this.props.pageRepository.getPageProxy(this.props.pageId);
             this.setState(
                 (prevState: PageContainerState): PageContainerState => {
                     return {
                         ...prevState,
                         pageExists: true,
-                        pageEntity: pageEntity,
+                        pageProxy: pageProxy,
                     };
                 }
             );
@@ -116,7 +116,7 @@ class PageContainer extends React.Component<PageContainerProps, PageContainerSta
                     return {
                         ...prevState,
                         pageExists: false,
-                        pageEntity: undefined,
+                        pageProxy: undefined,
                     };
                 }
             );

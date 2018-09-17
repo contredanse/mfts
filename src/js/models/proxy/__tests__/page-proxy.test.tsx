@@ -1,13 +1,13 @@
-import { appConfig } from '@config/config.production';
-import { PageEntityFactory } from '@src/models/entity/page-entity';
-import AppAssetsLocator from '@src/core/app-assets-locator';
+import { appConfig } from '../../../../config/config.production';
+import { PageProxyFactory } from '../page-proxy';
+import AppAssetsLocator from '../../../core/app-assets-locator';
 
 describe('Data page retrieval', () => {
     const globalDataRepo = appConfig.getPageRepository();
     const pageId = 'forms.crescent-roll.crescent-led-by-feet-and-hands';
 
-    test('PageEntity properties', async () => {
-        const page = globalDataRepo.getPageEntity(pageId);
+    test('PageProxy properties', async () => {
+        const page = globalDataRepo.getPageProxy(pageId);
         expect(page).toBeDefined();
 
         if (page !== undefined) {
@@ -17,8 +17,8 @@ describe('Data page retrieval', () => {
         }
     });
 
-    test('PageEntity getting videos', async () => {
-        const page = globalDataRepo.getPageEntity(pageId);
+    test('PageProxy getting videos', async () => {
+        const page = globalDataRepo.getPageProxy(pageId);
         expect(page).toBeDefined();
 
         if (page !== undefined) {
@@ -35,7 +35,7 @@ describe('Data page retrieval', () => {
             { pageId: 'forms.crescent-roll.head-up', multi: true },
         ].map((val, idx) => {
             const { pageId: id, multi } = val;
-            const p = globalDataRepo.getPageEntity(id);
+            const p = globalDataRepo.getPageProxy(id);
             expect(p).toBeDefined();
             if (p !== undefined) {
                 expect(p.isMultiLayout()).toEqual(multi);
@@ -121,7 +121,7 @@ describe('Data page factory', () => {
         },
     });
 
-    const page = PageEntityFactory.createFromJson(jsonPage, appConfig.getVideoRepository(), {
+    const page = PageProxyFactory.createFromJson(jsonPage, appConfig.getVideoRepository(), {
         assetsLocator: assetsLocator,
         fallbackLang: 'en',
     });

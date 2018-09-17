@@ -1,5 +1,5 @@
 import AppConfig from '@src/core/app-config';
-import PageEntity, { PageEntityFactory } from '@src/models/entity/page-entity';
+import PageProxy, { PageProxyFactory } from '@src/models/proxy/page-proxy';
 import { IJsonPage } from '@data/json/data-pages';
 import { DataSupportedLangType } from '@src/models/repository/data-repository';
 import VideoRepository from '@src/models/repository/video-repository';
@@ -49,21 +49,18 @@ export default class PageRepository {
     }
 
     /**
-     * Return page entity
-     *
-     * @param {string} pageId
-     * @returns {PageEntity | undefined}
+     * Return page proxy
      */
-    getPageEntity(pageId: string): PageEntity | undefined {
+    getPageProxy(pageId: string): PageProxy | undefined {
         const page = this.getPage(pageId);
         if (page === undefined) {
             return undefined;
         }
 
-        const pageEntity = PageEntityFactory.createFromJson(page, this.videoRepository, {
+        const pageProxy = PageProxyFactory.createFromJson(page, this.videoRepository, {
             fallbackLang: this.config.fallbackLang,
             assetsLocator: this.config.assetsLocator,
         });
-        return pageEntity;
+        return pageProxy;
     }
 }

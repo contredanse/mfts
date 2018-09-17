@@ -1,12 +1,12 @@
-import VideoEntity from '@src/models/entity/video-entity';
-import AudioEntity, { AudioEntityFactory } from '@src/models/entity/audio-entity';
-import { AbstractBaseEntity, IBaseEntityOptions } from '@src/models/entity/abstract-base-entity';
-import { IJsonPage, IJsonPageAudio, IJsonPageVideo } from '@data/json/data-pages';
-import VideoRepository from '@src/models/repository/video-repository';
+import VideoEntity from '../entity/video-entity';
+import AudioEntity, { AudioEntityFactory } from '../entity/audio-entity';
+import { AbstractBaseEntity, IBaseEntityOptions } from '../entity/abstract-base-entity';
+import { IJsonPage, IJsonPageAudio, IJsonPageVideo } from '../../../data/json/data-pages';
+import VideoRepository from '../repository/video-repository';
 
-export class PageEntityFactory {
-    static createFromJson(data: IJsonPage, repository: VideoRepository, options: IPageEntityOptions): PageEntity {
-        return new PageEntity(data, repository, options);
+export class PageProxyFactory {
+    static createFromJson(data: IJsonPage, repository: VideoRepository, options: IPageEntityOptions): PageProxy {
+        return new PageProxy(data, repository, options);
     }
 }
 
@@ -14,7 +14,7 @@ export interface IPageEntityData extends IJsonPage {}
 
 export interface IPageEntityOptions extends IBaseEntityOptions {}
 
-export default class PageEntity extends AbstractBaseEntity {
+export default class PageProxy extends AbstractBaseEntity {
     protected readonly data: IPageEntityData;
     protected readonly repository: VideoRepository;
 

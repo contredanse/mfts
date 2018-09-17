@@ -14,11 +14,11 @@ describe('Page repository getters', () => {
     });
 });
 
-describe('PageEntity retrieval', () => {
+describe('PageProxy retrieval', () => {
     const pageRepo = appConfig.getPageRepository();
 
-    test('getPageEntity must return existing page', async () => {
-        const page = pageRepo.getPageEntity('forms.helix-roll.led-by-feet');
+    test('getPageProxy must return existing page', async () => {
+        const page = pageRepo.getPageProxy('forms.helix-roll.led-by-feet');
         expect(page).toBeDefined();
     });
 });

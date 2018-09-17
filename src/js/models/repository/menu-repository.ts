@@ -1,7 +1,7 @@
 import AppConfig from '@src/core/app-config';
 import { IJsonMenu, IJsonMenuSection } from '@data/json/data-menu';
 import PageRepository from '@src/models/repository/page-repository';
-import PageEntity from '@src/models/entity/page-entity';
+import PageProxy from '@src/models/proxy/page-proxy';
 import { Omit } from 'utility-types';
 
 export type MenuPageProps = {
@@ -21,8 +21,8 @@ export type PrevAndNextPageId = {
 };
 
 export type PrevAndNextPageEntities = {
-    previousPage?: PageEntity;
-    nextPage?: PageEntity;
+    previousPage?: PageProxy;
+    nextPage?: PageProxy;
 };
 
 export default class MenuRepository {
@@ -63,8 +63,8 @@ export default class MenuRepository {
 
         const { previous, next } = this.getPrevAndNextPageMenu(pageId, lang);
 
-        menuPage.previousPage = previous !== undefined ? pageRepository.getPageEntity(previous.page_id) : undefined;
-        menuPage.nextPage = next !== undefined ? pageRepository.getPageEntity(next.page_id) : undefined;
+        menuPage.previousPage = previous !== undefined ? pageRepository.getPageProxy(previous.page_id) : undefined;
+        menuPage.nextPage = next !== undefined ? pageRepository.getPageProxy(next.page_id) : undefined;
 
         return menuPage;
     }

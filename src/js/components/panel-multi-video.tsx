@@ -1,12 +1,12 @@
 import React, { MouseEvent } from 'react';
 import VideoPlayer from '@src/components/player/video-player';
 import VideoEntity from '@src/models/entity/video-entity';
-import PageEntity from '@src/models/entity/page-entity';
+import PageProxy from '@src/models/proxy/page-proxy';
 import './panel-mutli-video.scss';
 
 type PanelMultiVideoProps = {
     videos: VideoEntity[];
-    pageEntity: PageEntity;
+    pageProxy: PageProxy;
     playing?: boolean;
     playbackRate?: number;
 };
@@ -26,8 +26,8 @@ export default class PanelMultiVideo extends React.Component<PanelMultiVideoProp
     }
 
     render() {
-        const { pageEntity, playing, playbackRate } = this.props;
-        const videos = pageEntity.getVideos();
+        const { pageProxy, playing, playbackRate } = this.props;
+        const videos = pageProxy.getVideos();
 
         let sizeConstraints = {
             width: '100%',

@@ -94,12 +94,16 @@ export default class PageList extends React.Component<PageListProps, PageListSta
 
                                             {videos.length > 1 && (
                                                 <div className="grid-page-thumbnail">
-                                                    {videos.map(video => {
+                                                    {videos.map((video, idx) => {
                                                         const videoCover = `${baseUrl}/covers/${video.video_id}-01.jpg`;
+                                                        const separator = idx % 4 === 0 ? <div>AAAAAA</div> : '';
                                                         return (
-                                                            <div key={video.video_id}>
-                                                                <img src={videoCover} title={video.video_id} />
-                                                            </div>
+                                                            <React.Fragment key={video.video_id}>
+                                                                {separator}
+                                                                <div>
+                                                                    <img src={videoCover} title={video.video_id} />
+                                                                </div>
+                                                            </React.Fragment>
                                                         );
                                                     })}
                                                 </div>

@@ -4,7 +4,7 @@ import { translate, InjectedI18nProps } from 'react-i18next';
 
 import './page.scss';
 
-import PageEntity from '@src/models/entity/page-entity';
+import PageProxy from '@src/models/proxy/page-proxy';
 
 import ControlBar, { MediaPlayerControlBarProps } from '@src/shared/player/controls/control-bar';
 import PanelMultiVideo from '@src/components/panel-multi-video';
@@ -25,11 +25,11 @@ export type PlaybackState = {
 };
 
 export type PageProps = {
-    pageEntity: PageEntity;
+    pageProxy: PageProxy;
     lang: string;
     menuBreadcrumb: MenuSectionProps[];
-    nextPage?: PageEntity;
-    previousPage?: PageEntity;
+    nextPage?: PageProxy;
+    previousPage?: PageProxy;
     onPageChangeRequest?: (pageId: string) => void;
 } & InjectedI18nProps;
 
@@ -93,7 +93,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
     }
 
     render() {
-        const { pageEntity: page, lang } = this.props;
+        const { pageProxy: page, lang } = this.props;
 
         const countVideos = page.countVideos();
 
@@ -131,7 +131,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
                         <div className="page-multi-video-layout">
                             <PanelMultiVideo
                                 videos={videos}
-                                pageEntity={page}
+                                pageProxy={page}
                                 playing={this.state.playbackState.isPlaying}
                                 playbackRate={this.state.playbackState.playbackRate}
                             />
