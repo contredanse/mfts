@@ -64,7 +64,7 @@
         "esModuleInterop": true,                  /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
 
         "importHelpers": false,                    /* Import emit helpers from 'tslib'. */
-        "noEmitHelpers": true,                    /* ADDED */
+        "noEmitHelpers": false,                    /* Emit helpers */
 
 
         // "preserveSymlinks": true,              /* Do not resolve the real path of symlinks. */
