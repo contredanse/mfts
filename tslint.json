@@ -1,7 +1,4 @@
 {
-    "lintOptions": {
-        "typeCheck": true
-    },
     "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
     "linterOptions": {
         "exclude": ["src/thirdparty/*.js", "**/*.min.js", "**/*.json", "**/svg-icons.tsx"]
