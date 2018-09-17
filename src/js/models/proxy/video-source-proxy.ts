@@ -1,17 +1,17 @@
-import { AbstractBaseEntity, IBaseEntityOptions } from '@src/models/entity/abstract-base-entity';
-import { IJsonVideoSource } from '@data/json/data-videos';
+import { AbstractBaseEntity, IBaseEntityOptions } from '../entity/abstract-base-entity';
+import { IJsonVideoSource } from '../../../data/json/data-videos';
 
-export class VideoSourceEntityFactory {
-    static createFromJson(data: IJsonVideoSource, options: IVideoSourceEntityOptions): VideoSourceEntity {
-        return new VideoSourceEntity(data, options);
+export class VideoSourceProxyFactory {
+    static createFromJson(data: IJsonVideoSource, options: IVideoSourceProxyOptions): VideoSourceProxy {
+        return new VideoSourceProxy(data, options);
     }
 }
 
-export interface IVideoSourceEntityData extends IJsonVideoSource {}
+export interface IVideoSourceProxyData extends IJsonVideoSource {}
 
-export interface IVideoSourceEntityOptions extends IBaseEntityOptions {}
+export interface IVideoSourceProxyOptions extends IBaseEntityOptions {}
 
-export default class VideoSourceEntity extends AbstractBaseEntity {
+export default class VideoSourceProxy extends AbstractBaseEntity {
     /**
      * Mimetypes map for some media formats
      * @type {{mp4: string; webm: string; av1: string; mp3: string}}
@@ -23,11 +23,11 @@ export default class VideoSourceEntity extends AbstractBaseEntity {
         mp3: 'audio/mpeg',
     };
 
-    readonly options!: IVideoSourceEntityOptions;
+    readonly options!: IVideoSourceProxyOptions;
 
-    protected readonly data: IVideoSourceEntityData;
+    protected readonly data: IVideoSourceProxyData;
 
-    constructor(data: IVideoSourceEntityData, options: IVideoSourceEntityOptions) {
+    constructor(data: IVideoSourceProxyData, options: IVideoSourceProxyOptions) {
         super(options);
         this.data = data;
     }
@@ -35,7 +35,7 @@ export default class VideoSourceEntity extends AbstractBaseEntity {
     get type(): string {
         if (this.data.type === undefined) {
             const fileExt = this.data.src.split('.').pop() as string;
-            return VideoSourceEntity.fileTypes[fileExt] && `video/${fileExt}`;
+            return VideoSourceProxy.fileTypes[fileExt] && `video/${fileExt}`;
         }
         return this.data.type;
     }

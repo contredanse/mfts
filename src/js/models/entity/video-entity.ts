@@ -1,8 +1,5 @@
 import { orderBy } from 'lodash-es';
-import VideoSourceEntity, {
-    VideoSourceEntityFactory,
-    IVideoSourceEntityData,
-} from '@src/models/entity/video-source-entity';
+import VideoSourceProxy, { VideoSourceProxyFactory, IVideoSourceProxyData } from '@src/models/proxy/video-source-proxy';
 import { AbstractBaseEntity, IBaseEntityOptions } from '@src/models/entity/abstract-base-entity';
 import { IJsonVideo, IJsonVideoMeta, IJsonVideoSource, IJsonVideoTrack } from '@data/json/data-videos';
 import { IJsonPageAudioTrack } from '@data/json/data-pages';
@@ -100,19 +97,19 @@ export default class VideoEntity extends AbstractBaseEntity {
         return `${slices.hours}:${slices.minutes}:${slices.seconds}`;
     }
 
-    getSources(sortByPriority: boolean = true): VideoSourceEntity[] {
-        let data: IVideoSourceEntityData[] = [];
+    getSources(sortByPriority: boolean = true): VideoSourceProxy[] {
+        let data: IVideoSourceProxyData[] = [];
         if (sortByPriority) {
             data = orderBy(this.data.sources, ['priority'], ['asc']);
         } else {
             data = this.data.sources;
         }
         return data.reduce(
-            (accumulator, jsonSource): VideoSourceEntity[] => {
-                accumulator.push(VideoSourceEntityFactory.createFromJson(jsonSource, this.options));
+            (accumulator, jsonSource): VideoSourceProxy[] => {
+                accumulator.push(VideoSourceProxyFactory.createFromJson(jsonSource, this.options));
                 return accumulator;
             },
-            [] as VideoSourceEntity[]
+            [] as VideoSourceProxy[]
         );
     }
 

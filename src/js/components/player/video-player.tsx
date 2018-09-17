@@ -8,7 +8,7 @@ import ReactPlayer, {
 } from 'react-player';
 
 import VideoEntity from '@src/models/entity/video-entity';
-import VideoSourceEntity from '@src/models/entity/video-source-entity';
+import VideoSourceProxy from '@src/models/proxy/video-source-proxy';
 
 type VideoPlayerProps = {
     video: VideoEntity;
@@ -112,7 +112,7 @@ export default class VideoPlayer extends React.Component<VideoPlayerProps, Video
         }
     }
 
-    protected getReactPlayerSources(videoSources: VideoSourceEntity[]): ReactPlayerSourceProps[] {
+    protected getReactPlayerSources(videoSources: VideoSourceProxy[]): ReactPlayerSourceProps[] {
         const sources = videoSources.reduce(
             (acc, source) => {
                 return [

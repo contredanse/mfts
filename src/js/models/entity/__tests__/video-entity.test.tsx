@@ -1,6 +1,6 @@
 import { VideoEntityFactory } from '@src/models/entity/video-entity';
 import { IJsonVideo } from '@data/json/data-videos';
-import { VideoSourceEntityFactory } from '@src/models/entity/video-source-entity';
+import { VideoSourceProxyFactory } from '@src/models/proxy/video-source-proxy';
 import AppAssetsLocator from '@src/core/app-assets-locator';
 
 describe('VideoEntity from IJsonVideo', () => {
@@ -51,7 +51,7 @@ describe('VideoEntity from IJsonVideo', () => {
     test('videoSources', () => {
         const unsortedSrcs = video.getSources(false);
         expect(unsortedSrcs.length).toEqual(2);
-        expect(unsortedSrcs[0]).toEqual(VideoSourceEntityFactory.createFromJson(jsonVideo.sources[0], options));
+        expect(unsortedSrcs[0]).toEqual(VideoSourceProxyFactory.createFromJson(jsonVideo.sources[0], options));
     });
 
     test('subtitles tracks', () => {
