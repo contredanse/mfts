@@ -1,6 +1,6 @@
 import AppConfig from '@src/core/app-config';
 import { IJsonVideo } from '@data/json/data-videos';
-import VideoEntity, { VideoEntityFactory } from '@src/models/entity/video-entity';
+import VideoProxy, { VideoProxyFactory } from '@src/models/proxy/video-proxy';
 
 export default class VideoRepository {
     protected readonly videos: IJsonVideo[];
@@ -19,12 +19,12 @@ export default class VideoRepository {
         return video;
     }
 
-    getVideoEntity(videoId: string): VideoEntity | undefined {
+    getVideoProxy(videoId: string): VideoProxy | undefined {
         const jsonVideo = this.getVideo(videoId);
         if (jsonVideo === undefined) {
             return undefined;
         }
-        return VideoEntityFactory.createFromJson(jsonVideo, {
+        return VideoProxyFactory.createFromJson(jsonVideo, {
             fallbackLang: this.config.fallbackLang,
             assetsLocator: this.config.assetsLocator,
         });

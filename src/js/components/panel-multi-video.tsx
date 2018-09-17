@@ -1,11 +1,11 @@
 import React, { MouseEvent } from 'react';
 import VideoPlayer from '@src/components/player/video-player';
-import VideoEntity from '@src/models/entity/video-entity';
+import VideoProxy from '@src/models/proxy/video-proxy';
 import PageProxy from '@src/models/proxy/page-proxy';
 import './panel-mutli-video.scss';
 
 type PanelMultiVideoProps = {
-    videos: VideoEntity[];
+    videos: VideoProxy[];
     pageProxy: PageProxy;
     playing?: boolean;
     playbackRate?: number;

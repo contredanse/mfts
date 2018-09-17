@@ -2,7 +2,7 @@ import { IJsonVideoSource } from '../../../../data/json/data-videos';
 import { VideoSourceProxyFactory } from '@src/models/proxy/video-source-proxy';
 import AppAssetsLocator from '../../../core/app-assets-locator';
 
-describe('VideoEntitySource from IJsonVideoSource', () => {
+describe('VideoProxySource from IJsonVideoSource', () => {
     const jsonSource: IJsonVideoSource = {
         src: 'intro.mp4',
         priority: 20,

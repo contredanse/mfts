@@ -1,4 +1,4 @@
-import VideoEntity from '../entity/video-entity';
+import VideoProxy from '../proxy/video-proxy';
 import AudioProxy, { AudioProxyFactory } from '../proxy/audio-proxy';
 import { AbstractBaseEntity, IBaseEntityOptions } from '../entity/abstract-base-entity';
 import { IJsonPage, IJsonPageAudio, IJsonPageVideo } from '../../../data/json/data-pages';
@@ -53,35 +53,35 @@ export default class PageProxy extends AbstractBaseEntity {
         return this.countVideos() > 1 || this.getAudioProxy() !== undefined;
     }
 
-    getFirstVideo(lang?: string): VideoEntity | undefined {
+    getFirstVideo(lang?: string): VideoProxy | undefined {
         const firstVideo = this.getHelper().getLocalizedValue(this.videos[0].lang_video_id, lang);
         if (firstVideo === undefined) {
             return undefined;
         }
-        return this.repository.getVideoEntity(firstVideo);
+        return this.repository.getVideoProxy(firstVideo);
     }
 
-    getVideos(lang?: string): VideoEntity[] {
+    getVideos(lang?: string): VideoProxy[] {
         if (this.countVideos() === 0) {
             return [];
         }
-        const videos: VideoEntity[] = [];
+        const videos: VideoProxy[] = [];
         this.videos.forEach(({ lang_video_id, video_detail }) => {
             const videoId = this.getHelper().getLocalizedValue<string>(lang_video_id, lang);
             if (videoId !== undefined) {
-                const videoEntity = this.repository.getVideoEntity(videoId);
-                if (videoEntity !== undefined) {
+                const videoProxy = this.repository.getVideoProxy(videoId);
+                if (videoProxy !== undefined) {
                     if (video_detail) {
                         const videoDetailId = this.getHelper().getLocalizedValue<string>(
                             video_detail.lang_video_id,
                             lang
                         );
                         if (videoDetailId) {
-                            const videoDetailEntity = this.repository.getVideoEntity(videoDetailId);
-                            videoEntity.videoLink = videoDetailEntity || null;
+                            const videoDetailEntity = this.repository.getVideoProxy(videoDetailId);
+                            videoProxy.videoLink = videoDetailEntity || null;
                         }
                     }
-                    videos.push(videoEntity);
+                    videos.push(videoProxy);
                 } else {
                     console.warn(`Missing video ${videoId}`);
                 }

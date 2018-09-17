@@ -1,38 +1,38 @@
 import { orderBy } from 'lodash-es';
-import VideoSourceProxy, { VideoSourceProxyFactory, IVideoSourceProxyData } from '@src/models/proxy/video-source-proxy';
-import { AbstractBaseEntity, IBaseEntityOptions } from '@src/models/entity/abstract-base-entity';
-import { IJsonVideo, IJsonVideoMeta, IJsonVideoSource, IJsonVideoTrack } from '@data/json/data-videos';
-import { IJsonPageAudioTrack } from '@data/json/data-pages';
+import VideoSourceProxy, { VideoSourceProxyFactory, IVideoSourceProxyData } from './video-source-proxy';
+import { AbstractBaseEntity, IBaseEntityOptions } from '../entity/abstract-base-entity';
+import { IJsonVideo, IJsonVideoMeta, IJsonVideoSource, IJsonVideoTrack } from '../../../data/json/data-videos';
+import { IJsonPageAudioTrack } from '../../../data/json/data-pages';
 
-export class VideoEntityFactory {
-    static createFromJson(data: IJsonVideo, options: IVideoEntityOptions): VideoEntity {
-        return new VideoEntity(data, options);
+export class VideoProxyFactory {
+    static createFromJson(data: IJsonVideo, options: IVideoProxyOptions): VideoProxy {
+        return new VideoProxy(data, options);
     }
 }
 
-export interface IVideoEntityData extends IJsonVideo {}
+export interface IVideoProxyData extends IJsonVideo {}
 
-export interface IVideoEntityOptions extends IBaseEntityOptions {}
+export interface IVideoProxyOptions extends IBaseEntityOptions {}
 
-export default class VideoEntity extends AbstractBaseEntity {
-    readonly options!: IVideoEntityOptions;
+export default class VideoProxy extends AbstractBaseEntity {
+    readonly options!: IVideoProxyOptions;
     protected links: {
-        video: VideoEntity | null;
+        video: VideoProxy | null;
     };
 
-    protected readonly data: IVideoEntityData;
+    protected readonly data: IVideoProxyData;
 
-    constructor(data: IVideoEntityData, options: IVideoEntityOptions) {
+    constructor(data: IVideoProxyData, options: IVideoProxyOptions) {
         super(options);
         this.links = { video: null };
         this.data = data;
     }
 
-    set videoLink(videoLink: VideoEntity | null) {
+    set videoLink(videoLink: VideoProxy | null) {
         this.links.video = videoLink;
     }
 
-    get videoLink(): VideoEntity | null {
+    get videoLink(): VideoProxy | null {
         return this.links.video;
     }
 

@@ -7,11 +7,11 @@ import ReactPlayer, {
     TrackProps as ReactPlayerTrackProps,
 } from 'react-player';
 
-import VideoEntity from '@src/models/entity/video-entity';
+import VideoProxy from '@src/models/proxy/video-proxy';
 import VideoSourceProxy from '@src/models/proxy/video-source-proxy';
 
 type VideoPlayerProps = {
-    video: VideoEntity;
+    video: VideoProxy;
     disableSubtitles?: boolean;
     activeSubtitleLang?: string;
     crossOrigin?: 'anonymous';
@@ -131,7 +131,7 @@ export default class VideoPlayer extends React.Component<VideoPlayerProps, Video
     /**
      * Get config for video tracks, covers, cross-origin policy...
      */
-    protected getReactPlayerConfig(video: VideoEntity, defaultTrackLang: string): ReactPlayerConfig {
+    protected getReactPlayerConfig(video: VideoProxy, defaultTrackLang: string): ReactPlayerConfig {
         const playerTracks = !this.props.disableSubtitles
             ? this.getReactPlayerTracksConfig(video, defaultTrackLang)
             : null;
@@ -147,7 +147,7 @@ export default class VideoPlayer extends React.Component<VideoPlayerProps, Video
         return { file: fileConfig };
     }
 
-    protected getReactPlayerTracksConfig(video: VideoEntity, defaultTrackLang: string): ReactPlayerTrackProps[] | null {
+    protected getReactPlayerTracksConfig(video: VideoProxy, defaultTrackLang: string): ReactPlayerTrackProps[] | null {
         if (!video.hasTrack()) {
             return null;
         }

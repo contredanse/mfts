@@ -1,9 +1,9 @@
-import { VideoEntityFactory } from '@src/models/entity/video-entity';
-import { IJsonVideo } from '@data/json/data-videos';
-import { VideoSourceProxyFactory } from '@src/models/proxy/video-source-proxy';
-import AppAssetsLocator from '@src/core/app-assets-locator';
+import { VideoProxyFactory } from '@src/models/proxy/video-proxy';
+import { IJsonVideo } from '../../../../data/json/data-videos';
+import { VideoSourceProxyFactory } from '../video-source-proxy';
+import AppAssetsLocator from '../../../core/app-assets-locator';
 
-describe('VideoEntity from IJsonVideo', () => {
+describe('VideoProxy from IJsonVideo', () => {
     const jsonVideo: IJsonVideo = {
         video_id: 'the_video_id',
         covers: ['cover_1.jpg'],
@@ -40,7 +40,7 @@ describe('VideoEntity from IJsonVideo', () => {
         assetsLocator: assetsLocator,
     };
 
-    const video = VideoEntityFactory.createFromJson(jsonVideo, options);
+    const video = VideoProxyFactory.createFromJson(jsonVideo, options);
 
     test('properties', () => {
         expect(video.videoId).toEqual('the_video_id');

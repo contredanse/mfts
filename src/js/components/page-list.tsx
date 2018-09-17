@@ -52,7 +52,7 @@ export default class PageList extends React.Component<PageListProps, PageListSta
                                         const langVideoId = content.videos[0].lang_video_id;
                                         videos.push(this.getVideo(langVideoId[lang] || langVideoId[fallbackLang]));
                                         /*
-                                        const video_id = (content.videos as IDataPageVideoEntity[])[0][
+                                        const video_id = (content.videos as IDataPageVideoProxy[])[0][
                                             'versions'
                                         ][lang].video_id;
                                         videos[0] = this.getVideo(video_id);
