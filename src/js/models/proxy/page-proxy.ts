@@ -1,5 +1,5 @@
 import VideoEntity from '../entity/video-entity';
-import AudioEntity, { AudioEntityFactory } from '../entity/audio-entity';
+import AudioProxy, { AudioProxyFactory } from '../proxy/audio-proxy';
 import { AbstractBaseEntity, IBaseEntityOptions } from '../entity/abstract-base-entity';
 import { IJsonPage, IJsonPageAudio, IJsonPageVideo } from '../../../data/json/data-pages';
 import VideoRepository from '../repository/video-repository';
@@ -50,7 +50,7 @@ export default class PageProxy extends AbstractBaseEntity {
      * or multiple videos/audio that we need to compose at the UI level
      */
     isMultiLayout(): boolean {
-        return this.countVideos() > 1 || this.getAudioEntity() !== undefined;
+        return this.countVideos() > 1 || this.getAudioProxy() !== undefined;
     }
 
     getFirstVideo(lang?: string): VideoEntity | undefined {
@@ -94,10 +94,10 @@ export default class PageProxy extends AbstractBaseEntity {
         return this.data.content.audio !== undefined;
     }
 
-    getAudioEntity(): AudioEntity | undefined {
+    getAudioProxy(): AudioProxy | undefined {
         if (!this.hasAudio()) {
             return undefined;
         }
-        return AudioEntityFactory.createFromJson(this.data.content.audio as IJsonPageAudio, this.options);
+        return AudioProxyFactory.createFromJson(this.data.content.audio as IJsonPageAudio, this.options);
     }
 }

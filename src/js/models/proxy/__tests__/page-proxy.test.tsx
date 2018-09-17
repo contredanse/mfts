@@ -13,7 +13,7 @@ describe('Data page retrieval', () => {
         if (page !== undefined) {
             expect(page.countVideos()).toEqual(3);
             expect(page.hasAudio()).toBeTruthy();
-            expect(page.getAudioEntity()).toBeDefined();
+            expect(page.getAudioProxy()).toBeDefined();
         }
     });
 
@@ -126,7 +126,7 @@ describe('Data page factory', () => {
         fallbackLang: 'en',
     });
 
-    const tracks = page.getAudioEntity()!.getAllTracks();
+    const tracks = page.getAudioProxy()!.getAllTracks();
     expect(tracks.length).toEqual(2);
     expect(tracks[0]).toEqual({ lang: 'en', src: 'http://audiosubs/comments_crescent.en.vtt' });
 });

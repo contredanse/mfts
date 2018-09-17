@@ -100,7 +100,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
         const hasMultipleVideos = countVideos > 1;
 
         const videos = page.getVideos(lang);
-        const audio = page.getAudioEntity();
+        const audio = page.getAudioProxy();
 
         const { i18n } = this.props;
 
