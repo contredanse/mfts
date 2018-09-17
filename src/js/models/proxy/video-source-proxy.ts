@@ -1,4 +1,4 @@
-import { AbstractBaseEntity, IBaseEntityOptions } from '../entity/abstract-base-entity';
+import { AbstractBaseProxy, IBaseProxyOptions } from './abstract-base-proxy';
 import { IJsonVideoSource } from '../../../data/json/data-videos';
 
 export class VideoSourceProxyFactory {
@@ -9,9 +9,9 @@ export class VideoSourceProxyFactory {
 
 export interface IVideoSourceProxyData extends IJsonVideoSource {}
 
-export interface IVideoSourceProxyOptions extends IBaseEntityOptions {}
+export interface IVideoSourceProxyOptions extends IBaseProxyOptions {}
 
-export default class VideoSourceProxy extends AbstractBaseEntity {
+export default class VideoSourceProxy extends AbstractBaseProxy {
     /**
      * Mimetypes map for some media formats
      * @type {{mp4: string; webm: string; av1: string; mp3: string}}

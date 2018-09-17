@@ -1,6 +1,6 @@
-import AppAssetsLocator, { AppAssetsLocatorTypes } from '@src/core/app-assets-locator';
+import AppAssetsLocator, { AppAssetsLocatorTypes } from '../../core/app-assets-locator';
 
-export interface IBaseEntityOptions {
+export interface IBaseProxyOptions {
     fallbackLang: string;
     assetsLocator: AppAssetsLocator;
 }
@@ -9,10 +9,10 @@ export interface ITranslatedValue<T> {
     [key: string]: T;
 }
 
-export class BaseEntityHelper {
-    protected options: IBaseEntityOptions;
+export class BaseProxyHelper {
+    protected options: IBaseProxyOptions;
 
-    constructor(options: IBaseEntityOptions) {
+    constructor(options: IBaseProxyOptions) {
         this.options = options;
     }
 
@@ -61,18 +61,18 @@ export class BaseEntityHelper {
     }
 }
 
-export abstract class AbstractBaseEntity {
-    readonly options: IBaseEntityOptions;
+export abstract class AbstractBaseProxy {
+    readonly options: IBaseProxyOptions;
 
-    protected helper!: BaseEntityHelper;
+    protected helper!: BaseProxyHelper;
 
-    constructor(options: IBaseEntityOptions) {
+    constructor(options: IBaseProxyOptions) {
         this.options = options;
     }
 
-    protected getHelper(): BaseEntityHelper {
+    protected getHelper(): BaseProxyHelper {
         if (this.helper === undefined) {
-            this.helper = new BaseEntityHelper(this.options);
+            this.helper = new BaseProxyHelper(this.options);
         }
         return this.helper;
     }

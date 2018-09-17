@@ -1,5 +1,5 @@
 import { IJsonPageAudio, IJsonPageAudioTrack } from '../../../data/json/data-pages';
-import { AbstractBaseEntity, IBaseEntityOptions } from '../entity/abstract-base-entity';
+import { AbstractBaseProxy, IBaseProxyOptions } from './abstract-base-proxy';
 
 export class AudioProxyFactory {
     static createFromJson(data: IJsonPageAudio, options: IAudioProxyOptions): AudioProxy {
@@ -9,9 +9,9 @@ export class AudioProxyFactory {
 
 export interface IAudioProxyData extends IJsonPageAudio {}
 
-export interface IAudioProxyOptions extends IBaseEntityOptions {}
+export interface IAudioProxyOptions extends IBaseProxyOptions {}
 
-export default class AudioProxy extends AbstractBaseEntity {
+export default class AudioProxy extends AbstractBaseProxy {
     readonly options!: IAudioProxyOptions;
 
     protected readonly data: IAudioProxyData;

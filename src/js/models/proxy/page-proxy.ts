@@ -1,6 +1,6 @@
 import VideoProxy from '../proxy/video-proxy';
 import AudioProxy, { AudioProxyFactory } from '../proxy/audio-proxy';
-import { AbstractBaseEntity, IBaseEntityOptions } from '../entity/abstract-base-entity';
+import { AbstractBaseProxy, IBaseProxyOptions } from './abstract-base-proxy';
 import { IJsonPage, IJsonPageAudio, IJsonPageVideo } from '../../../data/json/data-pages';
 import VideoRepository from '../repository/video-repository';
 
@@ -12,9 +12,9 @@ export class PageProxyFactory {
 
 export interface IPageEntityData extends IJsonPage {}
 
-export interface IPageEntityOptions extends IBaseEntityOptions {}
+export interface IPageEntityOptions extends IBaseProxyOptions {}
 
-export default class PageProxy extends AbstractBaseEntity {
+export default class PageProxy extends AbstractBaseProxy {
     protected readonly data: IPageEntityData;
     protected readonly repository: VideoRepository;
 

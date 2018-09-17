@@ -1,8 +1,8 @@
-import { AbstractBaseEntity } from '@src/models/entity/abstract-base-entity';
-import AppAssetsLocator from '@src/core/app-assets-locator';
+import { AbstractBaseProxy } from '../abstract-base-proxy';
+import AppAssetsLocator from '../../../core/app-assets-locator';
 
-describe('AbstractBaseEntity test suite', () => {
-    class MockEntity extends AbstractBaseEntity {}
+describe('AbstractBaseProxy test suite', () => {
+    class MockEntity extends AbstractBaseProxy {}
 
     it('should honour custom options', () => {
         const options = {

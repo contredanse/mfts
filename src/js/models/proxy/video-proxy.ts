@@ -1,6 +1,6 @@
 import { orderBy } from 'lodash-es';
 import VideoSourceProxy, { VideoSourceProxyFactory, IVideoSourceProxyData } from './video-source-proxy';
-import { AbstractBaseEntity, IBaseEntityOptions } from '../entity/abstract-base-entity';
+import { AbstractBaseProxy, IBaseProxyOptions } from './abstract-base-proxy';
 import { IJsonVideo, IJsonVideoMeta, IJsonVideoSource, IJsonVideoTrack } from '../../../data/json/data-videos';
 import { IJsonPageAudioTrack } from '../../../data/json/data-pages';
 
@@ -12,9 +12,9 @@ export class VideoProxyFactory {
 
 export interface IVideoProxyData extends IJsonVideo {}
 
-export interface IVideoProxyOptions extends IBaseEntityOptions {}
+export interface IVideoProxyOptions extends IBaseProxyOptions {}
 
-export default class VideoProxy extends AbstractBaseEntity {
+export default class VideoProxy extends AbstractBaseProxy {
     readonly options!: IVideoProxyOptions;
     protected links: {
         video: VideoProxy | null;

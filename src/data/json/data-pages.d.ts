@@ -1,4 +1,4 @@
-﻿import { ITranslatedValue } from '@src/models/entity/abstract-base-entity';
+﻿import { ITranslatedValue } from '@src/models/proxy/abstract-base-proxy';
 
 export interface IJsonPage {
     page_id: string;
