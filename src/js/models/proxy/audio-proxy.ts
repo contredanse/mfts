@@ -1,22 +1,22 @@
-import { IJsonPageAudio, IJsonPageAudioTrack } from '@data/json/data-pages';
-import { AbstractBaseEntity, IBaseEntityOptions } from '@src/models/entity/abstract-base-entity';
+import { IJsonPageAudio, IJsonPageAudioTrack } from '../../../data/json/data-pages';
+import { AbstractBaseEntity, IBaseEntityOptions } from '../entity/abstract-base-entity';
 
-export class AudioEntityFactory {
-    static createFromJson(data: IJsonPageAudio, options: IAudioEntityOptions): AudioEntity {
-        return new AudioEntity(data, options);
+export class AudioProxyFactory {
+    static createFromJson(data: IJsonPageAudio, options: IAudioProxyOptions): AudioProxy {
+        return new AudioProxy(data, options);
     }
 }
 
-export interface IAudioEntityData extends IJsonPageAudio {}
+export interface IAudioProxyData extends IJsonPageAudio {}
 
-export interface IAudioEntityOptions extends IBaseEntityOptions {}
+export interface IAudioProxyOptions extends IBaseEntityOptions {}
 
-export default class AudioEntity extends AbstractBaseEntity {
-    readonly options!: IAudioEntityOptions;
+export default class AudioProxy extends AbstractBaseEntity {
+    readonly options!: IAudioProxyOptions;
 
-    protected readonly data: IAudioEntityData;
+    protected readonly data: IAudioProxyData;
 
-    constructor(data: IAudioEntityData, options: IAudioEntityOptions) {
+    constructor(data: IAudioProxyData, options: IAudioProxyOptions) {
         super(options);
         this.data = data;
     }

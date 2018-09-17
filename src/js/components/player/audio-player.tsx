@@ -6,10 +6,10 @@ import ReactPlayer, {
     SourceProps as ReactPlayerSourceProps,
     TrackProps as ReactPlayerTrackProps,
 } from 'react-player';
-import AudioEntity from '../../models/entity/audio-entity';
+import AudioProxy from '../../models/proxy/audio-proxy';
 
 type AudioPlayerProps = {
-    audio: AudioEntity;
+    audio: AudioProxy;
     lang?: string;
 } & ReactPlayerProps;
 
@@ -61,7 +61,7 @@ export default class AudioPlayer extends React.Component<AudioPlayerProps, Audio
         );
     }
 
-    protected getReactPlayerConfig(audio: AudioEntity, currentLang: string): ReactPlayerConfig {
+    protected getReactPlayerConfig(audio: AudioProxy, currentLang: string): ReactPlayerConfig {
         const defaultFileConfig: ReactPlayerFileConfig = {
             forceVideo: true,
             attributes: {
