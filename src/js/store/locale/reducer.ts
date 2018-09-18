@@ -10,8 +10,8 @@ const getInitialLanguage = (): string => {
         }
     }
     // from browser accept
-    const navigatorLanguage = navigator.language || navigator.userLanguage;
-    if (navigatorLanguage === 'fr') {
+    const navigatorLanguage = navigator.language;
+    if (navigatorLanguage.startsWith('fr')) {
         return 'fr';
     }
     // otherwise
