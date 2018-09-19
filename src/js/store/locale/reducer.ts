@@ -3,15 +3,14 @@ import { LangState, LangActionTypes } from './types';
 
 const getInitialLanguage = (): string => {
     // from route
-    if (document.location.href) {
+    if (document.location) {
         const matches = document.location.href.match(/\/(fr|en)\//);
         if (Array.isArray(matches)) {
             return matches[1];
         }
     }
     // from browser accept
-    const navigatorLanguage = navigator.language;
-    if (navigatorLanguage.startsWith('fr')) {
+    if ('language' in navigator && navigator.language.startsWith('fr')) {
         return 'fr';
     }
     // otherwise
