@@ -111,12 +111,12 @@ class Page extends React.PureComponent<PageProps, PageState> {
                     {/* {i18n.t('page', { lng: lang })}: {page.pageId} */}
                     <h3>
                         {this.props.menuBreadcrumb.map(item => (
-                            <>
+                            <React.Fragment key={item.id}>
                                 <a ref={item.id} href={item.id}>
                                     {item.title}
                                 </a>
                                 &gt;&gt;
-                            </>
+                            </React.Fragment>
                         ))}
                         {page.getTitle(lang)}
                     </h3>
