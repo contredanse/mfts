@@ -70,55 +70,6 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
                 </div>
             </section>
         );
-
-        return (
-            <div
-                className="intro-lang-selection"
-                style={{
-                    flex: '0 1 100%',
-                    maxWidth: '700px',
-                }}
-            >
-                <div
-                    style={{ border: '1px solid blue' }}
-                    onClick={() => {
-                        this.navigateToIntro('en');
-                    }}
-                >
-                    <a className="reveal-text">Material for the spine - a movement study</a>
-                </div>
-                <div
-                    onClick={() => {
-                        this.navigateToIntro('fr');
-                    }}
-                >
-                    <a className="reveal-text">Material for the spine - une étude du mouvement</a>
-                </div>
-
-                <div
-                    className="video-ctn-ctn-ctn"
-                    style={{
-                        //margin: '40px auto',
-                        //outline: '1px solid #dadada',
-                        width: '100%',
-                    }}
-                >
-                    <SimpleVideo
-                        autoPlay={true}
-                        muted={true}
-                        playsInline={true}
-                        loop={true}
-                        style={{
-                            display: 'block',
-                            //border: '1px solid blue',
-                            width: '100%',
-                            maxWidth: '700px',
-                        }}
-                        videoSrcs={videoSrcs}
-                    />
-                </div>
-            </div>
-        );
     }
 }
 
