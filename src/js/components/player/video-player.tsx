@@ -9,17 +9,26 @@ import ReactPlayer, {
 
 import VideoProxy from '@src/models/proxy/video-proxy';
 import VideoSourceProxy from '@src/models/proxy/video-source-proxy';
+import { hideAllSubtitles, showSubtitle } from '@src/components/player/utils';
 
 type VideoPlayerProps = {
     video: VideoProxy;
+    disablePoster?: boolean;
     disableSubtitles?: boolean;
     activeSubtitleLang?: string;
     crossOrigin?: 'anonymous';
+    fallbackLang?: string;
 } & ReactPlayerProps;
 
 type VideoPlayerState = {};
 
 export default class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
+    static defaultProps: Partial<VideoPlayerProps> = {
+        disablePoster: false,
+        disableSubtitles: false,
+        fallbackLang: 'en',
+    };
+
     protected playerRef: React.RefObject<ReactPlayer>;
 
     constructor(props: VideoPlayerProps) {
@@ -42,7 +51,7 @@ export default class VideoPlayer extends React.Component<VideoPlayerProps, Video
                 console.log('VideoPlayer rerender, hiding subs and setting srcObject to null');
                 const videoEl = this.playerRef.current!.getInternalPlayer() as HTMLVideoElement;
                 // This bug in firefox... we need to reset texttracks
-                this.hideAllSubtitles(videoEl);
+                hideAllSubtitles(videoEl);
                 //videoEl.srcObject = null;
                 videoEl.load();
             }
@@ -55,32 +64,47 @@ export default class VideoPlayer extends React.Component<VideoPlayerProps, Video
 
         // To be tested, a better solution must be found
         if (nextProps.activeSubtitleLang !== this.props.activeSubtitleLang) {
-            console.log('Lang changed, subtitles need to be refreshed');
             const videoEl = this.playerRef.current!.getInternalPlayer() as HTMLVideoElement;
-            this.showSubtitle(videoEl, nextProps.activeSubtitleLang || 'en');
-            return true;
+            showSubtitle(videoEl, nextProps.activeSubtitleLang || nextProps.fallbackLang!);
+            return false;
         }
         return false;
     }
 
     render() {
-        const { video, activeSubtitleLang, disableSubtitles, crossOrigin, ...playerProps } = this.props;
+        const {
+            video,
+            activeSubtitleLang,
+            disablePoster,
+            disableSubtitles,
+            crossOrigin,
+            fallbackLang,
+            ...playerProps
+        } = this.props;
 
         const playerSources = this.getReactPlayerSources(video.getSources());
 
-        const playerConfig = this.getReactPlayerConfig(video, activeSubtitleLang || 'en');
+        const playerConfig = this.getReactPlayerConfig(video, activeSubtitleLang || 'en', {
+            disableSubtitles: disableSubtitles,
+            crossOrigin: crossOrigin,
+            disablePoster: disablePoster,
+        });
 
         return (
             <ReactPlayer
+                key={playerSources[0].src}
                 ref={this.playerRef}
                 onStart={() => {
                     // When the video starts activate the text track
-                    // this bug is realtes to
                     const v = this.playerRef.current!.getInternalPlayer() as HTMLVideoElement;
-                    const { activeSubtitleLang: lang } = this.props;
-                    if (lang !== undefined) {
+                    if (disableSubtitles) {
+                        hideAllSubtitles(v);
+                    } else {
                         // This bug in firefox... we need to reset texttracks whoing
-                        this.showSubtitle(v, lang);
+                        const { activeSubtitleLang: lang } = this.props;
+                        if (lang !== undefined) {
+                            showSubtitle(v, lang);
+                        }
                     }
                 }}
                 playsinline={true}
@@ -89,27 +113,6 @@ export default class VideoPlayer extends React.Component<VideoPlayerProps, Video
                 config={playerConfig}
             />
         );
-    }
-
-    protected hideAllSubtitles(video: HTMLVideoElement): void {
-        for (let i = 0; i < video.textTracks.length; i++) {
-            console.log('Hidding', video.textTracks[i]);
-            video.textTracks[i].mode = 'hidden';
-            console.log('New value', video.textTracks[i]);
-        }
-    }
-
-    protected showSubtitle(video: HTMLVideoElement, lang: string): void {
-        for (let i = 0; i < video.textTracks.length; i++) {
-            // For the 'subtitles-off' button, the first condition will never match so all will subtitles be turned off
-            if (video.textTracks[i].language === lang) {
-                console.log('SHOWING', video.textTracks[i]);
-                video.textTracks[i].mode = 'showing';
-                //this.setAttribute('data-state', 'active');
-            } else {
-                video.textTracks[i].mode = 'hidden';
-            }
-        }
     }
 
     protected getReactPlayerSources(videoSources: VideoSourceProxy[]): ReactPlayerSourceProps[] {
@@ -131,17 +134,19 @@ export default class VideoPlayer extends React.Component<VideoPlayerProps, Video
     /**
      * Get config for video tracks, covers, cross-origin policy...
      */
-    protected getReactPlayerConfig(video: VideoProxy, defaultTrackLang: string): ReactPlayerConfig {
-        const playerTracks = !this.props.disableSubtitles
-            ? this.getReactPlayerTracksConfig(video, defaultTrackLang)
-            : null;
+    protected getReactPlayerConfig(
+        video: VideoProxy,
+        defaultTrackLang: string,
+        params: Pick<VideoPlayerProps, 'crossOrigin' | 'disablePoster' | 'disableSubtitles'>
+    ): ReactPlayerConfig {
+        const playerTracks = !params.disableSubtitles ? this.getReactPlayerTracksConfig(video, defaultTrackLang) : null;
 
         const fileConfig: ReactPlayerFileConfig = {
             attributes: {
-                ...(video.hasCover() ? { poster: video.getFirstCover() } : {}),
-                ...(this.props.crossOrigin ? { crossOrigin: this.props.crossOrigin } : {}),
+                ...(!params.disablePoster && video.hasCover() ? { poster: video.getFirstCover() } : {}),
+                ...(params.crossOrigin !== undefined ? { crossOrigin: params.crossOrigin } : {}),
             },
-            ...(playerTracks ? { tracks: playerTracks } : {}),
+            ...(playerTracks !== null ? { tracks: playerTracks } : {}),
         };
 
         return { file: fileConfig };
