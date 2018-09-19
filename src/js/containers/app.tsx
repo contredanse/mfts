@@ -18,6 +18,7 @@ import PageContainer from '@src/containers/page-container';
 
 import { WithStore } from '@src/hoc/with-store';
 import { LangState } from '@src/store/locale';
+import AboutContainer from '@src/containers/about-container';
 
 type AppProps = {
     appConfig: AppConfig;
@@ -35,6 +36,72 @@ class App extends React.Component<AppProps, {}> {
         const pageRepository = this.props.appConfig.getPageRepository();
         const menuRepository = this.props.appConfig.getMenuRepository();
 
+        const localizedRoutes = ({ match }: RouteComponentProps) => {
+            const lang = (match.params! as { lang: string }).lang;
+            return (
+                <Switch>
+                    <Route
+                        exact={true}
+                        path={`${match.path}/menu`}
+                        render={() => {
+                            return <MenuContainer lang={lang} menuRepository={menuRepository} />;
+                        }}
+                    />
+                    <Route
+                        exact={true}
+                        path={`${match.path}/intro`}
+                        render={() => {
+                            return (
+                                <PageContainer
+                                    pageId="forms.introduction"
+                                    lang={lang}
+                                    pageRepository={pageRepository}
+                                />
+                            );
+                        }}
+                    />
+                    <Route
+                        exact={true}
+                        path={`${match.path}/page-list`}
+                        render={(props: RouteComponentProps<any>) => {
+                            return (
+                                <PageListContainer
+                                    lang={lang}
+                                    videosBaseUrl={assetsLocator.getMediaTypeBaseUrl('videos')}
+                                    pageRepository={pageRepository}
+                                    {...props}
+                                />
+                            );
+                        }}
+                    />
+                    <Route
+                        exact={true}
+                        path={`${match.path}/page/:pageId`}
+                        render={(props: RouteComponentProps<any>) => {
+                            const { pageId, lang: routeLang } = props.match.params;
+                            return (
+                                <PageContainer
+                                    pageId={pageId}
+                                    lang={routeLang || lang}
+                                    pageRepository={pageRepository}
+                                    menuRepository={menuRepository}
+                                    {...props}
+                                />
+                            );
+                        }}
+                    />
+                    <Route
+                        exact={true}
+                        path={`${match.path}/about`}
+                        render={() => {
+                            return <AboutContainer assetsLocator={assetsLocator} />;
+                        }}
+                    />
+                    <Route component={NotFoundContainer} />
+                </Switch>
+            );
+        };
+
         return (
             <WithStore selector={state => state.lang}>
                 {({ lang }: LangState, dispatch) => {
@@ -47,59 +114,14 @@ class App extends React.Component<AppProps, {}> {
                                     </header>
                                     <main>
                                         <Switch>
-                                            <Route exact={true} path="/" component={HomeContainer} />
                                             <Route
                                                 exact={true}
-                                                path="/:lang(fr|en)?/menu"
+                                                path="/"
                                                 render={() => {
-                                                    return (
-                                                        <MenuContainer lang={lang} menuRepository={menuRepository} />
-                                                    );
+                                                    return <HomeContainer assetsLocator={assetsLocator} />;
                                                 }}
                                             />
-                                            <Route
-                                                exact={true}
-                                                path="/:lang(fr|en)?/intro"
-                                                render={() => {
-                                                    return (
-                                                        <PageContainer
-                                                            pageId="forms.introduction"
-                                                            lang={lang}
-                                                            pageRepository={pageRepository}
-                                                        />
-                                                    );
-                                                }}
-                                            />
-                                            <Route
-                                                exact={true}
-                                                path="/:lang(fr|en)?/page-list"
-                                                render={(props: RouteComponentProps<any>) => {
-                                                    return (
-                                                        <PageListContainer
-                                                            lang={lang}
-                                                            videosBaseUrl={assetsLocator.getMediaTypeBaseUrl('videos')}
-                                                            pageRepository={pageRepository}
-                                                            {...props}
-                                                        />
-                                                    );
-                                                }}
-                                            />
-                                            <Route
-                                                exact={true}
-                                                path="/:lang(fr|en)?/page/:pageId"
-                                                render={(props: RouteComponentProps<any>) => {
-                                                    const { pageId, lang: routeLang } = props.match.params;
-                                                    return (
-                                                        <PageContainer
-                                                            pageId={pageId}
-                                                            lang={routeLang || lang}
-                                                            pageRepository={pageRepository}
-                                                            menuRepository={menuRepository}
-                                                            {...props}
-                                                        />
-                                                    );
-                                                }}
-                                            />
+                                            <Route path="/:lang(fr|en)" component={localizedRoutes} />
                                             <Route component={NotFoundContainer} />
                                         </Switch>
                                     </main>
