@@ -14,6 +14,8 @@ import App from './containers/app';
 
 import '@public/favicon.ico';
 import 'typeface-quicksand';
+import 'typeface-raleway';
+import 'typeface-shadows-into-light-two';
 
 import { appConfig } from '@config/config.production';
 import AppConfig from '@src/core/app-config';
