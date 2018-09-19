@@ -29,6 +29,49 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
         ];
 
         return (
+            <section className="fullsize-video-bg">
+                <div className="inner">
+                    <div>
+                        <h1 className="reveal-text">Material for the spine</h1>
+                        <p className="reveal-text">
+                            <a
+                                className="clickable-text"
+                                onClick={() => {
+                                    this.navigateToIntro('en');
+                                }}
+                            >
+                                A movement study
+                            </a>
+                            &nbsp;|&nbsp;
+                            <a
+                                className="clickable-text"
+                                onClick={() => {
+                                    this.navigateToIntro('fr');
+                                }}
+                            >
+                                Une étude du mouvement
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div id="video-viewport">
+                    <SimpleVideo
+                        autoPlay={true}
+                        muted={true}
+                        playsInline={true}
+                        loop={true}
+                        style={
+                            {
+                                //border: '1px solid blue',
+                            }
+                        }
+                        videoSrcs={videoSrcs}
+                    />
+                </div>
+            </section>
+        );
+
+        return (
             <div
                 className="intro-lang-selection"
                 style={{
