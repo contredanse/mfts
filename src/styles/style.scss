@@ -13,6 +13,13 @@ body {
     height: 100vh;
 }
 
+.clickable-text {
+    &:hover {
+        cursor: pointer;
+        color: yellow;
+    }
+}
+
 .full-page-slide-ctn {
     display: flex;
     position: absolute;
