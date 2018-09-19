@@ -140,25 +140,31 @@ AddType text/vtt .vtt
                                   "text/xml"
 </IfModule>
 
-# Set CORS Headers
+# Set CORS Headers for resources
 <FilesMatch "\.(ttf|woff|vtt|mp4|webm|jpg|mp3)$">
     <IfModule mod_headers.c>
         SetEnvIf Origin "http(s)?://(preview\.|www\.|app\.)?(localhost|materialforthespine.com)(:\d+)?$" AccessControlAllowOrigin=$0
         Header always set Access-Control-Allow-Origin %{AccessControlAllowOrigin}e env=AccessControlAllowOrigin
 	#Header always set Access-Control-Allow-Origin "*"        
-	Header merge Vary Origin
+	Header always set Vary Origin
 	Header always set Access-Control-Allow-Methods "POST, GET, OPTIONS, DELETE, PUT"
-	Header always set Access-Control-Max-Age "1000"
+	Header always set Access-Control-Max-Age "3000"
 	Header always set Access-Control-Allow-Headers "x-requested-with, Content-Type, origin, authorization, accept, client-security-token"
+
+	# Added a rewrite to respond with a 200 SUCCESS on every OPTIONS request.
+	RewriteEngine On
+	RewriteCond %{REQUEST_METHOD} OPTIONS
+	RewriteRule ^(.*)$ $1 [R=200,L]
 
     </IfModule>
 </FilesMatch>
 
 
-# Added a rewrite to respond with a 200 SUCCESS on every OPTIONS request.
-RewriteEngine On
-RewriteCond %{REQUEST_METHOD} OPTIONS
-RewriteRule ^(.*)$ $1 [R=200,L]
+```
 
 
+To test cors preflight:
+
+```bash
+$ curl -H "Origin: https://localhost:3001" -H "Access-Control-Request-Method: GET"   -H "Access-Control-Request-Headers: X-Requested-With" -X OPTIONS -i  https://assets.materialforthespine.com/videos/hello.jpg
 ```
