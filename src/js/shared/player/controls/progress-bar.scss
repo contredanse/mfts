@@ -57,6 +57,12 @@
     height: $control-progressbar-height;
     margin: $control-progressbar-track-margin;
 
+    &-time {
+        font-family: sans-serif;
+        font-size: 0.85em;
+        width: 120px;
+    }
+
     &-elapsed {
         height: 100%;
         position: absolute;

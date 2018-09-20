@@ -143,7 +143,7 @@ export class ProgressBar extends Component<ProgressBarProps, ProgressBarState> {
 
         return (
             <>
-                <div>
+                <div className="controls__progress-bar-time">
                     {this.formatMilliseconds(currentTime)} / {this.formatMilliseconds(duration)}
                 </div>
 
