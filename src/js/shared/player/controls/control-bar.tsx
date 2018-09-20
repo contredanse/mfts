@@ -196,7 +196,7 @@ export class ControlBar extends React.Component<MediaPlayerControlBarProps, Medi
     protected updateCurrentTimeState = (e: Event): void => {
         if (e.target !== null && 'currentTime' in e.target) {
             const { currentTime } = e.target as HTMLVideoElement;
-            this.setState((prevState, prevProps) => {
+            this.setState(prevState => {
                 return { ...prevState, currentTime: currentTime };
             });
         } else {
