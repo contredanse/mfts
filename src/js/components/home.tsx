@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import './home.scss';
 import SimpleVideo from '@src/components/simple-video';
