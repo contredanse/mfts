@@ -14,6 +14,16 @@ import { PlayerActions } from '@src/shared/player/player';
 import { ReactPlayerProps } from 'react-player';
 import { MenuSectionProps } from '@src/models/repository/menu-repository';
 
+export type PageProps = {
+    pageProxy: PageProxy;
+    lang: string;
+    menuBreadcrumb?: MenuSectionProps[];
+    nextPage?: PageProxy;
+    previousPage?: PageProxy;
+    onPageChangeRequest?: (pageId: string) => void;
+    onPagePlayed?: () => void;
+} & InjectedI18nProps;
+
 export type PlaybackState = {
     currentTime: number;
     isPlaying: boolean;
@@ -23,15 +33,6 @@ export type PlaybackState = {
     playbackRate: number;
     isMetadataLoaded: boolean;
 };
-
-export type PageProps = {
-    pageProxy: PageProxy;
-    lang: string;
-    menuBreadcrumb: MenuSectionProps[];
-    nextPage?: PageProxy;
-    previousPage?: PageProxy;
-    onPageChangeRequest?: (pageId: string) => void;
-} & InjectedI18nProps;
 
 export type PageState = {
     playbackState: PlaybackState;
@@ -48,6 +49,11 @@ const defaultPlaybackState: PlaybackState = {
 };
 
 class Page extends React.PureComponent<PageProps, PageState> {
+    static defaultProps: Pick<PageProps, 'menuBreadcrumb' | 'onPagePlayed'> = {
+        menuBreadcrumb: [],
+        onPagePlayed: () => {},
+    };
+
     readonly state: PageState;
 
     videoPlayerRef!: React.RefObject<VideoPlayer>;
@@ -93,7 +99,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
     }
 
     render() {
-        const { pageProxy: page, lang } = this.props;
+        const { pageProxy: page, lang, menuBreadcrumb } = this.props;
 
         const countVideos = page.countVideos();
 
@@ -110,15 +116,16 @@ class Page extends React.PureComponent<PageProps, PageState> {
                 <div className="page-header">
                     {/* {i18n.t('page', { lng: lang })}: {page.pageId} */}
                     <h3>
-                        {this.props.menuBreadcrumb.map(item => (
-                            <React.Fragment key={item.id}>
-                                <a ref={item.id} href={item.id}>
-                                    {item.title}
-                                </a>
-                                &gt;&gt;
-                            </React.Fragment>
-                        ))}
-                        {page.getTitle(lang)}
+                        {Array.isArray(menuBreadcrumb) &&
+                            menuBreadcrumb.map(item => (
+                                <React.Fragment key={item.id}>
+                                    <a className="reveal-text" ref={item.id} href={item.id}>
+                                        {item.title}
+                                    </a>
+                                    &gt;&gt;
+                                </React.Fragment>
+                            ))}
+                        <a className="reveal-text">{page.getTitle(lang)}</a>
                     </h3>
                     {/*
                     Playing <input id="playing" type={'checkbox'} checked={this.state.playbackState.isPlaying} />
@@ -188,6 +195,8 @@ class Page extends React.PureComponent<PageProps, PageState> {
                     currentTime={this.state.playbackState.currentTime}
                     isPlaying={this.state.playbackState.isPlaying}
                     playbackRate={this.state.playbackState.playbackRate}
+                    enableNextControl={this.props.nextPage !== undefined}
+                    enablePrevControl={this.props.previousPage !== undefined}
                     {...this.controlBarActions}
                 />
             </div>
@@ -215,7 +224,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
                     isPlaying: true,
                 });
             },
-            onEnded: () => {},
+            onEnded: this.props.onPagePlayed,
             onError: () => {},
             onReady: () => {},
             onPause: () => {
