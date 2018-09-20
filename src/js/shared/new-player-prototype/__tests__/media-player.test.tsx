@@ -1,5 +1,5 @@
 //declare var jest, describe, it, expect;
-import React from 'react';
+import * as React from 'react';
 
 import { shallow } from 'enzyme';
 import MediaPlayer from '../media-player';

@@ -1,5 +1,6 @@
-import React from 'react';
 // import { isEqual } from '@src/components/player/utils';
+
+import * as React from 'react';
 
 type HTMLVideoProps = React.VideoHTMLAttributes<HTMLVideoElement>;
 
