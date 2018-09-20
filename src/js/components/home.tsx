@@ -16,7 +16,6 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
     }
 
     navigateToIntro = (lang: string): void => {
-        console.log('props.history');
         this.props.history.push(`${lang}/intro`);
     };
 
@@ -24,14 +23,15 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
         const videosBaseUrl = this.props.assetsLocator.getMediaTypeBaseUrl('videos');
 
         const videoSrcs = [
-            { src: `${videosBaseUrl}/intro_2tubes_walk.webm`, type: 'video/webm' },
+            { src: `${videosBaseUrl}/puzzle2.webm`, type: 'video/webm' },
             { src: `${videosBaseUrl}/intro_2tubes_walk.mp4`, type: 'video/mp4' },
         ];
 
         return (
             <section className="fullsize-video-bg">
-                <div className="inner">
+                <div className="fullsize-video-inner">
                     <div>
+                        <h3 className="reveal-text">Steve Paxton's</h3>
                         <h1 className="reveal-text">Material for the spine</h1>
                         <p className="reveal-text">
                             <a
@@ -54,7 +54,7 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
                         </p>
                     </div>
                 </div>
-                <div id="video-viewport">
+                <div id="fullsize-video-viewport">
                     <SimpleVideo
                         autoPlay={true}
                         muted={true}
