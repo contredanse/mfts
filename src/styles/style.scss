@@ -1,6 +1,8 @@
 @import './_variables.scss';
-@import '~normalize.css/normalize.css';
-@import './_video-player.scss';
+//@import '~normalize.css/normalize.css';
+@import '~modern-normalize/modern-normalize.css';
+@import 'video/video-tracks';
+@import 'animation/animations';
 
 body {
     font-family: $primary-font;
