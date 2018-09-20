@@ -12,7 +12,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
-const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const zopfli = require('@gfx/zopfli');
 const BrotliPlugin = require('brotli-webpack-plugin');
@@ -390,9 +389,8 @@ module.exports = merge(common, {
             */
         }),
 
-        /*
         new StatsWriterPlugin({
-            filename: '.webpack-stats.json'
-        }),*/
+            filename: path.resolve(__dirname, 'dist') + '.webpack-stats.json',
+        }),
     ],
 });
