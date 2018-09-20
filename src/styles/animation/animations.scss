@@ -1,12 +1,14 @@
+@import '../_variables.scss';
+
 $animation-delay: 0.5s;
-$animation-duration: 1200s;
+$animation-duration: 1.5s;
 $animation-iterations: 1s;
 
 .reveal-text,
 .reveal-text::after {
     animation-delay: $animation-delay;
     animation-iteration-count: $animation-iterations;
-    animation-duration: $animation-iterations;
+    animation-duration: $animation-duration;
     animation-fill-mode: both;
     animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
@@ -26,7 +28,7 @@ $animation-iterations: 1s;
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: rgba(255, 255, 255, 0);
+        background: rgba($body-bg, 0.1);
         transform: scaleX(0);
         transform-origin: 0 50%;
         pointer-events: none;
@@ -40,6 +42,25 @@ $animation-iterations: 1s;
         to {
             clip-path: inset(0 0 0 0);
         }
+        /*
+        0%,
+        50% {
+            transform-origin: 0 50%;
+        }
+
+        60%,
+        100% {
+            transform-origin: 100% 50%;
+        }
+
+        60% {
+            transform: scaleX(0);
+        }
+
+        100% {
+            transform: scaleX(1);
+        }
+        */
     }
 
     @keyframes revealer-text {
