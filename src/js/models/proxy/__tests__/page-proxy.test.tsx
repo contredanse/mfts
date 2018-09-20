@@ -33,7 +33,7 @@ describe('Data page retrieval', () => {
             { pageId: 'sensation-and-senses.basics.an-approach-to-the-small-dance', multi: true },
             { pageId: 'sensation-and-senses.pointing.parts-of-pointing', multi: false },
             { pageId: 'forms.crescent-roll.head-up', multi: true },
-        ].map((val, idx) => {
+        ].map(val => {
             const { pageId: id, multi } = val;
             const p = globalDataRepo.getPageProxy(id);
             expect(p).toBeDefined();
