@@ -15,6 +15,7 @@ import NotFoundContainer from '@src/containers/notfound-container';
 import AppConfig from '@src/core/app-config';
 import PageListContainer from '@src/containers/page-list-container';
 import PageContainer from '@src/containers/page-container';
+import IntroContainer from '@src/containers/intro-container';
 
 import { WithStore } from '@src/hoc/with-store';
 import { LangState } from '@src/store/locale';
@@ -51,13 +52,7 @@ class App extends React.Component<AppProps, {}> {
                         exact={true}
                         path={`${match.path}/intro`}
                         render={() => {
-                            return (
-                                <PageContainer
-                                    pageId="forms.introduction"
-                                    lang={lang}
-                                    pageRepository={pageRepository}
-                                />
-                            );
+                            return <IntroContainer lang={lang} pageRepository={pageRepository} />;
                         }}
                     />
                     <Route
