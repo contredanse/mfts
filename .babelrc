@@ -42,9 +42,18 @@
                 [
                     "@babel/env",
                     {
-                        "modules": "commonjs"
+                        "modules": "commonjs",
+                        "targets": {
+                            "browsers": [
+                                "chrome >= 60"
+                            ],
+                            "node": 12
+                        }
                     }
                 ]
+            ],
+            "plugins": [
+                "@babel/plugin-transform-modules-commonjs",
             ]
         }
     },
