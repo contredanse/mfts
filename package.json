@@ -17,10 +17,10 @@
         "lint": "tslint --project './tsconfig.json'",
         "lint:fix": "tslint --project './tsconfig.json' --fix",
         "prettier": "prettier --write \"./src/**/*.{ts,tsx,scss,js,json}\" \"./server/**/*.{ts,tsx,scss,js,json}\" --write \"./*.{js,json}\"",
-        "test": "jest --config jest.config.json",
-        "test:coverage": "jest --config jest.config.json --coverage",
-        "test:watch": "jest --config jest.config.json --watch",
-        "test:update": "jest --config jest.config.json -u"
+        "test": "jest --config jest.config.js",
+        "test:coverage": "jest --config jest.config.js --coverage",
+        "test:watch": "jest --config jest.config.js --watch",
+        "test:update": "jest --config jest.config.js -u"
     },
     "husky": {
         "hooks": {
@@ -41,6 +41,7 @@
         "@babel/plugin-proposal-object-rest-spread": "7.0.0",
         "@babel/plugin-syntax-dynamic-import": "7.0.0",
         "@babel/plugin-syntax-import-meta": "7.0.0",
+        "@babel/plugin-transform-modules-commonjs": "^7.1.0",
         "@babel/plugin-transform-runtime": "^7.1.0",
         "@babel/plugin-transform-spread": "7.0.0",
         "@babel/preset-env": "7.1.0",
@@ -51,6 +52,7 @@
         "@types/classnames": "^2.2.6",
         "@types/dotenv": "^4.0.3",
         "@types/enzyme": "^3.1.14",
+        "@types/enzyme-adapter-react-16": "^1.0.3",
         "@types/history": "^4.7.0",
         "@types/i18next": "^8.4.5",
         "@types/jest": "^23.3.2",
@@ -129,7 +131,7 @@
         "typeface-raleway": "^0.0.54",
         "typeface-shadows-into-light-two": "^0.0.54",
         "typesafe-actions": "^2.0.4",
-        "typescript": "^3.1.0-rc.20180911",
+        "typescript": "^3.0.3",
         "uglifyjs-webpack-plugin": "^2.0.1",
         "url-loader": "^1.1.1",
         "utility-types": "^2.1.0",
