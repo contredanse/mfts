@@ -1,9 +1,9 @@
 module.exports = {
-    verbose: true,
+    verbose: false,
     testURL: 'http://localhost/',
     transform: {
         '^.+\\.(ts|tsx|jsx)$': 'ts-jest',
-        '^.+\\.(js)?$': 'ts-jest',
+        '^.+\\.(js)$': 'ts-jest',
     },
     transformIgnorePatterns: ['<rootDir>/node_modules/(?!(lodash-es|lodash)/)'],
     testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$',
