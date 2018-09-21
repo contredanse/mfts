@@ -20,6 +20,7 @@ import IntroContainer from '@src/containers/intro-container';
 import { WithStore } from '@src/hoc/with-store';
 import { LangState } from '@src/store/locale';
 import AboutContainer from '@src/containers/about-container';
+import LoginContainer from '@src/containers/login-container';
 
 type AppProps = {
     appConfig: AppConfig;
@@ -92,6 +93,14 @@ class App extends React.Component<AppProps, {}> {
                             return <AboutContainer assetsLocator={assetsLocator} />;
                         }}
                     />
+                    <Route
+                        exact={true}
+                        path={`${match.path}/login`}
+                        render={() => {
+                            return <LoginContainer />;
+                        }}
+                    />
+
                     <Route component={NotFoundContainer} />
                 </Switch>
             );
