@@ -1,9 +1,6 @@
-import { orderBy } from 'lodash-es';
-/* // Hack for JEST 23.10 problem with lodash-es
-const orderBy9 = (process.env.NODE_ENV === 'test')
-                ? require('lodash/orderBy')
-                : require('lodash-es/orderBy');
-*/
+//import { orderBy } from 'lodash-es';
+// Hack for JEST 23.10 problem with lodash-es
+const orderBy = process.env.NODE_ENV === 'test' ? require('lodash/orderBy') : require('lodash-es/orderBy');
 
 import VideoSourceProxy, { VideoSourceProxyFactory, IVideoSourceProxyData } from './video-source-proxy';
 import { AbstractBaseProxy, IBaseProxyOptions } from './abstract-base-proxy';
