@@ -1,8 +1,8 @@
 @import './_variables.scss';
-//@import '~normalize.css/normalize.css';
 @import '~modern-normalize/modern-normalize.css';
 @import 'video/video-tracks';
 @import 'animation/animations';
+@import 'animation/page-transition';
 
 body {
     font-family: $primary-font;
