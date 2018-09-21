@@ -2,13 +2,13 @@ module.exports = {
     verbose: false,
     testURL: 'http://localhost/',
     transform: {
-        '^.+\\.(ts|tsx|jsx)$': 'ts-jest',
-        '^.+\\.(js)$': 'ts-jest',
+        '^.+\\.(js|jsx)$': 'babel-jest',
+        '^.+\\.(ts|tsx)$': 'ts-jest',
     },
-    transformIgnorePatterns: ['<rootDir>/node_modules/(?!(lodash-es|lodash)/)'],
+    transformIgnorePatterns: ['<rootDir>/node_modules/(?!(lodash-es))'],
     testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$',
-    //    stringifyContentPathRegex: '/(lodash-s|ldash)/*\\.js$',
-    moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
+    //stringifyContentPathRegex: '/(lodash-es|lodash)$',
+    moduleFileExtensions: ['ts', 'tsx', 'js', 'mjs', 'jsx', 'json', 'node'],
     moduleNameMapper: {
         '^.+\\.scss$': 'identity-obj-proxy',
         '@src/(.*)$': '<rootDir>/src/js/$1',

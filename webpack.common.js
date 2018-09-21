@@ -69,7 +69,7 @@ module.exports = {
                 // Whenever babel is ready to fully handle typescript
                 // you can use the following rule
                 //test: /\.[tj]sx?$/,
-                test: /\.jsx?$/,
+                test: /\.(jsx|js|mjs)$/,
                 exclude: /node_modules/,
                 use: [
                     {
