@@ -1,11 +1,8 @@
-//import { orderBy } from 'lodash-es';
-// Hack for JEST 23.10 problem with lodash-es
-const orderBy = process.env.NODE_ENV === 'test' ? require('lodash/orderBy') : require('lodash-es/orderBy');
-
 import VideoSourceProxy, { VideoSourceProxyFactory, IVideoSourceProxyData } from './video-source-proxy';
 import { AbstractBaseProxy, IBaseProxyOptions } from './abstract-base-proxy';
 import { IJsonVideo, IJsonVideoMeta, IJsonVideoSource, IJsonVideoTrack } from '../../../data/json/data-videos';
 import { IJsonPageAudioTrack } from '../../../data/json/data-pages';
+import { sortBy } from '@src/shared/utils';
 
 export class VideoProxyFactory {
     static createFromJson(data: IJsonVideo, options: IVideoProxyOptions): VideoProxy {
@@ -103,7 +100,7 @@ export default class VideoProxy extends AbstractBaseProxy {
     getSources(sortByPriority: boolean = true): VideoSourceProxy[] {
         let data: IVideoSourceProxyData[] = [];
         if (sortByPriority) {
-            data = orderBy(this.data.sources, ['priority'], ['asc']);
+            this.data.sources.sort(sortBy('priority'));
         } else {
             data = this.data.sources;
         }
