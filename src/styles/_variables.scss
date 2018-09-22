@@ -1,6 +1,11 @@
 //$body-bg: #000;
 
-$body-bg: rgba(114, 45, 0, 0.9);
+$brown-color: rgb(114, 45, 0);
+$brown-color-dark: rgb(49, 20, 0);
+$brown-color-light: rgb(156, 57, 0);
+
+$body-bg: rgba($brown-color, 1);
 $body-color: #fff;
 
-$primary-font: 'Raleway', 'Quicksand', 'Roboto', 'tahoma';
+//$primary-font: 'Raleway', 'Quicksand', 'Roboto', 'tahoma';
+$primary-font: 'Raleway', sans-serif;
