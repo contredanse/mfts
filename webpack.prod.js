@@ -42,12 +42,21 @@ module.exports = merge(common, {
         chunkFilename: 'static/js/[name].[chunkhash:8].bundle.js',
         publicPath: '/',
     },
+    resolve: {
+        alias: {
+            /**
+             * Aliases to avoid duplicates in build.
+             */
+            classnames: path.resolve(__dirname, 'node_modules/classnames'), // enabled: material-ui and local differs
+            // Material-ui & material-ui-icons
+            recompose: path.resolve(__dirname, 'node_modules/recompose'),
+        },
+    },
     module: {
         rules: [
             {
                 test: /\.woff$|\.woff2?$/,
                 loader: 'file-loader',
-                //use: 'url-loader?limit=10000',
                 options: {
                     limit: 50000,
                     mimetype: 'application/font-woff',
@@ -251,7 +260,7 @@ module.exports = merge(common, {
                 // use different major versions for 'warning' package
                 // That can be ignored.
                 //return instance.name === 'warning';
-                return ['warning', '@babel/runtime', 'recompose'].includes(instance.name);
+                return ['warning'].includes(instance.name);
             },
         }),
 
@@ -336,45 +345,7 @@ module.exports = merge(common, {
             test: /\.(js|css|svg)$/,
         }),
 
-        /*
-        new SWPrecacheWebpackPlugin({
-            cacheId: 'paxton-material-for-the-spine',
-            // By default, a cache-busting query parameter is appended to requests
-            // used to populate the caches, to ensure the responses are fresh.
-            // If a URL is already hashed by Webpack, then there is no concern
-            // about it being stale, and the cache-busting can be skipped.
-            dontCacheBustUrlsMatching: /\.\w{8}\./,
-            filename: 'service-worker.js',
-            logger(message) {
-                if (message.indexOf('Total precache size is') === 0) {
-                    // This message occurs for every build and is a bit too noisy.
-                    return;
-                }
-                if (message.indexOf('Skipping static resource') === 0) {
-                    // This message obscures real errors so we ignore it.
-                    // https://github.com/facebookincubator/create-react-app/issues/2612
-                    return;
-                }
-                console.log(message);
-            },
-            minify: false,
-            // For unknown URLs, fallback to the index page
-            navigateFallback: PUBLIC_URL + '/',
-            // Ignores URLs starting from /__ (useful for Firebase):
-            // https://github.com/facebookincubator/create-react-app/issues/2237#issuecomment-302693219
-
-            */
-
-        //navigateFallbackWhitelist: [/^(?!\/__).*/],
-
-        /*
-            // Don't precache sourcemaps (they're large) and build asset manifest:
-            //staticFileGlobsIgnorePatterns: [/\.map$/, /assets-manifest\.json$/, /index\.html/, /\.br$/, /\.gz$/],
-            staticFileGlobsIgnorePatterns: [/\.map$/, /\.htaccess$/, /assets-manifest\.json$/, /\.br$/, /\.gz$/],
-        }),*/
-
         // https://developers.google.com/web/tools/workbox/modules/workbox-webpack-plugin
-
         new Workbox.InjectManifest({
             // It's actually a chunk name !!!
             //importWorkboxFrom: 'workboxSw',

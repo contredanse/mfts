@@ -20,13 +20,6 @@ module.exports = {
             '@assets': path.resolve(__dirname, 'src/assets/'),
             '@thirdparty': path.resolve(__dirname, 'src/thirdparty'),
             '@data': path.resolve(__dirname, 'src/data'),
-            /**
-             * Aliases to avoid duplicates in build.
-             * i.e:
-             *   'react-router': path.resolve(__dirname, 'node_modules/react-router'),
-             */
-            classnames: path.resolve(__dirname, 'node_modules/classnames'), // enabled: material-ui and local differs
-            'lodash-es': path.resolve(__dirname, 'node_modules/lodash-es'),
         },
     },
     module: {
