@@ -35,7 +35,7 @@ class SimpleVideo extends React.PureComponent<SimpleVideoProps, {}> {
     }
 
     render() {
-        const { srcs, ...mediaProps } = this.props;
+        const { srcs, playbackRate, ...mediaProps } = this.props;
         return (
             <video ref={this.videoRef} {...mediaProps}>
                 {srcs && srcs.map((v, idx) => <source key={idx} src={v.src} type={v.type} />)}
