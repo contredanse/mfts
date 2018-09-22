@@ -55,6 +55,17 @@ module.exports = merge(common, {
                 },
             },
             {
+                test: /\.(jpe?g|png|gif|svg)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: 'static/images/[name]-[hash].[ext]',
+                        },
+                    },
+                ],
+            },
+            {
                 test: /\.(css)$/,
                 use: [MiniCssExtractPlugin.loader, 'css-loader'],
             },
@@ -390,7 +401,8 @@ module.exports = merge(common, {
         }),
 
         new StatsWriterPlugin({
-            filename: path.resolve(__dirname, 'dist') + '.webpack-stats.json',
+            // no support for absolute paths
+            filename: '../.webpack-stats.json',
         }),
     ],
 });
