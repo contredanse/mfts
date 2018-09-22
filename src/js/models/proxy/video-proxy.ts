@@ -100,7 +100,7 @@ export default class VideoProxy extends AbstractBaseProxy {
     getSources(sortByPriority: boolean = true): VideoSourceProxy[] {
         let data: IVideoSourceProxyData[] = [];
         if (sortByPriority) {
-            this.data.sources.sort(sortBy('priority'));
+            data = this.data.sources.sort(sortBy('priority'));
         } else {
             data = this.data.sources;
         }
