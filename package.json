@@ -100,7 +100,7 @@
         "image-webpack-loader": "^4.3.1",
         "jest": "^23.6.0",
         "jest-cli": "^23.6.0",
-        "jest-enzyme": "^6.1.1",
+        "jest-enzyme": "^6.1.2",
         "lint-staged": "^7.3.0",
         "mdi-react": "^4.3.0",
         "mini-css-extract-plugin": "^0.4.3",
