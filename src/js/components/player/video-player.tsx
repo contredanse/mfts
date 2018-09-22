@@ -55,10 +55,7 @@ export default class VideoPlayer extends React.Component<VideoPlayerProps, Video
             prevState.video.videoId !== nextProps.video.videoId
         ) {
             const { video, activeSubtitleLang, disableSubtitles, crossOrigin, disablePoster } = nextProps;
-            const playerSources =
-                prevState.playerSources !== undefined
-                    ? prevState.playerSources
-                    : getReactPlayerSources(video.getSources());
+            const playerSources = getReactPlayerSources(video.getSources());
             return {
                 initialized: true,
                 activeSubtitleLang: nextProps.activeSubtitleLang,
@@ -87,16 +84,8 @@ export default class VideoPlayer extends React.Component<VideoPlayerProps, Video
 
     shouldComponentUpdate(nextProps: VideoPlayerProps, nextState: VideoPlayerState): boolean {
         // A new video have been given
+
         if (nextProps.video.videoId !== this.props.video.videoId) {
-            // @todo remove when https://github.com/CookPete/react-player/pull/482 is merged
-            if (this.playerRef.current !== null) {
-                console.log('VideoPlayer rerender, hiding subs and setting srcObject to null');
-                const videoEl = this.playerRef.current!.getInternalPlayer() as HTMLVideoElement;
-                // This bug in firefox... we need to reset texttracks
-                hideAllSubtitles(videoEl);
-                //videoEl.srcObject = null;
-                videoEl.load();
-            }
             return true;
         }
 
@@ -115,7 +104,6 @@ export default class VideoPlayer extends React.Component<VideoPlayerProps, Video
     }
 
     render() {
-        console.log('rerednersdfsdfsdf');
         const {
             video,
             activeSubtitleLang,
@@ -127,10 +115,10 @@ export default class VideoPlayer extends React.Component<VideoPlayerProps, Video
         } = this.props;
 
         const { playerSources, playerConfig } = this.state;
-
+        console.log('rerednersdfsdfsdf', playerSources);
         return (
             <ReactPlayer
-                key={video.videoId}
+                //key={video.videoId}
                 ref={this.playerRef}
                 onStart={() => {
                     // When the video starts activate the text track
@@ -155,7 +143,7 @@ export default class VideoPlayer extends React.Component<VideoPlayerProps, Video
 }
 
 const getReactPlayerSources = (videoSources: VideoSourceProxy[]): ReactPlayerSourceProps[] => {
-    const sources = videoSources.reduce(
+    return videoSources.reduce(
         (acc, source) => {
             return [
                 ...acc,
@@ -167,7 +155,6 @@ const getReactPlayerSources = (videoSources: VideoSourceProxy[]): ReactPlayerSou
         },
         [] as ReactPlayerSourceProps[]
     );
-    return sources;
 };
 
 const getReactPlayerConfig = (
