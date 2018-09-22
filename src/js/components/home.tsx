@@ -3,6 +3,7 @@ import { RouteComponentProps, withRouter } from 'react-router-dom';
 import './home.scss';
 import SimpleVideo from '@src/components/simple-video';
 import AppAssetsLocator from '@src/core/app-assets-locator';
+import contredanseLogo from '@assets/images/logo-contredanse.png';
 
 type HomeProps = {
     assetsLocator: AppAssetsLocator;
@@ -10,7 +11,11 @@ type HomeProps = {
 
 type HomeState = {};
 
+const defaultProps = {} as HomeProps;
+
 class Home extends React.PureComponent<HomeProps, HomeState> {
+    static readonly defaultProps: HomeProps = defaultProps;
+
     constructor(props: HomeProps) {
         super(props);
     }
@@ -21,7 +26,6 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
 
     render() {
         const videosBaseUrl = this.props.assetsLocator.getMediaTypeBaseUrl('videos');
-
         const videoSrcs = [
             { src: `${videosBaseUrl}/puzzle2.webm`, type: 'video/webm' },
             { src: `${videosBaseUrl}/intro_2tubes_walk.mp4`, type: 'video/mp4' },
@@ -29,6 +33,11 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
 
         return (
             <section className="fullsize-video-bg">
+                <img
+                    style={{ position: 'absolute', bottom: 0, right: 0, width: 60, opacity: 0.5 }}
+                    src={contredanseLogo}
+                    alt="Contredanse logo"
+                />
                 <div className="fullsize-video-inner">
                     <div>
                         <h3 className="reveal-text">Steve Paxton's</h3>
@@ -60,12 +69,8 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
                         muted={true}
                         playsInline={true}
                         loop={true}
-                        style={
-                            {
-                                //border: '1px solid blue',
-                            }
-                        }
-                        videoSrcs={videoSrcs}
+                        playbackRate={0.6}
+                        srcs={videoSrcs}
                     />
                 </div>
             </section>
