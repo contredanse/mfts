@@ -764,9 +764,13 @@
   version "4.14.116"
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.116.tgz#5ccf215653e3e8c786a58390751033a9adca0eb9"
 
-"@types/node@*", "@types/node@^10.10.1":
+"@types/node@*":
   version "10.10.1"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.10.1.tgz#d5c96ca246a418404914d180b7fdd625ad18eca6"
+
+"@types/node@^10.10.3":
+  version "10.10.3"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.10.3.tgz#09c75a4ad84d6a3d286790bdd9489a4f8ee9906c"
 
 "@types/node@^8.0.51":
   version "8.10.29"
@@ -5220,9 +5224,9 @@ https-browserify@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
 
-husky@^1.0.0-rc.13:
-  version "1.0.0-rc.14"
-  resolved "https://registry.yarnpkg.com/husky/-/husky-1.0.0-rc.14.tgz#e1380575fe4cf17e1ca98791395c1baafa8064c7"
+husky@^1.0.0-rc.15:
+  version "1.0.0-rc.15"
+  resolved "https://registry.yarnpkg.com/husky/-/husky-1.0.0-rc.15.tgz#f1545d15c7f34d5db19e40b70df07ac9a362673d"
   dependencies:
     cosmiconfig "^5.0.6"
     execa "^0.9.0"
