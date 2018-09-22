@@ -6,6 +6,7 @@ import PageList from '@src/components/page-list';
 import { withRouter } from 'react-router-dom';
 import { RouteComponentProps } from 'react-router';
 import PageRepository from '@src/models/repository/page-repository';
+import memoize from 'memoize-one';
 
 type PageListContainerProps = {
     pageRepository: PageRepository;
@@ -15,28 +16,37 @@ type PageListContainerProps = {
 
 type PageListContainerState = {
     pages: IJsonPage[];
-    selectedPage?: IJsonPage;
-    searchFragment?: string;
+    filterText: string;
 };
 
-class PageListContainer extends React.Component<PageListContainerProps, PageListContainerState> {
+class PageListContainer extends React.PureComponent<PageListContainerProps, PageListContainerState> {
     readonly state: PageListContainerState;
 
     constructor(props: PageListContainerProps) {
         super(props);
         this.state = {
-            pages: this.props.pageRepository.getAllPages(),
+            //pages: [],
+            pages: props.pageRepository.getAllPages(),
+            filterText: '',
         };
+        // Re-rendering performance optimization.
+        this.filterPages = memoize(this.filterPages);
     }
 
+    componentDidMount() {}
+
+    filterPages = (list: IJsonPage[], filterText: string, lang: string): IJsonPage[] => {
+        //return this.props.pageRepository.findPages(filterText, lang)
+
+        return list.filter((page: IJsonPage) => {
+            return page.title[lang].includes(filterText) || page.keywords[lang].includes(filterText);
+        });
+    };
+
     updateSearch = (e: React.SyntheticEvent<HTMLInputElement>) => {
-        e.preventDefault();
-        e.persist();
         const fragment = e.currentTarget.value;
-        const pages = this.props.pageRepository.findPages(fragment, this.props.lang);
         this.setState({
-            pages: pages,
-            searchFragment: fragment,
+            filterText: fragment,
         });
     };
 
@@ -45,17 +55,8 @@ class PageListContainer extends React.Component<PageListContainerProps, PageList
         this.props.history.push(`/${lang}/page/${page.page_id}`);
     };
 
-    closePage = () => {
-        this.setState(
-            (prevState): PageListContainerState => ({
-                ...prevState,
-                selectedPage: undefined,
-            })
-        );
-    };
-
     render(): JSX.Element {
-        const { pages, selectedPage } = this.state;
+        const { pages } = this.state;
         const { lang } = this.props;
         const searchBoxStyle = {
             position: 'fixed',
@@ -64,11 +65,15 @@ class PageListContainer extends React.Component<PageListContainerProps, PageList
             width: '150px',
         } as React.CSSProperties;
 
+        // Calculate the latest filtered list. If these arguments haven't changed
+        // since the last render, `memoize-one` will reuse the last return value.
+        const filteredList = this.filterPages(this.state.pages, this.state.filterText, this.props.lang);
+
         return (
             <PageOverlay>
                 <PageList
                     baseUrl={this.props.videosBaseUrl}
-                    pages={pages}
+                    pages={filteredList}
                     lang={lang}
                     onSelected={page => this.openPage(page)}
                 />
