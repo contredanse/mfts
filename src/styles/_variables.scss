@@ -9,3 +9,13 @@ $body-color: #fff;
 
 //$primary-font: 'Raleway', 'Quicksand', 'Roboto', 'tahoma';
 $primary-font: 'Raleway', sans-serif;
+
+// A map of breakpoints.
+
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+) !default;
