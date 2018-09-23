@@ -2,23 +2,36 @@ import React from 'react';
 import Home from '@src/components/home';
 import { RouteComponentProps, withRouter } from 'react-router';
 import AppAssetsLocator from '@src/core/app-assets-locator';
+import { ApplicationState } from '@src/store';
+import { connect } from 'react-redux';
+
+type PropsFromReduxState = {
+    lang: string;
+};
 
 type HomeContainerProps = {
     assetsLocator: AppAssetsLocator;
-} & RouteComponentProps<{}>;
+} & RouteComponentProps<{}> &
+    PropsFromReduxState;
 type HomeContainerState = {};
 
 class HomeContainer extends React.Component<HomeContainerProps, HomeContainerState> {
     constructor(props: HomeContainerProps) {
         super(props);
     }
+
     render() {
+        const { assetsLocator, lang } = this.props;
         return (
             <div className="full-page-slide-ctn">
-                <Home assetsLocator={this.props.assetsLocator} />
+                <Home assetsLocator={assetsLocator} lang={lang} />
             </div>
         );
     }
 }
 
-export default withRouter(HomeContainer);
+const mapStateToProps = ({ lang: lg }: ApplicationState) => ({
+    lang: lg.lang,
+});
+
+export default withRouter(connect(mapStateToProps)(HomeContainer));
