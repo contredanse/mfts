@@ -1,25 +1,12 @@
 import { Reducer } from 'redux';
 import { LangState, LangActionTypes } from './types';
+import { AppLanguage } from '@src/core/app-language';
 
-const getInitialLanguage = (): string => {
-    // from route
-    if (document.location) {
-        const matches = document.location.href.match(/\/(fr|en)\//);
-        if (Array.isArray(matches)) {
-            return matches[1];
-        }
-    }
-    // from browser accept
-    if ('language' in navigator && navigator.language.startsWith('fr')) {
-        return 'fr';
-    }
-    // otherwise
-    return 'en';
-};
+const appLang = new AppLanguage();
 
 // Type-safe initialState!
 const initialState: LangState = {
-    lang: getInitialLanguage(),
+    lang: appLang.getInitialLanguage(),
 };
 
 // Thanks to Redux 4's much simpler typings, we can take away a lot of typings on the reducer side,
@@ -27,6 +14,8 @@ const initialState: LangState = {
 const reducer: Reducer<LangState> = (state = initialState, action): LangState => {
     switch (action.type) {
         case LangActionTypes.SET_UI_LANG: {
+            // In case of language change let's persist the choice
+            appLang.persistLanguageInStorage(action.payload);
             return { ...state, lang: action.payload };
         }
         default: {
