@@ -18,7 +18,7 @@ describe('<Home />', () => {
     it('should contain title', () => {
         const wrapper = mount(
             <MemoryRouter>
-                <Home assetsLocator={assetsLocator} />
+                <Home assetsLocator={assetsLocator} lang="en" />
             </MemoryRouter>
         );
         expect(wrapper.find(Home).html()).toContain('Material for the spine');

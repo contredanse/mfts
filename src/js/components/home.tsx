@@ -7,11 +7,21 @@ import contredanseLogo from '@assets/images/logo-contredanse.png';
 
 type HomeProps = {
     assetsLocator: AppAssetsLocator;
+    lang: string;
 } & RouteComponentProps;
 
 type HomeState = {};
 
 const defaultProps = {} as HomeProps;
+
+type I18nStatic = { [key: string]: { [key: string]: string } };
+
+const i18n: I18nStatic = {
+    a_movement_study: {
+        en: 'A movement study',
+        fr: 'Une étude du mouvement',
+    },
+};
 
 class Home extends React.PureComponent<HomeProps, HomeState> {
     static readonly defaultProps: HomeProps = defaultProps;
@@ -26,10 +36,13 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
 
     render() {
         const videosBaseUrl = this.props.assetsLocator.getMediaTypeBaseUrl('videos');
+
         const videoSrcs = [
             { src: `${videosBaseUrl}/puzzle2.webm`, type: 'video/webm' },
             { src: `${videosBaseUrl}/intro_2tubes_walk.mp4`, type: 'video/mp4' },
         ];
+
+        const { lang } = this.props;
 
         return (
             <section className="fullsize-video-bg">
@@ -46,19 +59,10 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
                             <a
                                 className="clickable-text"
                                 onClick={() => {
-                                    this.navigateToIntro('en');
+                                    this.navigateToIntro(lang);
                                 }}
                             >
-                                A movement study
-                            </a>
-                            &nbsp;|&nbsp;
-                            <a
-                                className="clickable-text"
-                                onClick={() => {
-                                    this.navigateToIntro('fr');
-                                }}
-                            >
-                                Une étude du mouvement
+                                {i18n.a_movement_study[lang]}
                             </a>
                         </p>
                     </div>
