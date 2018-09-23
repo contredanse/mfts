@@ -1,10 +1,6 @@
 @import '../_variables.scss';
 @import '../_media-queries.scss';
 
-/**
- * WIP for cross-browser subtitles
- * see also: last comment in https://stackoverflow.com/questions/32252337/how-to-style-text-tracks-in-html5-video-via-css/32254984
- */
 $track-font-family: $primary-font, sans-serif;
 
 //$track-font: 32px sans-serif;
@@ -75,11 +71,15 @@ video {
     &::cue,
     &::-webkit-media-text-track-display {
         @include media-breakpoint-between(xs, sm) {
-            font: 0.8rem #{$track-font-family};
+            font: 1rem #{$track-font-family};
         }
 
         @include media-breakpoint-up(sm) {
-            font: 1.3rem #{$track-font-family};
+            font: 1.5rem #{$track-font-family};
+        }
+
+        @include media-breakpoint-up(xl) {
+            font: 1.8rem #{$track-font-family};
         }
     }
 
@@ -88,6 +88,12 @@ video {
     }
 }
 
+/**
+ * WIP for cross-browser subtitles
+ * see also: last comment in https://stackoverflow.com/questions/32252337/how-to-style-text-tracks-in-html5-video-via-css/32254984
+ */
+
+/*
 .chrome {
     video::cue {
         font-size: 24px;
@@ -137,3 +143,4 @@ video {
         position: absolute;
     }
 }
+*/
