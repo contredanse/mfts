@@ -92,17 +92,6 @@ module.exports = {
                 },
             },
             {
-                test: /\.(jpe?g|png|gif|svg)$/i,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: 'images/[name]-[hash].[ext]',
-                        },
-                    },
-                ],
-            },
-            {
                 test: /\.ico$/,
                 loader: 'file-loader?',
                 options: {

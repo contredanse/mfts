@@ -69,7 +69,8 @@ module.exports = merge(common, {
                     {
                         loader: 'file-loader',
                         options: {
-                            name: 'static/images/[name]-[hash].[ext]',
+                            name: '[name]-[hash].[ext]',
+                            outputPath: 'static/images',
                         },
                     },
                 ],

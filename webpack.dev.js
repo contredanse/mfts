@@ -23,6 +23,17 @@ module.exports = merge(common, {
                 use: ['css-hot-loader', 'style-loader', 'css-loader', 'sass-loader'],
             },
             {
+                test: /\.(jpe?g|png|gif|svg)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: 'images/[name]-[hash].[ext]',
+                        },
+                    },
+                ],
+            },
+            {
                 test: /\.woff$|\.woff2?$/,
                 loader: 'file-loader',
                 //use: 'url-loader?limit=10000',
