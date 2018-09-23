@@ -21,7 +21,7 @@ const withStorage = <P extends InjectedStorageProps>(WrappedComponent: React.Com
             this.checkLocalStorageExists();
         }
 
-        checkLocalStorageExists() {
+        checkLocalStorageExists(): void {
             const testKey = 'test';
 
             try {
