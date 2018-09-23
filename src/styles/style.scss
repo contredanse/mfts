@@ -1,5 +1,6 @@
-@import './_variables.scss';
 @import '~modern-normalize/modern-normalize.css';
+@import './_variables.scss';
+@import './_media-queries.scss';
 @import 'video/video-tracks';
 @import 'animation/animations';
 @import 'animation/page-transition';
