@@ -2,6 +2,56 @@
  * (WIP) for controlbar
  */
 
+.control-bar-ctn {
+    //display: flex;
+    //flex-direction: column;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+
+    &__progress-bar {
+        //background-color: white;
+        //height: 60px;
+        //width: 100%;
+    }
+
+    &__panel {
+        height: 30px;
+        display: flex;
+
+        button {
+            width: 30px;
+            height: 30px;
+        }
+
+        &__left {
+            flex: 1;
+            justify-content: flex-start;
+            align-items: left;
+            //border: 1px dashed red;
+            display: flex;
+        }
+        &__center {
+            flex: auto;
+            align-items: center;
+            display: flex;
+        }
+        &__right {
+            flex: 1;
+            justify-content: flex-end;
+            align-items: right;
+            //border: 1px dashed blue;
+            display: flex;
+        }
+    }
+}
+
+/*
+
+
 .control-bar-overlay {
     position: absolute;
 
@@ -10,7 +60,6 @@
     right: 0;
     top: 0;
     bottom: 0;
-    z-index: 100;
 
     padding: 5px;
 
@@ -63,43 +112,4 @@
     }
 }
 
-.control-bar-ctn {
-    display: flex;
-    flex-direction: column;
-
-    &__progress-bar {
-        //background-color: white;
-        //height: 60px;
-        //width: 100%;
-    }
-
-    &__panel {
-        height: 30px;
-        display: flex;
-
-        button {
-            width: 30px;
-            height: 30px;
-        }
-
-        &__left {
-            flex: 1;
-            justify-content: flex-start;
-            align-items: left;
-            //border: 1px dashed red;
-            display: flex;
-        }
-        &__center {
-            flex: auto;
-            align-items: center;
-            display: flex;
-        }
-        &__right {
-            flex: 1;
-            justify-content: flex-end;
-            align-items: right;
-            //border: 1px dashed blue;
-            display: flex;
-        }
-    }
-}
+ */

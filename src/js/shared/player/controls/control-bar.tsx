@@ -104,72 +104,70 @@ export class ControlBar extends React.Component<MediaPlayerControlBarProps, Medi
         const { isActive } = this.state;
         const { isPlaying } = this.props;
 
+        const overlayWrapper = () => {
+            return (
+                <div
+                    className={'control-bar-overlay' + (!isPlaying ? ' control-bar-overlay--active' : '')}
+                    onMouseOver={this.handleEnableHover}
+                    onMouseOut={this.handleDisableHover}
+                >
+                    <div className="control-bar-overlay-top" />
+                    <div className="control-bar-overlay-middle" />
+                    <div className="control-bar-overlay-bottom">Hello the controbar</div>
+                </div>
+            );
+        };
+
         return (
-            <div
-                className={'control-bar-overlay' + (!isPlaying ? ' control-bar-overlay--active' : '')}
-                onMouseOver={this.handleEnableHover}
-                onMouseOut={this.handleDisableHover}
-            >
-                <div className="control-bar-overlay-top" />
-                <div className="control-bar-overlay-middle" />
-                <div className="control-bar-overlay-bottom">
-                    <div className={'control-bar-ctn'}>
-                        <div className="control-bar-ctn__progress-bar">
-                            {videoEl && (
-                                <ProgressBar
-                                    videoEl={videoEl}
-                                    progressInterval={650}
-                                    isSeekable={true}
-                                    onSeek={this.seekTo}
-                                />
-                            )}
-                        </div>
+            <div className={'control-bar-ctn'}>
+                <div className="control-bar-ctn__progress-bar">
+                    {videoEl && (
+                        <ProgressBar videoEl={videoEl} progressInterval={650} isSeekable={true} onSeek={this.seekTo} />
+                    )}
+                </div>
+                <div className="control-bar-ctn__panel">
+                    <div className="control-bar-ctn__panel__left">
+                        {!props.isPlaying && <PlayButton isEnabled={true} onClick={this.play} />}
+                        {props.isPlaying && <PauseButton isEnabled={true} onClick={this.pause} />}
+                        <SoundOnButton isEnabled={true} onClick={this.unMute} />
+                        <SoundOffButton isEnabled={true} onClick={this.mute} />
+                    </div>
 
-                        <div className="control-bar-ctn__panel">
-                            <div className="control-bar-ctn__panel__left">
-                                {!props.isPlaying && <PlayButton isEnabled={true} onClick={this.play} />}
-                                {props.isPlaying && <PauseButton isEnabled={true} onClick={this.pause} />}
-                                <SoundOnButton isEnabled={true} onClick={this.unMute} />
-                                <SoundOffButton isEnabled={true} onClick={this.mute} />
+                    <div className="control-bar-ctn__panel__right">
+                        {props.enableSpeedControl && (
+                            <div className="control-bar__select">
+                                <select
+                                    onChange={(e: React.SyntheticEvent<HTMLSelectElement>) => {
+                                        const speed = parseFloat(e.currentTarget.value);
+                                        props.actions.setPlaybackRate(speed);
+                                    }}
+                                >
+                                    <option value="2">2</option>
+                                    <option value="1">1</option>
+                                    <option value="0.5">0.5</option>
+                                    <option value="0.25">0.25</option>
+                                    <option value="0.10">0.10</option>
+                                </select>
                             </div>
+                        )}
 
-                            <div className="control-bar-ctn__panel__right">
-                                {props.enableSpeedControl && (
-                                    <div className="control-bar__select">
-                                        <select
-                                            onChange={(e: React.SyntheticEvent<HTMLSelectElement>) => {
-                                                const speed = parseFloat(e.currentTarget.value);
-                                                props.actions.setPlaybackRate(speed);
-                                            }}
-                                        >
-                                            <option value="2">2</option>
-                                            <option value="1">1</option>
-                                            <option value="0.5">0.5</option>
-                                            <option value="0.25">0.25</option>
-                                            <option value="0.10">0.10</option>
-                                        </select>
-                                    </div>
-                                )}
+                        {props.enablePrevControl && (
+                            <PrevButton
+                                isEnabled={this.props.onPreviousLinkPressed !== undefined}
+                                onClick={() => {
+                                    this.props.onPreviousLinkPressed!();
+                                }}
+                            />
+                        )}
 
-                                {props.enablePrevControl && (
-                                    <PrevButton
-                                        isEnabled={this.props.onPreviousLinkPressed !== undefined}
-                                        onClick={() => {
-                                            this.props.onPreviousLinkPressed!();
-                                        }}
-                                    />
-                                )}
-
-                                {props.enableNextControl && (
-                                    <NextButton
-                                        isEnabled={this.props.onNextLinkPressed !== undefined}
-                                        onClick={() => {
-                                            this.props.onNextLinkPressed!();
-                                        }}
-                                    />
-                                )}
-                            </div>
-                        </div>
+                        {props.enableNextControl && (
+                            <NextButton
+                                isEnabled={this.props.onNextLinkPressed !== undefined}
+                                onClick={() => {
+                                    this.props.onNextLinkPressed!();
+                                }}
+                            />
+                        )}
                     </div>
                 </div>
             </div>
