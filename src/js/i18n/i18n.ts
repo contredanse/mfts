@@ -13,7 +13,6 @@ const instance = i18n.init({
                 appbar: { title: 'Paxton' },
                 home: { label: 'Home' },
                 page: 'Page',
-                name: { label: 'Paxton' },
             },
         },
         fr: {
