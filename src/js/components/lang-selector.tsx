@@ -6,16 +6,16 @@ import * as langActions from '@src/store/locale/actions';
 import { RouteComponentProps, withRouter } from 'react-router';
 
 // Props passed from mapStateToProps
-type PropsFromState = {
+type PropsFromReduxState = {
     lang: string;
 };
 
 // Props passed from mapDispatchToProps
-type PropsFromDispatch = {
+type PropsFromReduxDispatchActions = {
     setLang: typeof langActions.setLang;
 };
 
-type LangSelectorProps = PropsFromDispatch & PropsFromState & RouteComponentProps<{}>;
+type LangSelectorProps = PropsFromReduxDispatchActions & PropsFromReduxState & RouteComponentProps<{}>;
 
 class LangSelector extends React.Component<LangSelectorProps> {
     constructor(props: LangSelectorProps) {
