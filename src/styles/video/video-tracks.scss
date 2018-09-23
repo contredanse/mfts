@@ -1,8 +1,12 @@
+@import '../_variables.scss';
+@import '../_media-queries.scss';
+
 /**
  * WIP for cross-browser subtitles
+ * see also: last comment in https://stackoverflow.com/questions/32252337/how-to-style-text-tracks-in-html5-video-via-css/32254984
  */
+$track-font-family: $primary-font, sans-serif;
 
-$track-font: 32px Roboto;
 //$track-font: 32px sans-serif;
 //$track-color: rgba(255, 255, 255, 1);
 //$track-color: rgba(255, 249, 61, 1);
@@ -13,36 +17,33 @@ $track-background-color: rgba(0, 0, 0, 0);
 $track-text-shadow: 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, -1px -1px 0 #000;
 //$track-text-shadow:  none;
 
-$track-padding-bottom: 50px;
+$track-padding-bottom: 20px;
 
 video {
     &::-webkit-media-text-track-container {
-        position: relative;
-        width: 100%;
+        overflow: visible !important;
+        // -webkit-transform: translateY(40%) !important;
+        // max-height: calc(100% - #{$track-padding-bottom});
+        -webkit-transform: translateY(-40px) !important;
+        transform: translateY(-40px) !important;
+
         overflow: hidden;
-        //border: 2px solid green;
-        padding-bottom: $track-padding-bottom;
         text-align: center;
         color: $track-color;
+        text-shadow: $track-text-shadow;
         letter-spacing: normal;
         word-spacing: normal;
         text-transform: unset;
-
-        text-shadow: $track-text-shadow;
 
         text-indent: 0;
         text-decoration: none;
         pointer-events: none;
         user-select: none;
-        //-webkit-user-select: none;
-        word-break: break-word;
-        flex: 1 1;
-        -webkit-flex: 1 1;
-        -webkit-line-box-contain: block inline-box replaced;
-
-        /* captions styles code specific to native text track rendering */
-        max-height: calc(100% - #{$track-padding-bottom});
+        -webkit-user-select: none;
         line-height: normal;
+        word-break: break-word;
+
+        position: relative;
     }
 
     &::-webkit-media-text-track-display {
@@ -51,9 +52,7 @@ video {
         white-space: pre-wrap;
         box-sizing: border-box;
         -webkit-box-sizing: border-box;
-        font: $track-font;
         transform: none;
-
         /* Ensure captions aren't cropped when the pseudo element's width cannot accommodate all the text */
         min-width: -webkit-min-content;
     }
@@ -65,7 +64,6 @@ video {
         display: inline-block;
         pointer-events: none;
         background-color: $track-background-color;
-        font: $track-font;
         color: $track-color;
         line-height: normal;
         white-space: pre-wrap;
@@ -74,7 +72,68 @@ video {
         padding-bottom: $track-padding-bottom;
     }
 
+    &::cue,
+    &::-webkit-media-text-track-display {
+        @include media-breakpoint-between(xs, sm) {
+            font: 0.8rem #{$track-font-family};
+        }
+
+        @include media-breakpoint-up(sm) {
+            font: 1.3rem #{$track-font-family};
+        }
+    }
+
     &::cue(:future) {
         color: gray;
+    }
+}
+
+.chrome {
+    video::cue {
+        font-size: 24px;
+        opacity: 1;
+        background-color: black;
+        -webkit-transform: translateY(10%) !important;
+        transform: translateY(10%) !important;
+    }
+
+    video::-webkit-media-text-track-display {
+        overflow: visible !important;
+        -webkit-box-sizing: border-box;
+        background: black;
+        padding: 8px;
+        border-radius: 16px;
+    }
+
+    video::-webkit-media-text-track-container {
+        overflow: visible !important;
+        -webkit-transform: translateY(40%) !important;
+        transform: translateY(40%) !important;
+        position: relative;
+    }
+}
+
+.safari {
+    video::cue {
+        font-size: 24px;
+        opacity: 1;
+        background-color: black;
+    }
+
+    video::-webkit-media-text-track-display-backdrop {
+        background-color: black !important;
+        overflow: visible !important;
+    }
+
+    video::-webkit-media-text-track-display {
+        overflow: visible !important;
+        -webkit-box-sizing: border-box;
+    }
+
+    video::-webkit-media-text-track-container {
+        overflow: visible !important;
+        -webkit-transform: translateY(20%) !important;
+        transform: translateY(20%) !important;
+        position: absolute;
     }
 }
