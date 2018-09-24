@@ -2,6 +2,9 @@
 
 $header-section-height: 20px;
 
+$page-content-padding: 0;
+$page-header-padding: $page-content-padding;
+
 // Till object-fit: contains works on all browsers...
 // we use this flex trick to make the video layout
 
@@ -13,12 +16,10 @@ $header-section-height: 20px;
     .autoscale-video-wrapper {
         width: 100%;
         max-height: 100%;
-
         //border: 1px solid blue;
         //height: 100%;
         flex-basis: 100%; // vertical space used: 100%
     }
-
     .autoscale-video-content {
         //background-color: #ccffcc;
         position: relative;
@@ -56,8 +57,12 @@ $header-section-height: 20px;
     position: relative;
 
     .page-header {
-        padding: 0.75em;
-        height: $header-section-height;
+        position: absolute;
+        z-index: 100;
+        top: 0;
+        right: 0;
+        left: 0;
+        padding: $page-header-padding;
     }
 
     .page-content {
@@ -65,6 +70,7 @@ $header-section-height: 20px;
         text-align: center;
         display: flex;
         justify-content: center;
+        padding: $page-content-padding;
 
         .page-multi-video-layout {
             flex: auto;
@@ -97,7 +103,6 @@ $header-section-height: 20px;
 
         .page-single-video-layout {
             flex: auto;
-            padding: 0.75em;
         }
     }
     .page-footer {

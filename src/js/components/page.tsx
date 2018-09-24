@@ -13,6 +13,7 @@ import VideoPlayer from '@src/components/player/video-player';
 import { PlayerActions } from '@src/shared/player/player';
 import { ReactPlayerProps } from 'react-player';
 import { MenuSectionProps } from '@src/models/repository/menu-repository';
+import PageBreadcrumb from '@src/components/page-breadcrumb';
 
 export type PageProps = {
     pageProxy: PageProxy;
@@ -110,23 +111,12 @@ class Page extends React.PureComponent<PageProps, PageState> {
 
         const { i18n } = this.props;
 
-        const breadcrumb = console.log('rerender');
+        console.log('rerender');
         return (
             <div className="page-container">
                 <div className="page-header">
-                    {/* {i18n.t('page', { lng: lang })}: {page.pageId} */}
-                    <h3>
-                        {Array.isArray(menuBreadcrumb) &&
-                            menuBreadcrumb.map(item => (
-                                <React.Fragment key={item.id}>
-                                    <a className="reveal-text" ref={item.id} href={item.id}>
-                                        {item.title}
-                                    </a>
-                                    &gt;&gt;
-                                </React.Fragment>
-                            ))}
-                        <a className="reveal-text">{page.getTitle(lang)}</a>
-                    </h3>
+                    <PageBreadcrumb title={page.getTitle(lang)} sections={menuBreadcrumb} />
+
                     {/*
                     Playing <input id="playing" type={'checkbox'} checked={this.state.playbackState.isPlaying} />
                     Loading <input id="loading" type={'checkbox'} />
