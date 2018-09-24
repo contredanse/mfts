@@ -112,7 +112,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
         return (
             <div className="page-container">
                 <div className="page-header">
-                    <PageBreadcrumb title={page.getTitle(lang)} sections={menuBreadcrumb} />
+                    <PageBreadcrumb title={page.getTitle(lang)} sections={menuBreadcrumb} lang={lang} />
                 </div>
 
                 <div className="page-content">
