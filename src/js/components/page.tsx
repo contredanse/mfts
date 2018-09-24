@@ -105,22 +105,14 @@ class Page extends React.PureComponent<PageProps, PageState> {
         const countVideos = page.countVideos();
 
         const hasMultipleVideos = countVideos > 1;
-
         const videos = page.getVideos(lang);
         const audio = page.getAudioProxy();
-
         const { i18n } = this.props;
-
         console.log('rerender');
         return (
             <div className="page-container">
                 <div className="page-header">
                     <PageBreadcrumb title={page.getTitle(lang)} sections={menuBreadcrumb} />
-
-                    {/*
-                    Playing <input id="playing" type={'checkbox'} checked={this.state.playbackState.isPlaying} />
-                    Loading <input id="loading" type={'checkbox'} />
-                    */}
                 </div>
 
                 <div className="page-content">
@@ -183,7 +175,6 @@ class Page extends React.PureComponent<PageProps, PageState> {
                     actions={this.mediaPlayerActions}
                     duration={this.state.playbackState.duration}
                     currentTime={this.state.playbackState.currentTime}
-                    isPlaying={this.state.playbackState.isPlaying}
                     playbackRate={this.state.playbackState.playbackRate}
                     enableNextControl={this.props.nextPage !== undefined}
                     enablePrevControl={this.props.previousPage !== undefined}

@@ -13,7 +13,6 @@ export type MediaPlayerControlBarProps = {
     videoEl?: HTMLVideoElement;
     duration: number;
     currentTime: number;
-    isPlaying: boolean;
     playbackRate: number;
     actions: PlayerActions;
     enableSpeedControl?: boolean;
@@ -28,7 +27,11 @@ export type MediaPlayerControlbarState = {
     currentTime: number;
     bufferTime: number;
     isActive: boolean;
+    isPlaying: boolean;
     intervalWhilePlaying: number;
+    muted: boolean;
+    volume: number;
+    isLoading: boolean;
 };
 
 export class ControlBar extends React.Component<MediaPlayerControlBarProps, MediaPlayerControlbarState> {
@@ -50,16 +53,29 @@ export class ControlBar extends React.Component<MediaPlayerControlBarProps, Medi
         super(props);
         this.state = {
             isActive: true,
+            isPlaying: false,
             currentTime: 0,
             bufferTime: 0,
             intervalWhilePlaying: 0,
+            muted: false,
+            volume: 1.0,
+            isLoading: true,
         };
     }
 
     componentDidMount() {
         // If videoEl is initially available, let's register listeners at mount
         if (this.props.videoEl) {
-            this.registerVideoListeners(this.props.videoEl);
+            const { videoEl } = this.props;
+            this.registerVideoListeners(videoEl);
+            this.setState(prevState => ({
+                ...prevState,
+                playing: !videoEl.paused,
+                muted: videoEl.muted,
+                volume: videoEl.volume,
+                currentTime: videoEl.currentTime || 0,
+                isLoading: videoEl.readyState <= 2,
+            }));
             //this.progressBar = withVideoProgress(NewProgressBar);
         }
     }
@@ -101,8 +117,7 @@ export class ControlBar extends React.Component<MediaPlayerControlBarProps, Medi
             border: '3px solid yellow',
         };
 
-        const { isActive } = this.state;
-        const { isPlaying } = this.props;
+        const { muted, isLoading, isPlaying } = this.state;
 
         const overlayWrapper = () => {
             return (
@@ -118,6 +133,8 @@ export class ControlBar extends React.Component<MediaPlayerControlBarProps, Medi
             );
         };
 
+        const LoadingIndicator = () => <div>Loading...</div>;
+
         return (
             <div className={'control-bar-ctn'}>
                 <div className="control-bar-ctn__progress-bar">
@@ -127,10 +144,14 @@ export class ControlBar extends React.Component<MediaPlayerControlBarProps, Medi
                 </div>
                 <div className="control-bar-ctn__panel">
                     <div className="control-bar-ctn__panel__left">
-                        {!props.isPlaying && <PlayButton isEnabled={true} onClick={this.play} />}
-                        {props.isPlaying && <PauseButton isEnabled={true} onClick={this.pause} />}
-                        <SoundOnButton isEnabled={true} onClick={this.unMute} />
-                        <SoundOffButton isEnabled={true} onClick={this.mute} />
+                        {!isPlaying && <PlayButton isEnabled={true} onClick={this.play} />}
+                        {isPlaying && <PauseButton isEnabled={true} onClick={this.pause} />}
+                        {muted ? (
+                            <SoundOnButton isEnabled={true} onClick={this.unMute} />
+                        ) : (
+                            <SoundOffButton isEnabled={true} onClick={this.mute} />
+                        )}
+                        {isLoading && <LoadingIndicator />}
                     </div>
 
                     <div className="control-bar-ctn__panel__right">
@@ -178,27 +199,69 @@ export class ControlBar extends React.Component<MediaPlayerControlBarProps, Medi
         if (skipOnRegistered && this.listenersRegistered) {
             return;
         }
-        //video.addEventListener('timeupdate', this.updateCurrentTimeState);
+        video.addEventListener('volumechange', this.updateVolumeState);
+        video.addEventListener('playing', this.updatePlayingState);
+        video.addEventListener('pause', this.updatePlayingState);
+        video.addEventListener('waiting', this.setLoadingState);
         this.listenersRegistered = true;
     }
 
     protected unregisterVideoListeners(video: HTMLVideoElement): void {
-        //video.removeEventListener('timeupdate', this.updateCurrentTimeState);
+        video.removeEventListener('volumechange', this.updateVolumeState);
+        video.removeEventListener('playing', this.updatePlayingState);
+        video.removeEventListener('pause', this.updatePlayingState);
+        video.removeEventListener('waiting', this.setLoadingState);
         this.listenersRegistered = false;
     }
 
     /**
-     * Update local state with current time from
+     * Update local state with volume and mute
      * @param {Event<HTMLVideoElement>} e
      */
-    protected updateCurrentTimeState = (e: Event): void => {
-        if (e.target !== null && 'currentTime' in e.target) {
-            const { currentTime } = e.target as HTMLVideoElement;
-            this.setState(prevState => {
-                return { ...prevState, currentTime: currentTime };
+    protected updateVolumeState = (e: Event): void => {
+        const { videoEl } = this.props;
+
+        if (videoEl && e.target !== null) {
+            if (this.state.muted !== videoEl.muted || this.state.volume !== videoEl.volume) {
+                this.setState({
+                    volume: videoEl.volume,
+                    muted: videoEl.muted,
+                });
+            }
+        } else {
+            console.warn('Cannot update volumeState, no "event.target" available', e);
+        }
+    };
+
+    /**
+     * Update local state with loading state
+     * @param {Event<HTMLVideoElement>} e
+     */
+    protected setLoadingState = (e: Event): void => {
+        const { videoEl } = this.props;
+        if (videoEl && e.target !== null) {
+            this.setState({
+                isLoading: true,
             });
         } else {
-            console.warn('Cannot update currentTime state, no "event.target.currentTime" available', e);
+            console.warn('Cannot update loadingState, no "event.target" available', e);
+        }
+    };
+
+    /**
+     * Update local state with loading state
+     * @param {Event<HTMLVideoElement>} e
+     */
+    protected updatePlayingState = (e: Event): void => {
+        console.log('UPDATEPLAYINGSTATE');
+        const { videoEl } = this.props;
+        if (videoEl && e.target !== null) {
+            this.setState({
+                isPlaying: !videoEl.paused,
+                isLoading: false,
+            });
+        } else {
+            console.warn('Cannot update playingState, no "event.target" available', e);
         }
     };
 
