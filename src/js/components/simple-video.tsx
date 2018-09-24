@@ -12,7 +12,7 @@ const defaultProps = {
     playbackRate: 1,
 } as SimpleVideoProps;
 
-class SimpleVideo extends React.PureComponent<SimpleVideoProps, {}> {
+class SimpleVideo extends React.Component<SimpleVideoProps, {}> {
     static readonly defaultProps: SimpleVideoProps = defaultProps;
 
     protected videoRef!: React.RefObject<HTMLVideoElement>;
@@ -24,7 +24,19 @@ class SimpleVideo extends React.PureComponent<SimpleVideoProps, {}> {
 
     componentDidMount() {
         const videoEl = this.getVideoElement();
-        const { playbackRate } = this.props;
+        this.setPlaybackRate(this.props.playbackRate);
+    }
+
+    shouldComponentUpdate(nextProps: SimpleVideoProps): boolean {
+        if (this.props.playbackRate !== nextProps.playbackRate) {
+            this.setPlaybackRate(nextProps.playbackRate);
+            return false;
+        }
+        return true;
+    }
+
+    setPlaybackRate(playbackRate: number): void {
+        const videoEl = this.getVideoElement();
         if (videoEl !== null) {
             videoEl.playbackRate = playbackRate;
         }
