@@ -1,0 +1,32 @@
+@import '../../styles/_variables.scss';
+
+$font: $handwritten-font;
+
+ul.page-breadcrumb {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+        float: left;
+    }
+
+    a {
+        font: 3vw $handwritten-font;
+        display: inline-block;
+        padding: 1vw 1vh;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        font-weight: 600;
+
+        .title {
+            user-select: none;
+            pointer-events: none;
+        }
+
+        &:hover {
+            background-color: rgba(white, 0.1);
+        }
+    }
+}
