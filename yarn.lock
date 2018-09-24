@@ -774,6 +774,12 @@
     "@types/node" "*"
     "@types/react" "*"
 
+"@types/react-event-listener@^0.4.7":
+  version "0.4.7"
+  resolved "https://registry.yarnpkg.com/@types/react-event-listener/-/react-event-listener-0.4.7.tgz#f064f47ee026d46bf798cc67a7e90252aacc248b"
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-i18next@^7.8.2":
   version "7.8.2"
   resolved "https://registry.yarnpkg.com/@types/react-i18next/-/react-i18next-7.8.2.tgz#a388e3a2b97da361761000cdcd23b9a621f81472"
