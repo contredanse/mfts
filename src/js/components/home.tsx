@@ -2,14 +2,18 @@ import * as React from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import './home.scss';
 import SimpleVideo from '@src/components/simple-video';
+import { debounce } from 'throttle-debounce';
 import AppAssetsLocator from '@src/core/app-assets-locator';
 import EventListener, { withOptions } from 'react-event-listener';
 import contredanseLogo from '@assets/images/logo-contredanse.png';
+import { Simulate } from 'react-dom/test-utils';
+import play = Simulate.play;
 
 type HomeProps = {
     assetsLocator: AppAssetsLocator;
     lang: string;
     playbackRate?: number;
+    mouseMoveDelay?: number;
 } & RouteComponentProps;
 
 type HomeState = {
@@ -18,6 +22,7 @@ type HomeState = {
 
 const defaultProps = {
     playbackRate: 1,
+    mouseMoveDelay: 150,
 } as HomeProps;
 
 type I18nStatic = { [key: string]: { [key: string]: string } };
@@ -38,22 +43,25 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
         this.state = {
             playbackRate: this.props.playbackRate!,
         };
+        this.changePlaybackRate = debounce(this.props.mouseMoveDelay!, this.changePlaybackRate);
     }
 
     navigateToIntro = (lang: string): void => {
         this.props.history.push(`${lang}/intro`);
     };
 
-    handleMouseMove = (e: MouseEvent & PointerEvent) => {
-        // TODO, let's make something cool when time.
-        const x: number = e.clientX / window.innerWidth;
-        const y: number = e.clientY / window.innerHeight;
-
-        const playbackRate = Math.round(20 - y * 2 * 10) / 10;
-
+    changePlaybackRate = (playbackRate: number) => {
         this.setState({
             playbackRate: playbackRate,
         });
+    };
+
+    handleMove = (e: MouseEvent & PointerEvent) => {
+        // TODO, let's make something cool when time.
+        const x: number = e.clientX / window.innerWidth;
+        const y: number = e.clientY / window.innerHeight;
+        const playbackRate = Math.round(20 - y * 2 * 10) / 10;
+        this.changePlaybackRate(playbackRate);
     };
 
     handleWheelCapture = (e: WheelEvent) => {
@@ -75,8 +83,8 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
             <section className="fullsize-video-bg">
                 <EventListener
                     target={document}
-                    onMouseMoveCapture={this.handleMouseMove}
-                    onPointerMoveCapture={this.handleMouseMove}
+                    onMouseMoveCapture={this.handleMove}
+                    onPointerMoveCapture={this.handleMove}
                     onWheelCapture={this.handleWheelCapture}
                 />
                 <img
