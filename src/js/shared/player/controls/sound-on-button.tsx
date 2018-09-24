@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Button, { ButtonProps } from './button';
-import { VolumeMuteIcon as SoundOnIcon } from 'mdi-react';
+import { VolumeHighIcon as SoundOnIcon } from 'mdi-react';
 
 import './buttons.scss';
 
