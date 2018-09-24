@@ -16,8 +16,6 @@ class About extends React.PureComponent<AboutProps, AboutState> {
     render() {
         let video = 'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4';
         video = 'https://assets.materialforthespine.com/videos/intro_2tubes_walk.webm';
-
-        // <source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" type="video/mp4" />
         return (
             <section className="fullsize-video-bg">
                 <div className="inner">
