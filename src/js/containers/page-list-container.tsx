@@ -12,11 +12,13 @@ type PageListContainerProps = {
     pageRepository: PageRepository;
     videosBaseUrl: string;
     lang: string;
+    menuId?: string;
 } & RouteComponentProps<any>;
 
 type PageListContainerState = {
     pages: IJsonPage[];
     filterText: string;
+    menuId?: string;
 };
 
 class PageListContainer extends React.PureComponent<PageListContainerProps, PageListContainerState> {
@@ -26,21 +28,26 @@ class PageListContainer extends React.PureComponent<PageListContainerProps, Page
         super(props);
         this.state = {
             //pages: [],
-            pages: props.pageRepository.getAllPages(),
             filterText: '',
+            menuId: props.menuId,
+            pages: [],
         };
         // Re-rendering performance optimization.
         this.filterPages = memoize(this.filterPages);
     }
 
-    componentDidMount() {}
+    componentDidMount() {
+        this.setState({
+            pages: this.props.pageRepository.getAllPages(),
+        });
+    }
 
     filterPages = (list: IJsonPage[], filterText: string, lang: string): IJsonPage[] => {
-        //return this.props.pageRepository.findPages(filterText, lang)
-
+        return this.props.pageRepository.findPages(filterText, lang);
+        /*
         return list.filter((page: IJsonPage) => {
             return page.title[lang].includes(filterText) || page.keywords[lang].includes(filterText);
-        });
+        });*/
     };
 
     updateSearch = (e: React.SyntheticEvent<HTMLInputElement>) => {
@@ -56,8 +63,7 @@ class PageListContainer extends React.PureComponent<PageListContainerProps, Page
     };
 
     render(): JSX.Element {
-        const { pages } = this.state;
-        const { lang } = this.props;
+        const { lang, menuId } = this.props;
         const searchBoxStyle = {
             position: 'fixed',
             top: '70px',
