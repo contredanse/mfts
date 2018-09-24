@@ -28,14 +28,16 @@ ul.page-breadcrumb {
         text-align: center;
         text-decoration: none;
         font-weight: normal;
+        cursor: default;
 
         .title {
             user-select: none;
             pointer-events: none;
         }
 
-        &:hover {
+        &:hover:not(.title) {
             background-color: rgba(white, 0.1);
+            cursor: pointer;
         }
     }
 }
