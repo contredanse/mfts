@@ -59,11 +59,13 @@ class App extends React.Component<AppProps, {}> {
                     />
                     <Route
                         exact={true}
-                        path={`${match.path}/page-list`}
+                        path={`${match.path}/page-list/:menuId?`}
                         render={(props: RouteComponentProps<any>) => {
+                            const { menuId } = props.match.params;
                             return (
                                 <PageListContainer
                                     lang={lang}
+                                    menuId={menuId}
                                     videosBaseUrl={assetsLocator.getMediaTypeBaseUrl('videos')}
                                     pageRepository={pageRepository}
                                     {...props}
