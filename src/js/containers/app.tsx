@@ -21,6 +21,7 @@ import { WithStore } from '@src/hoc/with-store';
 import { LangState } from '@src/store/locale';
 import AboutContainer from '@src/containers/about-container';
 import LoginContainer from '@src/containers/login-container';
+import ConnectedLangSelector from '@src/components/lang-selector';
 
 type AppProps = {
     appConfig: AppConfig;
@@ -130,6 +131,7 @@ class App extends React.Component<AppProps, {}> {
                                             <Route component={NotFoundContainer} />
                                         </Switch>
                                     </main>
+                                    <ConnectedLangSelector />
                                 </div>
                             </ConnectedRouter>
                         </I18nextProvider>
