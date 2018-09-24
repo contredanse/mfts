@@ -5,29 +5,43 @@
 $breadcrumb-font: $primary-font;
 
 ul.page-breadcrumb {
+    display: inline-block;
+    width: 100%;
     list-style-type: none;
     margin: 0;
     padding: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 60%, rgba(0, 0, 0, 0.7) 100%);
 
     li {
         float: left;
     }
 
     a {
-        font-family: $breadcrumb-font;
         font-size: 2vw;
-        padding: 1vw 1vh;
+        padding: 1vh 0.5vw;
 
         @include media-breakpoint-down(sm) {
-            font: 3.3vw $handwritten-font;
+            padding: 1vh 0.4vw;
+            font-size: 3.4vw;
         }
+
+        &:not(.title):after {
+            content: '>>';
+            padding-left: 1vw;
+        }
+        font-family: $breadcrumb-font;
+
+        text-shadow: 1px 1px 1px rgba(black, 0.4);
+        -webkit-text-stroke: 1px rgba(black, 0.5);
+
+        //-webkit-text-fill-color: rgba(white, 0.1);
 
         display: inline-block;
 
         color: rgba(white, 0.9);
         text-align: center;
         text-decoration: none;
-        font-weight: normal;
+        font-weight: 600;
         cursor: default;
 
         .title {

@@ -41,7 +41,6 @@ class PageBreadcrumb extends React.PureComponent<PageBreadcrumbProps, PageBreadc
                             <a ref={menu.id} onClick={() => this.handleSectionSelected(menu.id)}>
                                 {menu.title}
                             </a>
-                            &gt;&gt;
                         </li>
                     ))}
                 <li>
