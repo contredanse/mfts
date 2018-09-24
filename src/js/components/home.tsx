@@ -3,16 +3,22 @@ import { RouteComponentProps, withRouter } from 'react-router-dom';
 import './home.scss';
 import SimpleVideo from '@src/components/simple-video';
 import AppAssetsLocator from '@src/core/app-assets-locator';
+import EventListener, { withOptions } from 'react-event-listener';
 import contredanseLogo from '@assets/images/logo-contredanse.png';
 
 type HomeProps = {
     assetsLocator: AppAssetsLocator;
     lang: string;
+    playbackRate?: number;
 } & RouteComponentProps;
 
-type HomeState = {};
+type HomeState = {
+    playbackRate: number;
+};
 
-const defaultProps = {} as HomeProps;
+const defaultProps = {
+    playbackRate: 1,
+} as HomeProps;
 
 type I18nStatic = { [key: string]: { [key: string]: string } };
 
@@ -25,13 +31,33 @@ const i18n: I18nStatic = {
 
 class Home extends React.PureComponent<HomeProps, HomeState> {
     static readonly defaultProps: HomeProps = defaultProps;
+    readonly state: HomeState;
 
     constructor(props: HomeProps) {
         super(props);
+        this.state = {
+            playbackRate: this.props.playbackRate!,
+        };
     }
 
     navigateToIntro = (lang: string): void => {
         this.props.history.push(`${lang}/intro`);
+    };
+
+    handleMouseMove = (e: MouseEvent & PointerEvent) => {
+        // TODO, let's make something cool when time.
+        const x: number = e.clientX / window.innerWidth;
+        const y: number = e.clientY / window.innerHeight;
+
+        const playbackRate = Math.round(20 - y * 2 * 10) / 10;
+
+        this.setState({
+            playbackRate: playbackRate,
+        });
+    };
+
+    handleWheelCapture = (e: WheelEvent) => {
+        //console.log('mousecapture');
     };
 
     render() {
@@ -43,9 +69,16 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
         ];
 
         const { lang } = this.props;
+        const { playbackRate } = this.state;
 
         return (
             <section className="fullsize-video-bg">
+                <EventListener
+                    target={document}
+                    onMouseMoveCapture={this.handleMouseMove}
+                    onPointerMoveCapture={this.handleMouseMove}
+                    onWheelCapture={this.handleWheelCapture}
+                />
                 <img
                     style={{ position: 'absolute', bottom: 0, right: 0, width: 60, opacity: 0.5 }}
                     src={contredanseLogo}
@@ -73,7 +106,7 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
                         muted={true}
                         playsInline={true}
                         loop={true}
-                        playbackRate={0.6}
+                        playbackRate={playbackRate}
                         srcs={videoSrcs}
                     />
                 </div>

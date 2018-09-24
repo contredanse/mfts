@@ -24,7 +24,7 @@ class HomeContainer extends React.Component<HomeContainerProps, HomeContainerSta
         const { assetsLocator, lang } = this.props;
         return (
             <div className="full-page-slide-ctn">
-                <Home assetsLocator={assetsLocator} lang={lang} />
+                <Home assetsLocator={assetsLocator} lang={lang} playbackRate={0.6} />
             </div>
         );
     }
