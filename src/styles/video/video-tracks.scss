@@ -13,15 +13,15 @@ $track-background-color: rgba(0, 0, 0, 0);
 $track-text-shadow: 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, -1px -1px 0 #000;
 //$track-text-shadow:  none;
 
-$track-padding-bottom: 20px;
+$track-padding-bottom: 50px;
 
 video {
     &::-webkit-media-text-track-container {
         overflow: visible !important;
         // -webkit-transform: translateY(40%) !important;
         // max-height: calc(100% - #{$track-padding-bottom});
-        -webkit-transform: translateY(-40px) !important;
-        transform: translateY(-40px) !important;
+        transform: translateY(-#{$track-padding-bottom}) !important;
+        //transform: translateY(-5vh) !important;
 
         overflow: hidden;
         text-align: center;
@@ -50,6 +50,7 @@ video {
         box-sizing: border-box;
         -webkit-box-sizing: border-box;
         transform: none;
+
         /* Ensure captions aren't cropped when the pseudo element's width cannot accommodate all the text */
         min-width: -webkit-min-content;
     }
@@ -75,10 +76,14 @@ video {
             font: 4vw #{$track-font-family};
         }
         @include media-breakpoint-up(sm) {
-            font: 3vw #{$track-font-family};
+            font: 2.8vw #{$track-font-family};
         }
+        @include media-breakpoint-up(lg) {
+            font: 2.4vw #{$track-font-family};
+        }
+
         @include media-breakpoint-up(xl) {
-            font: 1.8vw #{$track-font-family};
+            font: 1.6vw #{$track-font-family};
         }
     }
 
