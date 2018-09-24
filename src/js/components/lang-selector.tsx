@@ -39,7 +39,7 @@ class LangSelector extends React.Component<LangSelectorProps> {
         const nextLang = currentLang === 'en' ? 'fr' : 'en';
         return (
             <button
-                //style={{ position: 'absolute', zIndex: 1500, top: '200px' }}
+                style={{ position: 'absolute', zIndex: 1500, top: '80px', right: '10px' }}
                 onPointerDown={() => this.updateLang(nextLang)}
             >
                 >> Go {nextLang}
