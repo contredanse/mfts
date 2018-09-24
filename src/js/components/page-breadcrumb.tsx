@@ -4,10 +4,11 @@ import { MenuSectionProps } from '@src/models/repository/menu-repository';
 import { RouteComponentProps, withRouter } from 'react-router';
 
 type PageBreadcrumbProps = {
+    lang: string;
     title: string;
     sections?: MenuSectionProps[];
     onSectionSelected?: (menuId: string) => {};
-};
+} & RouteComponentProps<any>;
 
 type PageBreadcrumbState = {};
 
@@ -20,6 +21,16 @@ class PageBreadcrumb extends React.PureComponent<PageBreadcrumbProps, PageBreadc
         super(props);
     }
 
+    handleSectionSelected = (menuId: string) => {
+        const { onSectionSelected } = this.props;
+        if (onSectionSelected !== undefined) {
+            onSectionSelected(menuId);
+        } else {
+            const { history, lang } = this.props;
+            history.push(`/${lang}/page-list/${menuId}`);
+        }
+    };
+
     render() {
         const { sections, title, onSectionSelected } = this.props;
         return (
@@ -27,16 +38,7 @@ class PageBreadcrumb extends React.PureComponent<PageBreadcrumbProps, PageBreadc
                 {Array.isArray(sections) &&
                     sections.map(menu => (
                         <li key={menu.id}>
-                            <a
-                                ref={menu.id}
-                                {...(onSectionSelected
-                                    ? {
-                                          onClick: () => {
-                                              onSectionSelected(menu.id);
-                                          },
-                                      }
-                                    : {})}
-                            >
+                            <a ref={menu.id} onClick={() => this.handleSectionSelected(menu.id)}>
                                 {menu.title}
                             </a>
                             &gt;&gt;
@@ -50,4 +52,4 @@ class PageBreadcrumb extends React.PureComponent<PageBreadcrumbProps, PageBreadc
     }
 }
 
-export default PageBreadcrumb;
+export default withRouter(PageBreadcrumb);
