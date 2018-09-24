@@ -1,4 +1,5 @@
 @import '../../styles/_variables.scss';
+@import '../../styles/_media-queries.scss';
 
 $font: $handwritten-font;
 
@@ -12,13 +13,20 @@ ul.page-breadcrumb {
     }
 
     a {
-        font: 3vw $handwritten-font;
-        display: inline-block;
+        font-family: $handwritten-font;
+        font-size: 3vw;
         padding: 1vw 1vh;
-        color: white;
+
+        @include media-breakpoint-down(sm) {
+            font: 3.3vw $handwritten-font;
+        }
+
+        display: inline-block;
+
+        color: rgba(white, 0.9);
         text-align: center;
         text-decoration: none;
-        font-weight: 600;
+        font-weight: normal;
 
         .title {
             user-select: none;
