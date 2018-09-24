@@ -72,15 +72,13 @@ video {
     &::cue,
     &::-webkit-media-text-track-display {
         @include media-breakpoint-between(xs, sm) {
-            font: 1rem #{$track-font-family};
+            font: 4vw #{$track-font-family};
         }
-
         @include media-breakpoint-up(sm) {
-            font: 1.5rem #{$track-font-family};
+            font: 3vw #{$track-font-family};
         }
-
         @include media-breakpoint-up(xl) {
-            font: 1.8rem #{$track-font-family};
+            font: 1.8vw #{$track-font-family};
         }
     }
 
