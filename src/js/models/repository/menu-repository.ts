@@ -93,7 +93,7 @@ export default class MenuRepository {
 
     getPageBreadcrumb(pageId: string, lang: string): MenuSectionProps[] {
         const accu: IJsonMenuSection[] = [];
-        const pageMenu = this.searchMenuTree(this.menu, pageId, accu);
+        this.searchMenuTree(this.menu, pageId, accu);
 
         const breadcrumb: MenuSectionProps[] = [];
         accu.forEach((menuItem, idx) => {
