@@ -1,0 +1,45 @@
+@import '../../styles/_variables.scss';
+
+$title-font: '#{$primary-font}', sans-serif;
+$subtitle-font: $handwritten-font;
+
+.about-container {
+    flex: 1 1 auto;
+
+    .fullsize-video-bg-inner {
+        > div {
+            text-align: center;
+            display: table-cell;
+            vertical-align: middle;
+            padding: 0 2em;
+            h1,
+            h2 {
+                //mix-blend-mode: difference;
+                font-family: $title-font;
+                font-size: 2.2em;
+                line-height: 0.9;
+                font-weight: 800;
+                //letter-spacing: -0.025em;
+                text-transform: uppercase;
+                margin-top: 0.5em;
+                margin-bottom: 0.5em;
+                opacity: 0.4;
+                text-shadow: 8px 8px 8px rgba($brown-color-dark, 0.7);
+                //-webkit-text-stroke: 1px rgba(white, 0.3);
+                //-webkit-text-fill-color: rgba(white, 0.1);
+                mix-blend-mode: overlay;
+            }
+            h2 {
+                font-size: 1.7em;
+                font-family: $handwritten-font;
+                text-transform: none;
+            }
+            h2 + p {
+                font-family: $subtitle-font;
+                font-size: 1.5em;
+                font-weight: 400;
+                opacity: 0.9;
+            }
+        }
+    }
+}

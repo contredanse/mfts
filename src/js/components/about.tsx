@@ -2,8 +2,14 @@ import React from 'react';
 import './about.scss';
 import AppAssetsLocator from '@src/core/app-assets-locator';
 
+import credits_en from '@data/markdown/credits.en.md';
+import credits_fr from '@data/markdown/credits.fr.md';
+import WebpackMarkdown from '@src/components/webpack-markdown';
+import FullsizeVideoBg from '@src/components/fullsize-video-bg';
+
 type AboutProps = {
     assetsLocator: AppAssetsLocator;
+    lang: string;
 };
 
 type AboutState = {};
@@ -14,26 +20,22 @@ class About extends React.PureComponent<AboutProps, AboutState> {
     }
 
     render() {
-        let video = 'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4';
-        video = 'https://assets.materialforthespine.com/videos/intro_2tubes_walk.webm';
+        const { lang } = this.props;
+        const videosBaseUrl = this.props.assetsLocator.getMediaTypeBaseUrl('videos');
+
+        const videoSrcs = [
+            { src: `${videosBaseUrl}/intro_2tubes_walk.webm`, type: 'video/webm' },
+            { src: `${videosBaseUrl}/intro_2tubes_walk.mp4`, type: 'video/mp4' },
+        ];
+
+        const content = lang === 'fr' ? credits_fr : credits_en;
+
         return (
-            <section className="fullsize-video-bg">
-                <div className="inner">
-                    <div>
-                        <h1>Material for the spine</h1>
-                        <p>
-                            <a href="#">A movement study</a>
-                            &nbsp;|&nbsp;
-                            <a href="#">Une étude du mouvement</a>
-                        </p>
-                    </div>
-                </div>
-                <div id="video-viewport">
-                    <video autoPlay muted loop>
-                        <source src={video} />
-                    </video>
-                </div>
-            </section>
+            <div className="about-container">
+                <FullsizeVideoBg videoSrcs={videoSrcs}>
+                    <WebpackMarkdown content={content} />
+                </FullsizeVideoBg>
+            </div>
         );
     }
 }

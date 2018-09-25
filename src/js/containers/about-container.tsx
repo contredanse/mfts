@@ -6,6 +6,7 @@ import About from '@src/components/about';
 
 type AboutContainerProps = {
     assetsLocator: AppAssetsLocator;
+    lang: string;
 } & RouteComponentProps<{}>;
 type AboutContainerState = {};
 
@@ -14,9 +15,10 @@ class AboutContainer extends React.Component<AboutContainerProps, AboutContainer
         super(props);
     }
     render() {
+        const { lang, assetsLocator } = this.props;
         return (
             <div className="full-page-slide-ctn">
-                <About assetsLocator={this.props.assetsLocator} />
+                <About assetsLocator={assetsLocator} lang={lang} />
             </div>
         );
     }
