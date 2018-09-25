@@ -1,4 +1,5 @@
 @import '../../styles/_variables.scss';
+@import '../../styles/_media-queries.scss';
 
 $title-font: '#{$primary-font}', sans-serif;
 $subtitle-font: $handwritten-font;
@@ -9,8 +10,16 @@ $subtitle-font: $handwritten-font;
     flex-direction: column;
     .fullsize-video-bg {
         flex: 1 1 auto;
+
+        @include media-breakpoint-down(sm) {
+            flex: 0 1 auto;
+        }
     }
     .fullsize-video-bg-inner {
+        @include media-breakpoint-down(sm) {
+            height: 60vh;
+        }
+
         align-items: center;
         flex-direction: row;
         text-align: center;
