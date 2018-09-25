@@ -94,7 +94,7 @@ class App extends React.Component<AppProps, {}> {
                         exact={true}
                         path={`${match.path}/about`}
                         render={() => {
-                            return <AboutContainer assetsLocator={assetsLocator} />;
+                            return <AboutContainer assetsLocator={assetsLocator} lang={lang} />;
                         }}
                     />
                     <Route
