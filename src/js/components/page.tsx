@@ -14,7 +14,6 @@ import { PlayerActions } from '@src/shared/player/player';
 import { ReactPlayerProps } from 'react-player';
 import { MenuSectionProps } from '@src/models/repository/menu-repository';
 import PageBreadcrumb from '@src/components/page-breadcrumb';
-import DocumentMeta from '@src/shared/document-meta';
 
 export type PageProps = {
     pageProxy: PageProxy;
@@ -115,7 +114,6 @@ class Page extends React.PureComponent<PageProps, PageState> {
         console.log('rerender');
         return (
             <div className="page-container">
-                <DocumentMeta title={`MFTS >> ${pageTitle}`} />
                 <div className="page-header">
                     <PageBreadcrumb title={pageTitle} sections={menuBreadcrumb} lang={lang} />
                 </div>

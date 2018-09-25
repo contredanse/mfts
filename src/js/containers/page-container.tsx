@@ -7,6 +7,7 @@ import { PageOverlay } from '@src/components/layout/page-overlay';
 import PageRepository from '@src/models/repository/page-repository';
 import MenuRepository, { MenuSectionProps, PrevAndNextPageEntities } from '@src/models/repository/menu-repository';
 import { RouteComponentProps, withRouter } from 'react-router';
+import DocumentMeta from '@src/shared/document-meta';
 
 type PageContainerProps = {
     pageId: string;
@@ -21,7 +22,7 @@ type PageContainerState = {
 };
 
 class PageContainer extends React.Component<PageContainerProps, PageContainerState> {
-    readonly state = {
+    readonly state: PageContainerState = {
         pageExists: undefined,
         pageProxy: undefined,
     };
@@ -64,35 +65,38 @@ class PageContainer extends React.Component<PageContainerProps, PageContainerSta
 
     render() {
         const { pageExists, pageProxy } = this.state;
+
         // should not be required, exit if async loading
         // of pageData is not yet present (see componentDidMount())
         if (pageExists === undefined) {
             return null;
         }
 
-        const { previousPage, nextPage } = this.getPrevAndNextPageEntities(this.props.pageId);
-        const breadcrumb = this.getMenuBreadcrumb(this.props.pageId);
+        const { lang } = this.props;
 
-        return (
-            <PageOverlay closeButton={false}>
-                <div className="page-wrapper">
-                    {pageProxy ? (
+        if (pageProxy) {
+            const { previousPage, nextPage } = this.getPrevAndNextPageEntities(this.props.pageId);
+            const breadcrumb = this.getMenuBreadcrumb(this.props.pageId);
+            const documentTitle = pageProxy.getTitle(lang);
+            return (
+                <PageOverlay closeButton={false}>
+                    <div className="page-wrapper">
+                        <DocumentMeta title={documentTitle} />
                         <Page
                             pageProxy={pageProxy}
                             menuBreadcrumb={breadcrumb}
-                            lang={this.props.lang}
+                            lang={lang}
                             previousPage={previousPage}
                             nextPage={nextPage}
                             // onPageChangeRequest={() => {this.props.history.push('/about')}}
-
                             onPageChangeRequest={this.navigateToPage}
                         />
-                    ) : (
-                        <NotFoundContainer />
-                    )}
-                </div>
-            </PageOverlay>
-        );
+                    </div>
+                </PageOverlay>
+            );
+        } else {
+            return <NotFoundContainer />;
+        }
     }
 
     /**
