@@ -7,7 +7,7 @@ module.exports = {
         index: ['./src/js/index.tsx'],
     },
     resolve: {
-        extensions: ['.js', '.jsx', '.json', '.ts', '.tsx', '.css', '.scss'],
+        extensions: ['.js', '.jsx', '.json', '.ts', '.tsx', '.css', '.scss', '.md'],
         modules: [path.join(__dirname, 'src'), 'node_modules'],
         alias: {
             /**
@@ -69,6 +69,20 @@ module.exports = {
                         loader: 'babel-loader',
                         options: {
                             cacheDirectory: true,
+                        },
+                    },
+                ],
+            },
+            {
+                test: /\.md$/,
+                use: [
+                    {
+                        loader: 'html-loader',
+                    },
+                    {
+                        loader: 'markdown-loader',
+                        options: {
+                            /* your options here */
                         },
                     },
                 ],
