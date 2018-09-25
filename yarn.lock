@@ -2940,9 +2940,9 @@ cssnano@^4.1.0:
     is-resolvable "^1.0.0"
     postcss "^6.0.0"
 
-cssnano@^4.1.1:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/cssnano/-/cssnano-4.1.1.tgz#46e97285ca709b8f7e1ceafb352699d0ac15102a"
+cssnano@^4.1.2:
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/cssnano/-/cssnano-4.1.2.tgz#23c1ddb73351208afa65e2cb0d76c641982e0028"
   dependencies:
     cosmiconfig "^5.0.0"
     cssnano-preset-default "^4.0.1"
@@ -11763,9 +11763,9 @@ webpack-stats-plugin@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/webpack-stats-plugin/-/webpack-stats-plugin-0.2.1.tgz#1f5bac13fc25d62cbb5fd0ff646757dc802b8595"
 
-webpack@^4.20.0:
-  version "4.20.0"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.20.0.tgz#626551271362274e2e80991ad9de76f31f90e57d"
+webpack@^4.20.1:
+  version "4.20.1"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.20.1.tgz#c753c96809883a3d9f643b04152e0729a7a7f16d"
   dependencies:
     "@webassemblyjs/ast" "1.7.8"
     "@webassemblyjs/helper-module-context" "1.7.8"
