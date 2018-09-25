@@ -22,6 +22,7 @@ import { LangState } from '@src/store/locale';
 import AboutContainer from '@src/containers/about-container';
 import LoginContainer from '@src/containers/login-container';
 import ConnectedLangSelector from '@src/components/lang-selector';
+import DocumentMeta from '@src/shared/document-meta';
 
 type AppProps = {
     appConfig: AppConfig;
@@ -54,7 +55,11 @@ class App extends React.Component<AppProps, {}> {
                         exact={true}
                         path={`${match.path}/intro`}
                         render={() => {
-                            return <IntroContainer lang={lang} pageRepository={pageRepository} />;
+                            return (
+                                <DocumentMeta title={'MFTS >> Introduction'}>
+                                    <IntroContainer lang={lang} pageRepository={pageRepository} />
+                                </DocumentMeta>
+                            );
                         }}
                     />
                     <Route
@@ -118,7 +123,7 @@ class App extends React.Component<AppProps, {}> {
                             <ConnectedRouter history={history}>
                                 <div className="window-container">
                                     <header>
-                                        <AppBar lang={lang} title={''} />
+                                        <AppBar lang={lang} title={title} />
                                     </header>
                                     <main>
                                         <Switch>
@@ -126,7 +131,11 @@ class App extends React.Component<AppProps, {}> {
                                                 exact={true}
                                                 path="/"
                                                 render={() => {
-                                                    return <HomeContainer assetsLocator={assetsLocator} />;
+                                                    return (
+                                                        <DocumentMeta title={"Steve Paxton's Material for the spine"}>
+                                                            <HomeContainer assetsLocator={assetsLocator} />
+                                                        </DocumentMeta>
+                                                    );
                                                 }}
                                             />
                                             <Route path="/:lang(fr|en)" component={localizedRoutes} />
