@@ -10,11 +10,8 @@ $subtitle-font: $handwritten-font;
         align-items: center;
         flex-direction: row;
         text-align: center;
-
         > div {
             flex: 1 1 auto;
-
-            vertical-align: middle;
             padding: 0 2em;
             h1 {
                 //mix-blend-mode: difference;
