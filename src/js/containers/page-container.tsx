@@ -77,7 +77,7 @@ class PageContainer extends React.Component<PageContainerProps, PageContainerSta
         if (pageProxy) {
             const { previousPage, nextPage } = this.getPrevAndNextPageEntities(this.props.pageId);
             const breadcrumb = this.getMenuBreadcrumb(this.props.pageId);
-            const documentTitle = pageProxy.getTitle(lang);
+            const documentTitle = `MFTS >> ${pageProxy.getTitle(lang)}`;
             return (
                 <PageOverlay closeButton={false}>
                     <div className="page-wrapper">

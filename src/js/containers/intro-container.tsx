@@ -1,12 +1,11 @@
 import React from 'react';
 import Page, { PageState } from '@src/components/page';
-import NotFoundContainer from '@src/containers/notfound-container';
 import { DataSupportedLangType } from '@src/models/repository/data-repository';
 import PageProxy from '@src/models/proxy/page-proxy';
 import { PageOverlay } from '@src/components/layout/page-overlay';
 import PageRepository from '@src/models/repository/page-repository';
-import MenuRepository, { MenuSectionProps, PrevAndNextPageEntities } from '@src/models/repository/menu-repository';
 import { RouteComponentProps, withRouter } from 'react-router';
+import DocumentMeta from '@src/shared/document-meta';
 
 type IntroContainerProps = {
     lang: DataSupportedLangType;
@@ -52,6 +51,7 @@ class IntroContainer extends React.PureComponent<IntroContainerProps, IntroConta
         return (
             <PageOverlay closeButton={false}>
                 <div className="page-wrapper">
+                    <DocumentMeta title={'MFTS >> Introduction'} />
                     {introPage ? (
                         <Page
                             pageProxy={introPage}

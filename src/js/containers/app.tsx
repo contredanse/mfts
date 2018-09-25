@@ -55,11 +55,7 @@ class App extends React.Component<AppProps, {}> {
                         exact={true}
                         path={`${match.path}/intro`}
                         render={() => {
-                            return (
-                                <DocumentMeta title={'MFTS >> Introduction'}>
-                                    <IntroContainer lang={lang} pageRepository={pageRepository} />
-                                </DocumentMeta>
-                            );
+                            return <IntroContainer lang={lang} pageRepository={pageRepository} />;
                         }}
                     />
                     <Route
