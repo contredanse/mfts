@@ -4,8 +4,8 @@ import './home.scss';
 import { debounce } from 'throttle-debounce';
 import AppAssetsLocator from '@src/core/app-assets-locator';
 import EventListener, { withOptions } from 'react-event-listener';
-import contredanseLogo from '@assets/images/logo-contredanse.png';
 import FullsizeVideoBg from '@src/components/fullsize-video-bg';
+import { ContredanseLogo } from '@src/components/contredanse-logo';
 
 type HomeProps = {
     assetsLocator: AppAssetsLocator;
@@ -101,11 +101,7 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
                     onPointerMoveCapture={this.handleMove}
                     onWheelCapture={this.handleWheelCapture}
                 />
-                <img
-                    style={{ position: 'fixed', bottom: 0, right: 0, width: 60, opacity: 0.5 }}
-                    src={contredanseLogo}
-                    alt="Contredanse logo"
-                />
+                <ContredanseLogo style={{ position: 'fixed', bottom: 0, right: 0, width: 60, opacity: 0.5 }} />
             </div>
         );
 
