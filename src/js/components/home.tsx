@@ -104,50 +104,6 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
                 <ContredanseLogo style={{ position: 'fixed', bottom: 0, right: 0, width: 60, opacity: 0.5 }} />
             </div>
         );
-
-        /*
-        return (
-            <div className="fullsize-video-bg">
-                <EventListener
-                    target={document}
-                    onMouseMoveCapture={this.handleMove}
-                    onPointerMoveCapture={this.handleMove}
-                    onWheelCapture={this.handleWheelCapture}
-                />
-                <img
-                    style={{ position: 'absolute', bottom: 0, right: 0, width: 60, opacity: 0.5 }}
-                    src={contredanseLogo}
-                    alt="Contredanse logo"
-                />
-                <div className="fullsize-video-inner">
-                    <div>
-                        <h3 className="reveal-text">Steve Paxton's</h3>
-                        <h1 className="reveal-text">Material for the spine</h1>
-                        <p className="reveal-text">
-                            <a
-                                className="clickable-text"
-                                onClick={() => {
-                                    this.navigateToIntro(lang);
-                                }}
-                            >
-                                {i18n.a_movement_study[lang] || ''}
-                            </a>
-                        </p>
-                    </div>
-                </div>
-                <div className="fullsize-video-viewport">
-                    <SimpleVideo
-                        autoPlay={true}
-                        muted={true}
-                        playsInline={true}
-                        loop={true}
-                        playbackRate={playbackRate}
-                        srcs={videoSrcs}
-                    />
-                </div>
-            </div>
-        );
-        */
     }
 }
 
