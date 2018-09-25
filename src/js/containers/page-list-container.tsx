@@ -7,6 +7,7 @@ import { withRouter } from 'react-router-dom';
 import { RouteComponentProps } from 'react-router';
 import PageRepository from '@src/models/repository/page-repository';
 import memoize from 'memoize-one';
+import DocumentMeta from '@src/shared/document-meta';
 
 type PageListContainerProps = {
     pageRepository: PageRepository;
@@ -19,6 +20,15 @@ type PageListContainerState = {
     pages: IJsonPage[];
     filterText: string;
     menuId?: string;
+};
+
+type I18nStatic = { [key: string]: { [key: string]: string } };
+
+const i18n: I18nStatic = {
+    page_title: {
+        en: 'Page list',
+        fr: 'Liste des pages',
+    },
 };
 
 class PageListContainer extends React.PureComponent<PageListContainerProps, PageListContainerState> {
@@ -75,8 +85,11 @@ class PageListContainer extends React.PureComponent<PageListContainerProps, Page
         // since the last render, `memoize-one` will reuse the last return value.
         const filteredList = this.filterPages(this.state.pages, this.state.filterText, this.props.lang);
 
+        const documentTitle = `MFTS >> ${i18n.page_title[lang] || ''}`;
+
         return (
             <PageOverlay>
+                <DocumentMeta title={documentTitle} />
                 <PageList
                     baseUrl={this.props.videosBaseUrl}
                     pages={filteredList}
