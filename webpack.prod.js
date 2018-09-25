@@ -268,7 +268,7 @@ module.exports = merge(common, {
         new HtmlWebpackPlugin({
             alwaysWriteToDisk: true,
             hash: false,
-            title: 'Paxton MFTS',
+            title: "Steve Paxton's Material for the spine",
             template: './public/index.html',
             removeAttributeQuotes: true,
             removeComments: true,
@@ -280,8 +280,8 @@ module.exports = merge(common, {
 
         new WebpackPwaManifest({
             short_name: 'Paxton MFTS',
-            name: 'Steve Paxton - Material for the spine',
-            description: 'Material for the spine. Contredanse.org ',
+            name: 'Paxton - Material for the spine',
+            description: "Steve Paxton's Material for the spine - An application by contredanse.org ",
             background_color: '#000000',
             theme_color: '#000000',
             start_url: '/?utm_source=homescreen',
