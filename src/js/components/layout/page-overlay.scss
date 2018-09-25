@@ -10,15 +10,9 @@ $overlay-top-margin: 60px;
     margin: 0;
     width: 100%;
     max-width: 100%;
-
     //height: calc(100vh - #{$overlay-top-margin});
-
     z-index: 1000;
-
     overflow: hidden;
-
-    background-color: black;
-
     display: flex;
     .page-overlay-ctn {
         //display: flex;
