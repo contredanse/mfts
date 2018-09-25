@@ -14,6 +14,7 @@ import { PlayerActions } from '@src/shared/player/player';
 import { ReactPlayerProps } from 'react-player';
 import { MenuSectionProps } from '@src/models/repository/menu-repository';
 import PageBreadcrumb from '@src/components/page-breadcrumb';
+import DocumentMeta from '@src/shared/document-meta';
 
 export type PageProps = {
     pageProxy: PageProxy;
@@ -108,11 +109,15 @@ class Page extends React.PureComponent<PageProps, PageState> {
         const videos = page.getVideos(lang);
         const audio = page.getAudioProxy();
         const { i18n } = this.props;
+
+        const pageTitle = page.getTitle(lang);
+
         console.log('rerender');
         return (
             <div className="page-container">
+                <DocumentMeta title={`MFTS >> ${pageTitle}`} />
                 <div className="page-header">
-                    <PageBreadcrumb title={page.getTitle(lang)} sections={menuBreadcrumb} lang={lang} />
+                    <PageBreadcrumb title={pageTitle} sections={menuBreadcrumb} lang={lang} />
                 </div>
 
                 <div className="page-content">
