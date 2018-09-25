@@ -1,40 +1,54 @@
 # TODO
 
-- [X] Language change 
-  - [X] Stored as a localStorage or cookie
-  - [X] Integration with redux
-  - [X] Translations
-  
-- [ ] Player
-  - [ ] Sound buttons
-  - [ ] Loading indicator 
-  - [ ] Control play/pause with space
-  - [ ] Playback speed changes must modify sound
-  - [ ] Menu for playback speed
-  - [ ] When playback finished - propose: next/previous videos
-  - [ ] When playback very short - loop ? Question
-  - [x] Playback next/previous video 
+- [X] Video cleanup
+  - [X] MP4/WebM done ! (deint...)
 
-- [X] Menu
-  - Menu with links to helix, search, about, login...
-      
-- [x] Repository - get the next/previous video
+- [X] Language support 
+  - [X] Persist choice in localStorage
+  - [X] Integration with redux
+  - [X] Integration with redux and route
+  - [X] Translations (react-i18n-next)
   
+- [ ] Video player
+  - [x] Sound buttons (on/off)
+  - [x] Loading indicator (currently a message)
+    - [x] Loading indicator as a message
+    - [ ] `NiceToHave` Add loading animation 
+  - [ ] Menu for playback speed
+    - [ ] `NicetoHave` auto mute sound if speed below or over limits.
+  - [x] OnEnd event, when video finish let's go `somewhere`
+       
+- [ ] Page behaviours  
+  - [ ] When playback very short - loop ? Question  
+  - [x] Playback next/previous video 
+  - [ ] Control play/pause with space
+  - [ ] Multi video player
+        - [] Video zoom
+
 - [ ] Page list:
   - [ ] Organize by section
   - [x] Accept menuId filter
   - [x] Filter by menuId
-   
-- [ ] VIDEO DETAIL (ZOOM)
+
+- [X] Menu
+  - [X] Menu with links to helix, search, about, login...
+  - [ ] Helix **see with @emeric**.
+      
+- [x] Data
+  - [X] Repository: get the next/previous page from MenuRepository
+     
 
 - [ ] Authentication
-  - [X] Login page (wip)
+  - [ ] Profile page (wip)
+    - [X] Login form
+    - [ ] Register form
+    - [ ] Info (pricing) ?
   - [ ] Backend ? (symfony/zend-expressive ?)
     - [ ] Contredanse_v4 support
-  - [ ] Front-end         
 
-- [ ] About page
-  - [ ] Credits
+- [x] About page
+  - [x] Credits
+  - [ ] Biography
   
-- [ ] Meta manager (title)
-  - [ ] React hemet ot other  
+- [x] Meta manager (title)
+  - [x] Home made document meta component  
