@@ -19,7 +19,13 @@ import {
     createStyles,
 } from '@material-ui/core';
 
-import { Menu as MenuIcon } from '@material-ui/icons';
+import {
+    Menu as MenuIcon,
+    AccountBoxRounded as AccountBoxIcon,
+    InfoRounded as InfoIcon,
+    ListRounded as ListIcon,
+    HomeRounded as HomeIcon,
+} from '@material-ui/icons';
 
 type MenuLinkProps = {
     path: string;
@@ -42,8 +48,8 @@ const styles = (theme: Theme) =>
             flex: 1,
         },
         menuButton: {
-            marginLeft: -12,
-            marginRight: 20,
+            marginLeft: -5,
+            marginRight: 0,
         },
     });
 
@@ -52,28 +58,7 @@ export type AppBarWithRouterProps = AppBarProps & RouteComponentProps<{}>;
 
 export const AppBarComponent: React.SFC<AppBarWithStylesProps & AppBarWithRouterProps> = props => {
     const { classes, history, lang } = props;
-    const currentPath = props.location.pathname;
-
-    const menuItems: MenuLinkProps[] = [
-        { path: '/', label: 'Home', active: false },
-        { path: `/${lang}/page-list`, label: 'Pages', active: false },
-        { path: `/${lang}/login`, label: 'Login', active: false },
-        { path: `/${lang}/about`, label: 'About', active: false },
-    ].map((menuLinkProps: MenuLinkProps) => {
-        return { ...menuLinkProps, active: currentPath === menuLinkProps.path };
-    });
-
-    const LinkItem = (linkProps: MenuLinkProps) => {
-        return (
-            <Button
-                color="inherit"
-                variant={linkProps.active ? 'raised' : undefined}
-                component={(btnProps: any) => <Link to={linkProps.path} {...btnProps} />}
-            >
-                {linkProps.label}
-            </Button>
-        );
-    };
+    //const currentPath = props.location.pathname;
 
     return (
         <div className={classes.root}>
@@ -93,9 +78,50 @@ export const AppBarComponent: React.SFC<AppBarWithStylesProps & AppBarWithRouter
                     <Typography variant="title" color="inherit" className={classes.flex}>
                         {props.title}
                     </Typography>
-                    {menuItems.map(({ path, label, active }) => {
-                        return <LinkItem key={path} path={path} label={label} active={active} />;
-                    })}
+
+                    <IconButton
+                        className={classes.menuButton}
+                        color="inherit"
+                        aria-label="Home"
+                        onClick={() => {
+                            history.push(`/`);
+                        }}
+                    >
+                        <HomeIcon />
+                    </IconButton>
+
+                    <IconButton
+                        className={classes.menuButton}
+                        color="inherit"
+                        aria-label="List"
+                        onClick={() => {
+                            history.push(`/${lang}/page-list`);
+                        }}
+                    >
+                        <ListIcon />
+                    </IconButton>
+
+                    <IconButton
+                        className={classes.menuButton}
+                        color="inherit"
+                        aria-label="Info"
+                        onClick={() => {
+                            history.push(`/${lang}/about`);
+                        }}
+                    >
+                        <InfoIcon />
+                    </IconButton>
+
+                    <IconButton
+                        className={classes.menuButton}
+                        color="inherit"
+                        aria-label="Profile"
+                        onClick={() => {
+                            history.push(`/${lang}/login`);
+                        }}
+                    >
+                        <AccountBoxIcon />
+                    </IconButton>
                 </Toolbar>
             </MaterialAppBar>
         </div>

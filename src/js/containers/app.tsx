@@ -113,7 +113,8 @@ class App extends React.Component<AppProps, {}> {
         return (
             <WithStore selector={state => state.lang}>
                 {({ lang }: LangState, dispatch) => {
-                    const title = i18n.t('appbar.title', { lng: lang });
+                    //const title = i18n.t('appbar.title', { lng: lang });
+                    const title = '';
                     return (
                         <I18nextProvider i18n={i18n}>
                             <ConnectedRouter history={history}>
