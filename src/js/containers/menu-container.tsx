@@ -2,6 +2,7 @@ import React from 'react';
 import HelixMenu from '@src/components/helix-menu';
 import MenuRepository from '@src/models/repository/menu-repository';
 import { DataSupportedLangType } from '@src/models/repository/data-repository';
+import DocumentMeta from '@src/shared/document-meta';
 
 type MenuContainerProps = {
     menuRepository: MenuRepository;
@@ -18,6 +19,7 @@ class MenuContainer extends React.Component<MenuContainerProps, MenuContainerSta
     render() {
         return (
             <div style={{ textAlign: 'center' }}>
+                <DocumentMeta title={'MFTS >> Menu'} />
                 <HelixMenu jsonDataMenu={this.props.menuRepository.getJsonMenu()} />
             </div>
         );
