@@ -117,7 +117,6 @@ class Page extends React.PureComponent<PageProps, PageState> {
                 <div className="page-header">
                     <PageBreadcrumb title={pageTitle} sections={menuBreadcrumb} lang={lang} />
                 </div>
-
                 <div className="page-content">
                     {hasMultipleVideos ? (
                         <div className="page-multi-video-layout">
@@ -156,7 +155,6 @@ class Page extends React.PureComponent<PageProps, PageState> {
                                     className="autoscale-video-wrapper autoscale-video-content"
                                     crossOrigin={'anonymous'}
                                     activeSubtitleLang={this.props.lang}
-                                    style={{}}
                                     preload="preload"
                                     video={page.getFirstVideo(lang)!}
                                     playing={this.state.playbackState.isPlaying}
@@ -169,18 +167,14 @@ class Page extends React.PureComponent<PageProps, PageState> {
                         </div>
                     )}
                 </div>
-                {/*
-                <div className="page-footer">
-                </div>
-                */}
                 <ControlBar
                     {...(this.getMainPlayerVideoElement() ? { videoEl: this.getMainPlayerVideoElement()! } : {})}
                     actions={this.mediaPlayerActions}
                     duration={this.state.playbackState.duration}
-                    currentTime={this.state.playbackState.currentTime}
                     playbackRate={this.state.playbackState.playbackRate}
                     enableNextControl={this.props.nextPage !== undefined}
                     enablePrevControl={this.props.previousPage !== undefined}
+                    enableSpeedControl={false}
                     {...this.controlBarActions}
                 />
             </div>
