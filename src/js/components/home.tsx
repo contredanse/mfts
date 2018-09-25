@@ -1,13 +1,11 @@
 import * as React from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import './home.scss';
-import SimpleVideo from '@src/components/simple-video';
 import { debounce } from 'throttle-debounce';
 import AppAssetsLocator from '@src/core/app-assets-locator';
 import EventListener, { withOptions } from 'react-event-listener';
 import contredanseLogo from '@assets/images/logo-contredanse.png';
-import { Simulate } from 'react-dom/test-utils';
-import play = Simulate.play;
+import FullsizeVideoBg from '@src/components/fullsize-video-bg';
 
 type HomeProps = {
     assetsLocator: AppAssetsLocator;
@@ -73,14 +71,47 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
 
         const videoSrcs = [
             { src: `${videosBaseUrl}/puzzle2.webm`, type: 'video/webm' },
-            { src: `${videosBaseUrl}/intro_2tubes_walk.mp4`, type: 'video/mp4' },
+            { src: `${videosBaseUrl}/puzzle2.mp4`, type: 'video/mp4' },
         ];
 
         const { lang } = this.props;
         const { playbackRate } = this.state;
 
         return (
-            <section className="fullsize-video-bg">
+            <div className="home-container">
+                <FullsizeVideoBg videoSrcs={videoSrcs} playbackRate={playbackRate}>
+                    <div>
+                        <h3 className="reveal-text">Steve Paxton's</h3>
+                        <h1 className="reveal-text">Material for the spine</h1>
+                        <p className="reveal-text">
+                            <a
+                                className="clickable-text"
+                                onClick={() => {
+                                    this.navigateToIntro(lang);
+                                }}
+                            >
+                                {i18n.a_movement_study[lang] || ''}
+                            </a>
+                        </p>
+                    </div>
+                </FullsizeVideoBg>
+                <EventListener
+                    target={document}
+                    onMouseMoveCapture={this.handleMove}
+                    onPointerMoveCapture={this.handleMove}
+                    onWheelCapture={this.handleWheelCapture}
+                />
+                <img
+                    style={{ position: 'fixed', bottom: 0, right: 0, width: 60, opacity: 0.5 }}
+                    src={contredanseLogo}
+                    alt="Contredanse logo"
+                />
+            </div>
+        );
+
+        /*
+        return (
+            <div className="fullsize-video-bg">
                 <EventListener
                     target={document}
                     onMouseMoveCapture={this.handleMove}
@@ -108,7 +139,7 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
                         </p>
                     </div>
                 </div>
-                <div id="fullsize-video-viewport">
+                <div className="fullsize-video-viewport">
                     <SimpleVideo
                         autoPlay={true}
                         muted={true}
@@ -118,8 +149,9 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
                         srcs={videoSrcs}
                     />
                 </div>
-            </section>
+            </div>
         );
+        */
     }
 }
 
