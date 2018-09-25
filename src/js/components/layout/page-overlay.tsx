@@ -1,7 +1,7 @@
 import React from 'react';
-import Scrollbars from 'react-custom-scrollbars';
 
 import './page-overlay.scss';
+import { CustomScrollbar } from '@src/components/layout/custom-scrollbar';
 
 type PageOverlayProps = {
     closeButton?: boolean;
@@ -11,11 +11,10 @@ type PageOverlayState = {};
 
 const defaultProps = {
     closeButton: false,
-};
+} as PageOverlayProps;
 
-export class PageOverlay extends React.Component<PageOverlayProps, PageOverlayState> {
-    public static readonly defaultProps: Partial<PageOverlayProps> = defaultProps;
-
+export class PageOverlay extends React.PureComponent<PageOverlayProps, PageOverlayState> {
+    public static readonly defaultProps: PageOverlayProps = defaultProps;
     render() {
         const { closeButton } = this.props;
 
@@ -34,45 +33,14 @@ export class PageOverlay extends React.Component<PageOverlayProps, PageOverlaySt
                             </button>
                         </div>
                     )}
-                    <Scrollbars
-                        autoHide={false}
-                        autoHideDuration={5000}
-                        hideTracksWhenNotNeeded={true}
-                        style={{}}
-                        renderThumbVertical={this.getScrollbarThumb()}
-                        renderTrackVertical={this.getScrollbarTrack()}
-                    >
-                        {this.props.children}
-                    </Scrollbars>
+                    <CustomScrollbar>{this.props.children}</CustomScrollbar>
                 </div>
             </div>
         );
     }
-
     protected handleClose = (e: React.MouseEvent<HTMLElement>) => {
         if (this.props.onClose !== undefined) {
             this.props.onClose();
         }
     };
-
-    protected getScrollbarTrack(): React.StatelessComponent<any> {
-        const trackStyle = {
-            width: '5px',
-            borderRadius: 3,
-            top: '10%',
-            bottom: '10%',
-            right: '10px',
-            borderRight: '2px dotted rgba(255,255,255, 0.5)',
-        };
-        return ({ style, ...props }) => <div style={{ ...style, ...trackStyle }} {...props} />;
-    }
-
-    protected getScrollbarThumb(): React.StatelessComponent<any> {
-        const thumbStyle = {
-            backgroundColor: 'rgba(255,255,255, 0.7)',
-            cursor: 'pointer',
-            borderRadius: 'inherit',
-        };
-        return ({ style, props }) => <div style={{ ...style, ...thumbStyle }} {...props} />;
-    }
 }
