@@ -22,7 +22,7 @@ type HomeState = {
 
 const defaultProps = {
     playbackRate: 1,
-    mouseMoveDelay: 150,
+    mouseMoveDelay: 80,
 } as HomeProps;
 
 type I18nStatic = { [key: string]: { [key: string]: string } };
@@ -103,7 +103,7 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
                                     this.navigateToIntro(lang);
                                 }}
                             >
-                                {i18n.a_movement_study[lang]}
+                                {i18n.a_movement_study[lang] || ''}
                             </a>
                         </p>
                     </div>
