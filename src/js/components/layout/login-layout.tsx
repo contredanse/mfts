@@ -8,7 +8,7 @@ type LoginLayoutState = {};
 const defaultProps = {};
 
 export class LoginLayout extends React.Component<LoginLayoutProps, LoginLayoutState> {
-    static readonly defaultProps: Partial<LoginLayoutProps> = defaultProps;
+    static defaultProps: Partial<LoginLayoutProps> = defaultProps;
     render() {
         return <div className="login-layout-container">{this.props.children}</div>;
     }

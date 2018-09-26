@@ -21,10 +21,10 @@ const defaultProps = {
         { value: 0.5, title: '0.5' },
         { value: 0.2, title: '0.2' },
     ],
-} as PlaybackRateSelectProps;
+};
 
 class PlaybackRateSelect extends PureComponent<PlaybackRateSelectProps> {
-    static readonly defaultProps = defaultProps;
+    static defaultProps = defaultProps;
 
     render() {
         const { style, playbackRates } = this.props;

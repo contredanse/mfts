@@ -21,7 +21,7 @@ type HomeState = {
 const defaultProps = {
     playbackRate: 1,
     mouseMoveDelay: 80,
-} as HomeProps;
+};
 
 type I18nStatic = { [key: string]: { [key: string]: string } };
 
@@ -33,7 +33,7 @@ const i18n: I18nStatic = {
 };
 
 class Home extends React.PureComponent<HomeProps, HomeState> {
-    static readonly defaultProps: HomeProps = defaultProps;
+    static defaultProps = defaultProps;
     readonly state: HomeState;
 
     constructor(props: HomeProps) {

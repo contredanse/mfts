@@ -9,10 +9,10 @@ type CustomScrollbarProps = {
 };
 type CustomScrollbarState = {};
 
-const defaultProps = {} as CustomScrollbarProps;
+const defaultProps = {};
 
 export class CustomScrollbar extends React.PureComponent<CustomScrollbarProps, CustomScrollbarState> {
-    public static readonly defaultProps: CustomScrollbarProps = defaultProps;
+    static defaultProps: CustomScrollbarProps = defaultProps;
 
     constructor(props: CustomScrollbarProps) {
         super(props);

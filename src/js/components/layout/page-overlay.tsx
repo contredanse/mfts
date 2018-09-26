@@ -11,10 +11,10 @@ type PageOverlayState = {};
 
 const defaultProps = {
     closeButton: false,
-} as PageOverlayProps;
+};
 
 export class PageOverlay extends React.PureComponent<PageOverlayProps, PageOverlayState> {
-    public static readonly defaultProps: PageOverlayProps = defaultProps;
+    static defaultProps = defaultProps;
     render() {
         const { closeButton } = this.props;
 

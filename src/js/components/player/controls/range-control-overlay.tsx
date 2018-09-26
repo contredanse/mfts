@@ -29,7 +29,7 @@ export type RangeControlOverlayState = {
  * within a specified bounds.
  */
 class RangeControlOverlay extends PureComponent<RangeControlOverlayProps, RangeControlOverlayState> {
-    static readonly defaultProps: Partial<RangeControlOverlayProps> = {
+    static defaultProps = {
         //onChangeStart: (value: number) => {},
         //onChangeEnd: (value: number) => {},
         //onIntent: (value: number) => {},

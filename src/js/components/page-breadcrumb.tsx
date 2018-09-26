@@ -12,10 +12,10 @@ type PageBreadcrumbProps = {
 
 type PageBreadcrumbState = {};
 
-const defaultProps = {} as PageBreadcrumbProps;
+const defaultProps = {};
 
 class PageBreadcrumb extends React.PureComponent<PageBreadcrumbProps, PageBreadcrumbState> {
-    static readonly defaultProps: PageBreadcrumbProps = defaultProps;
+    static defaultProps = defaultProps;
 
     constructor(props: PageBreadcrumbProps) {
         super(props);

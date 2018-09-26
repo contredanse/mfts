@@ -45,7 +45,7 @@ type ProgressBarState = {
  * Seekable progress bar
  */
 export class ProgressBar extends Component<ProgressBarProps, ProgressBarState> {
-    static readonly defaultProps = {
+    static defaultProps = {
         duration: Infinity,
         currentTime: 0,
         bufferedTime: 0,
@@ -60,7 +60,7 @@ export class ProgressBar extends Component<ProgressBarProps, ProgressBarState> {
         childrenStyles: {
             RangeControlOverlay: {},
         },
-    } as ProgressBarProps;
+    };
 
     readonly state: ProgressBarState;
 

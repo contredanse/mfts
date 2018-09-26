@@ -12,10 +12,10 @@ type FullsizeVideoBgState = {};
 
 const defaultProps = {
     playbackRate: 1,
-} as FullsizeVideoBgProps;
+};
 
 class FullsizeVideoBg extends React.PureComponent<FullsizeVideoBgProps, FullsizeVideoBgState> {
-    static readonly defaultProps: FullsizeVideoBgProps = defaultProps;
+    static defaultProps = defaultProps;
     readonly state: FullsizeVideoBgState;
 
     constructor(props: FullsizeVideoBgProps) {

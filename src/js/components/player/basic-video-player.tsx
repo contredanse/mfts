@@ -10,10 +10,10 @@ export type SimpleVideoProps = {
 
 const defaultProps = {
     playbackRate: 1,
-} as SimpleVideoProps;
+};
 
 class BasicVideoPlayer extends React.Component<SimpleVideoProps, {}> {
-    static readonly defaultProps: SimpleVideoProps = defaultProps;
+    static defaultProps = defaultProps;
 
     protected videoRef!: React.RefObject<HTMLVideoElement>;
 
