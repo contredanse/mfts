@@ -1,5 +1,4 @@
-import { RouterAction } from 'connected-react-router';
-import { LocationChangeAction } from '../../typings/connected-router-extra';
+import { RouterAction, LocationChangeAction } from 'connected-react-router';
 
 declare module 'Types' {
     //export type RootState = StateType<typeof rootReducer>;
