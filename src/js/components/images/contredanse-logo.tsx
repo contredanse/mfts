@@ -1,5 +1,5 @@
 import React, { CSSProperties } from 'react';
-import contredanseLogo from '@assets/images/logo-contredanse.png';
+import contredanseLogo from '../../../assets/images/logo-contredanse.png';
 
 type ContredanseLogoProps = {
     style?: CSSProperties;

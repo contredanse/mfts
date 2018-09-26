@@ -5,7 +5,7 @@ import { debounce } from 'throttle-debounce';
 import AppAssetsLocator from '@src/core/app-assets-locator';
 import EventListener, { withOptions } from 'react-event-listener';
 import FullsizeVideoBg from '@src/components/fullsize-video-bg';
-import { ContredanseLogo } from '@src/components/contredanse-logo';
+import { ContredanseLogo } from '@src/components/images/contredanse-logo';
 
 type HomeProps = {
     assetsLocator: AppAssetsLocator;
