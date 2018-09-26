@@ -50,6 +50,8 @@ module.exports = merge(common, {
             classnames: path.resolve(__dirname, 'node_modules/classnames'), // enabled: material-ui and local differs
             // Material-ui & material-ui-icons
             recompose: path.resolve(__dirname, 'node_modules/recompose'),
+            // React-transition-group
+            'react-transition-group': path.resolve(__dirname, 'node_modules/react-transition-group'),
         },
     },
     module: {
