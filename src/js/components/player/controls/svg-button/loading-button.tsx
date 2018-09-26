@@ -1,5 +1,5 @@
 import React from 'react';
-import loadingSvg from '@assets/svg/controlbar-loading-button-1.svg';
+import loadingSvg from '@assets/svg/controlbar-loading-button-2.svg';
 import './buttons.scss';
 
 class LoadingButton extends React.Component<{}, {}> {
