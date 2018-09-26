@@ -1,16 +1,16 @@
-import React, { CSSProperties } from 'react';
+import React, { CSSProperties, ImgHTMLAttributes } from 'react';
 import contredanseLogo from '../../../assets/images/logo-contredanse.png';
+import { Omit } from 'utility-types';
 
-type ContredanseLogoProps = {
-    style?: CSSProperties;
-};
+type ContredanseLogoProps = {} & Omit<ImgHTMLAttributes<HTMLImageElement>, 'src'>;
 
-const defaultStyle = {} as CSSProperties;
+const defaultProps = {
+    alt: 'Contredanse',
+} as ContredanseLogoProps;
 
 export const ContredanseLogo: React.SFC<ContredanseLogoProps> = props => {
-    let { style } = props;
-    if (!style) {
-        style = defaultStyle;
-    }
-    return <img style={style} src={contredanseLogo} alt="Contredanse" />;
+    const { ...innerProps } = props;
+    return <img src={contredanseLogo} {...innerProps} />;
 };
+
+ContredanseLogo.defaultProps = defaultProps;

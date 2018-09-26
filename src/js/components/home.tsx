@@ -101,7 +101,7 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
                     onPointerMoveCapture={this.handleMove}
                     onWheelCapture={this.handleWheelCapture}
                 />
-                <ContredanseLogo style={{ position: 'fixed', bottom: 0, right: 0, width: 60, opacity: 0.5 }} />
+                <ContredanseLogo alt="" style={{ position: 'fixed', bottom: 0, right: 0, width: 60, opacity: 0.5 }} />
             </div>
         );
     }
