@@ -8,7 +8,8 @@
 .PrevButton,
 .NextButton,
 .SoundOnButton,
-.SoundOffButton {
+.SoundOffButton,
+.SubtitlesButton {
     margin: $button-margin;
     padding: $button-padding;
     background: $button-background;
@@ -26,7 +27,7 @@
         &:hover {
             border-color: $button-color-hover;
 
-            .Icon-shape {
+            svg.mdi-icon {
                 fill: $button-color-hover;
             }
         }
@@ -34,7 +35,7 @@
         &:active {
             border-color: $button-color-active;
 
-            .Icon-shape {
+            svg.mdi-icon {
                 fill: $button-color-active;
             }
         }
@@ -42,7 +43,6 @@
 
     .mdi-icon {
         display: block;
-
         fill: $button-icon-fill-color;
     }
 }
