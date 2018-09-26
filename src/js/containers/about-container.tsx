@@ -1,5 +1,4 @@
 import React from 'react';
-import Home from '@src/components/home';
 import { RouteComponentProps, withRouter } from 'react-router';
 import AppAssetsLocator from '@src/core/app-assets-locator';
 import About from '@src/components/about';
