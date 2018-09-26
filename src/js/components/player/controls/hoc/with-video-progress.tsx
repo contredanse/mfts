@@ -30,7 +30,7 @@ const defaultState: VideoProgressState = {
 const withVideoProgress = <P extends InjectedWithVideoProgressProps>(WrappedComponent: React.ComponentType<P>) => {
     type VideoProgressInnerProps = Subtract<P, InjectedWithVideoProgressProps> & WithVideoProgressProps;
 
-    class WithVideoProgress extends React.Component<VideoProgressInnerProps, VideoProgressState> {
+    class WithVideoProgress extends React.PureComponent<VideoProgressInnerProps, VideoProgressState> {
         readonly state: VideoProgressState;
 
         protected interval!: number;
