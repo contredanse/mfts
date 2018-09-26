@@ -8,19 +8,19 @@ import ReactPlayer, {
 } from 'react-player';
 import AudioProxy from '../../models/proxy/audio-proxy';
 
-type AudioPlayerProps = {
+type AudioProxyPlayerProps = {
     audio: AudioProxy;
     lang?: string;
 } & ReactPlayerProps;
 
-type AudioPlayerState = {};
+type AudioProxyPlayerState = {};
 
-export default class AudioPlayer extends React.Component<AudioPlayerProps, AudioPlayerState> {
+export default class AudioProxyPlayer extends React.Component<AudioProxyPlayerProps, AudioProxyPlayerState> {
     protected playerRef: React.RefObject<ReactPlayer>;
     protected playerConfig: ReactPlayerConfig;
     protected playerSources: ReactPlayerSourceProps[];
 
-    constructor(props: AudioPlayerProps) {
+    constructor(props: AudioProxyPlayerProps) {
         super(props);
         this.playerRef = React.createRef();
         const currentLang = this.props.lang || 'en';
