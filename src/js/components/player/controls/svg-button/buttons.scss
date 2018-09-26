@@ -1,0 +1,19 @@
+@import '../variables';
+
+//
+// Buttons
+//
+
+.loading-button {
+    margin: $button-margin;
+    padding: $button-padding;
+    margin-left: 5px;
+    background: $button-background;
+    border: $button-border;
+    //border-radius: 100%;
+    outline: none;
+
+    &[disabled] {
+        opacity: 0.5;
+    }
+}

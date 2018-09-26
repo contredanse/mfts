@@ -21,6 +21,7 @@ import {
 } from '@src/components/player/controls/utils/subtitles-actions';
 
 import PlaybackStatusProvider from '@src/components/player/controls/hoc/playback-status-provider';
+import LoadingButton from '@src/components/player/controls/svg-button/loading-button';
 
 export type MediaPlayerControlBarProps = {
     videoEl?: HTMLVideoElement;
@@ -82,7 +83,7 @@ export class ControlBar extends React.PureComponent<MediaPlayerControlBarProps, 
             border: '3px solid yellow',
         };
 
-        const LoadingIndicator = () => <div>Loading...</div>;
+        const LoadingIndicator = () => <LoadingButton />;
 
         return (
             <div className={'control-bar-ctn'}>
