@@ -356,8 +356,7 @@ module.exports = merge(common, {
             importScripts: [`static/js/workbox-sw.${workboxVersion}.js`],
             swSrc: './src/js/service-worker.webpack.stub.js',
             swDest: 'service-worker.js',
-
-            exclude: [/\.map$/, /\.htaccess$/, /assets-manifest\.json$/, /\.br$/, /\.gz$/, /icons\/(.*)\.png/],
+            exclude: [/\.htaccess$/, /assets-manifest\.json$/, /\.map$/, /\.br$/, /\.gz$/],
 
             /** Only working with GeneratSwPlugin
             navigateFallback: 'index.html',
