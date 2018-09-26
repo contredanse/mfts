@@ -1,4 +1,5 @@
 import React from 'react';
+import { debugSubtitlesLoading } from '@src/components/player/controls/utils/subtitles-actions';
 
 interface InjectedCounterProps {
     value: number;

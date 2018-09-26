@@ -14,6 +14,7 @@ import { PlayerActions } from '@src/shared/player/player';
 import ProgressBar from './progress-bar';
 import PlaybackRateSelect from '@src/components/player/controls/playback-rate-select';
 import {
+    debugSubtitlesLoading,
     hasShownSubtitle,
     hideAllSubtitles,
     showSubtitle,
