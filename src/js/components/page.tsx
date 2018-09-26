@@ -8,7 +8,7 @@ import PageProxy from '@src/models/proxy/page-proxy';
 
 import ControlBar, { MediaPlayerControlBarProps } from '@src/components/player/controls/control-bar';
 import PanelMultiVideo from '@src/components/panel-multi-video';
-import AudioProxyPlayer from '@src/components/player/audio-player';
+import AudioProxyPlayer from '@src/components/player/audio-proxy-player';
 import VideoProxyPlayer from '@src/components/player/video-proxy-player';
 import { PlayerActions } from '@src/shared/player/player';
 import { ReactPlayerProps } from 'react-player';
