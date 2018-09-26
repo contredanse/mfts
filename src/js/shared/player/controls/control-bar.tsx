@@ -1,14 +1,16 @@
 import React, { MouseEvent } from 'react';
 import './control-bar.scss';
-import PlayButton from '@src/shared/player/controls/play-button';
-import PauseButton from '@src/shared/player/controls/pause-button';
-import PrevButton from '@src/shared/player/controls/prev-button';
-import NextButton from '@src/shared/player/controls/next-button';
+import {
+    PlayButton,
+    PauseButton,
+    PrevButton,
+    NextButton,
+    SubtitlesButton,
+    SoundOffButton,
+    SoundOnButton,
+} from './svg-mdi-button';
 import { PlayerActions } from '@src/shared/player/player';
 import { default as ProgressBar } from '@src/shared/player/controls/progress-bar';
-import SoundOffButton from '@src/shared/player/controls/sound-off-button';
-import SoundOnButton from '@src/shared/player/controls/sound-on-button';
-import SubtitlesButton from '@src/shared/player/controls/subtitles-button';
 
 export type MediaPlayerControlBarProps = {
     videoEl?: HTMLVideoElement;

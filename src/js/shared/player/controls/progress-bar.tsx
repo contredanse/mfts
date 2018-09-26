@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import './progress-bar.scss';
 
 import RangeControlOverlay from './range-control-overlay';
-import withVideoProgress from '@src/shared/player/controls/with-video-progress';
+import withVideoProgress from '@src/shared/player/controls/hoc/with-video-progress';
 
 export type ProgressBarChildClasses = {
     elapsed?: string;

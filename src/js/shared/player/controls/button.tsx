@@ -1,4 +1,4 @@
-import React, { Component, CSSProperties, ReactNode } from 'react';
+import React, { PureComponent, CSSProperties, ReactNode } from 'react';
 import classNames from 'classnames';
 
 export type ButtonProps = {
@@ -10,14 +10,14 @@ export type ButtonProps = {
     children?: ReactNode;
 };
 
-class Button extends Component<ButtonProps> {
-    static defaultProps: Partial<ButtonProps> = {
+class Button extends PureComponent<ButtonProps> {
+    static defaultProps: ButtonProps = {
         isEnabled: true,
         className: 'Button',
         extraClasses: '',
         style: {},
         children: null,
-    };
+    } as ButtonProps;
 
     render() {
         const { isEnabled, className, extraClasses, style, children } = this.props;

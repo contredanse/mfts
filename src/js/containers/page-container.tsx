@@ -88,7 +88,6 @@ class PageContainer extends React.Component<PageContainerProps, PageContainerSta
                             lang={lang}
                             previousPage={previousPage}
                             nextPage={nextPage}
-                            // onPageChangeRequest={() => {this.props.history.push('/about')}}
                             onPageChangeRequest={this.navigateToPage}
                         />
                     </div>

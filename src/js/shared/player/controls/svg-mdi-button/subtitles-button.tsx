@@ -1,7 +1,5 @@
 import React from 'react';
-
-import Button, { ButtonProps } from './button';
-
+import Button, { ButtonProps } from '../button';
 import { SubtitlesIcon } from 'mdi-react';
 
 import './buttons.scss';

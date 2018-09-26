@@ -1,11 +1,10 @@
 import React from 'react';
-
-import Button, { ButtonProps } from './button';
+import Button, { ButtonProps } from '../button';
 import { VolumeOffIcon as SoundOffIcon } from 'mdi-react';
 
 import './buttons.scss';
 
-class SoundOffButton extends Button {
+export default class SoundOffButton extends Button {
     static defaultProps: Partial<ButtonProps> = {
         ...Button.defaultProps,
         className: 'SoundOffButton',
@@ -13,5 +12,3 @@ class SoundOffButton extends Button {
         isEnabled: false,
     };
 }
-
-export default SoundOffButton;
