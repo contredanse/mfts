@@ -7,9 +7,10 @@ type ControlBarOverlayState = {
 };
 type ControlBarOverlayProps = {};
 
-export class ControlBarOverlay extends React.Component<ControlBarOverlayProps, ControlBarOverlayState> {
-    static readonly defaultProps: Partial<ControlBarOverlayProps> = {};
+const defaultProps = {} as ControlBarOverlayProps;
 
+export class ControlBarOverlay extends React.Component<ControlBarOverlayProps, ControlBarOverlayState> {
+    static readonly defaultProps = defaultProps;
     readonly state: ControlBarOverlayState;
 
     constructor(props: ControlBarOverlayProps) {

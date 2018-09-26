@@ -12,6 +12,8 @@ import {
 
 import { PlayerActions } from '@src/shared/player/player';
 import ProgressBar from './progress-bar';
+import PlaybackRateSelect from '@src/components/player/controls/playback-rate-select';
+import { hideAllSubtitles, showSubtitle } from '@src/components/player/controls/utils/subtitles-actions';
 
 export type MediaPlayerControlBarProps = {
     videoEl?: HTMLVideoElement;
@@ -38,13 +40,13 @@ export type MediaPlayerControlbarState = {
     isLoading: boolean;
 };
 
-export class ControlBar extends React.Component<MediaPlayerControlBarProps, MediaPlayerControlbarState> {
-    static readonly defaultProps: Partial<MediaPlayerControlBarProps> = {
+export class ControlBar extends React.PureComponent<MediaPlayerControlBarProps, MediaPlayerControlbarState> {
+    static readonly defaultProps = {
         enableBrowseControl: false,
         enableSpeedControl: true,
         enableNextControl: true,
         enablePrevControl: true,
-    };
+    } as MediaPlayerControlBarProps;
 
     readonly state: MediaPlayerControlbarState;
 
@@ -159,30 +161,8 @@ export class ControlBar extends React.Component<MediaPlayerControlBarProps, Medi
                     </div>
 
                     <div className="control-bar-ctn__panel__right">
-                        {props.enableSpeedControl && (
-                            <div className="control-bar__select">
-                                <select
-                                    onChange={(e: React.SyntheticEvent<HTMLSelectElement>) => {
-                                        const speed = parseFloat(e.currentTarget.value);
-                                        props.actions.setPlaybackRate(speed);
-                                    }}
-                                >
-                                    <option value="2">2</option>
-                                    <option value="1">1</option>
-                                    <option value="0.5">0.5</option>
-                                    <option value="0.25">0.25</option>
-                                    <option value="0.10">0.10</option>
-                                </select>
-                            </div>
-                        )}
-
-                        <SubtitlesButton
-                            isEnabled={true}
-                            onClick={() => {
-                                alert('cool');
-                            }}
-                        />
-
+                        {props.enableSpeedControl && <PlaybackRateSelect onChange={props.actions.setPlaybackRate} />}
+                        <SubtitlesButton isEnabled={true} onClick={this.toggleSubtitles} />
                         {props.enablePrevControl && (
                             <PrevButton
                                 isEnabled={this.props.onPreviousLinkPressed !== undefined}
@@ -191,7 +171,6 @@ export class ControlBar extends React.Component<MediaPlayerControlBarProps, Medi
                                 }}
                             />
                         )}
-
                         {props.enableNextControl && (
                             <NextButton
                                 isEnabled={this.props.onNextLinkPressed !== undefined}
@@ -224,6 +203,13 @@ export class ControlBar extends React.Component<MediaPlayerControlBarProps, Medi
         video.removeEventListener('waiting', this.setLoadingState);
         this.listenersRegistered = false;
     }
+
+    protected toggleSubtitles = (): void => {
+        const { videoEl } = this.props;
+        if (videoEl) {
+            showSubtitle(videoEl, 'fr');
+        }
+    };
 
     /**
      * Update local state with volume and mute
@@ -276,6 +262,16 @@ export class ControlBar extends React.Component<MediaPlayerControlBarProps, Medi
         }
     };
 
+    protected pause = (): void => {
+        const { videoEl } = this.props;
+        if (videoEl) {
+            videoEl.pause();
+        } else {
+            this.logWarning('Cannot pause video, videoEl have not been registered');
+        }
+        this.props.actions.pause();
+    };
+
     protected play = (): void => {
         const { videoEl } = this.props;
         if (videoEl) {
@@ -316,16 +312,6 @@ export class ControlBar extends React.Component<MediaPlayerControlBarProps, Medi
         } else {
             this.logWarning('Cannot un-mute video, videoEl have not been registered');
         }
-    };
-
-    protected pause = (): void => {
-        const { videoEl } = this.props;
-        if (videoEl) {
-            videoEl.pause();
-        } else {
-            this.logWarning('Cannot pause video, videoEl have not been registered');
-        }
-        this.props.actions.pause();
     };
 
     protected seekTo = (time: number): void => {

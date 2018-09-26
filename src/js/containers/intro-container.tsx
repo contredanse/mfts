@@ -1,5 +1,5 @@
 import React from 'react';
-import Page, { PageState } from '@src/components/page';
+import Page from '@src/components/page';
 import { DataSupportedLangType } from '@src/models/repository/data-repository';
 import PageProxy from '@src/models/proxy/page-proxy';
 import { PageOverlay } from '@src/components/layout/page-overlay';

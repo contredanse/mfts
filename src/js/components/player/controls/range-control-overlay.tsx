@@ -1,4 +1,4 @@
-import React, { Component, CSSProperties, MouseEvent as ReactMouseEvent } from 'react';
+import React, { PureComponent, CSSProperties, MouseEvent as ReactMouseEvent } from 'react';
 
 import classNames from 'classnames';
 
@@ -28,7 +28,7 @@ export type RangeControlOverlayState = {
  * An invisible overlay that acts as a range mouse control
  * within a specified bounds.
  */
-class RangeControlOverlay extends Component<RangeControlOverlayProps, RangeControlOverlayState> {
+class RangeControlOverlay extends PureComponent<RangeControlOverlayProps, RangeControlOverlayState> {
     static readonly defaultProps: Partial<RangeControlOverlayProps> = {
         //onChangeStart: (value: number) => {},
         //onChangeEnd: (value: number) => {},

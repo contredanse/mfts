@@ -1,4 +1,4 @@
-import React, { PureComponent, CSSProperties, ReactNode } from 'react';
+import React, { PureComponent, CSSProperties, ReactNode, MouseEvent } from 'react';
 import classNames from 'classnames';
 
 export type ButtonProps = {
@@ -11,7 +11,7 @@ export type ButtonProps = {
 };
 
 class Button extends PureComponent<ButtonProps> {
-    static defaultProps: ButtonProps = {
+    static defaultProps = {
         isEnabled: true,
         className: 'Button',
         extraClasses: '',
@@ -34,7 +34,7 @@ class Button extends PureComponent<ButtonProps> {
         );
     }
 
-    protected handleClick = () => {
+    protected handleClick = (e: MouseEvent<HTMLButtonElement>) => {
         if (this.props.isEnabled && this.props.onClick !== undefined) {
             this.props.onClick();
         }
