@@ -6,7 +6,7 @@ import './page.scss';
 
 import PageProxy from '@src/models/proxy/page-proxy';
 
-import ControlBar, { MediaPlayerControlBarProps } from '@src/shared/player/controls/control-bar';
+import ControlBar, { MediaPlayerControlBarProps } from '@src/components/player/controls/control-bar';
 import PanelMultiVideo from '@src/components/panel-multi-video';
 import AudioPlayer from '@src/components/player/audio-player';
 import VideoProxyPlayer from '@src/components/player/video-proxy-player';

@@ -10,7 +10,7 @@ import {
     SoundOnButton,
 } from './svg-mdi-button';
 import { PlayerActions } from '@src/shared/player/player';
-import { default as ProgressBar } from '@src/shared/player/controls/progress-bar';
+import { default as ProgressBar } from './progress-bar';
 
 export type MediaPlayerControlBarProps = {
     videoEl?: HTMLVideoElement;
