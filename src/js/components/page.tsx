@@ -9,7 +9,7 @@ import PageProxy from '@src/models/proxy/page-proxy';
 import ControlBar, { MediaPlayerControlBarProps } from '@src/shared/player/controls/control-bar';
 import PanelMultiVideo from '@src/components/panel-multi-video';
 import AudioPlayer from '@src/components/player/audio-player';
-import VideoPlayer from '@src/components/player/video-player';
+import VideoProxyPlayer from '@src/components/player/video-proxy-player';
 import { PlayerActions } from '@src/shared/player/player';
 import { ReactPlayerProps } from 'react-player';
 import { MenuSectionProps } from '@src/models/repository/menu-repository';
@@ -57,7 +57,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
 
     readonly state: PageState;
 
-    videoPlayerRef!: React.RefObject<VideoPlayer>;
+    videoPlayerRef!: React.RefObject<VideoProxyPlayer>;
     audioPlayerRef!: React.RefObject<AudioPlayer>;
 
     mainPlayerListeners!: Partial<ReactPlayerProps>;
@@ -78,7 +78,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
         this.initPlayerListeners();
         this.initMediaPlayerActions();
 
-        this.videoPlayerRef = React.createRef<VideoPlayer>();
+        this.videoPlayerRef = React.createRef<VideoProxyPlayer>();
         this.audioPlayerRef = React.createRef<AudioPlayer>();
 
         this.initControlBarActions();
@@ -150,7 +150,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
                                     this.mediaPlayerActions.play();
                                 }}
                             >
-                                <VideoPlayer
+                                <VideoProxyPlayer
                                     ref={this.videoPlayerRef}
                                     className="autoscale-video-wrapper autoscale-video-content"
                                     crossOrigin={'anonymous'}

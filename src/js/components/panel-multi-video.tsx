@@ -1,5 +1,5 @@
 import React, { MouseEvent } from 'react';
-import VideoPlayer from '@src/components/player/video-player';
+import VideoProxyPlayer from '@src/components/player/video-proxy-player';
 import VideoProxy from '@src/models/proxy/video-proxy';
 import PageProxy from '@src/models/proxy/page-proxy';
 import './panel-mutli-video.scss';
@@ -61,7 +61,7 @@ export default class PanelMultiVideo extends React.Component<PanelMultiVideoProp
                             style={containerStyle}
                             onClick={this.handleVideoClick}
                         >
-                            <VideoPlayer
+                            <VideoProxyPlayer
                                 crossOrigin={'anonymous'}
                                 className={videoClassName}
                                 disableSubtitles={true}

@@ -11,7 +11,7 @@ import VideoProxy from '@src/models/proxy/video-proxy';
 import VideoSourceProxy from '@src/models/proxy/video-source-proxy';
 import { hideAllSubtitles, showSubtitle } from '@src/components/player/subtitles-actions';
 
-type VideoPlayerProps = {
+export type VideoProxyPlayerProps = {
     video: VideoProxy;
     disablePoster?: boolean;
     disableSubtitles?: boolean;
@@ -20,7 +20,7 @@ type VideoPlayerProps = {
     fallbackLang?: string;
 } & ReactPlayerProps;
 
-type VideoPlayerState = {
+export type VideoProxyPlayerState = {
     initialized: boolean;
     video: VideoProxy;
     activeSubtitleLang?: string;
@@ -28,26 +28,29 @@ type VideoPlayerState = {
     playerSources: ReactPlayerSourceProps[];
 };
 
-export default class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
-    static defaultProps: Partial<VideoPlayerProps> = {
+export default class VideoProxyPlayer extends React.Component<VideoProxyPlayerProps, VideoProxyPlayerState> {
+    static defaultProps: Partial<VideoProxyPlayerProps> = {
         disablePoster: false,
         disableSubtitles: false,
         fallbackLang: 'en',
     };
 
-    readonly state: VideoPlayerState;
+    readonly state: VideoProxyPlayerState;
 
     protected playerRef: React.RefObject<ReactPlayer>;
 
-    constructor(props: VideoPlayerProps) {
+    constructor(props: VideoProxyPlayerProps) {
         super(props);
         this.playerRef = React.createRef<ReactPlayer>();
         this.state = {
             initialized: false,
-        } as VideoPlayerState;
+        } as VideoProxyPlayerState;
     }
 
-    static getDerivedStateFromProps(nextProps: VideoPlayerProps, prevState: VideoPlayerState): VideoPlayerState | null {
+    static getDerivedStateFromProps(
+        nextProps: VideoProxyPlayerProps,
+        prevState: VideoProxyPlayerState
+    ): VideoProxyPlayerState | null {
         const { initialized } = prevState;
         if (
             !initialized ||
@@ -82,7 +85,7 @@ export default class VideoPlayer extends React.Component<VideoPlayerProps, Video
         return this.playerRef.current.getInternalPlayer() as HTMLVideoElement;
     }
 
-    shouldComponentUpdate(nextProps: VideoPlayerProps, nextState: VideoPlayerState): boolean {
+    shouldComponentUpdate(nextProps: VideoProxyPlayerProps, nextState: VideoProxyPlayerState): boolean {
         // A new video have been given
 
         if (nextProps.video.videoId !== this.props.video.videoId) {
@@ -160,7 +163,7 @@ const getReactPlayerSources = (videoSources: VideoSourceProxy[]): ReactPlayerSou
 const getReactPlayerConfig = (
     video: VideoProxy,
     defaultTrackLang: string,
-    params: Pick<VideoPlayerProps, 'crossOrigin' | 'disablePoster' | 'disableSubtitles'>
+    params: Pick<VideoProxyPlayerProps, 'crossOrigin' | 'disablePoster' | 'disableSubtitles'>
 ): ReactPlayerConfig => {
     const playerTracks = !params.disableSubtitles ? getReactPlayerTracksConfig(video, defaultTrackLang) : null;
     const fileConfig: ReactPlayerFileConfig = {
