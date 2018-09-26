@@ -68,6 +68,8 @@ export default class PanelMultiVideo extends React.Component<PanelMultiVideoProp
                                 video={video}
                                 {...sizeConstraints}
                                 preload="preload"
+                                // To prevent blinking
+                                disablePoster={true}
                                 onDuration={duration => {
                                     // Metadata have been loaded, the browser
                                     // knows the duration and dimensions too

@@ -8,7 +8,7 @@ import PageProxy from '@src/models/proxy/page-proxy';
 
 import ControlBar, { MediaPlayerControlBarProps } from '@src/components/player/controls/control-bar';
 import PanelMultiVideo from '@src/components/panel-multi-video';
-import AudioPlayer from '@src/components/player/audio-player';
+import AudioProxyPlayer from '@src/components/player/audio-player';
 import VideoProxyPlayer from '@src/components/player/video-proxy-player';
 import { PlayerActions } from '@src/shared/player/player';
 import { ReactPlayerProps } from 'react-player';
@@ -58,7 +58,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
     readonly state: PageState;
 
     videoPlayerRef!: React.RefObject<VideoProxyPlayer>;
-    audioPlayerRef!: React.RefObject<AudioPlayer>;
+    audioPlayerRef!: React.RefObject<AudioProxyPlayer>;
 
     mainPlayerListeners!: Partial<ReactPlayerProps>;
 
@@ -79,7 +79,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
         this.initMediaPlayerActions();
 
         this.videoPlayerRef = React.createRef<VideoProxyPlayer>();
-        this.audioPlayerRef = React.createRef<AudioPlayer>();
+        this.audioPlayerRef = React.createRef<AudioProxyPlayer>();
 
         this.initControlBarActions();
     }
@@ -128,7 +128,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
                             />
                             {audio && (
                                 <div className="panel-audio-subs">
-                                    <AudioPlayer
+                                    <AudioProxyPlayer
                                         ref={this.audioPlayerRef}
                                         activeSubtitleLang={this.props.lang}
                                         lang={this.props.lang}
@@ -155,6 +155,8 @@ class Page extends React.PureComponent<PageProps, PageState> {
                                     className="autoscale-video-wrapper autoscale-video-content"
                                     crossOrigin={'anonymous'}
                                     activeSubtitleLang={this.props.lang}
+                                    // To prevent blinking
+                                    disablePoster={true}
                                     preload="preload"
                                     video={page.getFirstVideo(lang)!}
                                     playing={this.state.playbackState.isPlaying}
