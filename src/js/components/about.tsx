@@ -6,7 +6,7 @@ import AppAssetsLocator from '@src/core/app-assets-locator';
 import credits_en from '@data/markdown/credits.en.md';
 import credits_fr from '@data/markdown/credits.fr.md';
 import WebpackMarkdown from '@src/components/webpack-markdown';
-import FullsizeVideoBg from '@src/components/fullsize-video-bg';
+import FullsizeVideoBg from '@src/components/layout/fullsize-video-bg';
 import Page from '@src/components/page';
 import { PageOverlay } from '@src/components/layout/page-overlay';
 import { CustomScrollbar } from '@src/components/layout/custom-scrollbar';

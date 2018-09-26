@@ -4,7 +4,7 @@ import './home.scss';
 import { debounce } from 'throttle-debounce';
 import AppAssetsLocator from '@src/core/app-assets-locator';
 import EventListener, { withOptions } from 'react-event-listener';
-import FullsizeVideoBg from '@src/components/fullsize-video-bg';
+import FullsizeVideoBg from '@src/components/layout/fullsize-video-bg';
 import { ContredanseLogo } from '@src/components/images/contredanse-logo';
 
 type HomeProps = {
