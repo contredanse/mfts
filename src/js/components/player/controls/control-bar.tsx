@@ -13,7 +13,11 @@ import {
 import { PlayerActions } from '@src/shared/player/player';
 import ProgressBar from './progress-bar';
 import PlaybackRateSelect from '@src/components/player/controls/playback-rate-select';
-import { hideAllSubtitles, showSubtitle } from '@src/components/player/controls/utils/subtitles-actions';
+import {
+    hasShownSubtitle,
+    hideAllSubtitles,
+    showSubtitle,
+} from '@src/components/player/controls/utils/subtitles-actions';
 
 export type MediaPlayerControlBarProps = {
     videoEl?: HTMLVideoElement;
@@ -207,7 +211,11 @@ export class ControlBar extends React.PureComponent<MediaPlayerControlBarProps, 
     protected toggleSubtitles = (): void => {
         const { videoEl } = this.props;
         if (videoEl) {
-            showSubtitle(videoEl, 'fr');
+            if (hasShownSubtitle(videoEl)) {
+                hideAllSubtitles(videoEl);
+            } else {
+                showSubtitle(videoEl, 'fr');
+            }
         }
     };
 
