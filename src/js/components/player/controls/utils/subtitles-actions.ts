@@ -13,3 +13,12 @@ export const showSubtitle = (video: HTMLVideoElement, lang: string): void => {
         }
     }
 };
+
+export const hasShownSubtitle = (video: HTMLVideoElement): boolean => {
+    for (let i = 0; i < video.textTracks.length; i++) {
+        if (video.textTracks[i].mode === 'showing') {
+            return true;
+        }
+    }
+    return false;
+};
