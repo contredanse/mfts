@@ -8,6 +8,7 @@ import { PlayerActions } from '@src/shared/player/player';
 import { default as ProgressBar } from '@src/shared/player/controls/progress-bar';
 import SoundOffButton from '@src/shared/player/controls/sound-off-button';
 import SoundOnButton from '@src/shared/player/controls/sound-on-button';
+import SubtitlesButton from '@src/shared/player/controls/subtitles-button';
 
 export type MediaPlayerControlBarProps = {
     videoEl?: HTMLVideoElement;
@@ -171,6 +172,13 @@ export class ControlBar extends React.Component<MediaPlayerControlBarProps, Medi
                                 </select>
                             </div>
                         )}
+
+                        <SubtitlesButton
+                            isEnabled={true}
+                            onClick={() => {
+                                alert('cool');
+                            }}
+                        />
 
                         {props.enablePrevControl && (
                             <PrevButton
