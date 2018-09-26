@@ -25,7 +25,6 @@ import PlaybackStatusProvider from '@src/components/player/controls/hoc/playback
 export type MediaPlayerControlBarProps = {
     videoEl?: HTMLVideoElement;
     duration: number;
-    currentTime: number;
     playbackRate: number;
     actions: PlayerActions;
     enableSpeedControl?: boolean;
@@ -37,19 +36,17 @@ export type MediaPlayerControlBarProps = {
 };
 
 export type MediaPlayerControlbarState = {
-    currentTime: number;
-    bufferTime: number;
     isActive: boolean;
     intervalWhilePlaying: number;
 };
 
 export class ControlBar extends React.PureComponent<MediaPlayerControlBarProps, MediaPlayerControlbarState> {
-    static readonly defaultProps = {
+    static defaultProps = {
         enableBrowseControl: false,
         enableSpeedControl: true,
         enableNextControl: true,
         enablePrevControl: true,
-    } as MediaPlayerControlBarProps;
+    };
 
     readonly state: MediaPlayerControlbarState;
 
@@ -62,8 +59,6 @@ export class ControlBar extends React.PureComponent<MediaPlayerControlBarProps, 
         super(props);
         this.state = {
             isActive: true,
-            currentTime: 0,
-            bufferTime: 0,
             intervalWhilePlaying: 0,
         };
     }
