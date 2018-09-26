@@ -9,7 +9,7 @@ import ReactPlayer, {
 
 import VideoProxy from '@src/models/proxy/video-proxy';
 import VideoSourceProxy from '@src/models/proxy/video-source-proxy';
-import { hideAllSubtitles, showSubtitle } from '@src/components/player/utils';
+import { hideAllSubtitles, showSubtitle } from '@src/components/player/subtitles-actions';
 
 type VideoPlayerProps = {
     video: VideoProxy;
