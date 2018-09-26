@@ -25,6 +25,10 @@ $subtitle-font: $handwritten-font;
         text-align: center;
         > div {
             flex: 1 1 auto;
+            @include media-breakpoint-down(sm) {
+                margin-top: 2em;
+            }
+
             padding: 0 2em;
             h1 {
                 //mix-blend-mode: difference;
