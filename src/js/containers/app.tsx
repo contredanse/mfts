@@ -8,7 +8,7 @@ import { I18nextProvider } from 'react-i18next';
 import i18n from '@src/i18n/i18n';
 
 import history from '@src/history';
-import { AppBar } from '@src/components/app-bar';
+import { AppBar } from '@src/components/navigation/app-bar';
 import HomeContainer from '@src/containers/home-container';
 import MenuContainer from '@src/containers/menu-container';
 import NotFoundContainer from '@src/containers/notfound-container';
