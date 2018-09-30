@@ -52,6 +52,7 @@ module.exports = merge(common, {
             recompose: path.resolve(__dirname, 'node_modules/recompose'),
             // React-transition-group
             'react-transition-group': path.resolve(__dirname, 'node_modules/react-transition-group'),
+            'hoist-non-react-statics': path.resolve(__dirname, 'node_modules/hoist-non-react-statics'),
         },
     },
     module: {
@@ -126,9 +127,9 @@ module.exports = merge(common, {
              */
             /*
             {
-                include: path.resolve('node_modules', 'react-router'),
+                include: path.resolve('node_modules', 'react-i18next'),
                 sideEffects: false,
-            },*/
+            }*/
         ],
     },
 
