@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import ReactPlayer, {
     Config as ReactPlayerConfig,
     FileConfig as ReactPlayerFileConfig,
@@ -10,6 +10,7 @@ import ReactPlayer, {
 import VideoProxy from '@src/models/proxy/video-proxy';
 import VideoSourceProxy from '@src/models/proxy/video-source-proxy';
 import { hideAllSubtitles, showSubtitle } from '@src/components/player/controls/utils/subtitles-actions';
+import BasicVideoPlayer, { VideoSourcesProps } from '@src/components/player/basic-video-player';
 
 export type VideoProxyPlayerProps = {
     video: VideoProxy;
@@ -25,7 +26,7 @@ export type VideoProxyPlayerState = {
     video: VideoProxy;
     activeSubtitleLang?: string;
     playerConfig: ReactPlayerConfig;
-    playerSources: ReactPlayerSourceProps[];
+    playerSources: VideoSourcesProps[];
 };
 
 export default class VideoProxyPlayer extends React.Component<VideoProxyPlayerProps, VideoProxyPlayerState> {
@@ -37,11 +38,13 @@ export default class VideoProxyPlayer extends React.Component<VideoProxyPlayerPr
 
     readonly state: VideoProxyPlayerState;
 
-    protected playerRef: React.RefObject<ReactPlayer>;
+    //protected playerRef: React.RefObject<ReactPlayer>;
+    protected playerRef: React.RefObject<BasicVideoPlayer>;
 
     constructor(props: VideoProxyPlayerProps) {
         super(props);
-        this.playerRef = React.createRef<ReactPlayer>();
+        //this.playerRef = React.createRef<ReactPlayer>();
+        this.playerRef = React.createRef<BasicVideoPlayer>();
         this.state = {
             initialized: false,
         } as VideoProxyPlayerState;
@@ -82,7 +85,7 @@ export default class VideoProxyPlayer extends React.Component<VideoProxyPlayerPr
         if (!this.playerRef.current) {
             return null;
         }
-        return this.playerRef.current.getInternalPlayer() as HTMLVideoElement;
+        return this.playerRef.current.getVideoElement() as HTMLVideoElement;
     }
 
     shouldComponentUpdate(nextProps: VideoProxyPlayerProps, nextState: VideoProxyPlayerState): boolean {
@@ -99,7 +102,7 @@ export default class VideoProxyPlayer extends React.Component<VideoProxyPlayerPr
 
         // To be tested, a better solution must be found
         if (nextProps.activeSubtitleLang !== this.props.activeSubtitleLang) {
-            const videoEl = this.playerRef.current!.getInternalPlayer() as HTMLVideoElement;
+            const videoEl = this.playerRef.current!.getVideoElement() as HTMLVideoElement;
             showSubtitle(videoEl, nextProps.activeSubtitleLang || nextProps.fallbackLang!);
             return false;
         }
@@ -114,38 +117,36 @@ export default class VideoProxyPlayer extends React.Component<VideoProxyPlayerPr
             disableSubtitles,
             crossOrigin,
             fallbackLang,
+            onDuration,
+            playsInline,
+            onStart,
+            playing,
+            onReady,
             ...playerProps
         } = this.props;
 
         const { playerSources, playerConfig } = this.state;
-        console.log('rerednersdfsdfsdf', playerSources);
+        console.log('rerender VideoProxyPlayer', playerSources);
+
+        const tracks = playerConfig.file!.tracks;
+
         return (
-            <ReactPlayer
+            <BasicVideoPlayer
                 //key={video.videoId}
+                style={this.props.style}
                 ref={this.playerRef}
-                onStart={() => {
-                    // When the video starts activate the text track
-                    const v = this.playerRef.current!.getInternalPlayer() as HTMLVideoElement;
-                    if (disableSubtitles) {
-                        hideAllSubtitles(v);
-                    } else {
-                        // This bug in firefox... we need to reset texttracks whoing
-                        const { activeSubtitleLang: lang } = this.props;
-                        if (lang !== undefined) {
-                            showSubtitle(v, lang);
-                        }
-                    }
-                }}
-                playsinline={true}
-                {...playerProps}
-                url={playerSources}
-                config={playerConfig}
+                autoPlay={true}
+                controls={false}
+                playsInline={true}
+                crossOrigin={'anonymous'}
+                srcs={playerSources}
+                {...(tracks ? { tracks } : {})}
             />
         );
     }
 }
 
-const getReactPlayerSources = (videoSources: VideoSourceProxy[]): ReactPlayerSourceProps[] => {
+const getReactPlayerSources = (videoSources: VideoSourceProxy[]): VideoSourcesProps[] => {
     return videoSources.reduce(
         (acc, source) => {
             return [
@@ -156,7 +157,7 @@ const getReactPlayerSources = (videoSources: VideoSourceProxy[]): ReactPlayerSou
                 },
             ];
         },
-        [] as ReactPlayerSourceProps[]
+        [] as VideoSourcesProps[]
     );
 };
 
