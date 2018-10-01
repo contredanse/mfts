@@ -1,7 +1,6 @@
 export const hideAllSubtitles = (video: HTMLVideoElement): void => {
     console.log('hideall textTracks', video.textTracks);
     for (let i = 0; i < video.textTracks.length; i++) {
-        video.textTracks[i];
         video.textTracks[i].mode = 'hidden';
     }
 };
