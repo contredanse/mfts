@@ -1,23 +1,26 @@
-import { VideoHTMLAttributes } from 'react';
-import * as React from 'react';
+import React, { SourceHTMLAttributes, TrackHTMLAttributes, VideoHTMLAttributes } from 'react';
+import { Omit } from 'utility-types';
 
-export type VideoSourcesProps = Array<{ src: string; type: string }>;
+export type VideoSourcesProps = Array<SourceHTMLAttributes<HTMLSourceElement>>;
+export type TracksSourcesProps = Array<TrackHTMLAttributes<HTMLTrackElement>>;
 
-export type SimpleVideoProps = {
+export type BasicVideoProps = {
     srcs?: VideoSourcesProps;
+    tracks?: TracksSourcesProps;
     playbackRate: number;
-} & VideoHTMLAttributes<HTMLVideoElement>;
+} & Omit<VideoHTMLAttributes<HTMLVideoElement>, 'src'>;
 
 const defaultProps = {
     playbackRate: 1,
+    playsInline: true,
 };
 
-class BasicVideoPlayer extends React.Component<SimpleVideoProps, {}> {
+class BasicVideoPlayer extends React.Component<BasicVideoProps, {}> {
     static defaultProps = defaultProps;
 
     protected videoRef!: React.RefObject<HTMLVideoElement>;
 
-    constructor(props: SimpleVideoProps) {
+    constructor(props: BasicVideoProps) {
         super(props);
         this.videoRef = React.createRef<HTMLVideoElement>();
     }
@@ -27,7 +30,7 @@ class BasicVideoPlayer extends React.Component<SimpleVideoProps, {}> {
         this.setPlaybackRate(this.props.playbackRate);
     }
 
-    shouldComponentUpdate(nextProps: SimpleVideoProps): boolean {
+    shouldComponentUpdate(nextProps: BasicVideoProps): boolean {
         let shouldUpdate = true;
         if (this.props.playbackRate !== nextProps.playbackRate) {
             this.setPlaybackRate(nextProps.playbackRate);
@@ -48,11 +51,15 @@ class BasicVideoPlayer extends React.Component<SimpleVideoProps, {}> {
     }
 
     render() {
-        const { srcs, playbackRate, ...mediaProps } = this.props;
+        const { srcs, tracks, playbackRate, ...mediaProps } = this.props;
         return (
-            <video ref={this.videoRef} {...mediaProps}>
-                {srcs && srcs.map((v, idx) => <source key={idx} src={v.src} type={v.type} />)}
-                {this.props.children}
+            <video
+                ref={this.videoRef}
+                {...mediaProps}
+                {...(this.props.playsInline ? { 'webkit-playsinline': 'webkit-playsinline' } : {})}
+            >
+                {srcs && srcs.map((s, idx) => <source key={idx} {...s} />)}
+                {tracks && tracks.map((t, idx) => <track key={idx} {...t} />)}
             </video>
         );
     }
