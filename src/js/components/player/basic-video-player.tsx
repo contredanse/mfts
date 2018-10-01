@@ -28,11 +28,12 @@ class BasicVideoPlayer extends React.Component<SimpleVideoProps, {}> {
     }
 
     shouldComponentUpdate(nextProps: SimpleVideoProps): boolean {
+        let shouldUpdate = true;
         if (this.props.playbackRate !== nextProps.playbackRate) {
             this.setPlaybackRate(nextProps.playbackRate);
-            return false;
+            shouldUpdate = shouldUpdate && false;
         }
-        return true;
+        return shouldUpdate;
     }
 
     setPlaybackRate(playbackRate: number): void {
