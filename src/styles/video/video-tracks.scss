@@ -15,6 +15,25 @@ $track-text-shadow: 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, -1px -1px 
 
 $track-padding-bottom: 50px;
 
+@mixin trackFontDisplay {
+    font-size: 2vw;
+    font-family: $track-font-family;
+    text-align: center;
+    @include media-breakpoint-between(xs, sm) {
+        font-size: 4vw;
+    }
+    @include media-breakpoint-up(sm) {
+        font-size: 2.8vw;
+    }
+    @include media-breakpoint-up(lg) {
+        font-size: 2.4vw;
+    }
+
+    @include media-breakpoint-up(xl) {
+        font-size: 1.6vw;
+    }
+}
+
 video {
     &::-webkit-media-text-track-container {
         overflow: visible !important;
@@ -53,6 +72,7 @@ video {
 
         /* Ensure captions aren't cropped when the pseudo element's width cannot accommodate all the text */
         min-width: -webkit-min-content;
+        @include trackFontDisplay;
     }
 
     &::cue {
@@ -68,23 +88,8 @@ video {
         //transform: translateY(-200px);
         text-shadow: $track-text-shadow;
         padding-bottom: $track-padding-bottom;
-    }
 
-    &::cue,
-    &::-webkit-media-text-track-display {
-        @include media-breakpoint-between(xs, sm) {
-            font: 4vw #{$track-font-family};
-        }
-        @include media-breakpoint-up(sm) {
-            font: 2.8vw #{$track-font-family};
-        }
-        @include media-breakpoint-up(lg) {
-            font: 2.4vw #{$track-font-family};
-        }
-
-        @include media-breakpoint-up(xl) {
-            font: 1.6vw #{$track-font-family};
-        }
+        @include trackFontDisplay;
     }
 
     &::cue(:future) {
