@@ -1,8 +1,15 @@
-import React, { SourceHTMLAttributes, SyntheticEvent, TrackHTMLAttributes, VideoHTMLAttributes } from 'react';
+import React, {
+    CSSProperties,
+    SourceHTMLAttributes,
+    SyntheticEvent,
+    TrackHTMLAttributes,
+    VideoHTMLAttributes,
+} from 'react';
 import { Omit } from 'utility-types';
+import equal from 'fast-deep-equal';
 
-export type VideoSourcesProps = Array<SourceHTMLAttributes<HTMLSourceElement>>;
-export type TracksSourcesProps = Array<TrackHTMLAttributes<HTMLTrackElement>>;
+export type VideoSourcesProps = SourceHTMLAttributes<HTMLSourceElement>;
+export type TracksSourcesProps = TrackHTMLAttributes<HTMLTrackElement>;
 
 export type BasicVideoActions = {
     //onEnded?: (e: Event) => void;
@@ -10,9 +17,10 @@ export type BasicVideoActions = {
 };
 
 export type BasicVideoProps = {
-    srcs?: VideoSourcesProps;
-    tracks?: TracksSourcesProps;
+    srcs?: VideoSourcesProps[];
+    tracks?: TracksSourcesProps[];
     playbackRate: number;
+    forwardRef?: React.RefObject<HTMLVideoElement>;
 } & Omit<VideoHTMLAttributes<HTMLVideoElement>, 'src' | 'onEnded'> &
     BasicVideoActions;
 
@@ -28,12 +36,17 @@ const defaultProps = {
 class BasicVideoPlayer extends React.Component<BasicVideoProps, BasicVideoState> {
     static defaultProps = defaultProps;
 
-    protected videoRef!: React.RefObject<HTMLVideoElement>;
-    protected listenersRegistered = false;
+    private videoRef!: React.RefObject<HTMLVideoElement>;
+    private listenersRegistered = false;
 
     constructor(props: BasicVideoProps) {
         super(props);
-        this.videoRef = React.createRef<HTMLVideoElement>();
+
+        if (this.props.forwardRef) {
+            this.videoRef = this.props.forwardRef;
+        } else {
+            this.videoRef = React.createRef<HTMLVideoElement>();
+        }
     }
 
     componentDidMount() {
@@ -42,6 +55,13 @@ class BasicVideoPlayer extends React.Component<BasicVideoProps, BasicVideoState>
             this.registerVideoListeners(this.videoRef.current);
         } else {
             throw Error('Registering listeners failed, video element is null');
+        }
+    }
+
+    componentDidUpdate() {
+        if (this.videoRef.current !== null) {
+            const videoEl = this.videoRef.current;
+            videoEl.load();
         }
     }
 
@@ -55,10 +75,20 @@ class BasicVideoPlayer extends React.Component<BasicVideoProps, BasicVideoState>
 
     shouldComponentUpdate(nextProps: BasicVideoProps): boolean {
         let shouldUpdate = true;
+
         if (this.props.playbackRate !== nextProps.playbackRate) {
             this.setPlaybackRate(nextProps.playbackRate);
-            shouldUpdate = shouldUpdate && false;
+            shouldUpdate = false;
         }
+
+        // Let's deep check src and tracks to see if we need
+        // to recreate the video key
+        if (!equal(nextProps.srcs, this.props.srcs) || !equal(nextProps.tracks, this.props.tracks)) {
+            const video = this.getVideoElement()!;
+            shouldUpdate = true;
+        }
+
+        //this.getVideoElement().load();
         return shouldUpdate;
     }
 
@@ -73,6 +103,43 @@ class BasicVideoPlayer extends React.Component<BasicVideoProps, BasicVideoState>
         return this.videoRef.current;
     }
 
+    onLoadedMetadata = (e: SyntheticEvent<HTMLVideoElement>) => {
+        const video = e.currentTarget;
+
+        // As a workaround for Firefox, let's remove old tracks
+        // before adding the new ones. Letting react do
+        // the job does not seems to work properly
+        const oldTracks = video.querySelectorAll('track');
+        oldTracks.forEach(oldTrack => {
+            video.removeChild(oldTrack);
+        });
+
+        if (this.props.tracks) {
+            this.props.tracks.map((t, trackIdx) => {
+                const track = document.createElement('track');
+                track.kind = t.kind!;
+                track.label = t.label!;
+                track.srclang = t.srcLang!;
+                track.default = t.default!;
+                track.src = t.src!;
+                track.addEventListener('error', (e: Event) => {
+                    console.warn(`Cannot load track ${t.src!}`);
+                });
+                track.addEventListener('load', (e: Event) => {
+                    const textTrack = e.currentTarget as HTMLTrackElement;
+                    if (t.default === true) {
+                        textTrack.track.mode = 'showing';
+                        video.textTracks[trackIdx].mode = 'showing'; // thanks Firefox
+                    } else {
+                        textTrack.track.mode = 'hidden';
+                        video.textTracks[trackIdx].mode = 'hidden'; // thanks Firefox
+                    }
+                });
+                video.appendChild(track);
+            });
+        }
+    };
+
     render() {
         const {
             srcs,
@@ -82,19 +149,32 @@ class BasicVideoPlayer extends React.Component<BasicVideoProps, BasicVideoState>
             // onEnded,
             ...mediaProps
         } = this.props;
+
+        const key = srcs && srcs.length > 0 ? srcs[0].src : '';
+
         return (
             <video
+                onLoadedMetadata={this.onLoadedMetadata}
                 ref={this.videoRef}
                 {...mediaProps}
                 {...(this.props.playsInline ? { 'webkit-playsinline': 'webkit-playsinline' } : {})}
             >
-                {srcs && srcs.map((s, idx) => <source key={idx} {...s} />)}
-                {tracks && tracks.map((t, idx) => <track key={idx} {...t} />)}
+                {srcs && srcs.map((s, idx) => <source key={`${s.src}-${idx}`} {...s} />)}
+                {/*
+                // This would be so easy, but subsequent changes in tracks will
+                // be ignored by firefox. See the workaround onLoadedMetaData function
+                {tracks && tracks.map((t, idx) => {
+                    return null;
+                  return (
+                      <track id={`${t.src}-${idx}`} key={`${t.src}-${idx}`} {...t}/>
+                  );
+                })}
+                */}
             </video>
         );
     }
 
-    protected registerVideoListeners(video: HTMLVideoElement, skipOnRegistered: boolean = true): void {
+    private registerVideoListeners(video: HTMLVideoElement, skipOnRegistered: boolean = true): void {
         if (skipOnRegistered && this.listenersRegistered) {
             return;
         }
@@ -106,7 +186,7 @@ class BasicVideoPlayer extends React.Component<BasicVideoProps, BasicVideoState>
         this.listenersRegistered = true;
     }
 
-    protected unregisterVideoListeners(video: HTMLVideoElement): void {
+    private unregisterVideoListeners(video: HTMLVideoElement): void {
         if (this.listenersRegistered) {
             //video.removeEventListener('ratechange', this.updateVolumeState);
             this.listenersRegistered = false;
