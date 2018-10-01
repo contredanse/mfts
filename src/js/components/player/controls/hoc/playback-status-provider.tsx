@@ -40,7 +40,6 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
 
     constructor(props: PlaybackStatusProps) {
         super(props);
-        console.log('RECREATE');
     }
 
     increment = () => {};
@@ -73,7 +72,10 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
     componentDidUpdate(prevProps: PlaybackStatusProps): void {
         // In case of videoEl was not available at initial render
         // listeners will be initialized at update
-        if (!prevProps.videoEl && this.props.videoEl) {
+        if (
+            (!prevProps.videoEl && this.props.videoEl) ||
+            (this.props.videoEl !== undefined && prevProps.videoEl !== this.props.videoEl)
+        ) {
             this.registerVideoListeners(this.props.videoEl);
         }
     }
@@ -158,7 +160,6 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
      * @param {Event<HTMLVideoElement>} e
      */
     protected updatePlayingState = (e: Event): void => {
-        console.log('UPDATEPLAYINGSTATE');
         const { videoEl } = this.props;
         if (videoEl && e.target !== null) {
             this.setState({
