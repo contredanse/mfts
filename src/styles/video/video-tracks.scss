@@ -13,7 +13,7 @@ $track-background-color: rgba(0, 0, 0, 0);
 $track-text-shadow: 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, -1px -1px 0 #000;
 //$track-text-shadow:  none;
 
-$track-padding-bottom: 50px;
+$track-padding-bottom: 80px;
 
 @mixin trackFontDisplay {
     font-size: 2vw;
@@ -35,50 +35,12 @@ $track-padding-bottom: 50px;
 }
 
 video {
-    &::-webkit-media-text-track-container {
-        overflow: visible !important;
-        // -webkit-transform: translateY(40%) !important;
-        // max-height: calc(100% - #{$track-padding-bottom});
-        transform: translateY(-#{$track-padding-bottom}) !important;
-        //transform: translateY(-5vh) !important;
-
-        overflow: hidden;
-        text-align: center;
-        color: $track-color;
-        text-shadow: $track-text-shadow;
-        letter-spacing: normal;
-        word-spacing: normal;
-        text-transform: unset;
-
-        text-indent: 0;
-        text-decoration: none;
-        pointer-events: none;
-        user-select: none;
-        -webkit-user-select: none;
-        user-select: none;
-        line-height: normal;
-        word-break: break-word;
-
-        position: relative;
-    }
-
-    &::-webkit-media-text-track-display {
-        position: relative;
-        overflow: hidden;
-        white-space: pre-wrap;
-        box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-        transform: none;
-
-        /* Ensure captions aren't cropped when the pseudo element's width cannot accommodate all the text */
-        min-width: -webkit-min-content;
-        @include trackFontDisplay;
-    }
-
     &::cue {
-        position: absolute;
+        position: fixed;
+        bottom: 0;
         left: 0;
         right: 0;
+
         display: inline-block;
         pointer-events: none;
         background-color: $track-background-color;
@@ -94,6 +56,45 @@ video {
 
     &::cue(:future) {
         color: gray;
+    }
+
+    &::-webkit-media-text-track-container {
+        position: relative;
+
+        overflow: visible !important;
+        // -webkit-transform: translateY(40%) !important;
+        // max-height: calc(100% - #{$track-padding-bottom});
+        transform: translateY(-#{$track-padding-bottom + 10px}) !important;
+        //transform: translateY(-5vh) !important;
+
+        // overflow: hidden;
+        text-align: center;
+        color: $track-color;
+        text-shadow: $track-text-shadow;
+        letter-spacing: normal;
+        word-spacing: normal;
+        text-transform: unset;
+
+        text-indent: 0;
+        text-decoration: none;
+        pointer-events: none;
+        user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+        line-height: normal;
+        word-break: break-word;
+    }
+
+    &::-webkit-media-text-track-display {
+        overflow: hidden;
+        white-space: pre-wrap;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        transform: none;
+
+        /* Ensure captions aren't cropped when the pseudo element's width cannot accommodate all the text */
+        min-width: -webkit-min-content;
+        @include trackFontDisplay;
     }
 }
 
