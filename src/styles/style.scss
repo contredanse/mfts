@@ -8,6 +8,13 @@
 body {
     font-family: $primary-font;
     background-color: $body-bg;
+    /*
+    background-image: radial-gradient(
+            120% 600px at 50% 200px,
+            #1c99ff,
+            #7006be 120%
+    );*/
+
     color: $body-color;
 }
 
