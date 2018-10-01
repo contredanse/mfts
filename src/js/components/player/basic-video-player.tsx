@@ -7,6 +7,7 @@ import React, {
 } from 'react';
 import { Omit } from 'utility-types';
 import equal from 'fast-deep-equal';
+import { hideAllSubtitles } from '@src/components/player/controls/utils/subtitles-actions';
 
 export type VideoSourcesProps = SourceHTMLAttributes<HTMLSourceElement>;
 export type TracksSourcesProps = TrackHTMLAttributes<HTMLTrackElement>;
@@ -109,6 +110,7 @@ class BasicVideoPlayer extends React.Component<BasicVideoProps, BasicVideoState>
         // As a workaround for Firefox, let's remove old tracks
         // before adding the new ones. Letting react do
         // the job does not seems to work properly
+        hideAllSubtitles(video);
         const oldTracks = video.querySelectorAll('track');
         oldTracks.forEach(oldTrack => {
             video.removeChild(oldTrack);
