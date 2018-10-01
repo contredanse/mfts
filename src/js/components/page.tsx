@@ -36,6 +36,7 @@ export type PlaybackState = {
 };
 
 export type PageState = {
+    videoRefAvailable: boolean;
     playbackState: PlaybackState;
 };
 
@@ -72,6 +73,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
         const playerInitialState: PlaybackState = defaultPlaybackState;
 
         this.state = {
+            videoRefAvailable: false,
             playbackState: playerInitialState,
         };
 
@@ -82,6 +84,13 @@ class Page extends React.PureComponent<PageProps, PageState> {
         this.audioPlayerRef = React.createRef<AudioProxyPlayer>();
 
         this.initControlBarActions();
+    }
+
+    componentDidMount(): void {
+        this.setState(prevState => ({
+            playbackState: prevState.playbackState,
+            videoRefAvailable: true,
+        }));
     }
 
     initControlBarActions(): void {
@@ -110,6 +119,8 @@ class Page extends React.PureComponent<PageProps, PageState> {
         const { i18n } = this.props;
 
         const pageTitle = page.getTitle(lang);
+
+        const { videoRefAvailable } = this.state;
 
         console.log('rerender');
         return (
@@ -143,40 +154,42 @@ class Page extends React.PureComponent<PageProps, PageState> {
                         </div>
                     ) : (
                         <div className="page-single-video-layout">
-                            <div
-                                className="autoscale-video-container"
-                                onClick={() => {
-                                    this.mediaPlayerActions.play();
-                                }}
-                            >
-                                <VideoProxyPlayer
-                                    ref={this.videoPlayerRef}
-                                    className="autoscale-video-wrapper autoscale-video-content"
-                                    crossOrigin={'anonymous'}
-                                    activeSubtitleLang={this.props.lang}
-                                    // To prevent blinking
-                                    disablePoster={true}
-                                    video={page.getFirstVideo(lang)!}
-                                    playing={this.state.playbackState.isPlaying}
-                                    playbackRate={this.state.playbackState.playbackRate}
-                                    width="100%"
-                                    height="100%"
-                                    {...this.mainPlayerListeners}
-                                />
+                            <div className="autoscale-video-container">
+                                <div className="autoscale-video-wrapper autoscale-video-content">
+                                    <VideoProxyPlayer
+                                        style={{ width: '100%', height: '100%' }}
+                                        ref={this.videoPlayerRef}
+                                        crossOrigin={'anonymous'}
+                                        activeSubtitleLang={this.props.lang}
+                                        // To prevent blinking
+                                        disablePoster={true}
+                                        video={page.getFirstVideo(lang)!}
+                                        playing={this.state.playbackState.isPlaying}
+                                        playbackRate={this.state.playbackState.playbackRate}
+                                        {...this.mainPlayerListeners}
+                                    />
+                                </div>
                             </div>
                         </div>
                     )}
                 </div>
-                <ControlBar
-                    {...(this.getMainPlayerVideoElement() ? { videoEl: this.getMainPlayerVideoElement()! } : {})}
-                    actions={this.mediaPlayerActions}
-                    duration={this.state.playbackState.duration}
-                    playbackRate={this.state.playbackState.playbackRate}
-                    enableNextControl={this.props.nextPage !== undefined}
-                    enablePrevControl={this.props.previousPage !== undefined}
-                    enableSpeedControl={false}
-                    {...this.controlBarActions}
-                />
+                <div>
+                    {videoRefAvailable && (
+                        <ControlBar
+                            key={page.pageId}
+                            {...(this.getMainPlayerVideoElement()
+                                ? { videoEl: this.getMainPlayerVideoElement()! }
+                                : {})}
+                            actions={this.mediaPlayerActions}
+                            duration={this.state.playbackState.duration}
+                            playbackRate={this.state.playbackState.playbackRate}
+                            enableNextControl={this.props.nextPage !== undefined}
+                            enablePrevControl={this.props.previousPage !== undefined}
+                            enableSpeedControl={false}
+                            {...this.controlBarActions}
+                        />
+                    )}
+                </div>
             </div>
         );
     }
@@ -192,6 +205,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
         } else if (this.videoPlayerRef.current) {
             videoEl = this.videoPlayerRef.current.getHTMLVideoElement();
         }
+        console.log('GETMAINPLAYERVIDEOELEMENT', videoEl);
         return videoEl;
     }
 
@@ -224,7 +238,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
             pause: () => {
                 this.setState((prevState, prevProps) => {
                     const newState = {
-                        prevState,
+                        ...prevState,
                         ...{ playbackState: { ...prevState.playbackState, isPlaying: false } },
                     };
                     return newState;
@@ -233,7 +247,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
             play: () => {
                 this.setState((prevState, prevProps) => {
                     const newState = {
-                        prevState,
+                        ...prevState,
                         ...{ playbackState: { ...prevState.playbackState, isPlaying: true } },
                     };
                     return newState;
@@ -243,7 +257,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
                 console.log('set playbackRate', playbackRate);
                 this.setState((prevState, prevProps) => {
                     const newState = {
-                        prevState,
+                        ...prevState,
                         ...{ playbackState: { ...prevState.playbackState, playbackRate: playbackRate } },
                     };
                     return newState;
