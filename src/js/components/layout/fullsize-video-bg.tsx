@@ -3,7 +3,7 @@ import BasicVideoPlayer, { VideoSourcesProps } from '../player/basic-video-playe
 import './fullsize-bg-video.scss';
 
 type FullsizeVideoBgProps = {
-    videoSrcs: VideoSourcesProps;
+    videoSrcs: VideoSourcesProps[];
     videoSrcBaseUrl?: string;
     playbackRate?: number;
 };
