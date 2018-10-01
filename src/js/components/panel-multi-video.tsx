@@ -67,7 +67,6 @@ export default class PanelMultiVideo extends React.Component<PanelMultiVideoProp
                                 disableSubtitles={true}
                                 video={video}
                                 {...sizeConstraints}
-                                preload="preload"
                                 // To prevent blinking
                                 disablePoster={true}
                                 onDuration={duration => {
