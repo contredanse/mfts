@@ -134,7 +134,6 @@ class Page extends React.PureComponent<PageProps, PageState> {
                                         lang={this.props.lang}
                                         audio={audio}
                                         playing={this.state.playbackState.isPlaying}
-                                        preload="preload"
                                         width="100%"
                                         height="100%"
                                         {...this.mainPlayerListeners}
@@ -157,7 +156,6 @@ class Page extends React.PureComponent<PageProps, PageState> {
                                     activeSubtitleLang={this.props.lang}
                                     // To prevent blinking
                                     disablePoster={true}
-                                    preload="preload"
                                     video={page.getFirstVideo(lang)!}
                                     playing={this.state.playbackState.isPlaying}
                                     playbackRate={this.state.playbackState.playbackRate}
