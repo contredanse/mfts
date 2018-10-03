@@ -25,7 +25,7 @@ class About extends React.PureComponent<AboutProps, AboutState> {
         const videosBaseUrl = this.props.assetsLocator.getMediaTypeBaseUrl('videos');
 
         const videoSrcs = [
-            { src: `${videosBaseUrl}/intro_2tubes_walk.webm`, type: 'video/webm' },
+            { src: `${videosBaseUrl}/napp.webm`, type: 'video/webm' },
             { src: `${videosBaseUrl}/intro_2tubes_walk.mp4`, type: 'video/mp4' },
         ];
 
