@@ -1,9 +1,9 @@
 import * as React from 'react';
-import BasicVideoPlayer, { VideoSourcesProps } from '../player/basic-video-player';
+import BasicVideoPlayer, { VideoSourceProps } from '../player/basic-video-player';
 import './fullsize-bg-video.scss';
 
 type FullsizeVideoBgProps = {
-    videoSrcs: VideoSourcesProps[];
+    videoSrcs: VideoSourceProps[];
     videoSrcBaseUrl?: string;
     playbackRate?: number;
 };
