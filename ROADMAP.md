@@ -13,10 +13,11 @@
   - [x] Sound buttons (on/off)
   - [x] Loading indicator (currently a message)
     - [x] Loading indicator as a message
-    - [ ] `NiceToHave` Add loading animation 
+    - [x] `NiceToHave` Add loading animation 
   - [ ] Menu for playback speed
     - [ ] `NicetoHave` auto mute sound if speed below or over limits.
   - [x] OnEnd event, when video finish let's go `somewhere`
+  - [ ] Volume slider
        
 - [ ] Page behaviours  
   - [ ] When playback very short - loop ? Question  
@@ -46,9 +47,9 @@
   - [ ] Backend ? (symfony/zend-expressive ?)
     - [ ] Contredanse_v4 support
 
-- [x] About page
-  - [x] Credits
-  - [ ] Biography
+- [x] Credits
+- [ ] Biography
+- [ ] Biblio
   
 - [x] Meta manager (title)
   - [x] Home made document meta component  
