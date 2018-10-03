@@ -1,17 +1,13 @@
-import React, { CSSProperties, forwardRef } from 'react';
-import ReactPlayer, {
-    Config as ReactPlayerConfig,
-    FileConfig as ReactPlayerFileConfig,
-    ReactPlayerProps,
-} from 'react-player';
+import React, { CSSProperties } from 'react';
 
 import VideoProxy from '@src/models/proxy/video-proxy';
 import VideoSourceProxy from '@src/models/proxy/video-source-proxy';
 import { showLocalizedTextTrack } from '@src/components/player/controls/utils/video-texttrack-helpers';
 import VideoPlayer, { TextTrackProps, VideoSourceProps } from '@src/components/player/video-player';
+import AudioProxy from '@src/models/proxy/audio-proxy';
 
 export type VideoProxyPlayerProps = {
-    videoProxy: VideoProxy;
+    videoProxy: VideoProxy | AudioProxy;
     disablePoster?: boolean;
     disableSubtitles?: boolean;
     activeSubtitleLang?: string;
@@ -26,66 +22,41 @@ export type VideoProxyPlayerProps = {
     muted?: boolean;
 };
 
-export type VideoProxyPlayerState = {
-    initialized: boolean;
-    videoProxy: VideoProxy;
-    activeSubtitleLang?: string;
-    firstCover?: string;
-    videoSources: VideoSourceProps[];
-    textTracks: TextTrackProps[];
-};
+export type VideoProxyPlayerState = {};
 
 const defaultProps = {
     playsInline: true,
     playing: false,
 };
 
+const defaultState = {};
+
 export default class VideoProxyPlayer extends React.Component<VideoProxyPlayerProps, VideoProxyPlayerState> {
     static defaultProps = defaultProps;
 
-    readonly state: VideoProxyPlayerState;
+    readonly state: VideoProxyPlayerState = defaultState;
 
     protected playerRef: React.RefObject<VideoPlayer>;
 
     constructor(props: VideoProxyPlayerProps) {
         super(props);
-        //this.playerRef = React.createRef<ReactPlayer>();
         this.playerRef = React.createRef<VideoPlayer>();
-        this.state = {
-            initialized: false,
-        } as VideoProxyPlayerState;
-    }
-
-    static getDerivedStateFromProps(
-        nextProps: VideoProxyPlayerProps,
-        prevState: VideoProxyPlayerState
-    ): VideoProxyPlayerState | null {
-        const { initialized } = prevState;
-        if (
-            !initialized ||
-            prevState.activeSubtitleLang !== nextProps.activeSubtitleLang ||
-            prevState.videoProxy.videoId !== nextProps.videoProxy.videoId
-        ) {
-            const { videoProxy, activeSubtitleLang, disableSubtitles, crossOrigin, disablePoster } = nextProps;
-            return {
-                initialized: true,
-                videoProxy: nextProps.videoProxy,
-                firstCover: videoProxy.getFirstCover(),
-                activeSubtitleLang: nextProps.activeSubtitleLang,
-                videoSources: mapVideoSourceProxyToVideoSourceProps(videoProxy.getSources()),
-                textTracks: mapVideoProxyTracksToTextTracksProps(videoProxy, activeSubtitleLang),
-            };
-        } else {
-            // console.log('NOT CALLING GETDERIVEDSTATEFROMPROPS');
-        }
-
-        // Return null to indicate no change to state.
-        return null;
     }
 
     shouldComponentUpdate(nextProps: VideoProxyPlayerProps, nextState: VideoProxyPlayerState): boolean {
         // A new video have been given
-        if (nextProps.videoProxy.videoId !== this.props.videoProxy.videoId) {
+
+        const mediaId =
+            this.props.videoProxy instanceof AudioProxy
+                ? this.props.videoProxy.getSourceFile()
+                : this.props.videoProxy.videoId;
+
+        const nextMediaId =
+            nextProps.videoProxy instanceof AudioProxy
+                ? nextProps.videoProxy.getSourceFile()
+                : nextProps.videoProxy.videoId;
+
+        if (mediaId !== nextMediaId) {
             return true;
         }
 
@@ -110,8 +81,18 @@ export default class VideoProxyPlayer extends React.Component<VideoProxyPlayerPr
     }
 
     render() {
-        const { crossOrigin, disablePoster, className, muted, loop } = this.props;
-        const { videoSources, textTracks, firstCover, videoProxy } = this.state;
+        const { crossOrigin, disablePoster, className, muted, loop, videoProxy, activeSubtitleLang } = this.props;
+
+        let firstCover = null;
+        let videoSources = null;
+        if (videoProxy instanceof VideoProxy) {
+            firstCover = videoProxy.getFirstCover();
+            videoSources = mapVideoSourceProxyToVideoSourceProps(videoProxy.getSources());
+        } else {
+            videoSources = mapAudioProxyToVideoSourceProps(videoProxy);
+        }
+        const textTracks = mapMediaProxyTracksToTextTracksProps(videoProxy, activeSubtitleLang);
+
         return (
             <VideoPlayer
                 ref={this.playerRef}
@@ -131,6 +112,19 @@ export default class VideoProxyPlayer extends React.Component<VideoProxyPlayerPr
     }
 }
 
+export const mapAudioProxyToVideoSourceProps = (audioProxy: AudioProxy): VideoSourceProps[] => {
+    const src = audioProxy.getSourceFile();
+    if (src) {
+        return [
+            {
+                src: src,
+                type: 'video/mp4',
+            },
+        ];
+    }
+    return [];
+};
+
 export const mapVideoSourceProxyToVideoSourceProps = (videoSources: VideoSourceProxy[]): VideoSourceProps[] => {
     return videoSources.reduce(
         (acc, source) => {
@@ -146,18 +140,18 @@ export const mapVideoSourceProxyToVideoSourceProps = (videoSources: VideoSourceP
     );
 };
 
-export const mapVideoProxyTracksToTextTracksProps = (
-    video: VideoProxy,
+export const mapMediaProxyTracksToTextTracksProps = (
+    mediaProxy: VideoProxy | AudioProxy,
     langToSetAsDefault?: string
 ): TextTrackProps[] => {
     const playerTracks: TextTrackProps[] = [];
-    video.getAllTracks().forEach(videoTrack => {
+    mediaProxy.getAllTracks().forEach(mediaTrack => {
         playerTracks.push({
             kind: 'subtitles',
-            src: videoTrack.src,
-            srcLang: videoTrack.lang,
-            label: videoTrack.lang,
-            ...(langToSetAsDefault === videoTrack.lang ? { default: true } : {}),
+            src: mediaTrack.src,
+            srcLang: mediaTrack.lang,
+            label: mediaTrack.lang,
+            ...(langToSetAsDefault === mediaTrack.lang ? { default: true } : {}),
         });
     });
     return playerTracks;
