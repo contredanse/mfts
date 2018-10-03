@@ -163,7 +163,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
                                         activeSubtitleLang={this.props.lang}
                                         // To prevent blinking
                                         disablePoster={true}
-                                        video={page.getFirstVideo(lang)!}
+                                        videoProxy={page.getFirstVideo(lang)!}
                                         playing={this.state.playbackState.isPlaying}
                                         playbackRate={this.state.playbackState.playbackRate}
                                         {...this.mainPlayerListeners}
