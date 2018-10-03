@@ -1,29 +1,34 @@
-import React, {
-    CSSProperties,
-    SourceHTMLAttributes,
-    SyntheticEvent,
-    TrackHTMLAttributes,
-    VideoHTMLAttributes,
-} from 'react';
+import React, { SourceHTMLAttributes, SyntheticEvent, VideoHTMLAttributes } from 'react';
 import { Omit } from 'utility-types';
 import equal from 'fast-deep-equal';
-import { hideAllSubtitles } from '@src/components/player/controls/utils/subtitles-actions';
+import {
+    appendVideoTextTrackNodes,
+    hideAllTextTracks,
+    removeVideoTextTrackNodes,
+    TextTrackHTMLAttributes,
+} from '@src/components/player/controls/utils/video-texttrack-helpers';
 
-export type VideoSourcesProps = SourceHTMLAttributes<HTMLSourceElement>;
-export type TracksSourcesProps = TrackHTMLAttributes<HTMLTrackElement>;
-
-export type BasicVideoActions = {
+export type VideoSourceProps = SourceHTMLAttributes<HTMLSourceElement>;
+export type TextTrackKind = 'subtitles' | 'captions' | 'descriptions' | 'chapters' | 'metadata';
+export type TextTrackProps = {
+    kind: TextTrackKind;
+    src: string;
+    srcLang: string;
+    label: string;
+    default?: boolean;
+};
+export type VideoActions = {
     //onEnded?: (e: Event) => void;
     onEnded?: (e: SyntheticEvent<HTMLVideoElement>) => void;
 };
 
-export type BasicVideoProps = {
-    srcs?: VideoSourcesProps[];
-    tracks?: TracksSourcesProps[];
+export type VideoPlayerProps = {
+    srcs?: VideoSourceProps[];
+    tracks?: TextTrackProps[];
     playbackRate: number;
     forwardRef?: React.RefObject<HTMLVideoElement>;
 } & Omit<VideoHTMLAttributes<HTMLVideoElement>, 'src' | 'onEnded'> &
-    BasicVideoActions;
+    VideoActions;
 
 export type BasicVideoState = {
     listenersRegistered: boolean;
@@ -34,13 +39,13 @@ const defaultProps = {
     playsInline: true,
 };
 
-class BasicVideoPlayer extends React.Component<BasicVideoProps, BasicVideoState> {
+class BasicVideoPlayer extends React.Component<VideoPlayerProps, BasicVideoState> {
     static defaultProps = defaultProps;
 
     private videoRef!: React.RefObject<HTMLVideoElement>;
     private listenersRegistered = false;
 
-    constructor(props: BasicVideoProps) {
+    constructor(props: VideoPlayerProps) {
         super(props);
 
         if (this.props.forwardRef) {
@@ -74,7 +79,7 @@ class BasicVideoPlayer extends React.Component<BasicVideoProps, BasicVideoState>
         }
     }
 
-    shouldComponentUpdate(nextProps: BasicVideoProps): boolean {
+    shouldComponentUpdate(nextProps: VideoPlayerProps): boolean {
         let shouldUpdate = true;
 
         if (this.props.playbackRate !== nextProps.playbackRate) {
@@ -110,35 +115,11 @@ class BasicVideoPlayer extends React.Component<BasicVideoProps, BasicVideoState>
         // As a workaround for Firefox, let's remove old tracks
         // before adding the new ones. Letting react do
         // the job does not seems to work properly
-        hideAllSubtitles(video);
-        const oldTracks = video.querySelectorAll('track');
-        oldTracks.forEach(oldTrack => {
-            video.removeChild(oldTrack);
-        });
+        hideAllTextTracks(video);
+        removeVideoTextTrackNodes(video);
 
         if (this.props.tracks) {
-            this.props.tracks.map((t, trackIdx) => {
-                const track = document.createElement('track');
-                track.kind = t.kind!;
-                track.label = t.label!;
-                track.srclang = t.srcLang!;
-                track.default = t.default!;
-                track.src = t.src!;
-                track.addEventListener('error', (e: Event) => {
-                    console.warn(`Cannot load track ${t.src!}`);
-                });
-                track.addEventListener('load', (e: Event) => {
-                    const textTrack = e.currentTarget as HTMLTrackElement;
-                    if (t.default === true) {
-                        textTrack.track.mode = 'showing';
-                        video.textTracks[trackIdx].mode = 'showing'; // thanks Firefox
-                    } else {
-                        textTrack.track.mode = 'hidden';
-                        video.textTracks[trackIdx].mode = 'hidden'; // thanks Firefox
-                    }
-                });
-                video.appendChild(track);
-            });
+            appendVideoTextTrackNodes(video, this.props.tracks);
         }
     };
 
