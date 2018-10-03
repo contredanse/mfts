@@ -14,11 +14,10 @@ import { PlayerActions } from '@src/shared/player/player';
 import ProgressBar from './progress-bar';
 import PlaybackRateSelect from '@src/components/player/controls/playback-rate-select';
 import {
-    debugSubtitlesLoading,
-    hasShownSubtitle,
-    hideAllSubtitles,
-    showSubtitle,
-} from '@src/components/player/controls/utils/subtitles-actions';
+    hasVisibleTextTrack,
+    hideAllTextTracks,
+    showLocalizedTextTrack,
+} from '@src/components/player/controls/utils/video-texttrack-helpers';
 
 import PlaybackStatusProvider from '@src/components/player/controls/hoc/playback-status-provider';
 import LoadingButton from '@src/components/player/controls/svg-button/loading-button';
@@ -130,6 +129,9 @@ export class ControlBar extends React.PureComponent<MediaPlayerControlBarProps, 
                                         }}
                                     />
                                 )}
+                                <div style={{ position: 'relative', border: '1px solid white', padding: '5px' }}>
+                                    Skip to helix >>
+                                </div>
                             </div>
                         </div>
                     )}
@@ -141,10 +143,10 @@ export class ControlBar extends React.PureComponent<MediaPlayerControlBarProps, 
     protected toggleSubtitles = (): void => {
         const { videoEl } = this.props;
         if (videoEl) {
-            if (hasShownSubtitle(videoEl)) {
-                hideAllSubtitles(videoEl);
+            if (hasVisibleTextTrack(videoEl)) {
+                hideAllTextTracks(videoEl);
             } else {
-                showSubtitle(videoEl, 'fr');
+                showLocalizedTextTrack(videoEl, 'fr');
             }
         }
     };
