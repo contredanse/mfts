@@ -27,6 +27,11 @@ const localStorageMock = {
     clear: jest.fn(),
 };
 
+// Because it does not work in jsdom
+(HTMLMediaElement as any).prototype.play = (): Promise<any> => {
+    return new Promise((resolve, reject) => {});
+};
+
 Object.defineProperty(window, 'localStorage', { value: localStorageMock });
 
 //const localStorage = localStorageMock;
