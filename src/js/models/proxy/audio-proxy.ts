@@ -1,4 +1,4 @@
-import { IJsonPageAudio, IJsonPageAudioTrack } from '../../../data/json/data-pages';
+import { IJsonLocalizedAudioSource, IJsonPageAudio, IJsonPageAudioTrack } from '../../../data/json/data-pages';
 import { AbstractBaseProxy, IBaseProxyOptions } from './abstract-base-proxy';
 
 export class AudioProxyFactory {
@@ -19,6 +19,10 @@ export default class AudioProxy extends AbstractBaseProxy {
     constructor(data: IAudioProxyData, options: IAudioProxyOptions) {
         super(options);
         this.data = data;
+    }
+
+    get src(): IJsonLocalizedAudioSource {
+        return this.data.src;
     }
 
     getSourceFile(lang?: string, baseUrl?: string): string | undefined {
