@@ -4,12 +4,13 @@ $brown-color: rgb(114, 45, 0);
 $brown-color-dark: rgb(49, 20, 0);
 $brown-color-light: rgb(156, 57, 0);
 
-$body-bg: rgba($brown-color, 1);
+$body-bg: black; //rgba($brown-color, 1);
 $body-color: #fff;
 
 //$primary-font: 'Raleway', 'Quicksand', 'Roboto', 'tahoma';
 $primary-font: 'Quicksand', sans-serif;
-$handwritten-font: 'Shadows Into Light Two', cursive;
+//$secondary-font: 'Raleway';
+$handwritten-font: 'Quicksand', 'Shadows Into Light Two', cursive;
 
 // A map of breakpoints.
 
