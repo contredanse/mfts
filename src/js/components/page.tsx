@@ -10,7 +10,6 @@ import ControlBar, { MediaPlayerControlBarProps } from '@src/components/player/c
 import PanelMultiVideo from '@src/components/panel-multi-video';
 import VideoProxyPlayer from '@src/components/player/video-proxy-player';
 import { PlayerActions } from '@src/shared/player/player';
-import { ReactPlayerProps } from 'react-player';
 import { MenuSectionProps } from '@src/models/repository/menu-repository';
 import PageBreadcrumb from '@src/components/page-breadcrumb';
 
@@ -59,8 +58,6 @@ class Page extends React.PureComponent<PageProps, PageState> {
 
     playerRef!: React.RefObject<VideoProxyPlayer>;
 
-    mainPlayerListeners!: Partial<ReactPlayerProps>;
-
     mediaPlayerActions!: PlayerActions;
 
     controlBarActions!: Partial<MediaPlayerControlBarProps>;
@@ -75,7 +72,6 @@ class Page extends React.PureComponent<PageProps, PageState> {
             playbackState: playerInitialState,
         };
 
-        this.initPlayerListeners();
         this.initMediaPlayerActions();
 
         this.playerRef = React.createRef<VideoProxyPlayer>();
@@ -140,7 +136,6 @@ class Page extends React.PureComponent<PageProps, PageState> {
                                         activeSubtitleLang={this.props.lang}
                                         videoProxy={audioProxy}
                                         playing={this.state.playbackState.isPlaying}
-                                        {...this.mainPlayerListeners}
                                     />
                                 </div>
                             )}
@@ -159,7 +154,6 @@ class Page extends React.PureComponent<PageProps, PageState> {
                                         videoProxy={page.getFirstVideo(lang)!}
                                         playing={this.state.playbackState.isPlaying}
                                         playbackRate={this.state.playbackState.playbackRate}
-                                        {...this.mainPlayerListeners}
                                     />
                                 </div>
                             </div>
@@ -170,9 +164,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
                     {videoRefAvailable && (
                         <ControlBar
                             key={page.pageId}
-                            {...(this.getMainPlayerVideoElement()
-                                ? { videoEl: this.getMainPlayerVideoElement()! }
-                                : {})}
+                            videoEl={this.getMainPlayerVideoElement()!}
                             actions={this.mediaPlayerActions}
                             duration={this.state.playbackState.duration}
                             playbackRate={this.state.playbackState.playbackRate}
@@ -191,7 +183,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
      * Return the main player media player (audio/video)
      * @returns {HTMLVideoElement | null}
      */
-    protected getMainPlayerVideoElement(): HTMLVideoElement | null {
+    private getMainPlayerVideoElement(): HTMLVideoElement | null {
         let videoEl: HTMLVideoElement | null = null;
         if (this.playerRef.current) {
             videoEl = this.playerRef.current.getHTMLVideoElement();
@@ -200,30 +192,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
         return videoEl;
     }
 
-    protected initPlayerListeners(): void {
-        this.mainPlayerListeners = {
-            onPlay: () => {
-                this.updatePlaybackState({
-                    isPlaying: true,
-                });
-            },
-            onEnded: this.props.onPagePlayed,
-            onError: () => {},
-            onReady: () => {},
-            onPause: () => {
-                this.updatePlaybackState({
-                    isPlaying: false,
-                });
-            },
-            onDuration: (duration: number) => {
-                this.updatePlaybackState({
-                    duration: duration,
-                });
-            },
-        };
-    }
-
-    protected initMediaPlayerActions(): void {
+    private initMediaPlayerActions(): void {
         this.mediaPlayerActions = {
             // Actions
             pause: () => {
