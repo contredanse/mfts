@@ -8,7 +8,6 @@ import PageProxy from '@src/models/proxy/page-proxy';
 
 import ControlBar, { MediaPlayerControlBarProps } from '@src/components/player/controls/control-bar';
 import PanelMultiVideo from '@src/components/panel-multi-video';
-import AudioProxyPlayer from '@src/components/player/audio-proxy-player';
 import VideoProxyPlayer from '@src/components/player/video-proxy-player';
 import { PlayerActions } from '@src/shared/player/player';
 import { ReactPlayerProps } from 'react-player';
@@ -58,8 +57,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
 
     readonly state: PageState;
 
-    videoPlayerRef!: React.RefObject<VideoProxyPlayer>;
-    audioPlayerRef!: React.RefObject<AudioProxyPlayer>;
+    playerRef!: React.RefObject<VideoProxyPlayer>;
 
     mainPlayerListeners!: Partial<ReactPlayerProps>;
 
@@ -80,8 +78,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
         this.initPlayerListeners();
         this.initMediaPlayerActions();
 
-        this.videoPlayerRef = React.createRef<VideoProxyPlayer>();
-        this.audioPlayerRef = React.createRef<AudioProxyPlayer>();
+        this.playerRef = React.createRef<VideoProxyPlayer>();
 
         this.initControlBarActions();
     }
@@ -115,11 +112,8 @@ class Page extends React.PureComponent<PageProps, PageState> {
 
         const hasMultipleVideos = countVideos > 1;
         const videos = page.getVideos(lang);
-        const audio = page.getAudioProxy();
-        const { i18n } = this.props;
-
+        const audioProxy = page.getAudioProxy();
         const pageTitle = page.getTitle(lang);
-
         const { videoRefAvailable } = this.state;
 
         console.log('rerender');
@@ -137,16 +131,15 @@ class Page extends React.PureComponent<PageProps, PageState> {
                                 playing={this.state.playbackState.isPlaying}
                                 playbackRate={this.state.playbackState.playbackRate}
                             />
-                            {audio && (
+                            {audioProxy && (
                                 <div className="panel-audio-subs">
-                                    <AudioProxyPlayer
-                                        ref={this.audioPlayerRef}
+                                    <VideoProxyPlayer
+                                        ref={this.playerRef}
+                                        style={{ width: '100%', height: '100%' }}
+                                        crossOrigin={'anonymous'}
                                         activeSubtitleLang={this.props.lang}
-                                        lang={this.props.lang}
-                                        audio={audio}
+                                        videoProxy={audioProxy}
                                         playing={this.state.playbackState.isPlaying}
-                                        width="100%"
-                                        height="100%"
                                         {...this.mainPlayerListeners}
                                     />
                                 </div>
@@ -157,8 +150,8 @@ class Page extends React.PureComponent<PageProps, PageState> {
                             <div className="autoscale-video-container">
                                 <div className="autoscale-video-wrapper autoscale-video-content">
                                     <VideoProxyPlayer
+                                        ref={this.playerRef}
                                         style={{ width: '100%', height: '100%' }}
-                                        ref={this.videoPlayerRef}
                                         crossOrigin={'anonymous'}
                                         activeSubtitleLang={this.props.lang}
                                         // To prevent blinking
@@ -200,10 +193,8 @@ class Page extends React.PureComponent<PageProps, PageState> {
      */
     protected getMainPlayerVideoElement(): HTMLVideoElement | null {
         let videoEl: HTMLVideoElement | null = null;
-        if (this.audioPlayerRef.current) {
-            videoEl = this.audioPlayerRef.current.getHTMLVideoElement();
-        } else if (this.videoPlayerRef.current) {
-            videoEl = this.videoPlayerRef.current.getHTMLVideoElement();
+        if (this.playerRef.current) {
+            videoEl = this.playerRef.current.getHTMLVideoElement();
         }
         console.log('GETMAINPLAYERVIDEOELEMENT', videoEl);
         return videoEl;
