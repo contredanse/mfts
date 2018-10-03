@@ -70,8 +70,8 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
         const videosBaseUrl = this.props.assetsLocator.getMediaTypeBaseUrl('videos');
 
         const videoSrcs = [
-            { src: `${videosBaseUrl}/puzzle2.webm`, type: 'video/webm' },
-            { src: `${videosBaseUrl}/puzzle2.mp4`, type: 'video/mp4' },
+            { src: `${videosBaseUrl}/intro_2tubes_walk.webm`, type: 'video/webm' },
+            { src: `${videosBaseUrl}/intro_2tubes_walk.mp4`, type: 'video/mp4' },
         ];
 
         const { lang } = this.props;
@@ -81,7 +81,7 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
             <div className="home-container">
                 <FullsizeVideoBg videoSrcs={videoSrcs} playbackRate={playbackRate}>
                     <div>
-                        <h3 className="reveal-text">Steve Paxton's</h3>
+                        <h3 className="reveal-text">Steve Paxton</h3>
                         <h1 className="reveal-text">Material for the spine</h1>
                         <p className="reveal-text">
                             <a
@@ -101,7 +101,6 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
                     onPointerMoveCapture={this.handleMove}
                     onWheelCapture={this.handleWheelCapture}
                 />
-                <ContredanseLogo alt="" style={{ position: 'fixed', bottom: 0, right: 0, width: 60, opacity: 0.5 }} />
             </div>
         );
     }

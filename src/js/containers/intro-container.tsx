@@ -53,13 +53,20 @@ class IntroContainer extends React.PureComponent<IntroContainerProps, IntroConta
                 <div className="page-wrapper">
                     <DocumentMeta title={'MFTS >> Introduction'} />
                     {introPage ? (
-                        <Page
-                            pageProxy={introPage}
-                            lang={lang}
-                            onPagePlayed={() => {
-                                this.navigatePageList();
-                            }}
-                        />
+                        <>
+                            <Page
+                                pageProxy={introPage}
+                                lang={lang}
+                                onPagePlayed={() => {
+                                    this.navigatePageList();
+                                }}
+                            />
+                            {/*
+                            <div style={{position: 'absolute', bottom: '70px', right:'15px', border: '1px solid white'}}>
+                                Skip intro >>
+                            </div>
+                            */}
+                        </>
                     ) : (
                         <div>
                             {/* Only dev */}
