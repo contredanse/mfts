@@ -39,10 +39,11 @@ example
             }
 
             .page-title {
-                background-color: #490a3d;
+                //background-color: white;
                 margin: 0;
+                color: white;
                 padding: 2px;
-                font-size: 0.7em;
+                font-size: 0.9em;
                 font-weight: normal;
                 line-height: 2em;
             }
@@ -69,6 +70,7 @@ example
                 div {
                     position: relative;
                     //border: 1px solid red;
+                    margin-top: 1em;
                     margin-right: 5px;
                     flex: 1 1 10px;
                     text-align: center;
