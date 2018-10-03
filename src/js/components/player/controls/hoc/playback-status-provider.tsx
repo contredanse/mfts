@@ -104,8 +104,9 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
             return;
         }
         video.addEventListener('volumechange', this.updateVolumeState);
-        video.addEventListener('playing', this.updatePlayingState);
+        video.addEventListener('play', this.updatePlayingState);
         video.addEventListener('pause', this.updatePlayingState);
+        video.addEventListener('canplay', this.updatePlayingState);
         video.addEventListener('waiting', this.setLoadingState);
         this.listenersRegistered = true;
     }
@@ -113,8 +114,9 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
     protected unregisterVideoListeners(video: HTMLVideoElement): void {
         if (this.listenersRegistered) {
             video.removeEventListener('volumechange', this.updateVolumeState);
-            video.removeEventListener('playing', this.updatePlayingState);
+            video.removeEventListener('play', this.updatePlayingState);
             video.removeEventListener('pause', this.updatePlayingState);
+            video.removeEventListener('canplay', this.updatePlayingState);
             video.removeEventListener('waiting', this.setLoadingState);
         }
         this.listenersRegistered = false;
@@ -160,9 +162,12 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
      */
     protected updatePlayingState = (e: Event): void => {
         const { videoEl } = this.props;
+
         if (videoEl && e.target !== null) {
+            const isPlaying = videoEl.currentTime > 0 && !videoEl.paused && !videoEl.ended && videoEl.readyState > 2;
+
             this.setState({
-                isPlaying: !videoEl.paused,
+                isPlaying: isPlaying,
                 isLoading: false,
             });
         } else {
