@@ -161,7 +161,6 @@
         "history": "^4.7.2",
         "hoist-non-react-statics": "^3.0.1",
         "i18next": "^11.9.0",
-        "ignore-styles": "^5.0.1",
         "memoize-one": "^4.0.2",
         "react": "^16.5.2",
         "react-custom-scrollbars": "^4.2.1",
