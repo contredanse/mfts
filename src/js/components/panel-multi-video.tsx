@@ -65,17 +65,10 @@ export default class PanelMultiVideo extends React.Component<PanelMultiVideoProp
                                 crossOrigin={'anonymous'}
                                 className={videoClassName}
                                 disableSubtitles={true}
-                                video={video}
+                                videoProxy={video}
                                 {...sizeConstraints}
                                 // To prevent blinking
                                 disablePoster={true}
-                                onDuration={duration => {
-                                    // Metadata have been loaded, the browser
-                                    // knows the duration and dimensions too
-                                    // Layout is probably already calculated
-                                    // Let's remove the loading overlay
-                                    // console.log('duration');
-                                }}
                                 playing={playing}
                                 playbackRate={playbackRate}
                                 loop
