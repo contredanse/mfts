@@ -5,15 +5,7 @@ import {
     appendVideoTextTrackNodes,
     hideAllTextTracks,
     removeVideoTextTrackNodes,
-    TextTrackHTMLAttributes,
 } from '@src/components/player/controls/utils/video-texttrack-helpers';
-import {
-    mapVideoProxyTracksToTextTracksProps,
-    mapVideoSourceProxyToVideoSourceProps,
-    VideoProxyPlayerProps,
-    VideoProxyPlayerState,
-} from '@src/components/player/video-proxy-player';
-import PlaybackStatusProvider from '@src/components/player/controls/hoc/playback-status-provider';
 
 export type VideoSourceProps = SourceHTMLAttributes<HTMLSourceElement>;
 export type TextTrackKind = 'subtitles' | 'captions' | 'descriptions' | 'chapters' | 'metadata';
