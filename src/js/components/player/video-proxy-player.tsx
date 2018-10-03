@@ -3,14 +3,12 @@ import ReactPlayer, {
     Config as ReactPlayerConfig,
     FileConfig as ReactPlayerFileConfig,
     ReactPlayerProps,
-    SourceProps as ReactPlayerSourceProps,
-    TrackProps as ReactPlayerTrackProps,
 } from 'react-player';
 
 import VideoProxy from '@src/models/proxy/video-proxy';
 import VideoSourceProxy from '@src/models/proxy/video-source-proxy';
-import { hideAllSubtitles, showSubtitle } from '@src/components/player/controls/utils/subtitles-actions';
-import BasicVideoPlayer, { VideoSourcesProps } from '@src/components/player/basic-video-player';
+import { showLocalizedTextTrack } from '@src/components/player/controls/utils/video-texttrack-helpers';
+import BasicVideoPlayer, { TextTrackProps, VideoSourceProps } from '@src/components/player/basic-video-player';
 
 export type VideoProxyPlayerProps = {
     video: VideoProxy;
@@ -26,7 +24,7 @@ export type VideoProxyPlayerState = {
     video: VideoProxy;
     activeSubtitleLang?: string;
     playerConfig: ReactPlayerConfig;
-    playerSources: VideoSourcesProps[];
+    playerSources: VideoSourceProps[];
 };
 
 export default class VideoProxyPlayer extends React.Component<VideoProxyPlayerProps, VideoProxyPlayerState> {
@@ -103,7 +101,7 @@ export default class VideoProxyPlayer extends React.Component<VideoProxyPlayerPr
         // To be tested, a better solution must be found
         if (nextProps.activeSubtitleLang !== this.props.activeSubtitleLang) {
             const videoEl = this.playerRef.current!.getVideoElement() as HTMLVideoElement;
-            showSubtitle(videoEl, nextProps.activeSubtitleLang || nextProps.fallbackLang!);
+            showLocalizedTextTrack(videoEl, nextProps.activeSubtitleLang || nextProps.fallbackLang!);
             return false;
         }
         return false;
@@ -126,9 +124,8 @@ export default class VideoProxyPlayer extends React.Component<VideoProxyPlayerPr
         } = this.props;
 
         const { playerSources, playerConfig } = this.state;
-        console.log('rerender VideoProxyPlayer', playerSources);
 
-        const tracks = playerConfig.file!.tracks;
+        const tracks: TextTrackProps[] = playerConfig.file!.tracks as TextTrackProps[];
 
         return (
             <BasicVideoPlayer
@@ -146,7 +143,7 @@ export default class VideoProxyPlayer extends React.Component<VideoProxyPlayerPr
     }
 }
 
-const getReactPlayerSources = (videoSources: VideoSourceProxy[]): VideoSourcesProps[] => {
+const getReactPlayerSources = (videoSources: VideoSourceProxy[]): VideoSourceProps[] => {
     return videoSources.reduce(
         (acc, source) => {
             return [
@@ -157,7 +154,7 @@ const getReactPlayerSources = (videoSources: VideoSourceProxy[]): VideoSourcesPr
                 },
             ];
         },
-        [] as VideoSourcesProps[]
+        [] as VideoSourceProps[]
     );
 };
 
@@ -178,11 +175,11 @@ const getReactPlayerConfig = (
     return { file: fileConfig };
 };
 
-const getReactPlayerTracksConfig = (video: VideoProxy, defaultTrackLang: string): ReactPlayerTrackProps[] | null => {
+const getReactPlayerTracksConfig = (video: VideoProxy, defaultTrackLang: string): TextTrackProps[] | null => {
     if (!video.hasTrack()) {
         return null;
     }
-    const playerTracks: ReactPlayerTrackProps[] = [];
+    const playerTracks: TextTrackProps[] = [];
     video.getAllTracks().forEach(videoTrack => {
         playerTracks.push({
             kind: 'subtitles',
@@ -190,7 +187,7 @@ const getReactPlayerTracksConfig = (video: VideoProxy, defaultTrackLang: string)
             srcLang: videoTrack.lang,
             default: defaultTrackLang === videoTrack.lang,
             label: videoTrack.lang,
-        } as ReactPlayerTrackProps);
+        });
     });
     return playerTracks;
 };
