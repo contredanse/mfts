@@ -23,7 +23,7 @@ class LoginForm extends React.PureComponent<LoginFormProps, LoginFormState> {
                     <div className="form">
                         <input type="text" placeholder="Enter email address" />
                         <input type="text" placeholder="My  password" />
-                        <button onClick={() => history.push('/')}>Login Now</button>
+                        <button onClick={() => history.push('/')}>Login</button>
                     </div>
                 </div>
             </div>
