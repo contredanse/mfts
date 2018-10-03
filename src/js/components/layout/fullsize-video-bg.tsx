@@ -1,5 +1,5 @@
 import * as React from 'react';
-import BasicVideoPlayer, { VideoSourceProps } from '../player/basic-video-player';
+import VideoPlayer, { VideoSourceProps } from '../player/video-player';
 import './fullsize-bg-video.scss';
 
 type FullsizeVideoBgProps = {
@@ -30,7 +30,7 @@ class FullsizeVideoBg extends React.PureComponent<FullsizeVideoBgProps, Fullsize
             <div className="fullsize-video-bg">
                 <div className="fullsize-video-bg-inner">{children}</div>
                 <div className="fullsize-video-bg-viewport">
-                    <BasicVideoPlayer
+                    <VideoPlayer
                         autoPlay={true}
                         muted={true}
                         playsInline={true}
