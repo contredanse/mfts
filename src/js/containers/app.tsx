@@ -140,7 +140,7 @@ class App extends React.Component<AppProps, {}> {
                                         </Switch>
                                     </main>
                                     <ConnectedLangSelector>
-                                        {({ lang: nextLang, updateLang }) => (
+                                        {({ nextLang, updateLang }) => (
                                             <button onPointerDown={() => updateLang(nextLang)}>>> Go {nextLang}</button>
                                         )}
                                     </ConnectedLangSelector>

@@ -21,7 +21,12 @@ type LangSelectorProps = PropsFromReduxDispatchActions &
     RouteComponentProps<any> & {
         className?: string;
         style?: CSSProperties;
-        children(props: { lang: string; updateLang: (lang: string) => void }): JSX.Element;
+        children(props: {
+            currentLang: string;
+            nextLang: string;
+            updateLang: (lang: string) => void;
+            toggleLang: () => void;
+        }): JSX.Element;
     };
 
 const defaultProps = {
@@ -47,25 +52,23 @@ class LangSelector extends React.Component<LangSelectorProps> {
         setLang(lang);
         this.props.history.push(newLocation);
     };
+
+    toggleLang = (): void => {
+        const { lang: currentLang } = this.props;
+        const nextLang = currentLang === 'en' ? 'fr' : 'en';
+        this.updateLang(nextLang);
+    };
+
     render() {
         const { lang: currentLang, className, style, children } = this.props;
         const nextLang = currentLang === 'en' ? 'fr' : 'en';
 
-        return this.props.children({
+        return children({
             updateLang: this.updateLang,
-            lang: currentLang,
+            toggleLang: this.toggleLang,
+            currentLang: currentLang,
+            nextLang: nextLang,
         });
-
-        return (
-            <div className={className}>
-                {() => {
-                    return children({
-                        updateLang: this.updateLang,
-                        lang: currentLang,
-                    });
-                }}
-            </div>
-        );
 
         return (
             <div className="round-button">

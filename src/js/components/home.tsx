@@ -95,10 +95,10 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
                             </a>
                         </p>
                         <ConnectedLangSelector>
-                            {({ lang: nextLang, updateLang }) => (
+                            {({ currentLang, nextLang, toggleLang }) => (
                                 <div className="round-button">
                                     <div className="round-button-circle">
-                                        <a onPointerDown={() => updateLang(nextLang)} className="round-button">
+                                        <a onPointerDown={() => toggleLang()} className="round-button">
                                             >> Go {nextLang}
                                         </a>
                                     </div>
