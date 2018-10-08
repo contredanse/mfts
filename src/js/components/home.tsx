@@ -5,6 +5,7 @@ import { debounce } from 'throttle-debounce';
 import AppAssetsLocator from '@src/core/app-assets-locator';
 import EventListener from 'react-event-listener';
 import FullsizeVideoBg from '@src/components/layout/fullsize-video-bg';
+import ConnectedLangSelector from '@src/components/lang-selector';
 
 type HomeProps = {
     assetsLocator: AppAssetsLocator;
@@ -93,6 +94,17 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
                                 {i18n.a_movement_study[lang] || ''}
                             </a>
                         </p>
+                        <ConnectedLangSelector>
+                            {({ lang: nextLang, updateLang }) => (
+                                <div className="round-button">
+                                    <div className="round-button-circle">
+                                        <a onPointerDown={() => updateLang(nextLang)} className="round-button">
+                                            >> Go {nextLang}
+                                        </a>
+                                    </div>
+                                </div>
+                            )}
+                        </ConnectedLangSelector>
                     </div>
                 </FullsizeVideoBg>
                 <EventListener

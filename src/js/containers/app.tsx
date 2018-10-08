@@ -129,7 +129,7 @@ class App extends React.Component<AppProps, {}> {
                                                 path="/"
                                                 render={() => {
                                                     return (
-                                                        <DocumentMeta title={"Steve Paxton's Material for the spine"}>
+                                                        <DocumentMeta title={'Steve Paxton - Material for the spine'}>
                                                             <HomeContainer assetsLocator={assetsLocator} />
                                                         </DocumentMeta>
                                                     );
@@ -139,7 +139,11 @@ class App extends React.Component<AppProps, {}> {
                                             <Route component={NotFoundContainer} />
                                         </Switch>
                                     </main>
-                                    <ConnectedLangSelector />
+                                    <ConnectedLangSelector>
+                                        {({ lang: nextLang, updateLang }) => (
+                                            <button onPointerDown={() => updateLang(nextLang)}>>> Go {nextLang}</button>
+                                        )}
+                                    </ConnectedLangSelector>
                                 </div>
                             </ConnectedRouter>
                         </I18nextProvider>

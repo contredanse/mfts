@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import { ApplicationState } from '@src/store';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import * as langActions from '@src/store/locale/actions';
 import { RouteComponentProps, withRouter } from 'react-router';
+import './lang-selector.scss';
 
 // Props passed from mapStateToProps
 type PropsFromReduxState = {
@@ -15,12 +16,24 @@ type PropsFromReduxDispatchActions = {
     setLang: typeof langActions.setLang;
 };
 
-type LangSelectorProps = PropsFromReduxDispatchActions & PropsFromReduxState & RouteComponentProps<{}>;
+type LangSelectorProps = PropsFromReduxDispatchActions &
+    PropsFromReduxState &
+    RouteComponentProps<any> & {
+        className?: string;
+        style?: CSSProperties;
+        children(props: { lang: string; updateLang: (lang: string) => void }): any;
+    };
+
+const defaultProps = {
+    className: 'lang-selector',
+    style: {} as CSSProperties,
+};
 
 class LangSelector extends React.Component<LangSelectorProps> {
+    static defaultProps = defaultProps;
+
     constructor(props: LangSelectorProps) {
         super(props);
-        //console.log('SKDFJS', props);
     }
 
     updateLang = (lang: string): void => {
@@ -35,15 +48,41 @@ class LangSelector extends React.Component<LangSelectorProps> {
         this.props.history.push(newLocation);
     };
     render() {
-        const { lang: currentLang, setLang } = this.props;
+        const { lang: currentLang, className, style, children } = this.props;
         const nextLang = currentLang === 'en' ? 'fr' : 'en';
+
+        return this.props.children({
+            updateLang: this.updateLang,
+            lang: currentLang,
+        });
+
         return (
-            <button
-                style={{ position: 'absolute', zIndex: 1500, top: '80px', right: '10px' }}
-                onPointerDown={() => this.updateLang(nextLang)}
-            >
-                >> Go {nextLang}
-            </button>
+            <div className={className}>
+                {() => {
+                    return children({
+                        updateLang: this.updateLang,
+                        lang: currentLang,
+                    });
+                }}
+            </div>
+        );
+
+        return (
+            <div className="round-button">
+                <div className="round-button-circle">
+                    <a onPointerDown={() => this.updateLang(nextLang)} className="round-button">
+                        >> Go {nextLang}
+                    </a>
+                </div>
+            </div>
+        );
+
+        return (
+            <div className={className} style={style}>
+                <button className={className} style={style} onPointerDown={() => this.updateLang(nextLang)}>
+                    >> Go {nextLang}
+                </button>
+            </div>
         );
     }
 }
