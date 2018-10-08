@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface InjectedCounterProps {
+interface InjectedPlaybackStatusProps {
     value: number;
 
     isPlaying: boolean;
@@ -13,7 +13,7 @@ interface InjectedCounterProps {
 
 interface PlaybackStatusProps {
     videoEl?: HTMLVideoElement;
-    children(props: InjectedCounterProps): JSX.Element;
+    children(props: InjectedPlaybackStatusProps): JSX.Element;
 }
 
 interface PlaybackStatusState {
