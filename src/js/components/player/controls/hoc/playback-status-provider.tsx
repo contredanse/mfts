@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface InjectedPlaybackStatusProps {
+type InjectedPlaybackStatusProps = {
     value: number;
 
     isPlaying: boolean;
@@ -8,21 +8,22 @@ interface InjectedPlaybackStatusProps {
     volume: number;
     isLoading: boolean;
 
-    onIncrement(): void;
-}
+    onTest(): void;
+};
 
-interface PlaybackStatusProps {
+type PlaybackStatusProps = {
     videoEl?: HTMLVideoElement;
     children(props: InjectedPlaybackStatusProps): JSX.Element;
-}
+};
 
-interface PlaybackStatusState {
+type PlaybackStatusState = {
     value: number;
     isPlaying: boolean;
     muted: boolean;
     volume: number;
     isLoading: boolean;
-}
+    test: number;
+};
 
 const defaultPlaybackStatusState = {
     value: 0,
@@ -30,6 +31,7 @@ const defaultPlaybackStatusState = {
     muted: false,
     volume: 1.0,
     isLoading: true,
+    test: 0,
 };
 
 export default class PlaybackStatusProvider extends React.Component<PlaybackStatusProps, PlaybackStatusState> {
@@ -41,16 +43,10 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
         super(props);
     }
 
-    increment = () => {};
-
-    decrement = () => {
-        /*
+    test = () => {
         this.setState(prevState => ({
-            value:
-                prevState.value === this.props.minValue
-                    ? prevState.value
-                    : prevState.value - 1,
-        }));*/
+            test: prevState.test + 1,
+        }));
     };
 
     componentDidMount() {
@@ -95,7 +91,7 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
             isLoading: this.state.isLoading,
             muted: this.state.muted,
             volume: this.state.volume,
-            onIncrement: this.increment,
+            onTest: this.test,
         });
     }
 
