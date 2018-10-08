@@ -5,7 +5,6 @@ import { debounce } from 'throttle-debounce';
 import AppAssetsLocator from '@src/core/app-assets-locator';
 import EventListener from 'react-event-listener';
 import FullsizeVideoBg from '@src/components/layout/fullsize-video-bg';
-import { ContredanseLogo } from '@src/components/images/contredanse-logo';
 
 type HomeProps = {
     assetsLocator: AppAssetsLocator;
@@ -56,10 +55,11 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
 
     handleMove = (e: MouseEvent & PointerEvent) => {
         // TODO, let's make something cool when time.
-        const x: number = e.clientX / window.innerWidth;
         const y: number = e.clientY / window.innerHeight;
         const playbackRate = Math.round(20 - y * 2 * 10) / 10;
-        this.changePlaybackRate(playbackRate);
+        if (playbackRate < 1.3 && playbackRate > 0.3 && this.state.playbackRate !== playbackRate) {
+            this.changePlaybackRate(playbackRate);
+        }
     };
 
     handleWheelCapture = (e: WheelEvent) => {
