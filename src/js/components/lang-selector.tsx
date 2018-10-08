@@ -21,7 +21,7 @@ type LangSelectorProps = PropsFromReduxDispatchActions &
     RouteComponentProps<any> & {
         className?: string;
         style?: CSSProperties;
-        children(props: { lang: string; updateLang: (lang: string) => void }): any;
+        children(props: { lang: string; updateLang: (lang: string) => void }): JSX.Element;
     };
 
 const defaultProps = {
