@@ -6,7 +6,7 @@ import { showLocalizedTextTrack } from '@src/components/player/controls/utils/vi
 import VideoPlayer, { TextTrackProps, VideoSourceProps } from '@src/components/player/video-player';
 import AudioProxy from '@src/models/proxy/audio-proxy';
 
-export type VideoProxyPlayerProps = {
+export type DataProxyPlayerProps = {
     videoProxy: VideoProxy | AudioProxy;
     disablePoster?: boolean;
     disableSubtitles?: boolean;
@@ -22,7 +22,7 @@ export type VideoProxyPlayerProps = {
     muted?: boolean;
 };
 
-export type VideoProxyPlayerState = {};
+export type DataProxyPlayerState = {};
 
 const defaultProps = {
     playsInline: true,
@@ -31,19 +31,19 @@ const defaultProps = {
 
 const defaultState = {};
 
-export default class VideoProxyPlayer extends React.Component<VideoProxyPlayerProps, VideoProxyPlayerState> {
+export default class DataProxyPlayer extends React.Component<DataProxyPlayerProps, DataProxyPlayerState> {
     static defaultProps = defaultProps;
 
-    readonly state: VideoProxyPlayerState = defaultState;
+    readonly state: DataProxyPlayerState = defaultState;
 
     protected playerRef: React.RefObject<VideoPlayer>;
 
-    constructor(props: VideoProxyPlayerProps) {
+    constructor(props: DataProxyPlayerProps) {
         super(props);
         this.playerRef = React.createRef<VideoPlayer>();
     }
 
-    shouldComponentUpdate(nextProps: VideoProxyPlayerProps, nextState: VideoProxyPlayerState): boolean {
+    shouldComponentUpdate(nextProps: DataProxyPlayerProps, nextState: DataProxyPlayerState): boolean {
         // A new video have been given
 
         const mediaId =
