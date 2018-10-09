@@ -5,6 +5,13 @@ import { MemoryRouter } from 'react-router-dom';
 import { mount } from 'enzyme';
 import Home from '../home';
 import AppAssetsLocator from '@src/core/app-assets-locator';
+import { Provider } from 'react-redux';
+import configureMockStore from 'redux-mock-store';
+
+const mockStore = configureMockStore();
+const store = mockStore({
+    lang: 'en',
+});
 
 describe('<Home />', () => {
     const assetsLocator = new AppAssetsLocator({
@@ -17,9 +24,11 @@ describe('<Home />', () => {
 
     it('should contain title', () => {
         const wrapper = mount(
-            <MemoryRouter>
-                <Home assetsLocator={assetsLocator} lang="en" />
-            </MemoryRouter>
+            <Provider store={store}>
+                <MemoryRouter>
+                    <Home assetsLocator={assetsLocator} lang="en" />
+                </MemoryRouter>
+            </Provider>
         );
         expect(wrapper.find(Home).html()).toContain('Material for the spine');
     });
