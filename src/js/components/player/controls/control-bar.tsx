@@ -38,7 +38,7 @@ export type MediaPlayerControlBarProps = {
 
 export type MediaPlayerControlbarState = {
     isActive: boolean;
-    intervalWhilePlaying: number;
+    currentTrackLanguage?: string;
 };
 
 const defaultProps = {
@@ -49,10 +49,14 @@ const defaultProps = {
     enablePrevControl: true,
 };
 
+const defaultState = {
+    isActive: true,
+};
+
 export class ControlBar extends React.PureComponent<MediaPlayerControlBarProps, MediaPlayerControlbarState> {
     static defaultProps = defaultProps;
 
-    readonly state: MediaPlayerControlbarState;
+    readonly state: MediaPlayerControlbarState = defaultState;
 
     /**
      * Whether the video listeners have been registered
@@ -61,10 +65,6 @@ export class ControlBar extends React.PureComponent<MediaPlayerControlBarProps, 
 
     constructor(props: MediaPlayerControlBarProps) {
         super(props);
-        this.state = {
-            isActive: true,
-            intervalWhilePlaying: 0,
-        };
     }
 
     handleEnableHover = (e: MouseEvent<HTMLDivElement>): void => {
@@ -88,11 +88,13 @@ export class ControlBar extends React.PureComponent<MediaPlayerControlBarProps, 
 
         const LoadingIndicator = () => <LoadingButton />;
 
+        console.log('REFERENCER CONTROS');
+
         return (
             <div className={'control-bar-ctn'}>
                 <div className="control-bar-ctn__progress-bar">
                     {videoEl && (
-                        <ProgressBar videoEl={videoEl} progressInterval={650} isSeekable={true} onSeek={this.seekTo} />
+                        <ProgressBar videoEl={videoEl} progressInterval={500} isSeekable={true} onSeek={this.seekTo} />
                     )}
                 </div>
                 <PlaybackStatusProvider videoEl={videoEl}>
