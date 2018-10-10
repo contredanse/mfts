@@ -65,7 +65,7 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
      * Utility to get playing status on an existing video element
      */
     static isVideoPlaying(videoEl: HTMLVideoElement): boolean {
-        return videoEl.currentTime > 0 && !videoEl.paused && !videoEl.ended && videoEl.readyState > 2;
+        return !videoEl.paused && !videoEl.ended && videoEl.readyState > 2;
     }
 
     componentDidMount() {
@@ -211,7 +211,7 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
         // As a workaround for Firefox, let's remove old tracks
         // before adding the new ones. Letting react do
         // the job does not seems to work properly
-        hideAllTextTracks(video);
+        //hideAllTextTracks(video);
         this.trackManager.removeVideoTrackNodes();
 
         if (this.props.tracks) {
