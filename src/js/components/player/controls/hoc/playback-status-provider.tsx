@@ -1,4 +1,5 @@
 import React from 'react';
+import { getAvailableTrackLanguages } from '@src/components/player/controls/utils/video-texttrack-helpers';
 
 type InjectedPlaybackStatusProps = {
     value: number;
@@ -7,6 +8,7 @@ type InjectedPlaybackStatusProps = {
     muted: boolean;
     volume: number;
     isLoading: boolean;
+    trackLangs: string[];
 
     onTest(): void;
 };
@@ -22,6 +24,7 @@ type PlaybackStatusState = {
     muted: boolean;
     volume: number;
     isLoading: boolean;
+    trackLangs: string[];
     test: number;
 };
 
@@ -31,6 +34,7 @@ const defaultPlaybackStatusState = {
     muted: false,
     volume: 1.0,
     isLoading: true,
+    trackLangs: [],
     test: 0,
 };
 
@@ -91,6 +95,7 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
             isLoading: this.state.isLoading,
             muted: this.state.muted,
             volume: this.state.volume,
+            trackLangs: this.state.trackLangs,
             onTest: this.test,
         });
     }
@@ -100,10 +105,11 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
             return;
         }
         video.addEventListener('volumechange', this.updateVolumeState);
-        video.addEventListener('play', this.updatePlayingState);
-        video.addEventListener('load', this.updatePlayingState);
-        video.addEventListener('pause', this.updatePlayingState);
-        video.addEventListener('canplay', this.updatePlayingState);
+        video.addEventListener('addtrack', this.updateTrackState);
+        video.addEventListener('play', this.updateVideoState);
+        video.addEventListener('load', this.updateVideoState);
+        video.addEventListener('pause', this.updateVideoState);
+        video.addEventListener('canplay', this.updateVideoState);
         video.addEventListener('waiting', this.setLoadingState);
         this.listenersRegistered = true;
     }
@@ -111,10 +117,11 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
     protected unregisterVideoListeners(video: HTMLVideoElement): void {
         if (this.listenersRegistered) {
             video.removeEventListener('volumechange', this.updateVolumeState);
-            video.removeEventListener('play', this.updatePlayingState);
-            video.removeEventListener('load', this.updatePlayingState);
-            video.removeEventListener('pause', this.updatePlayingState);
-            video.removeEventListener('canplay', this.updatePlayingState);
+            video.removeEventListener('addtrack', this.updateTrackState);
+            video.removeEventListener('play', this.updateVideoState);
+            video.removeEventListener('load', this.updateVideoState);
+            video.removeEventListener('pause', this.updateVideoState);
+            video.removeEventListener('canplay', this.updateVideoState);
             video.removeEventListener('waiting', this.setLoadingState);
         }
         this.listenersRegistered = false;
@@ -140,6 +147,22 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
     };
 
     /**
+     * Update track/subtitles availability
+     * @param {Event<HTMLVideoElement>} e
+     */
+    protected updateTrackState = (e: Event): void => {
+        const { videoEl } = this.props;
+
+        if (videoEl && e.target !== null) {
+            this.setState({
+                trackLangs: getAvailableTrackLanguages(videoEl),
+            });
+        } else {
+            console.warn('Cannot update trackState, no "event.target" available', e);
+        }
+    };
+
+    /**
      * Update local state with loading state
      * @param {Event<HTMLVideoElement>} e
      */
@@ -160,15 +183,17 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
      * Update local state with loading state
      * @param {Event<HTMLVideoElement>} e
      */
-    protected updatePlayingState = (e: Event): void => {
+    protected updateVideoState = (e: Event): void => {
         const { videoEl } = this.props;
 
         if (videoEl && e.target !== null) {
             const isPlaying = videoEl.currentTime > 0 && !videoEl.paused && !videoEl.ended && videoEl.readyState > 2;
-
             this.setState({
                 isPlaying: isPlaying,
                 isLoading: false,
+                trackLangs: getAvailableTrackLanguages(videoEl),
+                volume: videoEl.volume,
+                muted: videoEl.muted,
             });
         } else {
             console.warn('Cannot update playingState, no "event.target" available', e);

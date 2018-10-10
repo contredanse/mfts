@@ -14,6 +14,7 @@ import { PlayerActions } from '@src/shared/player/player';
 import ProgressBar from './progress-bar';
 import PlaybackRateSelect from '@src/components/player/controls/playback-rate-select';
 import {
+    getAvailableTrackLanguages,
     hasVisibleTextTrack,
     hideAllTextTracks,
     showLocalizedTextTrack,
@@ -88,7 +89,9 @@ export class ControlBar extends React.PureComponent<MediaPlayerControlBarProps, 
 
         const LoadingIndicator = () => <LoadingButton />;
 
-        console.log('REFERENCER CONTROS');
+        const availableTrackLangs = videoEl !== undefined ? getAvailableTrackLanguages(videoEl) : [];
+
+        console.log('REFERENCER CONTROS', availableTrackLangs);
 
         return (
             <div className={'control-bar-ctn'}>
@@ -118,7 +121,13 @@ export class ControlBar extends React.PureComponent<MediaPlayerControlBarProps, 
                                 {props.enableSpeedControl && (
                                     <PlaybackRateSelect onChange={props.actions.setPlaybackRate} />
                                 )}
-                                <SubtitlesButton isEnabled={true} onClick={this.toggleSubtitles} />
+                                {status.trackLangs.length > 0 && (
+                                    <SubtitlesButton
+                                        isEnabled={true}
+                                        style={{ opacity: 0.4 }}
+                                        onClick={this.toggleSubtitles}
+                                    />
+                                )}
                                 {props.enablePrevControl && (
                                     <PrevButton
                                         isEnabled={this.props.onPreviousLinkPressed !== undefined}

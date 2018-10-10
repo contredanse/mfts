@@ -12,6 +12,7 @@ import VideoProxyPlayer from '@src/components/player/data-proxy-player';
 import { PlayerActions } from '@src/shared/player/player';
 import { MenuSectionProps } from '@src/models/repository/menu-repository';
 import PageBreadcrumb from '@src/components/page-breadcrumb';
+import TrackVisibilityHelper from '@src/components/player/track/track-visibility-helper';
 
 export type PageProps = {
     pageProxy: PageProxy;
@@ -62,6 +63,8 @@ class Page extends React.PureComponent<PageProps, PageState> {
 
     controlBarActions!: Partial<MediaPlayerControlBarProps>;
 
+    trackVisibilityHelper: TrackVisibilityHelper;
+
     constructor(props: PageProps) {
         super(props);
 
@@ -71,6 +74,8 @@ class Page extends React.PureComponent<PageProps, PageState> {
             videoRefAvailable: false,
             playbackState: playerInitialState,
         };
+
+        this.trackVisibilityHelper = new TrackVisibilityHelper();
 
         this.initMediaPlayerActions();
 
@@ -101,18 +106,38 @@ class Page extends React.PureComponent<PageProps, PageState> {
         };
     }
 
+    protected getSubtitleVisibilityLang(): string | null {
+        const { lang } = this.props;
+
+        const visibilityMode = this.trackVisibilityHelper.getVisibilityModeFromStorage();
+        switch (visibilityMode) {
+            case null:
+                // nothing persisted, let's go default
+                // if lang is french, auto add subtitles
+                return lang === 'fr' ? 'fr' : null;
+            case 'hidden':
+                return null;
+            case 'showing':
+                return lang;
+        }
+        return null;
+    }
+
     render() {
         const { pageProxy: page, lang, menuBreadcrumb } = this.props;
 
         const countVideos = page.countVideos();
 
         const hasMultipleVideos = countVideos > 1;
-        const videos = page.getVideos(lang);
-        const audioProxy = page.getAudioProxy();
         const pageTitle = page.getTitle(lang);
         const { videoRefAvailable } = this.state;
 
-        console.log('rerender');
+        const videos = page.getVideos(lang);
+        const audioProxy = page.getAudioProxy();
+
+        const activeSubtitleLang = this.getSubtitleVisibilityLang();
+
+        console.log('rerender', activeSubtitleLang);
         return (
             <div className="page-container">
                 <div className="page-header">
@@ -133,7 +158,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
                                         ref={this.playerRef}
                                         style={{ width: '100%', height: '100%' }}
                                         crossOrigin={'anonymous'}
-                                        activeSubtitleLang={this.props.lang}
+                                        activeSubtitleLang={activeSubtitleLang}
                                         videoProxy={audioProxy}
                                         playing={this.state.playbackState.isPlaying}
                                     />
@@ -148,7 +173,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
                                         ref={this.playerRef}
                                         style={{ width: '100%', height: '100%' }}
                                         crossOrigin={'anonymous'}
-                                        activeSubtitleLang={this.props.lang}
+                                        activeSubtitleLang={activeSubtitleLang}
                                         // To prevent blinking
                                         disablePoster={true}
                                         videoProxy={page.getFirstVideo(lang)!}

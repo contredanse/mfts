@@ -2,7 +2,10 @@ import React, { CSSProperties } from 'react';
 
 import VideoProxy from '@src/models/proxy/video-proxy';
 import VideoSourceProxy from '@src/models/proxy/video-source-proxy';
-import { showLocalizedTextTrack } from '@src/components/player/controls/utils/video-texttrack-helpers';
+import {
+    hideAllTextTracks,
+    showLocalizedTextTrack,
+} from '@src/components/player/controls/utils/video-texttrack-helpers';
 import VideoPlayer, { TextTrackProps, VideoSourceProps } from '@src/components/player/video-player';
 import AudioProxy from '@src/models/proxy/audio-proxy';
 
@@ -10,7 +13,7 @@ export type DataProxyPlayerProps = {
     videoProxy: VideoProxy | AudioProxy;
     disablePoster?: boolean;
     disableSubtitles?: boolean;
-    activeSubtitleLang?: string;
+    activeSubtitleLang?: string | null;
     crossOrigin?: 'anonymous';
     fallbackLang?: string;
     playing?: boolean;
@@ -67,7 +70,11 @@ export default class DataProxyPlayer extends React.Component<DataProxyPlayerProp
         // To be tested, a better solution must be found
         if (nextProps.activeSubtitleLang !== this.props.activeSubtitleLang) {
             const videoEl = this.playerRef.current!.getVideoElement() as HTMLVideoElement;
-            showLocalizedTextTrack(videoEl, nextProps.activeSubtitleLang || nextProps.fallbackLang!);
+            if (nextProps.activeSubtitleLang) {
+                showLocalizedTextTrack(videoEl, nextProps.activeSubtitleLang);
+            } else {
+                hideAllTextTracks(videoEl);
+            }
             return false;
         }
         return false;
@@ -142,7 +149,7 @@ export const mapVideoSourceProxyToVideoSourceProps = (videoSources: VideoSourceP
 
 export const mapMediaProxyTracksToTextTracksProps = (
     mediaProxy: VideoProxy | AudioProxy,
-    langToSetAsDefault?: string
+    langToSetAsDefault?: string | null
 ): TextTrackProps[] => {
     const playerTracks: TextTrackProps[] = [];
     mediaProxy.getAllTracks().forEach(mediaTrack => {

@@ -42,3 +42,12 @@ export const hasVisibleTextTrack = (video: HTMLVideoElement): boolean => {
 export const hasTextTrack = (video: HTMLVideoElement): boolean => {
     return video.textTracks.length > 0;
 };
+
+export const getAvailableTrackLanguages = (video: HTMLVideoElement): string[] => {
+    const langs = [];
+    console.log('VIDEO TEXTTRACK LENGTH', video.textTracks.length);
+    for (let i = 0; i < video.textTracks.length; i++) {
+        langs.push(video.textTracks[i].language);
+    }
+    return langs;
+};
