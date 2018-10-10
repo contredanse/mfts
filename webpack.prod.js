@@ -390,8 +390,8 @@ module.exports = merge(common, {
         new Workbox.GenerateSW({
             // Whether or not the service worker should start controlling any existing clients as soon as it activates.
             clientsClaim: true,
-            // Whether or not the service worker should skip over the waiting lifecycle stage. Normally this is used with `clientsClaim: true`.
-            skipWaiting: true,
+            // https://stackoverflow.com/questions/49482680/workbox-the-danger-of-self-skipwaiting
+            //skipWaiting: true,
             exclude: [/\.htaccess$/, /assets-manifest\.json$/, /\.map$/, /\.br$/, /\.gz$/],
             importWorkboxFrom: 'disabled',
             importScripts: [`static/js/workbox-sw.${workboxVersion}.js`],
