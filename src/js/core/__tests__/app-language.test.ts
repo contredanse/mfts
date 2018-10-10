@@ -10,11 +10,11 @@ describe('AppLanguage test', () => {
     it('should persist to localstorage', () => {
         const lang = 'fr';
         appLang.persistLanguageInStorage(lang);
-        expect(window.localStorage.setItem).toHaveBeenLastCalledWith(appLang.storageKey, lang);
+        expect(window.localStorage.setItem).toHaveBeenLastCalledWith(AppLanguage.storageKey, lang);
     });
 
     it('should read lang from localstorage', () => {
         appLang.getLanguageFromStorage();
-        expect(localStorage.getItem).toBeCalledWith(appLang.storageKey);
+        expect(localStorage.getItem).toBeCalledWith(AppLanguage.storageKey);
     });
 });

@@ -1,11 +1,11 @@
 export class AppLanguage {
+    public static readonly storageKey = 'AppLanguage.lang';
     readonly supportedLangs = ['en', 'fr'];
     readonly fallbackLang = 'en';
-    readonly storageKey = 'AppLanguage.lang';
 
     persistLanguageInStorage(lang: string): void {
         try {
-            localStorage.setItem(this.storageKey, lang);
+            localStorage.setItem(AppLanguage.storageKey, lang);
         } catch (e) {
             console.log('Cannot save lang in localstorage');
         }
@@ -39,7 +39,7 @@ export class AppLanguage {
 
     getLanguageFromStorage(): string | null {
         try {
-            const lang = localStorage.getItem(this.storageKey);
+            const lang = localStorage.getItem(AppLanguage.storageKey);
             if (lang && this.isSupportedLang(lang)) {
                 return lang;
             }
