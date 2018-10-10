@@ -1,21 +1,30 @@
 /**
- * @return number of shown tracks (generally 1 or 0 if no match)
+ * @return count actual number of shown tracks
  */
 export const showLocalizedTextTrack = (
     video: HTMLVideoElement,
     lang: string,
     kind: TextTrackKind = 'subtitles'
-): number => {
-    let countShown = 0;
+): boolean => {
     for (let i = 0; i < video.textTracks.length; i++) {
         if (video.textTracks[i].language === lang && video.textTracks[i].kind === kind) {
+            const isLoaded = video.textTracks[i].cues !== null;
+            if (!isLoaded) {
+                /*
+                video.textTracks[i].mode = 'showing';
+                alert('no loaded');
+                video.textTracks[i].onload = () => { alert('loaded') } ;
+                */
+            }
             video.textTracks[i].mode = 'showing';
-            countShown++;
         } else {
             video.textTracks[i].mode = 'hidden';
         }
     }
-    return countShown;
+
+    console.log('after showLocalizedTextTrack', lang, video.textTracks);
+
+    return hasVisibleTextTrack(video);
 };
 
 /**

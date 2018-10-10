@@ -22,6 +22,7 @@ import {
 
 import PlaybackStatusProvider from '@src/components/player/controls/hoc/playback-status-provider';
 import LoadingButton from '@src/components/player/controls/svg-button/loading-button';
+import TrackVisibilityHelper from '@src/components/player/track/track-visibility-helper';
 
 export type MediaPlayerControlBarProps = {
     videoEl?: HTMLVideoElement;
@@ -39,7 +40,7 @@ export type MediaPlayerControlBarProps = {
 
 export type MediaPlayerControlbarState = {
     isActive: boolean;
-    currentTrackLanguage?: string;
+    hasVisibleTrack: boolean;
 };
 
 const defaultProps = {
@@ -50,22 +51,25 @@ const defaultProps = {
     enablePrevControl: true,
 };
 
-const defaultState = {
-    isActive: true,
-};
-
 export class ControlBar extends React.PureComponent<MediaPlayerControlBarProps, MediaPlayerControlbarState> {
     static defaultProps = defaultProps;
 
-    readonly state: MediaPlayerControlbarState = defaultState;
+    readonly state: MediaPlayerControlbarState;
 
     /**
      * Whether the video listeners have been registered
      */
     protected listenersRegistered = false;
 
+    trackVisibilityHelper: TrackVisibilityHelper;
+
     constructor(props: MediaPlayerControlBarProps) {
         super(props);
+        this.trackVisibilityHelper = new TrackVisibilityHelper();
+        this.state = {
+            isActive: true,
+            hasVisibleTrack: false,
+        };
     }
 
     handleEnableHover = (e: MouseEvent<HTMLDivElement>): void => {
@@ -124,7 +128,7 @@ export class ControlBar extends React.PureComponent<MediaPlayerControlBarProps, 
                                 {status.trackLangs.length > 0 && (
                                     <SubtitlesButton
                                         isEnabled={true}
-                                        style={{ opacity: 0.4 }}
+                                        extraClasses={this.state.hasVisibleTrack ? 'isHighlighted' : ''}
                                         onClick={this.toggleSubtitles}
                                     />
                                 )}
@@ -144,9 +148,6 @@ export class ControlBar extends React.PureComponent<MediaPlayerControlBarProps, 
                                         }}
                                     />
                                 )}
-                                <div style={{ position: 'relative', border: '1px solid white', padding: '5px' }}>
-                                    Skip to helix >>
-                                </div>
                             </div>
                         </div>
                     )}
@@ -159,9 +160,19 @@ export class ControlBar extends React.PureComponent<MediaPlayerControlBarProps, 
         const { videoEl, lang } = this.props;
         if (videoEl) {
             if (hasVisibleTextTrack(videoEl)) {
+                console.log('A TRACK WAS SHOWN LET HIDE IT !!');
                 hideAllTextTracks(videoEl);
+                this.trackVisibilityHelper.persistVisibilityModeInStorage('hidden');
+                this.setState({
+                    hasVisibleTrack: false,
+                });
             } else {
+                console.log('NO TRACKS ARE SHOWN, LETS HSOW ONE', lang);
+                this.trackVisibilityHelper.persistVisibilityModeInStorage('showing');
                 showLocalizedTextTrack(videoEl, lang!);
+                this.setState({
+                    hasVisibleTrack: hasVisibleTextTrack(videoEl),
+                });
             }
         }
     };

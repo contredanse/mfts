@@ -106,23 +106,6 @@ class Page extends React.PureComponent<PageProps, PageState> {
         };
     }
 
-    protected getSubtitleVisibilityLang(): string | null {
-        const { lang } = this.props;
-
-        const visibilityMode = this.trackVisibilityHelper.getVisibilityModeFromStorage();
-        switch (visibilityMode) {
-            case null:
-                // nothing persisted, let's go default
-                // if lang is french, auto add subtitles
-                return lang === 'fr' ? 'fr' : null;
-            case 'hidden':
-                return null;
-            case 'showing':
-                return lang;
-        }
-        return null;
-    }
-
     render() {
         const { pageProxy: page, lang, menuBreadcrumb } = this.props;
 
@@ -264,6 +247,25 @@ class Page extends React.PureComponent<PageProps, PageState> {
         this.setState((prevState: PageState) => {
             return { ...prevState, playbackState: { ...prevState.playbackState, ...deltaState } };
         });
+    }
+
+    /**
+     * To re-enable track captions
+     */
+    private getSubtitleVisibilityLang(): string | null {
+        const { lang } = this.props;
+        const visibilityMode = this.trackVisibilityHelper.getVisibilityModeFromStorage();
+        switch (visibilityMode) {
+            case null:
+                // nothing persisted, let's go default
+                // if lang is french, auto add subtitles in french
+                return lang === 'fr' ? 'fr' : null;
+            case 'hidden':
+                return null;
+            case 'showing':
+                return lang;
+        }
+        return null;
     }
 }
 
