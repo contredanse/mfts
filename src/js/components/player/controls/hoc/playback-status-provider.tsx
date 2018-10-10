@@ -169,7 +169,7 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
     protected setLoadingState = (e: Event): void => {
         const { videoEl } = this.props;
         if (videoEl && e.target !== null) {
-            const isPlaying = videoEl.currentTime > 0 && !videoEl.paused && !videoEl.ended && videoEl.readyState > 2;
+            const isPlaying = !videoEl.paused && !videoEl.ended && videoEl.readyState > 2;
             this.setState({
                 isPlaying: isPlaying,
                 isLoading: true,
@@ -187,7 +187,7 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
         const { videoEl } = this.props;
 
         if (videoEl && e.target !== null) {
-            const isPlaying = videoEl.currentTime > 0 && !videoEl.paused && !videoEl.ended && videoEl.readyState > 2;
+            const isPlaying = !videoEl.paused && !videoEl.ended && videoEl.readyState > 2;
             this.setState({
                 isPlaying: isPlaying,
                 isLoading: false,
