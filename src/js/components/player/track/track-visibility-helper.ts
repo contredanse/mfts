@@ -18,7 +18,7 @@ export default class TrackVisibilityHelper {
     getVisibilityModeFromStorage(): VisibilityMode | null {
         try {
             const mode = localStorage.getItem(TrackVisibilityHelper.storageKey);
-            if (mode && mode in ['hidden', 'showing']) {
+            if (mode && ['hidden', 'showing'].includes(mode)) {
                 return mode as VisibilityMode;
             }
         } catch (e) {
