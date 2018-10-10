@@ -11,6 +11,16 @@
     border: 1px solid red;
 }
 
+/**
+<div className="round-button">
+    <div className="round-button-circle">
+        <a onPointerDown={() => updateLang(nextLang)} className="round-button">
+            {nextLang === 'en' ? 'English': 'Français' }
+        </a>
+    </div>
+</div>
+ */
+
 .round-button {
     width: 25%;
 }
