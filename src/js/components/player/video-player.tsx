@@ -1,11 +1,8 @@
 import React, { SourceHTMLAttributes, SyntheticEvent, VideoHTMLAttributes } from 'react';
 import { Omit } from 'utility-types';
 import equal from 'fast-deep-equal';
-import {
-    appendVideoTextTrackNodes,
-    hideAllTextTracks,
-    removeVideoTextTrackNodes,
-} from '@src/components/player/controls/utils/video-texttrack-helpers';
+import { hideAllTextTracks } from '@src/components/player/controls/utils/video-texttrack-helpers';
+import HTMLVideoTrackManager from '@src/components/player/track/html-video-track-manager';
 
 export type VideoSourceProps = SourceHTMLAttributes<HTMLSourceElement>;
 export type TextTrackKind = 'subtitles' | 'captions' | 'descriptions' | 'chapters' | 'metadata';
@@ -53,6 +50,7 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
     readonly state = defaultState;
     private videoRef!: React.RefObject<HTMLVideoElement>;
     private listenersRegistered = false;
+    private trackManager!: HTMLVideoTrackManager;
 
     constructor(props: VideoPlayerProps) {
         super(props);
@@ -72,6 +70,7 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
 
     componentDidMount() {
         if (this.videoRef.current !== null) {
+            this.trackManager = new HTMLVideoTrackManager(this.videoRef.current);
             this.registerVideoListeners(this.videoRef.current);
             // Set default playback props
             this.setPlaybackRate(this.props.playbackRate);
@@ -85,8 +84,7 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
     componentDidUpdate() {
         if (this.videoRef.current !== null) {
             const videoEl = this.videoRef.current;
-            console.log('DIDUPDATE');
-
+            this.trackManager = new HTMLVideoTrackManager(videoEl);
             // Sources have been reloaded or text tracks have been changed
             videoEl.load();
             this.initAutoPlay();
@@ -214,10 +212,10 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
         // before adding the new ones. Letting react do
         // the job does not seems to work properly
         hideAllTextTracks(video);
-        removeVideoTextTrackNodes(video);
+        this.trackManager.removeVideoTrackNodes();
 
         if (this.props.tracks) {
-            appendVideoTextTrackNodes(video, this.props.tracks);
+            this.trackManager.appendTrackNodes(this.props.tracks);
         }
     };
 
