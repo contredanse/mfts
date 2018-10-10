@@ -24,6 +24,7 @@ import LoadingButton from '@src/components/player/controls/svg-button/loading-bu
 
 export type MediaPlayerControlBarProps = {
     videoEl?: HTMLVideoElement;
+    lang?: string;
     duration: number;
     playbackRate: number;
     actions: PlayerActions;
@@ -40,13 +41,16 @@ export type MediaPlayerControlbarState = {
     intervalWhilePlaying: number;
 };
 
+const defaultProps = {
+    lang: 'en',
+    enableBrowseControl: false,
+    enableSpeedControl: true,
+    enableNextControl: true,
+    enablePrevControl: true,
+};
+
 export class ControlBar extends React.PureComponent<MediaPlayerControlBarProps, MediaPlayerControlbarState> {
-    static defaultProps = {
-        enableBrowseControl: false,
-        enableSpeedControl: true,
-        enableNextControl: true,
-        enablePrevControl: true,
-    };
+    static defaultProps = defaultProps;
 
     readonly state: MediaPlayerControlbarState;
 
@@ -141,12 +145,12 @@ export class ControlBar extends React.PureComponent<MediaPlayerControlBarProps, 
     }
 
     protected toggleSubtitles = (): void => {
-        const { videoEl } = this.props;
+        const { videoEl, lang } = this.props;
         if (videoEl) {
             if (hasVisibleTextTrack(videoEl)) {
                 hideAllTextTracks(videoEl);
             } else {
-                showLocalizedTextTrack(videoEl, 'fr');
+                showLocalizedTextTrack(videoEl, lang!);
             }
         }
     };

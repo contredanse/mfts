@@ -164,6 +164,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
                     {videoRefAvailable && (
                         <ControlBar
                             key={page.pageId}
+                            lang={lang}
                             videoEl={this.getMainPlayerVideoElement()!}
                             actions={this.mediaPlayerActions}
                             duration={this.state.playbackState.duration}

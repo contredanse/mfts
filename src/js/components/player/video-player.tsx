@@ -255,9 +255,6 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
      */
     private updatePlayingState = (e: Event): void => {
         const videoEl = e.currentTarget as HTMLVideoElement;
-
-        console.log('INIT playing state through updatePlayingState !!!');
-
         if (videoEl) {
             const isPlaying = VideoPlayer.isVideoPlaying(videoEl);
             this.setState({
