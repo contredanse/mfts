@@ -69,24 +69,6 @@ class LangSelector extends React.Component<LangSelectorProps> {
             currentLang: currentLang,
             nextLang: nextLang,
         });
-
-        return (
-            <div className="round-button">
-                <div className="round-button-circle">
-                    <a onPointerDown={() => this.updateLang(nextLang)} className="round-button">
-                        >> Go {nextLang}
-                    </a>
-                </div>
-            </div>
-        );
-
-        return (
-            <div className={className} style={style}>
-                <button className={className} style={style} onPointerDown={() => this.updateLang(nextLang)}>
-                    >> Go {nextLang}
-                </button>
-            </div>
-        );
     }
 }
 const mapStateToProps = ({ lang: lg }: ApplicationState) => ({
