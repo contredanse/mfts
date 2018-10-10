@@ -353,16 +353,35 @@ module.exports = merge(common, {
         }),
 
         // https://developers.google.com/web/tools/workbox/modules/workbox-webpack-plugin
-        new Workbox.InjectManifest({
-            // It's actually a chunk name !!!
-            //importWorkboxFrom: 'workboxSw',
+
+        new Workbox.GenerateSW({
+            // Whether or not the service worker should start controlling any existing clients as soon as it activates.
+            clientsClaim: true,
+            // Whether or not the service worker should skip over the waiting lifecycle stage. Normally this is used with `clientsClaim: true`.
+            skipWaiting: true,
+            exclude: [/\.htaccess$/, /assets-manifest\.json$/, /\.map$/, /\.br$/, /\.gz$/],
             importWorkboxFrom: 'disabled',
             importScripts: [`static/js/workbox-sw.${workboxVersion}.js`],
-            swSrc: './src/js/service-worker.webpack.stub.js',
-            swDest: 'service-worker.js',
-            exclude: [/\.htaccess$/, /assets-manifest\.json$/, /\.map$/, /\.br$/, /\.gz$/],
+            navigateFallback: PUBLIC_URL + '/index.html',
+            navigateFallbackBlacklist: [
+                // Exclude URLs starting with /_, as they're likely an API call
+                new RegExp('^/_'),
+                // Exclude URLs containing a dot, as they're likely a resource in
+                // public/ and not a SPA route
+                new RegExp('/[^/]+\\.[^/]+$'),
+            ],
+        }),
 
-            /** Only working with GeneratSwPlugin
+        //new Workbox.InjectManifest({
+        // It's actually a chunk name !!!
+        //importWorkboxFrom: 'workboxSw',
+        //    importWorkboxFrom: 'disabled',
+        //    importScripts: [`static/js/workbox-sw.${workboxVersion}.js`],
+        //    swSrc: './src/js/service-worker.webpack.stub.js',
+        //    swDest: 'service-worker.js',
+        //    exclude: [/\.htaccess$/, /assets-manifest\.json$/, /\.map$/, /\.br$/, /\.gz$/],
+
+        /** Only working with GeneratSwPlugin
             navigateFallback: 'index.html',
             // By default, a cache-busting query parameter is appended to requests
             // used to populate the caches, to ensure the responses are fresh.
@@ -375,7 +394,7 @@ module.exports = merge(common, {
             // Whether or not the service worker should skip over the waiting lifecycle stage. Normally this is used with `clientsClaim: true`.
             skipWaiting: true
             */
-        }),
+        //}),
 
         new StatsWriterPlugin({
             // no support for absolute paths
