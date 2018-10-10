@@ -105,9 +105,9 @@ export class ControlBar extends React.PureComponent<MediaPlayerControlBarProps, 
                                     <PlayButton isEnabled={true} onClick={this.play} />
                                 )}
                                 {status.muted ? (
-                                    <SoundOffButton isEnabled={true} onClick={this.mute} />
+                                    <SoundOffButton isEnabled={true} onClick={this.unMute} />
                                 ) : (
-                                    <SoundOnButton isEnabled={true} onClick={this.unMute} />
+                                    <SoundOnButton isEnabled={true} onClick={this.mute} />
                                 )}
                                 {status.isLoading && <LoadingIndicator />}
                             </div>
