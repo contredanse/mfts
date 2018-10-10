@@ -149,8 +149,9 @@ export class ControlBar extends React.PureComponent<MediaPlayerControlBarProps, 
         if (videoEl) {
             if (hasVisibleTextTrack(videoEl)) {
                 hideAllTextTracks(videoEl);
+            } else {
+                showLocalizedTextTrack(videoEl, lang!);
             }
-            showLocalizedTextTrack(videoEl, lang!);
         }
     };
 
