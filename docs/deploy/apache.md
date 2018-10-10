@@ -13,6 +13,9 @@
   RewriteEngine On
   RewriteBase /
   RewriteRule ^index\.html$ - [L]
+  # Old resources like like precache-<old-hash>.js
+  # used by service worker must be returned as 404 if not found
+  RewriteCond %{REQUEST_FILENAME} !\.(js|css)$
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME} !-l
