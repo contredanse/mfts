@@ -101,6 +101,7 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
         }
         video.addEventListener('volumechange', this.updateVolumeState);
         video.addEventListener('play', this.updatePlayingState);
+        video.addEventListener('load', this.updatePlayingState);
         video.addEventListener('pause', this.updatePlayingState);
         video.addEventListener('canplay', this.updatePlayingState);
         video.addEventListener('waiting', this.setLoadingState);
@@ -111,6 +112,7 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
         if (this.listenersRegistered) {
             video.removeEventListener('volumechange', this.updateVolumeState);
             video.removeEventListener('play', this.updatePlayingState);
+            video.removeEventListener('load', this.updatePlayingState);
             video.removeEventListener('pause', this.updatePlayingState);
             video.removeEventListener('canplay', this.updatePlayingState);
             video.removeEventListener('waiting', this.setLoadingState);
@@ -144,7 +146,9 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
     protected setLoadingState = (e: Event): void => {
         const { videoEl } = this.props;
         if (videoEl && e.target !== null) {
+            const isPlaying = videoEl.currentTime > 0 && !videoEl.paused && !videoEl.ended && videoEl.readyState > 2;
             this.setState({
+                isPlaying: isPlaying,
                 isLoading: true,
             });
         } else {
