@@ -17,7 +17,9 @@
   - [ ] Menu for playback speed
     - [ ] `NicetoHave` auto mute sound if speed below or over limits.
   - [x] OnEnd event, when video finish let's go `somewhere`
+  - [ ] Persist choice for subtitles (local storage)
   - [ ] Volume slider
+  
        
 - [ ] Page behaviours  
   - [ ] When playback very short - loop ? Question  
