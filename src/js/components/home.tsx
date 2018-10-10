@@ -96,7 +96,7 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
                         </p>
                         <ConnectedLangSelector>
                             {({ currentLang, nextLang, toggleLang, updateLang }) => (
-                                <div className="lang-selector-panel" onPointerDown={() => updateLang(nextLang)}>
+                                <div className="lang-selector-panel" onClick={() => updateLang(nextLang)}>
                                     {nextLang === 'en' ? 'English' : 'Français'}
                                 </div>
                             )}
