@@ -97,6 +97,8 @@ export class ControlBar extends React.PureComponent<MediaPlayerControlBarProps, 
 
         console.log('REFERENCER CONTROLBAR', availableTrackLangs);
 
+        const hasVisibleTrack = videoEl ? hasVisibleTextTrack(videoEl) : false;
+
         return (
             <div className={'control-bar-ctn'}>
                 <div className="control-bar-ctn__progress-bar">
@@ -128,7 +130,7 @@ export class ControlBar extends React.PureComponent<MediaPlayerControlBarProps, 
                                 {status.trackLangs.length > 0 && (
                                     <SubtitlesButton
                                         isEnabled={true}
-                                        extraClasses={this.state.hasVisibleTrack ? 'isHighlighted' : ''}
+                                        extraClasses={hasVisibleTrack ? 'isHighlighted' : ''}
                                         onClick={this.toggleSubtitles}
                                     />
                                 )}
@@ -164,7 +166,7 @@ export class ControlBar extends React.PureComponent<MediaPlayerControlBarProps, 
                 hideAllTextTracks(videoEl);
                 this.trackVisibilityHelper.persistVisibilityModeInStorage('hidden');
                 this.setState({
-                    hasVisibleTrack: false,
+                    hasVisibleTrack: hasVisibleTextTrack(videoEl),
                 });
             } else {
                 console.log('NO TRACKS ARE SHOWN, LETS HSOW ONE', lang);
