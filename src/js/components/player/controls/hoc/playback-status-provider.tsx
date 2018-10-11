@@ -2,13 +2,12 @@ import React from 'react';
 import { getAvailableTrackLanguages } from '@src/components/player/controls/utils/video-texttrack-helpers';
 
 type InjectedPlaybackStatusProps = {
-    value: number;
-
     isPlaying: boolean;
     muted: boolean;
     volume: number;
     isLoading: boolean;
     trackLangs: string[];
+    readyState: number;
 
     onTest(): void;
 };
@@ -21,6 +20,7 @@ type PlaybackStatusProps = {
 type PlaybackStatusState = {
     value: number;
     isPlaying: boolean;
+    readyState: number;
     muted: boolean;
     volume: number;
     isLoading: boolean;
@@ -33,6 +33,7 @@ const defaultPlaybackStatusState = {
     isPlaying: false,
     muted: false,
     volume: 1.0,
+    readyState: 0,
     isLoading: true,
     trackLangs: [],
     test: 0,
@@ -90,7 +91,7 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
             return null;
         }
         return this.props.children({
-            value: this.state.value,
+            readyState: this.state.readyState,
             isPlaying: this.state.isPlaying,
             isLoading: this.state.isLoading,
             muted: this.state.muted,
@@ -152,7 +153,7 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
      */
     protected updateTrackState = (e: Event): void => {
         const { videoEl } = this.props;
-
+        console.log('UPDATETRACKSTATE');
         if (videoEl && e.target !== null) {
             this.setState({
                 trackLangs: getAvailableTrackLanguages(videoEl),
@@ -185,10 +186,10 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
      */
     protected updateVideoState = (e: Event): void => {
         const { videoEl } = this.props;
-
         if (videoEl && e.target !== null) {
             const isPlaying = !videoEl.paused && !videoEl.ended && videoEl.readyState > 2;
             this.setState({
+                readyState: videoEl.readyState,
                 isPlaying: isPlaying,
                 isLoading: false,
                 trackLangs: getAvailableTrackLanguages(videoEl),
