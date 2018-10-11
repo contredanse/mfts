@@ -10,7 +10,8 @@ ul.page-breadcrumb {
     display: inline-block;
     width: 100%;
     list-style-type: none;
-    margin: 0;
+    //margin: 0;
+
     padding: 0;
     background: linear-gradient(
         to top,
@@ -24,13 +25,14 @@ ul.page-breadcrumb {
     }
 
     a {
-        font-size: 2vw;
+        font-size: 1.2em;
+
         padding: 1vh 0.5vw;
         font-weight: 500;
 
         @include media-breakpoint-down(sm) {
             padding: 1vh 0.4vw;
-            font-size: 3.4vw;
+            font-size: 2.7vw;
             font-weight: 700;
         }
 

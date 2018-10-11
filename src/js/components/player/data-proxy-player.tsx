@@ -25,6 +25,7 @@ export type DataProxyPlayerProps = {
     className?: string;
     loop?: boolean;
     muted?: boolean;
+    onEnded?: (e: SyntheticEvent<HTMLVideoElement>) => void;
 };
 
 export type DataProxyPlayerState = {};
@@ -95,6 +96,16 @@ export default class DataProxyPlayer extends React.Component<DataProxyPlayerProp
         return this.playerRef.current.getVideoElement() as HTMLVideoElement;
     }
 
+    onCanPlay = (e: SyntheticEvent<HTMLVideoElement>) => {
+        // Initialize state for tracks
+        const videoEl = e.currentTarget as HTMLVideoElement;
+        if (this.props.subtitleVisibility === 'showing' && this.props.defaultSubtitleLang) {
+            showLocalizedTextTrack(videoEl, this.props.defaultSubtitleLang);
+        } else {
+            hideAllTextTracks(videoEl);
+        }
+    };
+
     render() {
         const { crossOrigin, disablePoster, className, muted, loop, videoProxy, defaultSubtitleLang } = this.props;
 
@@ -116,14 +127,8 @@ export default class DataProxyPlayer extends React.Component<DataProxyPlayerProp
                 controls={false}
                 playsInline={true}
                 crossOrigin={crossOrigin}
-                onCanPlay={(e: SyntheticEvent<HTMLVideoElement>) => {
-                    const videoEl = this.playerRef.current!.getVideoElement() as HTMLVideoElement;
-                    if (this.props.subtitleVisibility === 'showing' && this.props.defaultSubtitleLang) {
-                        showLocalizedTextTrack(videoEl, this.props.defaultSubtitleLang);
-                    } else {
-                        hideAllTextTracks(videoEl);
-                    }
-                }}
+                onEnded={this.props.onEnded}
+                onCanPlay={this.onCanPlay}
                 srcs={videoSources}
                 {...(textTracks ? { tracks: textTracks } : {})}
                 {...(!disablePoster && firstCover ? { cover: firstCover } : {})}

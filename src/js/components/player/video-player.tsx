@@ -14,7 +14,6 @@ export type TextTrackProps = {
     default?: boolean;
 };
 export type VideoActions = {
-    //onEnded?: (e: Event) => void;
     onEnded?: (e: SyntheticEvent<HTMLVideoElement>) => void;
     onCanPlay?: (e: SyntheticEvent<HTMLVideoElement>) => void;
 };
@@ -77,7 +76,6 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
             this.setPlaybackRate(this.props.playbackRate);
             this.initAutoPlay();
         } else {
-            console.log('MOUNT BUT NO VIDEOREF');
             throw Error('Registering listeners failed, video element is null');
         }
     }
@@ -184,6 +182,7 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
             <video
                 onLoadedMetadata={this.onLoadedMetadata}
                 onCanPlay={this.props.onCanPlay}
+                onEnded={this.props.onEnded}
                 ref={this.videoRef}
                 {...mediaProps}
                 {...(this.props.playsInline ? { 'webkit-playsinline': 'webkit-playsinline' } : {})}

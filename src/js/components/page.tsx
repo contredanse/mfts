@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SyntheticEvent } from 'react';
 
 import { translate, InjectedI18nProps } from 'react-i18next';
 
@@ -6,7 +6,7 @@ import './page.scss';
 
 import PageProxy from '@src/models/proxy/page-proxy';
 
-import ControlBar, { MediaPlayerControlBarProps } from '@src/components/player/controls/control-bar';
+import ControlBar, { ControlBarProps } from '@src/components/player/controls/control-bar';
 import PanelMultiVideo from '@src/components/panel-multi-video';
 import VideoProxyPlayer from '@src/components/player/data-proxy-player';
 import { PlayerActions } from '@src/shared/player/player';
@@ -37,6 +37,7 @@ export type PlaybackState = {
 export type PageState = {
     videoRefAvailable: boolean;
     playbackState: PlaybackState;
+    played: boolean;
 };
 
 const defaultPlaybackState: PlaybackState = {
@@ -50,9 +51,8 @@ const defaultPlaybackState: PlaybackState = {
 };
 
 class Page extends React.PureComponent<PageProps, PageState> {
-    static defaultProps: Pick<PageProps, 'menuBreadcrumb' | 'onPagePlayed'> = {
+    static defaultProps: Pick<PageProps, 'menuBreadcrumb'> = {
         menuBreadcrumb: [],
-        onPagePlayed: () => {},
     };
 
     readonly state: PageState;
@@ -61,7 +61,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
 
     mediaPlayerActions!: PlayerActions;
 
-    controlBarActions!: Partial<MediaPlayerControlBarProps>;
+    controlBarActions!: Partial<ControlBarProps>;
 
     trackVisibilityHelper: TrackVisibilityHelper;
 
@@ -72,6 +72,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
 
         this.state = {
             videoRefAvailable: false,
+            played: false,
             playbackState: playerInitialState,
         };
 
@@ -106,6 +107,16 @@ class Page extends React.PureComponent<PageProps, PageState> {
         };
     }
 
+    onEnded = (e: SyntheticEvent<HTMLVideoElement>) => {
+        if (this.props.onPagePlayed) {
+            this.props.onPagePlayed();
+        } else {
+            this.setState({
+                played: true,
+            });
+        }
+    };
+
     render() {
         const { pageProxy: page, lang, menuBreadcrumb } = this.props;
 
@@ -113,7 +124,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
 
         const hasMultipleVideos = countVideos > 1;
         const pageTitle = page.getTitle(lang);
-        const { videoRefAvailable } = this.state;
+        const { videoRefAvailable, played } = this.state;
 
         const videos = page.getVideos(lang);
         const audioProxy = page.getAudioProxy();
@@ -128,6 +139,47 @@ class Page extends React.PureComponent<PageProps, PageState> {
                     <PageBreadcrumb title={pageTitle} sections={menuBreadcrumb} lang={lang} />
                 </div>
                 <div className="page-content">
+                    {played && (
+                        <div className="page-overlay page-overlay--active">
+                            <div className="page-overlay-top">The top</div>
+                            <div className="page-overlay-middle">
+                                I'm the center zone
+                                <button
+                                    onClick={() => {
+                                        this.setState((prevState: PageState, prevProps: PageProps) => {
+                                            const videoEl = this.getMainPlayerVideoElement();
+                                            if (videoEl) {
+                                                videoEl.currentTime = 0;
+                                                videoEl.play();
+                                            }
+                                            const newState = {
+                                                ...prevState,
+                                                played: false,
+                                            };
+                                            return newState;
+                                        });
+                                    }}
+                                >
+                                    Replay
+                                </button>
+                                <button
+                                    onClick={() => {
+                                        this.setState((prevState: PageState, prevProps: PageProps) => {
+                                            const newState = {
+                                                ...prevState,
+                                                played: false,
+                                            };
+                                            return newState;
+                                        });
+                                    }}
+                                >
+                                    Next
+                                </button>
+                            </div>
+                            <div className="page-overlay-bottom">Played</div>
+                        </div>
+                    )}
+
                     {hasMultipleVideos ? (
                         <div className="page-multi-video-layout">
                             <PanelMultiVideo
@@ -165,6 +217,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
                                         videoProxy={page.getFirstVideo(lang)!}
                                         playing={this.state.playbackState.isPlaying}
                                         playbackRate={this.state.playbackState.playbackRate}
+                                        onEnded={this.onEnded}
                                     />
                                 </div>
                             </div>

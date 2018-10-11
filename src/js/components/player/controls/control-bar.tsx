@@ -80,8 +80,6 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
 
         const availableTrackLangs = videoEl !== undefined ? getAvailableTrackLanguages(videoEl) : [];
 
-        console.log('REFERENCER CONTROLBAR', availableTrackLangs);
-
         const hasVisibleTrack = videoEl ? hasVisibleTextTrack(videoEl) : false;
 
         return (
@@ -147,14 +145,14 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
         const { videoEl, lang } = this.props;
         if (videoEl) {
             if (hasVisibleTextTrack(videoEl)) {
-                console.log('A TRACK WAS SHOWN LET HIDE IT !!');
+                // A track was shown let's hide everything
                 hideAllTextTracks(videoEl);
                 this.trackVisibilityHelper.persistVisibilityModeInStorage('hidden');
                 this.setState({
                     hasVisibleTrack: hasVisibleTextTrack(videoEl),
                 });
             } else {
-                console.log('NO TRACKS ARE SHOWN, LETS HSOW ONE', lang);
+                // No tracks are show, let's display one
                 this.trackVisibilityHelper.persistVisibilityModeInStorage('showing');
                 showLocalizedTextTrack(videoEl, lang!);
                 this.setState({
@@ -178,7 +176,6 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
         const { videoEl } = this.props;
         if (videoEl) {
             const playPromise = videoEl.play();
-
             // In browsers that don’t yet support this functionality,
             // playPromise won’t be defined.
             if (playPromise !== undefined) {
@@ -226,7 +223,7 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
     };
 
     protected logWarning(msg: string) {
-        console.warn(`Controlbar: ${msg}`);
+        console.warn(`ControlBar: ${msg}`);
     }
 }
 
