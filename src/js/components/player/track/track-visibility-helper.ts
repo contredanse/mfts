@@ -1,9 +1,9 @@
-export type VisibilityMode = 'hidden' | 'showing';
+export type TrackVisibilityMode = 'hidden' | 'showing';
 
 export default class TrackVisibilityHelper {
     public static readonly storageKey = 'TrackInitializer.visibilityMode';
 
-    persistVisibilityModeInStorage(mode?: VisibilityMode): void {
+    persistVisibilityModeInStorage(mode?: TrackVisibilityMode): void {
         try {
             if (mode) {
                 localStorage.setItem(TrackVisibilityHelper.storageKey, mode);
@@ -15,11 +15,11 @@ export default class TrackVisibilityHelper {
         }
     }
 
-    getVisibilityModeFromStorage(): VisibilityMode | null {
+    getVisibilityModeFromStorage(): TrackVisibilityMode | null {
         try {
             const mode = localStorage.getItem(TrackVisibilityHelper.storageKey);
             if (mode && ['hidden', 'showing'].includes(mode)) {
-                return mode as VisibilityMode;
+                return mode as TrackVisibilityMode;
             }
         } catch (e) {
             // does not exists
