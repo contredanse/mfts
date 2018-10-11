@@ -4,9 +4,13 @@ import { AppLanguage } from '@src/core/app-language';
 
 const appLang = new AppLanguage();
 
+// Bootstrap initial language
+const initialLang = appLang.getInitialLanguage();
+appLang.persistLanguageInStorage(initialLang);
+
 // Type-safe initialState!
 const initialState: LangState = {
-    lang: appLang.getInitialLanguage(),
+    lang: initialLang,
 };
 
 // Thanks to Redux 4's much simpler typings, we can take away a lot of typings on the reducer side,
