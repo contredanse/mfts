@@ -72,24 +72,9 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
         };
     }
 
-    handleEnableHover = (e: MouseEvent<HTMLDivElement>): void => {
-        this.setState({
-            isActive: true,
-        });
-    };
-
-    handleDisableHover = (e: MouseEvent<HTMLDivElement>): void => {
-        this.setState({
-            isActive: false,
-        });
-    };
-
     render() {
         const props = this.props;
         const { videoEl, duration, enableBrowseControl, enableSpeedControl } = this.props;
-        const activeStyle = {
-            border: '3px solid yellow',
-        };
 
         const LoadingIndicator = () => <LoadingButton />;
 
