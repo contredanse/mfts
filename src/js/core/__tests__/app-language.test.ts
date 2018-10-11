@@ -17,4 +17,10 @@ describe('AppLanguage test', () => {
         appLang.getLanguageFromStorage();
         expect(localStorage.getItem).toBeCalledWith(AppLanguage.storageKey);
     });
+
+    it('should find lang from route', () => {
+        expect(appLang.getLanguageFromRoute('http://test.com/fr/page_id')).toEqual('fr');
+        expect(appLang.getLanguageFromRoute('http://test.com/test/en/page_id')).toEqual('en');
+        expect(appLang.getLanguageFromRoute('http://test.com/nl/page_id')).toEqual(null);
+    });
 });

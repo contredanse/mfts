@@ -65,9 +65,13 @@ export class AppLanguage {
     /**
      * Return language from route (document.location.href)
      */
-    getLanguageFromRoute(): string | null {
-        if (document.location) {
-            const matches = document.location.href.match(new RegExp('//(fr|en)//'));
+    getLanguageFromRoute(url?: string): string | null {
+        if (url === undefined) {
+            url = document.location ? document.location.href : undefined;
+        }
+
+        if (url) {
+            const matches = url.match(new RegExp('/(fr|en)/'));
             if (Array.isArray(matches) && this.isSupportedLang(matches[1])) {
                 return matches[1];
             }
