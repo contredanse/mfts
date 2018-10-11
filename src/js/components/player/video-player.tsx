@@ -16,6 +16,7 @@ export type TextTrackProps = {
 export type VideoActions = {
     //onEnded?: (e: Event) => void;
     onEnded?: (e: SyntheticEvent<HTMLVideoElement>) => void;
+    onCanPlay?: (e: SyntheticEvent<HTMLVideoElement>) => void;
 };
 
 export type VideoPlayerProps = {
@@ -182,6 +183,7 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
         return (
             <video
                 onLoadedMetadata={this.onLoadedMetadata}
+                onCanPlay={this.props.onCanPlay}
                 ref={this.videoRef}
                 {...mediaProps}
                 {...(this.props.playsInline ? { 'webkit-playsinline': 'webkit-playsinline' } : {})}
