@@ -56,12 +56,12 @@ export class ControlBar extends React.PureComponent<MediaPlayerControlBarProps, 
 
     readonly state: MediaPlayerControlbarState;
 
+    trackVisibilityHelper: TrackVisibilityHelper;
+
     /**
      * Whether the video listeners have been registered
      */
     protected listenersRegistered = false;
-
-    trackVisibilityHelper: TrackVisibilityHelper;
 
     constructor(props: MediaPlayerControlBarProps) {
         super(props);
@@ -95,7 +95,7 @@ export class ControlBar extends React.PureComponent<MediaPlayerControlBarProps, 
 
         const availableTrackLangs = videoEl !== undefined ? getAvailableTrackLanguages(videoEl) : [];
 
-        console.log('REFERENCER CONTROS', availableTrackLangs);
+        console.log('REFERENCER CONTROLBAR', availableTrackLangs);
 
         return (
             <div className={'control-bar-ctn'}>
@@ -230,7 +230,6 @@ export class ControlBar extends React.PureComponent<MediaPlayerControlBarProps, 
     };
 
     protected seekTo = (time: number): void => {
-        console.log('SEEKTO', time);
         const { videoEl } = this.props;
         if (videoEl) {
             videoEl.currentTime = time;
