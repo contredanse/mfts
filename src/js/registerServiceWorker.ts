@@ -8,6 +8,11 @@
 // To learn more about the benefits of this model, read https://goo.gl/KwvDNy.
 // This link also includes instructions on opting out of this behavior.
 
+type Config = {
+    onUpdate?: (registration: ServiceWorkerRegistration) => void;
+    onSuccess?: (registration: ServiceWorkerRegistration) => void;
+};
+
 const isLocalhost = Boolean(
     window.location.hostname === 'localhost' ||
         // [::1] is the IPv6 localhost address.
@@ -16,14 +21,14 @@ const isLocalhost = Boolean(
         window.location.hostname.match(/^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/)
 );
 
-export default function register(): void {
+export function register(config: Config) {
     if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
         // The URL constructor is available in all browsers that support SW.
         const publicUrl = new URL(process.env.PUBLIC_URL!, window.location as any);
         if (publicUrl.origin !== window.location.origin) {
             // Our service worker won't work if PUBLIC_URL is on a different origin
             // from what our page is served on. This might happen if a CDN is used to
-            // serve assets; see https://github.com/facebookincubator/create-react-app/issues/2374
+            // serve assets; see https://github.com/facebook/create-react-app/issues/2374
             return;
         }
 
@@ -31,8 +36,8 @@ export default function register(): void {
             const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
 
             if (isLocalhost) {
-                // This is running on localhost. Lets check if a service worker still exists or not.
-                checkValidServiceWorker(swUrl);
+                // This is running on localhost. Let's check if a service worker still exists or not.
+                checkValidServiceWorker(swUrl, config);
 
                 // Add some additional logging to localhost, pointing developers to the
                 // service worker/PWA documentation.
@@ -44,22 +49,23 @@ export default function register(): void {
                 });
             } else {
                 // Is not local host. Just register service worker
-                registerValidSW(swUrl);
+                registerValidSW(swUrl, config);
             }
         });
     }
 }
 
-function registerValidSW(swUrl: string): void {
+function registerValidSW(swUrl: string, config: Config) {
     navigator.serviceWorker
         .register(swUrl)
         .then(registration => {
             registration.onupdatefound = () => {
                 const installingWorker = registration.installing;
-                if (installingWorker === null) {
-                    console.error('Cannot get serviceworker');
+                if (!installingWorker) {
+                    console.error('Cannot instal service worker');
                     return;
                 }
+
                 installingWorker.onstatechange = () => {
                     if (installingWorker.state === 'installed') {
                         if (navigator.serviceWorker.controller) {
@@ -68,11 +74,21 @@ function registerValidSW(swUrl: string): void {
                             // It's the perfect time to display a "New content is
                             // available; please refresh." message in your web app.
                             console.log('New content is available; please refresh.');
+
+                            // Execute callback
+                            if (config.onUpdate) {
+                                config.onUpdate(registration);
+                            }
                         } else {
                             // At this point, everything has been precached.
                             // It's the perfect time to display a
                             // "Content is cached for offline use." message.
                             console.log('Content is cached for offline use.');
+
+                            // Execute callback
+                            if (config.onSuccess) {
+                                config.onSuccess(registration);
+                            }
                         }
                     }
                 };
@@ -83,7 +99,7 @@ function registerValidSW(swUrl: string): void {
         });
 }
 
-function checkValidServiceWorker(swUrl: string): void {
+function checkValidServiceWorker(swUrl: string, config: Config) {
     // Check if the service worker can be found. If it can't reload the page.
     fetch(swUrl)
         .then(response => {
@@ -97,7 +113,7 @@ function checkValidServiceWorker(swUrl: string): void {
                 });
             } else {
                 // Service worker found. Proceed as normal.
-                registerValidSW(swUrl);
+                registerValidSW(swUrl, config);
             }
         })
         .catch(() => {
@@ -105,7 +121,7 @@ function checkValidServiceWorker(swUrl: string): void {
         });
 }
 
-export function unregister(): void {
+export function unregister() {
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.ready.then(registration => {
             registration.unregister();

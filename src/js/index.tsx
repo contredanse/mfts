@@ -19,7 +19,7 @@ import 'typeface-shadows-into-light-two';
 
 import { appConfig } from '@config/config.production';
 import AppConfig from '@src/core/app-config';
-import registerServiceWorker from './registerServiceWorker';
+import { register as registerServiceWorker } from './registerServiceWorker';
 
 import configureStore from './configureStore';
 
@@ -37,4 +37,9 @@ const renderApp = (Component: any, config: AppConfig, elementId: string) => {
 //console.log('appConfig', appConfig);
 renderApp(App, appConfig, 'app');
 
-registerServiceWorker();
+registerServiceWorker({
+    onSuccess: registration => {},
+    onUpdate: registration => {
+        console.log("A new version is available, let's refresh");
+    },
+});
