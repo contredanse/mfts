@@ -12,7 +12,7 @@ import VideoProxyPlayer from '@src/components/player/data-proxy-player';
 import { PlayerActions } from '@src/shared/player/player';
 import { MenuSectionProps } from '@src/models/repository/menu-repository';
 import PageBreadcrumb from '@src/components/page-breadcrumb';
-import TrackVisibilityHelper from '@src/components/player/track/track-visibility-helper';
+import TrackVisibilityHelper, { TrackVisibilityMode } from '@src/components/player/track/track-visibility-helper';
 
 export type PageProps = {
     pageProxy: PageProxy;
@@ -118,9 +118,10 @@ class Page extends React.PureComponent<PageProps, PageState> {
         const videos = page.getVideos(lang);
         const audioProxy = page.getAudioProxy();
 
-        const activeSubtitleLang = this.getSubtitleVisibilityLang();
+        const defaultSubtitleLang = lang;
+        const subtitleVisibility = this.getSubtitleVisibility();
 
-        console.log('rerender', activeSubtitleLang);
+        console.log('rerender', defaultSubtitleLang);
         return (
             <div className="page-container">
                 <div className="page-header">
@@ -141,7 +142,8 @@ class Page extends React.PureComponent<PageProps, PageState> {
                                         ref={this.playerRef}
                                         style={{ width: '100%', height: '100%' }}
                                         crossOrigin={'anonymous'}
-                                        activeSubtitleLang={activeSubtitleLang}
+                                        defaultSubtitleLang={defaultSubtitleLang}
+                                        subtitleVisibility={subtitleVisibility}
                                         videoProxy={audioProxy}
                                         playing={this.state.playbackState.isPlaying}
                                     />
@@ -156,7 +158,8 @@ class Page extends React.PureComponent<PageProps, PageState> {
                                         ref={this.playerRef}
                                         style={{ width: '100%', height: '100%' }}
                                         crossOrigin={'anonymous'}
-                                        activeSubtitleLang={activeSubtitleLang}
+                                        defaultSubtitleLang={defaultSubtitleLang}
+                                        subtitleVisibility={subtitleVisibility}
                                         // To prevent blinking
                                         disablePoster={true}
                                         videoProxy={page.getFirstVideo(lang)!}
@@ -252,20 +255,17 @@ class Page extends React.PureComponent<PageProps, PageState> {
     /**
      * To re-enable track captions
      */
-    private getSubtitleVisibilityLang(): string | null {
+    private getSubtitleVisibility(): TrackVisibilityMode {
         const { lang } = this.props;
         const visibilityMode = this.trackVisibilityHelper.getVisibilityModeFromStorage();
-        switch (visibilityMode) {
-            case null:
-                // nothing persisted, let's go default
-                // if lang is french, auto add subtitles in french
-                return lang === 'fr' ? 'fr' : null;
-            case 'hidden':
-                return null;
-            case 'showing':
-                return lang;
+
+        if (!visibilityMode) {
+            // nothing persisted, let's go default
+            // if lang is french, auto show subtitles in french
+            return lang === 'fr' ? 'showing' : 'hidden';
         }
-        return null;
+
+        return visibilityMode;
     }
 }
 
