@@ -24,7 +24,7 @@ import PlaybackStatusProvider from '@src/components/player/controls/hoc/playback
 import LoadingButton from '@src/components/player/controls/svg-button/loading-button';
 import TrackVisibilityHelper from '@src/components/player/track/track-visibility-helper';
 
-export type MediaPlayerControlBarProps = {
+export type ControlBarProps = {
     videoEl?: HTMLVideoElement;
     lang?: string;
     duration: number;
@@ -38,7 +38,7 @@ export type MediaPlayerControlBarProps = {
     onPreviousLinkPressed?: () => void;
 };
 
-export type MediaPlayerControlbarState = {
+export type ControlbarState = {
     isActive: boolean;
     hasVisibleTrack: boolean;
 };
@@ -51,10 +51,10 @@ const defaultProps = {
     enablePrevControl: true,
 };
 
-export class ControlBar extends React.PureComponent<MediaPlayerControlBarProps, MediaPlayerControlbarState> {
+export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
     static defaultProps = defaultProps;
 
-    readonly state: MediaPlayerControlbarState;
+    readonly state: ControlbarState;
 
     trackVisibilityHelper: TrackVisibilityHelper;
 
@@ -63,7 +63,7 @@ export class ControlBar extends React.PureComponent<MediaPlayerControlBarProps, 
      */
     protected listenersRegistered = false;
 
-    constructor(props: MediaPlayerControlBarProps) {
+    constructor(props: ControlBarProps) {
         super(props);
         this.trackVisibilityHelper = new TrackVisibilityHelper();
         this.state = {
