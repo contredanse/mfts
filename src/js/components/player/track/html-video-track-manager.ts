@@ -51,22 +51,33 @@ export default class HTMLVideoTrackManager {
     /**
      * @param textTracks
      */
-    appendTrackNodes(textTracks: TextTrackHTMLAttributes[]): HTMLTrackElement[] {
+    appendTrackNodes(
+        textTracks: TextTrackHTMLAttributes[],
+        events?: {
+            onLoad?: (e: Event) => void;
+        }
+    ): HTMLTrackElement[] {
         const trackNodes: HTMLTrackElement[] = [];
         textTracks.forEach(textTrack => {
             const trackNode = HTMLVideoTrackManager.createTrackNode(textTrack);
+
+            if (events && events.onLoad) {
+                trackNode.addEventListener('load', events.onLoad);
+            }
+
+            /*
             trackNode.addEventListener('load', (e: Event) => {
                 const currentTrack = e.currentTarget as HTMLTrackElement;
                 if (currentTrack.default) {
-                    currentTrack.track.mode = 'showing';
+                    //currentTrack.track.mode = 'showing';
                     // thanks Firefox (not needed anymore)
                     //video.textTracks[trackIdx].mode = 'showing';
                 } else {
-                    currentTrack.track.mode = 'hidden';
+                    //currentTrack.track.mode = 'hidden';
                     // thanks Firefox (not needed anymore)
                     //video.textTracks[trackIdx].mode = 'hidden';
                 }
-            });
+            });*/
             trackNodes.push(this.videoEl.appendChild(trackNode));
         });
         return trackNodes;
