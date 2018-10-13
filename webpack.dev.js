@@ -55,7 +55,7 @@ module.exports = merge(common, {
         new HtmlWebpackPlugin({
             alwaysWriteToDisk: true,
             hash: false,
-            title: 'Paxton MFTS',
+            title: 'Paxton MFS',
             template: './public/index.html',
             removeAttributeQuotes: false,
             removeComments: false,

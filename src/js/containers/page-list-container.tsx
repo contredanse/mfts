@@ -85,7 +85,7 @@ class PageListContainer extends React.PureComponent<PageListContainerProps, Page
         // since the last render, `memoize-one` will reuse the last return value.
         const filteredList = this.filterPages(this.state.pages, this.state.filterText, this.props.lang);
 
-        const documentTitle = `MFTS >> ${i18n.page_title[lang] || ''}`;
+        const documentTitle = `MFS >> ${i18n.page_title[lang] || ''}`;
 
         return (
             <PageOverlay>

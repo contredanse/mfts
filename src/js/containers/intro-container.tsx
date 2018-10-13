@@ -51,7 +51,7 @@ class IntroContainer extends React.PureComponent<IntroContainerProps, IntroConta
         return (
             <PageOverlay closeButton={false}>
                 <div className="page-wrapper">
-                    <DocumentMeta title={'MFTS >> Introduction'} />
+                    <DocumentMeta title={'MFS >> Introduction'} />
                     {introPage ? (
                         <>
                             <Page

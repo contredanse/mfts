@@ -318,7 +318,7 @@ module.exports = merge(common, {
         }),
 
         new WebpackPwaManifest({
-            short_name: 'Paxton MFTS',
+            short_name: 'Paxton MFS',
             name: 'Paxton - Material for the spine',
             description: "Steve Paxton's Material for the spine - An application by contredanse.org ",
             background_color: '#000000',
@@ -327,7 +327,7 @@ module.exports = merge(common, {
             inject: true,
             fingerprints: true,
             ios: {
-                'apple-mobile-web-app-title': 'Paxton MFTS',
+                'apple-mobile-web-app-title': 'Paxton MFS',
                 'apple-mobile-web-app-capable': 'yes',
                 'apple-mobile-web-app-status-bar-style': 'black',
             },

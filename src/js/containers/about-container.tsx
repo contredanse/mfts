@@ -18,7 +18,7 @@ class AboutContainer extends React.Component<AboutContainerProps, AboutContainer
         const { lang, assetsLocator } = this.props;
         return (
             <div className="full-page-slide-ctn">
-                <DocumentMeta title={'MFTS >> Introduction'} />
+                <DocumentMeta title={'MFS >> Introduction'} />
                 <About assetsLocator={assetsLocator} lang={lang} />
             </div>
         );
