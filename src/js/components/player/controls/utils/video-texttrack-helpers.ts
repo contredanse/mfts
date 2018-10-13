@@ -22,8 +22,6 @@ export const showLocalizedTextTrack = (
         }
     }
 
-    console.log('after showLocalizedTextTrack', lang, video.textTracks);
-
     return hasVisibleTextTrack(video);
 };
 
