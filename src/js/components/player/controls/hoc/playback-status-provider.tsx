@@ -1,5 +1,10 @@
 import React from 'react';
-import { getAvailableTrackLanguages } from '@src/components/player/controls/utils/video-texttrack-helpers';
+import {
+    getAvailableTrackLanguages,
+    hasVisibleTextTrack,
+    hideAllTextTracks,
+    showLocalizedTextTrack,
+} from '@src/components/player/controls/utils/video-texttrack-helpers';
 
 type InjectedPlaybackStatusProps = {
     isPlaying: boolean;
@@ -7,9 +12,13 @@ type InjectedPlaybackStatusProps = {
     volume: number;
     isLoading: boolean;
     trackLangs: string[];
+    hasVisibleTextTrack: boolean;
     readyState: number;
-
-    onTest(): void;
+    // An hack because we don't have a reliable way / dedicated
+    // listener for track display/hide.
+    // The child component must handle track visibility and trigger
+    // the change to get an updated playback status.
+    triggerTextTrackVisibilityChange(visible?: boolean): void;
 };
 
 type PlaybackStatusProps = {
@@ -17,42 +26,31 @@ type PlaybackStatusProps = {
     children(props: InjectedPlaybackStatusProps): JSX.Element;
 };
 
-type PlaybackStatusState = {
-    value: number;
-    isPlaying: boolean;
-    readyState: number;
-    muted: boolean;
-    volume: number;
-    isLoading: boolean;
-    trackLangs: string[];
-    test: number;
-};
+// We'll actually inject our own state
+type PlaybackStatusState = {} & InjectedPlaybackStatusProps;
 
 const defaultPlaybackStatusState = {
-    value: 0,
     isPlaying: false,
     muted: false,
     volume: 1.0,
-    readyState: 0,
     isLoading: true,
     trackLangs: [],
-    test: 0,
+    hasVisibleTextTrack: false,
+    readyState: 0,
 };
 
 export default class PlaybackStatusProvider extends React.Component<PlaybackStatusProps, PlaybackStatusState> {
-    readonly state: PlaybackStatusState = defaultPlaybackStatusState;
+    readonly state: PlaybackStatusState;
 
     protected listenersRegistered = false;
 
     constructor(props: PlaybackStatusProps) {
         super(props);
+        this.state = {
+            ...defaultPlaybackStatusState,
+            triggerTextTrackVisibilityChange: this.triggerTextTrackVisibilityChange,
+        };
     }
-
-    test = () => {
-        this.setState(prevState => ({
-            test: prevState.test + 1,
-        }));
-    };
 
     componentDidMount() {
         // If videoEl is initially available, let's register listeners at mount
@@ -90,18 +88,10 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
         if (!this.props.videoEl) {
             return null;
         }
-        return this.props.children({
-            readyState: this.state.readyState,
-            isPlaying: this.state.isPlaying,
-            isLoading: this.state.isLoading,
-            muted: this.state.muted,
-            volume: this.state.volume,
-            trackLangs: this.state.trackLangs,
-            onTest: this.test,
-        });
+        return this.props.children(this.state);
     }
 
-    protected registerVideoListeners(video: HTMLVideoElement, skipOnRegistered: boolean = true): void {
+    private registerVideoListeners(video: HTMLVideoElement, skipOnRegistered: boolean = true): void {
         if (skipOnRegistered && this.listenersRegistered) {
             return;
         }
@@ -115,7 +105,7 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
         this.listenersRegistered = true;
     }
 
-    protected unregisterVideoListeners(video: HTMLVideoElement): void {
+    private unregisterVideoListeners(video: HTMLVideoElement): void {
         if (this.listenersRegistered) {
             video.removeEventListener('volumechange', this.updateVolumeState);
             video.removeEventListener('addtrack', this.updateTrackState);
@@ -132,7 +122,7 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
      * Update local state with volume and mute
      * @param {Event<HTMLVideoElement>} e
      */
-    protected updateVolumeState = (e: Event): void => {
+    private updateVolumeState = (e: Event): void => {
         const { videoEl } = this.props;
 
         if (videoEl && e.target !== null) {
@@ -151,7 +141,7 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
      * Update track/subtitles availability
      * @param {Event<HTMLVideoElement>} e
      */
-    protected updateTrackState = (e: Event): void => {
+    private updateTrackState = (e: Event): void => {
         const { videoEl } = this.props;
         console.log('UPDATETRACKSTATE');
         if (videoEl && e.target !== null) {
@@ -167,7 +157,7 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
      * Update local state with loading state
      * @param {Event<HTMLVideoElement>} e
      */
-    protected setLoadingState = (e: Event): void => {
+    private setLoadingState = (e: Event): void => {
         const { videoEl } = this.props;
         if (videoEl && e.target !== null) {
             const isPlaying = !videoEl.paused && !videoEl.ended && videoEl.readyState > 2;
@@ -184,7 +174,7 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
      * Update local state with loading state
      * @param {Event<HTMLVideoElement>} e
      */
-    protected updateVideoState = (e: Event): void => {
+    private updateVideoState = (e: Event): void => {
         const { videoEl } = this.props;
         if (videoEl && e.target !== null) {
             const isPlaying = !videoEl.paused && !videoEl.ended && videoEl.readyState > 2;
@@ -193,11 +183,26 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
                 isPlaying: isPlaying,
                 isLoading: false,
                 trackLangs: getAvailableTrackLanguages(videoEl),
+                hasVisibleTextTrack: hasVisibleTextTrack(videoEl),
                 volume: videoEl.volume,
                 muted: videoEl.muted,
             });
         } else {
             console.warn('Cannot update playingState, no "event.target" available', e);
         }
+    };
+
+    /**
+     *
+     * @param visible if undefined, will auto detect current visibility
+     */
+    private triggerTextTrackVisibilityChange = (visible?: boolean): void => {
+        if (visible === undefined) {
+            const { videoEl } = this.props;
+            visible = videoEl ? hasVisibleTextTrack(videoEl) : false;
+        }
+        this.setState({
+            hasVisibleTextTrack: visible,
+        });
     };
 }

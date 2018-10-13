@@ -14,7 +14,6 @@ import { PlayerActions } from '@src/shared/player/player';
 import ProgressBar from './progress-bar';
 import PlaybackRateSelect from '@src/components/player/controls/playback-rate-select';
 import {
-    getAvailableTrackLanguages,
     hasVisibleTextTrack,
     hideAllTextTracks,
     showLocalizedTextTrack,
@@ -40,7 +39,6 @@ export type ControlBarProps = {
 
 export type ControlbarState = {
     isActive: boolean;
-    hasVisibleTrack: boolean;
 };
 
 const defaultProps = {
@@ -68,7 +66,6 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
         this.trackVisibilityHelper = new TrackVisibilityHelper();
         this.state = {
             isActive: true,
-            hasVisibleTrack: false,
         };
     }
 
@@ -78,10 +75,6 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
 
         const LoadingIndicator = () => <LoadingButton />;
 
-        const availableTrackLangs = videoEl !== undefined ? getAvailableTrackLanguages(videoEl) : [];
-
-        const hasVisibleTrack = videoEl ? hasVisibleTextTrack(videoEl) : false;
-
         return (
             <div className={'control-bar-ctn'}>
                 <div className="control-bar-ctn__progress-bar">
@@ -90,52 +83,60 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
                     )}
                 </div>
                 <PlaybackStatusProvider videoEl={videoEl}>
-                    {status => (
-                        <div className="control-bar-ctn__panel">
-                            <div className="control-bar-ctn__panel__left">
-                                {status.isPlaying ? (
-                                    <PauseButton isEnabled={true} onClick={this.pause} />
-                                ) : (
-                                    <PlayButton isEnabled={true} onClick={this.play} />
-                                )}
-                                {status.muted ? (
-                                    <SoundOffButton isEnabled={true} onClick={this.unMute} />
-                                ) : (
-                                    <SoundOnButton isEnabled={true} onClick={this.mute} />
-                                )}
-                                {status.isLoading && <LoadingIndicator />}
-                            </div>
+                    {status => {
+                        // No reliable way to be know what is the display state of subs
+                        // Let's recalc everytime the playback state changes.
+                        const hasVisibleTrack = videoEl && hasVisibleTextTrack(videoEl);
+                        return (
+                            <div className="control-bar-ctn__panel">
+                                <div className="control-bar-ctn__panel__left">
+                                    {status.isPlaying ? (
+                                        <PauseButton isEnabled={true} onClick={this.pause} />
+                                    ) : (
+                                        <PlayButton isEnabled={true} onClick={this.play} />
+                                    )}
+                                    {status.muted ? (
+                                        <SoundOffButton isEnabled={true} onClick={this.unMute} />
+                                    ) : (
+                                        <SoundOnButton isEnabled={true} onClick={this.mute} />
+                                    )}
+                                    {status.isLoading && <LoadingIndicator />}
+                                </div>
 
-                            <div className="control-bar-ctn__panel__right">
-                                {props.enableSpeedControl && (
-                                    <PlaybackRateSelect onChange={props.actions.setPlaybackRate} />
-                                )}
-                                {status.trackLangs.length > 0 && (
-                                    <SubtitlesButton
-                                        isEnabled={true}
-                                        extraClasses={hasVisibleTrack ? 'isHighlighted' : ''}
-                                        onClick={this.toggleSubtitles}
-                                    />
-                                )}
-                                {props.enablePrevControl && (
-                                    <PrevButton
-                                        isEnabled={this.props.onPreviousLinkPressed !== undefined}
-                                        onClick={() => {
-                                            this.props.onPreviousLinkPressed!();
-                                        }}
-                                    />
-                                )}
-                                {props.enableNextControl && (
-                                    <NextButton
-                                        isEnabled={this.props.onNextLinkPressed !== undefined}
-                                        onClick={() => {
-                                            this.props.onNextLinkPressed!();
-                                        }}
-                                    />
-                                )}
+                                <div className="control-bar-ctn__panel__right">
+                                    {props.enableSpeedControl && (
+                                        <PlaybackRateSelect onChange={props.actions.setPlaybackRate} />
+                                    )}
+                                    {status.trackLangs.length > 0 && (
+                                        <SubtitlesButton
+                                            isEnabled={true}
+                                            extraClasses={status.hasVisibleTextTrack ? 'isHighlighted' : ''}
+                                            onClick={() => {
+                                                this.toggleSubtitles();
+                                                status.triggerTextTrackVisibilityChange();
+                                            }}
+                                        />
+                                    )}
+                                    {props.enablePrevControl && (
+                                        <PrevButton
+                                            isEnabled={this.props.onPreviousLinkPressed !== undefined}
+                                            onClick={() => {
+                                                this.props.onPreviousLinkPressed!();
+                                            }}
+                                        />
+                                    )}
+                                    {props.enableNextControl && (
+                                        <NextButton
+                                            isEnabled={this.props.onNextLinkPressed !== undefined}
+                                            onClick={() => {
+                                                this.props.onNextLinkPressed!();
+                                            }}
+                                        />
+                                    )}
+                                </div>
                             </div>
-                        </div>
-                    )}
+                        );
+                    }}
                 </PlaybackStatusProvider>
             </div>
         );
@@ -148,16 +149,10 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
                 // A track was shown let's hide everything
                 hideAllTextTracks(videoEl);
                 this.trackVisibilityHelper.persistVisibilityModeInStorage('hidden');
-                this.setState({
-                    hasVisibleTrack: hasVisibleTextTrack(videoEl),
-                });
             } else {
                 // No tracks are show, let's display one
                 this.trackVisibilityHelper.persistVisibilityModeInStorage('showing');
                 showLocalizedTextTrack(videoEl, lang!);
-                this.setState({
-                    hasVisibleTrack: hasVisibleTextTrack(videoEl),
-                });
             }
         }
     };
