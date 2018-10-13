@@ -104,15 +104,15 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
                                 </div>
 
                                 <div className="control-bar-ctn__panel__right">
-                                    {props.enableSpeedControl && (
-                                        <PlaybackRateSelect onChange={props.actions.setPlaybackRate} />
-                                    )}
+                                    {props.enableSpeedControl && <PlaybackRateSelect onChange={this.setPlaybackRate} />}
                                     {status.trackLangs.length > 0 && (
                                         <SubtitlesButton
                                             isEnabled={true}
                                             extraClasses={status.hasVisibleTextTrack ? 'isHighlighted' : ''}
                                             onClick={() => {
                                                 this.toggleSubtitles();
+                                                // This is a hack, we need to dispatch manually
+                                                // the text track visibility change (no listeners exists ?)
                                                 status.triggerTextTrackVisibilityChange();
                                             }}
                                         />
@@ -214,6 +214,15 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
             videoEl.currentTime = time;
         } else {
             this.logWarning('Cannot seek to time, videoEl have not been registered');
+        }
+    };
+
+    protected setPlaybackRate = (playbackRate: number): void => {
+        const { videoEl } = this.props;
+        if (videoEl) {
+            videoEl.playbackRate = playbackRate;
+        } else {
+            this.logWarning('Cannot set playback rate,videoEl have not been registered');
         }
     };
 

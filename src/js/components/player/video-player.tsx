@@ -1,5 +1,5 @@
 import React, { SourceHTMLAttributes, SyntheticEvent, VideoHTMLAttributes } from 'react';
-import { Omit } from 'utility-types';
+import { Diff, Omit, Overwrite } from 'utility-types';
 import equal from 'fast-deep-equal';
 import HTMLVideoTrackManager from '@src/components/player/track/html-video-track-manager';
 
@@ -15,16 +15,33 @@ export type TextTrackProps = {
 export type VideoActions = {
     onEnded?: (e: SyntheticEvent<HTMLVideoElement>) => void;
     onCanPlay?: (e: SyntheticEvent<HTMLVideoElement>) => void;
+    onRateChange?: (playbackRate: number) => void;
 };
 
 export type VideoPlayerProps = {
+    forwardRef?: React.RefObject<HTMLVideoElement>;
     srcs?: VideoSourceProps[];
     tracks?: TextTrackProps[];
     playbackRate: number;
     autoPlay?: boolean;
     playing: boolean;
-    forwardRef?: React.RefObject<HTMLVideoElement>;
-} & Omit<VideoHTMLAttributes<HTMLVideoElement>, 'src' | 'onEnded' | 'autoPlay'> &
+    playsInline?: boolean;
+    poster?: string;
+    width?: number | string;
+    height?: number | string;
+    controls?: boolean;
+    controlsList?: string;
+    crossOrigin?: string;
+    loop?: boolean;
+    muted?: boolean;
+    preload?: string;
+} & // Let's overwrite video actions...
+Overwrite<
+    // Let's remove 'src' and 'autoplay'
+    Omit<VideoHTMLAttributes<HTMLVideoElement>, 'src' | 'autoPlay'>,
+    VideoActions
+> &
+    // Let's add our videos actions
     VideoActions;
 
 export type VideoPlayerState = {
@@ -164,24 +181,31 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
 
     render() {
         const {
-            // OMIT those props
+            // DEREFERENCE those props
             srcs,
             tracks,
             playbackRate,
-            //            autoPlay,
+            // autoPlay,
             playing,
+            // DEREFERENCE those actions
+            onRateChange,
             // onEnded,
             // The rest in mediaProps
             ...mediaProps
         } = this.props;
 
         //const key = srcs && srcs.length > 0 ? srcs[0].src : '';
-
         return (
             <video
                 onLoadedMetadata={this.onLoadedMetadata}
                 onCanPlay={this.props.onCanPlay}
                 onEnded={this.props.onEnded}
+                onRateChange={(e: SyntheticEvent<HTMLVideoElement>) => {
+                    if (this.props.onRateChange) {
+                        const video = e.currentTarget as HTMLVideoElement;
+                        this.props.onRateChange(video.playbackRate);
+                    }
+                }}
                 ref={this.videoRef}
                 {...mediaProps}
                 {...(this.props.playsInline ? { 'webkit-playsinline': 'webkit-playsinline' } : {})}

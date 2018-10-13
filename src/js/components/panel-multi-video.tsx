@@ -52,15 +52,8 @@ export default class PanelMultiVideo extends React.Component<PanelMultiVideoProp
                         videoClassName += ' clickable-video';
                     }
 
-                    const containerStyle = {};
-
                     return (
-                        <div
-                            key={videoIdx}
-                            className={className}
-                            style={containerStyle}
-                            onClick={this.handleVideoClick}
-                        >
+                        <div key={videoIdx} className={className} onClick={this.handleVideoClick}>
                             <VideoProxyPlayer
                                 crossOrigin={'anonymous'}
                                 className={videoClassName}

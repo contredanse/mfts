@@ -28,8 +28,6 @@ export type PlaybackState = {
     currentTime: number;
     isPlaying: boolean;
     duration: number;
-    videoWidth: number;
-    videoHeight: number;
     playbackRate: number;
     isMetadataLoaded: boolean;
 };
@@ -45,8 +43,6 @@ const defaultPlaybackState: PlaybackState = {
     isPlaying: true,
     duration: 0,
     playbackRate: 1,
-    videoWidth: 0,
-    videoHeight: 0,
     isMetadataLoaded: false,
 };
 
@@ -106,16 +102,6 @@ class Page extends React.PureComponent<PageProps, PageState> {
             },
         };
     }
-
-    onEnded = (e: SyntheticEvent<HTMLVideoElement>) => {
-        if (this.props.onPagePlayed) {
-            this.props.onPagePlayed();
-        } else {
-            this.setState({
-                played: true,
-            });
-        }
-    };
 
     render() {
         const { pageProxy: page, lang, menuBreadcrumb } = this.props;
@@ -198,6 +184,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
                                         subtitleVisibility={subtitleVisibility}
                                         videoProxy={audioProxy}
                                         playing={this.state.playbackState.isPlaying}
+                                        onRateChange={this.onRateChange}
                                     />
                                 </div>
                             )}
@@ -235,7 +222,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
                             playbackRate={this.state.playbackState.playbackRate}
                             enableNextControl={this.props.nextPage !== undefined}
                             enablePrevControl={this.props.previousPage !== undefined}
-                            enableSpeedControl={false}
+                            enableSpeedControl={hasMultipleVideos}
                             {...this.controlBarActions}
                         />
                     )}
@@ -299,11 +286,25 @@ class Page extends React.PureComponent<PageProps, PageState> {
         };
     }
 
-    private updatePlaybackState(deltaState: Partial<PlaybackState>): void {
-        this.setState((prevState: PageState) => {
-            return { ...prevState, playbackState: { ...prevState.playbackState, ...deltaState } };
+    private onRateChange = (playbackRate: number) => {
+        this.setState((prevState, prevProps) => {
+            const newState = {
+                ...prevState,
+                ...{ playbackState: { ...prevState.playbackState, playbackRate: playbackRate } },
+            };
+            return newState;
         });
-    }
+    };
+
+    private onEnded = (e: SyntheticEvent<HTMLVideoElement>) => {
+        if (this.props.onPagePlayed) {
+            this.props.onPagePlayed();
+        } else {
+            this.setState({
+                played: true,
+            });
+        }
+    };
 
     /**
      * To re-enable track captions
