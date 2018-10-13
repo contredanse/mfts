@@ -1,7 +1,6 @@
 import React, { SourceHTMLAttributes, SyntheticEvent, VideoHTMLAttributes } from 'react';
 import { Omit } from 'utility-types';
 import equal from 'fast-deep-equal';
-import { hideAllTextTracks } from '@src/components/player/controls/utils/video-texttrack-helpers';
 import HTMLVideoTrackManager from '@src/components/player/track/html-video-track-manager';
 
 export type VideoSourceProps = SourceHTMLAttributes<HTMLSourceElement>;

@@ -1,4 +1,4 @@
-import React, { CSSProperties, ImgHTMLAttributes } from 'react';
+import React, { ImgHTMLAttributes } from 'react';
 import contredanseLogo from '../../../assets/images/logo-contredanse.png';
 import { Omit } from 'utility-types';
 

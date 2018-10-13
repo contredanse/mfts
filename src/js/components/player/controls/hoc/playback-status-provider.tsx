@@ -2,8 +2,6 @@ import React from 'react';
 import {
     getAvailableTrackLanguages,
     hasVisibleTextTrack,
-    hideAllTextTracks,
-    showLocalizedTextTrack,
 } from '@src/components/player/controls/utils/video-texttrack-helpers';
 
 type InjectedPlaybackStatusProps = {

@@ -1,4 +1,4 @@
-import React, { PureComponent, CSSProperties, ReactNode } from 'react';
+import React, { PureComponent, CSSProperties } from 'react';
 
 export type PlaybackRates = Array<{
     value: number;
