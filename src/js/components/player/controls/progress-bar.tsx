@@ -4,6 +4,7 @@ import './progress-bar.scss';
 
 import RangeControlOverlay from './range-control-overlay';
 import withVideoProgress from './hoc/with-video-progress';
+import { formatSecondsToHuman } from '@src/components/player/utils/formatters';
 
 export type ProgressBarChildClasses = {
     elapsed?: string;
@@ -84,43 +85,6 @@ export class ProgressBar extends Component<ProgressBarProps, ProgressBarState> {
         );
     }
 
-    handleSeek = (relativeTime: number): void => {
-        const { isSeekable, onSeek, duration } = this.props;
-        if (isSeekable) {
-            onSeek(relativeTime * duration);
-        }
-    };
-
-    handleSeekStart = (relativeTime: number): void => {
-        const { isSeekable, onSeekStart, duration } = this.props;
-
-        if (isSeekable) {
-            onSeekStart!(relativeTime * duration);
-        }
-    };
-
-    handleSeekEnd = (relativeTime: number): void => {
-        const { isSeekable, onSeekEnd, duration } = this.props;
-
-        if (isSeekable) {
-            onSeekEnd!(relativeTime * duration);
-        }
-    };
-
-    handleIntent = (relativeTime: number): void => {
-        const { isSeekable, onIntent, duration } = this.props;
-        const intent = isSeekable ? relativeTime : 0;
-
-        this.setState({
-            ...this.state,
-            currentIntent: intent,
-        });
-
-        if (isSeekable) {
-            onIntent!(relativeTime * duration);
-        }
-    };
-
     render() {
         const {
             duration,
@@ -144,7 +108,7 @@ export class ProgressBar extends Component<ProgressBarProps, ProgressBarState> {
         return (
             <>
                 <div className="controls__progress-bar-time">
-                    {this.formatMilliseconds(currentTime)} / {this.formatMilliseconds(duration)}
+                    {formatSecondsToHuman(currentTime)} / {formatSecondsToHuman(duration)}
                 </div>
 
                 <div
@@ -194,18 +158,42 @@ export class ProgressBar extends Component<ProgressBarProps, ProgressBarState> {
         );
     }
 
-    protected formatMilliseconds(milli: number): string {
-        const d = Math.trunc(milli);
-        const h = Math.floor(d / 3600);
-        const m = Math.floor((d % 3600) / 60);
-        const s = Math.floor((d % 3600) % 60);
-        const minutes = m.toString().padStart(h > 0 ? 2 : 1, '0');
-        const seconds = s.toString().padStart(2, '0');
-        const hDisplay = h > 0 ? `${h}:` : '';
-        const mDisplay = m > 0 ? `${minutes}:` : `${'0'.padStart(m > 0 ? 2 : 1, '0')}:`;
-        const sDisplay = s > 0 ? `${seconds}` : '00';
-        return `${hDisplay}${mDisplay}${sDisplay}`;
-    }
+    private handleSeek = (relativeTime: number): void => {
+        const { isSeekable, onSeek, duration } = this.props;
+        if (isSeekable) {
+            onSeek(relativeTime * duration);
+        }
+    };
+
+    private handleSeekStart = (relativeTime: number): void => {
+        const { isSeekable, onSeekStart, duration } = this.props;
+
+        if (isSeekable) {
+            onSeekStart!(relativeTime * duration);
+        }
+    };
+
+    private handleSeekEnd = (relativeTime: number): void => {
+        const { isSeekable, onSeekEnd, duration } = this.props;
+
+        if (isSeekable) {
+            onSeekEnd!(relativeTime * duration);
+        }
+    };
+
+    private handleIntent = (relativeTime: number): void => {
+        const { isSeekable, onIntent, duration } = this.props;
+        const intent = isSeekable ? relativeTime : 0;
+
+        this.setState({
+            ...this.state,
+            currentIntent: intent,
+        });
+
+        if (isSeekable) {
+            onIntent!(relativeTime * duration);
+        }
+    };
 }
 
 export default withVideoProgress(ProgressBar);
