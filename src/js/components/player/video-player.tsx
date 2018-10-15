@@ -16,6 +16,7 @@ export type VideoActions = {
     onEnded?: (e: SyntheticEvent<HTMLVideoElement>) => void;
     onCanPlay?: (e: SyntheticEvent<HTMLVideoElement>) => void;
     onRateChange?: (playbackRate: number) => void;
+    onPlaybackChange?: (isPlaying: boolean) => void;
 };
 
 export type VideoPlayerProps = {
@@ -35,7 +36,8 @@ export type VideoPlayerProps = {
     loop?: boolean;
     muted?: boolean;
     preload?: string;
-} & Overwrite< // Let's overwrite video actions...
+} & Overwrite<
+    // Let's overwrite video actions...
     // Let's remove 'src' and 'autoplay'
     Omit<VideoHTMLAttributes<HTMLVideoElement>, 'src' | 'autoPlay'>,
     VideoActions
@@ -115,7 +117,6 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
 
     shouldComponentUpdate(nextProps: VideoPlayerProps, nextState: VideoPlayerState): boolean {
         // By default we never update !!!
-        console.log('VIDEOPLAYER: SHOULDCOMPONENTUPDATE');
         let shouldUpdate = false;
 
         // Let's handle those ones without React.
@@ -125,9 +126,13 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
             shouldUpdate = false;
         }
 
-        if (this.props.playbackRate !== nextProps.playbackRate) {
+        if (this.props.playing !== nextProps.playing) {
             // Let's handle that without React.
-            this.setPlaybackRate(nextProps.playbackRate);
+            if (nextProps.playing) {
+                this.play();
+            } else {
+                this.pause();
+            }
             shouldUpdate = false;
         }
 
@@ -195,6 +200,7 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
             playing,
             // DEREFERENCE those actions
             onRateChange,
+            onPlaybackChange,
             // onEnded,
             // The rest in mediaProps
             ...mediaProps
@@ -204,38 +210,35 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
 
         //const key = srcs && srcs.length > 0 ? srcs[0].src : '';
         return (
-            <>
-                <div style={{ border: '1px solid red' }}>STATE: {this.state.playing ? 'YES' : 'NO'}</div>
-                <video
-                    onLoadedMetadata={this.onLoadedMetadata}
-                    onCanPlay={this.props.onCanPlay}
-                    onEnded={this.props.onEnded}
-                    onPause={this.onPause}
-                    onPlay={this.onPlay}
-                    onRateChange={(e: SyntheticEvent<HTMLVideoElement>) => {
-                        if (this.props.onRateChange) {
-                            const video = e.currentTarget as HTMLVideoElement;
-                            this.props.onRateChange(video.playbackRate);
-                        }
-                    }}
-                    ref={this.videoRef}
-                    {...mediaProps}
-                    {...(this.props.playsInline ? { 'webkit-playsinline': 'webkit-playsinline' } : {})}
-                    //              {...(playing || autoPlay) ? { autoPlay: true } : {}}
-                >
-                    {srcs && srcs.map((s, idx) => <source key={`${s.src}-${idx}`} {...s} />)}
-                    {/*
-                // This would be so easy, but subsequent changes in tracks will
-                // be ignored by firefox. See the workaround onLoadedMetaData function
-                {tracks && tracks.map((t, idx) => {
-                    return null;
-                  return (
-                      <track id={`${t.src}-${idx}`} key={`${t.src}-${idx}`} {...t}/>
-                  );
-                })}
-                */}
-                </video>
-            </>
+            <video
+                onLoadedMetadata={this.onLoadedMetadata}
+                onCanPlay={this.props.onCanPlay}
+                onEnded={this.onEnded}
+                onPause={this.onPause}
+                onPlay={this.onPlay}
+                onRateChange={(e: SyntheticEvent<HTMLVideoElement>) => {
+                    if (this.props.onRateChange) {
+                        const video = e.currentTarget as HTMLVideoElement;
+                        this.props.onRateChange(video.playbackRate);
+                    }
+                }}
+                ref={this.videoRef}
+                {...mediaProps}
+                {...(this.props.playsInline ? { 'webkit-playsinline': 'webkit-playsinline' } : {})}
+                //              {...(playing || autoPlay) ? { autoPlay: true } : {}}
+            >
+                {srcs && srcs.map((s, idx) => <source key={`${s.src}-${idx}`} {...s} />)}
+                {/*
+            // This would be so easy, but subsequent changes in tracks will
+            // be ignored by firefox. See the workaround onLoadedMetaData function
+            {tracks && tracks.map((t, idx) => {
+                return null;
+              return (
+                  <track id={`${t.src}-${idx}`} key={`${t.src}-${idx}`} {...t}/>
+              );
+            })}
+            */}
+            </video>
         );
     }
 
@@ -243,6 +246,9 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
         this.setState({
             playing: true,
         });
+        if (this.props.onPlaybackChange) {
+            this.props.onPlaybackChange(true);
+        }
         if (this.props.onPlay) {
             this.props.onPlay(e);
         }
@@ -252,8 +258,23 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
         this.setState({
             playing: false,
         });
+        if (this.props.onPlaybackChange) {
+            this.props.onPlaybackChange(false);
+        }
         if (this.props.onPause) {
             this.props.onPause(e);
+        }
+    };
+
+    private onEnded = (e: SyntheticEvent<HTMLVideoElement>) => {
+        this.setState({
+            playing: false,
+        });
+        if (this.props.onPlaybackChange) {
+            this.props.onPlaybackChange(false);
+        }
+        if (this.props.onEnded) {
+            this.props.onEnded(e);
         }
     };
 
