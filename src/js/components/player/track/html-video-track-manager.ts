@@ -22,7 +22,8 @@ export default class HTMLVideoTrackManager {
         track.setAttribute('srcLang', textTrack.srcLang);
         track.setAttribute('src', textTrack.src);
         if (textTrack.default) {
-            track.setAttribute('default', 'default');
+            track.default = true;
+            //track.setAttribute('default', 'default');
         }
         return track;
     }
