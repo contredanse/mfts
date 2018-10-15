@@ -27,9 +27,12 @@ export type DataProxyPlayerProps = {
     muted?: boolean;
     onEnded?: (e: SyntheticEvent<HTMLVideoElement>) => void;
     onRateChange?: (playbackRate: number) => void;
+    onPlaybackChange?: (isPlaying: boolean) => void;
 };
 
-export type DataProxyPlayerState = {};
+export type DataProxyPlayerState = {
+    playing?: boolean;
+};
 
 const defaultProps = {
     playsInline: true,
@@ -74,6 +77,10 @@ export default class DataProxyPlayer extends React.Component<DataProxyPlayerProp
             return true;
         }
 
+        if (nextProps.playing !== this.props.playing) {
+            return true;
+        }
+
         // To be tested, a better solution must be found
         if (
             nextProps.defaultSubtitleLang !== this.props.defaultSubtitleLang ||
@@ -87,6 +94,7 @@ export default class DataProxyPlayer extends React.Component<DataProxyPlayerProp
             }
             return false;
         }
+
         return false;
     }
 
@@ -123,13 +131,14 @@ export default class DataProxyPlayer extends React.Component<DataProxyPlayerProp
             <VideoPlayer
                 ref={this.playerRef}
                 style={this.props.style}
-                playing={true}
+                playing={this.props.playing}
                 controls={false}
                 playsInline={true}
                 crossOrigin={crossOrigin}
                 onEnded={this.props.onEnded}
                 onRateChange={this.props.onRateChange}
                 onCanPlay={this.onCanPlay}
+                onPlaybackChange={this.onPlaybackChange}
                 srcs={videoSources}
                 {...(textTracks ? { tracks: textTracks } : {})}
                 {...(!disablePoster && firstCover ? { cover: firstCover } : {})}
@@ -140,6 +149,15 @@ export default class DataProxyPlayer extends React.Component<DataProxyPlayerProp
             />
         );
     }
+
+    private onPlaybackChange = (isPlaying: boolean) => {
+        this.setState({
+            playing: isPlaying,
+        });
+        if (this.props.onPlaybackChange) {
+            this.props.onPlaybackChange(isPlaying);
+        }
+    };
 
     private onCanPlay = (e: SyntheticEvent<HTMLVideoElement>) => {
         // Initialize state for tracks
