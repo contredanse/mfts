@@ -77,6 +77,17 @@ class Page extends React.PureComponent<PageProps, PageState> {
         });
     }
 
+    componentDidUpdate(prevProps: PageProps, nextState: PageState): void {
+        if (this.props.pageProxy.pageId !== prevProps.pageProxy.pageId && nextState.played) {
+            this.setState({
+                currentTime: 0,
+                playbackRate: 0,
+                isPlaying: true,
+                played: false,
+            });
+        }
+    }
+
     render() {
         const { pageProxy: page, lang, menuBreadcrumb } = this.props;
 
@@ -96,7 +107,6 @@ class Page extends React.PureComponent<PageProps, PageState> {
         return (
             <div className="page-container">
                 <EventListener target="window" onKeyPress={this.handleGlobalKeyPress} />
-
                 <div className="page-header">
                     <PageBreadcrumb title={pageTitle} sections={menuBreadcrumb} lang={lang} />
                 </div>
@@ -107,7 +117,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
                             <div className="page-overlay-middle">
                                 I'm the center zone
                                 <button
-                                    onClick={() => {
+                                    onClick={(): void => {
                                         this.setState((prevState: PageState, prevProps: PageProps) => {
                                             const videoEl = this.getMainPlayerVideoElement();
                                             if (videoEl) {
@@ -124,19 +134,18 @@ class Page extends React.PureComponent<PageProps, PageState> {
                                 >
                                     Replay
                                 </button>
-                                <button
-                                    onClick={() => {
-                                        this.setState((prevState: PageState, prevProps: PageProps) => {
-                                            const newState = {
-                                                ...prevState,
-                                                played: false,
-                                            };
-                                            return newState;
-                                        });
-                                    }}
-                                >
-                                    Next
-                                </button>
+                                {this.props.nextPage && (
+                                    <button
+                                        onClick={(): void => {
+                                            if (this.props.onPageChangeRequest !== undefined) {
+                                                this.props.onPageChangeRequest(this.props.nextPage!.pageId);
+                                            }
+                                        }}
+                                    >
+                                        Next
+                                    </button>
+                                )}
+                                HELLO
                             </div>
                             <div className="page-overlay-bottom">Played</div>
                         </div>
