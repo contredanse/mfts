@@ -2,7 +2,7 @@ import React, { MouseEvent } from 'react';
 import VideoProxyPlayer from '@src/components/player/data-proxy-player';
 import VideoProxy from '@src/models/proxy/video-proxy';
 import PageProxy from '@src/models/proxy/page-proxy';
-import './panel-mutli-video.scss';
+import './panel-multi-video.scss';
 
 type PanelMultiVideoProps = {
     videos: VideoProxy[];
