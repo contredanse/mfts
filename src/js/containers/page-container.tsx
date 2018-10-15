@@ -41,28 +41,6 @@ class PageContainer extends React.Component<PageContainerProps, PageContainerSta
         }
     }
 
-    getPrevAndNextPageEntities(pageId: string): PrevAndNextPageEntities {
-        const { menuRepository } = this.props;
-        if (menuRepository === undefined) {
-            return {};
-        }
-        return menuRepository.getPrevAndNextPageEntityMenu(pageId, this.props.lang, this.props.pageRepository);
-    }
-
-    getMenuBreadcrumb(pageId: string): MenuSectionProps[] {
-        const { menuRepository } = this.props;
-        if (menuRepository === undefined) {
-            return [];
-        }
-        return menuRepository.getPageBreadcrumb(pageId, this.props.lang);
-    }
-
-    navigateToPage = (pageId: string): void => {
-        const { lang } = this.props;
-        this.loadPageState(pageId);
-        this.props.history.push(`/${lang}/page/${pageId}`);
-    };
-
     render() {
         const { pageExists, pageProxy } = this.state;
 
@@ -89,6 +67,7 @@ class PageContainer extends React.Component<PageContainerProps, PageContainerSta
                             previousPage={previousPage}
                             nextPage={nextPage}
                             onPageChangeRequest={this.navigateToPage}
+                            onNewRouteRequest={this.navigateToRouteSpec}
                         />
                     </div>
                 </PageOverlay>
@@ -98,10 +77,21 @@ class PageContainer extends React.Component<PageContainerProps, PageContainerSta
         }
     }
 
+    private navigateToRouteSpec = (routeSpec: string): void => {
+        const { lang, history } = this.props;
+        const newRoute = routeSpec.replace('{lang}', lang);
+        history.push(newRoute);
+    };
+
+    private navigateToPage = (pageId: string): void => {
+        const { lang, history } = this.props;
+        history.push(`/${lang}/page/${pageId}`);
+    };
+
     /**
      * @todo find a better way
      */
-    protected loadPageState(pageId: string) {
+    private loadPageState(pageId: string) {
         try {
             const pageProxy = this.props.pageRepository.getPageProxy(this.props.pageId);
             this.setState(
@@ -124,6 +114,22 @@ class PageContainer extends React.Component<PageContainerProps, PageContainerSta
                 }
             );
         }
+    }
+
+    private getPrevAndNextPageEntities(pageId: string): PrevAndNextPageEntities {
+        const { menuRepository } = this.props;
+        if (menuRepository === undefined) {
+            return {};
+        }
+        return menuRepository.getPrevAndNextPageEntityMenu(pageId, this.props.lang, this.props.pageRepository);
+    }
+
+    private getMenuBreadcrumb(pageId: string): MenuSectionProps[] {
+        const { menuRepository } = this.props;
+        if (menuRepository === undefined) {
+            return [];
+        }
+        return menuRepository.getPageBreadcrumb(pageId, this.props.lang);
     }
 }
 
