@@ -74,6 +74,8 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
 
         const LoadingIndicator = () => <LoadingButton />;
 
+        console.log('rerender controlbar', videoEl);
+
         return (
             <div className={'control-bar-ctn'}>
                 <div className="control-bar-ctn__progress-bar">
@@ -89,17 +91,21 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
                         return (
                             <div className="control-bar-ctn__panel">
                                 <div className="control-bar-ctn__panel__left">
-                                    {status.isPlaying ? (
-                                        <PauseButton isEnabled={true} onClick={this.pause} />
-                                    ) : (
-                                        <PlayButton isEnabled={true} onClick={this.play} />
+                                    {videoEl && (
+                                        <>
+                                            {status.isPlaying ? (
+                                                <PauseButton isEnabled={true} onClick={this.pause} />
+                                            ) : (
+                                                <PlayButton isEnabled={true} onClick={this.play} />
+                                            )}
+                                            {status.muted ? (
+                                                <SoundOffButton isEnabled={true} onClick={this.unMute} />
+                                            ) : (
+                                                <SoundOnButton isEnabled={true} onClick={this.mute} />
+                                            )}
+                                            {status.isLoading && <LoadingIndicator />}
+                                        </>
                                     )}
-                                    {status.muted ? (
-                                        <SoundOffButton isEnabled={true} onClick={this.unMute} />
-                                    ) : (
-                                        <SoundOnButton isEnabled={true} onClick={this.mute} />
-                                    )}
-                                    {status.isLoading && <LoadingIndicator />}
                                 </div>
 
                                 <div className="control-bar-ctn__panel__right">
