@@ -61,11 +61,6 @@ class IntroContainer extends React.PureComponent<IntroContainerProps, IntroConta
                                     this.navigatePageList();
                                 }}
                             />
-                            {/*
-                            <div style={{position: 'absolute', bottom: '70px', right:'15px', border: '1px solid white'}}>
-                                Skip intro >>
-                            </div>
-                            */}
                         </>
                     ) : (
                         <div>
