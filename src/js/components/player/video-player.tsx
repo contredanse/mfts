@@ -2,6 +2,7 @@ import React, { SourceHTMLAttributes, SyntheticEvent, VideoHTMLAttributes } from
 import { Diff, Omit, Overwrite } from 'utility-types';
 import equal from 'fast-deep-equal';
 import HTMLVideoTrackManager from '@src/components/player/track/html-video-track-manager';
+import { hideAllTextTracks } from '@src/components/player/controls/utils/video-texttrack-helpers';
 
 export type VideoSourceProps = SourceHTMLAttributes<HTMLSourceElement>;
 export type TextTrackKind = 'subtitles' | 'captions' | 'descriptions' | 'chapters' | 'metadata';
@@ -286,7 +287,8 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
         // As a workaround for Firefox, let's remove old tracks
         // before adding the new ones. Letting react do
         // the job does not seems to work properly
-        //hideAllTextTracks(video);
+        hideAllTextTracks(video);
+
         this.trackManager.removeVideoTrackNodes();
 
         if (this.props.tracks) {
