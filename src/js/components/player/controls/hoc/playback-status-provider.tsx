@@ -84,7 +84,11 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
 
     render() {
         if (!this.props.videoEl) {
-            return null;
+            return this.props.children({
+                ...this.state,
+                isLoading: false,
+                isPlaying: false,
+            });
         }
         return this.props.children(this.state);
     }
@@ -141,7 +145,6 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
      */
     private updateTrackState = (e: Event): void => {
         const { videoEl } = this.props;
-        console.log('UPDATETRACKSTATE');
         if (videoEl && e.target !== null) {
             this.setState({
                 trackLangs: getAvailableTrackLanguages(videoEl),

@@ -73,17 +73,18 @@ class Page extends React.PureComponent<PageProps, PageState> {
 
     componentDidMount(): void {
         this.setState({
-            videoRefAvailable: true,
+            videoRefAvailable: this.props.pageProxy.hasMainPlayer(),
         });
     }
 
     componentDidUpdate(prevProps: PageProps, nextState: PageState): void {
-        if (this.props.pageProxy.pageId !== prevProps.pageProxy.pageId && nextState.played) {
+        if (this.props.pageProxy.pageId !== prevProps.pageProxy.pageId) {
             this.setState({
                 currentTime: 0,
                 playbackRate: 0,
                 isPlaying: true,
                 played: false,
+                videoRefAvailable: this.props.pageProxy.hasMainPlayer(),
             });
         }
     }
@@ -93,9 +94,8 @@ class Page extends React.PureComponent<PageProps, PageState> {
 
         const countVideos = page.countVideos();
 
-        const hasMultipleVideos = countVideos > 1;
+        const isMultiplePlayer = countVideos > 1;
         const pageTitle = page.getTitle(lang);
-        const { videoRefAvailable, played } = this.state;
 
         const videos = page.getVideos(lang);
         const audioProxy = page.getAudioProxy();
@@ -103,7 +103,10 @@ class Page extends React.PureComponent<PageProps, PageState> {
         const defaultSubtitleLang = lang;
         const subtitleVisibility = this.getSubtitleVisibility();
 
-        console.log('rerender', defaultSubtitleLang);
+        const hasVideoRef = page.hasMainPlayer();
+        const { videoRefAvailable, played } = this.state;
+
+        console.log('RERENDER::PAGE - hasVideoRef, videoRefAvailable', hasVideoRef, videoRefAvailable);
         return (
             <div className="page-container">
                 <EventListener target="window" onKeyPress={this.handleGlobalKeyPress} />
@@ -151,7 +154,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
                         </div>
                     )}
 
-                    {hasMultipleVideos ? (
+                    {isMultiplePlayer ? (
                         <div className="page-multi-video-layout">
                             <PanelMultiVideo
                                 videos={videos}
@@ -197,16 +200,16 @@ class Page extends React.PureComponent<PageProps, PageState> {
                     )}
                 </div>
                 <div>
-                    {videoRefAvailable && (
+                    {(videoRefAvailable || !hasVideoRef) && (
                         <ControlBar
                             key={page.pageId}
                             lang={lang}
-                            videoEl={this.getMainPlayerVideoElement()!}
+                            videoEl={!hasVideoRef ? undefined : this.getMainPlayerVideoElement()!}
                             actions={this.mediaPlayerActions}
                             playbackRate={this.state.playbackRate}
                             enableNextControl={this.props.nextPage !== undefined}
                             enablePrevControl={this.props.previousPage !== undefined}
-                            enableSpeedControl={hasMultipleVideos}
+                            enableSpeedControl={isMultiplePlayer}
                             {...this.controlBarActions}
                         />
                     )}

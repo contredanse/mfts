@@ -206,8 +206,6 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
             ...mediaProps
         } = this.props;
 
-        console.log('mediaProps', mediaProps);
-
         //const key = srcs && srcs.length > 0 ? srcs[0].src : '';
         return (
             <video
