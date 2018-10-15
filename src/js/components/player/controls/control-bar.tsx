@@ -26,7 +26,6 @@ import TrackVisibilityHelper from '@src/components/player/track/track-visibility
 export type ControlBarProps = {
     videoEl?: HTMLVideoElement;
     lang?: string;
-    duration: number;
     playbackRate: number;
     actions: PlayerActions;
     enableSpeedControl?: boolean;
@@ -71,7 +70,7 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
 
     render() {
         const props = this.props;
-        const { videoEl, duration, enableBrowseControl, enableSpeedControl } = this.props;
+        const { videoEl, enableBrowseControl, enableSpeedControl } = this.props;
 
         const LoadingIndicator = () => <LoadingButton />;
 
