@@ -35,8 +35,7 @@ export type VideoPlayerProps = {
     loop?: boolean;
     muted?: boolean;
     preload?: string;
-} & // Let's overwrite video actions...
-Overwrite<
+} & Overwrite< // Let's overwrite video actions...
     // Let's remove 'src' and 'autoplay'
     Omit<VideoHTMLAttributes<HTMLVideoElement>, 'src' | 'autoPlay'>,
     VideoActions
@@ -45,7 +44,6 @@ Overwrite<
     VideoActions;
 
 export type VideoPlayerState = {
-    initialized: boolean;
     playing?: boolean;
 };
 
@@ -57,9 +55,7 @@ const defaultProps = {
     loop: false,
 };
 
-const defaultState = {
-    initialized: false,
-};
+const defaultState = {} as VideoPlayerState;
 
 class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
     static defaultProps = defaultProps;
@@ -97,12 +93,17 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
     }
 
     componentDidUpdate() {
+        console.log('VIDEOPLAYER: COMPDIDUPDATE');
         if (this.videoRef.current !== null) {
             const videoEl = this.videoRef.current;
             this.trackManager = new HTMLVideoTrackManager(videoEl);
             // Sources have been reloaded or text tracks have been changed
             videoEl.load();
-            this.initAutoPlay();
+            if (this.props.playing) {
+                this.initAutoPlay();
+            } else {
+                videoEl.pause();
+            }
         }
     }
 
@@ -114,7 +115,7 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
 
     shouldComponentUpdate(nextProps: VideoPlayerProps, nextState: VideoPlayerState): boolean {
         // By default we never update !!!
-
+        console.log('VIDEOPLAYER: SHOULDCOMPONENTUPDATE');
         let shouldUpdate = false;
 
         // Let's handle those ones without React.
@@ -146,14 +147,13 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
         }
     }
 
-    initPlayingState(playing: boolean): void {
-        if (playing) {
-            this.play();
-        } else {
-            const videoEl = this.getVideoElement();
-            if (videoEl !== null) {
-                videoEl.pause();
-            }
+    pause(): void {
+        const videoEl = this.getVideoElement();
+        if (videoEl !== null) {
+            videoEl.pause();
+            this.setState({
+                playing: false,
+            });
         }
     }
 
@@ -163,11 +163,17 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
             const playPromise = videoEl.play();
             playPromise
                 .then(() => {
+                    this.setState({
+                        playing: true,
+                    });
                     if (onFullfilled) {
                         onFullfilled();
                     }
                 })
                 .catch((errorMsg: string) => {
+                    this.setState({
+                        playing: false,
+                    });
                     if (onError) {
                         onError(errorMsg);
                     }
@@ -194,25 +200,31 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
             ...mediaProps
         } = this.props;
 
+        console.log('mediaProps', mediaProps);
+
         //const key = srcs && srcs.length > 0 ? srcs[0].src : '';
         return (
-            <video
-                onLoadedMetadata={this.onLoadedMetadata}
-                onCanPlay={this.props.onCanPlay}
-                onEnded={this.props.onEnded}
-                onRateChange={(e: SyntheticEvent<HTMLVideoElement>) => {
-                    if (this.props.onRateChange) {
-                        const video = e.currentTarget as HTMLVideoElement;
-                        this.props.onRateChange(video.playbackRate);
-                    }
-                }}
-                ref={this.videoRef}
-                {...mediaProps}
-                {...(this.props.playsInline ? { 'webkit-playsinline': 'webkit-playsinline' } : {})}
-                //              {...(playing || autoPlay) ? { autoPlay: true } : {}}
-            >
-                {srcs && srcs.map((s, idx) => <source key={`${s.src}-${idx}`} {...s} />)}
-                {/*
+            <>
+                <div style={{ border: '1px solid red' }}>STATE: {this.state.playing ? 'YES' : 'NO'}</div>
+                <video
+                    onLoadedMetadata={this.onLoadedMetadata}
+                    onCanPlay={this.props.onCanPlay}
+                    onEnded={this.props.onEnded}
+                    onPause={this.onPause}
+                    onPlay={this.onPlay}
+                    onRateChange={(e: SyntheticEvent<HTMLVideoElement>) => {
+                        if (this.props.onRateChange) {
+                            const video = e.currentTarget as HTMLVideoElement;
+                            this.props.onRateChange(video.playbackRate);
+                        }
+                    }}
+                    ref={this.videoRef}
+                    {...mediaProps}
+                    {...(this.props.playsInline ? { 'webkit-playsinline': 'webkit-playsinline' } : {})}
+                    //              {...(playing || autoPlay) ? { autoPlay: true } : {}}
+                >
+                    {srcs && srcs.map((s, idx) => <source key={`${s.src}-${idx}`} {...s} />)}
+                    {/*
                 // This would be so easy, but subsequent changes in tracks will
                 // be ignored by firefox. See the workaround onLoadedMetaData function
                 {tracks && tracks.map((t, idx) => {
@@ -222,9 +234,28 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
                   );
                 })}
                 */}
-            </video>
+                </video>
+            </>
         );
     }
+
+    private onPlay = (e: SyntheticEvent<HTMLVideoElement>) => {
+        this.setState({
+            playing: true,
+        });
+        if (this.props.onPlay) {
+            this.props.onPlay(e);
+        }
+    };
+
+    private onPause = (e: SyntheticEvent<HTMLVideoElement>) => {
+        this.setState({
+            playing: false,
+        });
+        if (this.props.onPause) {
+            this.props.onPause(e);
+        }
+    };
 
     /**
      * Managing text tracks manually, too much bugs in browsers implementaion
