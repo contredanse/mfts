@@ -145,7 +145,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
                                         Next
                                     </button>
                                 )}
-                                HELLO
+                                <img src={this.props.nextPage!.getFirstVideo()!.getFirstCover()} />
                             </div>
                             <div className="page-overlay-bottom">Played</div>
                         </div>
