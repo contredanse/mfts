@@ -96,7 +96,7 @@
         "gulp-real-favicon": "^0.3.0",
         "html-loader": "^0.5.5",
         "html-minifier": "^3.5.20",
-        "html-webpack-harddisk-plugin": "^0.2.0",
+        "html-webpack-harddisk-plugin": "^1.0.0",
         "html-webpack-plugin": "^3.2.0",
         "husky": "^1.1.2",
         "identity-obj-proxy": "^3.0.0",
@@ -156,7 +156,7 @@
     "dependencies": {
         "@babel/polyfill": "^7.0.0",
         "@babel/runtime": "^7.1.2",
-        "@material-ui/core": "^3.2.0",
+        "@material-ui/core": "^3.2.1",
         "classnames": "^2.2.6",
         "connected-react-router": "^4.5.0",
         "fast-deep-equal": "^2.0.1",
