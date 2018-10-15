@@ -139,11 +139,6 @@ class App extends React.Component<AppProps, {}> {
                                             <Route component={NotFoundContainer} />
                                         </Switch>
                                     </main>
-                                    <ConnectedLangSelector>
-                                        {({ nextLang, updateLang }) => (
-                                            <button onPointerDown={() => updateLang(nextLang)}>>> Go {nextLang}</button>
-                                        )}
-                                    </ConnectedLangSelector>
                                 </div>
                             </ConnectedRouter>
                         </I18nextProvider>

@@ -15,6 +15,7 @@ import {
     WithStyles,
     Theme,
     createStyles,
+    Button,
 } from '@material-ui/core';
 
 import {
@@ -24,6 +25,7 @@ import {
     ListRounded as ListIcon,
     HomeRounded as HomeIcon,
 } from '@material-ui/icons';
+import ConnectedLangSelector from '@src/components/lang-selector';
 
 type MenuLinkProps = {
     path: string;
@@ -109,6 +111,14 @@ export const AppBarComponent: React.SFC<AppBarWithStylesProps & AppBarWithRouter
                     >
                         <InfoIcon />
                     </IconButton>
+
+                    <ConnectedLangSelector>
+                        {({ nextLang, updateLang }) => (
+                            <Button color="inherit" onClick={() => updateLang(nextLang)}>
+                                {nextLang}
+                            </Button>
+                        )}
+                    </ConnectedLangSelector>
 
                     <IconButton
                         className={classes.menuButton}
