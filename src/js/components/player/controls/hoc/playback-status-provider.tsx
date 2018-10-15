@@ -95,10 +95,10 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
         }
         video.addEventListener('volumechange', this.updateVolumeState);
         video.addEventListener('addtrack', this.updateTrackState);
+        video.addEventListener('canplay', this.updateVideoState);
         video.addEventListener('play', this.updateVideoState);
         video.addEventListener('load', this.updateVideoState);
         video.addEventListener('pause', this.updateVideoState);
-        video.addEventListener('canplay', this.updateVideoState);
         video.addEventListener('waiting', this.setLoadingState);
         this.listenersRegistered = true;
     }
@@ -107,10 +107,10 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
         if (this.listenersRegistered) {
             video.removeEventListener('volumechange', this.updateVolumeState);
             video.removeEventListener('addtrack', this.updateTrackState);
-            video.removeEventListener('play', this.updateVideoState);
-            video.removeEventListener('load', this.updateVideoState);
-            video.removeEventListener('pause', this.updateVideoState);
             video.removeEventListener('canplay', this.updateVideoState);
+            video.removeEventListener('play', this.updateVideoState);
+            video.removeEventListener('pause', this.updateVideoState);
+            video.removeEventListener('load', this.updateVideoState);
             video.removeEventListener('waiting', this.setLoadingState);
         }
         this.listenersRegistered = false;

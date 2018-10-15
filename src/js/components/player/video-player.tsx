@@ -95,7 +95,6 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
     }
 
     componentDidUpdate() {
-        console.log('VIDEOPLAYER: COMPDIDUPDATE');
         if (this.videoRef.current !== null) {
             const videoEl = this.videoRef.current;
             this.trackManager = new HTMLVideoTrackManager(videoEl);

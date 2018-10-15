@@ -57,8 +57,6 @@ export default class DataProxyPlayer extends React.Component<DataProxyPlayerProp
     }
 
     shouldComponentUpdate(nextProps: DataProxyPlayerProps, nextState: DataProxyPlayerState): boolean {
-        // A new video have been given
-
         const mediaId =
             this.props.videoProxy instanceof AudioProxy
                 ? this.props.videoProxy.getSourceFile()
@@ -70,6 +68,8 @@ export default class DataProxyPlayer extends React.Component<DataProxyPlayerProp
                 : nextProps.videoProxy.videoId;
 
         if (mediaId !== nextMediaId) {
+            // A new video have been requested !
+            // Let's update everything, and reset autoplay
             return true;
         }
 
