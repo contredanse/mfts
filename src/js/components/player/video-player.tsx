@@ -209,17 +209,12 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
         //const key = srcs && srcs.length > 0 ? srcs[0].src : '';
         return (
             <video
-                onLoadedMetadata={this.onLoadedMetadata}
-                onCanPlay={this.props.onCanPlay}
-                onEnded={this.onEnded}
-                onPause={this.onPause}
-                onPlay={this.onPlay}
-                onRateChange={(e: SyntheticEvent<HTMLVideoElement>) => {
-                    if (this.props.onRateChange) {
-                        const video = e.currentTarget as HTMLVideoElement;
-                        this.props.onRateChange(video.playbackRate);
-                    }
-                }}
+                onLoadedMetadata={this.handleOnLoadedMetadata}
+                onCanPlay={this.handleOnCanPlay}
+                onEnded={this.handleOnEnded}
+                onPause={this.handleOnPause}
+                onPlay={this.handleOnPlay}
+                onRateChange={this.handleOnRateChange}
                 ref={this.videoRef}
                 {...mediaProps}
                 {...(this.props.playsInline ? { 'webkit-playsinline': 'webkit-playsinline' } : {})}
@@ -240,7 +235,7 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
         );
     }
 
-    private onPlay = (e: SyntheticEvent<HTMLVideoElement>) => {
+    private handleOnPlay = (e: SyntheticEvent<HTMLVideoElement>) => {
         this.setState({
             playing: true,
         });
@@ -252,7 +247,13 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
         }
     };
 
-    private onPause = (e: SyntheticEvent<HTMLVideoElement>) => {
+    private handleOnCanPlay = (e: SyntheticEvent<HTMLVideoElement>) => {
+        if (this.props.onCanPlay) {
+            this.props.onCanPlay(e);
+        }
+    };
+
+    private handleOnPause = (e: SyntheticEvent<HTMLVideoElement>) => {
         this.setState({
             playing: false,
         });
@@ -264,7 +265,7 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
         }
     };
 
-    private onEnded = (e: SyntheticEvent<HTMLVideoElement>) => {
+    private handleOnEnded = (e: SyntheticEvent<HTMLVideoElement>) => {
         this.setState({
             playing: false,
         });
@@ -276,10 +277,17 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
         }
     };
 
+    private handleOnRateChange = (e: SyntheticEvent<HTMLVideoElement>) => {
+        if (this.props.onRateChange) {
+            const video = e.currentTarget as HTMLVideoElement;
+            this.props.onRateChange(video.playbackRate);
+        }
+    };
+
     /**
      * Managing text tracks manually, too much bugs in browsers implementaion
      */
-    private onLoadedMetadata = (e: SyntheticEvent<HTMLVideoElement>) => {
+    private handleOnLoadedMetadata = (e: SyntheticEvent<HTMLVideoElement>) => {
         const video = e.currentTarget;
 
         // As a workaround for Firefox, let's remove old tracks
@@ -307,11 +315,14 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
     }
 
     private unregisterVideoListeners(video: HTMLVideoElement): void {
-        if (this.listenersRegistered) {
-            //video.removeEventListener('ratechange', this.updateVolumeState);
-            video.removeEventListener('play', this.updatePlayingState);
-            this.listenersRegistered = false;
+        if (!this.listenersRegistered) {
+            alert('NOT REGISTERED');
         }
+        //if (this.listenersRegistered) {
+        //video.removeEventListener('ratechange', this.updateVolumeState);
+        video.removeEventListener('play', this.updatePlayingState);
+        this.listenersRegistered = false;
+        //}
     }
 
     private initAutoPlay() {
