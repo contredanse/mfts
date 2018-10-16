@@ -25,6 +25,7 @@ export type DataProxyPlayerProps = {
     className?: string;
     loop?: boolean;
     muted?: boolean;
+    controls?: boolean;
     onEnded?: (e: SyntheticEvent<HTMLVideoElement>) => void;
     onRateChange?: (playbackRate: number) => void;
     onPlaybackChange?: (isPlaying: boolean) => void;
@@ -39,6 +40,7 @@ const defaultProps = {
     playing: false,
     disableSubtitles: false,
     disablePoster: false,
+    controls: false,
     subtitleVisibility: 'showing',
 };
 
@@ -132,8 +134,8 @@ export default class DataProxyPlayer extends React.Component<DataProxyPlayerProp
                 ref={this.playerRef}
                 style={this.props.style}
                 playing={this.props.playing}
-                controls={false}
-                playsInline={true}
+                controls={this.props.controls}
+                playsInline={this.props.playsInline}
                 crossOrigin={crossOrigin}
                 onEnded={this.props.onEnded}
                 onRateChange={this.props.onRateChange}
