@@ -26,6 +26,10 @@ import {
     HomeRounded as HomeIcon,
 } from '@material-ui/icons';
 import ConnectedLangSelector from '@src/components/lang-selector';
+import { DnaIcon } from 'mdi-react';
+
+// import helixSvg from '@assets/svg/helix-menu.svg';
+// <img src={helixSvg} style={{fill: 'white'}}/>
 
 type MenuLinkProps = {
     path: string;
@@ -69,26 +73,26 @@ export const AppBarComponent: React.SFC<AppBarWithStylesProps & AppBarWithRouter
                         color="inherit"
                         aria-label="Menu"
                         onClick={() => {
-                            history.push(`/${lang}/menu`);
+                            history.push(`/`);
                         }}
                     >
                         <MenuIcon />
                     </IconButton>
 
-                    <Typography variant="h6" color="inherit" className={classes.flex}>
-                        {props.title}
-                    </Typography>
-
                     <IconButton
                         className={classes.menuButton}
                         color="inherit"
-                        aria-label="Home"
+                        aria-label="Menu"
                         onClick={() => {
-                            history.push(`/`);
+                            history.push(`/${lang}/menu`);
                         }}
                     >
-                        <HomeIcon />
+                        <DnaIcon size={18} />
                     </IconButton>
+
+                    <Typography variant="h6" color="inherit" className={classes.flex}>
+                        {props.title}
+                    </Typography>
 
                     <IconButton
                         className={classes.menuButton}
