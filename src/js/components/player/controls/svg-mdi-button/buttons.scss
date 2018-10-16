@@ -20,6 +20,7 @@
 
     &[disabled] {
         opacity: 0.5;
+        pointer-events: none;
     }
 
     &.isEnabled {
@@ -41,11 +42,11 @@
         }
     }
 
-    &.isHighlighted {
+    &.isActive {
         .mdi-icon {
             display: block;
-            //fill: red;
-            background: linear-gradient(#e66465, #9198e5);
+            fill: #feff9a;
+            //background: linear-gradient(#e66465, #9198e5);
             //background-color: rgba(yellow, 0.4);
         }
     }

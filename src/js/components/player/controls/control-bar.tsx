@@ -113,7 +113,7 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
                                     {status.trackLangs.length > 0 && (
                                         <SubtitlesButton
                                             isEnabled={true}
-                                            extraClasses={status.hasVisibleTextTrack ? 'isHighlighted' : ''}
+                                            extraClasses={status.hasVisibleTextTrack ? 'isActive' : ''}
                                             onClick={() => {
                                                 this.toggleSubtitles();
                                                 // This is a hack, we need to dispatch manually
