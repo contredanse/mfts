@@ -49,15 +49,19 @@ export default class PageProxy extends AbstractBaseProxy {
      * Whether the page contains only one regular video (image+sound)
      * or multiple videos/audio that we need to compose at the UI level
      */
-    isMultiLayout(): boolean {
+    isMultiVideoContent(): boolean {
         return this.countVideos() > 1 || this.hasAudio();
+    }
+
+    isSingleVideoContent(): boolean {
+        return this.countVideos() === 1;
     }
 
     /**
      * Whether the content must have real player controls
      */
     hasMainPlayer(): boolean {
-        return !this.isMultiLayout() || this.getAudioProxy() !== undefined;
+        return !this.isMultiVideoContent() || this.getAudioProxy() !== undefined;
     }
 
     getFirstVideo(lang?: string): VideoProxy | undefined {
