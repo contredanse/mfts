@@ -143,6 +143,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
                                         videoProxy={audioProxy}
                                         playing={this.state.isPlaying}
                                         onRateChange={this.onRateChange}
+                                        onPlaybackChange={this.handlePlaybackChange}
                                         onEnded={this.onEnded}
                                     />
                                 </div>
@@ -180,6 +181,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
                                         videoProxy={page.getFirstVideo(lang)!}
                                         playing={this.state.isPlaying}
                                         playbackRate={this.state.playbackRate}
+                                        onPlaybackChange={this.handlePlaybackChange}
                                         onEnded={this.onEnded}
                                     />
                                 </div>
@@ -255,6 +257,17 @@ class Page extends React.PureComponent<PageProps, PageState> {
                 isPlaying: !prevState.isPlaying,
             }));
         }
+    };
+
+    private handlePlaybackChange = (isPlaying: boolean) => {
+        this.setState((prevState: PageState) => {
+            const newState = {
+                ...prevState,
+                played: isPlaying ? false : prevState.played,
+                isPlaying: isPlaying,
+            };
+            return newState;
+        });
     };
 
     private handleReplayRequest = () => {
