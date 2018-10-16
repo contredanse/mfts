@@ -32,9 +32,9 @@ class PlaybackRateSelect extends PureComponent<PlaybackRateSelectProps> {
 
         return (
             <div className="control-bar__select" style={style}>
-                <select onChange={this.handleChange}>
+                <select onChange={this.handleChange} value={playbackRate}>
                     {playbackRates!.map(({ value, title }) => (
-                        <option key={value} value={value} {...(playbackRate === value ? { selected: true } : {})}>
+                        <option key={value} value={value}>
                             {title}
                         </option>
                     ))}
