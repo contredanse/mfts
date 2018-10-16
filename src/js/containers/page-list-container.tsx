@@ -8,6 +8,7 @@ import { RouteComponentProps } from 'react-router';
 import PageRepository from '@src/models/repository/page-repository';
 import memoize from 'memoize-one';
 import DocumentMeta from '@src/shared/document-meta';
+import { BasicI18nDictionary, getFromDictionary } from '@src/i18n/basic-i18n';
 
 type PageListContainerProps = {
     pageRepository: PageRepository;
@@ -22,9 +23,7 @@ type PageListContainerState = {
     menuId?: string;
 };
 
-type I18nStatic = { [key: string]: { [key: string]: string } };
-
-const i18n: I18nStatic = {
+const i18nDict: BasicI18nDictionary = {
     page_title: {
         en: 'Page list',
         fr: 'Liste des pages',
@@ -85,7 +84,7 @@ class PageListContainer extends React.PureComponent<PageListContainerProps, Page
         // since the last render, `memoize-one` will reuse the last return value.
         const filteredList = this.filterPages(this.state.pages, this.state.filterText, this.props.lang);
 
-        const documentTitle = `MFS >> ${i18n.page_title[lang] || ''}`;
+        const documentTitle = `MFS >> ${getFromDictionary('page_title', lang, i18nDict)}}`;
 
         return (
             <PageOverlay>

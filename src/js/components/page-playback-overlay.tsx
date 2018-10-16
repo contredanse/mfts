@@ -1,7 +1,11 @@
 import React, { SyntheticEvent } from 'react';
 import PageProxy from '@src/models/proxy/page-proxy';
 
+import './page-playback-overlay.scss';
+import { BasicI18nDictionary, getFromDictionary } from '@src/i18n/basic-i18n';
+
 type PagePlaybackOverlayProps = {
+    lang?: string;
     onReplayRequest?: () => void;
     onPlayNextRequest?: () => void;
     nextPage?: PageProxy;
@@ -10,7 +14,20 @@ type PagePlaybackOverlayProps = {
 type PagePlaybackOverlayState = {};
 
 const defaultState: PagePlaybackOverlayState = {};
-const defaultProps = {};
+const defaultProps = {
+    lang: 'en',
+};
+
+const i18nDict: BasicI18nDictionary = {
+    replay_page: {
+        en: 'Replay',
+        fr: 'Rejouer',
+    },
+    play_next_page: {
+        en: 'Next page',
+        fr: 'Page suivante',
+    },
+};
 
 class PagePlaybackOverlay extends React.PureComponent<PagePlaybackOverlayProps, PagePlaybackOverlayState> {
     static defaultProps = defaultProps;
@@ -27,16 +44,22 @@ class PagePlaybackOverlay extends React.PureComponent<PagePlaybackOverlayProps, 
     componentDidUpdate(prevProps: PagePlaybackOverlayProps, nextState: PagePlaybackOverlayState): void {}
 
     render() {
+        const { nextPage, lang } = this.props;
+
         return (
             <div className="page-playback-overlay page-playback-overlay--active">
                 <div className="page-playback-overlay-top">The top</div>
                 <div className="page-playback-overlay-middle">
                     I'm the center zone
-                    <button onClick={this.handleReplayRequest}>Replay</button>
-                    {this.props.nextPage && (
+                    <button onClick={this.handleReplayRequest}>
+                        {getFromDictionary('replay_page', lang!, i18nDict)}
+                    </button>
+                    {nextPage && (
                         <>
-                            <button onClick={this.handlePlayNextRequest}>Next</button>
-                            <img src={this.props.nextPage!.getFirstVideo()!.getFirstCover()} />
+                            <button onClick={this.handlePlayNextRequest}>
+                                {getFromDictionary('play_next_page', lang!, i18nDict)}
+                            </button>
+                            <img src={nextPage.getFirstVideo()!.getFirstCover()} />
                         </>
                     )}
                 </div>
