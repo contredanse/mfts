@@ -21,7 +21,6 @@ import { WithStore } from '@src/hoc/with-store';
 import { LangState } from '@src/store/locale';
 import AboutContainer from '@src/containers/about-container';
 import LoginContainer from '@src/containers/login-container';
-import ConnectedLangSelector from '@src/components/lang-selector';
 import DocumentMeta from '@src/shared/document-meta';
 
 type AppProps = {
