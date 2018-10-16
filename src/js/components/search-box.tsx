@@ -12,7 +12,7 @@ export class SearchBox extends React.Component<
     SearchBoxProps & React.HTMLAttributes<HTMLInputElement>,
     SearchBoxState
 > {
-    public static defaultProps = {
+    static defaultProps = {
         placeHolder: 'search',
     };
     render() {
