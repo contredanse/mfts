@@ -14,6 +14,7 @@ import { MenuSectionProps } from '@src/models/repository/menu-repository';
 import PageBreadcrumb from '@src/components/page-breadcrumb';
 import TrackVisibilityHelper, { TrackVisibilityMode } from '@src/components/player/track/track-visibility-helper';
 import EventListener from 'react-event-listener';
+import PagePlaybackOverlay from '@src/components/page-playback-overlay';
 
 export type PageProps = {
     pageProxy: PageProxy;
@@ -60,14 +61,9 @@ class Page extends React.PureComponent<PageProps, PageState> {
 
     constructor(props: PageProps) {
         super(props);
-
         this.state = defaultPageState;
-
         this.trackVisibilityHelper = new TrackVisibilityHelper();
-
         this.initMediaPlayerActions();
-
-        this.initControlBarActions();
     }
 
     componentDidMount(): void {
@@ -88,8 +84,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
             const hasAudioPlayer = !hasSingleVideoPlayer && pageProxy.hasAudio();
 
             this.setState({
-                currentTime: 0,
-                playbackRate: 0,
+                ...defaultPageState,
                 isPlaying: true,
                 played: false,
                 videoRefAvailable: hasSingleVideoPlayer,
@@ -121,43 +116,11 @@ class Page extends React.PureComponent<PageProps, PageState> {
                 </div>
                 <div className="page-content">
                     {played && (
-                        <div className="page-overlay page-overlay--active">
-                            <div className="page-overlay-top">The top</div>
-                            <div className="page-overlay-middle">
-                                I'm the center zone
-                                <button
-                                    onClick={(): void => {
-                                        this.setState((prevState: PageState, prevProps: PageProps) => {
-                                            const videoEl = this.getMainPlayerVideoElement();
-                                            if (videoEl) {
-                                                videoEl.currentTime = 0;
-                                                videoEl.play();
-                                            }
-                                            const newState = {
-                                                ...prevState,
-                                                played: false,
-                                            };
-                                            return newState;
-                                        });
-                                    }}
-                                >
-                                    Replay
-                                </button>
-                                {this.props.nextPage && (
-                                    <button
-                                        onClick={(): void => {
-                                            if (this.props.onPageChangeRequest !== undefined) {
-                                                this.props.onPageChangeRequest(this.props.nextPage!.pageId);
-                                            }
-                                        }}
-                                    >
-                                        Next
-                                    </button>
-                                )}
-                                <img src={this.props.nextPage!.getFirstVideo()!.getFirstCover()} />
-                            </div>
-                            <div className="page-overlay-bottom">Played</div>
-                        </div>
+                        <PagePlaybackOverlay
+                            nextPage={this.props.nextPage}
+                            onReplayRequest={this.handleReplayRequest}
+                            onPlayNextRequest={this.handlePlayNextRequest}
+                        />
                     )}
 
                     {isMultipleVideoContent ? (
@@ -197,7 +160,8 @@ class Page extends React.PureComponent<PageProps, PageState> {
                                     enableNextControl={this.props.nextPage !== undefined}
                                     enablePrevControl={this.props.previousPage !== undefined}
                                     enableSpeedControl={true}
-                                    {...this.controlBarActions}
+                                    onNextLinkPressed={this.handlePlayNextRequest}
+                                    onPreviousLinkPressed={this.handlePlayPreviousRequest}
                                 />
                             )}
                         </div>
@@ -229,7 +193,8 @@ class Page extends React.PureComponent<PageProps, PageState> {
                                     enableNextControl={this.props.nextPage !== undefined}
                                     enablePrevControl={this.props.previousPage !== undefined}
                                     enableSpeedControl={false}
-                                    {...this.controlBarActions}
+                                    onNextLinkPressed={this.handlePlayNextRequest}
+                                    onPreviousLinkPressed={this.handlePlayPreviousRequest}
                                 />
                             )}
                         </div>
@@ -237,21 +202,6 @@ class Page extends React.PureComponent<PageProps, PageState> {
                 </div>
             </div>
         );
-    }
-
-    private initControlBarActions(): void {
-        this.controlBarActions = {
-            onNextLinkPressed: () => {
-                if (this.props.nextPage !== undefined && this.props.onPageChangeRequest !== undefined) {
-                    this.props.onPageChangeRequest(this.props.nextPage.pageId);
-                }
-            },
-            onPreviousLinkPressed: () => {
-                if (this.props.previousPage !== undefined && this.props.onPageChangeRequest !== undefined) {
-                    this.props.onPageChangeRequest(this.props.previousPage.pageId);
-                }
-            },
-        };
     }
 
     /**
@@ -307,6 +257,33 @@ class Page extends React.PureComponent<PageProps, PageState> {
         }
     };
 
+    private handleReplayRequest = () => {
+        this.setState((prevState: PageState) => {
+            const videoEl = this.getMainPlayerVideoElement();
+            if (videoEl) {
+                videoEl.currentTime = 0;
+                videoEl.play();
+            }
+            const newState = {
+                ...prevState,
+                played: false,
+            };
+            return newState;
+        });
+    };
+
+    private handlePlayNextRequest = (): void => {
+        if (this.props.nextPage !== undefined && this.props.onPageChangeRequest !== undefined) {
+            this.props.onPageChangeRequest(this.props.nextPage.pageId);
+        }
+    };
+
+    private handlePlayPreviousRequest = (): void => {
+        if (this.props.previousPage !== undefined && this.props.onPageChangeRequest !== undefined) {
+            this.props.onPageChangeRequest(this.props.previousPage.pageId);
+        }
+    };
+
     private onRateChange = (playbackRate: number) => {
         this.setState({
             playbackRate: playbackRate,
@@ -324,7 +301,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
     };
 
     /**
-     * To re-enable track captions
+     * To re-enable track captions from user choice
      */
     private getSubtitleVisibility(): TrackVisibilityMode {
         const { lang } = this.props;
