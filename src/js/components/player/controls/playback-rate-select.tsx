@@ -6,6 +6,7 @@ export type PlaybackRates = Array<{
 }>;
 
 export type PlaybackRateSelectProps = {
+    playbackRate: number;
     onChange?: (playbackRate: number) => void;
     isEnabled?: boolean;
     playbackRates?: PlaybackRates;
@@ -27,13 +28,13 @@ class PlaybackRateSelect extends PureComponent<PlaybackRateSelectProps> {
     static defaultProps = defaultProps;
 
     render() {
-        const { style, playbackRates } = this.props;
+        const { style, playbackRates, playbackRate } = this.props;
 
         return (
             <div className="control-bar__select" style={style}>
                 <select onChange={this.handleChange}>
                     {playbackRates!.map(({ value, title }) => (
-                        <option key={value} value={value}>
+                        <option key={value} value={value} {...(playbackRate === value ? { selected: true } : {})}>
                             {title}
                         </option>
                     ))}

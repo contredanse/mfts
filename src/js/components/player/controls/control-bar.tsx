@@ -70,7 +70,7 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
 
     render() {
         const props = this.props;
-        const { videoEl, enableBrowseControl, enableSpeedControl } = this.props;
+        const { videoEl, enableBrowseControl, enableSpeedControl, playbackRate } = this.props;
 
         const LoadingIndicator = () => <LoadingButton />;
 
@@ -109,7 +109,12 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
                                 </div>
 
                                 <div className="control-bar-ctn__panel__right">
-                                    {props.enableSpeedControl && <PlaybackRateSelect onChange={this.setPlaybackRate} />}
+                                    {props.enableSpeedControl && (
+                                        <PlaybackRateSelect
+                                            playbackRate={playbackRate}
+                                            onChange={this.setPlaybackRate}
+                                        />
+                                    )}
                                     {status.trackLangs.length > 0 && (
                                         <SubtitlesButton
                                             isEnabled={true}
