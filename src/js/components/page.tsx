@@ -27,8 +27,6 @@ export type PageProps = {
 } & InjectedI18nProps;
 
 export type PageState = {
-    videoRefAvailable: boolean;
-    audioRefAvailable: boolean;
     isSilent: boolean;
     isMultipleVideoContent: boolean;
     played: boolean;
@@ -38,8 +36,6 @@ export type PageState = {
 };
 
 const defaultPageState: PageState = {
-    videoRefAvailable: false,
-    audioRefAvailable: false,
     isSilent: false,
     isMultipleVideoContent: false,
     played: false,
@@ -60,25 +56,23 @@ class Page extends React.PureComponent<PageProps, PageState> {
     trackVisibilityHelper: TrackVisibilityHelper;
 
     private videoRef: React.RefObject<VideoProxyPlayer> = React.createRef<VideoProxyPlayer>();
-    private audioRef: React.RefObject<VideoProxyPlayer> = React.createRef<VideoProxyPlayer>();
+    //private audioRef: React.RefObject<VideoProxyPlayer> = React.createRef<VideoProxyPlayer>();
 
     constructor(props: PageProps) {
         super(props);
         this.state = defaultPageState;
         this.trackVisibilityHelper = new TrackVisibilityHelper();
+        this.state = {
+            ...defaultPageState,
+            isSilent: props.pageProxy.isSilent(),
+            isMultipleVideoContent: props.pageProxy.isMultiVideoContent(),
+        };
     }
 
     componentDidMount(): void {
         const { pageProxy } = this.props;
         const hasSingleVideoPlayer = pageProxy.isSingleVideoContent();
         const hasAudioPlayer = !hasSingleVideoPlayer && pageProxy.hasAudio();
-        this.setState({
-            ...defaultPageState,
-            videoRefAvailable: hasSingleVideoPlayer,
-            audioRefAvailable: hasAudioPlayer,
-            isSilent: pageProxy.isSilent(),
-            isMultipleVideoContent: pageProxy.isMultiVideoContent(),
-        });
     }
 
     componentDidUpdate(prevProps: PageProps, nextState: PageState): void {
@@ -87,11 +81,8 @@ class Page extends React.PureComponent<PageProps, PageState> {
             const hasSingleVideoPlayer = pageProxy.isSingleVideoContent();
             const hasAudioPlayer = !hasSingleVideoPlayer && pageProxy.hasAudio();
             this.setState({
-                ...defaultPageState,
                 isPlaying: true,
                 played: false,
-                videoRefAvailable: hasSingleVideoPlayer,
-                audioRefAvailable: hasAudioPlayer,
                 isSilent: pageProxy.isSilent(),
                 isMultipleVideoContent: pageProxy.isMultiVideoContent(),
             });
@@ -106,11 +97,25 @@ class Page extends React.PureComponent<PageProps, PageState> {
         const defaultSubtitleLang = lang;
         const subtitleVisibility = this.getSubtitleVisibility();
 
-        const { videoRefAvailable, isMultipleVideoContent, audioRefAvailable, played, isSilent } = this.state;
+        const { isMultipleVideoContent, played, isSilent } = this.state;
 
         const audioProxy = page.getAudioProxy();
 
-        console.log('rerender', isSilent);
+        const controlBarProps: ControlBarProps = {
+            lang: lang,
+            playbackRate: this.state.playbackRate,
+            enableSpeedControl: this.state.isSilent,
+            mediaIsSilent: this.state.isSilent,
+            disableButtonSpaceClick: true,
+            enableNextControl: this.props.nextPage !== undefined,
+            enablePrevControl: this.props.previousPage !== undefined,
+            onNextLinkPressed: this.handlePlayNextRequest,
+            onPreviousLinkPressed: this.handlePlayPreviousRequest,
+            onRateChangeRequest: this.handleRateChange,
+        };
+
+        console.log('RENDER/PAGE', controlBarProps);
+
         return (
             <div className="page-container">
                 <EventListener target="window" onKeyPress={this.handleGlobalKeyPress} />
@@ -134,10 +139,10 @@ class Page extends React.PureComponent<PageProps, PageState> {
                                 playing={this.state.isPlaying}
                                 playbackRate={this.state.playbackRate}
                             />
-                            {audioProxy && (
+                            {audioProxy ? (
                                 <div className="panel-audio-subs">
                                     <VideoProxyPlayer
-                                        ref={this.audioRef}
+                                        ref={this.videoRef}
                                         style={{ width: '100%', height: '100%' }}
                                         crossOrigin={'anonymous'}
                                         defaultSubtitleLang={defaultSubtitleLang}
@@ -145,29 +150,16 @@ class Page extends React.PureComponent<PageProps, PageState> {
                                         disablePoster={true}
                                         videoProxy={audioProxy}
                                         playing={this.state.isPlaying}
-                                        onRateChange={this.onRateChange}
+                                        onRateChange={this.handleRateChange}
                                         onPlaybackChange={this.handlePlaybackChange}
                                         onEnded={this.onEnded}
+                                        controlBarProps={controlBarProps}
                                     />
                                 </div>
-                            )}
-                            {(audioRefAvailable || !page.hasMainPlayer()) && (
-                                <ControlBar
-                                    lang={lang}
-                                    videoEl={
-                                        this.audioRef.current !== null
-                                            ? (this.audioRef.current.getHTMLVideoElement() as HTMLVideoElement)
-                                            : undefined
-                                    }
-                                    playbackRate={this.state.playbackRate}
-                                    enableNextControl={this.props.nextPage !== undefined}
-                                    enablePrevControl={this.props.previousPage !== undefined}
-                                    enableSpeedControl={isSilent}
-                                    onNextLinkPressed={this.handlePlayNextRequest}
-                                    onPreviousLinkPressed={this.handlePlayPreviousRequest}
-                                    disableButtonSpaceClick={true}
-                                    mediaIsSilent={isSilent}
-                                />
+                            ) : (
+                                () => {
+                                    return <ControlBar {...controlBarProps} />;
+                                }
                             )}
                         </div>
                     ) : (
@@ -187,25 +179,10 @@ class Page extends React.PureComponent<PageProps, PageState> {
                                         playbackRate={this.state.playbackRate}
                                         onPlaybackChange={this.handlePlaybackChange}
                                         onEnded={this.onEnded}
+                                        controlBarProps={controlBarProps}
                                     />
                                 </div>
                             </div>
-                            {videoRefAvailable && (
-                                <ControlBar
-                                    lang={lang}
-                                    videoEl={
-                                        this.videoRef.current ? this.videoRef.current.getHTMLVideoElement() : undefined
-                                    }
-                                    playbackRate={this.state.playbackRate}
-                                    enableNextControl={this.props.nextPage !== undefined}
-                                    enablePrevControl={this.props.previousPage !== undefined}
-                                    enableSpeedControl={isSilent}
-                                    onNextLinkPressed={this.handlePlayNextRequest}
-                                    onPreviousLinkPressed={this.handlePlayPreviousRequest}
-                                    disableButtonSpaceClick={true}
-                                    mediaIsSilent={isSilent}
-                                />
-                            )}
                         </div>
                     )}
                 </div>
@@ -239,6 +216,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
             console.log('handlePlaybackChange');
             // reset played state. do not change isPlaying
             // otherwise it's gonna be recursive
+
             const newState = {
                 ...prevState,
                 played: isPlaying ? false : prevState.played,
@@ -249,7 +227,6 @@ class Page extends React.PureComponent<PageProps, PageState> {
 
     private handleReplayRequest = () => {
         console.log('handleReplayRequest');
-
         this.setState((prevState: PageState) => {
             const videoEl = this.getMainPlayerVideoElement();
             if (videoEl) {
@@ -278,7 +255,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
         }
     };
 
-    private onRateChange = (playbackRate: number) => {
+    private handleRateChange = (playbackRate: number) => {
         this.setState({
             playbackRate: playbackRate,
         });
@@ -289,9 +266,18 @@ class Page extends React.PureComponent<PageProps, PageState> {
         if (this.props.onPagePlayed) {
             this.props.onPagePlayed();
         } else {
-            this.setState({
-                played: true,
-            });
+            if (this.state.isSilent) {
+                // make a loop
+                const videoEl = this.getMainPlayerVideoElement();
+                if (videoEl) {
+                    videoEl.currentTime = 0;
+                    videoEl.play();
+                }
+            } else {
+                this.setState({
+                    played: true,
+                });
+            }
         }
     };
 
