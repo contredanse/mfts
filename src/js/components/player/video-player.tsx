@@ -1,8 +1,9 @@
-import React, { SourceHTMLAttributes, SyntheticEvent, VideoHTMLAttributes } from 'react';
+import React, { ReactNode, SourceHTMLAttributes, SyntheticEvent, VideoHTMLAttributes } from 'react';
 import { Omit, Overwrite } from 'utility-types';
 import equal from 'fast-deep-equal';
 import HTMLVideoTrackManager from '@src/components/player/track/html-video-track-manager';
 import { hideAllTextTracks } from '@src/components/player/controls/utils/video-texttrack-helpers';
+import ControlBar, { ControlBarProps } from '@src/components/player/controls/control-bar';
 
 export type VideoSourceProps = SourceHTMLAttributes<HTMLSourceElement>;
 export type TextTrackKind = 'subtitles' | 'captions' | 'descriptions' | 'chapters' | 'metadata';
@@ -39,6 +40,7 @@ export type VideoPlayerProps = {
     loop?: boolean;
     muted?: boolean;
     preload?: string;
+    controlBarProps?: ControlBarProps;
 } & Overwrite<
     // Let's overwrite video actions...
     // Let's remove 'src' and 'autoplay'
@@ -50,6 +52,7 @@ export type VideoPlayerProps = {
 
 export type VideoPlayerState = {
     playing?: boolean;
+    refLoaded: boolean;
 };
 
 const defaultProps = {
@@ -60,7 +63,9 @@ const defaultProps = {
     loop: false,
 };
 
-const defaultState = {} as VideoPlayerState;
+const defaultState = {
+    refLoaded: false,
+} as VideoPlayerState;
 
 class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
     static defaultProps = defaultProps;
@@ -94,17 +99,24 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
             // Set default playback props
             this.setPlaybackRate(this.props.playbackRate);
             //this.initAutoPlay();
+            console.log('COMPONENTDIDMOUNT setting new state');
+            if (!this.state.refLoaded) {
+                this.setState({
+                    refLoaded: true,
+                });
+            }
         } else {
             throw Error('Registering listeners failed, video element is null');
         }
     }
 
     componentDidUpdate() {
-        if (this.videoRef.current !== null) {
-            const videoEl = this.videoRef.current;
+        const videoEl = this.videoRef.current;
+        if (videoEl !== null) {
             this.trackManager = new HTMLVideoTrackManager(videoEl);
             // Sources have been reloaded or text tracks have been changed
             videoEl.load();
+
             if (this.props.playing) {
                 //  this.initAutoPlay();
             } else {
@@ -123,8 +135,12 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
         // By default we never update !!!
         let shouldUpdate = false;
 
-        // Let's handle those ones without React.
+        // React ref available
+        if (!this.state.refLoaded && nextState.refLoaded) {
+            return true;
+        }
 
+        // Let's handle those ones without React.
         if (this.props.playbackRate !== nextProps.playbackRate) {
             this.setPlaybackRate(nextProps.playbackRate);
             shouldUpdate = false;
@@ -202,6 +218,7 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
             playbackRate,
             // autoPlay,
             playing,
+            controlBarProps,
             // DEREFERENCE those actions
             onEnded,
             onCanPlay,
@@ -209,38 +226,43 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
             onPlaybackChange,
             onDebug,
             onError,
-            // onEnded,
             // The rest in mediaProps
             ...mediaProps
         } = this.props;
 
-        //const key = srcs && srcs.length > 0 ? srcs[0].src : '';
+        console.log('RERENDER VIDEOPLAYER', this.props.controlBarProps);
         return (
-            <video
-                onLoadedMetadata={this.handleOnLoadedMetadata}
-                onCanPlay={this.handleOnCanPlay}
-                onEnded={this.handleOnEnded}
-                onPause={this.handleOnPause}
-                onPlay={this.handleOnPlay}
-                onRateChange={this.handleOnRateChange}
-                onError={this.handleOnError}
-                ref={this.videoRef}
-                {...mediaProps}
-                {...(this.props.playsInline ? { 'webkit-playsinline': 'webkit-playsinline' } : {})}
-                //              {...(playing || autoPlay) ? { autoPlay: true } : {}}
-            >
-                {srcs && srcs.map((s, idx) => <source key={`${s.src}-${idx}`} {...s} />)}
-                {/*
-            // This would be so easy, but subsequent changes in tracks will
-            // be ignored by firefox. See the workaround onLoadedMetaData function
-            {tracks && tracks.map((t, idx) => {
-                return null;
-              return (
-                  <track id={`${t.src}-${idx}`} key={`${t.src}-${idx}`} {...t}/>
-              );
-            })}
-            */}
-            </video>
+            <>
+                <video
+                    ref={this.videoRef}
+                    onLoadedMetadata={this.handleOnLoadedMetadata}
+                    onCanPlay={this.handleOnCanPlay}
+                    onEnded={this.handleOnEnded}
+                    onPause={this.handleOnPause}
+                    onPlay={this.handleOnPlay}
+                    onRateChange={this.handleOnRateChange}
+                    onError={this.handleOnError}
+                    {...mediaProps}
+                    {...(this.props.playsInline ? { 'webkit-playsinline': 'webkit-playsinline' } : {})}
+                    //              {...(playing || autoPlay) ? { autoPlay: true } : {}}
+                >
+                    {srcs && srcs.map((s, idx) => <source key={`${s.src}-${idx}`} {...s} />)}
+                    {/*
+                // This would be so easy, but subsequent changes in tracks will
+                // be ignored by firefox. See the workaround onLoadedMetaData function
+                {tracks && tracks.map((t, idx) => {
+                    return null;
+                  return (
+                      <track id={`${t.src}-${idx}`} key={`${t.src}-${idx}`} {...t}/>
+                  );
+                })}
+                */}
+                </video>
+                {this.state.refLoaded &&
+                    this.props.controlBarProps && (
+                        <ControlBar videoEl={this.videoRef.current} {...this.props.controlBarProps} />
+                    )}
+            </>
         );
     }
 
@@ -378,11 +400,6 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
         if (skipOnRegistered && this.listenersRegistered) {
             return;
         }
-        const { onEnded } = this.props;
-        if (onEnded) {
-            //video.addEventListener('ended', onEnded);
-        }
-        //video.addEventListener('play', this.updatePlayingState);
         this.listenersRegistered = true;
     }
 
@@ -390,12 +407,7 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
         if (this.props.onDebug) {
             this.props.onDebug('unregisterVideoListeners');
         }
-
-        //if (this.listenersRegistered) {
-        //video.removeEventListener('ratechange', this.updateVolumeState);
-        //video.removeEventListener('play', this.updatePlayingState);
         this.listenersRegistered = false;
-        //}
     }
 }
 

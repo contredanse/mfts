@@ -1,4 +1,4 @@
-import React, { CSSProperties, SyntheticEvent } from 'react';
+import React, { CSSProperties, ReactNode, SyntheticEvent } from 'react';
 
 import VideoProxy from '@src/models/proxy/video-proxy';
 import VideoSourceProxy from '@src/models/proxy/video-source-proxy';
@@ -9,6 +9,7 @@ import {
 import VideoPlayer, { TextTrackProps, VideoSourceProps } from '@src/components/player/video-player';
 import AudioProxy from '@src/models/proxy/audio-proxy';
 import { TrackVisibilityMode } from '@src/components/player/track/track-visibility-helper';
+import { ControlBarProps } from '@src/components/player/controls/control-bar';
 
 export type DataProxyPlayerProps = {
     videoProxy: VideoProxy | AudioProxy;
@@ -29,6 +30,7 @@ export type DataProxyPlayerProps = {
     onEnded?: (e: SyntheticEvent<HTMLVideoElement>) => void;
     onRateChange?: (playbackRate: number) => void;
     onPlaybackChange?: (isPlaying: boolean) => void;
+    controlBarProps?: ControlBarProps;
 };
 
 export type DataProxyPlayerState = {
@@ -141,6 +143,7 @@ export default class DataProxyPlayer extends React.Component<DataProxyPlayerProp
                 onRateChange={this.props.onRateChange}
                 onCanPlay={this.onCanPlay}
                 onPlaybackChange={this.onPlaybackChange}
+                controlBarProps={this.props.controlBarProps}
                 srcs={videoSources}
                 {...(textTracks ? { tracks: textTracks } : {})}
                 {...(!disablePoster && firstCover ? { cover: firstCover } : {})}

@@ -1,14 +1,6 @@
 import React from 'react';
 import './control-bar.scss';
-import {
-    PlayButton,
-    PauseButton,
-    PrevButton,
-    NextButton,
-    SubtitlesButton,
-    SoundOffButton,
-    SoundOnButton,
-} from './svg-mdi-button';
+import { PlayButton, PauseButton, PrevButton, NextButton, SubtitlesButton } from './svg-mdi-button';
 
 import ProgressBar from './progress-bar';
 import PlaybackRateSelect from '@src/components/player/controls/playback-rate-select';
@@ -26,7 +18,7 @@ import VolumeControl from '@src/components/player/volume-control';
 export type ControlBarProps = {
     videoEl?: HTMLVideoElement | null;
     lang?: string;
-    playbackRate: number;
+    playbackRate?: number;
     enableSpeedControl?: boolean;
     enableBrowseControl?: boolean;
     enablePrevControl?: boolean;
@@ -38,6 +30,7 @@ export type ControlBarProps = {
     disableButtonSpaceClick?: boolean;
     onNextLinkPressed?: () => void;
     onPreviousLinkPressed?: () => void;
+    onRateChangeRequest?: (playbackRate: number) => void;
 };
 
 export type ControlbarState = {
@@ -53,6 +46,7 @@ const defaultProps = {
     enableMuteControl: true,
     mediaIsSilent: false,
     disableButtonSpaceClick: false,
+    playbackRate: 1,
 };
 
 export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
@@ -80,8 +74,6 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
         const { videoEl, enableMuteControl, playbackRate } = this.props;
 
         const LoadingIndicator = () => <LoadingButton />;
-
-        console.log('rerender controlbar', videoEl);
 
         const spaceAction = {
             disableSpaceClick: this.props.disableButtonSpaceClick,
@@ -127,7 +119,7 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
                                 <div className="control-bar-ctn__panel__right">
                                     {props.enableSpeedControl && (
                                         <PlaybackRateSelect
-                                            playbackRate={playbackRate}
+                                            playbackRate={playbackRate!}
                                             onChange={this.setPlaybackRate}
                                             {...spaceAction}
                                         />
@@ -252,6 +244,9 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
             videoEl.playbackRate = playbackRate;
         } else {
             this.logWarning('Cannot set playback rate,videoEl have not been registered');
+        }
+        if (this.props.onRateChangeRequest) {
+            this.props.onRateChangeRequest(playbackRate);
         }
     };
 
