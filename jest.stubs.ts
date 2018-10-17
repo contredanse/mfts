@@ -32,6 +32,16 @@ const localStorageMock = {
     return new Promise((resolve, reject) => {});
 };
 
+(HTMLMediaElement as any).prototype.load = () => {
+    /* do nothing */
+};
+(HTMLMediaElement as any).prototype.pause = () => {
+    /* do nothing */
+};
+(HTMLMediaElement as any).prototype.addTextTrack = () => {
+    /* do nothing */
+};
+
 Object.defineProperty(window, 'localStorage', { value: localStorageMock });
 
 //const localStorage = localStorageMock;
