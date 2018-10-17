@@ -116,7 +116,6 @@ class Page extends React.PureComponent<PageProps, PageState> {
                 <EventListener target="window" onKeyPress={this.handleGlobalKeyPress} />
                 <div className="page-header">
                     <PageBreadcrumb title={pageTitle} sections={menuBreadcrumb} lang={lang} />
-                    {isSilent ? 'solie' : ''}
                 </div>
                 <div className="page-content">
                     {played && (
