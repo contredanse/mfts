@@ -181,15 +181,15 @@
         }
     },
     {
-        "video_id": "smalldance_full_fr",
+        "video_id": "small_dance_full_fr",
         "sources": [
             {
-                "src": "smalldance_full.webm",
+                "src": "small_dance_full_fr.webm",
                 "priority": 10,
                 "codecs": "vp9"
             },
             {
-                "src": "smalldance_full.mp4",
+                "src": "small_dance_full_fr.mp4",
                 "priority": 20
             }
         ],
