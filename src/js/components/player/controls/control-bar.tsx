@@ -24,7 +24,7 @@ import TrackVisibilityHelper from '@src/components/player/track/track-visibility
 import VolumeControl from '@src/components/player/volume-control';
 
 export type ControlBarProps = {
-    videoEl?: HTMLVideoElement;
+    videoEl?: HTMLVideoElement | null;
     lang?: string;
     playbackRate: number;
     enableSpeedControl?: boolean;
@@ -94,7 +94,7 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
                         <ProgressBar videoEl={videoEl} progressInterval={500} isSeekable={true} onSeek={this.seekTo} />
                     )}
                 </div>
-                <PlaybackStatusProvider videoEl={videoEl}>
+                <PlaybackStatusProvider videoEl={videoEl ? videoEl : undefined}>
                     {status => {
                         // No reliable way to be know what is the display state of subs
                         // Let's recalc everytime the playback state changes.
