@@ -58,6 +58,23 @@ export default class PageProxy extends AbstractBaseProxy {
     }
 
     /**
+     * Wheter the content has associated sound track or not.
+     * Return false if cannot determine from video metadatas
+     */
+    isSilent(): boolean {
+        if (this.countVideos() === 1) {
+            try {
+                return !this.getFirstVideo()!.hasAudio;
+            } catch (e) {
+                return false;
+            }
+        } else {
+            // Multi content
+            return !this.hasAudio();
+        }
+    }
+
+    /**
      * Whether the content must have real player controls
      */
     hasMainPlayer(): boolean {
