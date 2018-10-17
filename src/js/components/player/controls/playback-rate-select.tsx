@@ -13,6 +13,10 @@ export type PlaybackRateSelectProps = {
     style?: CSSProperties;
 };
 
+export type PlaybackRateState = {
+    playbackRate: number;
+};
+
 const defaultProps = {
     isEnabled: true,
     playbackRates: [
@@ -24,11 +28,20 @@ const defaultProps = {
     ],
 };
 
-class PlaybackRateSelect extends PureComponent<PlaybackRateSelectProps> {
+class PlaybackRateSelect extends PureComponent<PlaybackRateSelectProps, PlaybackRateState> {
     static defaultProps = defaultProps;
 
+    constructor(props: PlaybackRateSelectProps) {
+        super(props);
+        this.state = {
+            playbackRate: props.playbackRate,
+        };
+    }
+
     render() {
-        const { style, playbackRates, playbackRate } = this.props;
+        const { style, playbackRates } = this.props;
+
+        const { playbackRate } = this.state;
 
         return (
             <div className="control-bar__select" style={style}>
@@ -46,6 +59,9 @@ class PlaybackRateSelect extends PureComponent<PlaybackRateSelectProps> {
     protected handleChange = (e: React.SyntheticEvent<HTMLSelectElement>) => {
         if (this.props.isEnabled && this.props.onChange !== undefined) {
             const playbackRate = parseFloat(e.currentTarget.value);
+            this.setState({
+                playbackRate: playbackRate,
+            });
             this.props.onChange(playbackRate);
         }
     };

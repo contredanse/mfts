@@ -104,7 +104,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
         const controlBarProps: ControlBarProps = {
             lang: lang,
             playbackRate: this.state.playbackRate,
-            enableSpeedControl: this.state.isSilent,
+            enableSpeedControl: this.state.isSilent || isMultipleVideoContent,
             mediaIsSilent: this.state.isSilent,
             disableButtonSpaceClick: true,
             enableNextControl: this.props.nextPage !== undefined,
@@ -260,7 +260,6 @@ class Page extends React.PureComponent<PageProps, PageState> {
     };
 
     private onEnded = (e: SyntheticEvent<HTMLVideoElement>) => {
-        console.log('handleOnPagePlayed');
         if (this.props.onPagePlayed) {
             this.props.onPagePlayed();
         } else {

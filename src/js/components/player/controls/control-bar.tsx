@@ -120,7 +120,7 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
                                     {props.enableSpeedControl && (
                                         <PlaybackRateSelect
                                             playbackRate={playbackRate!}
-                                            onChange={this.setPlaybackRate}
+                                            onChange={this.handleRateChangeRequest}
                                             {...spaceAction}
                                         />
                                     )}
@@ -238,13 +238,14 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
         }
     };
 
-    protected setPlaybackRate = (playbackRate: number): void => {
+    protected handleRateChangeRequest = (playbackRate: number): void => {
+        /*
         const { videoEl } = this.props;
         if (videoEl) {
             videoEl.playbackRate = playbackRate;
         } else {
             this.logWarning('Cannot set playback rate,videoEl have not been registered');
-        }
+        }*/
         if (this.props.onRateChangeRequest) {
             this.props.onRateChangeRequest(playbackRate);
         }
