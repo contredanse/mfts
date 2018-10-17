@@ -5,7 +5,7 @@ import { PlayArrowIcon as PlayIcon } from 'mdi-react';
 import './buttons.scss';
 
 export default class PlayButton extends Button {
-    static defaultProps: Partial<ButtonProps> = {
+    static defaultProps = {
         ...Button.defaultProps,
         className: 'PlayButton',
         children: <PlayIcon size="100%" />,

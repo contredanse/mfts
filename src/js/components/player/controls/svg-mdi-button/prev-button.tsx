@@ -5,7 +5,7 @@ import { SkipPreviousIcon as PreviousIcon } from 'mdi-react';
 import './buttons.scss';
 
 export default class PrevButton extends Button {
-    static defaultProps: Partial<ButtonProps> = {
+    static defaultProps = {
         ...Button.defaultProps,
         className: 'PrevButton',
         children: <PreviousIcon size="100%" />,

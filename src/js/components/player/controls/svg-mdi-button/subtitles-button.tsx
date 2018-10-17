@@ -5,7 +5,7 @@ import { SubtitlesIcon, SubtitlesOutlineIcon } from 'mdi-react';
 import './buttons.scss';
 
 class SubtitlesButton extends Button {
-    static defaultProps: Partial<ButtonProps> = {
+    static defaultProps = {
         ...Button.defaultProps,
         className: 'SubtitlesButton',
         children: <SubtitlesIcon size="100%" />,

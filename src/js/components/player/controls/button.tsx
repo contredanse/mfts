@@ -1,4 +1,4 @@
-import React, { PureComponent, CSSProperties, ReactNode, MouseEvent } from 'react';
+import React, { PureComponent, CSSProperties, ReactNode, MouseEvent, KeyboardEvent } from 'react';
 import classNames from 'classnames';
 
 export type ButtonProps = {
@@ -8,16 +8,20 @@ export type ButtonProps = {
     extraClasses?: string;
     style?: CSSProperties;
     children?: ReactNode;
+    disableSpaceClick?: boolean;
 };
 
+export const buttonDefaultProps = {
+    isEnabled: true,
+    className: 'Button',
+    extraClasses: '',
+    style: {},
+    children: null,
+    disableSpaceClick: false,
+} as ButtonProps;
+
 class Button extends PureComponent<ButtonProps> {
-    static defaultProps = {
-        isEnabled: true,
-        className: 'Button',
-        extraClasses: '',
-        style: {},
-        children: null,
-    } as ButtonProps;
+    static defaultProps = buttonDefaultProps;
 
     render() {
         const { isEnabled, className, extraClasses, style, children } = this.props;
@@ -28,6 +32,7 @@ class Button extends PureComponent<ButtonProps> {
                 style={style}
                 disabled={!isEnabled}
                 onClick={this.handleClick}
+                onKeyUp={this.handleKeyUp}
             >
                 {children}
             </button>
@@ -37,6 +42,12 @@ class Button extends PureComponent<ButtonProps> {
     protected handleClick = (e: MouseEvent<HTMLButtonElement>) => {
         if (this.props.isEnabled && this.props.onClick !== undefined) {
             this.props.onClick();
+        }
+    };
+
+    protected handleKeyUp = (e: KeyboardEvent<HTMLButtonElement>) => {
+        if (this.props.disableSpaceClick && e && e.key === ' ') {
+            e.preventDefault();
         }
     };
 }
