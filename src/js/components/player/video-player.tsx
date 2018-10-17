@@ -18,6 +18,7 @@ export type VideoActions = {
     onCanPlay?: (e: SyntheticEvent<HTMLVideoElement>) => void;
     onRateChange?: (playbackRate: number) => void;
     onPlaybackChange?: (isPlaying: boolean) => void;
+    onDebug?: (message: string) => void;
 };
 
 export type VideoPlayerProps = {
@@ -67,6 +68,8 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
     private listenersRegistered = false;
     private trackManager!: HTMLVideoTrackManager;
 
+    private inAutoPlayInit: boolean = false;
+
     constructor(props: VideoPlayerProps) {
         super(props);
         if (this.props.forwardRef) {
@@ -89,7 +92,7 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
             this.registerVideoListeners(this.videoRef.current);
             // Set default playback props
             this.setPlaybackRate(this.props.playbackRate);
-            this.initAutoPlay();
+            //this.initAutoPlay();
         } else {
             throw Error('Registering listeners failed, video element is null');
         }
@@ -102,7 +105,7 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
             // Sources have been reloaded or text tracks have been changed
             videoEl.load();
             if (this.props.playing) {
-                this.initAutoPlay();
+                //  this.initAutoPlay();
             } else {
                 videoEl.pause();
             }
@@ -236,8 +239,15 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
     }
 
     private handleOnPlay = (e: SyntheticEvent<HTMLVideoElement>) => {
+        if (this.props.onDebug) {
+            this.props.onDebug('handlePlay');
+        }
+
+        // Assume playing if event is null/undefined
+        const isPlaying = e ? VideoPlayer.isVideoPlaying(e.currentTarget) : true;
+
         this.setState({
-            playing: true,
+            playing: isPlaying,
         });
         if (this.props.onPlaybackChange) {
             this.props.onPlaybackChange(true);
@@ -248,12 +258,20 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
     };
 
     private handleOnCanPlay = (e: SyntheticEvent<HTMLVideoElement>) => {
+        if (this.props.onDebug) {
+            this.props.onDebug('handleCanPlay');
+        }
+
         if (this.props.onCanPlay) {
             this.props.onCanPlay(e);
         }
     };
 
     private handleOnPause = (e: SyntheticEvent<HTMLVideoElement>) => {
+        if (this.props.onDebug) {
+            this.props.onDebug('handleOnPause');
+        }
+
         this.setState({
             playing: false,
         });
@@ -266,6 +284,10 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
     };
 
     private handleOnEnded = (e: SyntheticEvent<HTMLVideoElement>) => {
+        if (this.props.onDebug) {
+            this.props.onDebug('handleOnEnded');
+        }
+
         this.setState({
             playing: false,
         });
@@ -278,6 +300,10 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
     };
 
     private handleOnRateChange = (e: SyntheticEvent<HTMLVideoElement>) => {
+        if (this.props.onDebug) {
+            this.props.onDebug('handleOnRateChange');
+        }
+
         if (this.props.onRateChange) {
             const video = e.currentTarget as HTMLVideoElement;
             this.props.onRateChange(video.playbackRate);
@@ -288,6 +314,12 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
      * Managing text tracks manually, too much bugs in browsers implementaion
      */
     private handleOnLoadedMetadata = (e: SyntheticEvent<HTMLVideoElement>) => {
+        if (this.props.onDebug) {
+            this.props.onDebug('handleHandleMetadata');
+        }
+
+        this.initAutoPlay();
+
         const video = e.currentTarget;
 
         // As a workaround for Firefox, let's remove old tracks
@@ -302,7 +334,28 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
         }
     };
 
+    private initAutoPlay() {
+        if (this.props.autoPlay || this.props.playing) {
+            if (!this.inAutoPlayInit) {
+                this.inAutoPlayInit = true;
+                this.play(
+                    () => {
+                        this.inAutoPlayInit = false;
+                    },
+                    errorMsg => {
+                        this.inAutoPlayInit = false;
+                        console.warn('VideoPlayer: Cannot initAutoplay video:' + errorMsg);
+                    }
+                );
+            }
+        }
+    }
+
     private registerVideoListeners(video: HTMLVideoElement, skipOnRegistered: boolean = true): void {
+        if (this.props.onDebug) {
+            this.props.onDebug('registerVideoListeners');
+        }
+
         if (skipOnRegistered && this.listenersRegistered) {
             return;
         }
@@ -310,45 +363,21 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
         if (onEnded) {
             //video.addEventListener('ended', onEnded);
         }
-        video.addEventListener('play', this.updatePlayingState);
+        //video.addEventListener('play', this.updatePlayingState);
         this.listenersRegistered = true;
     }
 
     private unregisterVideoListeners(video: HTMLVideoElement): void {
-        if (!this.listenersRegistered) {
-            alert('NOT REGISTERED');
+        if (this.props.onDebug) {
+            this.props.onDebug('unregisterVideoListeners');
         }
+
         //if (this.listenersRegistered) {
         //video.removeEventListener('ratechange', this.updateVolumeState);
-        video.removeEventListener('play', this.updatePlayingState);
+        //video.removeEventListener('play', this.updatePlayingState);
         this.listenersRegistered = false;
         //}
     }
-
-    private initAutoPlay() {
-        if (this.props.autoPlay || this.props.playing) {
-            this.play(undefined, errorMsg => {
-                console.warn('Cannot autoplay video:' + errorMsg);
-            });
-        }
-    }
-
-    /**
-     * Update local state with playing status
-     * @param {Event<HTMLVideoElement>} e
-     */
-    private updatePlayingState = (e: Event): void => {
-        const videoEl = e.currentTarget as HTMLVideoElement;
-        if (videoEl) {
-            const isPlaying = VideoPlayer.isVideoPlaying(videoEl);
-            this.setState({
-                ...this.state,
-                playing: isPlaying,
-            });
-        } else {
-            console.warn('Cannot update playingState, no "event.target" available', e);
-        }
-    };
 }
 
 export default VideoPlayer;
