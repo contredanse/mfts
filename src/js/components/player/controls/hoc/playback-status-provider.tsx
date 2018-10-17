@@ -9,6 +9,8 @@ type InjectedPlaybackStatusProps = {
     muted: boolean;
     volume: number;
     isLoading: boolean;
+    loadingError: boolean;
+    loadingErrorMsg?: string;
     trackLangs: string[];
     hasVisibleTextTrack: boolean;
     readyState: number;
@@ -32,6 +34,7 @@ const defaultPlaybackStatusState = {
     muted: false,
     volume: 1.0,
     isLoading: true,
+    loadingError: false,
     trackLangs: [],
     hasVisibleTextTrack: false,
     readyState: 0,
@@ -54,14 +57,20 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
         // If videoEl is initially available, let's register listeners at mount
         if (this.props.videoEl) {
             const { videoEl } = this.props;
-            this.registerVideoListeners(videoEl);
             this.setState(prevState => ({
                 ...prevState,
                 playing: !videoEl.paused,
                 muted: videoEl.muted,
                 volume: videoEl.volume,
-                isLoading: videoEl.readyState <= 2,
+                isLoading: videoEl.readyState <= 2 && videoEl.error === null,
+                loadingError: videoEl.error !== null,
+                loadingErrorMsg:
+                    'Error loading video: ' +
+                    (videoEl.error !== null
+                        ? `Error loading video: ${videoEl.error.message}, code ${videoEl.error.code}`
+                        : 'undefined error'),
             }));
+            this.registerVideoListeners(videoEl);
         }
     }
 
@@ -104,6 +113,7 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
         video.addEventListener('load', this.updateVideoState);
         video.addEventListener('pause', this.updateVideoState);
         video.addEventListener('waiting', this.setLoadingState);
+        video.addEventListener('loaderror', this.setLoadErrorState);
         this.listenersRegistered = true;
     }
 
@@ -116,6 +126,7 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
             video.removeEventListener('pause', this.updateVideoState);
             video.removeEventListener('load', this.updateVideoState);
             video.removeEventListener('waiting', this.setLoadingState);
+            video.removeEventListener('loaderror', this.setLoadErrorState);
         }
         this.listenersRegistered = false;
     }
@@ -165,9 +176,27 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
             this.setState({
                 isPlaying: isPlaying,
                 isLoading: true,
+                loadingError: false,
             });
         } else {
             console.warn('Cannot update loadingState, no "event.target" available', e);
+        }
+    };
+
+    /**
+     * @param {Event<HTMLVideoElement>} e
+     */
+    private setLoadErrorState = (e: Event): void => {
+        const { videoEl } = this.props;
+        if (videoEl) {
+            const error = videoEl.error;
+            this.setState({
+                isLoading: false,
+                loadingError: true,
+                loadingErrorMsg:
+                    'Error loading video: ' +
+                    (error !== null ? `Error loading video: ${error.message}, code ${error.code}` : 'undefined error'),
+            });
         }
     };
 
@@ -187,6 +216,8 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
                 hasVisibleTextTrack: hasVisibleTextTrack(videoEl),
                 volume: videoEl.volume,
                 muted: videoEl.muted,
+                loadingError: false,
+                loadingErrorMsg: undefined,
             });
         } else {
             console.warn('Cannot update playingState, no "event.target" available', e);
