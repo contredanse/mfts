@@ -194,7 +194,9 @@ class Page extends React.PureComponent<PageProps, PageState> {
                             {videoRefAvailable && (
                                 <ControlBar
                                     lang={lang}
-                                    videoEl={this.videoRef.current!.getHTMLVideoElement()!}
+                                    videoEl={
+                                        this.videoRef.current ? this.videoRef.current.getHTMLVideoElement() : undefined
+                                    }
                                     playbackRate={this.state.playbackRate}
                                     enableNextControl={this.props.nextPage !== undefined}
                                     enablePrevControl={this.props.previousPage !== undefined}
