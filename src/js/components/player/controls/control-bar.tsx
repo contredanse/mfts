@@ -32,6 +32,7 @@ export type ControlBarProps = {
     enableBrowseControl?: boolean;
     enablePrevControl?: boolean;
     enableNextControl?: boolean;
+    disableButtonSpaceClick?: boolean;
     onNextLinkPressed?: () => void;
     onPreviousLinkPressed?: () => void;
 };
@@ -46,6 +47,7 @@ const defaultProps = {
     enableSpeedControl: true,
     enableNextControl: true,
     enablePrevControl: true,
+    disableButtonSpaceClick: false,
 };
 
 export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
@@ -76,6 +78,10 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
 
         console.log('rerender controlbar', videoEl);
 
+        const spaceAction = {
+            disableSpaceClick: this.props.disableButtonSpaceClick,
+        };
+
         return (
             <div className={'control-bar-ctn'}>
                 <div className="control-bar-ctn__progress-bar">
@@ -94,14 +100,18 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
                                     {videoEl && (
                                         <>
                                             {status.isPlaying ? (
-                                                <PauseButton isEnabled={true} onClick={this.pause} />
+                                                <PauseButton onClick={this.pause} {...spaceAction} />
                                             ) : (
-                                                <PlayButton isEnabled={true} onClick={this.play} />
+                                                <PlayButton isEnabled={true} onClick={this.play} {...spaceAction} />
                                             )}
                                             {status.muted ? (
-                                                <SoundOffButton isEnabled={true} onClick={this.unMute} />
+                                                <SoundOffButton
+                                                    isEnabled={true}
+                                                    onClick={this.unMute}
+                                                    {...spaceAction}
+                                                />
                                             ) : (
-                                                <SoundOnButton isEnabled={true} onClick={this.mute} />
+                                                <SoundOnButton isEnabled={true} onClick={this.mute} {...spaceAction} />
                                             )}
                                             {status.isLoading && <LoadingIndicator />}
                                         </>
@@ -113,6 +123,7 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
                                         <PlaybackRateSelect
                                             playbackRate={playbackRate}
                                             onChange={this.setPlaybackRate}
+                                            {...spaceAction}
                                         />
                                     )}
                                     {status.trackLangs.length > 0 && (
@@ -125,6 +136,7 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
                                                 // the text track visibility change (no listeners exists ?)
                                                 status.triggerTextTrackVisibilityChange();
                                             }}
+                                            {...spaceAction}
                                         />
                                     )}
                                     {props.enablePrevControl && (
@@ -133,6 +145,7 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
                                             onClick={() => {
                                                 this.props.onPreviousLinkPressed!();
                                             }}
+                                            {...spaceAction}
                                         />
                                     )}
                                     {props.enableNextControl && (
@@ -141,6 +154,7 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
                                             onClick={() => {
                                                 this.props.onNextLinkPressed!();
                                             }}
+                                            {...spaceAction}
                                         />
                                     )}
                                 </div>
