@@ -9,7 +9,6 @@ import PageProxy from '@src/models/proxy/page-proxy';
 import ControlBar, { ControlBarProps } from '@src/components/player/controls/control-bar';
 import PanelMultiVideo from '@src/components/panel-multi-video';
 import VideoProxyPlayer from '@src/components/player/data-proxy-player';
-import { PlayerActions } from '@src/shared/player/player';
 import { MenuSectionProps } from '@src/models/repository/menu-repository';
 import PageBreadcrumb from '@src/components/page-breadcrumb';
 import TrackVisibilityHelper, { TrackVisibilityMode } from '@src/components/player/track/track-visibility-helper';
@@ -58,7 +57,6 @@ class Page extends React.PureComponent<PageProps, PageState> {
 
     readonly state: PageState;
 
-    mediaPlayerActions!: PlayerActions;
     trackVisibilityHelper: TrackVisibilityHelper;
 
     private videoRef: React.RefObject<VideoProxyPlayer> = React.createRef<VideoProxyPlayer>();
@@ -68,7 +66,6 @@ class Page extends React.PureComponent<PageProps, PageState> {
         super(props);
         this.state = defaultPageState;
         this.trackVisibilityHelper = new TrackVisibilityHelper();
-        this.initMediaPlayerActions();
     }
 
     componentDidMount(): void {
@@ -163,7 +160,6 @@ class Page extends React.PureComponent<PageProps, PageState> {
                                             ? (this.audioRef.current.getHTMLVideoElement() as HTMLVideoElement)
                                             : undefined
                                     }
-                                    actions={this.mediaPlayerActions}
                                     playbackRate={this.state.playbackRate}
                                     enableNextControl={this.props.nextPage !== undefined}
                                     enablePrevControl={this.props.previousPage !== undefined}
@@ -171,6 +167,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
                                     onNextLinkPressed={this.handlePlayNextRequest}
                                     onPreviousLinkPressed={this.handlePlayPreviousRequest}
                                     disableButtonSpaceClick={true}
+                                    mediaIsSilent={isSilent}
                                 />
                             )}
                         </div>
@@ -198,7 +195,6 @@ class Page extends React.PureComponent<PageProps, PageState> {
                                 <ControlBar
                                     lang={lang}
                                     videoEl={this.videoRef.current!.getHTMLVideoElement()!}
-                                    actions={this.mediaPlayerActions}
                                     playbackRate={this.state.playbackRate}
                                     enableNextControl={this.props.nextPage !== undefined}
                                     enablePrevControl={this.props.previousPage !== undefined}
@@ -206,6 +202,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
                                     onNextLinkPressed={this.handlePlayNextRequest}
                                     onPreviousLinkPressed={this.handlePlayPreviousRequest}
                                     disableButtonSpaceClick={true}
+                                    mediaIsSilent={isSilent}
                                 />
                             )}
                         </div>
@@ -225,41 +222,6 @@ class Page extends React.PureComponent<PageProps, PageState> {
             videoEl = this.videoRef.current.getHTMLVideoElement();
         }
         return videoEl;
-    }
-
-    private initMediaPlayerActions(): void {
-        this.mediaPlayerActions = {
-            // Actions
-            pause: () => {
-                console.log('initMediaPlayerActions.pause()');
-                this.setState({
-                    isPlaying: false,
-                });
-            },
-            play: () => {
-                console.log('initMediaPlayerActions.play()');
-                this.setState({
-                    isPlaying: true,
-                });
-            },
-            setPlaybackRate: playbackRate => {
-                console.log('initMediaPlayerActions.setPlaybackRate()');
-                this.setState((prevState, prevProps) => {
-                    const newState = {
-                        ...prevState,
-                        playbackRate: playbackRate,
-                    };
-                    return newState;
-                });
-            },
-            setCurrentTime: time => {
-                console.log('initMediaPlayerActions.setCurrentTime()');
-                const videoEl = this.getMainPlayerVideoElement();
-                if (videoEl) {
-                    videoEl.currentTime = time;
-                }
-            },
-        };
     }
 
     private handleGlobalKeyPress = (e: KeyboardEvent) => {
