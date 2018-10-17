@@ -59,6 +59,13 @@ export default class VideoProxy extends AbstractBaseProxy {
         return this.meta.duration;
     }
 
+    get hasAudio(): boolean {
+        if (this.meta === undefined) {
+            throw new Error(`Missing metadata duration for video ${this.videoId}.`);
+        }
+        return this.meta.no_audio !== true;
+    }
+
     hasCover(): boolean {
         return this.covers !== undefined && this.covers.length !== 0;
     }
