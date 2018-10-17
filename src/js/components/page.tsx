@@ -163,7 +163,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
                                     playbackRate={this.state.playbackRate}
                                     enableNextControl={this.props.nextPage !== undefined}
                                     enablePrevControl={this.props.previousPage !== undefined}
-                                    enableSpeedControl={true}
+                                    enableSpeedControl={isSilent}
                                     onNextLinkPressed={this.handlePlayNextRequest}
                                     onPreviousLinkPressed={this.handlePlayPreviousRequest}
                                     disableButtonSpaceClick={true}
@@ -200,7 +200,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
                                     playbackRate={this.state.playbackRate}
                                     enableNextControl={this.props.nextPage !== undefined}
                                     enablePrevControl={this.props.previousPage !== undefined}
-                                    enableSpeedControl={false}
+                                    enableSpeedControl={isSilent}
                                     onNextLinkPressed={this.handlePlayNextRequest}
                                     onPreviousLinkPressed={this.handlePlayPreviousRequest}
                                     disableButtonSpaceClick={true}
