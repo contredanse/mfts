@@ -14,6 +14,7 @@ import PageBreadcrumb from '@src/components/page-breadcrumb';
 import TrackVisibilityHelper, { TrackVisibilityMode } from '@src/components/player/track/track-visibility-helper';
 import EventListener from 'react-event-listener';
 import PagePlaybackOverlay from '@src/components/page-playback-overlay';
+import VideoPlayer from '@src/components/player/video-player';
 
 export type PageProps = {
     pageProxy: PageProxy;
@@ -55,8 +56,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
 
     trackVisibilityHelper: TrackVisibilityHelper;
 
-    private videoRef: React.RefObject<VideoProxyPlayer> = React.createRef<VideoProxyPlayer>();
-    //private audioRef: React.RefObject<VideoProxyPlayer> = React.createRef<VideoProxyPlayer>();
+    private mainPlayerRef: React.RefObject<VideoProxyPlayer> = React.createRef<VideoProxyPlayer>();
 
     constructor(props: PageProps) {
         super(props);
@@ -142,7 +142,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
                             {audioProxy ? (
                                 <div className="panel-audio-subs">
                                     <VideoProxyPlayer
-                                        ref={this.videoRef}
+                                        ref={this.mainPlayerRef}
                                         style={{ width: '100%', height: '100%' }}
                                         crossOrigin={'anonymous'}
                                         defaultSubtitleLang={defaultSubtitleLang}
@@ -165,7 +165,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
                             <div className="autoscale-video-container">
                                 <div className="autoscale-video-wrapper autoscale-video-content">
                                     <VideoProxyPlayer
-                                        ref={this.videoRef}
+                                        ref={this.mainPlayerRef}
                                         style={{ width: '100%', height: '100%' }}
                                         crossOrigin={'anonymous'}
                                         defaultSubtitleLang={defaultSubtitleLang}
@@ -190,14 +190,12 @@ class Page extends React.PureComponent<PageProps, PageState> {
 
     /**
      * Return the main player media player (audio/video)
-     * @returns {HTMLVideoElement | null}
      */
-    private getMainPlayerVideoElement(): HTMLVideoElement | null {
-        let videoEl: HTMLVideoElement | null = null;
-        if (this.videoRef.current) {
-            videoEl = this.videoRef.current.getHTMLVideoElement();
+    private getMainVideoPlayer(): VideoPlayer | null {
+        if (this.mainPlayerRef.current) {
+            return this.mainPlayerRef.current.getVideoPlayer();
         }
-        return videoEl;
+        return null;
     }
 
     private handleGlobalKeyPress = (e: KeyboardEvent) => {
@@ -226,10 +224,9 @@ class Page extends React.PureComponent<PageProps, PageState> {
     private handleReplayRequest = () => {
         console.log('handleReplayRequest');
         this.setState((prevState: PageState) => {
-            const videoEl = this.getMainPlayerVideoElement();
-            if (videoEl) {
-                videoEl.currentTime = 0;
-                videoEl.play();
+            const player = this.getMainVideoPlayer();
+            if (player) {
+                player.replay();
             }
             const newState = {
                 ...prevState,
@@ -265,10 +262,9 @@ class Page extends React.PureComponent<PageProps, PageState> {
         } else {
             if (this.state.isSilent) {
                 // make a loop
-                const videoEl = this.getMainPlayerVideoElement();
-                if (videoEl) {
-                    videoEl.currentTime = 0;
-                    videoEl.play();
+                const player = this.getMainVideoPlayer();
+                if (player) {
+                    player.replay();
                 }
             } else {
                 this.setState({

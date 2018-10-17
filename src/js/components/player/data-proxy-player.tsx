@@ -109,6 +109,10 @@ export default class DataProxyPlayer extends React.Component<DataProxyPlayerProp
         return this.playerRef.current.getVideoElement() as HTMLVideoElement;
     }
 
+    getVideoPlayer(): VideoPlayer | null {
+        return this.playerRef.current;
+    }
+
     render() {
         const {
             crossOrigin,

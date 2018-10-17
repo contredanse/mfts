@@ -182,6 +182,14 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
         }
     }
 
+    replay(onFullfilled?: () => void, onError?: (errorMsg: string) => void): void {
+        const videoEl = this.getVideoElement();
+        if (videoEl !== null) {
+            videoEl.currentTime = 0;
+            this.play(onFullfilled, onError);
+        }
+    }
+
     play(onFullfilled?: () => void, onError?: (errorMsg: string) => void): void {
         const videoEl = this.getVideoElement();
         if (videoEl !== null) {
