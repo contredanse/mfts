@@ -157,9 +157,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
                                     />
                                 </div>
                             ) : (
-                                () => {
-                                    return <ControlBar {...controlBarProps} />;
-                                }
+                                <ControlBar {...controlBarProps} />
                             )}
                         </div>
                     ) : (
