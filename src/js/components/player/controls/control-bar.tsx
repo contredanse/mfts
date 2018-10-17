@@ -10,7 +10,6 @@ import {
     SoundOnButton,
 } from './svg-mdi-button';
 
-import { PlayerActions } from '@src/shared/player/player';
 import ProgressBar from './progress-bar';
 import PlaybackRateSelect from '@src/components/player/controls/playback-rate-select';
 import {
@@ -22,16 +21,20 @@ import {
 import PlaybackStatusProvider from '@src/components/player/controls/hoc/playback-status-provider';
 import LoadingButton from '@src/components/player/controls/svg-button/loading-button';
 import TrackVisibilityHelper from '@src/components/player/track/track-visibility-helper';
+import VolumeControl from '@src/components/player/volume-control';
 
 export type ControlBarProps = {
     videoEl?: HTMLVideoElement;
     lang?: string;
     playbackRate: number;
-    actions: PlayerActions;
     enableSpeedControl?: boolean;
     enableBrowseControl?: boolean;
     enablePrevControl?: boolean;
     enableNextControl?: boolean;
+    enableMuteControl?: boolean;
+
+    mediaIsSilent?: boolean;
+
     disableButtonSpaceClick?: boolean;
     onNextLinkPressed?: () => void;
     onPreviousLinkPressed?: () => void;
@@ -47,6 +50,8 @@ const defaultProps = {
     enableSpeedControl: true,
     enableNextControl: true,
     enablePrevControl: true,
+    enableMuteControl: true,
+    mediaIsSilent: false,
     disableButtonSpaceClick: false,
 };
 
@@ -72,7 +77,7 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
 
     render() {
         const props = this.props;
-        const { videoEl, enableBrowseControl, enableSpeedControl, playbackRate } = this.props;
+        const { videoEl, enableMuteControl, playbackRate } = this.props;
 
         const LoadingIndicator = () => <LoadingButton />;
 
@@ -100,18 +105,19 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
                                     {videoEl && (
                                         <>
                                             {status.isPlaying ? (
-                                                <PauseButton onClick={this.pause} {...spaceAction} />
+                                                <PauseButton isEnabled={true} onClick={this.pause} {...spaceAction} />
                                             ) : (
                                                 <PlayButton isEnabled={true} onClick={this.play} {...spaceAction} />
                                             )}
-                                            {status.muted ? (
-                                                <SoundOffButton
-                                                    isEnabled={true}
-                                                    onClick={this.unMute}
-                                                    {...spaceAction}
+                                            {enableMuteControl && (
+                                                <VolumeControl
+                                                    muted={status.muted}
+                                                    volume={status.volume}
+                                                    onUnMute={this.unMute}
+                                                    onMute={this.mute}
+                                                    mediaIsSilent={props.mediaIsSilent}
+                                                    disableSpaceClick={props.disableButtonSpaceClick}
                                                 />
-                                            ) : (
-                                                <SoundOnButton isEnabled={true} onClick={this.mute} {...spaceAction} />
                                             )}
                                             {status.isLoading && <LoadingIndicator />}
                                         </>
@@ -188,7 +194,6 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
         } else {
             this.logWarning('Cannot pause video, videoEl have not been registered');
         }
-        this.props.actions.pause();
     };
 
     protected play = (): void => {
@@ -210,9 +215,9 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
         } else {
             this.logWarning('Cannot play video, videoEl have not been registered');
         }
-
-        this.props.actions.play();
     };
+
+    protected toggleMute = (): void => {};
 
     protected mute = (): void => {
         const { videoEl } = this.props;
