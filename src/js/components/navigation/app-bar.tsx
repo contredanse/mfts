@@ -28,8 +28,7 @@ import {
 import ConnectedLangSelector from '@src/components/lang-selector';
 import { DnaIcon } from 'mdi-react';
 
-// import helixSvg from '@assets/svg/helix-menu.svg';
-// <img src={helixSvg} style={{fill: 'white'}}/>
+import helixSvg from '@assets/svg/helix-contredanse.svg';
 
 type MenuLinkProps = {
     path: string;
@@ -87,11 +86,12 @@ export const AppBarComponent: React.SFC<AppBarWithStylesProps & AppBarWithRouter
                             history.push(`/${lang}/menu`);
                         }}
                     >
-                        <DnaIcon size={18} />
+                        <img src={helixSvg} style={{ fill: 'white' }} />
+                        {/* <DnaIcon size={18} /> */}
                     </IconButton>
 
                     <Typography variant="h6" color="inherit" className={classes.flex}>
-                        {props.title}
+                        {props.title} Hello
                     </Typography>
 
                     <IconButton
