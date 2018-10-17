@@ -181,6 +181,25 @@
         }
     },
     {
+        "video_id": "smalldance_full_fr",
+        "sources": [
+            {
+                "src": "smalldance_full.webm",
+                "priority": 10,
+                "codecs": "vp9"
+            },
+            {
+                "src": "smalldance_full.mp4",
+                "priority": 20
+            }
+        ],
+        "covers": ["smalldance_full_fr.jpg"],
+        "meta": {
+            "duration": 609.4,
+            "size": "720x576"
+        }
+    },
+    {
         "video_id": "pointing",
         "sources": [
             {

@@ -152,20 +152,15 @@
             "fr": ["sensation", "sens", "base", "petite", "danse,", "approche"]
         },
         "content": {
-            "layout": "single-video-audio",
+            "layout": "single-video",
             "videos": [
                 {
                     "lang_video_id": {
-                        "en": "smalldance_full"
+                        "en": "smalldance_full",
+                        "fr": "smalldance_full_fr"
                     }
                 }
-            ],
-            "audio": {
-                "src": {
-                    "en": "small_dance_en.mp3",
-                    "fr": "small_dance_fr.mp3"
-                }
-            }
+            ]
         }
     },
     {
