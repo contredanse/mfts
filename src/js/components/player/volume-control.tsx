@@ -30,14 +30,14 @@ class VolumeControl extends PureComponent<VolumeControlProps> {
                 {muted ? (
                     <SoundOffButton
                         style={style}
-                        isEnabled={isEnabled}
+                        isEnabled={isEnabled && !mediaIsSilent}
                         onClick={onUnMute}
                         disableSpaceClick={disableSpaceClick}
                     />
                 ) : (
                     <SoundOnButton
                         style={style}
-                        isEnabled={isEnabled}
+                        isEnabled={isEnabled && !mediaIsSilent}
                         onClick={onMute}
                         disableSpaceClick={disableSpaceClick}
                     />
