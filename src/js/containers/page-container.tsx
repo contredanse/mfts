@@ -61,6 +61,7 @@ class PageContainer extends React.Component<PageContainerProps, PageContainerSta
                     <div className="page-wrapper">
                         <DocumentMeta title={documentTitle} />
                         <Page
+                            key={pageProxy.pageId}
                             pageProxy={pageProxy}
                             menuBreadcrumb={breadcrumb}
                             lang={lang}
