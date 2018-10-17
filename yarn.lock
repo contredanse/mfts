@@ -815,10 +815,15 @@
     "@types/cheerio" "*"
     "@types/react" "*"
 
-"@types/history@*", "@types/history@^4.7.1":
+"@types/history@*":
   version "4.7.1"
   resolved "https://registry.yarnpkg.com/@types/history/-/history-4.7.1.tgz#66849a23ceef917b57f0787c885f41ce03480f5c"
   integrity sha512-g7RRtPg2f2OJm3kvYVTAGEr3R+YN53XwZgpP8r4cl3ugJB+95hbPfOU5tjOoAOz4bTLQuiHVUJh8rl4hEDUUjQ==
+
+"@types/history@^4.7.2":
+  version "4.7.2"
+  resolved "https://registry.yarnpkg.com/@types/history/-/history-4.7.2.tgz#0e670ea254d559241b6eeb3894f8754991e73220"
+  integrity sha512-ui3WwXmjTaY73fOQ3/m3nnajU/Orhi6cEu5rzX+BrAAJxa3eITXZ5ch9suPqtM03OWhAHhPSyBGCN4UKoxO20Q==
 
 "@types/i18next@*", "@types/i18next@^11.9.3":
   version "11.9.3"
