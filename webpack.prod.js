@@ -389,12 +389,16 @@ module.exports = merge(common, {
 
         new Workbox.GenerateSW({
             // Whether or not the service worker should start controlling any existing clients as soon as it activates.
-            clientsClaim: true,
+            //clientsClaim: true,
             // https://stackoverflow.com/questions/49482680/workbox-the-danger-of-self-skipwaiting
             //skipWaiting: true,
-            exclude: [/\.htaccess$/, /assets-manifest\.json$/, /\.map$/, /\.br$/, /\.gz$/],
+
+            // Be sure to get our own local copy !
             importWorkboxFrom: 'disabled',
             importScripts: [`static/js/workbox-sw.${workboxVersion}.js`],
+
+            // Exclude few things and
+            exclude: [/\.htaccess$/, /assets-manifest\.json$/, /\.(?:map|br|gz)$/],
             navigateFallback: PUBLIC_URL + '/index.html',
             navigateFallbackBlacklist: [
                 // Exclude URLs starting with /_, as they're likely an API call

@@ -62,7 +62,7 @@ function registerValidSW(swUrl: string, config: Config) {
             registration.onupdatefound = () => {
                 const installingWorker = registration.installing;
                 if (!installingWorker) {
-                    console.error('Cannot instal service worker');
+                    console.error('Cannot install service worker');
                     return;
                 }
 
@@ -106,6 +106,7 @@ function checkValidServiceWorker(swUrl: string, config: Config) {
             // Ensure service worker exists, and that we really are getting a JS file.
             if (response.status === 404 || response.headers.get('content-type')!.indexOf('javascript') === -1) {
                 // No service worker found. Probably a different app. Reload the page.
+                console.log('ServiceWorker js file is not present or not javascript');
                 navigator.serviceWorker.ready.then(registration => {
                     registration.unregister().then(() => {
                         window.location.reload();
