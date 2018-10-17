@@ -30,7 +30,6 @@ describe('Data page retrieval', () => {
 
     test('isMultiVideoContent', async () => {
         [
-            { pageId: 'sensation-and-senses.basics.an-approach-to-the-small-dance', multi: true },
             { pageId: 'sensation-and-senses.pointing.parts-of-pointing', multi: false },
             { pageId: 'forms.crescent-roll.head-up', multi: true },
         ].map(val => {
