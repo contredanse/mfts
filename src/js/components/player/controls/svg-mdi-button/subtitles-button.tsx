@@ -1,6 +1,6 @@
 import React from 'react';
-import Button, { ButtonProps } from '../button';
-import { SubtitlesIcon, SubtitlesOutlineIcon } from 'mdi-react';
+import Button from '../button';
+import { SubtitlesIcon } from 'mdi-react';
 
 import './buttons.scss';
 

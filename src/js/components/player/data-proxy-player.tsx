@@ -1,4 +1,4 @@
-import React, { CSSProperties, ReactNode, SyntheticEvent } from 'react';
+import React, { CSSProperties, SyntheticEvent } from 'react';
 
 import VideoProxy from '@src/models/proxy/video-proxy';
 import VideoSourceProxy from '@src/models/proxy/video-source-proxy';

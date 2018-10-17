@@ -23,10 +23,8 @@ import {
     AccountBoxRounded as AccountBoxIcon,
     InfoRounded as InfoIcon,
     ListRounded as ListIcon,
-    HomeRounded as HomeIcon,
 } from '@material-ui/icons';
 import ConnectedLangSelector from '@src/components/lang-selector';
-import { DnaIcon } from 'mdi-react';
 
 import helixSvg from '@assets/svg/helix-contredanse.svg';
 

@@ -1,4 +1,4 @@
-import React, { ReactNode, SourceHTMLAttributes, SyntheticEvent, VideoHTMLAttributes } from 'react';
+import React, { SourceHTMLAttributes, SyntheticEvent, VideoHTMLAttributes } from 'react';
 import { Omit, Overwrite } from 'utility-types';
 import equal from 'fast-deep-equal';
 import HTMLVideoTrackManager from '@src/components/player/track/html-video-track-manager';
@@ -74,7 +74,7 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
     private listenersRegistered = false;
     private trackManager!: HTMLVideoTrackManager;
 
-    private inAutoPlayInit: boolean = false;
+    private inAutoPlayInit = false;
 
     constructor(props: VideoPlayerProps) {
         super(props);
