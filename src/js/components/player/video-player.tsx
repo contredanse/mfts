@@ -19,6 +19,7 @@ export type VideoActions = {
     onRateChange?: (playbackRate: number) => void;
     onPlaybackChange?: (isPlaying: boolean) => void;
     onDebug?: (message: string) => void;
+    onError?: (error: { code: number; message: string }) => void;
 };
 
 export type VideoPlayerProps = {
@@ -202,8 +203,12 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
             // autoPlay,
             playing,
             // DEREFERENCE those actions
+            onEnded,
+            onCanPlay,
             onRateChange,
             onPlaybackChange,
+            onDebug,
+            onError,
             // onEnded,
             // The rest in mediaProps
             ...mediaProps
@@ -218,6 +223,7 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
                 onPause={this.handleOnPause}
                 onPlay={this.handleOnPlay}
                 onRateChange={this.handleOnRateChange}
+                onError={this.handleOnError}
                 ref={this.videoRef}
                 {...mediaProps}
                 {...(this.props.playsInline ? { 'webkit-playsinline': 'webkit-playsinline' } : {})}
@@ -307,6 +313,19 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
         if (this.props.onRateChange) {
             const video = e.currentTarget as HTMLVideoElement;
             this.props.onRateChange(video.playbackRate);
+        }
+    };
+
+    private handleOnError = (e: SyntheticEvent<HTMLVideoElement>) => {
+        if (this.props.onDebug) {
+            this.props.onDebug('handleError');
+        }
+
+        if (this.props.onError) {
+            const video = e.currentTarget as HTMLVideoElement;
+            const error = video.error ? video.error : { code: 999, message: 'Video error (undefined)' };
+            console.warn('onError', error);
+            this.props.onError(error);
         }
     };
 
