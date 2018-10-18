@@ -3,6 +3,7 @@ import AudioProxy, { AudioProxyFactory } from '../proxy/audio-proxy';
 import { AbstractBaseProxy, IBaseProxyOptions } from './abstract-base-proxy';
 import { IJsonPage, IJsonPageAudio, IJsonPageVideo } from '../../../data/json/data-pages';
 import VideoRepository from '../repository/video-repository';
+import { IJsonVideo } from '@data/json/data-videos';
 
 export class PageProxyFactory {
     static createFromJson(data: IJsonPage, repository: VideoRepository, options: IPageEntityOptions): PageProxy {
@@ -78,11 +79,27 @@ export default class PageProxy extends AbstractBaseProxy {
      * Whether the content must have real player controls
      */
     hasMainPlayer(): boolean {
-        return !this.isMultiVideoContent() || this.getAudioProxy() !== undefined;
+        return !this.isMultiVideoContent() || this.hasAudio();
+    }
+
+    getDuration(lang?: string): number | undefined {
+        if (this.isSingleVideoContent()) {
+            const firstVideo = this.repository.getVideo(
+                this.getHelper().getLocalizedValue<string>(this.videos[0].lang_video_id, lang)!
+            );
+            if (firstVideo && firstVideo.meta && firstVideo.meta.duration) {
+                return firstVideo.meta.duration;
+            }
+        } else if (this.hasAudio()) {
+            // We actually don't know
+            return undefined;
+        }
+        return undefined;
     }
 
     getFirstVideo(lang?: string): VideoProxy | undefined {
-        const firstVideo = this.getHelper().getLocalizedValue(this.videos[0].lang_video_id, lang);
+        const firstVideo = this.getHelper().getLocalizedValue<string>(this.videos[0].lang_video_id, lang)!;
+
         if (firstVideo === undefined) {
             return undefined;
         }
