@@ -54,6 +54,7 @@ class PageContainer extends React.Component<PageContainerProps, PageContainerSta
 
         if (pageProxy) {
             const documentTitle = `MFS >> ${pageProxy.getTitle(lang)}`;
+
             return (
                 <PageOverlay closeButton={false}>
                     <div className="page-wrapper">

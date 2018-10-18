@@ -18,7 +18,7 @@ example
         //grid-template-columns: repeat(auto-fill, minmax(200px 1fr));
         grid-gap: 15px;
 
-        .page-card {
+        .page-card-container {
             position: relative;
             color: #fff;
             transition: 700ms filter ease-in-out;
