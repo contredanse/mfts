@@ -141,7 +141,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
                                 lang={lang}
                                 menuRepository={menuRepository}
                                 onReplayRequest={this.handleReplayRequest}
-                                onPlayNextRequest={this.handlePlayNextRequest}
+                                onPageRequest={this.props.onPageChangeRequest}
                             />
                         )}
 
@@ -251,14 +251,12 @@ class Page extends React.PureComponent<PageProps, PageState> {
     };
 
     private handlePlayNextRequest = (): void => {
-        console.log('handlePlayNextRequest');
         if (this.state.nextPage !== undefined && this.props.onPageChangeRequest !== undefined) {
             this.props.onPageChangeRequest(this.state.nextPage.pageId);
         }
     };
 
     private handlePlayPreviousRequest = (): void => {
-        console.log('handlePlayPreviousRequest');
         if (this.state.previousPage !== undefined && this.props.onPageChangeRequest !== undefined) {
             this.props.onPageChangeRequest(this.state.previousPage.pageId);
         }
