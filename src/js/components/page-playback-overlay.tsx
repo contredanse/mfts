@@ -3,12 +3,15 @@ import PageProxy from '@src/models/proxy/page-proxy';
 
 import './page-playback-overlay.scss';
 import { BasicI18nDictionary, getFromDictionary } from '@src/i18n/basic-i18n';
+import PageCard from '@src/components/page-card';
+import MenuRepository from '@src/models/repository/menu-repository';
 
 type PagePlaybackOverlayProps = {
+    currentPage: PageProxy;
+    menuRepository: MenuRepository;
     lang?: string;
     onReplayRequest?: () => void;
     onPlayNextRequest?: () => void;
-    nextPage?: PageProxy;
 };
 
 type PagePlaybackOverlayState = {};
@@ -44,37 +47,42 @@ class PagePlaybackOverlay extends React.PureComponent<PagePlaybackOverlayProps, 
     componentDidUpdate(prevProps: PagePlaybackOverlayProps, nextState: PagePlaybackOverlayState): void {}
 
     render() {
-        const { nextPage, lang } = this.props;
-
+        const { currentPage, lang } = this.props;
+        const p = this.props.menuRepository.getPrevAndNextPageEntityMenu(currentPage.pageId, lang!);
         return (
             <div className="page-playback-overlay page-playback-overlay--active">
                 <div className="page-playback-overlay-top">The top</div>
                 <div className="page-playback-overlay-middle">
-                    I'm the center zone
-                    <button onClick={this.handleReplayRequest}>
-                        {getFromDictionary('replay_page', lang!, i18nDict)}
-                    </button>
-                    {nextPage && (
-                        <>
+                    {currentPage && (
+                        <PageCard pageProxy={currentPage!} lang={lang} onClick={this.handleReplayRequest} />
+                    )}
+                    {p.nextPage && (
+                        <PageCard pageProxy={p.nextPage!} lang={lang} onClick={this.handlePlayNextRequest} />
+                    )}
+
+                    <div className="actions-wrapper">
+                        <button onClick={this.handleReplayRequest}>
+                            {getFromDictionary('replay_page', lang!, i18nDict)}
+                        </button>
+                        {p.nextPage && (
                             <button onClick={this.handlePlayNextRequest}>
                                 {getFromDictionary('play_next_page', lang!, i18nDict)}
                             </button>
-                            <img src={nextPage.getFirstVideo()!.getMainCover()} />
-                        </>
-                    )}
+                        )}
+                    </div>
                 </div>
                 <div className="page-playback-overlay-bottom">Played</div>
             </div>
         );
     }
 
-    private handleReplayRequest = (e: SyntheticEvent<HTMLElement>): void => {
+    private handleReplayRequest = (): void => {
         if (this.props.onReplayRequest) {
             this.props.onReplayRequest();
         }
     };
 
-    private handlePlayNextRequest = (e: SyntheticEvent<HTMLElement>): void => {
+    private handlePlayNextRequest = (): void => {
         if (this.props.onPlayNextRequest) {
             this.props.onPlayNextRequest();
         }

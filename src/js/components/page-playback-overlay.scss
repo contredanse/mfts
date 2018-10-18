@@ -49,7 +49,20 @@
 
     .page-playback-overlay-middle {
         flex: auto;
-        //border: 1px solid green;
+        border: 1px solid green;
+        display: flex;
+        position: relative;
+        .actions-wrapper {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        .page-card {
+            flex: 1 1 100%;
+            text-align: left;
+        }
     }
 
     .page-playback-overlay-bottom {
