@@ -254,7 +254,8 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
                     {...(this.props.playsInline ? { 'webkit-playsinline': 'webkit-playsinline' } : {})}
                     //              {...(playing || autoPlay) ? { autoPlay: true } : {}}
                 >
-                    {srcs && srcs.map((s, idx) => <source key={`${s.src}-${idx}`} {...s} />)}
+                    {srcs &&
+                        srcs.map((s, idx) => <source onError={this.handleOnError} key={`${s.src}-${idx}`} {...s} />)}
                     {/*
                 // This would be so easy, but subsequent changes in tracks will
                 // be ignored by firefox. See the workaround onLoadedMetaData function
@@ -346,7 +347,7 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
         }
     };
 
-    private handleOnError = (e: SyntheticEvent<HTMLVideoElement>) => {
+    private handleOnError = (e: SyntheticEvent<HTMLVideoElement & HTMLSourceElement>) => {
         if (this.props.onDebug) {
             this.props.onDebug('handleError');
         }
