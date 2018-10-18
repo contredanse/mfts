@@ -1,10 +1,13 @@
 import React, { SyntheticEvent } from 'react';
 import './page-card.scss';
 import PageProxy from '@src/models/proxy/page-proxy';
+import classNames from 'classnames';
 
 type PageCardProps = {
     pageProxy: PageProxy;
     lang?: string;
+    className?: string;
+    extraClasses?: string;
     onClick?: (pageId: string) => void;
 };
 
@@ -12,6 +15,7 @@ type PageCardState = {};
 
 const defaultProps = {
     lang: 'en',
+    className: 'page-card',
 };
 
 class PageCard extends React.PureComponent<PageCardProps, PageCardState> {
@@ -28,7 +32,7 @@ class PageCard extends React.PureComponent<PageCardProps, PageCardState> {
     };
 
     render() {
-        const { pageProxy, lang } = this.props;
+        const { pageProxy, lang, className, extraClasses } = this.props;
 
         const pageId = pageProxy.pageId;
 
@@ -40,7 +44,12 @@ class PageCard extends React.PureComponent<PageCardProps, PageCardState> {
         const videos = pageProxy.getVideos(lang);
 
         return (
-            <div className="card" style={cardBackgroundStyle} key={pageId} onClick={this.handleClick}>
+            <div
+                key={pageId}
+                className={classNames(className, extraClasses)}
+                style={cardBackgroundStyle}
+                onClick={this.handleClick}
+            >
                 <span className="page-title">{pageProxy.getTitle(lang)}</span>
                 {videos.length > 1 && (
                     <div className="grid-page-thumbnail">
