@@ -59,7 +59,7 @@ class PagePlaybackOverlay extends React.PureComponent<PagePlaybackOverlayProps, 
                             <button onClick={this.handlePlayNextRequest}>
                                 {getFromDictionary('play_next_page', lang!, i18nDict)}
                             </button>
-                            <img src={nextPage.getFirstVideo()!.getFirstCover()} />
+                            <img src={nextPage.getFirstVideo()!.getMainCover()} />
                         </>
                     )}
                 </div>

@@ -128,7 +128,7 @@ export default class DataProxyPlayer extends React.Component<DataProxyPlayerProp
         let firstCover = null;
         let videoSources = null;
         if (videoProxy instanceof VideoProxy) {
-            firstCover = videoProxy.getFirstCover();
+            firstCover = videoProxy.getMainCover();
             videoSources = mapVideoSourceProxyToVideoSourceProps(videoProxy.getSources());
         } else {
             videoSources = mapAudioProxyToVideoSourceProps(videoProxy);
