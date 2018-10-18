@@ -22,6 +22,7 @@ import { LangState } from '@src/store/locale';
 import AboutContainer from '@src/containers/about-container';
 import LoginContainer from '@src/containers/login-container';
 import DocumentMeta from '@src/shared/document-meta';
+import page from '@src/components/page';
 
 type AppProps = {
     appConfig: AppConfig;
@@ -37,7 +38,7 @@ class App extends React.Component<AppProps, {}> {
 
         // Init repositories
         const pageRepository = this.props.appConfig.getPageRepository();
-        const menuRepository = this.props.appConfig.getMenuRepository();
+        const menuRepository = this.props.appConfig.getMenuRepository(undefined, pageRepository);
 
         const localizedRoutes = ({ match }: RouteComponentProps) => {
             const lang = (match.params! as { lang: string }).lang;
