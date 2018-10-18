@@ -14,9 +14,9 @@ export const appConfig = new AppConfig({
     assetsLocatorProps: {
         assetsUrls: {
             default: mediaAssetsServerBaseUrl,
-            pageCovers: `${mediaAssetsServerBaseUrl}/page-covers`,
+            pageCovers: `${mediaAssetsServerBaseUrl}/pages/covers`,
             videos: `${mediaAssetsServerBaseUrl}/videos`,
-            videoCovers: `${mediaAssetsServerBaseUrl}/videos`,
+            videoCovers: `${mediaAssetsServerBaseUrl}/videos/covers`,
             videoSubs: `${mediaAssetsServerBaseUrl}/videos`,
             audios: `${mediaAssetsServerBaseUrl}/audio`,
             audioSubs: `${mediaAssetsServerBaseUrl}/audio`,
