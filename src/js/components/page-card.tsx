@@ -2,6 +2,7 @@ import React, { SyntheticEvent } from 'react';
 import './page-card.scss';
 import PageProxy from '@src/models/proxy/page-proxy';
 import classNames from 'classnames';
+import { formatSecondsToHuman } from '@src/components/player/utils/formatters';
 
 type PageCardProps = {
     pageProxy: PageProxy;
@@ -15,7 +16,7 @@ type PageCardState = {};
 
 const defaultProps = {
     lang: 'en',
-    className: 'page-card',
+    className: 'page-card-container',
 };
 
 class PageCard extends React.PureComponent<PageCardProps, PageCardState> {
@@ -42,7 +43,7 @@ class PageCard extends React.PureComponent<PageCardProps, PageCardState> {
         };
 
         const videos = pageProxy.getVideos(lang);
-
+        const duration = pageProxy.getDuration(lang);
         return (
             <div
                 key={pageId}
@@ -50,9 +51,8 @@ class PageCard extends React.PureComponent<PageCardProps, PageCardState> {
                 style={cardBackgroundStyle}
                 onClick={this.handleClick}
             >
-                <span className="page-title">{pageProxy.getTitle(lang)}</span>
                 {videos.length > 1 && (
-                    <div className="grid-page-thumbnail">
+                    <div className="page-card-thumbnails-overlay">
                         {videos.map(video => {
                             return (
                                 <React.Fragment key={video.videoId}>
@@ -64,6 +64,10 @@ class PageCard extends React.PureComponent<PageCardProps, PageCardState> {
                         })}
                     </div>
                 )}
+                <div className="page-card-description-overlay">
+                    <div className="page-title">{pageProxy.getTitle(lang)}</div>
+                    {duration && <div className="page-duration">{formatSecondsToHuman(duration)}</div>}
+                </div>
             </div>
         );
     }
