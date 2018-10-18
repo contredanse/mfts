@@ -6,12 +6,15 @@ type FullsizeVideoBgProps = {
     videoSrcs: VideoSourceProps[];
     videoSrcBaseUrl?: string;
     playbackRate?: number;
+    loop?: boolean;
+    onEnded?: () => void;
 };
 
 type FullsizeVideoBgState = {};
 
 const defaultProps = {
     playbackRate: 1,
+    loop: true,
 };
 
 class FullsizeVideoBg extends React.PureComponent<FullsizeVideoBgProps, FullsizeVideoBgState> {
@@ -24,7 +27,9 @@ class FullsizeVideoBg extends React.PureComponent<FullsizeVideoBgProps, Fullsize
     }
 
     render() {
-        const { videoSrcs, playbackRate, children } = this.props;
+        const { videoSrcs, playbackRate, children, onEnded } = this.props;
+
+        const loop = !onEnded && this.props.loop;
 
         return (
             <div className="fullsize-video-bg">
@@ -34,9 +39,10 @@ class FullsizeVideoBg extends React.PureComponent<FullsizeVideoBgProps, Fullsize
                         autoPlay={true}
                         muted={true}
                         playsInline={true}
-                        loop={true}
+                        loop={loop}
                         playbackRate={playbackRate}
                         srcs={videoSrcs}
+                        onEnded={onEnded}
                     />
                 </div>
             </div>

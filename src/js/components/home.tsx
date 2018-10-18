@@ -12,15 +12,18 @@ type HomeProps = {
     lang: string;
     playbackRate?: number;
     mouseMoveDelay?: number;
+    videosIds?: string[];
 } & RouteComponentProps;
 
 type HomeState = {
+    videoNumber: number;
     playbackRate: number;
 };
 
 const defaultProps = {
     playbackRate: 1,
     mouseMoveDelay: 80,
+    videosIds: ['puzzle1', 'intro_2tubes_walk'],
 };
 
 type I18nStatic = { [key: string]: { [key: string]: string } };
@@ -39,6 +42,7 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
     constructor(props: HomeProps) {
         super(props);
         this.state = {
+            videoNumber: 0,
             playbackRate: this.props.playbackRate!,
         };
         this.changePlaybackRate = debounce(this.props.mouseMoveDelay!, this.changePlaybackRate);
@@ -70,9 +74,11 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
     render() {
         const videosBaseUrl = this.props.assetsLocator.getMediaTypeBaseUrl('videos');
 
+        const videoId = this.props.videosIds![this.state.videoNumber];
+
         const videoSrcs = [
-            { src: `${videosBaseUrl}/intro_2tubes_walk.webm`, type: 'video/webm' },
-            { src: `${videosBaseUrl}/intro_2tubes_walk.mp4`, type: 'video/mp4' },
+            { src: `${videosBaseUrl}/${videoId}.webm`, type: 'video/webm' },
+            { src: `${videosBaseUrl}/${videoId}.mp4`, type: 'video/mp4' },
         ];
 
         const { lang } = this.props;
@@ -80,7 +86,7 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
 
         return (
             <div className="home-container">
-                <FullsizeVideoBg videoSrcs={videoSrcs} playbackRate={playbackRate}>
+                <FullsizeVideoBg videoSrcs={videoSrcs} playbackRate={playbackRate} onEnded={this.handleOnEnded}>
                     <div>
                         <h3 className="reveal-text">Steve Paxton</h3>
                         <h1 className="reveal-text">Material for the spine</h1>
@@ -112,6 +118,12 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
             </div>
         );
     }
+
+    handleOnEnded = () => {
+        this.setState({
+            videoNumber: 1,
+        });
+    };
 }
 
 export default withRouter(Home);
