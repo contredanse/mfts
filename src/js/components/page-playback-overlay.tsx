@@ -11,7 +11,7 @@ type PagePlaybackOverlayProps = {
     menuRepository: MenuRepository;
     lang?: string;
     onReplayRequest?: () => void;
-    onPlayNextRequest?: () => void;
+    onPageRequest?: (pageId: string) => void;
 };
 
 type PagePlaybackOverlayState = {};
@@ -29,6 +29,10 @@ const i18nDict: BasicI18nDictionary = {
     play_next_page: {
         en: 'Next page',
         fr: 'Page suivante',
+    },
+    play_previous_page: {
+        en: 'Previous page',
+        fr: 'Page précédente',
     },
 };
 
@@ -53,25 +57,44 @@ class PagePlaybackOverlay extends React.PureComponent<PagePlaybackOverlayProps, 
             <div className="page-playback-overlay page-playback-overlay--active">
                 <div className="page-playback-overlay-top">The top</div>
                 <div className="page-playback-overlay-middle">
-                    {currentPage && (
-                        <PageCard pageProxy={currentPage!} lang={lang} onClick={this.handleReplayRequest} />
-                    )}
-                    {p.nextPage && (
-                        <PageCard pageProxy={p.nextPage!} lang={lang} onClick={this.handlePlayNextRequest} />
+                    {p.previousPage && (
+                        <div
+                            className="action-item"
+                            onClick={() => {
+                                this.handlePageRequest(p.previousPage!.pageId);
+                            }}
+                        >
+                            <PageCard pageProxy={p.previousPage!} lang={lang} />
+                            <div className="action-overlay">
+                                <div>{getFromDictionary('play_previous_page', lang!, i18nDict)}</div>
+                            </div>
+                        </div>
                     )}
 
-                    <div className="actions-wrapper">
-                        <button onClick={this.handleReplayRequest}>
-                            {getFromDictionary('replay_page', lang!, i18nDict)}
-                        </button>
-                        {p.nextPage && (
-                            <button onClick={this.handlePlayNextRequest}>
-                                {getFromDictionary('play_next_page', lang!, i18nDict)}
-                            </button>
-                        )}
-                    </div>
+                    {currentPage && (
+                        <div className="action-item" onClick={this.handleReplayRequest}>
+                            <PageCard pageProxy={currentPage!} lang={lang} />
+                            <div className="action-overlay">
+                                <div>{getFromDictionary('replay_page', lang!, i18nDict)}</div>
+                            </div>
+                        </div>
+                    )}
+
+                    {p.nextPage && (
+                        <div
+                            className="action-item"
+                            onClick={() => {
+                                this.handlePageRequest(p.nextPage!.pageId);
+                            }}
+                        >
+                            <PageCard pageProxy={p.nextPage!} lang={lang} />
+                            <div className="action-overlay">
+                                <div>{getFromDictionary('play_next_page', lang!, i18nDict)}</div>
+                            </div>
+                        </div>
+                    )}
                 </div>
-                <div className="page-playback-overlay-bottom">Played</div>
+                <div className="page-playback-overlay-bottom">Bottom</div>
             </div>
         );
     }
@@ -82,9 +105,9 @@ class PagePlaybackOverlay extends React.PureComponent<PagePlaybackOverlayProps, 
         }
     };
 
-    private handlePlayNextRequest = (): void => {
-        if (this.props.onPlayNextRequest) {
-            this.props.onPlayNextRequest();
+    private handlePageRequest = (pageId: string): void => {
+        if (this.props.onPageRequest) {
+            this.props.onPageRequest(pageId);
         }
     };
 }
