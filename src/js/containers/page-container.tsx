@@ -13,7 +13,7 @@ type PageContainerProps = {
     pageId: string;
     lang: DataSupportedLangType;
     pageRepository: PageRepository;
-    menuRepository?: MenuRepository;
+    menuRepository: MenuRepository;
 } & RouteComponentProps<any>;
 
 type PageContainerState = {
@@ -53,8 +53,6 @@ class PageContainer extends React.Component<PageContainerProps, PageContainerSta
         const { lang } = this.props;
 
         if (pageProxy) {
-            const { previousPage, nextPage } = this.getPrevAndNextPageEntities(this.props.pageId);
-            const breadcrumb = this.getMenuBreadcrumb(this.props.pageId);
             const documentTitle = `MFS >> ${pageProxy.getTitle(lang)}`;
             return (
                 <PageOverlay closeButton={false}>
@@ -63,10 +61,8 @@ class PageContainer extends React.Component<PageContainerProps, PageContainerSta
                         <Page
                             key={pageProxy.pageId}
                             pageProxy={pageProxy}
-                            menuBreadcrumb={breadcrumb}
+                            menuRepository={this.props.menuRepository}
                             lang={lang}
-                            previousPage={previousPage}
-                            nextPage={nextPage}
                             onPageChangeRequest={this.navigateToPage}
                             onNewRouteRequest={this.navigateToRouteSpec}
                         />
@@ -115,22 +111,6 @@ class PageContainer extends React.Component<PageContainerProps, PageContainerSta
                 }
             );
         }
-    }
-
-    private getPrevAndNextPageEntities(pageId: string): PrevAndNextPageEntities {
-        const { menuRepository } = this.props;
-        if (menuRepository === undefined) {
-            return {};
-        }
-        return menuRepository.getPrevAndNextPageEntityMenu(pageId, this.props.lang, this.props.pageRepository);
-    }
-
-    private getMenuBreadcrumb(pageId: string): MenuSectionProps[] {
-        const { menuRepository } = this.props;
-        if (menuRepository === undefined) {
-            return [];
-        }
-        return menuRepository.getPageBreadcrumb(pageId, this.props.lang);
     }
 }
 

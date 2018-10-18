@@ -9,7 +9,7 @@ import PageProxy from '@src/models/proxy/page-proxy';
 import ControlBar, { ControlBarProps } from '@src/components/player/controls/control-bar';
 import PanelMultiVideo from '@src/components/panel-multi-video';
 import VideoProxyPlayer from '@src/components/player/data-proxy-player';
-import { MenuSectionProps } from '@src/models/repository/menu-repository';
+import MenuRepository, { MenuSectionProps, PrevAndNextPageEntities } from '@src/models/repository/menu-repository';
 import PageBreadcrumb from '@src/components/page-breadcrumb';
 import TrackVisibilityHelper, { TrackVisibilityMode } from '@src/components/player/track/track-visibility-helper';
 import EventListener from 'react-event-listener';
@@ -18,10 +18,8 @@ import VideoPlayer from '@src/components/player/video-player';
 
 export type PageProps = {
     pageProxy: PageProxy;
+    menuRepository?: MenuRepository;
     lang: string;
-    menuBreadcrumb?: MenuSectionProps[];
-    nextPage?: PageProxy;
-    previousPage?: PageProxy;
     onPageChangeRequest?: (pageId: string) => void;
     onNewRouteRequest?: (routeSpec: string) => void;
     onPagePlayed?: () => void;
@@ -34,6 +32,9 @@ export type PageState = {
     currentTime: number;
     isPlaying: boolean;
     playbackRate: number;
+    breadcrumb: MenuSectionProps[];
+    previousPage?: PageProxy;
+    nextPage?: PageProxy;
 };
 
 const defaultPageState: PageState = {
@@ -43,11 +44,10 @@ const defaultPageState: PageState = {
     currentTime: 0,
     isPlaying: true,
     playbackRate: 1,
+    breadcrumb: [],
 };
 
-const defaultProps = {
-    menuBreadcrumb: [],
-};
+const defaultProps = {};
 
 class Page extends React.PureComponent<PageProps, PageState> {
     static defaultProps = defaultProps;
@@ -62,10 +62,16 @@ class Page extends React.PureComponent<PageProps, PageState> {
         super(props);
         this.state = defaultPageState;
         this.trackVisibilityHelper = new TrackVisibilityHelper();
+
+        const pageId = this.props.pageProxy.pageId;
+        const { previousPage, nextPage } = this.getPrevAndNextPageEntities(pageId);
         this.state = {
             ...defaultPageState,
             isSilent: props.pageProxy.isSilent(),
             isMultipleVideoContent: props.pageProxy.isMultiVideoContent(),
+            breadcrumb: this.getMenuBreadcrumb(pageId),
+            previousPage: previousPage,
+            nextPage: nextPage,
         };
     }
 
@@ -80,17 +86,22 @@ class Page extends React.PureComponent<PageProps, PageState> {
             const { pageProxy } = this.props;
             const hasSingleVideoPlayer = pageProxy.isSingleVideoContent();
             const hasAudioPlayer = !hasSingleVideoPlayer && pageProxy.hasAudio();
+            const pageId = this.props.pageProxy.pageId;
+            const { previousPage, nextPage } = this.getPrevAndNextPageEntities(pageId);
             this.setState({
                 isPlaying: true,
                 played: false,
                 isSilent: pageProxy.isSilent(),
                 isMultipleVideoContent: pageProxy.isMultiVideoContent(),
+                breadcrumb: this.getMenuBreadcrumb(pageId),
+                previousPage: previousPage,
+                nextPage: nextPage,
             });
         }
     }
 
     render() {
-        const { pageProxy: page, lang, menuBreadcrumb } = this.props;
+        const { pageProxy: page, lang, menuRepository } = this.props;
 
         const pageTitle = page.getTitle(lang);
 
@@ -107,8 +118,8 @@ class Page extends React.PureComponent<PageProps, PageState> {
             enableSpeedControl: this.state.isSilent || isMultipleVideoContent,
             mediaIsSilent: this.state.isSilent,
             disableButtonSpaceClick: true,
-            enableNextControl: this.props.nextPage !== undefined,
-            enablePrevControl: this.props.previousPage !== undefined,
+            enableNextControl: this.state.nextPage !== undefined,
+            enablePrevControl: this.state.previousPage !== undefined,
             onNextLinkPressed: this.handlePlayNextRequest,
             onPreviousLinkPressed: this.handlePlayPreviousRequest,
             onRateChangeRequest: this.handleRateChange,
@@ -120,16 +131,19 @@ class Page extends React.PureComponent<PageProps, PageState> {
             <div className="page-container">
                 <EventListener target="window" onKeyPress={this.handleGlobalKeyPress} />
                 <div className="page-header">
-                    <PageBreadcrumb title={pageTitle} sections={menuBreadcrumb} lang={lang} />
+                    <PageBreadcrumb title={pageTitle} sections={this.state.breadcrumb} lang={lang} />
                 </div>
                 <div className="page-content">
-                    {played && (
-                        <PagePlaybackOverlay
-                            nextPage={this.props.nextPage}
-                            onReplayRequest={this.handleReplayRequest}
-                            onPlayNextRequest={this.handlePlayNextRequest}
-                        />
-                    )}
+                    {played &&
+                        menuRepository && (
+                            <PagePlaybackOverlay
+                                currentPage={page}
+                                lang={lang}
+                                menuRepository={menuRepository}
+                                onReplayRequest={this.handleReplayRequest}
+                                onPlayNextRequest={this.handlePlayNextRequest}
+                            />
+                        )}
 
                     {isMultipleVideoContent ? (
                         <div className="page-multi-video-layout">
@@ -238,15 +252,15 @@ class Page extends React.PureComponent<PageProps, PageState> {
 
     private handlePlayNextRequest = (): void => {
         console.log('handlePlayNextRequest');
-        if (this.props.nextPage !== undefined && this.props.onPageChangeRequest !== undefined) {
-            this.props.onPageChangeRequest(this.props.nextPage.pageId);
+        if (this.state.nextPage !== undefined && this.props.onPageChangeRequest !== undefined) {
+            this.props.onPageChangeRequest(this.state.nextPage.pageId);
         }
     };
 
     private handlePlayPreviousRequest = (): void => {
         console.log('handlePlayPreviousRequest');
-        if (this.props.previousPage !== undefined && this.props.onPageChangeRequest !== undefined) {
-            this.props.onPageChangeRequest(this.props.previousPage.pageId);
+        if (this.state.previousPage !== undefined && this.props.onPageChangeRequest !== undefined) {
+            this.props.onPageChangeRequest(this.state.previousPage.pageId);
         }
     };
 
@@ -288,6 +302,22 @@ class Page extends React.PureComponent<PageProps, PageState> {
         }
 
         return visibilityMode;
+    }
+
+    private getPrevAndNextPageEntities(pageId: string): PrevAndNextPageEntities {
+        const { menuRepository } = this.props;
+        if (menuRepository === undefined) {
+            return {};
+        }
+        return menuRepository.getPrevAndNextPageEntityMenu(pageId, this.props.lang);
+    }
+
+    private getMenuBreadcrumb(pageId: string): MenuSectionProps[] {
+        const { menuRepository } = this.props;
+        if (menuRepository === undefined) {
+            return [];
+        }
+        return menuRepository.getPageBreadcrumb(pageId, this.props.lang);
     }
 }
 
