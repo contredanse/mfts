@@ -66,9 +66,9 @@ class PageListContainer extends React.PureComponent<PageListContainerProps, Page
         });
     };
 
-    openPage = (page: IJsonPage) => {
+    openPage = (pageId: string) => {
         const { lang } = this.props;
-        this.props.history.push(`/${lang}/page/${page.page_id}`);
+        this.props.history.push(`/${lang}/page/${pageId}`);
     };
 
     render(): JSX.Element {
@@ -90,10 +90,11 @@ class PageListContainer extends React.PureComponent<PageListContainerProps, Page
             <PageOverlay>
                 <DocumentMeta title={documentTitle} />
                 <PageList
+                    pageRepository={this.props.pageRepository}
                     baseUrl={this.props.videosBaseUrl}
                     pages={filteredList}
                     lang={lang}
-                    onSelected={page => this.openPage(page)}
+                    onPageClick={this.openPage}
                 />
                 <div style={searchBoxStyle}>
                     <SearchBox onChange={this.updateSearch} />

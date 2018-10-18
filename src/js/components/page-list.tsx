@@ -5,23 +5,20 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { IJsonVideo } from '@data/json/data-videos';
 import dataVideos from '@data/json/data-videos.json';
 import { ReactNode } from 'react';
+import PageRepository from '@src/models/repository/page-repository';
+import PageCard from '@src/components/page-card';
 
 type PageListProps = {
+    pageRepository: PageRepository;
     pages: IJsonPage[];
     lang: string;
     baseUrl: string;
-    onSelected?: (page: IJsonPage) => void;
+    onPageClick?: (pageId: string) => void;
 };
 
 type PageListState = {};
 
 export default class PageList extends React.Component<PageListProps, PageListState> {
-    handlePageSelection(page: IJsonPage) {
-        if (this.props.onSelected !== undefined) {
-            this.props.onSelected(page);
-        }
-    }
-
     render() {
         const { pages: list, lang } = this.props;
 
@@ -39,74 +36,14 @@ export default class PageList extends React.Component<PageListProps, PageListSta
                     <TransitionGroup className="grid-cards">
                         {list &&
                             list.map(page => {
-                                const { page_id: pageId, content } = page;
-                                const title = page.title[lang];
-                                const fallbackLang = 'en';
-
-                                let videos: IJsonVideo[] = [];
-                                switch (content.layout) {
-                                    case 'single-video':
-                                    case 'single-video-audio':
-                                    case 'single-video-audio_i18n':
-                                    case 'single-i18n-video': {
-                                        const langVideoId = content.videos[0].lang_video_id;
-                                        videos.push(this.getVideo(langVideoId[lang] || langVideoId[fallbackLang]));
-                                        /*
-                                        const video_id = (content.videos as IDataPageVideoProxy[])[0][
-                                            'versions'
-                                        ][lang].video_id;
-                                        videos[0] = this.getVideo(video_id);
-                                        */
-                                        break;
-                                    }
-                                    case 'two-videos-only':
-                                    case 'two-videos-audio-subs':
-                                    case 'three-videos-only':
-                                    case 'three-videos-audio-subs': {
-                                        videos = (content.videos as IJsonPageVideo[]).map(({ lang_video_id }) => {
-                                            return this.getVideo(lang_video_id[lang] || lang_video_id[fallbackLang]);
-                                        });
-                                        break;
-                                    }
-                                    default:
-                                        alert(`error${content.layout}${pageId}`);
+                                const pageId = page.page_id;
+                                const pageProxy = this.props.pageRepository.getPageProxy(pageId);
+                                if (!pageProxy) {
+                                    return null;
                                 }
-
-                                // TODO fix the idea of pageCover !!!
-                                //const coverImg = `${urlPaths}covers/${page.cover}`;
-
-                                const firstVideoId = videos[0].video_id;
-                                const coverImg = `${baseUrl}/covers/${firstVideoId}-03.jpg`;
-
-                                const cardBackgroundStyle = {
-                                    backgroundImage: `url(${coverImg})`,
-                                };
-
                                 return (
                                     <Animate key={pageId}>
-                                        <div
-                                            className="card"
-                                            style={cardBackgroundStyle}
-                                            key={pageId}
-                                            onClick={() => this.handlePageSelection(page)}
-                                        >
-                                            <span className="page-title">{title}</span>
-
-                                            {videos.length > 1 && (
-                                                <div className="grid-page-thumbnail">
-                                                    {videos.map((video, idx) => {
-                                                        const videoCover = `${baseUrl}/covers/${video.video_id}-01.jpg`;
-                                                        return (
-                                                            <React.Fragment key={video.video_id}>
-                                                                <div>
-                                                                    <img src={videoCover} title={video.video_id} />
-                                                                </div>
-                                                            </React.Fragment>
-                                                        );
-                                                    })}
-                                                </div>
-                                            )}
-                                        </div>
+                                        <PageCard pageProxy={pageProxy} lang={lang} onClick={this.props.onPageClick} />
                                     </Animate>
                                 );
                             })}
@@ -137,7 +74,9 @@ export default class PageList extends React.Component<PageListProps, PageListSta
                             <td>{idx + 1}</td>
                             <td
                                 onClick={() => {
-                                    this.handlePageSelection(page);
+                                    if (this.props.onPageClick) {
+                                        this.props.onPageClick(page.page_id);
+                                    }
                                 }}
                             >
                                 {page.title[this.props.lang]}
