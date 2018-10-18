@@ -40,7 +40,7 @@ export default class AppConfig {
         return new VideoRepository(this, this.getAppData().videos);
     }
 
-    public getMenuRepository(params?: IDataRepositoryParams): MenuRepository {
+    public getMenuRepository(params?: IDataRepositoryParams, pageRepository?: PageRepository): MenuRepository {
         if (params === undefined) {
             // Default params
             params = {
@@ -50,7 +50,7 @@ export default class AppConfig {
                 audioBaseUrl: this.assetsLocator.getMediaTypeBaseUrl('audios'),
             };
         }
-        return new MenuRepository(this, this.getAppData().menu);
+        return new MenuRepository(this, this.getAppData().menu, pageRepository);
     }
 
     public getPageRepository(params?: IDataRepositoryParams): PageRepository {
