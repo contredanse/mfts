@@ -26,13 +26,16 @@ export type PrevAndNextPageEntities = {
 };
 
 export default class MenuRepository {
-    protected readonly menu: IJsonMenu[];
-    protected readonly config: AppConfig;
-    protected flatMenu!: IJsonMenu[];
+    private readonly menu: IJsonMenu[];
+    private readonly config: AppConfig;
+    private readonly pageRepository?: PageRepository;
 
-    constructor(config: AppConfig, menu: IJsonMenu[]) {
+    private flatMenu!: IJsonMenu[];
+
+    constructor(config: AppConfig, menu: IJsonMenu[], pageRepository?: PageRepository) {
         this.menu = menu;
         this.config = config;
+        this.pageRepository = pageRepository;
     }
 
     static mapIJsonMenuToPageMenuInfo(item: IJsonMenu, lang: string = 'en'): MenuPageProps {
@@ -57,14 +60,17 @@ export default class MenuRepository {
     getPrevAndNextPageEntityMenu(
         pageId: string,
         lang: string,
-        pageRepository: PageRepository
+        pageRepository?: PageRepository
     ): PrevAndNextPageEntities {
         const menuPage: PrevAndNextPageEntities = {};
-
         const { previous, next } = this.getPrevAndNextPageMenu(pageId, lang);
+        const pr = pageRepository ? pageRepository : this.pageRepository;
+        if (!pr) {
+            throw new Error('Missing pageRepository prop or argument');
+        }
 
-        menuPage.previousPage = previous !== undefined ? pageRepository.getPageProxy(previous.page_id) : undefined;
-        menuPage.nextPage = next !== undefined ? pageRepository.getPageProxy(next.page_id) : undefined;
+        menuPage.previousPage = previous !== undefined ? pr.getPageProxy(previous.page_id) : undefined;
+        menuPage.nextPage = next !== undefined ? pr.getPageProxy(next.page_id) : undefined;
 
         return menuPage;
     }
