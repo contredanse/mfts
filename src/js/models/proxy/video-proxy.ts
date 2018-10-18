@@ -74,7 +74,7 @@ export default class VideoProxy extends AbstractBaseProxy {
         return this.links.video !== null;
     }
 
-    getFirstCover(baseUrl?: string): string | undefined {
+    getMainCover(baseUrl?: string): string | undefined {
         if (!this.hasCover()) {
             return undefined;
         }
@@ -83,6 +83,18 @@ export default class VideoProxy extends AbstractBaseProxy {
             : this.getHelper().getAssetUrl(this.covers![0], 'videoCovers');
 
         return src;
+    }
+
+    getNumberedCover(numberSuffix: number = 1, baseUrl?: string): string | undefined {
+        if (!this.hasCover()) {
+            return undefined;
+        }
+        const src = baseUrl
+            ? this.getHelper().addBaseUrl(this.covers![0], baseUrl)
+            : this.getHelper().getAssetUrl(this.covers![0], 'videoCovers');
+
+        const sfx = numberSuffix.toString().padStart(2, '0');
+        return src.replace(/\.jpg$/, `-${sfx}.jpg`);
     }
 
     /**
