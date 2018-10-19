@@ -10,5 +10,6 @@ export default class NextButton extends Button {
         className: 'NextButton',
         children: <NextIcon size="100%" />,
         isEnabled: false,
+        tooltip: 'Next',
     };
 }

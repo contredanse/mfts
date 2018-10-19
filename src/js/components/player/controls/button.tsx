@@ -9,6 +9,7 @@ export type ButtonProps = {
     style?: CSSProperties;
     children?: ReactNode;
     disableSpaceClick?: boolean;
+    tooltip?: string;
 };
 
 export const buttonDefaultProps = {
@@ -24,13 +25,14 @@ class Button extends PureComponent<ButtonProps> {
     static defaultProps = buttonDefaultProps;
 
     render() {
-        const { isEnabled, className, extraClasses, style, children } = this.props;
+        const { isEnabled, className, extraClasses, style, tooltip, children } = this.props;
 
         return (
             <button
                 className={classNames(className, { isEnabled }, extraClasses)}
                 style={style}
                 disabled={!isEnabled}
+                title={tooltip}
                 onClick={this.handleClick}
                 onKeyUp={this.handleKeyUp}
             >

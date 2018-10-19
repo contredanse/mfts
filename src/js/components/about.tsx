@@ -24,10 +24,7 @@ class About extends React.PureComponent<AboutProps, AboutState> {
         const { lang } = this.props;
         const videosBaseUrl = this.props.assetsLocator.getMediaTypeBaseUrl('videos');
 
-        const videoSrcs = [
-            { src: `${videosBaseUrl}/napp.webm`, type: 'video/webm' },
-            { src: `${videosBaseUrl}/intro_2tubes_walk.mp4`, type: 'video/mp4' },
-        ];
+        const videoSrcs = [{ src: `${videosBaseUrl}/napp.webm`, type: 'video/webm' }];
 
         const content = lang === 'fr' ? credits_fr : credits_en;
 

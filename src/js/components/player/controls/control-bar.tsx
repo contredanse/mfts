@@ -14,6 +14,7 @@ import PlaybackStatusProvider from '@src/components/player/controls/hoc/playback
 import LoadingButton from '@src/components/player/controls/svg-button/loading-button';
 import TrackVisibilityHelper from '@src/components/player/track/track-visibility-helper';
 import VolumeControl from '@src/components/player/volume-control';
+import { BasicI18nDictionary, getFromDictionary } from '@src/i18n/basic-i18n';
 
 export type ControlBarProps = {
     videoEl?: HTMLVideoElement | null;
@@ -49,6 +50,29 @@ const defaultProps = {
     playbackRate: 1,
 };
 
+const i18n: BasicI18nDictionary = {
+    play: {
+        en: 'Play',
+        fr: 'Lecture',
+    },
+    pause: {
+        en: 'Pause',
+        fr: 'Pause',
+    },
+    replay: {
+        en: 'Replay',
+        fr: 'Rejouer',
+    },
+    show_subtitles: {
+        en: 'Show subtitles',
+        fr: 'Montrer les sous-titres',
+    },
+    hide_subtitles: {
+        en: 'Hide subtitles',
+        fr: 'Cache les sous-titres',
+    },
+};
+
 export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
     static defaultProps = defaultProps;
 
@@ -71,7 +95,7 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
 
     render() {
         const props = this.props;
-        const { videoEl, enableMuteControl, playbackRate } = this.props;
+        const { videoEl, enableMuteControl, playbackRate, lang } = this.props;
 
         const LoadingIndicator = () => <LoadingButton />;
 
@@ -99,7 +123,12 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
                                             {status.isPlaying ? (
                                                 <PauseButton isEnabled={true} onClick={this.pause} {...spaceAction} />
                                             ) : (
-                                                <PlayButton isEnabled={true} onClick={this.play} {...spaceAction} />
+                                                <PlayButton
+                                                    tooltip={getFromDictionary('play', lang!, i18n)}
+                                                    isEnabled={true}
+                                                    onClick={this.play}
+                                                    {...spaceAction}
+                                                />
                                             )}
                                             {enableMuteControl && (
                                                 <VolumeControl

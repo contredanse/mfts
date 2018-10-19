@@ -57,11 +57,9 @@
 - [x] Meta manager (title)
   - [x] Home made document meta component  
 
-
-
-
 ------
 
+# Meeting notes
 
 - Validation
   - [x] Homepage
@@ -82,8 +80,7 @@
       - [ ] Move the search to the top :)    
   - [x] Player       
     - [x] Overlay:
-      - [ ] Strategy choice (next / reload / timeout ?)
-      - [x] Margin-bottom ahuteur de la controlbar. (verif audio) 
+      - [ ] Strategy choice (next / reload / timeout ?)       
     - [ ]  
     - [x] Playback speed (only when possible)
     - [ ] Controlbar

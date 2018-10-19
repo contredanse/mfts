@@ -10,6 +10,7 @@ class SubtitlesButton extends Button {
         className: 'SubtitlesButton',
         children: <SubtitlesIcon size="100%" />,
         isEnabled: false,
+        tooltip: 'Subtitles',
     };
 }
 

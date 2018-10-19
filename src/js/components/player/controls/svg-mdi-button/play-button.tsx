@@ -10,5 +10,6 @@ export default class PlayButton extends Button {
         className: 'PlayButton',
         children: <PlayIcon size="100%" />,
         isEnabled: false,
+        tooltip: 'Play',
     };
 }

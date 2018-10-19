@@ -6,6 +6,7 @@ import AppAssetsLocator from '@src/core/app-assets-locator';
 import EventListener from 'react-event-listener';
 import FullsizeVideoBg from '@src/components/layout/fullsize-video-bg';
 import ConnectedLangSelector from '@src/components/lang-selector';
+import { BasicI18nDictionary, getFromDictionary } from '@src/i18n/basic-i18n';
 
 type HomeProps = {
     assetsLocator: AppAssetsLocator;
@@ -29,9 +30,7 @@ const defaultProps = {
     videosIds: ['intro_2tubes_walk'],
 };
 
-type I18nStatic = { [key: string]: { [key: string]: string } };
-
-const i18n: I18nStatic = {
+const i18n: BasicI18nDictionary = {
     a_movement_study: {
         en: 'A movement study',
         fr: 'Une étude du mouvement',
@@ -71,10 +70,6 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
             this.changePlaybackRate(playbackRate);
         }
         */
-    };
-
-    handleWheelCapture = (e: WheelEvent) => {
-        //console.log('mousecapture');
     };
 
     render() {
@@ -121,7 +116,6 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
                     target={document}
                     onMouseMoveCapture={this.handleMove}
                     onPointerMoveCapture={this.handleMove}
-                    onWheelCapture={this.handleWheelCapture}
                 />
             </div>
         );

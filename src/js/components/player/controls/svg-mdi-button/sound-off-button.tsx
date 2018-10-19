@@ -10,5 +10,6 @@ export default class SoundOffButton extends Button {
         className: 'SoundOffButton',
         children: <SoundOffIcon size="100%" />,
         isEnabled: false,
+        tooltip: 'Unmute',
     };
 }

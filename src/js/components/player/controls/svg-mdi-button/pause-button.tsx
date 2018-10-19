@@ -11,5 +11,6 @@ export default class PauseButton extends Button {
         children: <PauseIcon size="100%" />,
         isEnabled: false,
         disableSpaceClick: true,
+        tooltip: 'Pause',
     };
 }

@@ -10,5 +10,6 @@ export default class SoundOnButton extends Button {
         className: 'SoundOnButton',
         children: <SoundOnIcon size="100%" />,
         isEnabled: false,
+        tooltip: 'Mute',
     };
 }

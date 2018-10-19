@@ -10,5 +10,6 @@ export default class PrevButton extends Button {
         className: 'PrevButton',
         children: <PreviousIcon size="100%" />,
         isEnabled: false,
+        tooltip: 'Previous',
     };
 }
