@@ -13,6 +13,7 @@ type HomeProps = {
     playbackRate?: number;
     mouseMoveDelay?: number;
     videosIds?: string[];
+    useClickableBox?: boolean;
 } & RouteComponentProps;
 
 type HomeState = {
@@ -23,6 +24,7 @@ type HomeState = {
 const defaultProps = {
     playbackRate: 1,
     mouseMoveDelay: 80,
+    useClickableBox: true,
     videosIds: ['intro_2tubes_walk'],
 };
 
@@ -84,10 +86,8 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
             { src: `${videosBaseUrl}/${videoId}.mp4`, type: 'video/mp4' },
         ];
 
-        const { lang } = this.props;
+        const { lang, useClickableBox } = this.props;
         const { playbackRate } = this.state;
-
-        const useClickableBox = true;
 
         return (
             <div className="home-container">
