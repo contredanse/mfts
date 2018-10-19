@@ -10,6 +10,7 @@ import VideoPlayer, { TextTrackProps, VideoSourceProps } from '@src/components/p
 import AudioProxy from '@src/models/proxy/audio-proxy';
 import { TrackVisibilityMode } from '@src/components/player/track/track-visibility-helper';
 import { ControlBarProps } from '@src/components/player/controls/control-bar';
+import equal from 'fast-deep-equal';
 
 export type DataProxyPlayerProps = {
     videoProxy: VideoProxy | AudioProxy;
@@ -39,6 +40,7 @@ export type DataProxyPlayerState = {
 };
 
 const defaultProps = {
+    lang: 'en',
     playsInline: true,
     playing: false,
     autoPlay: false,
@@ -63,6 +65,11 @@ export default class DataProxyPlayer extends React.Component<DataProxyPlayerProp
     }
 
     shouldComponentUpdate(nextProps: DataProxyPlayerProps, nextState: DataProxyPlayerState): boolean {
+        // Let's deep check controlbarprops
+        if (!equal(nextProps.controlBarProps, this.props.controlBarProps)) {
+            return true;
+        }
+
         const mediaId =
             this.props.videoProxy instanceof AudioProxy
                 ? this.props.videoProxy.getSourceFile()

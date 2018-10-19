@@ -1,5 +1,7 @@
 import React from 'react';
 import './control-bar.scss';
+import { ControlBarDictionary } from './control-bar.i18n';
+
 import { PlayButton, PauseButton, PrevButton, NextButton, SubtitlesButton } from './svg-mdi-button';
 
 import ProgressBar from './progress-bar';
@@ -14,7 +16,7 @@ import PlaybackStatusProvider from '@src/components/player/controls/hoc/playback
 import LoadingButton from '@src/components/player/controls/svg-button/loading-button';
 import TrackVisibilityHelper from '@src/components/player/track/track-visibility-helper';
 import VolumeControl from '@src/components/player/volume-control';
-import { BasicI18nDictionary, getFromDictionary } from '@src/i18n/basic-i18n';
+import { getFromDictionary } from '@src/i18n/basic-i18n';
 
 export type ControlBarProps = {
     videoEl?: HTMLVideoElement | null;
@@ -50,29 +52,6 @@ const defaultProps = {
     playbackRate: 1,
 };
 
-const i18n: BasicI18nDictionary = {
-    play: {
-        en: 'Play',
-        fr: 'Lecture',
-    },
-    pause: {
-        en: 'Pause',
-        fr: 'Pause',
-    },
-    replay: {
-        en: 'Replay',
-        fr: 'Rejouer',
-    },
-    show_subtitles: {
-        en: 'Show subtitles',
-        fr: 'Montrer les sous-titres',
-    },
-    hide_subtitles: {
-        en: 'Hide subtitles',
-        fr: 'Cache les sous-titres',
-    },
-};
-
 export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
     static defaultProps = defaultProps;
 
@@ -103,6 +82,8 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
             disableSpaceClick: this.props.disableButtonSpaceClick,
         };
 
+        const tr = this.tr;
+
         return (
             <div className={'control-bar-ctn'}>
                 <div className="control-bar-ctn__progress-bar">
@@ -121,10 +102,15 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
                                     {videoEl && (
                                         <>
                                             {status.isPlaying ? (
-                                                <PauseButton isEnabled={true} onClick={this.pause} {...spaceAction} />
+                                                <PauseButton
+                                                    tooltip={tr('pause')}
+                                                    isEnabled={true}
+                                                    onClick={this.pause}
+                                                    {...spaceAction}
+                                                />
                                             ) : (
                                                 <PlayButton
-                                                    tooltip={getFromDictionary('play', lang!, i18n)}
+                                                    tooltip={tr('play')}
                                                     isEnabled={true}
                                                     onClick={this.play}
                                                     {...spaceAction}
@@ -132,6 +118,10 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
                                             )}
                                             {enableMuteControl && (
                                                 <VolumeControl
+                                                    tooltips={{
+                                                        mute: tr('mute'),
+                                                        unmute: tr('unmute'),
+                                                    }}
                                                     muted={status.muted}
                                                     volume={status.volume}
                                                     onUnMute={this.unMute}
@@ -156,6 +146,9 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
                                     {status.trackLangs.length > 0 && (
                                         <SubtitlesButton
                                             isEnabled={true}
+                                            tooltip={tr(
+                                                !status.hasVisibleTextTrack ? 'show_subtitles' : 'hide_subtitles'
+                                            )}
                                             extraClasses={status.hasVisibleTextTrack ? 'isActive' : ''}
                                             onClick={() => {
                                                 this.toggleSubtitles();
@@ -168,6 +161,7 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
                                     )}
                                     {props.enablePrevControl && (
                                         <PrevButton
+                                            tooltip={tr('play_previous')}
                                             isEnabled={this.props.onPreviousLinkPressed !== undefined}
                                             onClick={() => {
                                                 this.props.onPreviousLinkPressed!();
@@ -177,6 +171,7 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
                                     )}
                                     {props.enableNextControl && (
                                         <NextButton
+                                            tooltip={tr('play_next')}
                                             isEnabled={this.props.onNextLinkPressed !== undefined}
                                             onClick={() => {
                                                 this.props.onNextLinkPressed!();
@@ -184,7 +179,6 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
                                             {...spaceAction}
                                         />
                                     )}
-
                                     <div
                                         style={{
                                             border: '1px solid white',
@@ -288,6 +282,10 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
         if (this.props.onRateChangeRequest) {
             this.props.onRateChangeRequest(playbackRate);
         }
+    };
+
+    protected tr = (text: string): string => {
+        return getFromDictionary(text, this.props.lang!, ControlBarDictionary);
     };
 
     protected logWarning(msg: string) {

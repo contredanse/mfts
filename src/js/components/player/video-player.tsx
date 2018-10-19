@@ -140,6 +140,11 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
             return true;
         }
 
+        // Let's deep check controlbarprops
+        if (!equal(nextProps.controlBarProps, this.props.controlBarProps)) {
+            shouldUpdate = true;
+        }
+
         // Let's handle those ones without React.
         if (this.props.playbackRate !== nextProps.playbackRate) {
             this.setPlaybackRate(nextProps.playbackRate);

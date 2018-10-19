@@ -10,6 +10,10 @@ export type VolumeControlProps = {
     disableSpaceClick?: boolean;
     isEnabled?: boolean;
     style?: CSSProperties;
+    tooltips?: {
+        mute: string;
+        unmute: string;
+    };
 };
 
 const defaultProps = {
@@ -23,7 +27,13 @@ class VolumeControl extends PureComponent<VolumeControlProps> {
     static defaultProps = defaultProps;
 
     render() {
-        const { style, muted, onMute, onUnMute, disableSpaceClick, isEnabled, mediaIsSilent } = this.props;
+        const { style, muted, onMute, onUnMute, disableSpaceClick, isEnabled, mediaIsSilent, tooltips } = this.props;
+
+        let tooltipAttr = {};
+        if (tooltips) {
+            const tooltipText = muted ? tooltips.unmute : tooltips.mute;
+            tooltipAttr = { tooltip: tooltipText };
+        }
 
         return (
             <>
@@ -33,6 +43,7 @@ class VolumeControl extends PureComponent<VolumeControlProps> {
                         isEnabled={isEnabled && !mediaIsSilent}
                         onClick={onUnMute}
                         disableSpaceClick={disableSpaceClick}
+                        {...tooltipAttr}
                     />
                 ) : (
                     <SoundOnButton
@@ -40,6 +51,7 @@ class VolumeControl extends PureComponent<VolumeControlProps> {
                         isEnabled={isEnabled && !mediaIsSilent}
                         onClick={onMute}
                         disableSpaceClick={disableSpaceClick}
+                        {...tooltipAttr}
                     />
                 )}
             </>
