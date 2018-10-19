@@ -23,7 +23,7 @@ type HomeState = {
 const defaultProps = {
     playbackRate: 1,
     mouseMoveDelay: 80,
-    videosIds: ['puzzle1', 'intro_2tubes_walk'],
+    videosIds: ['intro_2tubes_walk'],
 };
 
 type I18nStatic = { [key: string]: { [key: string]: string } };
@@ -60,11 +60,13 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
 
     handleMove = (e: MouseEvent & PointerEvent) => {
         // TODO, let's make something cool when time.
+        /*
         const y: number = e.clientY / window.innerHeight;
         const playbackRate = Math.round(20 - y * 2 * 10) / 10;
         if (playbackRate < 1.3 && playbackRate > 0.3 && this.state.playbackRate !== playbackRate) {
             this.changePlaybackRate(playbackRate);
         }
+        */
     };
 
     handleWheelCapture = (e: WheelEvent) => {
@@ -86,8 +88,13 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
 
         return (
             <div className="home-container">
-                <FullsizeVideoBg videoSrcs={videoSrcs} playbackRate={playbackRate} onEnded={this.handleOnEnded}>
-                    <div>
+                <FullsizeVideoBg videoSrcs={videoSrcs} playbackRate={playbackRate} autoPlay={true} loop={true}>
+                    <div
+                        className="home-container-text-panel"
+                        onClick={() => {
+                            this.navigateToIntro(lang);
+                        }}
+                    >
                         <h3 className="reveal-text">Steve Paxton</h3>
                         <h1 className="reveal-text">Material for the spine</h1>
                         <p className="reveal-text">
@@ -100,14 +107,14 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
                                 {i18n.a_movement_study[lang] || ''}
                             </a>
                         </p>
-                        <ConnectedLangSelector>
-                            {({ currentLang, nextLang, toggleLang, updateLang }) => (
-                                <div className="lang-selector-panel" onClick={() => updateLang(nextLang)}>
-                                    {nextLang === 'en' ? 'English' : 'Français'}
-                                </div>
-                            )}
-                        </ConnectedLangSelector>
                     </div>
+                    <ConnectedLangSelector>
+                        {({ currentLang, nextLang, toggleLang, updateLang }) => (
+                            <div className="lang-selector-panel" onClick={() => updateLang(nextLang)}>
+                                {nextLang === 'en' ? 'English' : 'Français'}
+                            </div>
+                        )}
+                    </ConnectedLangSelector>
                 </FullsizeVideoBg>
                 <EventListener
                     target={document}

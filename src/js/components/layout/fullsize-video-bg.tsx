@@ -8,6 +8,7 @@ type FullsizeVideoBgProps = {
     playbackRate?: number;
     loop?: boolean;
     onEnded?: () => void;
+    autoPlay?: boolean;
 };
 
 type FullsizeVideoBgState = {};
@@ -36,7 +37,7 @@ class FullsizeVideoBg extends React.PureComponent<FullsizeVideoBgProps, Fullsize
                 <div className="fullsize-video-bg-inner">{children}</div>
                 <div className="fullsize-video-bg-viewport">
                     <VideoPlayer
-                        autoPlay={true}
+                        autoPlay={this.props.autoPlay}
                         muted={true}
                         playsInline={true}
                         loop={loop}
