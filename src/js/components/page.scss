@@ -5,6 +5,9 @@ $header-section-height: 20px;
 $page-content-padding: 0;
 $page-header-padding: $page-content-padding;
 
+// This variable control margin bottom of single page video
+$single-video-margin-bottom: 60px;
+
 // Till object-fit: contains works on all browsers...
 // we use this flex trick to make the video layout
 
@@ -104,6 +107,7 @@ $page-header-padding: $page-content-padding;
 
         .page-single-video-layout {
             flex: auto;
+            margin-bottom: $single-video-margin-bottom;
         }
     }
     .page-footer {

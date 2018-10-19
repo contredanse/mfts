@@ -252,7 +252,7 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
                     onError={this.handleOnError}
                     {...mediaProps}
                     {...(this.props.playsInline ? { 'webkit-playsinline': 'webkit-playsinline' } : {})}
-                    //              {...(playing || autoPlay) ? { autoPlay: true } : {}}
+                    // {...(playing || autoPlay) ? { autoPlay: true } : {}}
                 >
                     {srcs &&
                         srcs.map((s, idx) => <source onError={this.handleOnError} key={`${s.src}-${idx}`} {...s} />)}
