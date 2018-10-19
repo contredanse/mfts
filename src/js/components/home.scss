@@ -70,9 +70,16 @@ $title-opacity: 0.8;
     }
 
     .home-container-text-panel {
+        .reveal-text {
+            cursor: pointer;
+        }
+
         &:hover {
             cursor: pointer;
-            border: 1px solid yellow;
+
+            a {
+                color: $yellow-color;
+            }
         }
     }
 

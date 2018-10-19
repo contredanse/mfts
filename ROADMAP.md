@@ -65,16 +65,16 @@
 
 - Validation
   - [x] Homepage
-    - [ ] Language selection (position) 
-    - [ ] BOX avec onhover et petite main
-    - [ ] Video background (2tubes)
-    - [ ] Enlever selecteur vitesse
-      
+    - [x] Language selection (position up right corner) 
+    - [x] BOX avec onhover et petite main
+    - [x] Video background (2tubes)
+    - [x] Remove speed behaviour onMouseOver
+     
   - [ ] Menu
     - [ ] When displayed, only hamburger/helix
     - [ ] Home/About/Content/Credits/Biography/(Login/Logout)/Language/Link contredanse
-  - [ ] Introduction page
-    - [ ] Skip intro -> go to navigation (helix ?)
+  - [x] Introduction page
+    - [x] Skip intro -> go to navigation (helix ?)
   - [ ] Player       
     - [ ] Overlay:
       - [ ] Strategy choice
@@ -86,6 +86,7 @@
       - [ ] 
     - [ ] Controlbar
       - [ ] Icons: loop + yes bouton loop
+      - [ ] Indicated icon titles
       - [ ] Previous gauche... (affiche en grisé)         
       - [ ] 2 svg ... icônes différentes pour sous-titre (on/off)
          
