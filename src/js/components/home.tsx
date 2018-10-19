@@ -48,7 +48,8 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
         this.changePlaybackRate = debounce(this.props.mouseMoveDelay!, this.changePlaybackRate);
     }
 
-    navigateToIntro = (lang: string): void => {
+    navigateToIntro = (): void => {
+        const { lang } = this.props;
         this.props.history.push(`${lang}/intro`);
     };
 
@@ -86,23 +87,22 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
         const { lang } = this.props;
         const { playbackRate } = this.state;
 
+        const useClickableBox = true;
+
         return (
             <div className="home-container">
                 <FullsizeVideoBg videoSrcs={videoSrcs} playbackRate={playbackRate} autoPlay={true} loop={true}>
                     <div
                         className="home-container-text-panel"
-                        onClick={() => {
-                            this.navigateToIntro(lang);
-                        }}
+                        {...(useClickableBox ? { onClick: this.navigateToIntro } : {})}
+                        onClick={this.navigateToIntro}
                     >
                         <h3 className="reveal-text">Steve Paxton</h3>
                         <h1 className="reveal-text">Material for the spine</h1>
                         <p className="reveal-text">
                             <a
                                 className="clickable-text"
-                                onClick={() => {
-                                    this.navigateToIntro(lang);
-                                }}
+                                {...(!useClickableBox ? { onClick: this.navigateToIntro } : {})}
                             >
                                 {i18n.a_movement_study[lang] || ''}
                             </a>
