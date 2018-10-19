@@ -13,6 +13,7 @@ type HomeProps = {
     playbackRate?: number;
     mouseMoveDelay?: number;
     videosIds?: string[];
+    // Don't ask me why (requested as this)
     useClickableBox?: boolean;
 } & RouteComponentProps;
 
