@@ -764,6 +764,7 @@
             "en": ["forms", "crescent", "roll", "water"],
             "fr": ["formes", "roulé", "croissant", "dans", "l'eau"]
         },
+        "loop": true,
         "content": {
             "layout": "single-video",
             "videos": [
