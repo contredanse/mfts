@@ -89,7 +89,7 @@ export const AppBarComponent: React.SFC<AppBarWithStylesProps & AppBarWithRouter
                     </IconButton>
 
                     <Typography variant="h6" color="inherit" className={classes.flex}>
-                        {props.title} Hello
+                        {props.title}
                     </Typography>
 
                     <IconButton
