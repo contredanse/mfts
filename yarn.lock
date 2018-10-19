@@ -2991,10 +2991,10 @@ copy-props@^2.0.1:
     each-props "^1.3.0"
     is-plain-object "^2.0.1"
 
-copy-webpack-plugin@^4.5.3:
-  version "4.5.3"
-  resolved "https://registry.yarnpkg.com/copy-webpack-plugin/-/copy-webpack-plugin-4.5.3.tgz#14a224d205e46f7a79f7956028e1da6df2225ff2"
-  integrity sha512-VKCiNXQcc8zyznaepXfKpCH2cZD+/j3T3B+gsFY97P7qMlEsj34wr/sI9OCG7QPUUh7gAHVx3q8Q1rdQIDM4bA==
+copy-webpack-plugin@^4.5.4:
+  version "4.5.4"
+  resolved "https://registry.yarnpkg.com/copy-webpack-plugin/-/copy-webpack-plugin-4.5.4.tgz#f2b2782b3cd5225535c3dc166a80067e7d940f27"
+  integrity sha512-0lstlEyj74OAtYMrDxlNZsU7cwFijAI3Ofz2fD6Mpo9r4xCv4yegfa3uHIKvZY1NSuOtE9nvG6TAhJ+uz9gDaQ==
   dependencies:
     cacache "^10.0.4"
     find-cache-dir "^1.0.0"
@@ -5833,10 +5833,10 @@ html-parse-stringify2@2.0.1:
   dependencies:
     void-elements "^2.0.1"
 
-html-webpack-harddisk-plugin@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/html-webpack-harddisk-plugin/-/html-webpack-harddisk-plugin-1.0.0.tgz#f2c89ff756b2a39f766d7718da00c639259423c2"
-  integrity sha512-J5TkvtY+N5jdwVUtz7Yka0Yxbc95ELdm1Oc59UdazP7j73YR7qvaCHLgra2hnmwkVcTX+Ccqc4p/axngTt5XhA==
+html-webpack-harddisk-plugin@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/html-webpack-harddisk-plugin/-/html-webpack-harddisk-plugin-1.0.1.tgz#4fc034d3440ec2a223dbe8fa1a5a2eb905e86fa5"
+  integrity sha512-GWfutTqfxOe53qEKocqAFrrLVP/EJbmJZDAS5jBBmALkfyc2aakoQkSgo3fitYJORWcN0Fi8ekuySxfffhhRYw==
   dependencies:
     mkdirp "^0.5.1"
 
@@ -5949,10 +5949,10 @@ hyphenate-style-name@^1.0.2:
   resolved "https://registry.yarnpkg.com/hyphenate-style-name/-/hyphenate-style-name-1.0.2.tgz#31160a36930adaf1fc04c6074f7eb41465d4ec4b"
   integrity sha1-MRYKNpMK2vH8BMYHT360FGXU7Es=
 
-i18next@^11.9.1:
-  version "11.9.1"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-11.9.1.tgz#f2718b11da2460e29e2dbd3dd8dea05dfc88e2dc"
-  integrity sha512-sUAfCdKYi8EufO6B8aY5RF/hqweCpRKvbxUhlzlmlAr+LgJQ2kXe/5y02kaPu6ApFIiW5WOz8+3ehoy97LUtMw==
+i18next@^11.10.0:
+  version "11.10.0"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-11.10.0.tgz#901231c840ba2bbf89b672a7f65d50fb2250626e"
+  integrity sha512-5ElF7gjvRztb7sxS9KOGQ7b8L6uJqysTuGNIwSEefVDE4yhEmIrD6SZB3Z90QtwLq9Ag7W6QJQGO/yAI8gPd1A==
 
 iconv-lite@0.4.23:
   version "0.4.23"
