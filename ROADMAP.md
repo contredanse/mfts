@@ -17,8 +17,8 @@
   - [ ] Menu for playback speed
     - [ ] `NicetoHave` auto mute sound if speed below or over limits.
   - [x] OnEnd event, when video finish let's go `somewhere`
-  - [ ] Persist choice for subtitles (local storage)
-  - [ ] Volume slider
+  - [x] Persist choice for subtitles (local storage)
+  - [ ] NTH: Volume slider
   
        
 - [ ] Page behaviours  
@@ -55,3 +55,36 @@
   
 - [x] Meta manager (title)
   - [x] Home made document meta component  
+
+
+
+
+------
+
+
+- Validation
+  - [x] Homepage
+    - [ ] Language selection (position) 
+    - [ ] BOX avec onhover et petite main
+    - [ ] Video background (2tubes)
+    - [ ] Enlever selecteur vitesse
+      
+  - [ ] Menu
+    - [ ] When displayed, only hamburger/helix
+    - [ ] Home/About/Content/Credits/Biography/(Login/Logout)/Language/Link contredanse
+  - [ ] Introduction page
+    - [ ] Skip intro -> go to navigation (helix ?)
+  - [ ] Player       
+    - [ ] Overlay:
+      - [ ] Strategy choice
+      - [ ] Margin-bottom ahuteur de la controlbar. (verif audio) 
+    - [ ]  
+    - [x] Playback speed (only when possible)
+    - [x] Looping
+      - [ ] Create an attribute in `data-pages/.json`
+      - [ ] 
+    - [ ] Controlbar
+      - [ ] Icons: loop + yes bouton loop
+      - [ ] Previous gauche... (affiche en grisé)         
+      - [ ] 2 svg ... icônes différentes pour sous-titre (on/off)
+         
