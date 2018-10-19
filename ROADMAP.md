@@ -61,34 +61,49 @@
 
 # Meeting notes
 
-- Validation
-  - [x] Homepage
+- TODO list
+  - [x] **Data `data-pages.json`**
+      - [x] New attribute: `loop` to control infinite loops
+      - [x] New attribute: `loop_number` to control number of iterations
+      - [x] New attribute: `speed_control` to display video speed control
+  - [x] **Homepage/Landing page**
     - [x] Language selection (position up right corner) 
     - [x] BOX avec onhover et petite main
     - [x] Video background (2tubes)
     - [x] Remove speed behaviour onMouseOver
-  - [ ] Menu
-    - [ ] When displayed, only hamburger/helix
-    - [ ] Home/About/Content/Credits/Biography/(Login/Logout)/Language/Link contredanse
-  - [x] Introduction page
-    - [x] Skip intro -> go to navigation (helix ?)
-  - [ ] Top Appbar
-    - [ ] Breadcrumb postion top 
-  - [ ] Page
+  - [x] **Introduction page**
+    - [ ] Skip intro -> go to navigation (helix or page list / quid mobile ?)    
+  - [ ] **Navigation Appbar**
+    - [ ] Page breadcrumb should be in the top area.
+    - [ ] Keep only hamburger menu and helix icons
+    - [ ] Side navigation opens submenu (contredanse provides markdown)    
+       - [ ] Home
+       - [ ] About 
+       - [ ] Content
+       - [ ] Credits 
+       - [ ] Biography
+       - [ ] (Login/Logout)
+       - [ ] Language and Link contredanse        
+  - [ ] **Page**
     - [x] For single page, make a margin-bottom of 60px of the video
-    - [x] Data
-      - [x] Create an attribute to tell loop in `data-pages.json`
-  - [ ] PageList
-      - [ ] Move the search to the top :)    
-  - [x] Player       
+  - [ ] **PageList**
+      - [ ] Move the search to the top    
+  - [x] **Player**       
     - [x] Overlay:
       - [ ] Strategy choice (next / reload / timeout ?)       
-    - [ ]  
-    - [x] Playback speed (only when possible)
     - [ ] Controlbar
-      - [ ] Icons: loop + yes bouton loop
-      - [ ] Indicated icon titles
-      - [ ] Visually indicate that it's looping
-      - [ ] Previous gauche... (affiche en grisé)         
-      - [ ] 2 svg ... icônes différentes pour sous-titre (on/off)
-         
+      - [x] Playback speed control 
+        - [x] If video is muted or explicit definition `speed_control` in data.
+      - [ ] Translated tooltips for buttons (play, pause, show subtitles...)              
+      - [ ] SVG icons:
+        - [ ] <u>Contredanse</u>
+          - [ ] play/pause maybe ? 
+          - [ ] looping on/off variants
+          - [ ] subtitles on/off variants
+      - [ ] Visually indicate that it's autoloop or looping iterations
+      - [ ] Change orger of icons
+          - [ ] Previous to the left... (greyed if not availble)         
+  - [x] **Static pages**
+    - [ ] Markdown for pages
+      - [ ] Bibliography
+               
