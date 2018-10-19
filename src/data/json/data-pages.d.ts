@@ -8,6 +8,7 @@ export interface IJsonPage {
     content: IJsonPageContent;
     sort_idx: number;
     loop?: boolean;
+    loop_number?: number;
 }
 
 export interface IJsonPageLocalizedText extends ITranslatedValue<string> {
