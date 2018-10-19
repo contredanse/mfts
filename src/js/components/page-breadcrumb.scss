@@ -37,8 +37,8 @@ ul.page-breadcrumb {
         }
 
         &:not(.title):after {
-            content: '>>';
-            padding-left: 1vw;
+            content: '/';
+            padding-left: 1vh;
         }
         font-family: $breadcrumb-font;
 
