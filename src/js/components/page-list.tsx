@@ -49,11 +49,6 @@ export default class PageList extends React.Component<PageListProps, PageListSta
                             })}
                     </TransitionGroup>
                 </div>
-
-                <div>
-                    <h2>Table of contents</h2>
-                    {toc}
-                </div>
             </div>
         );
     }
