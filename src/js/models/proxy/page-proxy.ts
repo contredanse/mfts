@@ -101,6 +101,10 @@ export default class PageProxy extends AbstractBaseProxy {
         return this.data.loop === true;
     }
 
+    getLoopNumber(): number | undefined {
+        return this.data.loop_number;
+    }
+
     getFirstVideo(lang?: string): VideoProxy | undefined {
         const firstVideo = this.getHelper().getLocalizedValue<string>(this.videos[0].lang_video_id, lang)!;
 
