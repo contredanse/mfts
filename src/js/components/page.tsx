@@ -29,6 +29,7 @@ export type PageState = {
     isSilent: boolean;
     autoLoop: boolean;
     loopIterations?: number;
+    activateSpeedControls: boolean;
     isMultipleVideoContent: boolean;
     currentLoopIteration: number;
     played: boolean;
@@ -45,6 +46,7 @@ const defaultPageState: PageState = {
     autoLoop: false,
     loopIterations: undefined,
     currentLoopIteration: 1,
+    activateSpeedControls: false,
     isMultipleVideoContent: false,
     played: false,
     currentTime: 0,
@@ -77,6 +79,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
             isSilent: pageProxy.isSilent(),
             autoLoop: pageProxy.isAutoloop(),
             loopIterations: pageProxy.getNumberOfLoopIterations(),
+            activateSpeedControls: pageProxy.shouldHaveSpeedControls(),
             isMultipleVideoContent: pageProxy.isMultiVideoContent(),
             breadcrumb: this.getMenuBreadcrumb(pageId),
             previousPage: previousPage,
@@ -104,6 +107,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
                 autoLoop: pageProxy.isAutoloop(),
                 loopIterations: pageProxy.getNumberOfLoopIterations(),
                 isMultipleVideoContent: pageProxy.isMultiVideoContent(),
+                activateSpeedControls: pageProxy.shouldHaveSpeedControls(),
                 breadcrumb: this.getMenuBreadcrumb(pageId),
                 previousPage: previousPage,
                 nextPage: nextPage,
@@ -126,7 +130,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
         const controlBarProps: ControlBarProps = {
             lang: lang,
             playbackRate: this.state.playbackRate,
-            enableSpeedControl: this.state.isSilent || isMultipleVideoContent,
+            enableSpeedControl: this.state.activateSpeedControls,
             mediaIsSilent: this.state.isSilent,
             disableButtonSpaceClick: true,
             enableNextControl: this.state.nextPage !== undefined,

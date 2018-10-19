@@ -105,6 +105,10 @@ export default class PageProxy extends AbstractBaseProxy {
         return this.data.loop_number;
     }
 
+    shouldHaveSpeedControls(): boolean {
+        return this.data.speed_control === true || this.isSilent() || this.isMultiVideoContent();
+    }
+
     getFirstVideo(lang?: string): VideoProxy | undefined {
         const firstVideo = this.getHelper().getLocalizedValue<string>(this.videos[0].lang_video_id, lang)!;
 

@@ -11,7 +11,7 @@ export interface IJsonPage {
     loop?: boolean;
     // number of loop iterations
     loop_number?: number;
-    speed_control?: number;
+    speed_control?: boolean;
 }
 
 export interface IJsonPageLocalizedText extends ITranslatedValue<string> {
