@@ -7,8 +7,11 @@ export interface IJsonPage {
     keywords: IJsonPageLocalizedKeywords;
     content: IJsonPageContent;
     sort_idx: number;
+    // Loop forever
     loop?: boolean;
+    // number of loop iterations
     loop_number?: number;
+    speed_control?: number;
 }
 
 export interface IJsonPageLocalizedText extends ITranslatedValue<string> {
