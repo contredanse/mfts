@@ -998,6 +998,8 @@
             "en": ["forms", "puzzles", "puzzle"],
             "fr": ["formes", "puzzles", "puzzle"]
         },
+        "loop_number": 3,
+        "speed_control": true,
         "content": {
             "layout": "single-video",
             "videos": [
