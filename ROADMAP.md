@@ -69,24 +69,27 @@
     - [x] BOX avec onhover et petite main
     - [x] Video background (2tubes)
     - [x] Remove speed behaviour onMouseOver
-     
   - [ ] Menu
     - [ ] When displayed, only hamburger/helix
     - [ ] Home/About/Content/Credits/Biography/(Login/Logout)/Language/Link contredanse
   - [x] Introduction page
     - [x] Skip intro -> go to navigation (helix ?)
-  - [ ] Player       
-    - [ ] Overlay:
-      - [ ] Strategy choice
-      - [ ] Margin-bottom ahuteur de la controlbar. (verif audio) 
+  - [ ] Page
+    - [x] For single page, make a margin-bottom of 60px of the video
+    - [x] Data
+      - [x] Create an attribute to tell loop in `data-pages.json`
+  - [ ] PageList
+      - [ ] Move the search to the top :)    
+  - [x] Player       
+    - [x] Overlay:
+      - [ ] Strategy choice (next / reload / timeout ?)
+      - [x] Margin-bottom ahuteur de la controlbar. (verif audio) 
     - [ ]  
     - [x] Playback speed (only when possible)
-    - [x] Looping
-      - [ ] Create an attribute in `data-pages/.json`
-      - [ ] 
     - [ ] Controlbar
       - [ ] Icons: loop + yes bouton loop
       - [ ] Indicated icon titles
+      - [ ] Visually indicate that it's looping
       - [ ] Previous gauche... (affiche en grisé)         
       - [ ] 2 svg ... icônes différentes pour sous-titre (on/off)
          

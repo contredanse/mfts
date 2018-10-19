@@ -27,6 +27,7 @@ export type PageProps = {
 
 export type PageState = {
     isSilent: boolean;
+    isLooped: boolean;
     isMultipleVideoContent: boolean;
     played: boolean;
     currentTime: number;
@@ -39,6 +40,7 @@ export type PageState = {
 
 const defaultPageState: PageState = {
     isSilent: false,
+    isLooped: false,
     isMultipleVideoContent: false,
     played: false,
     currentTime: 0,
@@ -68,6 +70,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
         this.state = {
             ...defaultPageState,
             isSilent: props.pageProxy.isSilent(),
+            isLooped: props.pageProxy.shouldBeLooped(),
             isMultipleVideoContent: props.pageProxy.isMultiVideoContent(),
             breadcrumb: this.getMenuBreadcrumb(pageId),
             previousPage: previousPage,
@@ -92,6 +95,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
                 isPlaying: true,
                 played: false,
                 isSilent: pageProxy.isSilent(),
+                isLooped: pageProxy.shouldBeLooped(),
                 isMultipleVideoContent: pageProxy.isMultiVideoContent(),
                 breadcrumb: this.getMenuBreadcrumb(pageId),
                 previousPage: previousPage,
@@ -108,7 +112,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
         const defaultSubtitleLang = lang;
         const subtitleVisibility = this.getSubtitleVisibility();
 
-        const { isMultipleVideoContent, played, isSilent } = this.state;
+        const { isMultipleVideoContent, played, isLooped } = this.state;
 
         const audioProxy = page.getAudioProxy();
 
@@ -182,6 +186,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
                                         ref={this.mainPlayerRef}
                                         style={{ width: '100%', height: '100%' }}
                                         crossOrigin={'anonymous'}
+                                        loop={isLooped}
                                         defaultSubtitleLang={defaultSubtitleLang}
                                         subtitleVisibility={subtitleVisibility}
                                         // To prevent blinking
@@ -272,7 +277,8 @@ class Page extends React.PureComponent<PageProps, PageState> {
         if (this.props.onPagePlayed) {
             this.props.onPagePlayed();
         } else {
-            if (this.state.isSilent) {
+            const { isSilent, isLooped } = this.state;
+            if (isSilent || isLooped) {
                 // make a loop
                 const player = this.getMainVideoPlayer();
                 if (player) {
