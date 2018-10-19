@@ -98,7 +98,7 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
             this.registerVideoListeners(this.videoRef.current);
             // Set default playback props
             this.setPlaybackRate(this.props.playbackRate);
-            //this.initAutoPlay();
+
             console.log('COMPONENTDIDMOUNT setting new state');
             if (!this.state.refLoaded) {
                 this.setState({
@@ -224,7 +224,7 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
             srcs,
             tracks,
             playbackRate,
-            // autoPlay,
+            autoPlay,
             playing,
             controlBarProps,
             // DEREFERENCE those actions
@@ -250,6 +250,7 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
                     onPlay={this.handleOnPlay}
                     onRateChange={this.handleOnRateChange}
                     onError={this.handleOnError}
+                    autoPlay={autoPlay}
                     {...mediaProps}
                     {...(this.props.playsInline ? { 'webkit-playsinline': 'webkit-playsinline' } : {})}
                     // {...(playing || autoPlay) ? { autoPlay: true } : {}}
@@ -298,6 +299,7 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
         if (this.props.onDebug) {
             this.props.onDebug('handleCanPlay');
         }
+        this.initAutoPlay();
 
         if (this.props.onCanPlay) {
             this.props.onCanPlay(e);
@@ -368,8 +370,6 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
             this.props.onDebug('handleHandleMetadata');
         }
 
-        this.initAutoPlay();
-
         const video = e.currentTarget;
 
         // As a workaround for Firefox, let's remove old tracks
@@ -387,6 +387,7 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
     private initAutoPlay() {
         if (this.props.autoPlay || this.props.playing) {
             if (!this.inAutoPlayInit) {
+                console.log('AUTIPLAY::INIT');
                 this.inAutoPlayInit = true;
                 this.play(
                     () => {
@@ -397,6 +398,8 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
                         console.warn('VideoPlayer: Cannot initAutoplay video:' + errorMsg);
                     }
                 );
+            } else {
+                console.log('AUTIPLAY::CANNTO');
             }
         }
     }

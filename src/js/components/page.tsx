@@ -27,8 +27,10 @@ export type PageProps = {
 
 export type PageState = {
     isSilent: boolean;
-    isLooped: boolean;
+    autoLoop: boolean;
+    loopIterations?: number;
     isMultipleVideoContent: boolean;
+    currentLoopIteration: number;
     played: boolean;
     currentTime: number;
     isPlaying: boolean;
@@ -40,7 +42,9 @@ export type PageState = {
 
 const defaultPageState: PageState = {
     isSilent: false,
-    isLooped: false,
+    autoLoop: false,
+    loopIterations: undefined,
+    currentLoopIteration: 1,
     isMultipleVideoContent: false,
     played: false,
     currentTime: 0,
@@ -66,12 +70,14 @@ class Page extends React.PureComponent<PageProps, PageState> {
         this.trackVisibilityHelper = new TrackVisibilityHelper();
 
         const pageId = this.props.pageProxy.pageId;
+        const { pageProxy } = this.props;
         const { previousPage, nextPage } = this.getPrevAndNextPageEntities(pageId);
         this.state = {
             ...defaultPageState,
-            isSilent: props.pageProxy.isSilent(),
-            isLooped: props.pageProxy.shouldBeLooped(),
-            isMultipleVideoContent: props.pageProxy.isMultiVideoContent(),
+            isSilent: pageProxy.isSilent(),
+            autoLoop: pageProxy.isAutoloop(),
+            loopIterations: pageProxy.getNumberOfLoopIterations(),
+            isMultipleVideoContent: pageProxy.isMultiVideoContent(),
             breadcrumb: this.getMenuBreadcrumb(pageId),
             previousPage: previousPage,
             nextPage: nextPage,
@@ -95,7 +101,8 @@ class Page extends React.PureComponent<PageProps, PageState> {
                 isPlaying: true,
                 played: false,
                 isSilent: pageProxy.isSilent(),
-                isLooped: pageProxy.shouldBeLooped(),
+                autoLoop: pageProxy.isAutoloop(),
+                loopIterations: pageProxy.getNumberOfLoopIterations(),
                 isMultipleVideoContent: pageProxy.isMultiVideoContent(),
                 breadcrumb: this.getMenuBreadcrumb(pageId),
                 previousPage: previousPage,
@@ -112,7 +119,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
         const defaultSubtitleLang = lang;
         const subtitleVisibility = this.getSubtitleVisibility();
 
-        const { isMultipleVideoContent, played, isLooped } = this.state;
+        const { isMultipleVideoContent, played, autoLoop } = this.state;
 
         const audioProxy = page.getAudioProxy();
 
@@ -136,6 +143,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
                 <EventListener target="window" onKeyPress={this.handleGlobalKeyPress} />
                 <div className="page-header">
                     <PageBreadcrumb title={pageTitle} sections={this.state.breadcrumb} lang={lang} />
+                    {this.state.currentLoopIteration} /{this.state.loopIterations}
                 </div>
                 <div className="page-content">
                     {played &&
@@ -186,7 +194,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
                                         ref={this.mainPlayerRef}
                                         style={{ width: '100%', height: '100%' }}
                                         crossOrigin={'anonymous'}
-                                        loop={isLooped}
+                                        loop={autoLoop}
                                         defaultSubtitleLang={defaultSubtitleLang}
                                         subtitleVisibility={subtitleVisibility}
                                         // To prevent blinking
@@ -249,6 +257,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
             }
             const newState = {
                 ...prevState,
+                currentLoopIteration: 1,
                 played: false,
             };
             return newState;
@@ -277,8 +286,22 @@ class Page extends React.PureComponent<PageProps, PageState> {
         if (this.props.onPagePlayed) {
             this.props.onPagePlayed();
         } else {
-            const { isSilent, isLooped } = this.state;
-            if (isSilent || isLooped) {
+            const { isSilent, autoLoop, loopIterations, currentLoopIteration } = this.state;
+            if (loopIterations) {
+                if (currentLoopIteration >= loopIterations) {
+                    this.setState({
+                        played: true,
+                    });
+                } else {
+                    const player = this.getMainVideoPlayer();
+                    if (player) {
+                        player.replay();
+                    }
+                    this.setState(prevState => ({
+                        currentLoopIteration: prevState.currentLoopIteration + 1,
+                    }));
+                }
+            } else if (isSilent || autoLoop) {
                 // make a loop
                 const player = this.getMainVideoPlayer();
                 if (player) {

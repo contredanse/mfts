@@ -97,11 +97,11 @@ export default class PageProxy extends AbstractBaseProxy {
         return undefined;
     }
 
-    shouldBeLooped(): boolean {
-        return this.data.loop === true;
+    isAutoloop(): boolean {
+        return this.data.loop === true && !this.data.loop_number;
     }
 
-    getLoopNumber(): number | undefined {
+    getNumberOfLoopIterations(): number | undefined {
         return this.data.loop_number;
     }
 
