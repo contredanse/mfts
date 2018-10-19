@@ -81,6 +81,7 @@
             "en": ["sensation", "senses", "gravity", "water"],
             "fr": ["sensation", "sens", "pesanteur", "dans", "l'eau"]
         },
+        "loop": true,
         "content": {
             "layout": "single-video",
             "videos": [

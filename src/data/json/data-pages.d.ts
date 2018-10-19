@@ -7,6 +7,7 @@ export interface IJsonPage {
     keywords: IJsonPageLocalizedKeywords;
     content: IJsonPageContent;
     sort_idx: number;
+    loop?: boolean;
 }
 
 export interface IJsonPageLocalizedText extends ITranslatedValue<string> {
