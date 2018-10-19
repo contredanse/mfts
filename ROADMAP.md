@@ -51,9 +51,6 @@
   - [ ] Backend ? (symfony/zend-expressive ?)
     - [ ] Contredanse_v4 support
 
-- [x] Credits
-- [ ] Biography
-- [ ] Biblio
   
 - [x] Meta manager (title)
   - [x] Home made document meta component  
@@ -68,34 +65,35 @@
       - [x] New attribute: `loop_number` to control number of iterations
       - [x] New attribute: `speed_control` to display video speed control
   - [x] **Homepage/Landing page**
-    - [x] Language selection (position up right corner) 
-    - [x] BOX avec onhover et petite main
-    - [x] Video background (2tubes)
-    - [x] Remove speed behaviour onMouseOver
+    - [x] Design: Broaden click to entire text block -> goto intro  
+    - [x] Design: language to right upper corner  
+    - [x] Design: Video background (2tubes)
+    - [x] Feature: Remove speed behaviour onMouseOver
   - [x] **Introduction page**
     - [ ] Skip intro -> go to navigation (helix or page list / quid mobile ?)    
   - [ ] **Navigation Appbar**
-    - [ ] Page breadcrumb should be in the top area.
-    - [ ] Keep only hamburger menu and helix icons
-    - [ ] Side navigation opens submenu (contredanse provides markdown)    
+    - [ ] Design: Page breadcrumb should be in the top area.
+    - [ ] Design: Keep only hamburger menu and helix icons
+    - [ ] Feature: Side navigation opens submenu (contredanse provides markdown)    
        - [ ] Home
        - [ ] About 
        - [ ] Content
        - [ ] Credits 
        - [ ] Biography
        - [ ] (Login/Logout)
-       - [ ] Language and Link contredanse        
+       - [ ] Language and Link contredanse 
+       - [ ] Copyright       
   - [ ] **Page**
-    - [x] For single page, make a margin-bottom of 60px of the video
+    - [x] Design: margin-bottom to prevent video to overlap with controls
   - [ ] **PageList**
-      - [ ] Move the search to the top    
+      - [ ] Design: Move the search to the top (new appbar)    
   - [x] **Player**       
     - [x] Overlay:
       - [ ] Strategy choice (next / reload / timeout ?)       
     - [ ] Controlbar
       - [x] Playback speed control 
         - [x] If video is muted or explicit definition `speed_control` in data.
-      - [ ] Translated tooltips for buttons (play, pause, show subtitles...)              
+      - [x] Translated tooltips for buttons (play, pause, show subtitles...)              
       - [ ] SVG icons:
         - [ ] <u>Contredanse</u>
           - [ ] play/pause maybe ? 
@@ -107,4 +105,8 @@
   - [x] **Static pages**
     - [ ] Markdown for pages
       - [ ] Bibliography
+      - [ ] Copyright
+      - [x] Credits
+      - [ ] Biography
+      - [ ] Biblio
                
