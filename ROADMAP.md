@@ -33,6 +33,7 @@
   - [ ] Organize by section
   - [x] Accept menuId filter
   - [x] Filter by menuId
+  - [ ] Filter by sections
 
 - [X] Menu
   - [X] Menu with links to helix, search, about, login...
