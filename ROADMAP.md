@@ -26,7 +26,8 @@
   - [x] Playback next/previous video 
   - [ ] Control play/pause with space
   - [ ] Multi video player
-        - [] Video zoom
+        - [ ] Video zoom 
+        - [ ] NiceToHave (play - image par image)
 
 - [ ] Page list:
   - [ ] Organize by section
