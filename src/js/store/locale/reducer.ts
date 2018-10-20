@@ -10,7 +10,7 @@ appLang.persistLanguageInStorage(initialLang);
 
 // Type-safe initialState!
 const initialState: LangState = {
-    lang: initialLang,
+    langCode: initialLang,
 };
 
 // Thanks to Redux 4's much simpler typings, we can take away a lot of typings on the reducer side,
@@ -20,7 +20,7 @@ const reducer: Reducer<LangState> = (state = initialState, action): LangState =>
         case LangActionTypes.SET_UI_LANG: {
             // In case of language change let's persist the choice
             appLang.persistLanguageInStorage(action.payload);
-            return { ...state, lang: action.payload };
+            return { ...state, langCode: action.payload };
         }
         default: {
             return state;
@@ -30,4 +30,4 @@ const reducer: Reducer<LangState> = (state = initialState, action): LangState =>
 
 // Instead of using default export, we use named exports. That way we can group these exports
 // inside the `index.js` folder.
-export { reducer as langReducer };
+export { reducer as uiLangReducer };

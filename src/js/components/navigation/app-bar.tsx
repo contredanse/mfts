@@ -27,6 +27,8 @@ import {
 import ConnectedLangSelector from '@src/components/lang-selector';
 
 import helixSvg from '@assets/svg/helix-contredanse.svg';
+import ConnectedNavProvider from '@src/components/navigation/nav-provider';
+import PageBreadcrumb from '@src/components/page-breadcrumb';
 
 type MenuLinkProps = {
     path: string;
@@ -88,9 +90,13 @@ export const AppBarComponent: React.SFC<AppBarWithStylesProps & AppBarWithRouter
                         {/* <DnaIcon size={18} /> */}
                     </IconButton>
 
-                    <Typography variant="h6" color="inherit" className={classes.flex}>
-                        {props.title}
-                    </Typography>
+                    <ConnectedNavProvider>
+                        {({ navBreadcrumb }) => (
+                            <Typography variant="h6" color="inherit" className={classes.flex}>
+                                {props.title}
+                            </Typography>
+                        )}
+                    </ConnectedNavProvider>
 
                     <IconButton
                         className={classes.menuButton}

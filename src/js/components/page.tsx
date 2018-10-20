@@ -25,21 +25,24 @@ export type PageProps = {
     onPagePlayed?: () => void;
 } & InjectedI18nProps;
 
-export type PageState = {
+type PageStateFromPageProxy = {
     isSilent: boolean;
     autoLoop: boolean;
     loopIterations?: number;
     activateSpeedControls: boolean;
     isMultipleVideoContent: boolean;
+    breadcrumb: MenuSectionProps[];
+    previousPage?: PageProxy;
+    nextPage?: PageProxy;
+};
+
+export type PageState = {
     currentLoopIteration: number;
     played: boolean;
     currentTime: number;
     isPlaying: boolean;
     playbackRate: number;
-    breadcrumb: MenuSectionProps[];
-    previousPage?: PageProxy;
-    nextPage?: PageProxy;
-};
+} & PageStateFromPageProxy;
 
 const defaultPageState: PageState = {
     isSilent: false,
@@ -73,17 +76,9 @@ class Page extends React.PureComponent<PageProps, PageState> {
 
         const pageId = this.props.pageProxy.pageId;
         const { pageProxy } = this.props;
-        const { previousPage, nextPage } = this.getPrevAndNextPageEntities(pageId);
         this.state = {
             ...defaultPageState,
-            isSilent: pageProxy.isSilent(),
-            autoLoop: pageProxy.isAutoloop(),
-            loopIterations: pageProxy.getNumberOfLoopIterations(),
-            activateSpeedControls: pageProxy.shouldHaveSpeedControls(),
-            isMultipleVideoContent: pageProxy.isMultiVideoContent(),
-            breadcrumb: this.getMenuBreadcrumb(pageId),
-            previousPage: previousPage,
-            nextPage: nextPage,
+            ...this.createStateFromPageData(pageProxy),
         };
     }
 
@@ -96,23 +91,27 @@ class Page extends React.PureComponent<PageProps, PageState> {
     componentDidUpdate(prevProps: PageProps, nextState: PageState): void {
         if (this.props.pageProxy.pageId !== prevProps.pageProxy.pageId) {
             const { pageProxy } = this.props;
-            const hasSingleVideoPlayer = pageProxy.isSingleVideoContent();
-            const hasAudioPlayer = !hasSingleVideoPlayer && pageProxy.hasAudio();
-            const pageId = this.props.pageProxy.pageId;
-            const { previousPage, nextPage } = this.getPrevAndNextPageEntities(pageId);
             this.setState({
+                ...this.createStateFromPageData(pageProxy),
                 isPlaying: true,
                 played: false,
-                isSilent: pageProxy.isSilent(),
-                autoLoop: pageProxy.isAutoloop(),
-                loopIterations: pageProxy.getNumberOfLoopIterations(),
-                isMultipleVideoContent: pageProxy.isMultiVideoContent(),
-                activateSpeedControls: pageProxy.shouldHaveSpeedControls(),
-                breadcrumb: this.getMenuBreadcrumb(pageId),
-                previousPage: previousPage,
-                nextPage: nextPage,
             });
         }
+    }
+
+    createStateFromPageData(pageProxy: PageProxy): PageStateFromPageProxy {
+        const { pageId } = pageProxy;
+        const { previousPage, nextPage } = this.getPrevAndNextPageEntities(pageId);
+        return {
+            isSilent: pageProxy.isSilent(),
+            autoLoop: pageProxy.isAutoloop(),
+            loopIterations: pageProxy.getNumberOfLoopIterations(),
+            isMultipleVideoContent: pageProxy.isMultiVideoContent(),
+            activateSpeedControls: pageProxy.shouldHaveSpeedControls(),
+            breadcrumb: this.getMenuBreadcrumb(pageId),
+            previousPage: previousPage,
+            nextPage: nextPage,
+        };
     }
 
     render() {

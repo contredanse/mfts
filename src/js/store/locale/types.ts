@@ -1,4 +1,4 @@
-export type UILangCodes = string;
+export type UILangCode = string;
 
 // Use const enums for better autocompletion of action type names. These will
 // be compiled away leaving only the final value in your compiled code.
@@ -11,5 +11,5 @@ export const enum LangActionTypes {
 }
 
 export interface LangState {
-    readonly lang: UILangCodes;
+    readonly langCode: UILangCode;
 }

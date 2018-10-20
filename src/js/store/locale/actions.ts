@@ -1,6 +1,6 @@
 import { action } from 'typesafe-actions';
 
-import { LangActionTypes, UILangCodes } from './types';
+import { LangActionTypes, UILangCode } from './types';
 
 // Here we use the `action` helper function provided by `typesafe-actions`.
 // This library provides really useful helpers for writing Redux actions in a type-safe manner.
@@ -8,4 +8,4 @@ import { LangActionTypes, UILangCodes } from './types';
 //
 // Remember, you can also pass parameters into an action creator. Make sure to
 // type them properly as well.
-export const setLang = (lang: UILangCodes) => action(LangActionTypes.SET_UI_LANG, lang);
+export const setLang = (langCode: UILangCode) => action(LangActionTypes.SET_UI_LANG, langCode);

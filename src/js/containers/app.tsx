@@ -112,7 +112,7 @@ class App extends React.Component<AppProps, {}> {
 
         return (
             <WithStore selector={state => state.lang}>
-                {({ lang }: LangState, dispatch) => {
+                {({ langCode: lang }: LangState, dispatch) => {
                     //const title = i18n.t('appbar.title', { lng: lang });
                     const title = '';
                     return (

@@ -30,8 +30,8 @@ class HomeContainer extends React.Component<HomeContainerProps, HomeContainerSta
     }
 }
 
-const mapStateToProps = ({ lang: lg }: ApplicationState) => ({
-    lang: lg.lang,
+const mapStateToProps = ({ lang }: ApplicationState) => ({
+    lang: lang.langCode,
 });
 
 export default withRouter(connect(mapStateToProps)(HomeContainer));
