@@ -94,7 +94,7 @@ export const AppBarComponent: React.SFC<AppBarWithStylesProps & AppBarWithRouter
                         {({ navBreadcrumb }) => (
                             <Typography variant="h6" color="inherit" className={classes.flex}>
                                 {props.title}
-                                {navBreadcrumb ? <div>{navBreadcrumb.title}</div> : 'PASCOOOL'}
+                                {navBreadcrumb && <div>{navBreadcrumb.title}</div>}
                             </Typography>
                         )}
                     </ConnectedNavProvider>

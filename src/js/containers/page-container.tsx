@@ -8,19 +8,25 @@ import PageRepository from '@src/models/repository/page-repository';
 import MenuRepository from '@src/models/repository/menu-repository';
 import { RouteComponentProps, withRouter } from 'react-router';
 import DocumentMeta from '@src/shared/document-meta';
+import { ApplicationState } from '@src/store';
+import { Dispatch } from 'redux';
+import { NavBreadcrumbProps } from '@src/store/nav';
+import * as navActions from '@src/store/nav/actions';
+import { connect } from 'react-redux';
 
 type PageContainerProps = {
     pageId: string;
     lang: DataSupportedLangType;
     pageRepository: PageRepository;
     menuRepository: MenuRepository;
+    setPageBreadcrumb?: (breadcrumb?: NavBreadcrumbProps) => void;
 } & RouteComponentProps<any>;
 
 type PageContainerState = {
     pageProxy: PageProxy | undefined;
 };
 
-class PageContainer extends React.Component<PageContainerProps, PageContainerState> {
+class PageContainer extends React.PureComponent<PageContainerProps, PageContainerState> {
     readonly state: PageContainerState = {
         pageProxy: undefined,
     };
@@ -30,11 +36,14 @@ class PageContainer extends React.Component<PageContainerProps, PageContainerSta
         this.state = this.getStateFromPageId(props.pageId);
     }
 
-    componentDidMount() {}
+    componentDidMount() {
+        this.setNavigationBreadcrumb();
+    }
 
     componentDidUpdate(prevProps: PageContainerProps, prevState: PageContainerState) {
         if (this.props.pageId !== prevProps.pageId) {
             this.setState(this.getStateFromPageId(this.props.pageId));
+            this.setNavigationBreadcrumb();
         }
     }
 
@@ -67,6 +76,19 @@ class PageContainer extends React.Component<PageContainerProps, PageContainerSta
         }
     }
 
+    private setNavigationBreadcrumb(): void {
+        const { setPageBreadcrumb, lang } = this.props;
+        if (setPageBreadcrumb) {
+            const { pageProxy } = this.state;
+            const bc = pageProxy
+                ? {
+                      title: pageProxy.getTitle(lang),
+                  }
+                : undefined;
+            setPageBreadcrumb(bc);
+        }
+    }
+
     private getStateFromPageId(pageId: string): Pick<PageContainerState, 'pageProxy'> {
         const pageProxy = this.props.pageRepository.getPageProxy(this.props.pageId);
         if (pageProxy) {
@@ -92,4 +114,13 @@ class PageContainer extends React.Component<PageContainerProps, PageContainerSta
     };
 }
 
-export default withRouter(PageContainer);
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+    setPageBreadcrumb: (breadcrumb?: NavBreadcrumbProps) => dispatch(navActions.setPageBreadcrumb(breadcrumb)),
+});
+
+export default withRouter(
+    connect(
+        null,
+        mapDispatchToProps
+    )(PageContainer)
+);
