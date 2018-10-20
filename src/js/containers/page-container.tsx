@@ -17,39 +17,29 @@ type PageContainerProps = {
 } & RouteComponentProps<any>;
 
 type PageContainerState = {
-    pageExists: boolean | undefined;
     pageProxy: PageProxy | undefined;
 };
 
 class PageContainer extends React.Component<PageContainerProps, PageContainerState> {
     readonly state: PageContainerState = {
-        pageExists: undefined,
         pageProxy: undefined,
     };
 
     constructor(props: PageContainerProps) {
         super(props);
+        this.state = this.getStateFromPageId(props.pageId);
     }
 
-    componentDidMount() {
-        this.loadPageState(this.props.pageId);
-    }
+    componentDidMount() {}
 
     componentDidUpdate(prevProps: PageContainerProps, prevState: PageContainerState) {
         if (this.props.pageId !== prevProps.pageId) {
-            this.loadPageState(this.props.pageId);
+            this.setState(this.getStateFromPageId(this.props.pageId));
         }
     }
 
     render() {
-        const { pageExists, pageProxy } = this.state;
-
-        // should not be required, exit if async loading
-        // of pageData is not yet present (see componentDidMount())
-        if (pageExists === undefined) {
-            return null;
-        }
-
+        const { pageProxy } = this.state;
         const { lang } = this.props;
 
         if (pageProxy) {
@@ -75,6 +65,19 @@ class PageContainer extends React.Component<PageContainerProps, PageContainerSta
         }
     }
 
+    private getStateFromPageId(pageId: string): Pick<PageContainerState, 'pageProxy'> {
+        const pageProxy = this.props.pageRepository.getPageProxy(this.props.pageId);
+        if (pageProxy) {
+            return {
+                pageProxy: pageProxy,
+            };
+        } else {
+            return {
+                pageProxy: undefined,
+            };
+        }
+    }
+
     private navigateToRouteSpec = (routeSpec: string): void => {
         const { lang, history } = this.props;
         const newRoute = routeSpec.replace('{lang}', lang);
@@ -85,34 +88,6 @@ class PageContainer extends React.Component<PageContainerProps, PageContainerSta
         const { lang, history } = this.props;
         history.push(`/${lang}/page/${pageId}`);
     };
-
-    /**
-     * @todo find a better way
-     */
-    private loadPageState(pageId: string) {
-        try {
-            const pageProxy = this.props.pageRepository.getPageProxy(this.props.pageId);
-            this.setState(
-                (prevState: PageContainerState): PageContainerState => {
-                    return {
-                        ...prevState,
-                        pageExists: true,
-                        pageProxy: pageProxy,
-                    };
-                }
-            );
-        } catch (e) {
-            this.setState(
-                (prevState: PageContainerState): PageContainerState => {
-                    return {
-                        ...prevState,
-                        pageExists: false,
-                        pageProxy: undefined,
-                    };
-                }
-            );
-        }
-    }
 }
 
 export default withRouter(PageContainer);
