@@ -9,7 +9,7 @@
                     "browsers": [
                         "chrome >= 60",
                         "firefox >= 56",
-                        "safari >= 10.1",
+                        "safari >= 10",
                         "edge >= 15"
                         //"ie >= 11",
                     ]
