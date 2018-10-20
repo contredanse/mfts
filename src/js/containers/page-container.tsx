@@ -37,13 +37,16 @@ class PageContainer extends React.PureComponent<PageContainerProps, PageContaine
     }
 
     componentDidMount() {
-        this.setNavigationBreadcrumb();
+        this.setNavigationBreadcrumb(this.state.pageProxy);
     }
 
     componentDidUpdate(prevProps: PageContainerProps, prevState: PageContainerState) {
         if (this.props.pageId !== prevProps.pageId) {
-            this.setState(this.getStateFromPageId(this.props.pageId));
-            this.setNavigationBreadcrumb();
+            this.setState(() => {
+                const newState = this.getStateFromPageId(this.props.pageId);
+                this.setNavigationBreadcrumb(newState.pageProxy);
+                return newState;
+            });
         }
     }
 
@@ -76,10 +79,9 @@ class PageContainer extends React.PureComponent<PageContainerProps, PageContaine
         }
     }
 
-    private setNavigationBreadcrumb(): void {
+    private setNavigationBreadcrumb(pageProxy?: PageProxy): void {
         const { setPageBreadcrumb, lang } = this.props;
         if (setPageBreadcrumb) {
-            const { pageProxy } = this.state;
             const bc = pageProxy
                 ? {
                       title: pageProxy.getTitle(lang),
