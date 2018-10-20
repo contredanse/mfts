@@ -2,10 +2,12 @@ import { combineReducers, Dispatch, Action, AnyAction } from 'redux';
 //import { all, fork } from 'redux-saga/effects'
 
 import { langReducer, LangState } from './locale';
+import { navReducer, NavState } from './nav';
 
 // The top-level state object
 export interface ApplicationState {
     lang: LangState;
+    nav: NavState;
 }
 
 // Additional props for connected React components. This prop is passed by default with `connect()`
@@ -18,6 +20,7 @@ export interface ConnectedReduxProps<A extends Action = AnyAction> {
 // the reducer acts on the corresponding ApplicationState property type.
 export const rootReducer = combineReducers<ApplicationState>({
     lang: langReducer,
+    nav: navReducer,
 });
 
 // Here we use `redux-saga` to trigger actions asynchronously. `redux-saga` uses something called a

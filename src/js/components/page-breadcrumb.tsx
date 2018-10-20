@@ -3,7 +3,7 @@ import './page-breadcrumb.scss';
 import { MenuSectionProps } from '@src/models/repository/menu-repository';
 import { RouteComponentProps, withRouter } from 'react-router';
 
-type PageBreadcrumbProps = {
+export type PageBreadcrumbProps = {
     lang: string;
     title: string;
     sections?: MenuSectionProps[];
