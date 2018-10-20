@@ -5,7 +5,7 @@ import { DataSupportedLangType } from '@src/models/repository/data-repository';
 import PageProxy from '@src/models/proxy/page-proxy';
 import { PageOverlay } from '@src/components/layout/page-overlay';
 import PageRepository from '@src/models/repository/page-repository';
-import MenuRepository, { MenuSectionProps, PrevAndNextPageEntities } from '@src/models/repository/menu-repository';
+import MenuRepository from '@src/models/repository/menu-repository';
 import { RouteComponentProps, withRouter } from 'react-router';
 import DocumentMeta from '@src/shared/document-meta';
 
