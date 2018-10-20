@@ -1,6 +1,8 @@
-import { PageBreadcrumbProps } from '@src/components/page-breadcrumb';
+//import { PageBreadcrumbProps } from '@src/components/page-breadcrumb';
 
-export type NavBreadcrumbProps = {} & PageBreadcrumbProps;
+export type NavBreadcrumbProps = {
+    title: string;
+};
 
 // Use const enums for better autocompletion of action type names. These will
 // be compiled away leaving only the final value in your compiled code.

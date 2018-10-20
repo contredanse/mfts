@@ -4,6 +4,7 @@ import { Dispatch } from 'redux';
 import * as navActions from '@src/store/nav/actions';
 import { RouteComponentProps, withRouter } from 'react-router';
 import { NavBreadcrumbProps, NavState } from '@src/store/nav';
+import { ApplicationState } from '@src/store';
 
 // Props passed from mapStateToProps
 type PropsFromReduxState = {
@@ -41,9 +42,11 @@ export class NavProvider extends React.Component<NavProviderProps> {
         });
     }
 }
-const mapStateToProps = ({ navBreadcrumb }: NavState) => ({
-    navBreadcrumb,
-});
+const mapStateToProps = ({ nav: navState }: ApplicationState) => {
+    return {
+        navBreadcrumb: navState.navBreadcrumb,
+    };
+};
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
     setPageBreadcrumb: (breadcrumb?: NavBreadcrumbProps) => dispatch(navActions.setPageBreadcrumb(breadcrumb)),

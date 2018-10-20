@@ -73,8 +73,8 @@ class LangSelector extends React.Component<LangSelectorProps> {
     }
 }
 
-const mapStateToProps = ({ lang }: ApplicationState) => ({
-    lang: lang.langCode,
+const mapStateToProps = ({ lang: langState }: ApplicationState) => ({
+    lang: langState.langCode,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
