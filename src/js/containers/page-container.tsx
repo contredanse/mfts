@@ -44,16 +44,18 @@ class PageContainer extends React.Component<PageContainerProps, PageContainerSta
 
         if (pageProxy) {
             const documentTitle = `MFS >> ${pageProxy.getTitle(lang)}`;
-
             return (
                 <PageOverlay closeButton={false}>
                     <div className="page-wrapper">
                         <DocumentMeta title={documentTitle} />
                         <Page
+                            // Note the key here... Yes it's forcing the
+                            // update of the entire page. Got too much issues
+                            // with videoPlayer. To be safe: force update
                             key={pageProxy.pageId}
+                            lang={lang}
                             pageProxy={pageProxy}
                             menuRepository={this.props.menuRepository}
-                            lang={lang}
                             onPageChangeRequest={this.navigateToPage}
                             onNewRouteRequest={this.navigateToRouteSpec}
                         />

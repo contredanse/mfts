@@ -1,6 +1,7 @@
 import React from 'react';
+import { RouteComponentProps, withRouter } from 'react-router';
 
-type NotFoundContainerProps = {};
+type NotFoundContainerProps = {} & RouteComponentProps<any>;
 type NotFoundContainerState = {};
 
 export const NotFoundComponent: React.SFC<{}> = props => {
@@ -21,4 +22,4 @@ class NotFoundContainer extends React.Component<NotFoundContainerProps, NotFound
     }
 }
 
-export default NotFoundContainer;
+export default withRouter(NotFoundContainer);
