@@ -8,7 +8,6 @@ import PageRepository from '@src/models/repository/page-repository';
 import MenuRepository from '@src/models/repository/menu-repository';
 import { RouteComponentProps, withRouter } from 'react-router';
 import DocumentMeta from '@src/utils/document-meta';
-import { ApplicationState } from '@src/store';
 import { Dispatch } from 'redux';
 import { NavBreadcrumbProps } from '@src/store/nav';
 import * as navActions from '@src/store/nav/actions';

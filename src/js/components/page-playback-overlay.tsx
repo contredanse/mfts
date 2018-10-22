@@ -1,4 +1,4 @@
-import React, { SyntheticEvent } from 'react';
+import React from 'react';
 import PageProxy from '@src/models/proxy/page-proxy';
 
 import './page-playback-overlay.scss';

@@ -1,9 +1,9 @@
-import React, { CSSProperties } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import * as navActions from '@src/store/nav/actions';
 import { RouteComponentProps, withRouter } from 'react-router';
-import { NavBreadcrumbProps, NavState } from '@src/store/nav';
+import { NavBreadcrumbProps } from '@src/store/nav';
 import { ApplicationState } from '@src/store';
 
 // Props passed from mapStateToProps

@@ -3,7 +3,6 @@ import AudioProxy, { AudioProxyFactory } from '../proxy/audio-proxy';
 import { AbstractBaseProxy, IBaseProxyOptions } from './abstract-base-proxy';
 import { IJsonPage, IJsonPageAudio, IJsonPageVideo } from '../../../data/json/data-pages';
 import VideoRepository from '../repository/video-repository';
-import { IJsonVideo } from '@data/json/data-videos';
 
 export class PageProxyFactory {
     static createFromJson(data: IJsonPage, repository: VideoRepository, options: IPageEntityOptions): PageProxy {

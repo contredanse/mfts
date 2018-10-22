@@ -1,6 +1,6 @@
 import React from 'react';
 import './page-list.scss';
-import { IJsonPage, IJsonPageVideo } from '@data/json/data-pages';
+import { IJsonPage } from '@data/json/data-pages';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { IJsonVideo } from '@data/json/data-videos';
 import dataVideos from '@data/json/data-videos.json';

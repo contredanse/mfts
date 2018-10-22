@@ -9,7 +9,6 @@ import { RouteComponentProps } from 'react-router';
 import {
     AppBar as MaterialAppBar,
     Toolbar,
-    Typography,
     IconButton,
     withStyles,
     WithStyles,
@@ -27,7 +26,6 @@ import {
 import ConnectedLangSelector from '@src/components/lang-selector';
 
 import helixSvg from '@assets/svg/helix-contredanse.svg';
-import ConnectedNavProvider from '@src/components/navigation/nav-provider';
 
 type MenuLinkProps = {
     path: string;

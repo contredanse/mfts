@@ -7,7 +7,6 @@ import i18n from './fullscreen-button.i18n';
 
 import './fullscreen-button.scss';
 import { getFromDictionary } from '@src/i18n/basic-i18n';
-import { ControlBarDictionary } from '@src/components/player/controls/control-bar.i18n';
 
 // Props passed from mapStateToProps
 type PropsFromReduxState = {

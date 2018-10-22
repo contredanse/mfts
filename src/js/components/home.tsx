@@ -6,7 +6,7 @@ import AppAssetsLocator from '@src/core/app-assets-locator';
 import EventListener from 'react-event-listener';
 import FullsizeVideoBg from '@src/components/layout/fullsize-video-bg';
 import ConnectedLangSelector from '@src/components/lang-selector';
-import { BasicI18nDictionary, getFromDictionary } from '@src/i18n/basic-i18n';
+import { BasicI18nDictionary } from '@src/i18n/basic-i18n';
 
 type HomeProps = {
     assetsLocator: AppAssetsLocator;
