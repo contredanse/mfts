@@ -38,6 +38,10 @@ renderApp(App, appConfig, 'app');
 registerServiceWorker({
     onSuccess: registration => {},
     onUpdate: registration => {
-        console.log("A new version is available, let's refresh");
+        console.log('Lets show the pwa-version-notification');
+        const notification = document.getElementById('pwa-version-notification');
+        if (notification) {
+            notification.className = 'show';
+        }
     },
 });
