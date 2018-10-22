@@ -30,7 +30,7 @@
         &__left {
             flex: 1;
             justify-content: flex-start;
-            align-items: left;
+            align-items: flex-start;
             //border: 1px dashed red;
             display: flex;
         }
@@ -42,7 +42,7 @@
         &__right {
             flex: 1;
             justify-content: flex-end;
-            align-items: right;
+            align-items: flex-end;
             //border: 1px dashed blue;
             display: flex;
         }
