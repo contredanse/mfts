@@ -312,8 +312,16 @@ module.exports = merge(common, {
             removeAttributeQuotes: true,
             removeComments: true,
             minify: {
+                removeComments: true,
                 collapseWhitespace: true,
-                collapseInlineTagWhitespace: true,
+                removeRedundantAttributes: true,
+                useShortDoctype: true,
+                removeEmptyAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                keepClosingSlash: true,
+                minifyJS: true,
+                minifyCSS: true,
+                minifyURLs: true,
             },
         }),
 
@@ -399,7 +407,7 @@ module.exports = merge(common, {
 
             // Exclude few things and
             exclude: [/\.htaccess$/, /assets-manifest\.json$/, /\.(?:map|br|gz)$/],
-            navigateFallback: PUBLIC_URL + '/',
+            navigateFallback: PUBLIC_URL + '/index.html',
             navigateFallbackBlacklist: [
                 // Exclude URLs starting with /_, as they're likely an API call
                 new RegExp('^/_'),
