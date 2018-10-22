@@ -22,7 +22,7 @@ import { UiState } from '@src/store/ui';
 import AboutContainer from '@src/containers/about-container';
 import LoginContainer from '@src/containers/login-container';
 import DocumentMeta from '@src/utils/document-meta';
-import Fullscreen from 'react-full-screen';
+import FullScreen from '@src/utils/fullscreen';
 
 import * as uiActions from '@src/store/ui/actions';
 
@@ -131,8 +131,8 @@ class App extends React.Component<AppProps, AppState> {
                     return (
                         <I18nextProvider i18n={i18n}>
                             <ConnectedRouter history={history}>
-                                <Fullscreen
-                                    enabled={fullscreen}
+                                <FullScreen
+                                    isFullScreen={fullscreen}
                                     onChange={isFullscreen => dispatch(uiActions.setFullscreen(isFullscreen))}
                                 >
                                     <div className="window-container full-screenable-node">
@@ -168,7 +168,7 @@ class App extends React.Component<AppProps, AppState> {
                                             {fullscreen ? 'Exit fullscreen' : 'Go fullscreen'}
                                         </button>
                                     </div>
-                                </Fullscreen>
+                                </FullScreen>
                             </ConnectedRouter>
                         </I18nextProvider>
                     );
