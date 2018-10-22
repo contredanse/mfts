@@ -3,7 +3,11 @@ import { ApplicationState } from '@src/store';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import * as uiActions from '@src/store/ui/actions';
+import i18n from './fullscreen-button.i18n';
+
 import './fullscreen-button.scss';
+import { getFromDictionary } from '@src/i18n/basic-i18n';
+import { ControlBarDictionary } from '@src/components/player/controls/control-bar.i18n';
 
 // Props passed from mapStateToProps
 type PropsFromReduxState = {
@@ -40,13 +44,17 @@ export class FullscreenButton extends React.Component<FullscreenButtonProps> {
     };
 
     render() {
-        const { isFullscreen, className, style } = this.props;
+        const { isFullscreen, className, style, lang } = this.props;
         return (
             <button className={className} style={style} onClick={this.toggleFullScreen}>
-                {isFullscreen ? 'Exit fullscreen' : 'Go fullscreen'}
+                {isFullscreen ? this.tr('leave_fullscreen') : this.tr('enter_fullscreen')}
             </button>
         );
     }
+
+    protected tr = (text: string): string => {
+        return getFromDictionary(text, this.props.lang!, i18n);
+    };
 }
 
 const mapStateToProps = ({ ui }: ApplicationState) => ({

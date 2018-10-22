@@ -160,7 +160,7 @@ class App extends React.Component<AppProps, AppState> {
                                             </Switch>
                                         </main>
                                     </div>
-                                    <ConnectedFullscreenButton />
+                                    <ConnectedFullscreenButton lang={lang} />
                                 </FullScreen>
                             </ConnectedRouter>
                         </I18nextProvider>
