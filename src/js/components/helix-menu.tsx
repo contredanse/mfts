@@ -1,16 +1,26 @@
 import React, { CSSProperties } from 'react';
 import spiralMenu from '@thirdparty/spiral.js';
-import { IJsonMenu } from '@data/json/data-menu';
+import '@thirdparty/spiral.scss';
+
+import { IJsonMenu, IJsonMenuPage } from '@data/json/data-menu';
+import { RouteComponentProps, withRouter } from 'react-router';
 
 type HelixMenuProps = {
+    lang: string;
     jsonDataMenu: IJsonMenu[];
-};
+} & RouteComponentProps<any>;
+
 type HelixMenuState = {
     width: number | string;
     height: number | string;
 };
 
-export default class HelixMenu extends React.Component<HelixMenuProps, HelixMenuState> {
+const defaultProps = {
+    lang: 'en',
+};
+
+class HelixMenu extends React.PureComponent<HelixMenuProps, HelixMenuState> {
+    static defaultProps = defaultProps;
     canvas!: HTMLCanvasElement;
     spiralMenu: any;
 
@@ -27,12 +37,16 @@ export default class HelixMenu extends React.Component<HelixMenuProps, HelixMenu
     componentDidMount() {
         // 1. Example (the json menu structure is not definitive)
         const jsonDataMenu = this.props.jsonDataMenu;
-        console.log('jsonDataMenu', jsonDataMenu);
-        console.log('jsonDataMenu.leftSpiral', jsonDataMenu[0]);
-        console.log('jsonDataMenu.rightSpiral', jsonDataMenu[1]);
+        //console.log('jsonDataMenu', jsonDataMenu);
+        //console.log('jsonDataMenu.leftSpiral', jsonDataMenu[0]);
+        //console.log('jsonDataMenu.rightSpiral', jsonDataMenu[1]);
 
         // 2. Call the spiral menu (automatically renders... maybe better an object)
-        this.spiralMenu = spiralMenu(this.canvas);
+        this.spiralMenu = spiralMenu(this.canvas, jsonDataMenu, (menuNode: IJsonMenuPage) => {
+            //alert('callback from spiral');
+            console.log('HELIX callback, is it the node?', menuNode);
+            this.openPage(menuNode.page_id);
+        });
 
         // 3. TBD - handlers
         // this.spiralMenu.onPageSelected((pageId) => { this.openPage(pageId) } );
@@ -71,11 +85,6 @@ export default class HelixMenu extends React.Component<HelixMenuProps, HelixMenu
         );
     };
 
-    openPage = (pageId: string): void => {
-        alert(`We are going to page ${pageId}, but only at a later point :)`);
-        // this.props.openPage(pageId) ?
-    };
-
     render() {
         // TBD:
         // - Who's in charge of the canvasWidth / canvasHeight
@@ -96,18 +105,29 @@ export default class HelixMenu extends React.Component<HelixMenuProps, HelixMenu
             left: 0,
             width: '100%',
             height: '100%',
-            cursor: 'pointer',
+            //cursor: 'pointer',
         } as CSSProperties;
 
         return (
             <div style={spiralContainerStyle}>
-                <canvas
-                    style={spiralStyle}
-                    ref={(node: HTMLCanvasElement) => {
-                        this.canvas = node;
-                    }}
-                />
+                <div id="spiral-container">
+                    <canvas
+                        style={spiralStyle}
+                        ref={(node: HTMLCanvasElement) => {
+                            this.canvas = node;
+                        }}
+                    />
+                    <span id="spiral-label-container" />
+                </div>
             </div>
         );
     }
+
+    private openPage = (pageId: string): void => {
+        // TODO, move it to container through an 'onPageSelected' prop
+        const { lang } = this.props;
+        this.props.history.push(`/${lang}/page/${pageId}`);
+    };
 }
+
+export default withRouter(HelixMenu);

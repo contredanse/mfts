@@ -17,10 +17,11 @@ class MenuContainer extends React.Component<MenuContainerProps, MenuContainerSta
     }
 
     render() {
+        const { lang, menuRepository } = this.props;
         return (
             <div style={{ textAlign: 'center' }}>
                 <DocumentMeta title={'MFS >> Menu'} />
-                <HelixMenu jsonDataMenu={this.props.menuRepository.getJsonMenu()} />
+                <HelixMenu lang={lang} jsonDataMenu={menuRepository.getJsonMenu()} />
             </div>
         );
     }
