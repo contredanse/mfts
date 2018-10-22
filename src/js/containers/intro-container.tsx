@@ -5,7 +5,7 @@ import PageProxy from '@src/models/proxy/page-proxy';
 import { PageOverlay } from '@src/components/layout/page-overlay';
 import PageRepository from '@src/models/repository/page-repository';
 import { RouteComponentProps, withRouter } from 'react-router';
-import DocumentMeta from '@src/shared/document-meta';
+import DocumentMeta from '@src/utils/document-meta';
 
 type IntroContainerProps = {
     lang: DataSupportedLangType;

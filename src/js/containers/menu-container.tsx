@@ -2,7 +2,7 @@ import React from 'react';
 import HelixMenu from '@src/components/helix-menu';
 import MenuRepository from '@src/models/repository/menu-repository';
 import { DataSupportedLangType } from '@src/models/repository/data-repository';
-import DocumentMeta from '@src/shared/document-meta';
+import DocumentMeta from '@src/utils/document-meta';
 
 type MenuContainerProps = {
     menuRepository: MenuRepository;

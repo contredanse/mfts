@@ -2,7 +2,7 @@ import React from 'react';
 import { RouteComponentProps, withRouter } from 'react-router';
 import AppAssetsLocator from '@src/core/app-assets-locator';
 import About from '@src/components/about';
-import DocumentMeta from '@src/shared/document-meta';
+import DocumentMeta from '@src/utils/document-meta';
 
 type AboutContainerProps = {
     assetsLocator: AppAssetsLocator;

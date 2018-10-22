@@ -2,7 +2,7 @@ import VideoSourceProxy, { VideoSourceProxyFactory, IVideoSourceProxyData } from
 import { AbstractBaseProxy, IBaseProxyOptions } from './abstract-base-proxy';
 import { IJsonVideo, IJsonVideoMeta, IJsonVideoSource, IJsonVideoTrack } from '../../../data/json/data-videos';
 import { IJsonPageAudioTrack } from '../../../data/json/data-pages';
-import { sortBy } from '@src/shared/utils';
+import { sortBy } from '@src/utils/sort-functions';
 
 export class VideoProxyFactory {
     static createFromJson(data: IJsonVideo, options: IVideoProxyOptions): VideoProxy {

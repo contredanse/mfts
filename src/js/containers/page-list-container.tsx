@@ -7,7 +7,7 @@ import { withRouter } from 'react-router-dom';
 import { RouteComponentProps } from 'react-router';
 import PageRepository from '@src/models/repository/page-repository';
 import memoize from 'memoize-one';
-import DocumentMeta from '@src/shared/document-meta';
+import DocumentMeta from '@src/utils/document-meta';
 import { BasicI18nDictionary, getFromDictionary } from '@src/i18n/basic-i18n';
 
 type PageListContainerProps = {

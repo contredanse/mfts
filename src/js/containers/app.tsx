@@ -21,7 +21,7 @@ import { WithStore } from '@src/hoc/with-store';
 import { UiState } from '@src/store/ui';
 import AboutContainer from '@src/containers/about-container';
 import LoginContainer from '@src/containers/login-container';
-import DocumentMeta from '@src/shared/document-meta';
+import DocumentMeta from '@src/utils/document-meta';
 import Fullscreen from 'react-full-screen';
 
 import * as uiActions from '@src/store/ui/actions';
