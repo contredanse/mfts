@@ -160,6 +160,7 @@
         "classnames": "^2.2.6",
         "connected-react-router": "^4.5.0",
         "fast-deep-equal": "^2.0.1",
+        "fscreen": "^1.0.2",
         "history": "^4.7.2",
         "hoist-non-react-statics": "^3.0.1",
         "i18next": "^11.10.0",
