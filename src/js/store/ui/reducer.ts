@@ -1,5 +1,5 @@
 import { Reducer } from 'redux';
-import { UiState, LangActionTypes } from './types';
+import { UiState, UiActionTypes } from './types';
 import { AppLanguage } from '@src/core/app-language';
 
 const appLang = new AppLanguage();
@@ -11,16 +11,20 @@ appLang.persistLanguageInStorage(initialLang);
 // Type-safe initialState!
 const initialState: UiState = {
     lang: initialLang,
+    fullscreen: false,
 };
 
 // Thanks to Redux 4's much simpler typings, we can take away a lot of typings on the reducer side,
 // everything will remain type-safe.
 const reducer: Reducer<UiState> = (state = initialState, action): UiState => {
     switch (action.type) {
-        case LangActionTypes.SET_UI_LANG: {
+        case UiActionTypes.SET_LANG: {
             // In case of language change let's persist the choice
             appLang.persistLanguageInStorage(action.payload);
             return { ...state, lang: action.payload };
+        }
+        case UiActionTypes.SET_IN_FULLSCREEN: {
+            return { ...state, fullscreen: action.payload };
         }
         default: {
             return state;
