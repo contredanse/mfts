@@ -15,6 +15,7 @@ import TrackVisibilityHelper, { TrackVisibilityMode } from '@src/components/play
 import EventListener from 'react-event-listener';
 import PagePlaybackOverlay from '@src/components/page-playback-overlay';
 import VideoPlayer from '@src/components/player/video-player';
+import AppBarPortal from '@src/components/navigation/app-bar-portal';
 
 export type PageProps = {
     pageProxy: PageProxy;
@@ -145,8 +146,9 @@ class Page extends React.PureComponent<PageProps, PageState> {
             <div className="page-container">
                 <EventListener target="window" onKeyPress={this.handleGlobalKeyPress} />
                 <div className="page-header">
-                    <PageBreadcrumb title={pageTitle} sections={this.state.breadcrumb} lang={lang} />
-                    {this.state.currentLoopIteration} /{this.state.loopIterations}
+                    <AppBarPortal>
+                        <PageBreadcrumb title={pageTitle} sections={this.state.breadcrumb} lang={lang} />
+                    </AppBarPortal>
                 </div>
                 <div className="page-content">
                     {played &&
