@@ -25,6 +25,7 @@ import DocumentMeta from '@src/utils/document-meta';
 import FullScreen from '@src/utils/fullscreen';
 
 import * as uiActions from '@src/store/ui/actions';
+import ConnectedFullscreenButton from '@src/components/fullscreen-button';
 
 type AppProps = {
     appConfig: AppConfig;
@@ -135,7 +136,7 @@ class App extends React.Component<AppProps, AppState> {
                                     isFullScreen={fullscreen}
                                     onChange={isFullscreen => dispatch(uiActions.setFullscreen(isFullscreen))}
                                 >
-                                    <div className="window-container full-screenable-node">
+                                    <div className="window-container">
                                         <header>
                                             <AppBar lang={lang} title={title} />
                                         </header>
@@ -158,16 +159,8 @@ class App extends React.Component<AppProps, AppState> {
                                                 <Route component={NotFoundContainer} />
                                             </Switch>
                                         </main>
-                                        <button
-                                            style={{ position: 'fixed', top: '100px', right: '20px', zIndex: 1000 }}
-                                            onClick={() => {
-                                                console.log('DISPATCH', dispatch);
-                                                dispatch(uiActions.setFullscreen(!fullscreen));
-                                            }}
-                                        >
-                                            {fullscreen ? 'Exit fullscreen' : 'Go fullscreen'}
-                                        </button>
                                     </div>
+                                    <ConnectedFullscreenButton />
                                 </FullScreen>
                             </ConnectedRouter>
                         </I18nextProvider>
