@@ -3,7 +3,7 @@ import { BasicI18nDictionary } from '@src/i18n/basic-i18n';
 export const ControlBarDictionary: BasicI18nDictionary = {
     play: {
         en: 'Play',
-        fr: 'Lecture',
+        fr: 'Lire',
     },
     pause: {
         en: 'Pause',
@@ -15,19 +15,19 @@ export const ControlBarDictionary: BasicI18nDictionary = {
     },
     show_subtitles: {
         en: 'Show subtitles',
-        fr: 'Montrer les sous-titres',
+        fr: 'Afficher les sous-titres',
     },
     hide_subtitles: {
         en: 'Hide subtitles',
-        fr: 'Cache les sous-titres',
+        fr: 'Cacher les sous-titres',
     },
     play_next: {
         en: 'Next',
-        fr: 'Page suivante',
+        fr: 'Suivant',
     },
     play_previous: {
         en: 'Previous',
-        fr: 'Précédente',
+        fr: 'Précédent',
     },
     mute: {
         en: 'Mute',

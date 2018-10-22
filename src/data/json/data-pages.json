@@ -81,7 +81,6 @@
             "en": ["sensation", "senses", "gravity", "water"],
             "fr": ["sensation", "sens", "pesanteur", "dans", "l'eau"]
         },
-        "loop": true,
         "content": {
             "layout": "single-video",
             "videos": [
@@ -314,6 +313,8 @@
             "en": ["sensation", "senses", "walk", "slow"],
             "fr": ["sensation", "sens", "marche", "lente"]
         },
+        "loop_number": 3,
+        "speed_control": true,
         "content": {
             "layout": "single-video",
             "videos": [
@@ -337,6 +338,7 @@
             "en": ["sensation", "senses", "walk", "twist"],
             "fr": ["sensation", "sens", "marche", "torsion"]
         },
+        "speed_control": true,
         "content": {
             "layout": "single-video",
             "videos": [
@@ -755,8 +757,8 @@
     {
         "page_id": "forms.crescent-roll.in-water",
         "title": {
-            "en": "In water",
-            "fr": "Dans l'eau"
+            "en": "Crescent in water",
+            "fr": "Croissant dans l'eau"
         },
         "sort_idx": 2900,
         "cover": "crescent_water.jpg",
@@ -764,7 +766,7 @@
             "en": ["forms", "crescent", "roll", "water"],
             "fr": ["formes", "roulé", "croissant", "dans", "l'eau"]
         },
-        "loop": true,
+        "loop_number": 3,
         "content": {
             "layout": "single-video",
             "videos": [
@@ -779,8 +781,8 @@
     {
         "page_id": "forms.crescent-roll.comparison",
         "title": {
-            "en": "Comparison",
-            "fr": "Comparaison"
+            "en": "Crescents' comparison",
+            "fr": "Comparaison des croissants"
         },
         "sort_idx": 3000,
         "cover": "c_comparing.jpg",
@@ -788,6 +790,8 @@
             "en": ["forms", "crescent", "roll", "comparison"],
             "fr": ["formes", "roulé", "croissant", "comparaison"]
         },
+        "loop_number": 3,
+        "speed_control": true,
         "content": {
             "layout": "single-video",
             "videos": [
@@ -952,6 +956,7 @@
             "en": ["forms", "helix", "roll", "water"],
             "fr": ["formes", "roulé", "hélice", "dans", "l'eau"]
         },
+        "loop_number": 2,
         "content": {
             "layout": "single-video",
             "videos": [
@@ -966,8 +971,8 @@
     {
         "page_id": "forms.helix-roll.comparison",
         "title": {
-            "en": "Comparison",
-            "fr": "Comparaison"
+            "en": "Helixs'comparison",
+            "fr": "Comparaison des hélices"
         },
         "sort_idx": 3400,
         "cover": "h_comparing.jpg",
@@ -975,6 +980,8 @@
             "en": ["forms", "helix", "roll", "comparison"],
             "fr": ["formes", "roulé", "hélice", "comparaison"]
         },
+        "loop_number": 3,
+        "speed_control": true,
         "content": {
             "layout": "single-video",
             "videos": [
@@ -1023,6 +1030,8 @@
             "en": ["forms", "puzzles", "puzzle"],
             "fr": ["formes", "puzzles", "puzzle"]
         },
+        "loop_number": 3,
+        "speed_control": true,
         "content": {
             "layout": "single-video",
             "videos": [
@@ -1046,6 +1055,8 @@
             "en": ["forms", "puzzles", "puzzle"],
             "fr": ["formes", "puzzles", "puzzle"]
         },
+        "loop_number": 3,
+        "speed_control": true,
         "content": {
             "layout": "single-video",
             "videos": [
@@ -1069,6 +1080,8 @@
             "en": ["forms", "puzzles", "puzzle"],
             "fr": ["formes", "puzzles", "puzzle"]
         },
+        "loop_number": 3,
+        "speed_control": true,
         "content": {
             "layout": "single-video",
             "videos": [
@@ -1329,6 +1342,7 @@
             "en": ["forms", "undulation", "dolphin"],
             "fr": ["formes", "l'ondulation", "dauphin"]
         },
+        "loop_number": 3,
         "content": {
             "layout": "single-video",
             "videos": [
@@ -1660,6 +1674,7 @@
             "en": ["forms", "warm", "ups", "fingers"],
             "fr": ["formes", "échauffements", "doigts"]
         },
+        "speed_control": true,
         "content": {
             "layout": "single-video",
             "videos": [
@@ -1683,6 +1698,7 @@
             "en": ["forms", "warm", "ups", "wrist"],
             "fr": ["formes", "échauffements", "poignet"]
         },
+        "speed_control": true,
         "content": {
             "layout": "single-video",
             "videos": [
@@ -1706,6 +1722,7 @@
             "en": ["forms", "warm", "ups", "hands"],
             "fr": ["formes", "échauffements", "mains"]
         },
+        "speed_control": true,
         "content": {
             "layout": "single-video",
             "videos": [
@@ -1729,6 +1746,7 @@
             "en": ["forms", "warm", "ups", "arms"],
             "fr": ["formes", "échauffements", "bras"]
         },
+        "speed_control": true,
         "content": {
             "layout": "single-video",
             "videos": [
@@ -1752,6 +1770,7 @@
             "en": ["forms", "warm", "ups", "spine", "arms"],
             "fr": ["formes", "échauffements", "bras", "colonne"]
         },
+        "speed_control": true,
         "content": {
             "layout": "single-video",
             "videos": [
@@ -1798,6 +1817,7 @@
             "en": ["forms", "warm", "ups", "aikido", "step"],
             "fr": ["formes", "échauffements", "pas", "aïkido"]
         },
+        "speed_control": true,
         "content": {
             "layout": "single-video",
             "videos": [
@@ -1821,6 +1841,7 @@
             "en": ["forms", "warm", "ups", "twist"],
             "fr": ["formes", "échauffements", "torsion"]
         },
+        "speed_control": true,
         "content": {
             "layout": "single-video",
             "videos": [
@@ -2028,6 +2049,7 @@
             "en": ["forms", "warm", "ups", "play"],
             "fr": ["formes", "échauffements", "jouer"]
         },
+        "speed_control": true,
         "content": {
             "layout": "single-video",
             "videos": [
