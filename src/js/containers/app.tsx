@@ -22,15 +22,28 @@ import { UiState } from '@src/store/ui';
 import AboutContainer from '@src/containers/about-container';
 import LoginContainer from '@src/containers/login-container';
 import DocumentMeta from '@src/shared/document-meta';
-import page from '@src/components/page';
+import Fullscreen from 'react-full-screen';
+
+import * as uiActions from '@src/store/ui/actions';
 
 type AppProps = {
     appConfig: AppConfig;
 };
 
-class App extends React.Component<AppProps, {}> {
+type AppState = {
+    isFullscreen: boolean;
+};
+
+const defaultState = {
+    isFullscreen: false,
+};
+
+class App extends React.Component<AppProps, AppState> {
+    readonly state: AppState;
+
     constructor(props: AppProps) {
         super(props);
+        this.state = defaultState;
     }
 
     public render(): React.ReactElement<App> {
@@ -112,34 +125,50 @@ class App extends React.Component<AppProps, {}> {
 
         return (
             <WithStore selector={state => state.ui}>
-                {({ lang }: UiState, dispatch) => {
+                {({ lang, fullscreen }: UiState, dispatch) => {
                     //const title = i18n.t('appbar.title', { lng: lang });
                     const title = '';
                     return (
                         <I18nextProvider i18n={i18n}>
                             <ConnectedRouter history={history}>
-                                <div className="window-container">
-                                    <header>
-                                        <AppBar lang={lang} title={title} />
-                                    </header>
-                                    <main>
-                                        <Switch>
-                                            <Route
-                                                exact={true}
-                                                path="/"
-                                                render={() => {
-                                                    return (
-                                                        <DocumentMeta title={'Steve Paxton - Material for the spine'}>
-                                                            <HomeContainer assetsLocator={assetsLocator} />
-                                                        </DocumentMeta>
-                                                    );
-                                                }}
-                                            />
-                                            <Route path="/:lang(fr|en)" component={localizedRoutes} />
-                                            <Route component={NotFoundContainer} />
-                                        </Switch>
-                                    </main>
-                                </div>
+                                <Fullscreen
+                                    enabled={fullscreen}
+                                    onChange={isFullscreen => dispatch(uiActions.setFullscreen(isFullscreen))}
+                                >
+                                    <div className="window-container full-screenable-node">
+                                        <header>
+                                            <AppBar lang={lang} title={title} />
+                                        </header>
+                                        <main>
+                                            <Switch>
+                                                <Route
+                                                    exact={true}
+                                                    path="/"
+                                                    render={() => {
+                                                        return (
+                                                            <DocumentMeta
+                                                                title={'Steve Paxton - Material for the spine'}
+                                                            >
+                                                                <HomeContainer assetsLocator={assetsLocator} />
+                                                            </DocumentMeta>
+                                                        );
+                                                    }}
+                                                />
+                                                <Route path="/:lang(fr|en)" component={localizedRoutes} />
+                                                <Route component={NotFoundContainer} />
+                                            </Switch>
+                                        </main>
+                                        <button
+                                            style={{ position: 'fixed', top: '100px', right: '20px', zIndex: 1000 }}
+                                            onClick={() => {
+                                                console.log('DISPATCH', dispatch);
+                                                dispatch(uiActions.setFullscreen(!fullscreen));
+                                            }}
+                                        >
+                                            {fullscreen ? 'Exit fullscreen' : 'Go fullscreen'}
+                                        </button>
+                                    </div>
+                                </Fullscreen>
                             </ConnectedRouter>
                         </I18nextProvider>
                     );

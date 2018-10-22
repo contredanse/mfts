@@ -2,7 +2,7 @@ import React, { CSSProperties } from 'react';
 import { ApplicationState } from '@src/store';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import * as langActions from '@src/store/ui/actions';
+import * as uiActions from '@src/store/ui/actions';
 import { RouteComponentProps, withRouter } from 'react-router';
 import './lang-selector.scss';
 import { UILangCode } from '@src/store/ui';
@@ -14,7 +14,7 @@ type PropsFromReduxState = {
 
 // Props passed from mapDispatchToProps
 type PropsFromReduxDispatchActions = {
-    setLang: typeof langActions.setLang;
+    setLang: typeof uiActions.setLang;
 };
 
 type LangSelectorProps = PropsFromReduxDispatchActions &
@@ -78,7 +78,7 @@ const mapStateToProps = ({ ui }: ApplicationState) => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-    setLang: (lang: UILangCode) => dispatch(langActions.setLang(lang)),
+    setLang: (lang: UILangCode) => dispatch(uiActions.setLang(lang)),
 });
 
 const ConnectedLangSelector = withRouter(

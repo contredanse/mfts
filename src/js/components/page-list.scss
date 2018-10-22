@@ -4,10 +4,9 @@ example
 
 .page-list-wrapper {
     /*
-  margin: 0 auto;
-  width: 100%;
-  */
-
+    margin: 0 auto;
+    width: 100%;
+    */
     .grid-cards {
         list-style: none;
         margin: 5px;
@@ -17,7 +16,6 @@ example
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         //grid-template-columns: repeat(auto-fill, minmax(200px 1fr));
         grid-gap: 15px;
-
         .page-card-container {
             position: relative;
             color: #fff;

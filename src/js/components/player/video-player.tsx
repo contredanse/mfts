@@ -24,7 +24,6 @@ export type VideoActions = {
 };
 
 export type VideoPlayerProps = {
-    forwardRef?: React.RefObject<HTMLVideoElement>;
     srcs?: VideoSourceProps[];
     tracks?: TextTrackProps[];
     playbackRate: number;
@@ -71,6 +70,7 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
     static defaultProps = defaultProps;
     readonly state = defaultState;
     private videoRef!: React.RefObject<HTMLVideoElement>;
+    private controlBarRef!: React.RefObject<ControlBar>;
     private listenersRegistered = false;
     private trackManager!: HTMLVideoTrackManager;
 
@@ -78,11 +78,8 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
 
     constructor(props: VideoPlayerProps) {
         super(props);
-        if (this.props.forwardRef) {
-            this.videoRef = this.props.forwardRef;
-        } else {
-            this.videoRef = React.createRef<HTMLVideoElement>();
-        }
+        this.videoRef = React.createRef<HTMLVideoElement>();
+        this.controlBarRef = React.createRef<ControlBar>();
     }
 
     /**
@@ -275,7 +272,11 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
                 </video>
                 {this.state.refLoaded &&
                     this.props.controlBarProps && (
-                        <ControlBar videoEl={this.videoRef.current} {...this.props.controlBarProps} />
+                        <ControlBar
+                            ref={this.controlBarRef}
+                            videoEl={this.videoRef.current}
+                            {...this.props.controlBarProps}
+                        />
                     )}
             </>
         );

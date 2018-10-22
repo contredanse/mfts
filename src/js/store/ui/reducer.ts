@@ -24,6 +24,8 @@ const reducer: Reducer<UiState> = (state = initialState, action): UiState => {
             return { ...state, lang: action.payload };
         }
         case UiActionTypes.SET_IN_FULLSCREEN: {
+            const newState = { ...state, fullscreen: action.payload };
+            console.log('NEWSTATE', newState);
             return { ...state, fullscreen: action.payload };
         }
         default: {

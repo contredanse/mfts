@@ -8,5 +8,5 @@ import { UiActionTypes, UILangCode } from './types';
 //
 // Remember, you can also pass parameters into an action creator. Make sure to
 // type them properly as well.
-export const setLang = (langCode: UILangCode) => action(UiActionTypes.SET_LANG, langCode);
-export const setFullscreen = (inFullscreen: boolean) => action(UiActionTypes.SET_IN_FULLSCREEN, inFullscreen);
+export const setLang = (lang: UILangCode) => action(UiActionTypes.SET_LANG, lang);
+export const setFullscreen = (isFullscreen: boolean) => action(UiActionTypes.SET_IN_FULLSCREEN, isFullscreen);
