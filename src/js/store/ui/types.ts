@@ -10,6 +10,6 @@ export const enum LangActionTypes {
     SET_UI_LANG = '@@lang/SET_UI_LANG',
 }
 
-export interface LangState {
-    readonly langCode: UILangCode;
+export interface UiState {
+    readonly lang: UILangCode;
 }

@@ -2,10 +2,10 @@ import React, { CSSProperties } from 'react';
 import { ApplicationState } from '@src/store';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import * as langActions from '@src/store/locale/actions';
+import * as langActions from '@src/store/ui/actions';
 import { RouteComponentProps, withRouter } from 'react-router';
 import './lang-selector.scss';
-import { UILangCode } from '@src/store/locale';
+import { UILangCode } from '@src/store/ui';
 
 // Props passed from mapStateToProps
 type PropsFromReduxState = {
@@ -73,12 +73,12 @@ class LangSelector extends React.Component<LangSelectorProps> {
     }
 }
 
-const mapStateToProps = ({ locale }: ApplicationState) => ({
-    lang: locale.langCode,
+const mapStateToProps = ({ ui }: ApplicationState) => ({
+    lang: ui.lang,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-    setLang: (langCode: UILangCode) => dispatch(langActions.setLang(langCode)),
+    setLang: (lang: UILangCode) => dispatch(langActions.setLang(lang)),
 });
 
 const ConnectedLangSelector = withRouter(

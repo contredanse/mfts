@@ -18,7 +18,7 @@ import PageContainer from '@src/containers/page-container';
 import IntroContainer from '@src/containers/intro-container';
 
 import { WithStore } from '@src/hoc/with-store';
-import { LangState } from '@src/store/locale';
+import { UiState } from '@src/store/ui';
 import AboutContainer from '@src/containers/about-container';
 import LoginContainer from '@src/containers/login-container';
 import DocumentMeta from '@src/shared/document-meta';
@@ -111,8 +111,8 @@ class App extends React.Component<AppProps, {}> {
         };
 
         return (
-            <WithStore selector={state => state.lang}>
-                {({ langCode: lang }: LangState, dispatch) => {
+            <WithStore selector={state => state.ui}>
+                {({ lang }: UiState, dispatch) => {
                     //const title = i18n.t('appbar.title', { lng: lang });
                     const title = '';
                     return (

@@ -1,12 +1,12 @@
 import { combineReducers, Dispatch, Action, AnyAction } from 'redux';
 //import { all, fork } from 'redux-saga/effects'
 
-import { uiLocaleReducer, LangState } from './locale';
+import { uiStateReducer, UiState } from './ui';
 import { navReducer, NavState } from './nav';
 
 // The top-level state object
 export interface ApplicationState {
-    locale: LangState;
+    ui: UiState;
     nav: NavState;
 }
 
@@ -19,7 +19,7 @@ export interface ConnectedReduxProps<A extends Action = AnyAction> {
 // using the reducer with the matching name. It's important that the names match exactly, and that
 // the reducer acts on the corresponding ApplicationState property type.
 export const rootReducer = combineReducers<ApplicationState>({
-    locale: uiLocaleReducer,
+    ui: uiStateReducer,
     nav: navReducer,
 });
 

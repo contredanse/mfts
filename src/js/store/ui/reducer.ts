@@ -1,5 +1,5 @@
 import { Reducer } from 'redux';
-import { LangState, LangActionTypes } from './types';
+import { UiState, LangActionTypes } from './types';
 import { AppLanguage } from '@src/core/app-language';
 
 const appLang = new AppLanguage();
@@ -9,18 +9,18 @@ const initialLang = appLang.getInitialLanguage();
 appLang.persistLanguageInStorage(initialLang);
 
 // Type-safe initialState!
-const initialState: LangState = {
-    langCode: initialLang,
+const initialState: UiState = {
+    lang: initialLang,
 };
 
 // Thanks to Redux 4's much simpler typings, we can take away a lot of typings on the reducer side,
 // everything will remain type-safe.
-const reducer: Reducer<LangState> = (state = initialState, action): LangState => {
+const reducer: Reducer<UiState> = (state = initialState, action): UiState => {
     switch (action.type) {
         case LangActionTypes.SET_UI_LANG: {
             // In case of language change let's persist the choice
             appLang.persistLanguageInStorage(action.payload);
-            return { ...state, langCode: action.payload };
+            return { ...state, lang: action.payload };
         }
         default: {
             return state;
@@ -30,4 +30,4 @@ const reducer: Reducer<LangState> = (state = initialState, action): LangState =>
 
 // Instead of using default export, we use named exports. That way we can group these exports
 // inside the `index.js` folder.
-export { reducer as uiLocaleReducer };
+export { reducer as uiStateReducer };
