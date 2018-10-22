@@ -13,7 +13,7 @@ $track-background-color: rgba(0, 0, 0, 0);
 $track-text-shadow: 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, -1px -1px 0 #000;
 //$track-text-shadow:  none;
 
-$track-padding-bottom: 80px;
+$track-padding-bottom: 50px;
 
 @mixin trackFontDisplay {
     font-size: 2vw;
@@ -64,7 +64,7 @@ video {
         overflow: visible !important;
         // -webkit-transform: translateY(40%) !important;
         // max-height: calc(100% - #{$track-padding-bottom});
-        transform: translateY(-#{$track-padding-bottom + 10px}) !important;
+        // transform: translateY(-#{$track-padding-bottom - 30px}) !important;
         //transform: translateY(-5vh) !important;
 
         // overflow: hidden;
