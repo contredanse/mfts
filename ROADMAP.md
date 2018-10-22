@@ -8,6 +8,9 @@
   - [X] Integration with redux
   - [X] Integration with redux and route
   - [X] Translations (react-i18n-next)
+
+- [X] General application
+  - [X] Fullscreen
   
 - [ ] Video player
   - [x] Sound buttons (on/off)
