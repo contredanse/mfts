@@ -10,7 +10,9 @@ import configureMockStore from 'redux-mock-store';
 
 const mockStore = configureMockStore();
 const store = mockStore({
-    lang: 'en',
+    ui: {
+        lang: 'en',
+    },
 });
 
 describe('<Home />', () => {
