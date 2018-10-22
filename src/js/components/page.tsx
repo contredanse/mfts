@@ -1,6 +1,6 @@
 import React, { SyntheticEvent } from 'react';
 
-import { translate, InjectedI18nProps } from 'react-i18next';
+import { withNamespaces, WithNamespaces } from 'react-i18next';
 
 import './page.scss';
 
@@ -23,7 +23,7 @@ export type PageProps = {
     onPageChangeRequest?: (pageId: string) => void;
     onNewRouteRequest?: (routeSpec: string) => void;
     onPagePlayed?: () => void;
-} & InjectedI18nProps;
+} & WithNamespaces;
 
 type PageStateFromPageProxy = {
     isSilent: boolean;
@@ -351,4 +351,4 @@ class Page extends React.PureComponent<PageProps, PageState> {
     }
 }
 
-export default translate()(Page);
+export default withNamespaces()(Page);

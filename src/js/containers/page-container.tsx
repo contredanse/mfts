@@ -40,6 +40,10 @@ class PageContainer extends React.PureComponent<PageContainerProps, PageContaine
         this.setNavigationBreadcrumb(this.state.pageProxy);
     }
 
+    componentWillUnmount() {
+        this.setNavigationBreadcrumb(undefined);
+    }
+
     componentDidUpdate(prevProps: PageContainerProps, prevState: PageContainerState) {
         if (this.props.pageId !== prevProps.pageId) {
             this.setState(() => {
