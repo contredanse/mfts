@@ -1,4 +1,4 @@
-##Bibliography
+Bibliography
 
 Books
 *Gravity* by Steve Paxton, Contredanse Éditions, Bruxelles, 2018.
