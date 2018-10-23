@@ -17,7 +17,7 @@ import 'typeface-quicksand';
 
 import { appConfig } from '@config/config.production';
 import AppConfig from '@src/core/app-config';
-import { register as registerServiceWorker } from './registerServiceWorker';
+import { register as registerServiceWorker, unregister as unregisterServiceWorker } from './registerServiceWorker';
 
 import configureStore from './configureStore';
 
@@ -38,10 +38,23 @@ renderApp(App, appConfig, 'app');
 registerServiceWorker({
     onSuccess: registration => {},
     onUpdate: registration => {
+        console.log('An update was found, removing the serviceWorker');
         console.log('Lets show the pwa-version-notification');
         const notification = document.getElementById('pwa-version-notification');
         if (notification) {
             notification.className = 'show';
+            notification.addEventListener('click', () => {
+                console.log('Clicked update !');
+                if ('serviceWorker' in navigator) {
+                    navigator.serviceWorker.ready.then(reg => {
+                        console.log('Unregistering the service worker');
+                        reg.unregister().then(() => {
+                            console.log('Reloading the page');
+                            window.location.reload();
+                        });
+                    });
+                }
+            });
         }
     },
 });
