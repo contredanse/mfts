@@ -397,7 +397,7 @@ module.exports = merge(common, {
 
         new Workbox.GenerateSW({
             // Whether or not the service worker should start controlling any existing clients as soon as it activates.
-            //clientsClaim: true,
+            clientsClaim: true,
             // https://stackoverflow.com/questions/49482680/workbox-the-danger-of-self-skipwaiting
             //skipWaiting: true,
 
