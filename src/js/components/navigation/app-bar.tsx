@@ -36,6 +36,7 @@ type MenuLinkProps = {
 type AppBarProps = {
     title: string;
     lang: string;
+    onMenuOpenRequest?: () => void;
     // menuLinks: MenuLinkProps[];
 };
 
@@ -57,7 +58,7 @@ export type AppBarWithStylesProps = AppBarProps & WithStyles<typeof styles>;
 export type AppBarWithRouterProps = AppBarProps & RouteComponentProps<{}>;
 
 export const AppBarComponent: React.SFC<AppBarWithStylesProps & AppBarWithRouterProps> = props => {
-    const { classes, history, lang } = props;
+    const { classes, history, lang, onMenuOpenRequest } = props;
     //const currentPath = props.location.pathname;
 
     return (
@@ -69,7 +70,11 @@ export const AppBarComponent: React.SFC<AppBarWithStylesProps & AppBarWithRouter
                         color="inherit"
                         aria-label="Menu"
                         onClick={() => {
-                            history.push(`/`);
+                            if (onMenuOpenRequest) {
+                                onMenuOpenRequest();
+                            } else {
+                                history.push('/');
+                            }
                         }}
                     >
                         <MenuIcon />
