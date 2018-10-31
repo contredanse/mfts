@@ -26,6 +26,7 @@ import FullScreen from '@src/utils/fullscreen';
 
 import * as uiActions from '@src/store/ui/actions';
 import ConnectedFullscreenButton from '@src/components/fullscreen-button';
+import SideMenu from '@src/components/navigation/side-menu';
 
 type AppProps = {
     appConfig: AppConfig;
@@ -126,7 +127,7 @@ class App extends React.Component<AppProps, AppState> {
 
         return (
             <WithStore selector={state => state.ui}>
-                {({ lang, fullscreen }: UiState, dispatch) => {
+                {({ lang, fullscreen, isMenuOpen }: UiState, dispatch) => {
                     //const title = i18n.t('appbar.title', { lng: lang });
                     const title = '';
                     return (
@@ -136,31 +137,47 @@ class App extends React.Component<AppProps, AppState> {
                                     isFullScreen={fullscreen}
                                     onChange={isFullscreen => dispatch(uiActions.setFullscreen(isFullscreen))}
                                 >
-                                    <div className="window-container">
-                                        <header>
-                                            <AppBar lang={lang} title={title} />
-                                        </header>
-                                        <main>
-                                            <Switch>
-                                                <Route
-                                                    exact={true}
-                                                    path="/"
-                                                    render={() => {
-                                                        return (
-                                                            <DocumentMeta
-                                                                title={'Steve Paxton - Material for the spine'}
-                                                            >
-                                                                <HomeContainer assetsLocator={assetsLocator} />
-                                                            </DocumentMeta>
-                                                        );
+                                    <div id="outer-container">
+                                        <SideMenu
+                                            isOpen={isMenuOpen}
+                                            lang={lang}
+                                            onStateChange={state => {
+                                                dispatch(uiActions.setIsMenuOpen(state.isOpen));
+                                            }}
+                                        />
+                                        <div className="window-container" id="page-wrap">
+                                            <header>
+                                                <AppBar
+                                                    lang={lang}
+                                                    title={title}
+                                                    onMenuOpenRequest={() => {
+                                                        console.log('MENUOPENRESUEST', isMenuOpen);
+                                                        dispatch(uiActions.setIsMenuOpen(!isMenuOpen));
                                                     }}
                                                 />
-                                                <Route path="/:lang(fr|en)" component={localizedRoutes} />
-                                                <Route component={NotFoundContainer} />
-                                            </Switch>
-                                        </main>
+                                            </header>
+                                            <main>
+                                                <Switch>
+                                                    <Route
+                                                        exact={true}
+                                                        path="/"
+                                                        render={() => {
+                                                            return (
+                                                                <DocumentMeta
+                                                                    title={'Steve Paxton - Material for the spine'}
+                                                                >
+                                                                    <HomeContainer assetsLocator={assetsLocator} />
+                                                                </DocumentMeta>
+                                                            );
+                                                        }}
+                                                    />
+                                                    <Route path="/:lang(fr|en)" component={localizedRoutes} />
+                                                    <Route component={NotFoundContainer} />
+                                                </Switch>
+                                            </main>
+                                        </div>
+                                        <ConnectedFullscreenButton lang={lang} />
                                     </div>
-                                    <ConnectedFullscreenButton lang={lang} />
                                 </FullScreen>
                             </ConnectedRouter>
                         </I18nextProvider>

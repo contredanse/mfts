@@ -1,0 +1,19 @@
+.bm-menu {
+    a {
+        display: block;
+        border: 1px solid white;
+        padding: 20px;
+        font-size: 2em;
+        &:link {
+            text-decoration: none;
+        }
+        &:visited {
+            color: white;
+        }
+        &:hover {
+            cursor: pointer;
+            background-color: grey;
+            color: yellow;
+        }
+    }
+}
