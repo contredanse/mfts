@@ -9,9 +9,11 @@ export type UILangCode = string;
 export const enum UiActionTypes {
     SET_LANG = '@@ui/SET_UI_LANG',
     SET_IN_FULLSCREEN = '@@ui/SET_IN_FULLSCREEN',
+    SET_IS_MENU_OPEN = '@@ui/SET_IS_MENU_OPEN',
 }
 
 export interface UiState {
     readonly lang: UILangCode;
     readonly fullscreen: boolean;
+    readonly isMenuOpen: boolean;
 }
