@@ -53,6 +53,7 @@ module.exports = merge(common, {
             // React-transition-group
             'react-transition-group': path.resolve(__dirname, 'node_modules/react-transition-group'),
             'hoist-non-react-statics': path.resolve(__dirname, 'node_modules/hoist-non-react-statics'),
+            'react-is': path.resolve(__dirname, 'node_modules/react-is'),
 
             // Everyone will have a different babel 7 runtime, let's flatten it
             '@babel/runtime': path.resolve(__dirname, 'node_modules/@babel/runtime'),
