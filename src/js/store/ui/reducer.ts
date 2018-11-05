@@ -13,6 +13,7 @@ const initialState: UiState = {
     lang: initialLang,
     fullscreen: false,
     isMenuOpen: false,
+    isControlbarHidden: false,
 };
 
 // Thanks to Redux 4's much simpler typings, we can take away a lot of typings on the reducer side,
@@ -26,6 +27,9 @@ const reducer: Reducer<UiState> = (state = initialState, action): UiState => {
         }
         case UiActionTypes.SET_IN_FULLSCREEN: {
             return { ...state, fullscreen: action.payload };
+        }
+        case UiActionTypes.SET_CONTROLBAR_HIDDEN: {
+            return { ...state, isControlbarHidden: action.payload };
         }
         case UiActionTypes.SET_IS_MENU_OPEN: {
             return { ...state, isMenuOpen: action.payload };

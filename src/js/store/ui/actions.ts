@@ -11,3 +11,5 @@ import { UiActionTypes, UILangCode } from './types';
 export const setLang = (lang: UILangCode) => action(UiActionTypes.SET_LANG, lang);
 export const setFullscreen = (isFullscreen: boolean) => action(UiActionTypes.SET_IN_FULLSCREEN, isFullscreen);
 export const setIsMenuOpen = (isMenuOpen: boolean) => action(UiActionTypes.SET_IS_MENU_OPEN, isMenuOpen);
+export const setControlbarHidden = (isControlbarHidden: boolean) =>
+    action(UiActionTypes.SET_CONTROLBAR_HIDDEN, isControlbarHidden);
