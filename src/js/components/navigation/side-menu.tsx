@@ -62,7 +62,7 @@ export class SideMenu extends React.PureComponent<Props, State> {
 
         return (
             <Menu
-                width={200}
+                width={300}
                 isOpen={isOpen}
                 onStateChange={onStateChange}
                 pageWrapId={'page-wrap'}
