@@ -1,6 +1,6 @@
 import { Store, createStore, applyMiddleware, compose } from 'redux';
 
-import { connectRouter, routerMiddleware } from 'connected-react-router';
+import { routerMiddleware } from 'connected-react-router';
 
 // Import the state interface and our combined reducers/sagas.
 //import { ApplicationState, rootReducer, rootSaga } from './store'

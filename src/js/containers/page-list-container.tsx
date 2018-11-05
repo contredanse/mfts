@@ -9,7 +9,6 @@ import PageRepository from '@src/models/repository/page-repository';
 import memoize from 'memoize-one';
 import DocumentMeta from '@src/utils/document-meta';
 import { BasicI18nDictionary, getFromDictionary } from '@src/i18n/basic-i18n';
-import equal from 'fast-deep-equal';
 
 type PageListContainerProps = {
     pageRepository: PageRepository;

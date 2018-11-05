@@ -1,10 +1,8 @@
-import React, { SyntheticEvent } from 'react';
+import React from 'react';
 import { State as MenuState } from 'react-burger-menu';
 import { RouteComponentProps, withRouter } from 'react-router';
 
 import './side-menu.scss';
-import { WithStore } from '@src/hoc/with-store';
-import { UiState } from '@src/store/ui';
 
 // To not bundle svg
 const Menu = require('react-burger-menu/lib/menus/pushRotate');

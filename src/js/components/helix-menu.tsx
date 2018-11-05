@@ -1,4 +1,4 @@
-import React, { CSSProperties } from 'react';
+import React from 'react';
 import SpiralMenu from '@thirdparty/spiral.js';
 import '@thirdparty/spiral.scss';
 

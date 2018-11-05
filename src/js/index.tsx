@@ -17,7 +17,7 @@ import 'typeface-quicksand';
 
 import { appConfig } from '@config/config.production';
 import AppConfig from '@src/core/app-config';
-import { register as registerServiceWorker, unregister as unregisterServiceWorker } from './registerServiceWorker';
+import { register as registerServiceWorker } from './registerServiceWorker';
 
 import configureStore from './configureStore';
 
