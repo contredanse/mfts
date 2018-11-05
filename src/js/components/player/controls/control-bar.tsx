@@ -179,15 +179,6 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
                                             {...spaceAction}
                                         />
                                     )}
-                                    <div
-                                        style={{
-                                            border: '1px solid white',
-                                            margin: '5px',
-                                            padding: '2px',
-                                        }}
-                                    >
-                                        Passer intro + jaune >>
-                                    </div>
                                 </div>
                             </div>
                         );

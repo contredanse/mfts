@@ -1,0 +1,16 @@
+.overlayed-page-btn-container {
+    border: 1px solid white;
+    margin: 5px;
+    padding: 5px;
+    position: absolute;
+    bottom: 70px;
+    right: 5px;
+    background-color: rgba(black, 0.5);
+
+    &:hover {
+        background-color: rgba(black, 1);
+        cursor: pointer;
+        border: 1px solid yellow;
+        color: yellow;
+    }
+}
