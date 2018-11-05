@@ -30,7 +30,7 @@ const i18nDict: BasicI18nDictionary = {
     },
 };
 
-class PageListContainer extends React.Component<PageListContainerProps, PageListContainerState> {
+class PageListContainer extends React.PureComponent<PageListContainerProps, PageListContainerState> {
     readonly state: PageListContainerState;
 
     constructor(props: PageListContainerProps) {
@@ -49,17 +49,6 @@ class PageListContainer extends React.Component<PageListContainerProps, PageList
         this.setState({
             pages: this.props.pageRepository.getAllPages(),
         });
-    }
-
-    shouldComponentUpdate(nextProps: PageListContainerProps, nextState: PageListContainerState): boolean {
-        const props = this.props;
-        const state = this.state;
-        return (
-            nextProps.lang !== props.lang ||
-            nextProps.menuId !== props.menuId ||
-            nextProps.videosBaseUrl !== props.videosBaseUrl ||
-            (nextState.filterText !== state.filterText || nextState.menuId !== state.menuId)
-        );
     }
 
     filterPages = (list: IJsonPage[], filterText: string, lang: string): IJsonPage[] => {

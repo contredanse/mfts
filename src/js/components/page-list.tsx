@@ -18,7 +18,7 @@ type PageListProps = {
 
 type PageListState = {};
 
-export default class PageList extends React.Component<PageListProps, PageListState> {
+export default class PageList extends React.PureComponent<PageListProps, PageListState> {
     render() {
         const { pages: list, lang } = this.props;
 
