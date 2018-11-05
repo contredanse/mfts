@@ -9,6 +9,7 @@ import PageRepository from '@src/models/repository/page-repository';
 import memoize from 'memoize-one';
 import DocumentMeta from '@src/utils/document-meta';
 import { BasicI18nDictionary, getFromDictionary } from '@src/i18n/basic-i18n';
+import equal from 'fast-deep-equal';
 
 type PageListContainerProps = {
     pageRepository: PageRepository;
@@ -30,7 +31,7 @@ const i18nDict: BasicI18nDictionary = {
     },
 };
 
-class PageListContainer extends React.PureComponent<PageListContainerProps, PageListContainerState> {
+class PageListContainer extends React.Component<PageListContainerProps, PageListContainerState> {
     readonly state: PageListContainerState;
 
     constructor(props: PageListContainerProps) {
@@ -49,6 +50,17 @@ class PageListContainer extends React.PureComponent<PageListContainerProps, Page
         this.setState({
             pages: this.props.pageRepository.getAllPages(),
         });
+    }
+
+    shouldComponentUpdate(nextProps: PageListContainerProps, nextState: PageListContainerState): boolean {
+        const props = this.props;
+        const state = this.state;
+        return (
+            nextProps.lang !== props.lang ||
+            nextProps.menuId !== props.menuId ||
+            nextProps.videosBaseUrl !== props.videosBaseUrl ||
+            (nextState.filterText !== state.filterText || nextState.menuId !== state.menuId)
+        );
     }
 
     filterPages = (list: IJsonPage[], filterText: string, lang: string): IJsonPage[] => {
@@ -79,6 +91,8 @@ class PageListContainer extends React.PureComponent<PageListContainerProps, Page
             right: '25px',
             width: '150px',
         } as React.CSSProperties;
+
+        console.log('RERENDER PAGELIST');
 
         // Calculate the latest filtered list. If these arguments haven't changed
         // since the last render, `memoize-one` will reuse the last return value.
