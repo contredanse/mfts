@@ -2,9 +2,6 @@
 // mini-css-extract-plugin to place it of top of the bundled styles
 import '@styles/style.scss';
 
-// Not needed, we use useBuiltins: 'usage' instead
-// import '@babel/polyfill';
-
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider as ReduxProvider } from 'react-redux';
@@ -17,7 +14,7 @@ import 'typeface-quicksand';
 
 import { appConfig } from '@config/config.production';
 import AppConfig from '@src/core/app-config';
-import { register as registerServiceWorker } from './registerServiceWorker';
+import { register as registerServiceWorker, unregister as unregisterServiceWorker } from './registerServiceWorker';
 
 import configureStore from './configureStore';
 import { isChrome } from '@src/utils/browser-detect';
@@ -63,4 +60,6 @@ if (isChrome(false)) {
             }
         },
     });
+} else {
+    unregisterServiceWorker();
 }
