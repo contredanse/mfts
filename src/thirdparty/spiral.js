@@ -427,10 +427,19 @@ var SpiralLabel = function(node, container, config, p) {
     e.style.top = this.posY + 'px';
     if (this.isLeft) e.classList.add('left');
 
-    var ee = document.createElement('span');
-    ee.className = 'node ' + node.type + (node.level > 1 ? ' sub' : '') + (node.open ? ' open' : '');
-    ee.innerHTML = node['title_' + this.config.language];
-    ee.__node = node;
+    // Test by seb for images (will be dropped)
+    if (true || node.type == 'section') {
+        var ee = document.createElement('span');
+        ee.className = 'node ' + node.type + (node.level > 1 ? ' sub' : '') + (node.open ? ' open' : '');
+        ee.innerHTML = node['title_' + this.config.language];
+        ee.__node = node;
+    } else {
+        var ee = document.createElement('img');
+        ee.className = 'node ' + node.type + (node.level > 1 ? ' sub' : '') + (node.open ? ' open' : '');
+        ee.src = `https://assets.materialforthespine.com/videos/covers/cbfhu-03.jpg`;
+        ee.__node = node;
+    }
+
     e.appendChild(ee);
     container.appendChild(e);
     this.element = e;

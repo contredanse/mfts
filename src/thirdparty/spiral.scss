@@ -1,3 +1,19 @@
+// Added by seb as test
+.spiral-flying-label img {
+    display: block;
+    padding: 10px 5px;
+    width: 100px;
+    //height: 60px;
+    position: relative;
+    left: 15px;
+    top: calc(-1em - 6px);
+    transition: left 0.16s ease-out;
+    /*border: 1px solid yellow;*/
+    cursor: pointer;
+}
+
+//
+
 #spiral-container {
     position: absolute;
     top: 0;
