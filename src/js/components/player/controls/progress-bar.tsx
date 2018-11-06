@@ -45,7 +45,7 @@ type ProgressBarState = {
 /**
  * Seekable progress bar
  */
-export class ProgressBar extends Component<ProgressBarProps, ProgressBarState> {
+export default class ProgressBar extends Component<ProgressBarProps, ProgressBarState> {
     static defaultProps = {
         duration: Infinity,
         currentTime: 0,
@@ -196,4 +196,4 @@ export class ProgressBar extends Component<ProgressBarProps, ProgressBarState> {
     };
 }
 
-export default withVideoProgress(ProgressBar);
+export const ConnectedProgressBar = withVideoProgress(ProgressBar);

@@ -40,7 +40,6 @@ class PlaybackRateSelect extends PureComponent<PlaybackRateSelectProps, Playback
 
     render() {
         const { style, playbackRates } = this.props;
-
         const { playbackRate } = this.state;
 
         return (

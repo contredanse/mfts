@@ -3,6 +3,7 @@ import {
     getAvailableTrackLanguages,
     hasVisibleTextTrack,
 } from '@src/components/player/controls/utils/video-texttrack-helpers';
+import { Omit } from 'utility-types';
 
 type InjectedPlaybackStatusProps = {
     isPlaying: boolean;
@@ -14,16 +15,26 @@ type InjectedPlaybackStatusProps = {
     trackLangs: string[];
     hasVisibleTextTrack: boolean;
     readyState: number;
+
+    duration: number;
+    currentTime: number;
+    bufferedTime: number;
+
     // An hack because we don't have a reliable way / dedicated
     // listener for track display/hide.
     // The child component must handle track visibility and trigger
     // the change to get an updated playback status.
-    triggerTextTrackVisibilityChange(visible?: boolean): void;
+    triggerTextTrackVisibilityChange: (visible?: boolean) => void;
 };
 
 type PlaybackStatusProps = {
     videoEl?: HTMLVideoElement;
+    progressInterval: number;
     children(props: InjectedPlaybackStatusProps): JSX.Element;
+};
+
+const defaultProps = {
+    progressInterval: 300,
 };
 
 // We'll actually inject our own state
@@ -38,12 +49,19 @@ const defaultPlaybackStatusState = {
     trackLangs: [],
     hasVisibleTextTrack: false,
     readyState: 0,
+    currentTime: 0,
+    bufferedTime: 0,
+    duration: Infinity,
 };
 
-export default class PlaybackStatusProvider extends React.Component<PlaybackStatusProps, PlaybackStatusState> {
+export default class PlaybackStatusProvider extends React.PureComponent<PlaybackStatusProps, PlaybackStatusState> {
+    static defaultProps = defaultProps;
+
     readonly state: PlaybackStatusState;
 
     protected listenersRegistered = false;
+
+    protected interval!: number;
 
     constructor(props: PlaybackStatusProps) {
         super(props);
@@ -71,6 +89,19 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
                         : 'undefined error'),
             }));
             this.registerVideoListeners(videoEl);
+            this.interval = window.setInterval(() => {
+                this.setState(
+                    (prevState: PlaybackStatusState): PlaybackStatusState => {
+                        //const { videoEl } = this.props;
+                        return {
+                            ...prevState,
+                            currentTime: videoEl.currentTime,
+                            bufferedTime: this.getSecondsLoaded(),
+                            duration: videoEl.duration,
+                        };
+                    }
+                );
+            }, this.props.progressInterval);
         }
     }
 
@@ -89,6 +120,7 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
         if (this.props.videoEl) {
             this.unregisterVideoListeners(this.props.videoEl);
         }
+        clearInterval(this.interval);
     }
 
     render() {
@@ -236,5 +268,21 @@ export default class PlaybackStatusProvider extends React.Component<PlaybackStat
         this.setState({
             hasVisibleTextTrack: visible,
         });
+    };
+
+    private getSecondsLoaded = (): number => {
+        if (!this.props.videoEl) {
+            return 0;
+        }
+        const { buffered } = this.props.videoEl;
+        if (buffered.length === 0) {
+            return 0;
+        }
+        const end = buffered.end(buffered.length - 1);
+        const duration = this.props.videoEl.duration;
+        if (end > duration) {
+            return duration;
+        }
+        return end;
     };
 }
