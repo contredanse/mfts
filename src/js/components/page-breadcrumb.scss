@@ -10,9 +10,9 @@ ul.page-breadcrumb {
     display: inline-block;
     width: 100%;
     list-style-type: none;
-    //margin: 0;
-
+    margin: 0;
     padding: 0;
+
     background: linear-gradient(
         to top,
         rgba($bg-gradient-color, 0.01) 0%,
@@ -27,7 +27,7 @@ ul.page-breadcrumb {
     a {
         font-size: 1.2em;
 
-        padding: 1vh 0.5vw;
+        padding: 0 0.5vw;
         font-weight: 500;
 
         @include media-breakpoint-down(sm) {
