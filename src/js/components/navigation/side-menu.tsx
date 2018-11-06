@@ -4,6 +4,10 @@ import { RouteComponentProps, withRouter } from 'react-router';
 
 import './side-menu.scss';
 
+import contredanseLogo from '@assets/images/logo-contredanse.png';
+import ConnectedLangSelector from '@src/components/lang-selector';
+import { Button, Toolbar } from '@material-ui/core';
+
 // To not bundle svg
 const Menu = require('react-burger-menu/lib/menus/pushRotate');
 
@@ -24,6 +28,10 @@ const menuItems = {
         label: { fr: 'Accueil', en: 'Home' },
         route: '/',
     },
+    about: {
+        label: { fr: 'A propos', en: 'About' },
+        route: '/{lang}/about',
+    },
     menu: {
         label: { fr: 'Menu', en: 'Menu' },
         route: '/{lang}/menu',
@@ -32,9 +40,9 @@ const menuItems = {
         label: { fr: 'Contenu', en: 'Content' },
         route: '/{lang}/page-list',
     },
-    about: {
-        label: { fr: 'A propos', en: 'About' },
-        route: '/{lang}/about',
+    account: {
+        label: { fr: 'Login', en: 'Login' },
+        route: '/{lang}/login',
     },
 };
 
@@ -85,6 +93,20 @@ export class SideMenu extends React.PureComponent<Props, State> {
                         </a>
                     );
                 })}
+
+                <ConnectedLangSelector>
+                    {({ nextLang, updateLang, currentLang }) => (
+                        <>
+                            <Button color="inherit">{currentLang}</Button>
+
+                            <Button color="inherit" onClick={() => updateLang(nextLang)}>
+                                {nextLang}
+                            </Button>
+                        </>
+                    )}
+                </ConnectedLangSelector>
+
+                <img src={contredanseLogo} />
             </Menu>
         );
     }
