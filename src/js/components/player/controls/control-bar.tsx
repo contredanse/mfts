@@ -59,7 +59,7 @@ const defaultProps = {
     playbackRate: 1,
 };
 
-export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
+class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
     static defaultProps = defaultProps;
     readonly state: ControlbarState;
     trackVisibilityHelper: TrackVisibilityHelper;
