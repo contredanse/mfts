@@ -11039,10 +11039,20 @@ react-hot-loader@^4.3.12:
     react-lifecycles-compat "^3.0.4"
     shallowequal "^1.0.2"
 
-react-i18next@*, react-i18next@^8.3.5:
+react-i18next@*:
   version "8.3.5"
   resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-8.3.5.tgz#7a24f2715646bf8027cc39aca04c94e8c0b130c0"
   integrity sha512-YYRQHE9YoRSjI96j2n8IZWp2sGIBbGFEFtT68gec2qlJOHQgs6ni+cNXECaJlUKXCElpxfLAovBTQvDf3jZmow==
+  dependencies:
+    "@babel/runtime" "^7.1.2"
+    create-react-context "0.2.3"
+    hoist-non-react-statics "3.0.1"
+    html-parse-stringify2 "2.0.1"
+
+react-i18next@^8.3.6:
+  version "8.3.6"
+  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-8.3.6.tgz#0e36f0b3906ddaa3002dfabc24b047caf6b7fb88"
+  integrity sha512-yhEYij0ssBG+m9n8l3ir8mHq4y+IsGN6Nd2CHg0XRFxF+Jj/Vje4Vjm2j2MReAncgs4i7uTnCKWVMUZAuWmX+g==
   dependencies:
     "@babel/runtime" "^7.1.2"
     create-react-context "0.2.3"

@@ -172,7 +172,7 @@
         "react-custom-scrollbars": "^4.2.1",
         "react-dom": "^16.6.0",
         "react-event-listener": "^0.6.4",
-        "react-i18next": "^8.3.5",
+        "react-i18next": "^8.3.6",
         "react-is": "^16.6.0",
         "react-redux": "^5.1.0",
         "react-router": "^4.3.1",
