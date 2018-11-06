@@ -153,7 +153,6 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
                                                     disableSpaceClick={props.disableButtonSpaceClick}
                                                 />
                                             )}
-                                            {status.isLoading && <LoadingIndicator />}
                                         </>
                                     )}
 
@@ -167,6 +166,7 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
                                             {...spaceAction}
                                         />
                                     )}
+                                    {status.isLoading && <LoadingIndicator />}
                                 </div>
 
                                 <div className="control-bar-ctn__panel__right">
