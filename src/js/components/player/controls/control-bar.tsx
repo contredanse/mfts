@@ -17,6 +17,12 @@ import LoadingButton from '@src/components/player/controls/svg-button/loading-bu
 import TrackVisibilityHelper from '@src/components/player/track/track-visibility-helper';
 import VolumeControl from '@src/components/player/volume-control';
 import { getFromDictionary } from '@src/i18n/basic-i18n';
+import FullscreenButton from '@src/components/player/controls/svg-mdi-button/fullscreen-button';
+import { ApplicationState } from '@src/store';
+import { Dispatch } from 'redux';
+import * as uiActions from '@src/store/ui/actions';
+import { connect } from 'react-redux';
+import FullscreenExitButton from '@src/components/player/controls/svg-mdi-button/fullscreen-exit-button';
 
 export type ControlBarProps = {
     videoEl?: HTMLVideoElement | null;
@@ -27,8 +33,11 @@ export type ControlBarProps = {
     enablePrevControl?: boolean;
     enableNextControl?: boolean;
     enableMuteControl?: boolean;
+    enableFullscreenControl?: boolean;
 
     mediaIsSilent?: boolean;
+    isFullscreen?: boolean;
+    setFullscreen?: (fullscreen: boolean) => void;
 
     disableButtonSpaceClick?: boolean;
     onNextLinkPressed?: () => void;
@@ -47,16 +56,16 @@ const defaultProps = {
     enableNextControl: true,
     enablePrevControl: true,
     enableMuteControl: true,
+    enableFullscreenControl: true,
     mediaIsSilent: false,
+    isFullscreen: false,
     disableButtonSpaceClick: false,
     playbackRate: 1,
 };
 
 export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
     static defaultProps = defaultProps;
-
     readonly state: ControlbarState;
-
     trackVisibilityHelper: TrackVisibilityHelper;
 
     /**
@@ -179,6 +188,18 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
                                             {...spaceAction}
                                         />
                                     )}
+                                    {props.enableFullscreenControl && (
+                                        <>
+                                            {props.isFullscreen ? (
+                                                <FullscreenExitButton
+                                                    isEnabled={true}
+                                                    onClick={this.toggleFullScreen}
+                                                />
+                                            ) : (
+                                                <FullscreenButton isEnabled={true} onClick={this.toggleFullScreen} />
+                                            )}
+                                        </>
+                                    )}
                                 </div>
                             </div>
                         );
@@ -187,6 +208,13 @@ export class ControlBar extends React.PureComponent<ControlBarProps, ControlbarS
             </div>
         );
     }
+
+    protected toggleFullScreen = (): void => {
+        const { setFullscreen, isFullscreen } = this.props;
+        if (setFullscreen) {
+            setFullscreen(!isFullscreen);
+        }
+    };
 
     protected toggleSubtitles = (): void => {
         const { videoEl, lang } = this.props;

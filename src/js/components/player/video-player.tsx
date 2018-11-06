@@ -4,6 +4,7 @@ import equal from 'fast-deep-equal';
 import HTMLVideoTrackManager from '@src/components/player/track/html-video-track-manager';
 import { hideAllTextTracks } from '@src/components/player/controls/utils/video-texttrack-helpers';
 import ControlBar, { ControlBarProps } from '@src/components/player/controls/control-bar';
+import ConnectedControlBar from '@src/components/player/controls/connected-control-bar';
 
 export type VideoSourceProps = SourceHTMLAttributes<HTMLSourceElement>;
 export type TextTrackKind = 'subtitles' | 'captions' | 'descriptions' | 'chapters' | 'metadata';
@@ -272,7 +273,7 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
                 </video>
                 {this.state.refLoaded &&
                     this.props.controlBarProps && (
-                        <ControlBar
+                        <ConnectedControlBar
                             ref={this.controlBarRef}
                             videoEl={this.videoRef.current}
                             {...this.props.controlBarProps}

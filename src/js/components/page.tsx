@@ -16,6 +16,7 @@ import EventListener from 'react-event-listener';
 import PagePlaybackOverlay from '@src/components/page-playback-overlay';
 import VideoPlayer from '@src/components/player/video-player';
 import AppBarPortal from '@src/components/navigation/app-bar-portal';
+import ConnectedControlBar from '@src/components/player/controls/connected-control-bar';
 
 export type PageProps = {
     pageProxy: PageProxy;
@@ -188,7 +189,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
                                     />
                                 </div>
                             ) : (
-                                <ControlBar {...controlBarProps} />
+                                <ConnectedControlBar {...controlBarProps} />
                             )}
                         </div>
                     ) : (
