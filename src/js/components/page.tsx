@@ -6,7 +6,7 @@ import './page.scss';
 
 import PageProxy from '@src/models/proxy/page-proxy';
 
-import ControlBar, { ControlBarProps } from '@src/components/player/controls/control-bar';
+import { ControlBarProps } from '@src/components/player/controls/control-bar';
 import PanelMultiVideo from '@src/components/panel-multi-video';
 import VideoProxyPlayer from '@src/components/player/data-proxy-player';
 import MenuRepository, { MenuSectionProps, PrevAndNextPageEntities } from '@src/models/repository/menu-repository';

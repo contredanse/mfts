@@ -4,7 +4,7 @@ import { ControlBarDictionary } from './control-bar.i18n';
 
 import { PlayButton, PauseButton, PrevButton, NextButton, SubtitlesButton } from './svg-mdi-button';
 
-import ProgressBar, { ConnectedProgressBar } from './progress-bar';
+import ProgressBar from './progress-bar';
 import PlaybackRateSelect from '@src/components/player/controls/playback-rate-select';
 import {
     hasVisibleTextTrack,
@@ -18,10 +18,6 @@ import TrackVisibilityHelper from '@src/components/player/track/track-visibility
 import VolumeControl from '@src/components/player/volume-control';
 import { getFromDictionary } from '@src/i18n/basic-i18n';
 import FullscreenButton from '@src/components/player/controls/svg-mdi-button/fullscreen-button';
-import { ApplicationState } from '@src/store';
-import { Dispatch } from 'redux';
-import * as uiActions from '@src/store/ui/actions';
-import { connect } from 'react-redux';
 import FullscreenExitButton from '@src/components/player/controls/svg-mdi-button/fullscreen-exit-button';
 
 export type ControlBarProps = {

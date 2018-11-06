@@ -3,7 +3,6 @@ import {
     getAvailableTrackLanguages,
     hasVisibleTextTrack,
 } from '@src/components/player/controls/utils/video-texttrack-helpers';
-import { Omit } from 'utility-types';
 
 type InjectedPlaybackStatusProps = {
     isPlaying: boolean;

@@ -6,7 +6,7 @@ import './side-menu.scss';
 
 import contredanseLogo from '@assets/images/logo-contredanse.png';
 import ConnectedLangSelector from '@src/components/lang-selector';
-import { Button, Toolbar } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 
 // To not bundle svg
 const Menu = require('react-burger-menu/lib/menus/pushRotate');
