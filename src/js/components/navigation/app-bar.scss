@@ -1,0 +1,78 @@
+$button-icon-size: 24px;
+
+// $color-hover: saturate(lighten($green, 10%), 20%);
+// $color-active: desaturate(darken($green, 20%), 20%);
+
+//$button-color-hover: desaturate(darken($green, 20%), 10%);
+$button-color-hover: yellow;
+//$button-color-active: fade-out($button-color-hover, 0.5);
+$button-color-active: white;
+
+$button-background: rgba(0, 0, 0, 0);
+$button-icon-fill-color: rgba(255, 255, 255, 1);
+
+//$button-border: 2px solid yellow;
+$button-border: 0px solid rgba(255, 255, 255, 0.2);
+
+$button-padding: 0px;
+$button-margin: 0px;
+
+.app-bar-container {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+
+    z-index: 1000;
+
+    button {
+        margin: $button-margin;
+        padding: $button-padding;
+        background: $button-background;
+        border: $button-border;
+        //border-radius: 100%;
+        outline: none;
+        margin-right: 10px;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &[disabled] {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        &.isEnabled {
+            cursor: pointer;
+
+            &:hover {
+                border-color: $button-color-hover;
+
+                svg.mdi-icon {
+                    fill: $button-color-hover;
+                }
+            }
+
+            &:active {
+                border-color: $button-color-active;
+                svg.mdi-icon {
+                    fill: $button-color-active;
+                }
+            }
+        }
+
+        &.isActive {
+            .mdi-icon {
+                display: block;
+                fill: #feff9a;
+                //background: linear-gradient(#e66465, #9198e5);
+                //background-color: rgba(yellow, 0.4);
+            }
+        }
+
+        .mdi-icon {
+            display: block;
+            fill: $button-icon-fill-color;
+        }
+    }
+}
