@@ -1,16 +1,18 @@
-import { combineReducers, Dispatch, Action, AnyAction } from 'redux';
+import { combineReducers, Dispatch, Action, AnyAction, Reducer } from 'redux';
 //import history from '../history';
 //import { all, fork } from 'redux-saga/effects'
 
 import { uiStateReducer, UiState } from './ui';
 import { navReducer, NavState } from './nav';
-import { connectRouter } from 'connected-react-router';
+import { connectRouter, LocationChangeAction, RouterState } from 'connected-react-router';
 
 import { History } from 'history';
 
 // The top-level state object
 export interface ApplicationState {
-    router: any; //<S>(reducer: Reducer<S>) => Reducer<S & { router: RouterState }>
+    // Should be, but there's a bug somewhere in typings
+    // router: Reducer<RouterState, LocationChangeAction>;
+    router: RouterState;
     ui: UiState;
     nav: NavState;
 }
