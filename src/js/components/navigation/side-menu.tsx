@@ -6,7 +6,6 @@ import './side-menu.scss';
 
 import contredanseLogo from '@assets/images/logo-contredanse.png';
 import ConnectedLangSelector from '@src/components/lang-selector';
-import { Button } from '@material-ui/core';
 
 // To not bundle svg
 const Menu = require('react-burger-menu/lib/menus/pushRotate');
@@ -97,11 +96,11 @@ export class SideMenu extends React.PureComponent<Props, State> {
                 <ConnectedLangSelector>
                     {({ nextLang, updateLang, currentLang }) => (
                         <>
-                            <Button color="inherit">{currentLang}</Button>
+                            <button color="inherit">{currentLang}</button>
 
-                            <Button color="inherit" onClick={() => updateLang(nextLang)}>
+                            <button color="inherit" onClick={() => updateLang(nextLang)}>
                                 {nextLang}
-                            </Button>
+                            </button>
                         </>
                     )}
                 </ConnectedLangSelector>
