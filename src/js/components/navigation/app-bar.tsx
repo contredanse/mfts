@@ -93,47 +93,6 @@ export const AppBarComponent: React.SFC<AppBarWithStylesProps & AppBarWithRouter
                     </IconButton>
 
                     <div id="app-bar-portal-ctn" />
-
-                    <IconButton
-                        className={classes.menuButton}
-                        color="inherit"
-                        aria-label="List"
-                        onClick={() => {
-                            history.push(`/${lang}/page-list`);
-                        }}
-                    >
-                        <ListIcon />
-                    </IconButton>
-
-                    <IconButton
-                        className={classes.menuButton}
-                        color="inherit"
-                        aria-label="Info"
-                        onClick={() => {
-                            history.push(`/${lang}/about`);
-                        }}
-                    >
-                        <InfoIcon />
-                    </IconButton>
-
-                    <ConnectedLangSelector>
-                        {({ nextLang, updateLang }) => (
-                            <Button color="inherit" onClick={() => updateLang(nextLang)}>
-                                {nextLang}
-                            </Button>
-                        )}
-                    </ConnectedLangSelector>
-
-                    <IconButton
-                        className={classes.menuButton}
-                        color="inherit"
-                        aria-label="Profile"
-                        onClick={() => {
-                            history.push(`/${lang}/login`);
-                        }}
-                    >
-                        <AccountBoxIcon />
-                    </IconButton>
                 </Toolbar>
             </MaterialAppBar>
         </div>
