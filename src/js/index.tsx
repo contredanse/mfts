@@ -20,6 +20,7 @@ import AppConfig from '@src/core/app-config';
 import { register as registerServiceWorker } from './registerServiceWorker';
 
 import configureStore from './configureStore';
+import { isChrome } from '@src/utils/browser-detect';
 
 const initialState = window.initialReduxState;
 const store = configureStore(history, initialState);
@@ -35,26 +36,31 @@ const renderApp = (Component: any, config: AppConfig, elementId: string) => {
 //console.log('appConfig', appConfig);
 renderApp(App, appConfig, 'app');
 
-registerServiceWorker({
-    onSuccess: registration => {},
-    onUpdate: registration => {
-        console.log('An update was found, removing the serviceWorker');
-        console.log('Lets show the pwa-version-notification');
-        const notification = document.getElementById('pwa-version-notification');
-        if (notification) {
-            notification.className = 'show';
-            notification.addEventListener('click', () => {
-                console.log('Clicked update !');
-                if ('serviceWorker' in navigator) {
-                    navigator.serviceWorker.ready.then(reg => {
-                        console.log('Unregistering the service worker');
-                        reg.unregister().then(() => {
-                            console.log('Reloading the page');
-                            window.location.reload();
+if (isChrome(false)) {
+    // Too much problems with service workers when using
+    // other browsers, hope it's gonna be better once workbox-sw 4.0
+    // have been released.
+    registerServiceWorker({
+        onSuccess: registration => {},
+        onUpdate: registration => {
+            console.log('An update was found, removing the serviceWorker');
+            console.log('Lets show the pwa-version-notification');
+            const notification = document.getElementById('pwa-version-notification');
+            if (notification) {
+                notification.className = 'show';
+                notification.addEventListener('click', () => {
+                    console.log('Clicked update !');
+                    if ('serviceWorker' in navigator) {
+                        navigator.serviceWorker.ready.then(reg => {
+                            console.log('Unregistering the service worker');
+                            reg.unregister().then(() => {
+                                console.log('Reloading the page');
+                                window.location.reload();
+                            });
                         });
-                    });
-                }
-            });
-        }
-    },
-});
+                    }
+                });
+            }
+        },
+    });
+}
