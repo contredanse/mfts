@@ -33,7 +33,8 @@ const renderApp = (Component: any, config: AppConfig, elementId: string) => {
 //console.log('appConfig', appConfig);
 renderApp(App, appConfig, 'app');
 
-if (isChrome(false)) {
+// relaxed
+if (true || isChrome(false)) {
     // Too much problems with service workers when using
     // other browsers, hope it's gonna be better once workbox-sw 4.0
     // have been released.
