@@ -60,7 +60,7 @@ export default class PlaybackStatusProvider extends React.PureComponent<Playback
 
     protected listenersRegistered = false;
 
-    protected interval!: number;
+    protected progressInterval!: number;
 
     constructor(props: PlaybackStatusProps) {
         super(props);
@@ -88,7 +88,7 @@ export default class PlaybackStatusProvider extends React.PureComponent<Playback
                         : 'undefined error'),
             }));
             this.registerVideoListeners(videoEl);
-            this.interval = window.setInterval(() => {
+            this.progressInterval = window.setInterval(() => {
                 this.setState(
                     (prevState: PlaybackStatusState): PlaybackStatusState => {
                         //const { videoEl } = this.props;
@@ -119,7 +119,7 @@ export default class PlaybackStatusProvider extends React.PureComponent<Playback
         if (this.props.videoEl) {
             this.unregisterVideoListeners(this.props.videoEl);
         }
-        clearInterval(this.interval);
+        clearInterval(this.progressInterval);
     }
 
     render() {
