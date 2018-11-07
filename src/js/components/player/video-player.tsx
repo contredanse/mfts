@@ -271,14 +271,13 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
                 })}
                 */}
                 </video>
-                {this.state.refLoaded &&
-                    this.props.controlBarProps && (
-                        <ConnectedControlBar
-                            ref={this.controlBarRef}
-                            videoEl={this.videoRef.current}
-                            {...this.props.controlBarProps}
-                        />
-                    )}
+                {this.state.refLoaded && this.props.controlBarProps && (
+                    <ConnectedControlBar
+                        ref={this.controlBarRef}
+                        videoEl={this.videoRef.current}
+                        {...this.props.controlBarProps}
+                    />
+                )}
             </>
         );
     }

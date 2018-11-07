@@ -14,16 +14,9 @@ import {
     WithStyles,
     Theme,
     createStyles,
-    Button,
 } from '@material-ui/core';
 
-import {
-    Menu as MenuIcon,
-    AccountBoxRounded as AccountBoxIcon,
-    InfoRounded as InfoIcon,
-    ListRounded as ListIcon,
-} from '@material-ui/icons';
-import ConnectedLangSelector from '@src/components/lang-selector';
+import { Menu as MenuIcon } from '@material-ui/icons';
 
 import helixSvg from '@assets/svg/helix-contredanse.svg';
 

@@ -4,8 +4,6 @@ import { hot } from 'react-hot-loader';
 import { Route } from 'react-router-dom';
 import { RouteComponentProps, Switch } from 'react-router';
 import { ConnectedRouter } from 'connected-react-router';
-import { I18nextProvider } from 'react-i18next';
-import i18n from '@src/i18n/i18n';
 
 import history from '@src/history';
 import { AppBar } from '@src/components/navigation/app-bar';
