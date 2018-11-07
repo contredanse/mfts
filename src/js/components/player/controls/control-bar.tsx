@@ -19,6 +19,7 @@ import VolumeControl from '@src/components/player/volume-control';
 import { getFromDictionary } from '@src/i18n/basic-i18n';
 import FullscreenButton from '@src/components/player/controls/svg-mdi-button/fullscreen-button';
 import FullscreenExitButton from '@src/components/player/controls/svg-mdi-button/fullscreen-exit-button';
+import IdleMonitor from '@src/components/player/idle-monitor';
 
 export type ControlBarProps = {
     videoEl?: HTMLVideoElement | null;
@@ -34,6 +35,9 @@ export type ControlBarProps = {
     mediaIsSilent?: boolean;
     isFullscreen?: boolean;
     setFullscreen?: (fullscreen: boolean) => void;
+
+    idleMonitorTimeout?: number;
+    onIdle?: () => void;
 
     disableButtonSpaceClick?: boolean;
     onNextLinkPressed?: () => void;
@@ -79,7 +83,7 @@ class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
 
     render() {
         const props = this.props;
-        const { videoEl, enableMuteControl, playbackRate, lang } = this.props;
+        const { videoEl, enableMuteControl, playbackRate, idleMonitorTimeout } = this.props;
 
         const LoadingIndicator = () => <LoadingButton />;
 
@@ -96,118 +100,126 @@ class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
                     // Let's recalc everytime the playback state changes.
                     const hasVisibleTrack = videoEl && hasVisibleTextTrack(videoEl);
                     return (
-                        <div className={'control-bar-ctn'}>
-                            <div className="control-bar-ctn__progress-bar">
-                                {videoEl && (
-                                    <ProgressBar
-                                        isSeekable={true}
-                                        onSeek={this.seekTo}
-                                        currentTime={status.currentTime}
-                                        bufferedTime={status.bufferedTime}
-                                        duration={status.duration}
-                                    />
-                                )}
-                            </div>
-
-                            <div className="control-bar-ctn__panel">
-                                <div className="control-bar-ctn__panel__left">
-                                    {props.enablePrevControl && (
-                                        <PrevButton
-                                            tooltip={tr('play_previous')}
-                                            isEnabled={this.props.onPreviousLinkPressed !== undefined}
-                                            onClick={() => {
-                                                this.props.onPreviousLinkPressed!();
-                                            }}
-                                            {...spaceAction}
-                                        />
-                                    )}
-
+                        <>
+                            {idleMonitorTimeout && idleMonitorTimeout > 0 && status.isPlaying && (
+                                <IdleMonitor timeout={idleMonitorTimeout} />
+                            )}
+                            <div className={'control-bar-ctn'}>
+                                <div className="control-bar-ctn__progress-bar">
                                     {videoEl && (
-                                        <>
-                                            {status.isPlaying ? (
-                                                <PauseButton
-                                                    tooltip={tr('pause')}
-                                                    isEnabled={true}
-                                                    onClick={this.pause}
-                                                    {...spaceAction}
-                                                />
-                                            ) : (
-                                                <PlayButton
-                                                    tooltip={tr('play')}
-                                                    isEnabled={true}
-                                                    onClick={this.play}
-                                                    {...spaceAction}
-                                                />
-                                            )}
-                                            {enableMuteControl && (
-                                                <VolumeControl
-                                                    tooltips={{
-                                                        mute: tr('mute'),
-                                                        unmute: tr('unmute'),
-                                                    }}
-                                                    muted={status.muted}
-                                                    volume={status.volume}
-                                                    onUnMute={this.unMute}
-                                                    onMute={this.mute}
-                                                    mediaIsSilent={props.mediaIsSilent}
-                                                    disableSpaceClick={props.disableButtonSpaceClick}
-                                                />
-                                            )}
-                                        </>
-                                    )}
-
-                                    {props.enableNextControl && (
-                                        <NextButton
-                                            tooltip={tr('play_next')}
-                                            isEnabled={this.props.onNextLinkPressed !== undefined}
-                                            onClick={() => {
-                                                this.props.onNextLinkPressed!();
-                                            }}
-                                            {...spaceAction}
+                                        <ProgressBar
+                                            isSeekable={true}
+                                            onSeek={this.seekTo}
+                                            currentTime={status.currentTime}
+                                            bufferedTime={status.bufferedTime}
+                                            duration={status.duration}
                                         />
                                     )}
-                                    {status.isLoading && <LoadingIndicator />}
                                 </div>
 
-                                <div className="control-bar-ctn__panel__right">
-                                    {props.enableSpeedControl && (
-                                        <PlaybackRateSelect
-                                            playbackRate={playbackRate!}
-                                            onChange={this.handleRateChangeRequest}
-                                            {...spaceAction}
-                                        />
-                                    )}
-                                    {status.trackLangs.length > 0 && (
-                                        <SubtitlesButton
-                                            isEnabled={true}
-                                            tooltip={tr(
-                                                !status.hasVisibleTextTrack ? 'show_subtitles' : 'hide_subtitles'
-                                            )}
-                                            extraClasses={status.hasVisibleTextTrack ? 'isActive' : ''}
-                                            onClick={() => {
-                                                this.toggleSubtitles();
-                                                // This is a hack, we need to dispatch manually
-                                                // the text track visibility change (no listeners exists ?)
-                                                status.triggerTextTrackVisibilityChange();
-                                            }}
-                                            {...spaceAction}
-                                        />
-                                    )}
-                                    {props.enableFullscreenControl && (
-                                        <>
-                                            {props.isFullscreen ? (
-                                                <FullscreenExitButton
-                                                    isEnabled={true}
-                                                    onClick={this.toggleFullScreen}
-                                                />
-                                            ) : (
-                                                <FullscreenButton isEnabled={true} onClick={this.toggleFullScreen} />
-                                            )}
-                                        </>
-                                    )}
+                                <div className="control-bar-ctn__panel">
+                                    <div className="control-bar-ctn__panel__left">
+                                        {props.enablePrevControl && (
+                                            <PrevButton
+                                                tooltip={tr('play_previous')}
+                                                isEnabled={this.props.onPreviousLinkPressed !== undefined}
+                                                onClick={() => {
+                                                    this.props.onPreviousLinkPressed!();
+                                                }}
+                                                {...spaceAction}
+                                            />
+                                        )}
+
+                                        {videoEl && (
+                                            <>
+                                                {status.isPlaying ? (
+                                                    <PauseButton
+                                                        tooltip={tr('pause')}
+                                                        isEnabled={true}
+                                                        onClick={this.pause}
+                                                        {...spaceAction}
+                                                    />
+                                                ) : (
+                                                    <PlayButton
+                                                        tooltip={tr('play')}
+                                                        isEnabled={true}
+                                                        onClick={this.play}
+                                                        {...spaceAction}
+                                                    />
+                                                )}
+                                                {enableMuteControl && (
+                                                    <VolumeControl
+                                                        tooltips={{
+                                                            mute: tr('mute'),
+                                                            unmute: tr('unmute'),
+                                                        }}
+                                                        muted={status.muted}
+                                                        volume={status.volume}
+                                                        onUnMute={this.unMute}
+                                                        onMute={this.mute}
+                                                        mediaIsSilent={props.mediaIsSilent}
+                                                        disableSpaceClick={props.disableButtonSpaceClick}
+                                                    />
+                                                )}
+                                            </>
+                                        )}
+
+                                        {props.enableNextControl && (
+                                            <NextButton
+                                                tooltip={tr('play_next')}
+                                                isEnabled={this.props.onNextLinkPressed !== undefined}
+                                                onClick={() => {
+                                                    this.props.onNextLinkPressed!();
+                                                }}
+                                                {...spaceAction}
+                                            />
+                                        )}
+                                        {status.isLoading && <LoadingIndicator />}
+                                    </div>
+
+                                    <div className="control-bar-ctn__panel__right">
+                                        {props.enableSpeedControl && (
+                                            <PlaybackRateSelect
+                                                playbackRate={playbackRate!}
+                                                onChange={this.handleRateChangeRequest}
+                                                {...spaceAction}
+                                            />
+                                        )}
+                                        {status.trackLangs.length > 0 && (
+                                            <SubtitlesButton
+                                                isEnabled={true}
+                                                tooltip={tr(
+                                                    !status.hasVisibleTextTrack ? 'show_subtitles' : 'hide_subtitles'
+                                                )}
+                                                extraClasses={status.hasVisibleTextTrack ? 'isActive' : ''}
+                                                onClick={() => {
+                                                    this.toggleSubtitles();
+                                                    // This is a hack, we need to dispatch manually
+                                                    // the text track visibility change (no listeners exists ?)
+                                                    status.triggerTextTrackVisibilityChange();
+                                                }}
+                                                {...spaceAction}
+                                            />
+                                        )}
+                                        {props.enableFullscreenControl && (
+                                            <>
+                                                {props.isFullscreen ? (
+                                                    <FullscreenExitButton
+                                                        isEnabled={true}
+                                                        onClick={this.toggleFullScreen}
+                                                    />
+                                                ) : (
+                                                    <FullscreenButton
+                                                        isEnabled={true}
+                                                        onClick={this.toggleFullScreen}
+                                                    />
+                                                )}
+                                            </>
+                                        )}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </>
                     );
                 }}
             </PlaybackStatusProvider>

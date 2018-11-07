@@ -10,7 +10,6 @@ class LoginContainer extends Component<LoginContainerProps, LoginContainerState>
     constructor(props: LoginContainerProps) {
         super(props);
     }
-
     render() {
         return (
             <LoginLayout>

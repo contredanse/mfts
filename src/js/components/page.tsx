@@ -134,6 +134,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
             enableSpeedControl: this.state.activateSpeedControls,
             mediaIsSilent: this.state.isSilent,
             disableButtonSpaceClick: true,
+            idleMonitorTimeout: 1500,
             enableNextControl: this.state.nextPage !== undefined,
             enablePrevControl: this.state.previousPage !== undefined,
             onNextLinkPressed: this.handlePlayNextRequest,
@@ -152,16 +153,15 @@ class Page extends React.PureComponent<PageProps, PageState> {
                     </AppBarPortal>
                 </div>
                 <div className="page-content">
-                    {played &&
-                        menuRepository && (
-                            <PagePlaybackOverlay
-                                currentPage={page}
-                                lang={lang}
-                                menuRepository={menuRepository}
-                                onReplayRequest={this.handleReplayRequest}
-                                onPageRequest={this.props.onPageChangeRequest}
-                            />
-                        )}
+                    {played && menuRepository && (
+                        <PagePlaybackOverlay
+                            currentPage={page}
+                            lang={lang}
+                            menuRepository={menuRepository}
+                            onReplayRequest={this.handleReplayRequest}
+                            onPageRequest={this.props.onPageChangeRequest}
+                        />
+                    )}
 
                     {isMultipleVideoContent ? (
                         <div className="page-multi-video-layout">

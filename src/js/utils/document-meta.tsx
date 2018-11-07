@@ -29,10 +29,7 @@ class DocumentMeta extends React.PureComponent<DocumentMetaProps, DocumentMetaSt
 
     render() {
         const { children } = this.props;
-        if (children === undefined) {
-            return null;
-        }
-        return <>{children}</>;
+        return children || null;
     }
 }
 
