@@ -9,6 +9,8 @@ import PageRepository from '@src/models/repository/page-repository';
 import memoize from 'memoize-one';
 import DocumentMeta from '@src/utils/document-meta';
 import { BasicI18nDictionary, getFromDictionary } from '@src/i18n/basic-i18n';
+import AppBarPortal from '@src/components/navigation/app-bar-portal';
+import PageBreadcrumb from '@src/components/page-breadcrumb';
 
 type PageListContainerProps = {
     pageRepository: PageRepository;
@@ -74,10 +76,10 @@ class PageListContainer extends React.PureComponent<PageListContainerProps, Page
     render(): JSX.Element {
         const { lang, menuId } = this.props;
         const searchBoxStyle = {
-            position: 'fixed',
-            top: '70px',
-            right: '25px',
-            width: '150px',
+            // position: 'fixed',
+            // top: '70px',
+            // right: '25px',
+            // width: '150px',
         } as React.CSSProperties;
 
         console.log('RERENDER PAGELIST');
@@ -91,6 +93,10 @@ class PageListContainer extends React.PureComponent<PageListContainerProps, Page
         return (
             <PageOverlay>
                 <DocumentMeta title={documentTitle} />
+                <AppBarPortal>
+                    <SearchBox onChange={this.updateSearch} />
+                </AppBarPortal>
+
                 <PageList
                     pageRepository={this.props.pageRepository}
                     baseUrl={this.props.videosBaseUrl}
@@ -98,9 +104,6 @@ class PageListContainer extends React.PureComponent<PageListContainerProps, Page
                     lang={lang}
                     onPageClick={this.openPage}
                 />
-                <div style={searchBoxStyle}>
-                    <SearchBox onChange={this.updateSearch} />
-                </div>
             </PageOverlay>
         );
     }
