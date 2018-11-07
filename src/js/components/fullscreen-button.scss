@@ -1,6 +1,48 @@
+$button-icon-size: 32px;
+
+// $color-hover: saturate(lighten($green, 10%), 20%);
+// $color-active: desaturate(darken($green, 20%), 20%);
+
+//$button-color-hover: desaturate(darken($green, 20%), 10%);
+$button-color-hover: yellow;
+//$button-color-active: fade-out($button-color-hover, 0.5);
+$button-color-active: white;
+
+$button-background: rgba(0, 0, 0, 0);
+$button-icon-fill-color: rgba(255, 255, 255, 1);
+
+//$button-border: 2px solid yellow;
+$button-border: 0px solid rgba(255, 255, 255, 0.2);
+
+$button-padding: 0px;
+$button-margin: 0px;
+
 .fullscreen-button {
     position: fixed;
-    top: 100px;
-    right: 20px;
+    bottom: 15px;
+    right: 15px;
     z-index: 1000;
+
+    margin: $button-margin;
+    padding: $button-padding;
+    background: $button-background;
+    border: $button-border;
+    //border-radius: 100%;
+    outline: none;
+    user-select: none;
+
+    &:-moz-focusring {
+        outline: none;
+    }
+    &:hover {
+        cursor: pointer;
+    }
+
+    .mdi-icon {
+        outline: none;
+        display: block;
+        width: $button-icon-size;
+        height: $button-icon-size;
+        fill: $button-icon-fill-color;
+    }
 }

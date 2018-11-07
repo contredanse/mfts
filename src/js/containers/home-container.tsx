@@ -4,6 +4,7 @@ import { RouteComponentProps, withRouter } from 'react-router';
 import AppAssetsLocator from '@src/core/app-assets-locator';
 import { ApplicationState } from '@src/store';
 import { connect } from 'react-redux';
+import ConnectedFullscreenButton from '@src/components/fullscreen-button';
 
 type PropsFromReduxState = {
     lang: string;
@@ -25,6 +26,7 @@ class HomeContainer extends React.Component<HomeContainerProps, HomeContainerSta
         return (
             <div className="full-page-slide-ctn">
                 <Home assetsLocator={assetsLocator} lang={lang} playbackRate={0.6} />
+                <ConnectedFullscreenButton lang={lang} />
             </div>
         );
     }

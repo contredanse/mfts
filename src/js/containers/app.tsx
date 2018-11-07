@@ -25,7 +25,6 @@ import DocumentMeta from '@src/utils/document-meta';
 import FullScreen from '@src/utils/fullscreen';
 
 import * as uiActions from '@src/store/ui/actions';
-import ConnectedFullscreenButton from '@src/components/fullscreen-button';
 import SideMenu from '@src/components/navigation/side-menu';
 
 type AppProps = {
@@ -175,7 +174,6 @@ class App extends React.Component<AppProps, AppState> {
                                             </Switch>
                                         </main>
                                     </div>
-                                    <ConnectedFullscreenButton lang={lang} />
                                 </div>
                             </FullScreen>
                         </ConnectedRouter>
