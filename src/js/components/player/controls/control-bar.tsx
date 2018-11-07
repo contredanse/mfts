@@ -108,7 +108,7 @@ class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
                         <>
                             <IdleMonitor
                                 timeout={idleMonitorTimeout}
-                                enableDebug={true}
+                                enableDebug={false}
                                 isActive={status.isPlaying}
                                 onIdleChange={this.props.handleIdleModeChange}
                             />
