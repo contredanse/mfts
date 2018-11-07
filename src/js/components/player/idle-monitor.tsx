@@ -14,7 +14,7 @@ const defaultEvents = [
     'touchmove',
     'MSPointerDown',
     'MSPointerMove',
-    // only works with 'window'
+    // only works with 'window' element / not 'document'
     'resize',
 ];
 
@@ -23,6 +23,7 @@ type IdleMonitorProps = {
     events?: string[];
     element?: HTMLElement;
     isActive?: boolean;
+    onIdleChange?: (idle: boolean) => void;
     enableDebug: boolean;
 };
 
@@ -56,15 +57,15 @@ class IdleMonitor extends React.PureComponent<IdleMonitorProps, IdleMonitorState
             clearTimeout(this.timeoutHandle);
         } else {
             if (this.state.idle) {
-                this.setState((prevState, props) => this.getIdleState(false));
+                this.setState(prevState => this.getIdleState(false, prevState));
             }
             clearTimeout(this.timeoutHandle);
             // typescript does not resolve correct
             // setTimeout version between node/browser
             this.timeoutHandle = setTimeout(() => {
                 if (!this.isCancelled) {
-                    this.setState((prevState, props) => {
-                        return this.getIdleState(props.isActive === true);
+                    this.setState(prevState => {
+                        return this.getIdleState(this.props.isActive === true, prevState);
                     });
                 }
             }, this.props.timeout) as any;
@@ -76,16 +77,18 @@ class IdleMonitor extends React.PureComponent<IdleMonitorProps, IdleMonitorState
         this.state = defaultState;
     }
 
-    getIdleState = (idle: boolean): IdleMonitorState => {
-        if (!this.isCancelled) {
-            return {
-                idle: idle,
-            };
-        } else {
-            return {
-                idle: false,
-            };
+    getIdleState = (idle: boolean, prevState: IdleMonitorState): IdleMonitorState | null => {
+        const newIdle = this.isCancelled ? false : idle;
+        if (newIdle === prevState.idle) {
+            return null;
         }
+
+        if (this.props.onIdleChange) {
+            this.props.onIdleChange(newIdle);
+        }
+        return {
+            idle: newIdle,
+        };
     };
 
     async componentDidMount() {
@@ -116,7 +119,6 @@ class IdleMonitor extends React.PureComponent<IdleMonitorProps, IdleMonitorState
 
     render() {
         const { idle } = this.state;
-
         if (this.props.enableDebug) {
             const debugComponent = (
                 <div
