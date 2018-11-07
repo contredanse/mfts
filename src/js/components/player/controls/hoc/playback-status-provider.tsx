@@ -62,6 +62,8 @@ export default class PlaybackStatusProvider extends React.PureComponent<Playback
 
     protected progressInterval!: number;
 
+    protected isCancelled = false;
+
     constructor(props: PlaybackStatusProps) {
         super(props);
         this.state = {
@@ -89,17 +91,19 @@ export default class PlaybackStatusProvider extends React.PureComponent<Playback
             }));
             this.registerVideoListeners(videoEl);
             this.progressInterval = window.setInterval(() => {
-                this.setState(
-                    (prevState: PlaybackStatusState): PlaybackStatusState => {
-                        //const { videoEl } = this.props;
-                        return {
-                            ...prevState,
-                            currentTime: videoEl.currentTime,
-                            bufferedTime: this.getSecondsLoaded(),
-                            duration: videoEl.duration,
-                        };
-                    }
-                );
+                if (!this.isCancelled) {
+                    this.setState(
+                        (prevState: PlaybackStatusState): PlaybackStatusState => {
+                            //const { videoEl } = this.props;
+                            return {
+                                ...prevState,
+                                currentTime: videoEl.currentTime,
+                                bufferedTime: this.getSecondsLoaded(),
+                                duration: videoEl.duration,
+                            };
+                        }
+                    );
+                }
             }, this.props.progressInterval);
         }
     }
@@ -116,10 +120,11 @@ export default class PlaybackStatusProvider extends React.PureComponent<Playback
     }
 
     componentWillUnmount() {
+        this.isCancelled = true;
+        clearInterval(this.progressInterval);
         if (this.props.videoEl) {
             this.unregisterVideoListeners(this.props.videoEl);
         }
-        clearInterval(this.progressInterval);
     }
 
     render() {
