@@ -142,8 +142,6 @@ class Page extends React.PureComponent<PageProps, PageState> {
             onRateChangeRequest: this.handleRateChange,
         };
 
-        console.log('RENDER/PAGE', controlBarProps);
-
         return (
             <div className="page-container">
                 <EventListener target="window" onKeyPress={this.handleGlobalKeyPress} />

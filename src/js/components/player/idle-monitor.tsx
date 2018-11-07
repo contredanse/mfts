@@ -115,6 +115,10 @@ class IdleMonitor extends React.PureComponent<IdleMonitorProps, IdleMonitorState
         events!.forEach(e => {
             element.removeEventListener(e, this.onEvent);
         });
+
+        if (this.props.onIdleChange) {
+            this.props.onIdleChange(false);
+        }
     }
 
     render() {

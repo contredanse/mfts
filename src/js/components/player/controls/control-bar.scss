@@ -8,7 +8,7 @@
     //flex-direction: column;
 
     opacity: 1;
-    transition: opacity $hide-animation-timeout ease-in-out;
+    transition: opacity $hide-animation-timeout ease-in;
 
     &.idle-mode {
         opacity: 0;
