@@ -14,6 +14,8 @@ const defaultEvents = [
     'touchmove',
     'MSPointerDown',
     'MSPointerMove',
+    // only works with 'window'
+    'resize',
 ];
 
 type IdleMonitorProps = {
@@ -23,7 +25,7 @@ type IdleMonitorProps = {
 };
 
 const fiveSeconds = 5e3;
-const defaultElement = isBrowser ? document : undefined;
+const defaultElement = isBrowser ? window : undefined;
 
 const defaultProps = {
     timeout: fiveSeconds,
@@ -43,47 +45,56 @@ class IdleMonitor extends Component<IdleMonitorProps, IdleMonitorState> {
     static defaultProps = defaultProps;
 
     timeoutHandle?: number;
+    isCancelled = false;
 
     onEvent = throttle(50, () => {
-        if (this.state.idle) {
-            this.setState({
-                idle: false,
-            });
+        //console.log('e', e);
+
+        if (this.isCancelled) {
+            if (this.timeoutHandle) {
+                clearTimeout(this.timeoutHandle);
+            }
+        } else {
+            if (this.state.idle) {
+                this.setState(prevState => ({
+                    ...prevState,
+                    idle: false,
+                }));
+            }
+            if (this.timeoutHandle) {
+                clearTimeout(this.timeoutHandle);
+            }
+            this.timeoutHandle = setTimeout(() => {
+                this.setState(prevState => ({
+                    ...prevState,
+                    idle: true,
+                }));
+            }, this.props.timeout) as any;
+            // typescript does not resolve correct
+            // setTimeout version between node/browser
         }
-        if (this.timeoutHandle) {
-            clearTimeout(this.timeoutHandle);
-        }
-        this.timeoutHandle = setTimeout(() => {
-            this.setState({
-                idle: true,
-            });
-        }, this.props.timeout) as // typescript does not resolve correct
-        // setTimeout version between node/browser
-        any;
     });
 
     constructor(props: IdleMonitorProps) {
         super(props);
         this.state = defaultState;
-
-        //this.onEvent
     }
 
-    componentDidMount() {
+    async componentDidMount() {
         const { element, events } = this.props;
         if (!element) {
             return;
         }
         events!.forEach(e => {
             element.addEventListener(e, this.onEvent, {
-                capture: true,
                 passive: true,
             });
         });
-        //document.addEventListener('visibilitychange', onVisibility);
     }
 
     componentWillUnmount() {
+        this.isCancelled = true;
+
         const { element, events } = this.props;
         if (!element) {
             return;
@@ -96,7 +107,16 @@ class IdleMonitor extends Component<IdleMonitorProps, IdleMonitorState> {
     render() {
         const { idle } = this.state;
         return (
-            <div style={{ position: 'static', top: '20px', right: '80px', border: '1px solid pink', zIndex: 8000 }}>
+            <div
+                style={{
+                    position: 'fixed',
+                    backgroundColor: 'blue',
+                    bottom: '15px',
+                    right: '15px',
+                    border: '1px solid pink',
+                    zIndex: 8000,
+                }}
+            >
                 {idle ? 'IDLE' : 'NOTIDLE'}
             </div>
         );
