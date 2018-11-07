@@ -26,6 +26,11 @@ $button-margin: 0px;
 
     display: flex;
 
+    &.hidden {
+        opacity: 0.3;
+        transition: opacity 300ms ease-in;
+    }
+
     .app-bar-portal {
         opacity: 1;
         transition: opacity 600ms ease-in;

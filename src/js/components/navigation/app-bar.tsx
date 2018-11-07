@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 
 import { withRouter } from 'react-router';
 import { RouteComponentProps } from 'react-router';
@@ -11,12 +11,6 @@ import helixSvg from '@assets/svg/helix-contredanse.svg';
 import { ApplicationState } from '@src/store';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-
-type MenuLinkProps = {
-    path: string;
-    label: string;
-    active: boolean;
-};
 
 type AppBarProps = {
     title: string;
@@ -31,12 +25,10 @@ export type AppBarWithRouterProps = AppBarProps & RouteComponentProps<{}>;
 export const AppBarComponent: React.SFC<AppBarWithRouterProps> = props => {
     const { history, lang, onMenuOpenRequest, hidden } = props;
 
-    if (hidden) {
-        return null;
-    }
+    const classes = [props.extraClasses, hidden ? 'hidden' : undefined].join(' ');
 
     return (
-        <div className={`${['app-bar-container', props.extraClasses].join(' ')}`}>
+        <div className={`${['app-bar-container', classes].join(' ')}`}>
             <button
                 className="mdi-icon"
                 onClick={() => {

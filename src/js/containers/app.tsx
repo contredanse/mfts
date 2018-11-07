@@ -147,7 +147,6 @@ class App extends React.Component<AppProps, AppState> {
                                                 lang={lang}
                                                 title={title}
                                                 onMenuOpenRequest={() => {
-                                                    console.log('MENUOPENRESUEST', isMenuOpen);
                                                     dispatch(uiActions.setIsMenuOpen(!isMenuOpen));
                                                 }}
                                             />

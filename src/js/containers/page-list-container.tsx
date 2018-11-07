@@ -96,7 +96,6 @@ class PageListContainer extends React.PureComponent<PageListContainerProps, Page
                 <AppBarPortal>
                     <SearchBox onChange={this.updateSearch} />
                 </AppBarPortal>
-
                 <PageList
                     pageRepository={this.props.pageRepository}
                     baseUrl={this.props.videosBaseUrl}
