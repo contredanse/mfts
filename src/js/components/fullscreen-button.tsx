@@ -53,7 +53,12 @@ export class FullscreenButton extends React.Component<FullscreenButtonProps> {
         );
         */
         return (
-            <button className={className} style={style} onClick={this.toggleFullScreen}>
+            <button
+                className={className}
+                style={style}
+                onClick={this.toggleFullScreen}
+                title={isFullscreen ? this.tr('leave_fullscreen') : this.tr('enter_fullscreen')}
+            >
                 {isFullscreen ? <FullscreenExitIcon /> : <FullscreenIcon />}
             </button>
         );
