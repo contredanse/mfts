@@ -26,6 +26,17 @@ $button-margin: 0px;
 
     display: flex;
 
+    .app-bar-portal {
+        opacity: 1;
+        transition: opacity 600ms ease-in-out;
+    }
+
+    &.idle-mode {
+        .app-bar-portal {
+            opacity: 0;
+        }
+    }
+
     button {
         margin: $button-margin;
         padding: $button-padding;

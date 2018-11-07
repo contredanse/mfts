@@ -2,11 +2,11 @@ import { ApplicationState } from '@src/store';
 import { Dispatch } from 'redux';
 import * as uiActions from '@src/store/ui/actions';
 import { connect } from 'react-redux';
-import ControlBar, { ControlBarProps } from '@src/components/player/controls/control-bar';
+import ControlBar from '@src/components/player/controls/control-bar';
 
 const mapStateToProps = ({ ui }: ApplicationState) => ({
     isFullscreen: ui.fullscreen,
-    extraClasses: ui.isIdleMode ? 'idle-mode' : '',
+    extraClasses: ui.isIdleMode ? 'idle-mode' : undefined,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({

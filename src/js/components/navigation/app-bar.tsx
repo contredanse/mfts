@@ -23,6 +23,7 @@ type AppBarProps = {
     lang: string;
     hidden?: boolean;
     onMenuOpenRequest?: () => void;
+    extraClasses?: string;
 };
 
 export type AppBarWithRouterProps = AppBarProps & RouteComponentProps<{}>;
@@ -35,7 +36,7 @@ export const AppBarComponent: React.SFC<AppBarWithRouterProps> = props => {
     }
 
     return (
-        <div className="app-bar-container">
+        <div className={`${['app-bar-container', props.extraClasses].join(' ')}`}>
             <button
                 className="mdi-icon"
                 onClick={() => {
@@ -58,13 +59,14 @@ export const AppBarComponent: React.SFC<AppBarWithRouterProps> = props => {
                 <img src={helixSvg} style={{ fill: 'white' }} />
             </button>
 
-            <div id="app-bar-portal-ctn" />
+            <div id="app-bar-portal-ctn" className="app-bar-portal" />
         </div>
     );
 };
 
 const mapStateToProps = ({ ui }: ApplicationState) => ({
     hidden: ui.isMenuOpen,
+    extraClasses: ui.isIdleMode ? 'idle-mode' : undefined,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({});
