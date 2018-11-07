@@ -32,17 +32,22 @@ export type ControlBarProps = {
     enableMuteControl?: boolean;
     enableFullscreenControl?: boolean;
 
+    // When we explicitly set a silent media
     mediaIsSilent?: boolean;
-    isFullscreen?: boolean;
-    setFullscreen?: (fullscreen: boolean) => void;
 
+    // fullscreen tests
+    isFullscreen?: boolean;
+    handleFullscreenRequest?: (fullscreen: boolean) => void;
+
+    // For idle mode handling
     idleMonitorTimeout?: number;
-    onIdle?: () => void;
+    handleIdleModeChange?: (idleMode: boolean) => void;
 
     disableButtonSpaceClick?: boolean;
     onNextLinkPressed?: () => void;
     onPreviousLinkPressed?: () => void;
     onRateChangeRequest?: (playbackRate: number) => void;
+    extraClasses?: string;
 };
 
 export type ControlbarState = {
@@ -101,8 +106,13 @@ class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
                     const hasVisibleTrack = videoEl && hasVisibleTextTrack(videoEl);
                     return (
                         <>
-                            <IdleMonitor timeout={idleMonitorTimeout} enableDebug={true} isActive={status.isPlaying} />
-                            <div className={'control-bar-ctn'}>
+                            <IdleMonitor
+                                timeout={idleMonitorTimeout}
+                                enableDebug={true}
+                                isActive={status.isPlaying}
+                                onIdleChange={this.props.handleIdleModeChange}
+                            />
+                            <div className={`${['control-bar-ctn', this.props.extraClasses].join(' ')}`}>
                                 <div className="control-bar-ctn__progress-bar">
                                     {videoEl && (
                                         <ProgressBar
@@ -225,9 +235,9 @@ class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
     }
 
     protected toggleFullScreen = (): void => {
-        const { setFullscreen, isFullscreen } = this.props;
-        if (setFullscreen) {
-            setFullscreen(!isFullscreen);
+        const { handleFullscreenRequest, isFullscreen } = this.props;
+        if (handleFullscreenRequest) {
+            handleFullscreenRequest(!isFullscreen);
         }
     };
 

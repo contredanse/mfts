@@ -125,7 +125,7 @@ class IdleMonitor extends React.PureComponent<IdleMonitorProps, IdleMonitorState
                     style={{
                         position: 'fixed',
                         backgroundColor: 'blue',
-                        bottom: '15px',
+                        bottom: '65px',
                         right: '15px',
                         border: '1px solid pink',
                         zIndex: 8000,
