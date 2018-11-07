@@ -101,9 +101,7 @@ class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
                     const hasVisibleTrack = videoEl && hasVisibleTextTrack(videoEl);
                     return (
                         <>
-                            {idleMonitorTimeout && idleMonitorTimeout > 0 && status.isPlaying && (
-                                <IdleMonitor timeout={idleMonitorTimeout} />
-                            )}
+                            <IdleMonitor timeout={idleMonitorTimeout} enableDebug={true} isActive={status.isPlaying} />
                             <div className={'control-bar-ctn'}>
                                 <div className="control-bar-ctn__progress-bar">
                                     {videoEl && (
