@@ -10,12 +10,12 @@ export const enum UiActionTypes {
     SET_LANG = '@@ui/SET_UI_LANG',
     SET_IN_FULLSCREEN = '@@ui/SET_IN_FULLSCREEN',
     SET_IS_MENU_OPEN = '@@ui/SET_IS_MENU_OPEN',
-    SET_CONTROLBAR_HIDDEN = '@@ui/SET_CONTROLBAR_HIDDEN',
+    SET_IDLE_MODE = '@@ui/SET_IDLE_MODE',
 }
 
 export interface UiState {
     readonly lang: UILangCode;
     readonly fullscreen: boolean;
     readonly isMenuOpen: boolean;
-    readonly isControlbarHidden: boolean;
+    readonly isIdleMode: boolean;
 }

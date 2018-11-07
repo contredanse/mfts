@@ -6,12 +6,12 @@ import ControlBar from '@src/components/player/controls/control-bar';
 
 const mapStateToProps = ({ ui }: ApplicationState) => ({
     isFullscreen: ui.fullscreen,
-    isControlbarHidden: ui.isControlbarHidden,
+    isControlbarHidden: ui.isIdleMode,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
     setFullscreen: (isFullscreen: boolean) => dispatch(uiActions.setFullscreen(isFullscreen)),
-    setControlbarHidden: (hidden: boolean) => dispatch(uiActions.setControlbarHidden(hidden)),
+    setControlbarHidden: (hidden: boolean) => dispatch(uiActions.setIdleMode(hidden)),
 });
 
 const ConnectedControlBar = connect(
