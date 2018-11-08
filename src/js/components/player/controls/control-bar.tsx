@@ -52,6 +52,7 @@ export type ControlBarProps = {
 
 export type ControlbarState = {
     isActive: boolean;
+    hasMouseOver?: boolean;
 };
 
 const defaultProps = {
@@ -109,10 +110,14 @@ class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
                             <IdleMonitor
                                 timeout={idleMonitorTimeout}
                                 enableDebug={false}
-                                isActive={status.isPlaying}
+                                isActive={status.isPlaying && this.state.hasMouseOver !== true}
                                 onIdleChange={this.props.handleIdleModeChange}
                             />
-                            <div className={`${['control-bar-ctn', this.props.extraClasses].join(' ')}`}>
+                            <div
+                                className={`${['control-bar-ctn', this.props.extraClasses].join(' ')}`}
+                                onMouseOver={this.setMouseOver}
+                                onMouseOut={this.setMouseOut}
+                            >
                                 <div className="control-bar-ctn__progress-bar">
                                     {videoEl && (
                                         <ProgressBar
@@ -237,6 +242,18 @@ class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
             </PlaybackStatusProvider>
         );
     }
+
+    protected setMouseOver = (): void => {
+        this.setState({
+            hasMouseOver: true,
+        });
+    };
+
+    protected setMouseOut = (): void => {
+        this.setState({
+            hasMouseOver: false,
+        });
+    };
 
     protected toggleFullScreen = (): void => {
         const { handleFullscreenRequest, isFullscreen } = this.props;
