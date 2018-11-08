@@ -108,7 +108,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
             autoLoop: pageProxy.isAutoloop(),
             loopIterations: pageProxy.getNumberOfLoopIterations(),
             isMultipleVideoContent: pageProxy.isMultiVideoContent(),
-            activateSpeedControls: pageProxy.shouldHaveSpeedControls(),
+            activateSpeedControls: true, // force for now //pageProxy.shouldHaveSpeedControls(),
             breadcrumb: this.getMenuBreadcrumb(pageId),
             previousPage: previousPage,
             nextPage: nextPage,
