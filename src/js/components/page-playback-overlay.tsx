@@ -55,7 +55,7 @@ class PagePlaybackOverlay extends React.PureComponent<PagePlaybackOverlayProps, 
         const p = this.props.menuRepository.getPrevAndNextPageEntityMenu(currentPage.pageId, lang!);
         return (
             <div className="page-playback-overlay page-playback-overlay--active">
-                <div className="page-playback-overlay-top">The top</div>
+                <div className="page-playback-overlay-top" />
                 <div className="page-playback-overlay-middle">
                     {p.previousPage && (
                         <div
@@ -94,7 +94,7 @@ class PagePlaybackOverlay extends React.PureComponent<PagePlaybackOverlayProps, 
                         </div>
                     )}
                 </div>
-                <div className="page-playback-overlay-bottom">Bottom</div>
+                <div className="page-playback-overlay-bottom" />
             </div>
         );
     }
