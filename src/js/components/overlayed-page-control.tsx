@@ -1,6 +1,9 @@
 import React, { ReactNode, SyntheticEvent } from 'react';
 
-import './overlayed-page-btn.scss';
+import './overlayed-page-control.scss';
+import { ApplicationState } from '@src/store';
+import { Dispatch } from 'redux';
+import { connect } from 'react-redux';
 
 type Props = {
     onClick?: (e: SyntheticEvent<HTMLDivElement>) => void;
@@ -12,7 +15,7 @@ type State = {};
 
 const defaultProps = {};
 
-class OverlayedPageBtn extends React.PureComponent<Props, State> {
+class OverlayedPageControl extends React.PureComponent<Props, State> {
     static defaultProps = defaultProps;
     constructor(props: Props) {
         super(props);
@@ -31,4 +34,13 @@ class OverlayedPageBtn extends React.PureComponent<Props, State> {
     }
 }
 
-export default OverlayedPageBtn;
+export default OverlayedPageControl;
+
+const mapStateToProps = ({ ui }: ApplicationState) => ({
+    extraClasses: ui.isIdleMode ? 'idle-mode' : undefined,
+});
+
+export const ConnectedOverlayedPageControl = connect(
+    mapStateToProps,
+    null
+)(OverlayedPageControl);

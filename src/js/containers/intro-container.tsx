@@ -6,7 +6,7 @@ import { PageOverlay } from '@src/components/layout/page-overlay';
 import PageRepository from '@src/models/repository/page-repository';
 import { RouteComponentProps, withRouter } from 'react-router';
 import DocumentMeta from '@src/utils/document-meta';
-import OverlayedPageBtn from '@src/components/overlayed-page-btn';
+import { ConnectedOverlayedPageControl } from '@src/components/overlayed-page-control';
 
 type IntroContainerProps = {
     lang: DataSupportedLangType;
@@ -63,9 +63,9 @@ class IntroContainer extends React.PureComponent<IntroContainerProps, IntroConta
                                 }}
                                 onNewRouteRequest={this.navigatePageList}
                             />
-                            <OverlayedPageBtn onClick={this.navigatePageList}>
+                            <ConnectedOverlayedPageControl onClick={this.navigatePageList}>
                                 <span>Skip introduction</span>
-                            </OverlayedPageBtn>
+                            </ConnectedOverlayedPageControl>
                         </>
                     ) : (
                         <div>

@@ -1,18 +1,29 @@
+$bottom: 60px;
 .overlayed-page-btn-container {
     border: 1px solid rgba(white, 0.2);
     margin: 5px;
     padding: 10px;
     position: absolute;
-    bottom: 120px;
+    bottom: $bottom;
     right: 5px;
     font-size: 1em;
     background-color: rgba(black, 0.3);
 
+    transition-property: transform, opacity;
+    transition-duration: 1300ms;
+    transition-timing-function: ease-out;
+    opacity: 0.6;
+    &.idle-mode {
+        opacity: 0;
+        transform: translateY($bottom - 5px);
+    }
+
     &:hover {
         //background-color: rgba(black, 1);
         cursor: pointer;
+        opacity: 1;
         //filter: drop-shadow(0px 0 1px yellow);
-        border: 1px solid rgba(yellow, 0.7);
+        border: 1px solid rgba(yellow, 0.5);
         //color: yellow;
     }
 }
