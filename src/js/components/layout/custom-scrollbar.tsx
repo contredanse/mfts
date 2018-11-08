@@ -37,7 +37,7 @@ export class CustomScrollbar extends React.PureComponent<CustomScrollbarProps, C
         const trackStyle = {
             width: '5px',
             borderRadius: 3,
-            top: '10%',
+            top: '5%',
             bottom: '10%',
             right: '10px',
             borderRight: '2px dotted rgba(255,255,255, 0.5)',
