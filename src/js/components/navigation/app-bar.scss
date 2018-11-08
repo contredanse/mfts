@@ -17,14 +17,32 @@ $button-border: 0px solid rgba(255, 255, 255, 0.2);
 $button-padding: 0px;
 $button-margin: 0px;
 
+$bg-gradient-color: black;
 .app-bar-container {
+    background: linear-gradient(
+        to top,
+        rgba($bg-gradient-color, 0.01) 0%,
+        rgba($bg-gradient-color, 1) 50%,
+        rgba($bg-gradient-color, 1) 100%
+    );
+
+    background-color: rgba(black, 0.01);
+
+    width: 100%;
+    padding: 10px 15px;
+    vertical-align: top;
+    // height: 100px;
+
     position: fixed;
-    top: 5px;
-    left: 15px;
-    z-index: 3000;
+    top: 0px;
+    left: 0px;
+    z-index: 5000;
     //border: 1px solid blue;
 
     display: flex;
+    align-items: flex-start;
+
+    //transition: opacity 600ms ease-in;
 
     &.hidden {
         opacity: 0.3;
@@ -37,6 +55,8 @@ $button-margin: 0px;
     }
 
     &.idle-mode {
+        opacity: 0.9;
+
         .app-bar-portal {
             opacity: 0;
         }
