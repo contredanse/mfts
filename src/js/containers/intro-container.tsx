@@ -62,7 +62,9 @@ class IntroContainer extends React.PureComponent<IntroContainerProps, IntroConta
                                     this.navigatePageList();
                                 }}
                             />
-                            <OverlayedPageBtn text="Skip introduction" onClick={this.navigatePageList} />
+                            <OverlayedPageBtn onClick={this.navigatePageList}>
+                                <span>Skip introduction</span>
+                            </OverlayedPageBtn>
                         </>
                     ) : (
                         <div>

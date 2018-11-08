@@ -1,24 +1,31 @@
-import React, { SyntheticEvent } from 'react';
+import React, { ReactNode, SyntheticEvent } from 'react';
 
 import './overlayed-page-btn.scss';
 
 type Props = {
-    text: string;
-    onClick: (e: SyntheticEvent<HTMLDivElement>) => void;
+    onClick?: (e: SyntheticEvent<HTMLDivElement>) => void;
+    children: ReactNode;
+    extraClasses?: string;
 };
 
 type State = {};
 
+const defaultProps = {};
+
 class OverlayedPageBtn extends React.PureComponent<Props, State> {
+    static defaultProps = defaultProps;
     constructor(props: Props) {
         super(props);
     }
 
     render() {
-        const { text, onClick } = this.props;
+        const { onClick, children, extraClasses } = this.props;
+
+        const classes = ['overlayed-page-btn-container', extraClasses].join(' ');
+
         return (
-            <div className="overlayed-page-btn-container" onClick={onClick}>
-                {text}
+            <div className={classes} onClick={onClick}>
+                {children}
             </div>
         );
     }
