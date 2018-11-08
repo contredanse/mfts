@@ -8,7 +8,9 @@ import i18n from './fullscreen-button.i18n';
 import './fullscreen-button.scss';
 import { getFromDictionary } from '@src/i18n/basic-i18n';
 
-import { FullscreenIcon, FullscreenExitIcon } from 'mdi-react';
+import FullscreenExitIcon from 'mdi-react/FullscreenExitIcon';
+import FullscreenIcon from 'mdi-react/FullscreenIcon';
+
 // Props passed from mapStateToProps
 type PropsFromReduxState = {
     isFullscreen: boolean;

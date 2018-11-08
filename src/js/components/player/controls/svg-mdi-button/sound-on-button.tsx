@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../button';
-import { VolumeHighIcon as SoundOnIcon } from 'mdi-react';
+import VolumeHighIcon from 'mdi-react/VolumeHighIcon';
 
 import './buttons.scss';
 
@@ -8,7 +8,7 @@ export default class SoundOnButton extends Button {
     static defaultProps = {
         ...Button.defaultProps,
         className: 'SoundOnButton',
-        children: <SoundOnIcon size="100%" />,
+        children: <VolumeHighIcon size="100%" />,
         isEnabled: false,
         tooltip: 'Mute',
     };

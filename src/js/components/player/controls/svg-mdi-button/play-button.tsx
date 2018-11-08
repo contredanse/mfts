@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../button';
-import { PlayArrowIcon as PlayIcon } from 'mdi-react';
+import PlayIcon from 'mdi-react/PlayArrowIcon';
 
 import './buttons.scss';
 

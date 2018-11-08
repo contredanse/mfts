@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../button';
-import { FullscreenIcon } from 'mdi-react';
+import FullscreenIcon from 'mdi-react/FullscreenIcon';
 
 import './buttons.scss';
 

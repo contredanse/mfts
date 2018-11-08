@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../button';
-import { SubtitlesIcon } from 'mdi-react';
+import SubtitlesIcon from 'mdi-react/SubtitlesIcon';
 
 import './buttons.scss';
 

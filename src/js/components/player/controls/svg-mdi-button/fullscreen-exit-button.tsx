@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../button';
-import { FullscreenExitIcon } from 'mdi-react';
+import FullscreenExitIcon from 'mdi-react/FullscreenExitIcon';
 
 import './buttons.scss';
 

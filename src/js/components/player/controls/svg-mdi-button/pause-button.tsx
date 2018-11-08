@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../button';
-import { PauseIcon } from 'mdi-react';
+import PauseIcon from 'mdi-react/PauseIcon';
 
 import './buttons.scss';
 

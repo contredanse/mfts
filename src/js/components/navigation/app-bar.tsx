@@ -5,7 +5,7 @@ import { RouteComponentProps } from 'react-router';
 
 import './app-bar.scss';
 
-import { MenuIcon } from 'mdi-react';
+import MenuIcon from 'mdi-react/MenuIcon';
 
 import helixSvg from '@assets/svg/helix-contredanse.svg';
 import { ApplicationState } from '@src/store';
