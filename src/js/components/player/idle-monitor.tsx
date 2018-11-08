@@ -22,6 +22,7 @@ type IdleMonitorProps = {
     timeout?: number;
     events?: string[];
     element?: HTMLElement;
+    enableOnMount: boolean;
     isActive?: boolean;
     onIdleChange?: (idle: boolean) => void;
     enableDebug: boolean;
@@ -33,6 +34,7 @@ const defaultElement = isBrowser ? window : undefined;
 const defaultProps = {
     isActive: true,
     timeout: fiveSeconds,
+    enableOnMount: true,
     events: defaultEvents,
     element: defaultElement,
     enableDebug: false,
@@ -92,7 +94,7 @@ class IdleMonitor extends React.PureComponent<IdleMonitorProps, IdleMonitorState
     };
 
     async componentDidMount() {
-        const { element, events } = this.props;
+        const { element, events, enableOnMount } = this.props;
         if (!element) {
             return;
         }
@@ -101,6 +103,9 @@ class IdleMonitor extends React.PureComponent<IdleMonitorProps, IdleMonitorState
                 passive: true,
             });
         });
+        if (enableOnMount) {
+            this.onEvent();
+        }
     }
 
     componentWillUnmount() {
