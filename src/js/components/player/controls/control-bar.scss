@@ -91,12 +91,11 @@ $max-controlbar-width: 900px;
         &__right {
             flex: 1;
             button {
-                opacity: 0.9;
                 margin: 0;
                 margin-left: 3px;
                 zoom: 0.8;
                 svg.mdi-icon {
-                    fill: grey;
+                    fill: rgba(white, 0.9);
                 }
             }
             justify-content: flex-end;
