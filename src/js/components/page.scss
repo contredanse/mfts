@@ -11,11 +11,13 @@ $single-video-margin-bottom: 49px;
 // Till object-fit: contains works on all browsers...
 // we use this flex trick to make the video layout
 
+$max-video-width: 720px;
+
 .autoscale-video-container {
     height: 100%;
     display: flex;
     flex-direction: column;
-
+    align-items: center;
     .autoscale-video-wrapper {
         width: 100%;
         max-height: 100%;
@@ -26,6 +28,8 @@ $single-video-margin-bottom: 49px;
     .autoscale-video-content {
         //background-color: #ccffcc;
         position: relative;
+
+        max-width: $max-video-width;
 
         video {
             position: absolute;
@@ -74,6 +78,7 @@ $single-video-margin-bottom: 49px;
         text-align: center;
         display: flex;
         justify-content: center;
+
         padding: $page-content-padding;
 
         .page-multi-video-layout {
@@ -107,7 +112,12 @@ $single-video-margin-bottom: 49px;
 
         .page-single-video-layout {
             flex: auto;
+            justify-items: center;
+            align-items: center;
             margin-bottom: $single-video-margin-bottom;
+
+            video {
+            }
         }
     }
     .page-footer {
