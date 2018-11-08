@@ -141,7 +141,9 @@ class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
 
                                         {videoEl && (
                                             <>
-                                                {status.isPlaying ? (
+                                                {status.isLoading ? (
+                                                    <LoadingIndicator />
+                                                ) : status.isPlaying ? (
                                                     <PauseButton
                                                         tooltip={tr('pause')}
                                                         isEnabled={true}
@@ -150,11 +152,6 @@ class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
                                                     />
                                                 ) : (
                                                     <PlayButton
-                                                        style={{
-                                                            width: '50px',
-                                                            height: '50px',
-                                                            opacity: 0.9,
-                                                        }}
                                                         tooltip={tr('play')}
                                                         isEnabled={true}
                                                         onClick={this.play}
@@ -174,7 +171,6 @@ class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
                                                 {...spaceAction}
                                             />
                                         )}
-                                        {status.isLoading && <LoadingIndicator />}
                                     </div>
 
                                     <div className="control-bar-ctn__panel__right">

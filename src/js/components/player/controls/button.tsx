@@ -10,6 +10,7 @@ export type ButtonProps = {
     children?: ReactNode;
     disableSpaceClick?: boolean;
     tooltip?: string;
+    size?: string;
 };
 
 export const buttonDefaultProps = {
@@ -18,6 +19,7 @@ export const buttonDefaultProps = {
     extraClasses: '',
     style: {},
     children: null,
+    size: '100%',
     disableSpaceClick: false,
 } as ButtonProps;
 
@@ -26,6 +28,8 @@ class Button extends PureComponent<ButtonProps> {
 
     render() {
         const { isEnabled, className, extraClasses, style, tooltip, children } = this.props;
+
+        const svgIcon = typeof children === 'function' ? children() : children;
 
         return (
             <button
@@ -36,7 +40,7 @@ class Button extends PureComponent<ButtonProps> {
                 onClick={this.handleClick}
                 onKeyUp={this.handleKeyUp}
             >
-                {children}
+                {svgIcon}
             </button>
         );
     }
