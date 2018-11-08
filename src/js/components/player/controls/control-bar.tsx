@@ -126,7 +126,8 @@ class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
                                 </div>
 
                                 <div className="control-bar-ctn__panel">
-                                    <div className="control-bar-ctn__panel__left">
+                                    <div className="control-bar-ctn__panel__left" />
+                                    <div className="control-bar-ctn__panel__center">
                                         {props.enablePrevControl && (
                                             <PrevButton
                                                 tooltip={tr('play_previous')}
@@ -149,24 +150,15 @@ class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
                                                     />
                                                 ) : (
                                                     <PlayButton
+                                                        style={{
+                                                            width: '50px',
+                                                            height: '50px',
+                                                            opacity: 0.9,
+                                                        }}
                                                         tooltip={tr('play')}
                                                         isEnabled={true}
                                                         onClick={this.play}
                                                         {...spaceAction}
-                                                    />
-                                                )}
-                                                {enableMuteControl && (
-                                                    <VolumeControl
-                                                        tooltips={{
-                                                            mute: tr('mute'),
-                                                            unmute: tr('unmute'),
-                                                        }}
-                                                        muted={status.muted}
-                                                        volume={status.volume}
-                                                        onUnMute={this.unMute}
-                                                        onMute={this.mute}
-                                                        mediaIsSilent={props.mediaIsSilent}
-                                                        disableSpaceClick={props.disableButtonSpaceClick}
                                                     />
                                                 )}
                                             </>
@@ -209,6 +201,22 @@ class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
                                                 {...spaceAction}
                                             />
                                         )}
+
+                                        {enableMuteControl && (
+                                            <VolumeControl
+                                                tooltips={{
+                                                    mute: tr('mute'),
+                                                    unmute: tr('unmute'),
+                                                }}
+                                                muted={status.muted}
+                                                volume={status.volume}
+                                                onUnMute={this.unMute}
+                                                onMute={this.mute}
+                                                mediaIsSilent={props.mediaIsSilent}
+                                                disableSpaceClick={props.disableButtonSpaceClick}
+                                            />
+                                        )}
+
                                         {props.enableFullscreenControl && (
                                             <>
                                                 {props.isFullscreen ? (

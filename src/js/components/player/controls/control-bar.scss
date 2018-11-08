@@ -1,10 +1,15 @@
 @import '_variables.scss';
 
-$bg-gradient-color: black;
+$bg-gradient-color: grey;
+$max-controlbar-width: 650px;
+//$max-controlbar-width: 100%;
 
 .control-bar-ctn {
     //display: flex;
     //flex-direction: column;
+
+    height: 100px;
+
     background: linear-gradient(
         to bottom,
         rgba($bg-gradient-color, 0.01) 0%,
@@ -24,16 +29,28 @@ $bg-gradient-color: black;
     left: 0;
     right: 0;
     padding: 10px;
+    display: flex;
+
+    flex-flow: column-reverse;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-items: center;
 
     &__progress-bar {
         //background-color: white;
         //height: 60px;
         //width: 100%;
+        //flex: 1 1 100%;
+        width: 100%;
+        max-width: $max-controlbar-width;
     }
 
     &__panel {
         height: 30px;
         display: flex;
+        flex: 1 1;
+        width: 100%;
+        max-width: $max-controlbar-width;
 
         button {
             width: 30px;
@@ -50,6 +67,7 @@ $bg-gradient-color: black;
         &__center {
             flex: auto;
             align-items: center;
+            justify-content: center;
             display: flex;
         }
         &__right {
