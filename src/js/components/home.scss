@@ -85,12 +85,13 @@ $title-opacity: 0.8;
 
     .lang-selector-panel {
         position: fixed;
-        right: 30px;
-        top: 30px;
+        right: 20px;
+        top: 15px;
         color: white;
         font-size: 1em;
         cursor: pointer;
         user-select: none;
+        z-index: 3500;
         &:hover {
             text-decoration: underline;
             color: $link-hover-color;

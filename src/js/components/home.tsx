@@ -87,6 +87,14 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
 
         return (
             <div className="home-container">
+                <ConnectedLangSelector>
+                    {({ currentLang, nextLang, toggleLang, updateLang }) => (
+                        <div className="lang-selector-panel" onClick={() => updateLang(nextLang)}>
+                            {nextLang === 'en' ? 'English' : 'Français'}
+                        </div>
+                    )}
+                </ConnectedLangSelector>
+
                 <FullsizeVideoBg videoSrcs={videoSrcs} playbackRate={playbackRate} autoPlay={true} loop={true}>
                     <div
                         className="home-container-text-panel"
@@ -104,13 +112,6 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
                             </a>
                         </p>
                     </div>
-                    <ConnectedLangSelector>
-                        {({ currentLang, nextLang, toggleLang, updateLang }) => (
-                            <div className="lang-selector-panel" onClick={() => updateLang(nextLang)}>
-                                {nextLang === 'en' ? 'English' : 'Français'}
-                            </div>
-                        )}
-                    </ConnectedLangSelector>
                 </FullsizeVideoBg>
                 <EventListener
                     target={document}
