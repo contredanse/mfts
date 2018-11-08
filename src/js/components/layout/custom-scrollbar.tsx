@@ -35,12 +35,12 @@ export class CustomScrollbar extends React.PureComponent<CustomScrollbarProps, C
 
     protected getScrollbarTrack(): React.StatelessComponent<any> {
         const trackStyle = {
-            width: '5px',
+            width: '7px',
             borderRadius: 3,
             top: '5%',
             bottom: '10%',
             right: '10px',
-            borderRight: '2px dotted rgba(255,255,255, 0.5)',
+            borderRight: '2px dotted rgba(255,255,255, 0.7)',
         };
         return ({ style, ...props }) => <div style={{ ...style, ...trackStyle }} {...props} />;
     }
