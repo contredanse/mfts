@@ -22,8 +22,7 @@ export type PageProps = {
     pageProxy: PageProxy;
     menuRepository?: MenuRepository;
     lang: string;
-    onPageChangeRequest?: (pageId: string) => void;
-    onNewRouteRequest?: (routeSpec: string) => void;
+    onNewRouteRequest?: (routeSpec?: string) => void;
     onPagePlayed?: () => void;
 };
 
@@ -135,7 +134,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
             mediaIsSilent: this.state.isSilent,
             disableButtonSpaceClick: true,
             idleMonitorTimeout: 1500,
-            enableNextControl: this.state.nextPage !== undefined,
+            enableNextControl: true,
             enablePrevControl: this.state.previousPage !== undefined,
             onNextLinkPressed: this.handlePlayNextRequest,
             onPreviousLinkPressed: this.handlePlayPreviousRequest,
@@ -157,7 +156,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
                             lang={lang}
                             menuRepository={menuRepository}
                             onReplayRequest={this.handleReplayRequest}
-                            onPageRequest={this.props.onPageChangeRequest}
+                            onPageRequest={this.gotoPage}
                         />
                     )}
 
@@ -219,6 +218,12 @@ class Page extends React.PureComponent<PageProps, PageState> {
         );
     }
 
+    private gotoPage(pageId: string) {
+        if (this.props.onNewRouteRequest) {
+            this.props.onNewRouteRequest(`/{lang}/page/${pageId}`);
+        }
+    }
+
     /**
      * Return the main player media player (audio/video)
      */
@@ -252,7 +257,6 @@ class Page extends React.PureComponent<PageProps, PageState> {
     };
 
     private handleReplayRequest = () => {
-        console.log('handleReplayRequest');
         this.setState((prevState: PageState) => {
             const player = this.getMainVideoPlayer();
             if (player) {
@@ -268,14 +272,18 @@ class Page extends React.PureComponent<PageProps, PageState> {
     };
 
     private handlePlayNextRequest = (): void => {
-        if (this.state.nextPage !== undefined && this.props.onPageChangeRequest !== undefined) {
-            this.props.onPageChangeRequest(this.state.nextPage.pageId);
+        if (this.state.nextPage !== undefined) {
+            this.gotoPage(this.state.nextPage.pageId);
+        } else if (this.props.onNewRouteRequest) {
+            this.props.onNewRouteRequest();
         }
     };
 
     private handlePlayPreviousRequest = (): void => {
-        if (this.state.previousPage !== undefined && this.props.onPageChangeRequest !== undefined) {
-            this.props.onPageChangeRequest(this.state.previousPage.pageId);
+        if (this.state.previousPage !== undefined) {
+            this.gotoPage(this.state.previousPage.pageId);
+        } else if (this.props.onNewRouteRequest) {
+            this.props.onNewRouteRequest();
         }
     };
 

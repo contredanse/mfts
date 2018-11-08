@@ -71,7 +71,6 @@ class PageContainer extends React.PureComponent<PageContainerProps, PageContaine
                             lang={lang}
                             pageProxy={pageProxy}
                             menuRepository={this.props.menuRepository}
-                            onPageChangeRequest={this.navigateToPage}
                             onNewRouteRequest={this.navigateToRouteSpec}
                         />
                     </div>
@@ -107,10 +106,12 @@ class PageContainer extends React.PureComponent<PageContainerProps, PageContaine
         }
     }
 
-    private navigateToRouteSpec = (routeSpec: string): void => {
+    private navigateToRouteSpec = (routeSpec?: string): void => {
         const { lang, history } = this.props;
-        const newRoute = routeSpec.replace('{lang}', lang);
-        history.push(newRoute);
+        if (routeSpec) {
+            const newRoute = routeSpec.replace('{lang}', lang);
+            history.push(newRoute);
+        }
     };
 
     private navigateToPage = (pageId: string): void => {
