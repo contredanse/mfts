@@ -12,12 +12,14 @@ type AboutProps = {
     assetsLocator: AppAssetsLocator;
     lang: string;
     content?: string;
+    mdClassName?: string;
 };
 
 type AboutState = {};
 
 const defaultProps = {
     content: '',
+    mdClassName: 'static-content-markdown',
 };
 
 class About extends React.PureComponent<AboutProps, AboutState> {
@@ -27,7 +29,7 @@ class About extends React.PureComponent<AboutProps, AboutState> {
     }
 
     render() {
-        const { lang, content } = this.props;
+        const { lang, content, mdClassName } = this.props;
         const videosBaseUrl = this.props.assetsLocator.getMediaTypeBaseUrl('videos');
 
         const videoSrcs = [{ src: `${videosBaseUrl}/napp.webm`, type: 'video/webm' }];
@@ -37,7 +39,7 @@ class About extends React.PureComponent<AboutProps, AboutState> {
             <div className="about-container">
                 <FullsizeVideoBg videoSrcs={videoSrcs}>
                     <CustomScrollbar>
-                        <WebpackMarkdown content={content!} />
+                        <WebpackMarkdown className={mdClassName} content={content!} />
                     </CustomScrollbar>
                 </FullsizeVideoBg>
             </div>

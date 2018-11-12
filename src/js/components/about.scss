@@ -1,9 +1,6 @@
 @import '../../styles/_variables.scss';
 @import '../../styles/_media-queries.scss';
 
-$title-font: '#{$primary-font}', sans-serif;
-$subtitle-font: $handwritten-font;
-
 $padding-top: 30px;
 
 .about-container {
@@ -26,7 +23,8 @@ $padding-top: 30px;
     }
 
     .fullsize-video-bg-inner {
-        width: 70vw;
+        width: 95vw;
+        max-width: 1200px;
         @include media-breakpoint-down(sm) {
             width: 100vw;
         }
@@ -38,14 +36,14 @@ $padding-top: 30px;
         max-height: 100vh;
         //max-height: calc(100vh - #{$padding-top});
 
-        .markdown {
+        .static-content-markdown {
+            text-rendering: optimizeLegibility;
+            font-family: $primary-font;
             flex: 1 1 auto;
-            padding: 2em 2em;
-            text-align: center;
-            h1,
-            h2 {
+            padding: 3em 5em;
+            text-align: left;
+            h1 {
                 //mix-blend-mode: difference;
-                font-family: $title-font;
                 font-size: 2.2em;
                 line-height: 0.9;
                 font-weight: 800;
@@ -61,14 +59,17 @@ $padding-top: 30px;
             }
             h2 {
                 font-size: 1.7em;
-                font-family: $handwritten-font;
                 text-transform: none;
             }
-            h2 + p {
-                font-family: $subtitle-font;
+            h3 {
                 font-size: 1.5em;
                 font-weight: 400;
                 opacity: 0.9;
+            }
+            p {
+                font-size: 1.2em;
+                line-height: 1.58;
+                letter-spacing: -0.004em;
             }
         }
     }
