@@ -400,7 +400,7 @@ module.exports = merge(common, {
             // Whether or not the service worker should start controlling any existing clients as soon as it activates.
             clientsClaim: true,
             // https://stackoverflow.com/questions/49482680/workbox-the-danger-of-self-skipwaiting
-            //skipWaiting: true,
+            skipWaiting: true,
 
             // Be sure to get our own local copy !
             importWorkboxFrom: 'disabled',
