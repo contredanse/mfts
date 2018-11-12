@@ -1,0 +1,69 @@
+option.playback-rate-select-option {
+    background-color: pink;
+}
+
+.playback-rate-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none; /* remove default arrow */
+    background-image: url(./images/speedometer_white.png); //, linear-gradient(to bottom, #E5E5E5, #F4F4F4); /* Standard syntax; must be last */
+    background-size: 24px;
+    padding: 2px 5px 2px 30px;
+    text-align: left;
+    color: white;
+    background-color: rgba(black, 0.01);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+    background-position: center left;
+    background-repeat: no-repeat;
+
+    border: 0px;
+    outline: 0px;
+
+    option {
+        border: 0px;
+        outline: 0px;
+
+        background: rgba(black, 0.9);
+        //text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+
+        &:focus {
+            border: 0px;
+            outline: 0px;
+
+            &:hover {
+                border: 0px;
+                outline: 0px;
+            }
+
+            //box-shadow: 0 0 3pt 2pt red;
+        }
+
+        &:hover {
+            border: 1px solid black;
+            border: 0px;
+            outline: 0px;
+        }
+    }
+
+    &:focus,
+    &:focus-within,
+    &:active,
+    &:hover {
+        outline: 0;
+        border: 0px;
+        outline: 0px;
+
+        &:hover {
+            outline: 0;
+            border: 0px;
+            outline: 0px;
+        }
+        //box-shadow: 0 0 3pt 2pt #8F4A11;
+        //box-shadow: 0 0 3pt 2pt #719ECE;
+    }
+
+    &::-ms-expand {
+        display: none; /* hide the default arrow in ie10 and ie11 */
+    }
+}

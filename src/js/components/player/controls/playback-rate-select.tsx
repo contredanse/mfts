@@ -1,5 +1,7 @@
 import React, { PureComponent, CSSProperties } from 'react';
 
+import './playback-rate-select.scss';
+
 export type PlaybackRates = Array<{
     value: number;
     title: string;
@@ -20,11 +22,11 @@ export type PlaybackRateState = {
 const defaultProps = {
     isEnabled: true,
     playbackRates: [
-        { value: 2.0, title: '2.0' },
-        { value: 1.5, title: '1.5' },
-        { value: 1.0, title: '1.0' },
-        { value: 0.5, title: '0.5' },
-        { value: 0.2, title: '0.2' },
+        { value: 2.0, title: 'x 2.0' },
+        { value: 1.5, title: 'x 1.5' },
+        { value: 1.0, title: 'x 1.0' },
+        { value: 0.5, title: 'x 0.5' },
+        { value: 0.2, title: 'x 0.2' },
     ],
 };
 
@@ -44,9 +46,9 @@ class PlaybackRateSelect extends PureComponent<PlaybackRateSelectProps, Playback
 
         return (
             <div className="control-bar__select" style={style}>
-                <select onChange={this.handleChange} value={playbackRate}>
+                <select className="playback-rate-select" onChange={this.handleChange} value={playbackRate}>
                     {playbackRates!.map(({ value, title }) => (
-                        <option key={value} value={value}>
+                        <option className="playback-rate-select-option" key={value} value={value}>
                             {title}
                         </option>
                     ))}

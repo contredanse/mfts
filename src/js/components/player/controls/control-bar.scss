@@ -13,8 +13,8 @@ $max-controlbar-width: 900px;
     background: linear-gradient(
         to bottom,
         rgba($bg-gradient-color, 0.01) 0%,
-        rgba($bg-gradient-color, 0.4) 60%,
-        rgba($bg-gradient-color, 0.7) 100%
+        rgba($bg-gradient-color, 0.2) 60%,
+        rgba($bg-gradient-color, 0.8) 100%
     );
 
     opacity: 1;
@@ -66,9 +66,13 @@ $max-controlbar-width: 900px;
         }
         &__center {
             flex: auto;
+
             align-items: center;
             justify-content: center;
             display: flex;
+
+            background: linear-gradient(to top, rgba(black, 0.01) 0%, rgba(black, 0.4) 10%, rgba(black, 1) 100%);
+
             button {
                 &.PlayButton,
                 &.PauseButton {
