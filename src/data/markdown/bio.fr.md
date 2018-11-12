@@ -2,7 +2,9 @@
 
 Depuis 55 ans, Steve Paxton explore la fiction de la danse « cultivée » et la « vérité » de l’improvisation.
 
-Né à Phoenix dans l’Arizona en 1939, il aborde sa recherche sur le mouvement par la gymnastique avant de se former en modern dance puis en danse classique, yoga, aïkido et tai chi chuan. Pendant l’été 1958, il participe à l’American Dance Festival du Connecticut College, où il suit l’enseignement des chorégraphes Merce Cunningham et José Limón. Peu après, il s’installe à New York. Il danse dans la José Limón Company en 1959 et fait partie de la Merce Cunningham Dance Company de 1961 à 1964. Il aborde la pratique de l’aïkido en 1964 au dojo Hombu de Tokyo et poursuit son apprentissage à New York auprès de *Yamada Sensei* \[maître Yamada].
+Né à Phoenix dans l’Arizona en 1939, il aborde sa recherche sur le mouvement par la gymnastique
+avant de se former en modern dance puis en danse classique, yoga, aïkido et tai chi chuan.
+Pendant l’été 1958, il participe à l’American Dance Festival du Connecticut College, où il suit l’enseignement des chorégraphes Merce Cunningham et José Limón. Peu après, il s’installe à New York. Il danse dans la José Limón Company en 1959 et fait partie de la Merce Cunningham Dance Company de 1961 à 1964. Il aborde la pratique de l’aïkido en 1964 au dojo Hombu de Tokyo et poursuit son apprentissage à New York auprès de *Yamada Sensei* \[maître Yamada].
 
 Par goût de la déconstruction, de l’exploration, de la subversion et de l’invention, il se retrouve membre fondateur du Judson Dance Theater (1962-1966), dans le droit fil des ateliers du compositeur Robert Dunn, lui-même inspiré par les méthodes de John Cage. Steve Paxton a pour partenaires en expérimentation Yvonne Rainer, Trisha Brown, Robert Rauschenberg et Lucinda Childs, entre autres. Le courant du Judson influera sur l’émergence d’une danse contemporaine à différentes époques aux quatre coins de la planète.
 

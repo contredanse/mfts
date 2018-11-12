@@ -2,7 +2,8 @@
 
 ## Publications
 
-*Gravity* by Steve Paxton, Contredanse Éditions, Bruxelles, 2018.
+### *Gravity* by Steve Paxton, Contredanse Éditions, Bruxelles, 2018.
+
 In this book, the dancer Steve Paxton traces a lifetime in the company of gravity. The memory of his first flight, a meditation on walking, pondering on the conditions of life, and a dream of dancing make up pieces of a puzzle. Paxton muses about the limit of his consciousness and celebrates the potentiality of our senses to enter the dance. 
 
 *Gravité* by Steve Paxton, translation in french by Denise Luccioni, Éditions Contredanse, Bruxelles, 2018
