@@ -10,7 +10,6 @@ import memoize from 'memoize-one';
 import DocumentMeta from '@src/utils/document-meta';
 import { BasicI18nDictionary, getFromDictionary } from '@src/i18n/basic-i18n';
 import AppBarPortal from '@src/components/navigation/app-bar-portal';
-import PageBreadcrumb from '@src/components/page-breadcrumb';
 
 type PageListContainerProps = {
     pageRepository: PageRepository;

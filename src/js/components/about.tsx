@@ -2,8 +2,6 @@ import React from 'react';
 import './about.scss';
 import AppAssetsLocator from '@src/core/app-assets-locator';
 
-import credits_en from '@data/markdown/credits.en.md';
-import credits_fr from '@data/markdown/credits.fr.md';
 import WebpackMarkdown from '@src/components/webpack-markdown';
 import FullsizeVideoBg from '@src/components/layout/fullsize-video-bg';
 import { CustomScrollbar } from '@src/components/layout/custom-scrollbar';

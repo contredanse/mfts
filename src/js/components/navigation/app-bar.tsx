@@ -1,4 +1,4 @@
-import React, { CSSProperties } from 'react';
+import React from 'react';
 
 import { withRouter } from 'react-router';
 import { RouteComponentProps } from 'react-router';

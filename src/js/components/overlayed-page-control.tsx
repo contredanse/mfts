@@ -2,7 +2,6 @@ import React, { ReactNode, SyntheticEvent } from 'react';
 
 import './overlayed-page-control.scss';
 import { ApplicationState } from '@src/store';
-import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 
 type Props = {
