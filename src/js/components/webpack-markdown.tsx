@@ -6,6 +6,11 @@ const wrapMarkup = (html: string) => ({
 
 type WebpackMarkdownProps = {
     content: string;
+    className?: string;
+};
+
+const defaultProps = {
+    className: 'markdown',
 };
 
 class WebpackMarkdown extends React.PureComponent<WebpackMarkdownProps, {}> {
@@ -13,7 +18,8 @@ class WebpackMarkdown extends React.PureComponent<WebpackMarkdownProps, {}> {
         super(props);
     }
     render() {
-        return <div className="markdown" dangerouslySetInnerHTML={wrapMarkup(this.props.content)} />;
+        const { className, content } = this.props;
+        return <div className={className} dangerouslySetInnerHTML={wrapMarkup(content)} />;
     }
 }
 
