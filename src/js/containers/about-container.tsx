@@ -14,41 +14,26 @@ type AboutContainerProps = {
     documents?: HTMLStaticContent[];
 } & RouteComponentProps<{}>;
 
-type AboutContainerState = {
-    document?: HTMLStaticContent;
-};
+type AboutContainerState = {};
 
 const defaultProps = {
     documents: staticContent,
 };
 
-class AboutContainer extends React.Component<AboutContainerProps, AboutContainerState> {
+class AboutContainer extends React.PureComponent<AboutContainerProps, AboutContainerState> {
     static defaultProps = defaultProps;
 
     constructor(props: AboutContainerProps) {
         super(props);
-        this.state = this.getStateFromSection(props.section, props.lang);
-    }
-
-    getStateFromSection(sectionId: string, lang: string): AboutContainerState {
-        const doc =
-            this.props.documents!.find((element: HTMLStaticContent) => {
-                return sectionId === element.section_id;
-            }) || undefined;
-        return {
-            document: doc,
-        };
     }
 
     render() {
-        const { lang, assetsLocator } = this.props;
-        const { document } = this.state;
-
+        const { lang, assetsLocator, section } = this.props;
+        const document = this.loadDocumentFromSection(section, lang);
         if (document) {
             const title = document.title[lang] || document.title.en;
             const content = document.content[lang] || document.content.en;
             const documentTitle = `MFS >> ${title}`;
-
             return (
                 <div className="full-page-slide-ctn">
                     <DocumentMeta title={documentTitle} />
@@ -58,6 +43,14 @@ class AboutContainer extends React.Component<AboutContainerProps, AboutContainer
         } else {
             return <NotFoundContainer />;
         }
+    }
+
+    loadDocumentFromSection(sectionId: string, lang: string): HTMLStaticContent | null {
+        return (
+            this.props.documents!.find((element: HTMLStaticContent) => {
+                return sectionId === element.section_id;
+            }) || null
+        );
     }
 }
 

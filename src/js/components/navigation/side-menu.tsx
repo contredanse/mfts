@@ -29,7 +29,7 @@ const menuItems = {
     },
     about: {
         label: { fr: 'A propos', en: 'About' },
-        route: '/{lang}/about',
+        route: '/{lang}/about/credits',
     },
     menu: {
         label: { fr: 'Menu', en: 'Menu' },
@@ -42,6 +42,14 @@ const menuItems = {
     account: {
         label: { fr: 'Login', en: 'Login' },
         route: '/{lang}/login',
+    },
+    bio: {
+        label: { fr: 'Biographie', en: 'Biography' },
+        route: '/{lang}/about/bio',
+    },
+    biblio: {
+        label: { fr: 'Bibliographie', en: 'Bibliography' },
+        route: '/{lang}/about/biblio',
     },
 };
 
