@@ -13025,6 +13025,16 @@ typeface-eczar@^0.0.54:
   resolved "https://registry.yarnpkg.com/typeface-eczar/-/typeface-eczar-0.0.54.tgz#680e0a8a351b185888145f086dde68eec677fbb1"
   integrity sha512-2M3ADIVNLNuf1YA4wlh+UOectN9E5T9UcyiF65RMYsivrJV795Za2Cps/qs5BR4GMBGNxPGF9WmfRuWUnm5B6A==
 
+typeface-fira-sans@^0.0.54:
+  version "0.0.54"
+  resolved "https://registry.yarnpkg.com/typeface-fira-sans/-/typeface-fira-sans-0.0.54.tgz#1a5fbd8fdc6195ee580e765dbcc4113df18f0f6f"
+  integrity sha512-WPbYqk8w4YRWWCGOrBDXo0iPUmNdTR3frTq2I16+RSLJMNbIDjRMpbMjmyMipBmXN8bwuvyumCgJ5oGpuzpY3g==
+
+typeface-karla@^0.0.54:
+  version "0.0.54"
+  resolved "https://registry.yarnpkg.com/typeface-karla/-/typeface-karla-0.0.54.tgz#f59d09b329a378db2161a3ecd6e6a0054699b579"
+  integrity sha512-8LI3n3KGAF94hvnozruF5oEu00YnVgkTjFDESs47S6Z6WeTEvyxLnoR9Dlv7IW48rqZekLMgYhfgkfxkKpYAEQ==
+
 typeface-quicksand@^0.0.54:
   version "0.0.54"
   resolved "https://registry.yarnpkg.com/typeface-quicksand/-/typeface-quicksand-0.0.54.tgz#d8f60bcfbea663cda97a0e973f24e6c35d76561a"
