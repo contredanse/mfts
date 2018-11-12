@@ -2,8 +2,6 @@ import React from 'react';
 import './page-list.scss';
 import { IJsonPage } from '@data/json/data-pages';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { IJsonVideo } from '@data/json/data-videos';
-import dataVideos from '@data/json/data-videos.json';
 import { ReactNode } from 'react';
 import PageRepository from '@src/models/repository/page-repository';
 import PageCard from '@src/components/page-card';
@@ -82,11 +80,5 @@ export default class PageList extends React.PureComponent<PageListProps, PageLis
                 </tbody>
             </table>
         );
-    }
-
-    protected getVideo(videoId: string): IJsonVideo {
-        return dataVideos.filter((video: IJsonVideo) => {
-            return video.video_id === videoId;
-        })[0];
     }
 }

@@ -104,9 +104,10 @@ class App extends React.Component<AppProps, AppState> {
                     />
                     <Route
                         exact={true}
-                        path={`${match.path}/about`}
-                        render={() => {
-                            return <AboutContainer assetsLocator={assetsLocator} lang={lang} />;
+                        path={`${match.path}/about/:section`}
+                        render={(props: RouteComponentProps<any>) => {
+                            const { section, lang: routeLang } = props.match.params;
+                            return <AboutContainer assetsLocator={assetsLocator} lang={routeLang} section={section} />;
                         }}
                     />
                     <Route

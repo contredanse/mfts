@@ -11,28 +11,33 @@ import { CustomScrollbar } from '@src/components/layout/custom-scrollbar';
 type AboutProps = {
     assetsLocator: AppAssetsLocator;
     lang: string;
+    content?: string;
 };
 
 type AboutState = {};
 
+const defaultProps = {
+    content: '',
+};
+
 class About extends React.PureComponent<AboutProps, AboutState> {
+    static defaultProps = defaultProps;
     constructor(props: AboutProps) {
         super(props);
     }
 
     render() {
-        const { lang } = this.props;
+        const { lang, content } = this.props;
         const videosBaseUrl = this.props.assetsLocator.getMediaTypeBaseUrl('videos');
 
         const videoSrcs = [{ src: `${videosBaseUrl}/napp.webm`, type: 'video/webm' }];
 
-        const content = lang === 'fr' ? credits_fr : credits_en;
-
+        //const content = lang === 'fr' ? credits_fr : credits_en;
         return (
             <div className="about-container">
                 <FullsizeVideoBg videoSrcs={videoSrcs}>
                     <CustomScrollbar>
-                        <WebpackMarkdown content={content} />
+                        <WebpackMarkdown content={content!} />
                     </CustomScrollbar>
                 </FullsizeVideoBg>
             </div>
