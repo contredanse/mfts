@@ -1,7 +1,6 @@
 import React from 'react';
 import './about.scss';
 import AppAssetsLocator from '@src/core/app-assets-locator';
-
 import WebpackMarkdown from '@src/components/webpack-markdown';
 import FullsizeVideoBg from '@src/components/layout/fullsize-video-bg';
 import { CustomScrollbar } from '@src/components/layout/custom-scrollbar';
@@ -32,7 +31,6 @@ class About extends React.PureComponent<AboutProps, AboutState> {
 
         const videoSrcs = [{ src: `${videosBaseUrl}/napp.webm`, type: 'video/webm' }];
 
-        //const content = lang === 'fr' ? credits_fr : credits_en;
         return (
             <div className="about-container">
                 <FullsizeVideoBg videoSrcs={videoSrcs}>

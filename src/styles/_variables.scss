@@ -8,9 +8,9 @@ $body-bg: black; //rgba($brown-color, 1);
 $body-color: #fff;
 
 //$primary-font: 'Raleway', 'Quicksand', 'Roboto', 'tahoma';
-$primary-font: 'Quicksand', sans-serif;
-//$secondary-font: 'Raleway';
-$handwritten-font: 'Quicksand', 'Shadows Into Light Two', cursive;
+$primary-font: 'Karla', 'Fira Sans', 'Quicksand', sans-serif;
+
+$handwritten-font: $primary-font;
 
 $yellow-color: #ffff00;
 
