@@ -10,9 +10,9 @@ import history from './history';
 import App from './containers/app';
 
 import '@public/favicon.ico';
-import 'typeface-quicksand';
+//import 'typeface-quicksand';
 import 'typeface-karla';
-import 'typeface-fira-sans';
+//import 'typeface-fira-sans';
 
 import { appConfig } from '@config/config.production';
 import AppConfig from '@src/core/app-config';
