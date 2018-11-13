@@ -7,12 +7,15 @@ export type PageBreadcrumbProps = {
     lang: string;
     title: string;
     sections?: MenuSectionProps[];
+    separator?: string;
     onSectionSelected?: (menuId: string) => {};
 } & RouteComponentProps<any>;
 
 type PageBreadcrumbState = {};
 
-const defaultProps = {};
+const defaultProps = {
+    separator: '/',
+};
 
 class PageBreadcrumb extends React.PureComponent<PageBreadcrumbProps, PageBreadcrumbState> {
     static defaultProps = defaultProps;
@@ -31,7 +34,7 @@ class PageBreadcrumb extends React.PureComponent<PageBreadcrumbProps, PageBreadc
         }
     };
     render() {
-        const { sections, title, onSectionSelected } = this.props;
+        const { sections, title, separator } = this.props;
         return (
             <div className="page-breadcrumb">
                 {Array.isArray(sections) &&
@@ -44,7 +47,7 @@ class PageBreadcrumb extends React.PureComponent<PageBreadcrumbProps, PageBreadc
                             >
                                 <span>{menu.title}</span>
                             </a>
-                            <span className="page-breadcrumb__crumb page-breadcrumb__separator">/</span>
+                            <span className="page-breadcrumb__crumb page-breadcrumb__separator">{separator}</span>
                         </React.Fragment>
                     ))}
                 <span className=" page-breadcrumb__crumb--current">{title}</span>
