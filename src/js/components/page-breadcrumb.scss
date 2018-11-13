@@ -5,65 +5,102 @@
 $breadcrumb-font: $primary-font;
 //$bg-gradient-color: $brown-color;
 
-$bg-gradient-color: black;
-ul.page-breadcrumb {
-    display: inline-block;
-    width: 100%;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+.page-breadcrumb {
+    //border: 1px solid blue;
+    flex: 1 1;
+    //padding: 1em 0 1em 1em;
+    white-space: nowrap;
+    //max-width: 80vw;
+    font-family: $breadcrumb-font;
+    text-shadow: 1px 1px 1px rgba(black, 0.4);
+    font-size: 1.2em;
+    font-weight: 500;
+    color: rgba(white, 0.9);
+    text-decoration: none;
 
-    background: linear-gradient(
-        to top,
-        rgba($bg-gradient-color, 0.01) 0%,
-        rgba($bg-gradient-color, 0.4) 60%,
-        rgba($bg-gradient-color, 0.7) 100%
-    );
-
-    li {
-        float: left;
-    }
-
-    a {
-        font-size: 1.2em;
-
-        //padding: 0 0.5vw;
-        font-weight: 500;
-
-        @include media-breakpoint-down(sm) {
-            //padding: 1vh 0.4vw;
-            font-size: 2.7vw;
-            font-weight: 700;
-        }
-
-        &:not(.title):after {
-            content: '/';
-            padding-left: 1vh;
-        }
-        font-family: $breadcrumb-font;
-
-        text-shadow: 1px 1px 1px rgba(black, 0.4);
-
-        -webkit-text-stroke: 1px rgba(black, 0.2);
-
-        //-webkit-text-fill-color: rgba(white, 0.1);
-
-        display: inline-block;
-
-        color: rgba(white, 0.9);
-        text-align: center;
-        text-decoration: none;
-
-        cursor: default;
-
-        .title {
-            user-select: none;
-            pointer-events: none;
-        }
-
-        &:hover:not(.title) {
-            background-color: rgba(white, 0.3);
+    &__link {
+        &:hover {
+            //border: 1px solid red;
             cursor: pointer;
         }
+
+        &::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 1px;
+            background: rgba(yellow, 0.9);
+            transition: width 0.3s;
+        }
+
+        &:hover::after {
+            width: 100%;
+            //transition: width .3s;
+        }
+    }
+    &__separator {
+        display: inline-block;
+        color: grey;
+        //border: 1px solid blue;
+        padding-right: 0.4em;
+        padding-left: 0.4em;
+    }
+
+    &__crumb {
+        //border: 1px solid red;
+        //border: 1px solid pink;
+        display: inline-block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        //margin-right: -0.40em;
+        //margin-left: 0.2em;
+
+        &:first-child {
+            max-width: 25%;
+        }
+
+        // Without separator
+        &:nth-child(3) {
+            max-width: 35%;
+        }
+
+        @include media-breakpoint-down(xs) {
+            &:first-child,
+            &:nth-child(2) {
+                display: none;
+                //max-width: 7%;
+            }
+            &:nth-child(3) {
+                max-width: 15%;
+            }
+        }
+
+        /*
+        // If there are 3 of them…
+        &:first-child:nth-last-child(3),
+        &:first-child:nth-last-child(3) ~ & {
+            max-width: 34%;
+        }
+
+        // If there are 4 of them…
+        &:first-child:nth-last-child(4),
+        &:first-child:nth-last-child(4) ~ & {
+            max-width: 26%;
+        }
+
+        // If there are 5 of them…
+        &:first-child:nth-last-child(5),
+        &:first-child:nth-last-child(5) ~ & {
+            max-width: 21%;
+        }
+
+        // If there are 6 of them…
+        &:first-child:nth-last-child(6),
+        &:first-child:nth-last-child(6) ~ & {
+            max-width: 16.66%;
+        }
+        */
     }
 }

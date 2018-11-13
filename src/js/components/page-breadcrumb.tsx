@@ -30,23 +30,25 @@ class PageBreadcrumb extends React.PureComponent<PageBreadcrumbProps, PageBreadc
             history.push(`/${lang}/page-list/${menuId}`);
         }
     };
-
     render() {
         const { sections, title, onSectionSelected } = this.props;
         return (
-            <ul className="page-breadcrumb">
+            <div className="page-breadcrumb">
                 {Array.isArray(sections) &&
                     sections.map(menu => (
-                        <li key={menu.id}>
-                            <a ref={menu.id} onClick={() => this.handleSectionSelected(menu.id)}>
-                                {menu.title}
+                        <React.Fragment key={menu.id}>
+                            <a
+                                className="page-breadcrumb__crumb page-breadcrumb__link"
+                                title={menu.title}
+                                onClick={() => this.handleSectionSelected(menu.id)}
+                            >
+                                <span>{menu.title}</span>
                             </a>
-                        </li>
+                            <span className="page-breadcrumb__crumb page-breadcrumb__separator">/</span>
+                        </React.Fragment>
                     ))}
-                <li>
-                    <a className="title">{title}</a>
-                </li>
-            </ul>
+                <span className=" page-breadcrumb__crumb--current">{title}</span>
+            </div>
         );
     }
 }
