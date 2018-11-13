@@ -55,6 +55,12 @@ $bg-gradient-color: black;
         flex: 1 1;
         display: flex;
         transition: opacity 600ms ease-in;
+
+        text-shadow: 1px 1px 1px rgba(black, 0.4);
+        font-size: 1.2em;
+        font-weight: 500;
+        color: rgba(white, 0.9);
+
         div {
             &:first-child {
                 //flex: 1 0;

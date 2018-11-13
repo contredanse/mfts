@@ -6,6 +6,7 @@ import DocumentMeta from '@src/utils/document-meta';
 import NotFoundContainer from '@src/containers/notfound-container';
 
 import { HTMLStaticContent, staticContent } from '@data/markdown';
+import { PageOverlay } from '@src/components/layout/page-overlay';
 
 type AboutContainerProps = {
     assetsLocator: AppAssetsLocator;
@@ -35,10 +36,10 @@ class AboutContainer extends React.PureComponent<AboutContainerProps, AboutConta
             const content = document.content[lang] || document.content.en;
             const documentTitle = `MFS >> ${title}`;
             return (
-                <div className="full-page-slide-ctn">
+                <PageOverlay closeButton={false}>
                     <DocumentMeta title={documentTitle} />
-                    <About assetsLocator={assetsLocator} lang={lang} content={content} />
-                </div>
+                    <About assetsLocator={assetsLocator} lang={lang} content={content} title={title} />
+                </PageOverlay>
             );
         } else {
             return <NotFoundContainer />;
