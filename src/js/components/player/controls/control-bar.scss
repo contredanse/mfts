@@ -9,7 +9,7 @@ $max-controlbar-width: 900px;
     //display: flex;
     //flex-direction: column;
 
-    height: 100px;
+    //height: 100px;
 
     background: linear-gradient(
         to bottom,
@@ -52,27 +52,39 @@ $max-controlbar-width: 900px;
         flex: 1 1;
         width: 100%;
         max-width: $max-controlbar-width;
-
         button {
             width: 30px;
             height: 30px;
         }
 
         &__left {
+            @include media-breakpoint-down(sm) {
+                display: none;
+            }
+
             flex: 1;
             justify-content: flex-start;
             align-items: flex-start;
-            //border: 1px dashed red;
             display: flex;
         }
         &__center {
+            display: flex;
             flex: auto;
-
             align-items: center;
             justify-content: center;
-            display: flex;
-
             background: linear-gradient(to top, rgba(black, 0.01) 0%, rgba(black, 0.4) 10%, rgba(black, 1) 100%);
+            //
+            //border: 1px solid yellow;
+            @include media-breakpoint-down(sm) {
+                //align-items: center;
+                justify-content: flex-start;
+
+                padding-bottom: 10px;
+                background: linear-gradient(to left, rgba(black, 0.01) 0%, rgba(black, 0.4) 10%, rgba(black, 1) 100%);
+                //flex: 1 1;
+
+                //border: 1px solid white;
+            }
 
             button {
                 &.PlayButton,
