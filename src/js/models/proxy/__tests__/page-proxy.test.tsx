@@ -1,4 +1,4 @@
-import { appConfig } from '../../../../config/config.production';
+import { appConfig } from '../../../../config/config';
 import { PageProxyFactory } from '../page-proxy';
 import AppAssetsLocator from '../../../core/app-assets-locator';
 

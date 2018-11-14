@@ -1,4 +1,4 @@
-import { appConfig } from '@config/config.production';
+import { appConfig } from '@config/config';
 
 describe('Page repository getters', () => {
     const pageRepo = appConfig.getPageRepository();

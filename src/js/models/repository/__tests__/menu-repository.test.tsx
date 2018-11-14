@@ -1,4 +1,4 @@
-import { appConfig } from '@config/config.production';
+import { appConfig } from '@config/config';
 
 describe('Menu repository', () => {
     const menuRepo = appConfig.getMenuRepository();

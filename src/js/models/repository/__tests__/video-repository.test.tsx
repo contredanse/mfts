@@ -1,4 +1,4 @@
-import { appConfig } from '@config/config.production';
+import { appConfig } from '@config/config';
 
 describe('Video repository getters', () => {
     const videoRepo = appConfig.getVideoRepository();
