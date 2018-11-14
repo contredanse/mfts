@@ -4,8 +4,8 @@ import { combineReducers, Dispatch, Action, AnyAction } from 'redux';
 
 import { uiStateReducer, UiState } from './ui';
 import { navReducer, NavState } from './nav';
+import { AuthState, authStateReducer } from './auth';
 import { connectRouter, RouterState } from 'connected-react-router';
-
 import { History } from 'history';
 
 // The top-level state object
@@ -15,6 +15,7 @@ export interface ApplicationState {
     router: RouterState;
     ui: UiState;
     nav: NavState;
+    auth: AuthState;
 }
 
 // Additional props for connected React components. This prop is passed by default with `connect()`
@@ -25,19 +26,13 @@ export interface ConnectedReduxProps<A extends Action = AnyAction> {
 // Whenever an action is dispatched, Redux will update each top-level application state property
 // using the reducer with the matching name. It's important that the names match exactly, and that
 // the reducer acts on the corresponding ApplicationState property type.
-/*
-export const rootReducer = combineReducers<ApplicationState>({
-    router: connectRouter(history),
-    ui: uiStateReducer,
-    nav: navReducer,
-});
-*/
 
 export const createRootReducer = (history: History) =>
     combineReducers<ApplicationState>({
         router: connectRouter(history),
         ui: uiStateReducer,
         nav: navReducer,
+        auth: authStateReducer,
     });
 
 // Here we use `redux-saga` to trigger actions asynchronously. `redux-saga` uses something called a
