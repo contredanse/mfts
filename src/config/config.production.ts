@@ -6,11 +6,11 @@ import { IJsonMenu } from '@data/json/data-menu';
 import { IJsonPage } from '@data/json/data-pages';
 import { IJsonVideo } from '@data/json/data-videos';
 
-// without ending slash !
-//const mediaAssetsServerBaseUrl = 'https://paxton.soluble.io/assets';
-const mediaAssetsServerBaseUrl = 'https://assets.materialforthespine.com';
+const apiBaseUrl = process.env.API_BASE_URL || 'http://error.api_url_config.local';
+const mediaAssetsServerBaseUrl = process.env.ASSETS_BASE_URL || 'http://error.assets_url_config.local';
 
 export const appConfig = new AppConfig({
+    apiBaseUrl: apiBaseUrl,
     assetsLocatorProps: {
         assetsUrls: {
             default: mediaAssetsServerBaseUrl,
