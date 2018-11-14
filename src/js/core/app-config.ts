@@ -66,6 +66,10 @@ export default class AppConfig {
         return new PageRepository(this, this.getAppData().pages, this.getVideoRepository(params));
     }
 
+    getApiBaseUrl(): string {
+        return this.config.apiBaseUrl;
+    }
+
     getConfig(): IAppConfig {
         return this.config;
     }
@@ -88,4 +92,5 @@ export interface IAppConfig {
     assetsLocatorProps: IAssetsLocatorProps;
     fallbackLang: string;
     data: IAppDataConfig;
+    apiBaseUrl: string;
 }

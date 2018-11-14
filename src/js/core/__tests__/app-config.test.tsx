@@ -19,6 +19,7 @@ describe('AppConfig test', () => {
         assetsLocatorProps: {
             assetsUrls: assetsTypeUrls,
         },
+        apiBaseUrl: 'http://api.com/',
         data: {
             pages: [] as IJsonPage[],
             videos: [] as IJsonVideo[],
