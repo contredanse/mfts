@@ -16,13 +16,19 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const zopfli = require('@gfx/zopfli');
 const BrotliPlugin = require('brotli-webpack-plugin');
 const Workbox = require('workbox-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
+const DotenvPlugin = require('dotenv-webpack');
+const Dotenv = require('dotenv');
+const fs = require('fs');
 
 const StatsWriterPlugin = require('webpack-stats-plugin').StatsWriterPlugin;
 
 const extractSass = new MiniCssExtractPlugin({
     filename: 'static/css/style.[contenthash:8].css',
 });
+
+const dotEnvFile = './.env.production.local';
+
+const PUBLIC_URL = Dotenv.parse(fs.readFileSync(dotEnvFile))['PUBLIC_URL'];
 
 const distFolder = path.resolve(__dirname, 'dist');
 
@@ -275,16 +281,16 @@ module.exports = merge(common, {
     plugins: [
         new CleanWebpackPlugin('dist', {}),
 
-        new webpack.EnvironmentPlugin({
-            'process.env.NODE_ENV': JSON.stringify('production'),
-            NODE_ENV: JSON.stringify('production'),
-        }),
-
-        new Dotenv({
-            path: './.env.production.local', // load this now instead of the ones in '.env'
+        new DotenvPlugin({
+            path: dotEnvFile, // load this now instead of the ones in '.env'
             safe: true, // load '.env.example' to verify the '.env' variables are all set. Can also be a string to a different file.
             systemvars: true, // load all the predefined 'process.env' variables which will trump anything local per dotenv specs.
             silent: false, // hide any errors
+        }),
+
+        new webpack.EnvironmentPlugin({
+            'process.env.NODE_ENV': JSON.stringify('production'),
+            NODE_ENV: JSON.stringify('production'),
         }),
 
         new webpack.LoaderOptionsPlugin({
