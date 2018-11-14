@@ -1,6 +1,4 @@
-/**
- * Temp debug menu
- */
+/*
 import React from 'react';
 
 import { withRouter } from 'react-router';
@@ -82,7 +80,6 @@ export const AppBarComponent: React.SFC<AppBarWithStylesProps & AppBarWithRouter
                         }}
                     >
                         <img src={helixSvg} style={{ fill: 'white' }} />
-                        {/* <DnaIcon size={18} /> */}
                     </IconButton>
 
                     <div id="app-bar-portal-ctn" />
@@ -93,3 +90,4 @@ export const AppBarComponent: React.SFC<AppBarWithStylesProps & AppBarWithRouter
 };
 
 export const AppBarMui = withStyles(styles)(withRouter(AppBarComponent));
+*/
