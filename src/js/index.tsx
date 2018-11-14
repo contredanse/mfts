@@ -14,7 +14,7 @@ import '@public/favicon.ico';
 import 'typeface-karla';
 //import 'typeface-fira-sans';
 
-import { appConfig } from '@config/config.production';
+import { appConfig } from '@config/config';
 import AppConfig from '@src/core/app-config';
 import { register as registerServiceWorker, unregister as unregisterServiceWorker } from './registerServiceWorker';
 
