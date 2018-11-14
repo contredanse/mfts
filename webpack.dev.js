@@ -3,6 +3,7 @@ const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
+const Dotenv = require('dotenv-webpack');
 
 //const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
@@ -47,6 +48,13 @@ module.exports = merge(common, {
         ],
     },
     plugins: [
+        new Dotenv({
+            path: './.env.development.local', // load this now instead of the ones in '.env'
+            safe: true, // load '.env.example' to verify the '.env' variables are all set. Can also be a string to a different file.
+            systemvars: true, // load all the predefined 'process.env' variables which will trump anything local per dotenv specs.
+            silent: false, // hide any errors
+        }),
+
         /*
         new BundleAnalyzerPlugin({
           analyzerMode: 'static'
@@ -82,7 +90,7 @@ module.exports = merge(common, {
         proxy: {
             '/api': {
                 changeOrigin: true,
-                target: 'http://localhost:3000',
+                target: 'http://contredanse.local',
             },
         },
         headers: {

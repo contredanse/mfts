@@ -16,11 +16,9 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const zopfli = require('@gfx/zopfli');
 const BrotliPlugin = require('brotli-webpack-plugin');
 const Workbox = require('workbox-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 const StatsWriterPlugin = require('webpack-stats-plugin').StatsWriterPlugin;
-
-// Don't forget: no ending slashes - it's used in registerServiceWorker.ts too
-const PUBLIC_URL = 'https://preview.materialforthespine.com';
 
 const extractSass = new MiniCssExtractPlugin({
     filename: 'static/css/style.[contenthash:8].css',
@@ -280,8 +278,13 @@ module.exports = merge(common, {
         new webpack.EnvironmentPlugin({
             'process.env.NODE_ENV': JSON.stringify('production'),
             NODE_ENV: JSON.stringify('production'),
-            // Don't forget: no ending slashes - it's used in registerServiceWorker.ts too
-            PUBLIC_URL: PUBLIC_URL,
+        }),
+
+        new Dotenv({
+            path: './.env.production.local', // load this now instead of the ones in '.env'
+            safe: true, // load '.env.example' to verify the '.env' variables are all set. Can also be a string to a different file.
+            systemvars: true, // load all the predefined 'process.env' variables which will trump anything local per dotenv specs.
+            silent: false, // hide any errors
         }),
 
         new webpack.LoaderOptionsPlugin({
