@@ -24,6 +24,7 @@ jobs:
         - codecov
     - stage: Build
       script:
+        - cp .travis/.env.travis.dist ./.env.production.local
         - yarn build
     - stage: Lint
       script:
