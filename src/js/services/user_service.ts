@@ -1,5 +1,4 @@
 import { appConfig } from '@config/config';
-import authHeader from '../helpers/auth-headers';
 
 const login = (username: string, password: string): Promise<Response> => {
     const requestOptions = {

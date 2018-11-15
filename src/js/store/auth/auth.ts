@@ -1,12 +1,4 @@
-import {
-    authenticateUser,
-    authFormSubmitFailure,
-    authFormSubmitRequest,
-    authFormSubmitSuccess,
-    unAuthenticateUser,
-} from '@src/store/auth/actions';
-import { Action, Dispatch } from 'redux';
-import { ApplicationState } from '@src/store';
+import { Dispatch } from 'redux';
 import wretch from 'wretch';
 
 import * as authActions from './actions';
