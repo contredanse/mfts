@@ -7,6 +7,8 @@ const DotenvPlugin = require('dotenv-webpack');
 
 //const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
+const dotEnvFile = './.env.development.local';
+
 module.exports = merge(common, {
     devtool: 'cheap-module-source-map',
     mode: 'development',
@@ -49,7 +51,7 @@ module.exports = merge(common, {
     },
     plugins: [
         new DotenvPlugin({
-            path: './.env.development.local', // load this now instead of the ones in '.env'
+            path: dotEnvFile, // load this now instead of the ones in '.env'
             safe: true, // load '.env.example' to verify the '.env' variables are all set. Can also be a string to a different file.
             systemvars: true, // load all the predefined 'process.env' variables which will trump anything local per dotenv specs.
             silent: false, // hide any errors
