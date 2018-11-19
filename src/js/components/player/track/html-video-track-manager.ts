@@ -49,9 +49,6 @@ export default class HTMLVideoTrackManager {
         return countRemoved;
     }
 
-    /**
-     * @param textTracks
-     */
     appendTrackNodes(
         textTracks: TextTrackHTMLAttributes[],
         events?: {
