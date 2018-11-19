@@ -1,5 +1,6 @@
 import { Dispatch } from 'redux';
 import wretch from 'wretch';
+import { appConfig } from '@config/config';
 
 import * as authActions from './actions';
 
@@ -50,12 +51,15 @@ const wretchRequest = wretch()
  .catch(error => {  })
  */
 
+const baseUrl = appConfig.getApiBaseUrl();
+
 export const loginUser = ({ email, password }: AuthCredentials, onSuccess?: (data: AuthResponse) => void) => {
     return (dispatch: Dispatch) => {
         dispatch(authActions.authFormSubmitRequest());
 
         return wretchRequest
-            .url('http://localhost:3001/api/login/')
+            .url(`${baseUrl}/auth/token`)
+            .options({ credentials: 'include', mode: 'cors' })
             .post({
                 email: email,
                 password: password,
