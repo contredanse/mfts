@@ -25,7 +25,7 @@ const reducer: Reducer<AuthState> = (state = initialState, action): AuthState =>
         case AuthActionTypes.AUTH_FORM_SUBMIT_SUCCESS:
             return { ...state, loading: false, authError: null };
         case AuthActionTypes.AUTH_FORM_SUBMIT_FAILURE:
-            return { ...state, loading: false, authError: action.payload };
+            return { ...state, authenticated: false, user: null, loading: false, authError: action.payload };
         default: {
             return state;
         }

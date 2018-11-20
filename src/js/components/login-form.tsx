@@ -47,7 +47,7 @@ export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormStat
                     <p>Here some blah-blah</p>
 
                     <Formik
-                        initialValues={{ email: '' }}
+                        initialValues={{ email: '', password: '' }}
                         onSubmit={(values, { setSubmitting }) => {
                             this.handleSubmit(values);
                             setSubmitting(false);
@@ -56,12 +56,13 @@ export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormStat
                                 alert(JSON.stringify(values, null, 2));
                                 setSubmitting(false);
                             }, 1500);
-                            */
+*/
                         }}
                         validationSchema={Yup.object().shape({
                             email: Yup.string()
                                 .email()
                                 .required('Required'),
+                            password: Yup.string().required('Required'),
                         })}
                     >
                         {props => {
@@ -92,6 +93,24 @@ export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormStat
                                     />
                                     {errors.email && touched.email && (
                                         <div className="input-feedback">{errors.email}</div>
+                                    )}
+
+                                    <label htmlFor="password" style={{ display: 'block' }}>
+                                        Password
+                                    </label>
+                                    <input
+                                        id="password"
+                                        placeholder="Password"
+                                        type="password"
+                                        value={values.password}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        className={
+                                            errors.password && touched.password ? 'text-input error' : 'text-input'
+                                        }
+                                    />
+                                    {errors.password && touched.password && (
+                                        <div className="input-feedback">{errors.password}</div>
                                     )}
 
                                     <button
@@ -128,7 +147,7 @@ export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormStat
 
                     <form className="form" onSubmit={this.handleSubmit}>
                         <input type="text" placeholder="Enter email address" />
-                        <input type="text" placeholder="My  password" />
+                        <input type="password" placeholder="My  password" />
                         <button type="submit">Login</button>
                     </form>
                 </div>
@@ -140,6 +159,8 @@ export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormStat
 const mapStateToProps = ({ auth }: ApplicationState) => ({
     authError: auth.authError,
     loading: auth.loading,
+    user: auth.user,
+    authenticated: auth.authenticated,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch): Pick<LoginFormProps, 'handleSubmit'> => ({

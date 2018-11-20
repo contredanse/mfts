@@ -80,8 +80,8 @@ export const loginUser = ({ email, password }: AuthCredentials, onSuccess?: (dat
                 }
             })
             .catch(error => {
-                alert('error  ' + error);
-                dispatch(authActions.authFormSubmitFailure('Login failed, try again'));
+                const reason = 'reason' in error ? error.reason : '';
+                dispatch(authActions.authFormSubmitFailure(`Login failed ${reason}`));
             });
     };
 };
