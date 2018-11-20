@@ -1,11 +1,11 @@
 #!/bin/sh
 
-DEPLOY_USER=username
+DEPLOY_USER=deployer
 DEPLOY_HOST=example.org
-DEPLOY_PATH=/var/www/my_site/public_html
+DEPLOY_PATH=/var/www/mysite.example.org
 
 # Build the app
 yarn build
 
 # Rsync the thing
-rsync -azP --delete --exclude=/assets ./dist/public/ ${DEPLOY_USER}@${DEPLOY_HOST}:{DEPLOY_PATH}
+rsync -azP --delete --exclude=/assets ./dist/public/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}
