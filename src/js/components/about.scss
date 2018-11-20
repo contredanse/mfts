@@ -1,11 +1,14 @@
 @import '../../styles/_variables.scss';
 @import '../../styles/_media-queries.scss';
 
-$padding-top: 30px;
-
 .about-container {
     display: flex;
     flex: 1 1;
+
+    @include media-breakpoint-up(xl) {
+        justify-content: center;
+        margin: 3em 5em 5em 0;
+    }
 
     .static-content-markdown {
         text-rendering: optimizeLegibility;
@@ -15,10 +18,11 @@ $padding-top: 30px;
         padding: 0em 2em 3em 3em;
 
         @include media-breakpoint-down(xs) {
-            padding: 0.5em 1.5em 2em 0.5em;
+            padding: 0em 1.5em 2em 0.5em;
         }
 
         max-width: 900px;
+
         text-align: left;
         h1 {
             //mix-blend-mode: difference;
