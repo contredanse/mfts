@@ -1,9 +1,7 @@
 import { ApplicationState } from '@src/store';
 import { Dispatch } from 'redux';
-import { loginUser, logoutUser } from '@src/store/auth/auth';
+import { logoutUser } from '@src/store/auth/auth';
 import { connect } from 'react-redux';
-import { LoginForm } from '@src/components/login-form';
-import { RouteComponentProps } from 'react-router';
 import React from 'react';
 
 type LoginMenuProps = {
