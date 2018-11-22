@@ -34,6 +34,9 @@ const reducer: Reducer<UiState> = (state = initialState, action): UiState => {
         case UiActionTypes.SET_IS_MENU_OPEN: {
             return { ...state, isMenuOpen: action.payload };
         }
+        case UiActionTypes.TOGGLE_MENU_OPEN: {
+            return { ...state, isMenuOpen: !state.isMenuOpen };
+        }
         default: {
             return state;
         }
