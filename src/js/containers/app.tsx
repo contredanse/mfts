@@ -6,7 +6,7 @@ import { RouteComponentProps, Switch } from 'react-router';
 import { ConnectedRouter } from 'connected-react-router';
 
 import history from '@src/history';
-import { AppBar } from '@src/components/navigation/app-bar';
+import { ConnectedAppBar } from '@src/components/navigation/app-bar';
 import HomeContainer from '@src/containers/home-container';
 import MenuContainer from '@src/containers/menu-container';
 import NotFoundContainer from '@src/containers/notfound-container';
@@ -20,21 +20,20 @@ import { UiState } from '@src/store/ui';
 import AboutContainer from '@src/containers/about-container';
 import LoginContainer from '@src/containers/login-container';
 import DocumentMeta from '@src/utils/document-meta';
-import FullScreen from '@src/utils/fullscreen';
+import { ConnectedFullScreen } from '@src/utils/fullscreen';
 
-import * as uiActions from '@src/store/ui/actions';
-import SideMenu from '@src/components/navigation/side-menu';
+import { ConnectedSideMenu } from '@src/components/navigation/side-menu';
 
 type AppProps = {
     appConfig: AppConfig;
 };
 
 type AppState = {
-    isFullscreen: boolean;
+    // isFullscreen: boolean;
 };
 
 const defaultState = {
-    isFullscreen: false,
+    // isFullscreen: false,
 };
 
 class App extends React.Component<AppProps, AppState> {
@@ -125,32 +124,17 @@ class App extends React.Component<AppProps, AppState> {
 
         return (
             <WithStore selector={state => state.ui}>
-                {({ lang, fullscreen, isMenuOpen }: UiState, dispatch) => {
+                {({ lang }: UiState) => {
                     //const title = i18n.t('appbar.title', { lng: lang });
                     const title = '';
                     return (
                         <ConnectedRouter history={history}>
-                            <FullScreen
-                                isFullScreen={fullscreen}
-                                onChange={isFullscreen => dispatch(uiActions.setFullscreen(isFullscreen))}
-                            >
+                            <ConnectedFullScreen>
                                 <div id="outer-container">
-                                    <SideMenu
-                                        isOpen={isMenuOpen}
-                                        lang={lang}
-                                        onStateChange={state => {
-                                            dispatch(uiActions.setIsMenuOpen(state.isOpen));
-                                        }}
-                                    />
+                                    <ConnectedSideMenu lang={lang} />
                                     <div className="window-container" id="page-wrap">
                                         <header>
-                                            <AppBar
-                                                lang={lang}
-                                                title={title}
-                                                onMenuOpenRequest={() => {
-                                                    dispatch(uiActions.setIsMenuOpen(!isMenuOpen));
-                                                }}
-                                            />
+                                            <ConnectedAppBar lang={lang} title={title} />
                                         </header>
                                         <main>
                                             <Switch>
@@ -173,7 +157,7 @@ class App extends React.Component<AppProps, AppState> {
                                         </main>
                                     </div>
                                 </div>
-                            </FullScreen>
+                            </ConnectedFullScreen>
                         </ConnectedRouter>
                     );
                 }}
