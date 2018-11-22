@@ -1,5 +1,9 @@
 import React from 'react';
 import fscreen from 'fscreen';
+import { ApplicationState } from '@src/store';
+import { Dispatch } from 'redux';
+import { connect } from 'react-redux';
+import * as uiActions from '@src/store/ui/actions';
 
 type FullScreenProps = {
     children: React.ReactNode;
@@ -81,3 +85,18 @@ class FullScreen extends React.Component<FullScreenProps> {
 }
 
 export default FullScreen;
+
+const mapStateToProps = ({ ui }: ApplicationState) => ({
+    //authError: auth.authError,
+    //loading: auth.loading,
+    isFullScreen: ui.fullscreen,
+});
+
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+    onChange: (isFullscreen: boolean) => dispatch(uiActions.setFullscreen(isFullscreen)),
+});
+
+export const ConnectedFullScreen = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(FullScreen);
