@@ -7,6 +7,10 @@ import './side-menu.scss';
 import contredanseLogo from '@assets/images/logo-contredanse.png';
 import ConnectedLangSelector from '@src/components/lang-selector';
 import ConnectedLoginMenu from '@src/components/navigation/login-menu';
+import { ApplicationState } from '@src/store';
+import { Dispatch } from 'redux';
+import { connect } from 'react-redux';
+import * as uiActions from '@src/store/ui/actions';
 
 // To not bundle svg
 const Menu = require('react-burger-menu/lib/menus/pushRotate');
@@ -95,6 +99,9 @@ export class SideMenu extends React.PureComponent<Props, State> {
                                     menu.route.replace('{lang}', lang)
                                     //'/'
                                 );
+                                if (this.props.onStateChange) {
+                                    this.props.onStateChange({ isOpen: false });
+                                }
                             }}
                         >
                             {label}
@@ -123,3 +130,16 @@ export class SideMenu extends React.PureComponent<Props, State> {
 }
 
 export default withRouter(SideMenu);
+
+const mapStateToProps = ({ ui }: ApplicationState) => ({
+    isOpen: ui.isMenuOpen,
+});
+
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+    onStateChange: (state: MenuState) => dispatch(uiActions.setIsMenuOpen(state.isOpen)),
+});
+
+export const ConnectedSideMenu = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(withRouter(SideMenu));
