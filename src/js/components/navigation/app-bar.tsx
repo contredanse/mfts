@@ -11,6 +11,7 @@ import helixSvg from '@assets/svg/helix-contredanse.svg';
 import { ApplicationState } from '@src/store';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
+import * as uiActions from '@src/store/ui/actions';
 
 type AppBarProps = {
     title: string;
@@ -56,23 +57,18 @@ export const AppBarComponent: React.SFC<AppBarWithRouterProps> = props => {
     );
 };
 
+export default withRouter(AppBarComponent);
+
 const mapStateToProps = ({ ui }: ApplicationState) => ({
     hidden: ui.isMenuOpen,
     extraClasses: ui.isIdleMode ? 'idle-mode' : undefined,
 });
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({});
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+    onMenuOpenRequest: () => dispatch(uiActions.setIsMenuOpen(true)),
+});
 
-/*
-const ConnectedControlBar = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(ControlBar);
-
-export default ConnectedControlBar;
-*/
-
-export const AppBar = connect(
+export const ConnectedAppBar = connect(
     mapStateToProps,
     mapDispatchToProps
 )(withRouter(AppBarComponent));
