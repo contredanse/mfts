@@ -27,8 +27,10 @@ type PageContainerState = {
     pageProxy: PageProxy | undefined;
 };
 
+const tenSeconds = 1e4;
+
 const defaultProps = {
-    authTimeoutCheck: 10000,
+    authTimeoutCheck: tenSeconds,
 };
 
 class PageContainer extends React.PureComponent<PageContainerProps, PageContainerState> {
