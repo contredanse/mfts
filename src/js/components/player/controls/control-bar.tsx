@@ -20,6 +20,7 @@ import { getFromDictionary } from '@src/i18n/basic-i18n';
 import FullscreenButton from '@src/components/player/controls/svg-mdi-button/fullscreen-button';
 import FullscreenExitButton from '@src/components/player/controls/svg-mdi-button/fullscreen-exit-button';
 import IdleMonitor from '@src/components/player/idle-monitor';
+import fscreen from 'fscreen';
 
 export type ControlBarProps = {
     videoEl?: HTMLVideoElement | null;
@@ -62,7 +63,7 @@ const defaultProps = {
     enableNextControl: true,
     enablePrevControl: true,
     enableMuteControl: true,
-    enableFullscreenControl: true,
+    enableFullscreenControl: fscreen.fullscreenEnabled,
     mediaIsSilent: false,
     isFullscreen: false,
     disableButtonSpaceClick: false,

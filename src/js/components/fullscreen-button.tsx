@@ -10,6 +10,7 @@ import { getFromDictionary } from '@src/i18n/basic-i18n';
 
 import FullscreenExitIcon from 'mdi-react/FullscreenExitIcon';
 import FullscreenIcon from 'mdi-react/FullscreenIcon';
+import fscreen from 'fscreen';
 
 // Props passed from mapStateToProps
 type PropsFromReduxState = {
@@ -47,13 +48,9 @@ export class FullscreenButton extends React.Component<FullscreenButtonProps> {
 
     render() {
         const { isFullscreen, className, style, lang } = this.props;
-        /*
-        return (
-            <button className={className} style={style} onClick={this.toggleFullScreen}>
-                {isFullscreen ? this.tr('leave_fullscreen') : this.tr('enter_fullscreen')}
-            </button>
-        );
-        */
+        if (!fscreen.fullscreenEnabled) {
+            return null;
+        }
         return (
             <button
                 className={className}
