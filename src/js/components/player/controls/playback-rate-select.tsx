@@ -27,6 +27,7 @@ const defaultProps = {
         { value: 1.0, title: 'x 1.0' },
         { value: 0.5, title: 'x 0.5' },
         { value: 0.2, title: 'x 0.2' },
+        { value: 0.1, title: 'x 0.1' },
     ],
 };
 
