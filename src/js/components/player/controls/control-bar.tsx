@@ -122,7 +122,6 @@ class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
                     // No reliable way to be know what is the display state of subs
                     // Let's recalc everytime the playback state changes.
                     const hasVisibleTrack = videoEl && hasVisibleTextTrack(videoEl);
-                    console.log('ISENDEDENDE', status.isEnded);
                     return (
                         <>
                             <IdleMonitor
