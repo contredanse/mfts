@@ -85,7 +85,11 @@ module.exports = merge(common, {
         port: 3001,
         //historyApiFallback: true,
         historyApiFallback: {
-            rewrites: [{ from: /^\/$/, to: 'index.html' }, { from: /page\//, to: 'index.html' }],
+            rewrites: [
+                { from: /^\/$/, to: 'index.html' },
+                { from: /page\//, to: 'index.html' },
+                { from: /welcome\//, to: 'index.html' },
+            ],
         },
         hot: true,
         inline: true,
