@@ -7,7 +7,7 @@ Edited and produced by Contredanse.
 Project initiated by Patricia Kuypers. Artistic advisor : Patricia Kuypers, Lisa Nelson. 
 
 Camera, video editing, grafics, 3D and layout : Baptiste Andrien, Florence Corin.
-Interface developement : Emeric Florence. Webapp development & DVD conversion : Sébastien Vanvelthem. 
+Interface developement : Emeric Florence. Webapp development : Sébastien Vanvelthem. 
 Soundtrack : Yvan Hanon. Transcriptions : Agnès Benoit-Nader. 
 Translation and subtitling : Denise Luccioni. Motion Capture : Mocap.be. 
 Testing : Contredanse.
