@@ -243,6 +243,7 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
             autoPlay,
             playing,
             controlBarProps,
+            playbackRateAutoMute,
             // DEREFERENCE those actions
             onEnded,
             onCanPlay,
