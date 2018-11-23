@@ -16,7 +16,6 @@ class MenuContainer extends React.Component<MenuContainerProps, MenuContainerSta
     constructor(props: MenuContainerProps) {
         super(props);
     }
-
     render() {
         const { lang, menuRepository, openedPageId } = this.props;
         return (

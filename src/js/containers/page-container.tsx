@@ -12,6 +12,7 @@ import { Dispatch } from 'redux';
 import { NavBreadcrumbProps } from '@src/store/nav';
 import * as navActions from '@src/store/nav/actions';
 import { connect } from 'react-redux';
+import { throttle } from 'throttle-debounce';
 
 type PageContainerProps = {
     pageId: string;
@@ -19,16 +20,26 @@ type PageContainerProps = {
     pageRepository: PageRepository;
     menuRepository: MenuRepository;
     setPageBreadcrumb?: (breadcrumb?: NavBreadcrumbProps) => void;
+    authTimeoutCheck?: number;
 } & RouteComponentProps<any>;
 
 type PageContainerState = {
     pageProxy: PageProxy | undefined;
 };
 
+const defaultProps = {
+    authTimeoutCheck: 10000,
+};
+
 class PageContainer extends React.PureComponent<PageContainerProps, PageContainerState> {
+    static defaultProps = defaultProps;
+
     readonly state: PageContainerState = {
         pageProxy: undefined,
     };
+
+    authTimeoutHandle?: number;
+    isAuthTimeoutCancelled = false;
 
     constructor(props: PageContainerProps) {
         super(props);
@@ -36,24 +47,22 @@ class PageContainer extends React.PureComponent<PageContainerProps, PageContaine
     }
 
     redirectIfNotAuthenticacted(pageId: string) {
-        if (pageId === 'sensation-and-senses.gravity.adjusting') {
-            this.props.history.push(`/${this.props.lang}/welcome/${pageId}`);
-        }
+        this.props.history.push(`/${this.props.lang}/welcome/${pageId}`);
     }
 
     componentDidMount() {
-        this.redirectIfNotAuthenticacted(this.props.pageId);
+        this.createAuthTimeout();
         this.setNavigationBreadcrumb(this.state.pageProxy);
     }
 
     componentWillUnmount() {
+        this.clearAuthTimeout();
         this.setNavigationBreadcrumb(undefined);
     }
 
     componentDidUpdate(prevProps: PageContainerProps, prevState: PageContainerState) {
         if (this.props.pageId !== prevProps.pageId) {
-            this.redirectIfNotAuthenticacted(this.props.pageId);
-
+            this.createAuthTimeout();
             this.setState(() => {
                 const newState = this.getStateFromPageId(this.props.pageId);
                 this.setNavigationBreadcrumb(newState.pageProxy);
@@ -127,6 +136,25 @@ class PageContainer extends React.PureComponent<PageContainerProps, PageContaine
         const { lang, history } = this.props;
         history.push(`/${lang}/page/${pageId}`);
     };
+
+    private clearAuthTimeout(): void {
+        this.isAuthTimeoutCancelled = true;
+        if (this.authTimeoutHandle) {
+            clearTimeout(this.authTimeoutHandle);
+        }
+    }
+
+    private createAuthTimeout(): void {
+        this.clearAuthTimeout();
+        // typescript does not resolve correct
+        // setTimeout version between node/browser
+        this.authTimeoutHandle = setTimeout(() => {
+            if (!this.isAuthTimeoutCancelled) {
+                this.redirectIfNotAuthenticacted(this.props.pageId);
+            }
+        }, this.props.authTimeoutCheck) as any;
+        this.isAuthTimeoutCancelled = false;
+    }
 }
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
