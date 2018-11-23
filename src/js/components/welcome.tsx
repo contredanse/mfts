@@ -49,13 +49,27 @@ class Welcome extends React.PureComponent<WelcomeProps, WelcomeState> {
                 <AppBarPortal>
                     <div>{title}</div>
                 </AppBarPortal>
-                This page is restricted to our beloved registered users.
                 {currentPage && (
                     <div className="current-page-container">
                         <PageCard pageProxy={currentPage} lang={lang} />
                     </div>
                 )}
-                Trial ?
+                <div>Access to the full content of this experience is only available to some super heroes.</div>
+
+                <div>
+                    <p>Are you already one ? -> Welcome back and login.</p>
+                </div>
+                <div>
+                    <p>You are new ? -> Buy or register online on contredanse website.</p>
+                </div>
+
+                <div>
+                    <p>You are logged but cannot see ? -> Maybe there's a paiement issue / expired ?.</p>
+                </div>
+
+                <div>
+                    <p>Here we could for example show a list a freely available pages !</p>
+                </div>
                 <img src={contredanseLogo} alt="Contredanse logo" />
             </div>
         );
