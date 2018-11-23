@@ -7,7 +7,7 @@ import PageRepository from '@src/models/repository/page-repository';
 import { RouteComponentProps, withRouter } from 'react-router';
 import DocumentMeta from '@src/utils/document-meta';
 import { ConnectedOverlayedPageControl } from '@src/components/overlayed-page-control';
-import { isScreenAdaptedForHelixMenu } from '@src/helpers/screen-constraints';
+import { isScreenAdaptedForHelixMenu } from '@src/helpers/main-menu-redirect';
 
 type IntroContainerProps = {
     lang: DataSupportedLangType;

@@ -12,6 +12,7 @@ import { ApplicationState } from '@src/store';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import * as uiActions from '@src/store/ui/actions';
+import { isScreenAdaptedForHelixMenu, getMainMenuRoute } from '@src/helpers/main-menu-redirect';
 
 type AppBarProps = {
     title: string;
@@ -21,7 +22,7 @@ type AppBarProps = {
     extraClasses?: string;
 };
 
-export type AppBarWithRouterProps = AppBarProps & RouteComponentProps<{}>;
+type AppBarWithRouterProps = AppBarProps & RouteComponentProps<{}>;
 
 export const AppBarComponent: React.SFC<AppBarWithRouterProps> = props => {
     const { history, lang, onMenuOpenRequest, hidden } = props;
@@ -46,7 +47,7 @@ export const AppBarComponent: React.SFC<AppBarWithRouterProps> = props => {
             <button
                 className="mdi-icon"
                 onClick={() => {
-                    history.push(`/${lang}/menu`);
+                    history.push(getMainMenuRoute(lang));
                 }}
             >
                 <img src={helixSvg} style={{ fill: 'white' }} />
