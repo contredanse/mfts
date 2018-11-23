@@ -3,17 +3,26 @@
 
 .welcome-container {
     display: flex;
+    flex-direction: column;
     flex: 1 1;
+    font-size: 2em;
+
+    div {
+        flex: 1 1;
+        border: 1px solid blue;
+        &.current-page-container {
+            flex: 1 0;
+            max-width: 600px;
+            padding: 0em 2em 3em 3em;
+        }
+    }
+    img {
+        width: 200px;
+    }
 
     /**
     @include media-breakpoint-up(xl) {
         justify-content: center;
         margin: 3em 5em 5em 0;
     }*/
-
-    .current-page-container {
-        flex: 1 1 auto;
-        max-width: 600px;
-        padding: 0em 2em 3em 3em;
-    }
 }
