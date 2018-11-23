@@ -4,12 +4,13 @@ import { ApplicationState } from '@src/store';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import * as uiActions from '@src/store/ui/actions';
+import { RouteComponentProps, withRouter } from 'react-router';
 
 type FullScreenProps = {
     children: React.ReactNode;
     isFullScreen: boolean;
     onChange: (isFullscreen: boolean) => void;
-};
+} & RouteComponentProps;
 
 const defaultProps = {
     isFullScreen: false,
@@ -87,8 +88,6 @@ class FullScreen extends React.Component<FullScreenProps> {
 export default FullScreen;
 
 const mapStateToProps = ({ ui }: ApplicationState) => ({
-    //authError: auth.authError,
-    //loading: auth.loading,
     isFullScreen: ui.fullscreen,
 });
 
@@ -96,7 +95,11 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
     onChange: (isFullscreen: boolean) => dispatch(uiActions.setFullscreen(isFullscreen)),
 });
 
-export const ConnectedFullScreen = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(FullScreen);
+// With Router is needed here to prevent
+// redux to black update (if route change it must be known here)
+export const ConnectedFullScreen = withRouter(
+    connect(
+        mapStateToProps,
+        mapDispatchToProps
+    )(FullScreen)
+);
