@@ -35,7 +35,14 @@ class PageContainer extends React.PureComponent<PageContainerProps, PageContaine
         this.state = this.getStateFromPageId(props.pageId);
     }
 
+    redirectIfNotAuthenticacted(pageId: string) {
+        if (pageId === 'sensation-and-senses.gravity.adjusting') {
+            this.props.history.push(`/${this.props.lang}/welcome/${pageId}`);
+        }
+    }
+
     componentDidMount() {
+        this.redirectIfNotAuthenticacted(this.props.pageId);
         this.setNavigationBreadcrumb(this.state.pageProxy);
     }
 
@@ -45,6 +52,8 @@ class PageContainer extends React.PureComponent<PageContainerProps, PageContaine
 
     componentDidUpdate(prevProps: PageContainerProps, prevState: PageContainerState) {
         if (this.props.pageId !== prevProps.pageId) {
+            this.redirectIfNotAuthenticacted(this.props.pageId);
+
             this.setState(() => {
                 const newState = this.getStateFromPageId(this.props.pageId);
                 this.setNavigationBreadcrumb(newState.pageProxy);
