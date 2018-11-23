@@ -7,6 +7,7 @@ import PageRepository from '@src/models/repository/page-repository';
 import { RouteComponentProps, withRouter } from 'react-router';
 import DocumentMeta from '@src/utils/document-meta';
 import { ConnectedOverlayedPageControl } from '@src/components/overlayed-page-control';
+import { isScreenAdaptedForHelixMenu } from '@src/helpers/screen-constraints';
 
 type IntroContainerProps = {
     lang: DataSupportedLangType;
@@ -20,10 +21,12 @@ type IntroContainerState = {
 
 const defaultState = {};
 
+const defaultProps = {
+    introPageId: 'forms.introduction',
+};
+
 class IntroContainer extends React.PureComponent<IntroContainerProps, IntroContainerState> {
-    static defaultProps = {
-        introPageId: 'forms.introduction',
-    };
+    static defaultProps = defaultProps;
 
     readonly state: IntroContainerState;
 
@@ -39,9 +42,10 @@ class IntroContainer extends React.PureComponent<IntroContainerProps, IntroConta
         });
     }
 
-    navigatePageList = () => {
+    goNext = () => {
         const { history, lang } = this.props;
-        history.push(`/${lang}/page-list`);
+        const menuId = isScreenAdaptedForHelixMenu() ? 'menu' : 'page-list';
+        history.push(`/${lang}/${menuId}`);
     };
 
     render() {
@@ -59,11 +63,11 @@ class IntroContainer extends React.PureComponent<IntroContainerProps, IntroConta
                                 pageProxy={introPage}
                                 lang={lang}
                                 onPagePlayed={() => {
-                                    this.navigatePageList();
+                                    this.goNext();
                                 }}
-                                onNewRouteRequest={this.navigatePageList}
+                                onNewRouteRequest={this.goNext}
                             />
-                            <ConnectedOverlayedPageControl onClick={this.navigatePageList}>
+                            <ConnectedOverlayedPageControl onClick={this.goNext}>
                                 <span>Skip introduction</span>
                             </ConnectedOverlayedPageControl>
                         </>
