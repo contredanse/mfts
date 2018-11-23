@@ -41,6 +41,7 @@ export type VideoPlayerProps = {
     muted?: boolean;
     preload?: string;
     controlBarProps?: ControlBarProps;
+    playbackRateAutoMute?: { min: number; max: number };
 } & Overwrite<
     // Let's overwrite video actions...
     // Let's remove 'src' and 'autoplay'
@@ -61,6 +62,10 @@ const defaultProps = {
     autoPlay: false,
     playing: false,
     loop: false,
+    playbackRateAutoMute: {
+        min: 0.5,
+        max: 1.5,
+    },
 };
 
 const defaultState = {
@@ -171,6 +176,14 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
     setPlaybackRate(playbackRate: number): void {
         const videoEl = this.getVideoElement();
         if (videoEl !== null) {
+            if (!this.props.muted && this.props.playbackRateAutoMute) {
+                const { min, max } = this.props.playbackRateAutoMute;
+                if (playbackRate > max || playbackRate < min) {
+                    videoEl.muted = true;
+                } else {
+                    videoEl.muted = false;
+                }
+            }
             videoEl.playbackRate = playbackRate;
         }
     }
@@ -405,7 +418,7 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
                     }
                 );
             } else {
-                console.log('AUTIPLAY::CANNTO');
+                console.log('AUTOPLAY::CANNOT_START');
             }
         }
     }
