@@ -12,7 +12,7 @@ import { Dispatch } from 'redux';
 import { NavBreadcrumbProps } from '@src/store/nav';
 import * as navActions from '@src/store/nav/actions';
 import { connect } from 'react-redux';
-import { throttle } from 'throttle-debounce';
+import { ApplicationState } from '@src/store';
 
 type PageContainerProps = {
     pageId: string;
@@ -20,6 +20,7 @@ type PageContainerProps = {
     pageRepository: PageRepository;
     menuRepository: MenuRepository;
     setPageBreadcrumb?: (breadcrumb?: NavBreadcrumbProps) => void;
+    authenticated: boolean;
     authTimeoutCheck?: number;
 } & RouteComponentProps<any>;
 
@@ -31,6 +32,7 @@ const tenSeconds = 1e4;
 
 const defaultProps = {
     authTimeoutCheck: tenSeconds,
+    authenticated: false,
 };
 
 class PageContainer extends React.PureComponent<PageContainerProps, PageContainerState> {
@@ -54,6 +56,7 @@ class PageContainer extends React.PureComponent<PageContainerProps, PageContaine
 
     componentDidMount() {
         this.createAuthTimeout();
+
         this.setNavigationBreadcrumb(this.state.pageProxy);
     }
 
@@ -147,17 +150,24 @@ class PageContainer extends React.PureComponent<PageContainerProps, PageContaine
     }
 
     private createAuthTimeout(): void {
-        this.clearAuthTimeout();
-        // typescript does not resolve correct
-        // setTimeout version between node/browser
-        this.authTimeoutHandle = setTimeout(() => {
-            if (!this.isAuthTimeoutCancelled) {
-                this.redirectIfNotAuthenticacted(this.props.pageId);
-            }
-        }, this.props.authTimeoutCheck) as any;
-        this.isAuthTimeoutCancelled = false;
+        if (!this.props.authenticated) {
+            this.clearAuthTimeout();
+            // typescript does not resolve correct
+            // setTimeout version between node/browser
+            this.authTimeoutHandle = setTimeout(() => {
+                if (!this.isAuthTimeoutCancelled) {
+                    this.redirectIfNotAuthenticacted(this.props.pageId);
+                }
+            }, this.props.authTimeoutCheck) as any;
+            this.isAuthTimeoutCancelled = false;
+        }
     }
 }
+
+const mapStateToProps = ({ auth }: ApplicationState) => ({
+    //user: auth.user,
+    authenticated: auth.authenticated,
+});
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
     setPageBreadcrumb: (breadcrumb?: NavBreadcrumbProps) => dispatch(navActions.setPageBreadcrumb(breadcrumb)),
@@ -165,7 +175,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 
 export default withRouter(
     connect(
-        null,
+        mapStateToProps,
         mapDispatchToProps
     )(PageContainer)
 );
