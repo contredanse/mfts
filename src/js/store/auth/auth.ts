@@ -21,7 +21,7 @@ export type AuthSignupCredentials = {
 } & AuthCredentials;
 
 export type AuthResponse = {
-    token: string;
+    access_token: string;
 };
 
 export type AuthUser = {
@@ -34,23 +34,6 @@ const wretchRequest = wretch()
     .options({ credentials: 'include', mode: 'cors' })
     .options({ headers: { Accept: 'application/json' } });
 
-// Authorization header
-//.auth(`Bearer ${ token }`)
-// Cors fetch options
-//.options({ credentials: "include", mode: "cors" })
-// Handle 403 errors
-//.resolve(_ => _.forbidden(() => {
-//     // handle 403
-
-// }))
-/**
- * .notFound(error => {  })
-.unauthorized(error => {  })
-    .error(418, error => {  })
-    .res(response => )
- .catch(error => {  })
- */
-
 const baseUrl = appConfig.getApiBaseUrl();
 
 export const loginUser = ({ email, password }: AuthCredentials, onSuccess?: (data: AuthResponse) => void) => {
@@ -59,22 +42,22 @@ export const loginUser = ({ email, password }: AuthCredentials, onSuccess?: (dat
 
         return wretchRequest
             .url(`${baseUrl}/auth/token`)
-            .options({ credentials: 'include', mode: 'cors' })
+            .options({ mode: 'cors' })
             .post({
                 email: email,
                 password: password,
             })
             .json(response => {
                 const data = response as AuthResponse;
-                const { token } = data;
+                const { access_token } = data;
                 dispatch(authActions.authFormSubmitSuccess());
                 dispatch(
                     authActions.authenticateUser({
                         email,
-                        token,
+                        token: access_token,
                     })
                 );
-                localStorage.setItem(AUTH_TOKEN_LOCALSTORAGE_KEY, token);
+                localStorage.setItem(AUTH_TOKEN_LOCALSTORAGE_KEY, access_token);
                 if (onSuccess) {
                     onSuccess(data);
                 }

@@ -2,9 +2,14 @@ import { Reducer } from 'redux';
 import { AuthState, AuthActionTypes } from './types';
 import { hasPersistedToken } from '@src/store/auth/auth';
 
+// Temp you had a token... all is good !
+const initAuth = {
+    authenticated: hasPersistedToken(),
+};
+
 // Type-safe initialState!
 const initialState: AuthState = {
-    authenticated: hasPersistedToken(),
+    authenticated: initAuth.authenticated,
     authError: null,
     loading: false,
     user: null,

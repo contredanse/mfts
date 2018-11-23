@@ -1,13 +1,13 @@
 import { ApplicationState } from '@src/store';
 import { Dispatch } from 'redux';
-import { logoutUser } from '@src/store/auth/auth';
+import { AuthUser, logoutUser } from '@src/store/auth/auth';
 import { connect } from 'react-redux';
 import React from 'react';
 
 type LoginMenuProps = {
     handleLogout: () => void;
     authenticated: boolean;
-    user?: { email: string };
+    user?: AuthUser | null;
 };
 
 type LoginMenuState = {};

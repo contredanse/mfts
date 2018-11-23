@@ -5,6 +5,8 @@
 // personally, I use the `@@context/ACTION_TYPE` convention, to follow the convention
 // of Redux's `@@INIT` action.
 
+import { AuthUser } from '@src/store/auth/auth';
+
 export const enum AuthActionTypes {
     AUTHENTICATE_USER = '@@auth/AUTHENTICATE_USER',
     UNAUTHENTICATE_USER = '@@auth/UNAUTHENTICATE_USER',
@@ -20,5 +22,5 @@ export interface AuthState {
     readonly authenticated: boolean;
     readonly authError: string | null;
     readonly loading: boolean;
-    readonly user: null | any;
+    readonly user: null | AuthUser;
 }
