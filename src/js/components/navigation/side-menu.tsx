@@ -139,7 +139,9 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
     onStateChange: (state: MenuState) => dispatch(uiActions.setIsMenuOpen(state.isOpen)),
 });
 
-export const ConnectedSideMenu = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(withRouter(SideMenu));
+export const ConnectedSideMenu = withRouter(
+    connect(
+        mapStateToProps,
+        mapDispatchToProps
+    )(SideMenu)
+);

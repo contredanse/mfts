@@ -68,7 +68,9 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
     onMenuOpenRequest: () => dispatch(uiActions.setIsMenuOpen(true)),
 });
 
-export const ConnectedAppBar = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(withRouter(AppBarComponent));
+export const ConnectedAppBar = withRouter(
+    connect(
+        mapStateToProps,
+        mapDispatchToProps
+    )(AppBarComponent)
+);

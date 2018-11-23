@@ -29,11 +29,11 @@ type AppProps = {
 };
 
 type AppState = {
-    // isFullscreen: boolean;
+    isFullscreen: boolean;
 };
 
 const defaultState = {
-    // isFullscreen: false,
+    isFullscreen: false,
 };
 
 class App extends React.Component<AppProps, AppState> {
@@ -125,7 +125,6 @@ class App extends React.Component<AppProps, AppState> {
         return (
             <WithStore selector={state => state.ui}>
                 {({ lang }: UiState) => {
-                    //const title = i18n.t('appbar.title', { lng: lang });
                     const title = '';
                     return (
                         <ConnectedRouter history={history}>
