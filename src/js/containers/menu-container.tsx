@@ -7,6 +7,7 @@ import DocumentMeta from '@src/utils/document-meta';
 type MenuContainerProps = {
     menuRepository: MenuRepository;
     lang: DataSupportedLangType;
+    openedPageId?: string;
 };
 
 type MenuContainerState = {};
@@ -17,11 +18,11 @@ class MenuContainer extends React.Component<MenuContainerProps, MenuContainerSta
     }
 
     render() {
-        const { lang, menuRepository } = this.props;
+        const { lang, menuRepository, openedPageId } = this.props;
         return (
             <div style={{ textAlign: 'center' }}>
                 <DocumentMeta title={'MFS >> Menu'} />
-                <HelixMenu lang={lang} jsonDataMenu={menuRepository.getJsonMenu()} />
+                <HelixMenu lang={lang} jsonDataMenu={menuRepository.getJsonMenu()} openedPageId={openedPageId} />
             </div>
         );
     }

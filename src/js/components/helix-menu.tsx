@@ -8,6 +8,7 @@ import { RouteComponentProps, withRouter } from 'react-router';
 type HelixMenuProps = {
     lang: string;
     jsonDataMenu: IJsonMenu[];
+    openedPageId?: string;
 } & RouteComponentProps<any>;
 
 type HelixMenuState = {};

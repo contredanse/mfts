@@ -89,6 +89,7 @@ module.exports = merge(common, {
                 { from: /^\/$/, to: 'index.html' },
                 { from: /page\//, to: 'index.html' },
                 { from: /welcome\//, to: 'index.html' },
+                { from: /menu\//, to: 'index.html' },
             ],
         },
         hot: true,

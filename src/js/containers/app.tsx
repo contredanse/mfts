@@ -58,9 +58,10 @@ class App extends React.Component<AppProps, AppState> {
                 <Switch>
                     <Route
                         exact={true}
-                        path={`${match.path}/menu`}
-                        render={() => {
-                            return <MenuContainer lang={lang} menuRepository={menuRepository} />;
+                        path={`${match.path}/menu/:pageId?`}
+                        render={(props: RouteComponentProps<any>) => {
+                            const { pageId, lang: routeLang } = props.match.params;
+                            return <MenuContainer lang={lang} menuRepository={menuRepository} openedPageId={pageId} />;
                         }}
                     />
                     <Route
