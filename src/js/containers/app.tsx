@@ -9,6 +9,7 @@ import history from '@src/history';
 import { ConnectedAppBar } from '@src/components/navigation/app-bar';
 import HomeContainer from '@src/containers/home-container';
 import MenuContainer from '@src/containers/menu-container';
+import WelcomeContainer from '@src/containers/welcome-container';
 import NotFoundContainer from '@src/containers/notfound-container';
 import AppConfig from '@src/core/app-config';
 import PageListContainer from '@src/containers/page-list-container';
@@ -71,12 +72,26 @@ class App extends React.Component<AppProps, AppState> {
                     />
                     <Route
                         exact={true}
+                        path={`${match.path}/welcome/:pageId?`}
+                        render={(props: RouteComponentProps<any>) => {
+                            const { pageId, lang: routeLang } = props.match.params;
+                            return (
+                                <WelcomeContainer
+                                    lang={routeLang}
+                                    pageRepository={pageRepository}
+                                    fromPageId={pageId}
+                                />
+                            );
+                        }}
+                    />
+                    <Route
+                        exact={true}
                         path={`${match.path}/page-list/:menuId?`}
                         render={(props: RouteComponentProps<any>) => {
-                            const { menuId } = props.match.params;
+                            const { lang: routeLang, menuId } = props.match.params;
                             return (
                                 <PageListContainer
-                                    lang={lang}
+                                    lang={routeLang}
                                     menuId={menuId}
                                     videosBaseUrl={assetsLocator.getMediaTypeBaseUrl('videos')}
                                     pageRepository={pageRepository}
