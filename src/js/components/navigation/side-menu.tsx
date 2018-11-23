@@ -46,10 +46,6 @@ const menuItems = {
         label: { fr: 'Contenu', en: 'Content' },
         route: '/{lang}/page-list',
     },
-    account: {
-        label: { fr: 'Login', en: 'Login' },
-        route: '/{lang}/login',
-    },
     bio: {
         label: { fr: 'Biographie', en: 'Biography' },
         route: '/{lang}/about/bio',
@@ -117,7 +113,15 @@ export class SideMenu extends React.PureComponent<Props, State> {
                     );
                 })}
 
-                <ConnectedLoginMenu />
+                <ConnectedLoginMenu
+                    lang={lang}
+                    handleLoginRequest={() => {
+                        this.props.history.push(`/${lang}/login`);
+                        if (this.props.onStateChange) {
+                            this.props.onStateChange({ isOpen: false });
+                        }
+                    }}
+                />
 
                 <ConnectedLangSelector>
                     {({ nextLang, updateLang, currentLang }) => (

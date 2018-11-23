@@ -5,14 +5,16 @@ import contredanseLogo from '@assets/images/logo-contredanse.png';
 import { ApplicationState } from '@src/store';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { loginUser } from '@src/store/auth/auth';
+import { AuthUser, loginUser } from '@src/store/auth/auth';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
-type LoginFormProps = {
+export type LoginFormProps = {
     handleSubmit?: (data: any) => void;
     authError: string | null;
     loading: boolean;
+    user?: AuthUser | null;
+    authenticated: boolean;
 } & Pick<RouteComponentProps, 'match' | 'history'>;
 
 type LoginFormState = {};
@@ -38,6 +40,17 @@ export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormStat
     };
 
     render() {
+        const { authenticated, user } = this.props;
+
+        if (authenticated) {
+            return (
+                <div className="profile-page-container">
+                    <div>Already authenticated ;)</div>
+                    <div>User: {user ? user.email : 'unknown'}</div>
+                </div>
+            );
+        }
+
         return (
             <div className="login-page-container">
                 <div className="login-page">
@@ -132,28 +145,6 @@ export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormStat
             </div>
         );
     }
-
-    render3() {
-        const { history, match, authError } = this.props;
-
-        return (
-            <div className="login-page-container">
-                <div className="login-page">
-                    <img src={contredanseLogo} alt="Contredanse logo" />
-                    <h2>Please login to your contredanse account !</h2>
-                    <p>Here some blah-blah</p>
-
-                    {authError && <div className="error-message">{authError}</div>}
-
-                    <form className="form" onSubmit={this.handleSubmit}>
-                        <input type="text" placeholder="Enter email address" />
-                        <input type="password" placeholder="My  password" />
-                        <button type="submit">Login</button>
-                    </form>
-                </div>
-            </div>
-        );
-    }
 }
 
 const mapStateToProps = ({ auth }: ApplicationState) => ({
@@ -167,7 +158,7 @@ const mapDispatchToProps = (dispatch: Dispatch): Pick<LoginFormProps, 'handleSub
     //handleSubmit: (data: any) => dispatch(uiActions.setFullscreen(isFullscreen)),
     handleSubmit: (data: any) =>
         loginUser(data, () => {
-            alert('onSuccess');
+            alert('Success');
         })(dispatch),
 });
 

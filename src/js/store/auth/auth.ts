@@ -71,7 +71,7 @@ export const loginUser = ({ email, password }: AuthCredentials, onSuccess?: (dat
 
 export const hasPersistedToken = (): boolean => {
     const token = localStorage.getItem(AUTH_TOKEN_LOCALSTORAGE_KEY);
-    return token !== '';
+    return token !== null;
 };
 
 export const logoutUser = (): PayloadAction => {

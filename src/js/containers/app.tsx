@@ -129,7 +129,7 @@ class App extends React.Component<AppProps, AppState> {
                         exact={true}
                         path={`${match.path}/login`}
                         render={() => {
-                            return <LoginContainer />;
+                            return <LoginContainer lang={lang} />;
                         }}
                     />
 

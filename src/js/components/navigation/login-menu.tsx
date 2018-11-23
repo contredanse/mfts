@@ -3,9 +3,12 @@ import { Dispatch } from 'redux';
 import { AuthUser, logoutUser } from '@src/store/auth/auth';
 import { connect } from 'react-redux';
 import React from 'react';
+import './login-menu.scss';
 
 type LoginMenuProps = {
+    lang: string;
     handleLogout: () => void;
+    handleLoginRequest: () => void;
     authenticated: boolean;
     user?: AuthUser | null;
 };
@@ -21,17 +24,26 @@ export class LoginMenu extends React.PureComponent<LoginMenuProps, LoginMenuStat
         super(props);
     }
 
+    handleLogout = () => {
+        this.props.handleLogout();
+    };
+
     render() {
-        const { authenticated, user } = this.props;
+        const { authenticated, user, handleLoginRequest } = this.props;
         return (
-            <div>
+            <div className="login-menu-item-container">
                 {authenticated ? (
                     <div>
+                        <h2>Connected</h2>
                         <div>{user && user.email}</div>
-                        <div>Logout</div>
+                        <div>
+                            <button onClick={this.handleLogout}>Logout</button>
+                        </div>
                     </div>
                 ) : (
-                    <div>Login</div>
+                    <div>
+                        <button onClick={handleLoginRequest}>Login</button>
+                    </div>
                 )}
             </div>
         );
@@ -46,7 +58,7 @@ const mapStateToProps = ({ auth }: ApplicationState) => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-    handleLogout: () => logoutUser(),
+    handleLogout: () => dispatch(logoutUser()),
 });
 
 const ConnectedLoginMenu = connect(
