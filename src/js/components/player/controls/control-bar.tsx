@@ -23,6 +23,7 @@ import FullscreenButton from '@src/components/player/controls/svg-mdi-button/ful
 import FullscreenExitButton from '@src/components/player/controls/svg-mdi-button/fullscreen-exit-button';
 import IdleMonitor from '@src/components/player/idle-monitor';
 import fscreen from 'fscreen';
+import ReplayButton from '@src/components/player/controls/svg-mdi-button/replay-button';
 
 export type ControlBarProps = {
     videoEl?: HTMLVideoElement | null;
@@ -95,7 +96,7 @@ class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
         }
 
         if (status.isEnded) {
-            return <LoadingButton />;
+            return <ReplayButton isEnabled={true} onClick={this.play} {...spaceAction} />;
         }
 
         if (status.isPlaying) {

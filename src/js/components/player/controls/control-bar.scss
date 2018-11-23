@@ -86,6 +86,7 @@ $max-controlbar-width: 900px;
             }
 
             button {
+                &.ReplayButton,
                 &.PlayButton,
                 &.PauseButton {
                     margin: 10px;
