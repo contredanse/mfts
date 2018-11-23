@@ -6,7 +6,8 @@ Réalisé par Baptiste Andrien, Florence Corin, Steve Paxton.
 Publié et produit par Contredanse.
 Projet initié par Patricia Kuypers. Conseil artistique : Patricia Kuypers, Lisa Nelson. 
 
-Caméra, montage vidéo, graphiques, 3D et graphisme : Baptiste Andrien, Florence Corin. Développement de l’interface : Emeric Florence. Traduction Html5 : Sébastien Vanvelthem. Travail son: Yvan Hanon. Transcriptions : Agnès Benoit-Nader. Traduction et sous-titrages : Denise Luccioni. Motion Capture : Mocap.be. Testing : Contredanse.
+Caméra, montage vidéo, graphiques, 3D et graphisme : Baptiste Andrien, Florence Corin. 
+Développement de l’interface : Emeric Florence. Dévelopment webapp & conversion DVD : Sébastien Vanvelthem. Travail son: Yvan Hanon. Transcriptions : Agnès Benoit-Nader. Traduction et sous-titrages : Denise Luccioni. Motion Capture : Mocap.be. Testing : Contredanse.
 
 Publié et produit par Contredanse en collaboration avec l’Animal a l’esquena (Celra, ES) et le Centre National de la Danse (Pantin, FR). Publié avec le concours du Centre National du Livre : « Nouvelle Librairie de la danse » et du Ministère de la culture et de la communication (Direction de la musique, de la danse, du théâtre et des spectacles). Contredanse est soutenu par le Le Ministère de la Communauté française, Service de la Danse, la Cocof et la ville de Bruxelles.
 
