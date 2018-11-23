@@ -1,15 +1,18 @@
 .bm-menu {
-    a {
+    .side-menu-item {
         display: block;
         border: 1px solid white;
         padding: 20px;
         font-size: 1.7em;
+
         &:link {
             text-decoration: none;
         }
+
         &:visited {
             color: white;
         }
+
         &:hover {
             cursor: pointer;
             background-color: grey;

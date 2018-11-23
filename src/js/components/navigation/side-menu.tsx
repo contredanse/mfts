@@ -11,6 +11,7 @@ import { ApplicationState } from '@src/store';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import * as uiActions from '@src/store/ui/actions';
+import { getMainMenuRoute, isScreenAdaptedForHelixMenu } from '@src/helpers/main-menu-redirect';
 
 // To not bundle svg
 const Menu = require('react-burger-menu/lib/menus/pushRotate');
@@ -38,7 +39,8 @@ const menuItems = {
     },
     menu: {
         label: { fr: 'Menu', en: 'Menu' },
-        route: '/{lang}/menu',
+        route: getMainMenuRoute,
+        hidden: !isScreenAdaptedForHelixMenu(),
     },
     list: {
         label: { fr: 'Contenu', en: 'Content' },
@@ -88,17 +90,23 @@ export class SideMenu extends React.PureComponent<Props, State> {
                 pageWrapId={'page-wrap'}
                 outerContainerId={'outer-container'}
             >
-                {Object.entries(menuItems).map(([key, menu]) => {
-                    const label = lang === 'fr' ? menu.label.fr : menu.label.en;
+                {Object.entries(menuItems).map(([key, menuItem]) => {
+                    if ('hidden' in menuItem && menuItem.hidden === true) {
+                        return null;
+                    }
+
+                    const label = lang === 'fr' ? menuItem.label.fr : menuItem.label.en;
                     return (
                         <a
-                            className="menu-item"
+                            className={`side-menu-item key-${key}`}
                             key={key}
                             onClick={() => {
-                                this.props.history.push(
-                                    menu.route.replace('{lang}', lang)
-                                    //'/'
-                                );
+                                const newRoute =
+                                    typeof menuItem.route === 'function'
+                                        ? menuItem.route(lang)
+                                        : menuItem.route.replace('{lang}', lang);
+
+                                this.props.history.push(newRoute);
                                 if (this.props.onStateChange) {
                                     this.props.onStateChange({ isOpen: false });
                                 }
