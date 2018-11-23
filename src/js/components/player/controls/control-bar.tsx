@@ -12,7 +12,9 @@ import {
     showLocalizedTextTrack,
 } from '@src/components/player/controls/utils/video-texttrack-helpers';
 
-import PlaybackStatusProvider from '@src/components/player/controls/hoc/playback-status-provider';
+import PlaybackStatusProvider, {
+    PlaybackStatusState,
+} from '@src/components/player/controls/hoc/playback-status-provider';
 import LoadingButton from '@src/components/player/controls/svg-button/loading-button';
 import TrackVisibilityHelper from '@src/components/player/track/track-visibility-helper';
 import VolumeControl from '@src/components/player/volume-control';
@@ -75,11 +77,6 @@ class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
     readonly state: ControlbarState;
     trackVisibilityHelper: TrackVisibilityHelper;
 
-    /**
-     * Whether the video listeners have been registered
-     */
-    protected listenersRegistered = false;
-
     constructor(props: ControlBarProps) {
         super(props);
         this.trackVisibilityHelper = new TrackVisibilityHelper();
@@ -88,11 +85,29 @@ class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
         };
     }
 
+    getPlaybackButton = (status: PlaybackStatusState) => {
+        const spaceAction = {
+            disableSpaceClick: this.props.disableButtonSpaceClick,
+        };
+
+        if (status.isLoading) {
+            return <LoadingButton />;
+        }
+
+        if (status.isEnded) {
+            return <LoadingButton />;
+        }
+
+        if (status.isPlaying) {
+            return <PauseButton tooltip={this.tr('pause')} isEnabled={true} onClick={this.pause} {...spaceAction} />;
+        }
+
+        return <PlayButton tooltip={this.tr('play')} isEnabled={true} onClick={this.play} {...spaceAction} />;
+    };
+
     render() {
         const props = this.props;
         const { videoEl, enableMuteControl, playbackRate, idleMonitorTimeout } = this.props;
-
-        const LoadingIndicator = () => <LoadingButton />;
 
         const spaceAction = {
             disableSpaceClick: this.props.disableButtonSpaceClick,
@@ -106,6 +121,7 @@ class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
                     // No reliable way to be know what is the display state of subs
                     // Let's recalc everytime the playback state changes.
                     const hasVisibleTrack = videoEl && hasVisibleTextTrack(videoEl);
+                    console.log('ISENDEDENDE', status.isEnded);
                     return (
                         <>
                             <IdleMonitor
@@ -145,27 +161,7 @@ class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
                                             />
                                         )}
 
-                                        {videoEl && (
-                                            <>
-                                                {status.isLoading ? (
-                                                    <LoadingIndicator />
-                                                ) : status.isPlaying ? (
-                                                    <PauseButton
-                                                        tooltip={tr('pause')}
-                                                        isEnabled={true}
-                                                        onClick={this.pause}
-                                                        {...spaceAction}
-                                                    />
-                                                ) : (
-                                                    <PlayButton
-                                                        tooltip={tr('play')}
-                                                        isEnabled={true}
-                                                        onClick={this.play}
-                                                        {...spaceAction}
-                                                    />
-                                                )}
-                                            </>
-                                        )}
+                                        {videoEl && this.getPlaybackButton(status)}
 
                                         {props.enableNextControl && (
                                             <NextButton

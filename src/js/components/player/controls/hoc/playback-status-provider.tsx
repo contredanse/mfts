@@ -19,6 +19,8 @@ type InjectedPlaybackStatusProps = {
     currentTime: number;
     bufferedTime: number;
 
+    isEnded: boolean;
+
     // An hack because we don't have a reliable way / dedicated
     // listener for track display/hide.
     // The child component must handle track visibility and trigger
@@ -37,7 +39,7 @@ const defaultProps = {
 };
 
 // We'll actually inject our own state
-type PlaybackStatusState = {} & InjectedPlaybackStatusProps;
+export type PlaybackStatusState = {} & InjectedPlaybackStatusProps;
 
 const defaultPlaybackStatusState = {
     isPlaying: false,
@@ -50,6 +52,7 @@ const defaultPlaybackStatusState = {
     readyState: 0,
     currentTime: 0,
     bufferedTime: 0,
+    isEnded: false,
     duration: Infinity,
 };
 
@@ -148,8 +151,10 @@ export default class PlaybackStatusProvider extends React.PureComponent<Playback
         video.addEventListener('play', this.updateVideoState);
         video.addEventListener('load', this.updateVideoState);
         video.addEventListener('pause', this.updateVideoState);
+        video.addEventListener('ended', this.setEndedState);
         video.addEventListener('waiting', this.setLoadingState);
         video.addEventListener('loaderror', this.setLoadErrorState);
+
         this.listenersRegistered = true;
     }
 
@@ -161,6 +166,7 @@ export default class PlaybackStatusProvider extends React.PureComponent<Playback
             video.removeEventListener('play', this.updateVideoState);
             video.removeEventListener('pause', this.updateVideoState);
             video.removeEventListener('load', this.updateVideoState);
+            video.removeEventListener('ended', this.setEndedState);
             video.removeEventListener('waiting', this.setLoadingState);
             video.removeEventListener('loaderror', this.setLoadErrorState);
         }
@@ -202,6 +208,22 @@ export default class PlaybackStatusProvider extends React.PureComponent<Playback
     };
 
     /**
+     * @param {Event<HTMLVideoElement>} e
+     */
+    private setEndedState = (e: Event): void => {
+        const { videoEl } = this.props;
+        if (videoEl && e.target !== null) {
+            if (!this.state.isPlaying) {
+                this.setState({
+                    isEnded: true,
+                });
+            }
+        } else {
+            console.warn('Cannot update setEndedState, no "event.target" available', e);
+        }
+    };
+
+    /**
      * Update local state with loading state
      * @param {Event<HTMLVideoElement>} e
      */
@@ -212,6 +234,7 @@ export default class PlaybackStatusProvider extends React.PureComponent<Playback
             this.setState({
                 isPlaying: isPlaying,
                 isLoading: true,
+                isEnded: false,
                 loadingError: false,
             });
         } else {
@@ -228,6 +251,7 @@ export default class PlaybackStatusProvider extends React.PureComponent<Playback
             const error = videoEl.error;
             this.setState({
                 isLoading: false,
+                isEnded: false,
                 loadingError: true,
                 loadingErrorMsg:
                     'Error loading video: ' +
@@ -247,6 +271,7 @@ export default class PlaybackStatusProvider extends React.PureComponent<Playback
             this.setState({
                 readyState: videoEl.readyState,
                 isPlaying: isPlaying,
+                isEnded: false,
                 isLoading: false,
                 trackLangs: getAvailableTrackLanguages(videoEl),
                 hasVisibleTextTrack: hasVisibleTextTrack(videoEl),
