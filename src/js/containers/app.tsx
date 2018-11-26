@@ -24,6 +24,7 @@ import DocumentMeta from '@src/utils/document-meta';
 import { ConnectedFullScreen } from '@src/utils/fullscreen';
 
 import { ConnectedSideMenu } from '@src/components/navigation/side-menu';
+import { LanguageContextConsumer, LanguageContextProvider } from '@src/context/language-context';
 
 type AppProps = {
     appConfig: AppConfig;
@@ -139,44 +140,46 @@ class App extends React.Component<AppProps, AppState> {
         };
 
         return (
-            <WithStore selector={state => state.ui}>
-                {({ lang }: UiState) => {
-                    const title = '';
-                    return (
-                        <ConnectedRouter history={history}>
-                            <ConnectedFullScreen>
-                                <div id="outer-container">
-                                    <ConnectedSideMenu lang={lang} />
-                                    <div className="window-container" id="page-wrap">
-                                        <header>
-                                            <ConnectedAppBar lang={lang} title={title} />
-                                        </header>
-                                        <main>
-                                            <Switch>
-                                                <Route
-                                                    exact={true}
-                                                    path="/"
-                                                    render={() => {
-                                                        return (
-                                                            <DocumentMeta
-                                                                title={'Steve Paxton - Material for the spine'}
-                                                            >
-                                                                <HomeContainer assetsLocator={assetsLocator} />
-                                                            </DocumentMeta>
-                                                        );
-                                                    }}
-                                                />
-                                                <Route path="/:lang(fr|en)" component={localizedRoutes} />
-                                                <Route component={NotFoundContainer} />
-                                            </Switch>
-                                        </main>
+            <LanguageContextProvider initialLang={'en'}>
+                <LanguageContextConsumer>
+                    {({ lang }) => {
+                        const title = '';
+                        return (
+                            <ConnectedRouter history={history}>
+                                <ConnectedFullScreen>
+                                    <div id="outer-container">
+                                        <ConnectedSideMenu lang={lang} />
+                                        <div className="window-container" id="page-wrap">
+                                            <header>
+                                                <ConnectedAppBar lang={lang} title={title} />
+                                            </header>
+                                            <main>
+                                                <Switch>
+                                                    <Route
+                                                        exact={true}
+                                                        path="/"
+                                                        render={() => {
+                                                            return (
+                                                                <DocumentMeta
+                                                                    title={'Steve Paxton - Material for the spine'}
+                                                                >
+                                                                    <HomeContainer assetsLocator={assetsLocator} />
+                                                                </DocumentMeta>
+                                                            );
+                                                        }}
+                                                    />
+                                                    <Route path="/:lang(fr|en)" component={localizedRoutes} />
+                                                    <Route component={NotFoundContainer} />
+                                                </Switch>
+                                            </main>
+                                        </div>
                                     </div>
-                                </div>
-                            </ConnectedFullScreen>
-                        </ConnectedRouter>
-                    );
-                }}
-            </WithStore>
+                                </ConnectedFullScreen>
+                            </ConnectedRouter>
+                        );
+                    }}
+                </LanguageContextConsumer>
+            </LanguageContextProvider>
         );
     }
 }

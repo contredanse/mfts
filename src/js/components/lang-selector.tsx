@@ -6,29 +6,20 @@ import * as uiActions from '@src/store/ui/actions';
 import { RouteComponentProps, withRouter } from 'react-router';
 import './lang-selector.scss';
 import { UILangCode } from '@src/store/ui';
+import { getNextLang, LanguageContextConsumer, LanguageContextProvider } from '@src/context/language-context';
+import { Simulate } from 'react-dom/test-utils';
+import change = Simulate.change;
 
-// Props passed from mapStateToProps
-type PropsFromReduxState = {
-    lang: string;
-};
-
-// Props passed from mapDispatchToProps
-type PropsFromReduxDispatchActions = {
-    setLang: typeof uiActions.setLang;
-};
-
-type LangSelectorProps = PropsFromReduxDispatchActions &
-    PropsFromReduxState &
-    RouteComponentProps<any> & {
-        className?: string;
-        style?: CSSProperties;
-        children(props: {
-            currentLang: string;
-            nextLang: string;
-            updateLang: (lang: string) => void;
-            toggleLang: () => void;
-        }): JSX.Element;
-    };
+type LangSelectorProps = {
+    className?: string;
+    style?: CSSProperties;
+    children(props: {
+        currentLang: string;
+        nextLang: string;
+        updateLang: (lang: string) => void;
+        toggleLang: () => void;
+    }): JSX.Element;
+} & RouteComponentProps<any>;
 
 const defaultProps = {
     className: 'lang-selector',
@@ -43,48 +34,42 @@ class LangSelector extends React.Component<LangSelectorProps> {
     }
 
     updateLang = (lang: string): void => {
-        const { lang: currentLang, setLang } = this.props;
+        //const { lang: currentLang, setLang } = this.props;
         const { pathname: uri } = this.props.location;
+
         const newLocation = uri.replace(
             // i.e: "/en/page/sensation-and-senses.pointing.parts-of-pointing"
-            new RegExp(`^\/${currentLang}\/`),
+            new RegExp(`^\/(en|fr)\/`),
             `/${lang}/`
         );
-        setLang(lang);
+
         this.props.history.push(newLocation);
     };
 
-    toggleLang = (): void => {
-        const { lang: currentLang } = this.props;
-        const nextLang = currentLang === 'en' ? 'fr' : 'en';
-        this.updateLang(nextLang);
-    };
-
     render() {
-        const { lang: currentLang, className, style, children } = this.props;
-        const nextLang = currentLang === 'en' ? 'fr' : 'en';
-
-        return children({
-            updateLang: this.updateLang,
-            toggleLang: this.toggleLang,
-            currentLang: currentLang,
-            nextLang: nextLang,
-        });
+        const { className, style, children } = this.props;
+        return (
+            <LanguageContextConsumer>
+                {({ lang, nextLang, changeLang }) => {
+                    return children({
+                        updateLang: (newLang: string) => {
+                            changeLang(newLang);
+                            this.updateLang(newLang);
+                        },
+                        toggleLang: () => {
+                            const newLang = getNextLang(lang);
+                            changeLang(newLang);
+                            this.updateLang(newLang);
+                        },
+                        currentLang: lang,
+                        nextLang: nextLang,
+                    });
+                }}
+            </LanguageContextConsumer>
+        );
     }
 }
 
-const mapStateToProps = ({ ui }: ApplicationState) => ({
-    lang: ui.lang,
-});
+const ConnectedLangSelector = withRouter(LangSelector);
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
-    setLang: (lang: UILangCode) => dispatch(uiActions.setLang(lang)),
-});
-
-const ConnectedLangSelector = withRouter(
-    connect(
-        mapStateToProps,
-        mapDispatchToProps
-    )(LangSelector)
-);
 export default ConnectedLangSelector;
