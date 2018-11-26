@@ -1,17 +1,17 @@
 import { ReactElement } from 'react';
 import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
+import { Action, Dispatch } from 'redux';
 
 // https://medium.com/netscape/connecting-react-component-to-redux-store-with-render-callback-53fd044bb42b
 
 interface OuterProps {
-    children: (state: any, dispatch: Dispatch<any>) => ReactElement<any>;
+    children: (state: any, dispatch: Action<any>) => ReactElement<any>;
     selector?: (state: any) => any;
 }
 
 interface InnerProps extends OuterProps {
     state: any;
-    dispatch: Dispatch<any>;
+    dispatch: Action<any>;
 }
 
 function WithStoreInner({ children, state, dispatch }: InnerProps) {
