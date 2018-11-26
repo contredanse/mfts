@@ -255,7 +255,7 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
             ...mediaProps
         } = this.props;
 
-        console.log('RERENDER VIDEOPLAYER', this.props.controlBarProps);
+        //console.log('RERENDER VIDEOPLAYER', this.props.controlBarProps);
         return (
             <>
                 <video
