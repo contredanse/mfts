@@ -236,7 +236,6 @@ class Page extends React.PureComponent<PageProps, PageState> {
 
     private handleGlobalKeyPress = (e: KeyboardEvent) => {
         if ((e || window.event).key === ' ') {
-            console.log('handleGlobalKeyPress');
             this.setState(prevState => ({
                 isPlaying: !prevState.isPlaying,
             }));
