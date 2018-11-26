@@ -1,5 +1,8 @@
+@import '../../styles/_variables.scss';
+@import '../../styles/_media-queries.scss';
 $bottom: 60px;
-.overlayed-page-btn-container {
+
+.overlayed-page-control-container {
     border: 1px solid rgba(white, 0.2);
     margin: 5px;
     padding: 10px;

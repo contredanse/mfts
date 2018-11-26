@@ -23,7 +23,7 @@ class OverlayedPageControl extends React.PureComponent<Props, State> {
     render() {
         const { onClick, children, extraClasses } = this.props;
 
-        const classes = ['overlayed-page-btn-container', extraClasses].join(' ');
+        const classes = ['overlayed-page-control-container', extraClasses].join(' ');
 
         return (
             <div className={classes} onClick={onClick}>
