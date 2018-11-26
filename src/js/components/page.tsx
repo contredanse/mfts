@@ -156,7 +156,9 @@ class Page extends React.PureComponent<PageProps, PageState> {
                             lang={lang}
                             menuRepository={menuRepository}
                             onReplayRequest={this.handleReplayRequest}
-                            onPageRequest={this.gotoPage}
+                            onPageRequest={(pageId: string) => {
+                                this.gotoPage(pageId);
+                            }}
                         />
                     )}
 
