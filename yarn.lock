@@ -12239,11 +12239,6 @@ typeface-raleway@^0.0.54:
   resolved "https://registry.yarnpkg.com/typeface-raleway/-/typeface-raleway-0.0.54.tgz#f166c517becc81f34d14e72736d28b8923c79c65"
   integrity sha512-oilrvv0fV+z4eYvfTAl6t9Oq1mE/ZrLDPM71TrcAtqyVb0QzAJ6hQBS+FQcYdHxK2LGQE+gloQUPtwgY2I7WxA==
 
-typeface-shadows-into-light-two@^0.0.54:
-  version "0.0.54"
-  resolved "https://registry.yarnpkg.com/typeface-shadows-into-light-two/-/typeface-shadows-into-light-two-0.0.54.tgz#e11bc3ec6621b17f61b7a0a0ef98c18e94be7a04"
-  integrity sha512-0dFOYkb8txSQm0U4zmmHnm8NY//20rnEsSzCJh8P57SZo7FUCCErjkNAh+yGco6fHV5jVz9aisLZqHEPn6dHiA==
-
 typesafe-actions@^2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/typesafe-actions/-/typesafe-actions-2.0.4.tgz#31c8f8df3566d549eb52edb64a75997e970c17d0"

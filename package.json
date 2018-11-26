@@ -134,7 +134,6 @@
         "tslint-config-prettier": "^1.16.0",
         "tslint-react": "^3.6.0",
         "typeface-raleway": "^0.0.54",
-        "typeface-shadows-into-light-two": "^0.0.54",
         "typesafe-actions": "^2.0.4",
         "typescript": "^3.1.6",
         "url-loader": "^1.1.2",
