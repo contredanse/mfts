@@ -1,6 +1,6 @@
 import { action } from 'typesafe-actions';
 
-import { UiActionTypes, UILangCode } from './types';
+import { UiActionTypes } from './types';
 
 // Here we use the `action` helper function provided by `typesafe-actions`.
 // This library provides really useful helpers for writing Redux actions in a type-safe manner.

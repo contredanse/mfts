@@ -1,14 +1,8 @@
 import React, { CSSProperties } from 'react';
-import { ApplicationState } from '@src/store';
-import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
-import * as uiActions from '@src/store/ui/actions';
 import { RouteComponentProps, withRouter } from 'react-router';
 import './lang-selector.scss';
-import { UILangCode } from '@src/store/ui';
-import { getNextLang, LanguageContextConsumer, LanguageContextProvider } from '@src/context/language-context';
+import { getNextLang, LanguageContextConsumer } from '@src/context/language-context';
 import { Simulate } from 'react-dom/test-utils';
-import change = Simulate.change;
 
 type LangSelectorProps = {
     className?: string;

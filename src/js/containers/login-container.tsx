@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { RouteComponentProps, withRouter } from 'react-router';
 import { LoginLayout } from '@src/components/layout/login-layout';
-import ConnectedLoginForm, { LoginForm, LoginFormProps } from '@src/components/login-form';
+import ConnectedLoginForm from '@src/components/login-form';
 import { ApplicationState } from '@src/store';
-import { AuthUser, loginUser } from '@src/store/auth/auth';
+import { AuthUser } from '@src/store/auth/auth';
 import { connect } from 'react-redux';
 import ConnectedProfileContainer from '@src/containers/profile-container';
 

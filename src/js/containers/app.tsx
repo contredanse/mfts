@@ -16,8 +16,6 @@ import PageListContainer from '@src/containers/page-list-container';
 import PageContainer from '@src/containers/page-container';
 import IntroContainer from '@src/containers/intro-container';
 
-import { WithStore } from '@src/hoc/with-store';
-import { UiState } from '@src/store/ui';
 import AboutContainer from '@src/containers/about-container';
 import LoginContainer from '@src/containers/login-container';
 import DocumentMeta from '@src/utils/document-meta';
@@ -140,9 +138,10 @@ class App extends React.Component<AppProps, AppState> {
         };
 
         return (
-            <LanguageContextProvider initialLang={'en'}>
+            <LanguageContextProvider initialLang={'fr'}>
                 <LanguageContextConsumer>
                     {({ lang }) => {
+                        console.log('MYINITIALLANG', lang);
                         const title = '';
                         return (
                             <ConnectedRouter history={history}>

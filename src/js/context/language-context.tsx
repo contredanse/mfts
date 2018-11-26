@@ -13,7 +13,7 @@ type LanguageContextProps = {
     changeLang: (lang: string) => void;
 };
 
-export const defaultLang = 'en';
+export const defaultLang = initialLang;
 
 export const getNextLang = (currentLang: string) => {
     return currentLang === 'en' ? 'fr' : 'en';

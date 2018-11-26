@@ -12,7 +12,7 @@ import { ApplicationState } from '@src/store';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import * as uiActions from '@src/store/ui/actions';
-import { isScreenAdaptedForHelixMenu, getMainMenuRoute } from '@src/helpers/main-menu-redirect';
+import { getMainMenuRoute } from '@src/helpers/main-menu-redirect';
 
 type AppBarProps = {
     title: string;
