@@ -36,7 +36,7 @@ const defaultState = {
     isFullscreen: false,
 };
 
-class App extends React.Component<AppProps, AppState> {
+class App extends React.PureComponent<AppProps, AppState> {
     readonly state: AppState;
 
     constructor(props: AppProps) {
@@ -131,14 +131,13 @@ class App extends React.Component<AppProps, AppState> {
                             return <LoginContainer lang={lang} />;
                         }}
                     />
-
                     <Route component={NotFoundContainer} />
                 </Switch>
             );
         };
 
         return (
-            <LanguageContextProvider initialLang={'fr'}>
+            <LanguageContextProvider>
                 <LanguageContextConsumer>
                     {({ lang }) => {
                         console.log('MYINITIALLANG', lang);
