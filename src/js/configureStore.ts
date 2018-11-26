@@ -2,6 +2,7 @@ import { Store, createStore, applyMiddleware, compose } from 'redux';
 
 import { routerMiddleware } from 'connected-react-router';
 
+import reduxThunk from 'redux-thunk';
 // Import the state interface and our combined reducers/sagas.
 //import { ApplicationState, rootReducer, rootSaga } from './store'
 import { ApplicationState, createRootReducer } from './store/index';
@@ -15,7 +16,7 @@ export default function configureStore(history: History, initialState: Applicati
     const composeEnhancers =
         (process.env.NODE_ENV === 'development' && window && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
-    const middlewares = [routerMiddleware(history)];
+    const middlewares = [routerMiddleware(history), reduxThunk];
 
     // compose enhancers
     const enhancers = composeEnhancers(applyMiddleware(...middlewares));
