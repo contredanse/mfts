@@ -16,22 +16,13 @@
     flex-direction: column;
 
     opacity: 0.7;
-    background-color: rgba(black, 0.9);
+    background-color: rgba(black, 0.8);
     transition: opacity 1500ms ease-in-out;
 
     &--active {
         //background-color: black;
         z-index: 1200;
-        opacity: 0.9;
-
-        //background: linear-gradient(to bottom, rgba(197,222,234, 0.1) 0%,rgba(138,187,215,0.5) 31%,rgba(6,109,171,1) 100%)
-        .page-playback-overlay-top {
-            //background: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 60%, rgba(0, 0, 0, 0.7) 100%);
-        }
-
-        .page-playback-overlay-bottom {
-            //background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 31%, rgba(0, 0, 0, 1) 100%);
-        }
+        opacity: 1;
     }
 
     &--hidden {
@@ -43,24 +34,28 @@
         //background-color: black;
     }
 
-    .page-playback-overlay-top {
-        flex: 1;
-        //border: 1px solid grey;
-    }
-
     .page-playback-overlay-middle {
-        flex: auto;
+        flex: 1 1;
         //border: 1px solid green;
         display: flex;
         position: relative;
-        padding: 0px 60px;
+        padding: 0px 0px;
+        margin-bottom: 100px;
+
+        align-items: flex-end;
+        justify-content: flex-end;
 
         .action-item {
+            @include media-breakpoint-down(xs) {
+                &:first-child {
+                    display: none;
+                }
+            }
+
             flex: 1 1 100%;
             display: flex;
             padding: 15px;
             position: relative;
-            //border: 1px solid pink;
             &:hover {
                 cursor: pointer;
                 .page-card-container {
@@ -74,6 +69,7 @@
             }
             .action-overlay {
                 position: absolute;
+                //border: 1px solid blue;
                 top: 0;
                 bottom: 0;
                 left: 0;
@@ -82,19 +78,16 @@
                 align-items: center;
                 justify-content: center;
                 div {
-                    border: 1px solid white;
+                    flex: 1 1;
+                    //border: 1px solid white;
                     padding: 5px;
-                    background-color: rgba(yellow, 0.6);
+                    //background-color: rgba(yellow, 0.6);
+                    svg {
+                        width: 100px;
+                        fill: rgba(white, 0.9);
+                    }
                 }
             }
         }
-    }
-
-    .page-playback-overlay-bottom {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        //border: 1px solid blue;
     }
 }

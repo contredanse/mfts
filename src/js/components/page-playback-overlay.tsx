@@ -6,13 +6,18 @@ import { BasicI18nDictionary, getFromDictionary } from '@src/i18n/basic-i18n';
 import PageCard from '@src/components/page-card';
 import MenuRepository from '@src/models/repository/menu-repository';
 
+import ReplayIcon from 'mdi-react/ReplayIcon';
+import PreviousIcon from 'mdi-react/SkipPreviousIcon';
+import NextIcon from 'mdi-react/SkipNextIcon';
+import { RouteComponentProps, withRouter } from 'react-router';
+
 type PagePlaybackOverlayProps = {
     currentPage: PageProxy;
     menuRepository: MenuRepository;
     lang?: string;
     onReplayRequest?: () => void;
     onPageRequest?: (pageId: string) => void;
-};
+} & RouteComponentProps<any>;
 
 type PagePlaybackOverlayState = {};
 
@@ -55,7 +60,6 @@ class PagePlaybackOverlay extends React.PureComponent<PagePlaybackOverlayProps, 
         const p = this.props.menuRepository.getPrevAndNextPageEntityMenu(currentPage.pageId, lang!);
         return (
             <div className="page-playback-overlay page-playback-overlay--active">
-                <div className="page-playback-overlay-top" />
                 <div className="page-playback-overlay-middle">
                     {p.previousPage && (
                         <div
@@ -66,7 +70,11 @@ class PagePlaybackOverlay extends React.PureComponent<PagePlaybackOverlayProps, 
                         >
                             <PageCard pageProxy={p.previousPage!} lang={lang} />
                             <div className="action-overlay">
-                                <div>{getFromDictionary('play_previous_page', lang!, i18nDict)}</div>
+                                <div>
+                                    <PreviousIcon size="100%" />
+                                </div>
+
+                                {/*<div>{getFromDictionary('play_previous_page', lang!, i18nDict)}</div>*/}
                             </div>
                         </div>
                     )}
@@ -75,7 +83,9 @@ class PagePlaybackOverlay extends React.PureComponent<PagePlaybackOverlayProps, 
                         <div className="action-item" onClick={this.handleReplayRequest}>
                             <PageCard pageProxy={currentPage!} lang={lang} />
                             <div className="action-overlay">
-                                <div>{getFromDictionary('replay_page', lang!, i18nDict)}</div>
+                                <div>
+                                    <ReplayIcon size="100%" />
+                                </div>
                             </div>
                         </div>
                     )}
@@ -89,27 +99,28 @@ class PagePlaybackOverlay extends React.PureComponent<PagePlaybackOverlayProps, 
                         >
                             <PageCard pageProxy={p.nextPage!} lang={lang} />
                             <div className="action-overlay">
-                                <div>{getFromDictionary('play_next_page', lang!, i18nDict)}</div>
+                                <div>
+                                    <NextIcon size="100%" />
+                                </div>
                             </div>
                         </div>
                     )}
                 </div>
-                <div className="page-playback-overlay-bottom" />
             </div>
         );
     }
 
-    private handleReplayRequest = (): void => {
+    handleReplayRequest = (): void => {
         if (this.props.onReplayRequest) {
             this.props.onReplayRequest();
         }
     };
 
-    private handlePageRequest = (pageId: string): void => {
+    handlePageRequest = (pageId: string): void => {
         if (this.props.onPageRequest) {
             this.props.onPageRequest(pageId);
         }
     };
 }
 
-export default PagePlaybackOverlay;
+export default withRouter(PagePlaybackOverlay);
