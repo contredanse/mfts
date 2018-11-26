@@ -1,6 +1,6 @@
 import { ApplicationState } from '@src/store';
 import { Dispatch } from 'redux';
-import { AuthUser, logoutUser } from '@src/store/auth/auth';
+import { AuthUser, getUserProfile, loginUser, logoutUser } from '@src/store/auth/auth';
 import { connect } from 'react-redux';
 import React from 'react';
 import './login-menu.scss';
@@ -11,6 +11,7 @@ type LoginMenuProps = {
     handleLoginRequest: () => void;
     authenticated: boolean;
     user?: AuthUser | null;
+    getUserProfile: () => void;
 };
 
 type LoginMenuState = {};
@@ -22,6 +23,12 @@ export class LoginMenu extends React.PureComponent<LoginMenuProps, LoginMenuStat
 
     constructor(props: LoginMenuProps) {
         super(props);
+    }
+
+    async componentDidMount() {
+        if (this.props.authenticated && !this.props.user) {
+            this.props.getUserProfile();
+        }
     }
 
     handleLogout = () => {
@@ -59,6 +66,7 @@ const mapStateToProps = ({ auth }: ApplicationState) => ({
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
     handleLogout: () => dispatch(logoutUser()),
+    getUserProfile: () => getUserProfile()(dispatch),
 });
 
 const ConnectedLoginMenu = connect(

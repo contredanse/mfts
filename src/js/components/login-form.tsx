@@ -125,15 +125,6 @@ export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormStat
                                     {errors.password && touched.password && (
                                         <div className="input-feedback">{errors.password}</div>
                                     )}
-
-                                    <button
-                                        type="button"
-                                        className="outline"
-                                        onClick={handleReset}
-                                        disabled={!dirty || isSubmitting}
-                                    >
-                                        Reset
-                                    </button>
                                     <button type="submit" disabled={isSubmitting}>
                                         Submit
                                     </button>

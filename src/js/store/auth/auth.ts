@@ -69,6 +69,38 @@ export const loginUser = ({ email, password }: AuthCredentials, onSuccess?: (dat
     };
 };
 
+export const getUserProfile = (token?: string, onFailure?: () => void) => {
+    return async (dispatch: Dispatch) => {
+        const accessToken = token ? token : localStorage.getItem(AUTH_TOKEN_LOCALSTORAGE_KEY);
+        const res = await wretchRequest
+            .url(`${baseUrl}/v1/profile`)
+            .options({ headers: { Accept: 'application/json' } })
+            .auth(`Bearer ${accessToken}`)
+            .options({ mode: 'cors' })
+            .get()
+            .unauthorized(() => {
+                console.log('401 Unauthorized, unauthenticating');
+                dispatch(authActions.unAuthenticateUser());
+            })
+            .forbidden(() => {
+                console.log('403 Forbidden');
+                dispatch(authActions.unAuthenticateUser());
+            })
+            .json(response => {
+                const { data } = response;
+                const user: AuthUser = {
+                    email: data.email,
+                    token: accessToken!,
+                };
+                dispatch(authActions.authenticateUser(user));
+            })
+            .catch((error: any) => {
+                const reason = 'reason' in error ? error.reason : '';
+                dispatch(authActions.unAuthenticateUser());
+            });
+    };
+};
+
 export const hasPersistedToken = (): boolean => {
     const token = localStorage.getItem(AUTH_TOKEN_LOCALSTORAGE_KEY);
     return token !== null;
@@ -78,23 +110,3 @@ export const logoutUser = (): PayloadAction => {
     localStorage.removeItem(AUTH_TOKEN_LOCALSTORAGE_KEY);
     return authActions.unAuthenticateUser();
 };
-
-/*
-export const signupUser = ({ email, password }: AuthSignupCredentials, onSuccess?: () => void) => {
-    return (dispatch: Dispatch<ApplicationState>) => {
-        dispatch<Action>(authFormSubmitRequest);
-
-        return apiPOST('/api/auth/signup/', {email, password})
-            .then((data: IAuthResponse) => {
-                dispatch<IAction>(authFormSubmitSuccess());
-                dispatch<IAction>(authenticateUser());
-                localStorage.setItem(AUTH_TOKEN_LOCALSTORAGE_KEY, data.token);
-                onSuccess && onSuccess(data);
-            })
-            // TODO: catch only specific error
-            .catch((err: any) => {
-                dispatch<IAction>(authFormSubmitFailure('Signup failed, try again'));
-            });
-    }
-};
-*/
