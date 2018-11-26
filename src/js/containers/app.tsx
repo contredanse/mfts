@@ -140,7 +140,6 @@ class App extends React.PureComponent<AppProps, AppState> {
             <LanguageContextProvider>
                 <LanguageContextConsumer>
                     {({ lang }) => {
-                        console.log('MYINITIALLANG', lang);
                         const title = '';
                         return (
                             <ConnectedRouter history={history}>
