@@ -7,7 +7,6 @@ export type UILangCode = string;
 // personally, I use the `@@context/ACTION_TYPE` convention, to follow the convention
 // of Redux's `@@INIT` action.
 export const enum UiActionTypes {
-    SET_LANG = '@@ui/SET_UI_LANG',
     SET_IN_FULLSCREEN = '@@ui/SET_IN_FULLSCREEN',
     SET_IS_MENU_OPEN = '@@ui/SET_IS_MENU_OPEN',
     TOGGLE_MENU_OPEN = '@@ui/TOGGLE_MENU_OPEN',
@@ -15,7 +14,6 @@ export const enum UiActionTypes {
 }
 
 export interface UiState {
-    readonly lang: UILangCode;
     readonly fullscreen: boolean;
     readonly isMenuOpen: boolean;
     readonly isIdleMode: boolean;
