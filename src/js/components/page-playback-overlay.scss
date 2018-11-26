@@ -1,4 +1,5 @@
 @import '../../styles/_variables.scss';
+@import '../../styles/_media-queries.scss';
 
 .page-playback-overlay {
     position: absolute;
@@ -7,7 +8,7 @@
     left: 0;
     right: 0;
     top: 0;
-    bottom: 80px;
+    bottom: 0px;
 
     padding: 5px;
 
