@@ -1,7 +1,8 @@
-import React, { MouseEvent } from 'react';
+import React from 'react';
 import VideoProxyPlayer from '@src/components/player/data-proxy-player';
 import VideoProxy from '@src/models/proxy/video-proxy';
 import PageProxy from '@src/models/proxy/page-proxy';
+import Modal from 'react-modal';
 import './panel-multi-video.scss';
 
 type PanelMultiVideoProps = {
@@ -11,18 +12,26 @@ type PanelMultiVideoProps = {
     playbackRate?: number;
 };
 
-type PanelMultiVideoState = {};
+type PanelMultiVideoState = {
+    isVideoDetailOpen: boolean;
+    videoDetail?: VideoProxy;
+};
 
 const defaultProps = {
     playing: true,
     playbackRate: 1,
 };
 
+const defaultState = {
+    isVideoDetailOpen: false,
+};
+
 export default class PanelMultiVideo extends React.Component<PanelMultiVideoProps, PanelMultiVideoState> {
-    static defaultProps: Partial<PanelMultiVideoProps> = defaultProps;
+    static defaultProps = defaultProps;
 
     constructor(props: PanelMultiVideoProps) {
         super(props);
+        this.state = defaultState;
     }
 
     render() {
@@ -43,43 +52,105 @@ export default class PanelMultiVideo extends React.Component<PanelMultiVideoProp
             };
         }
         return (
-            <div className="panel-multi-video">
-                {videos.map((video, idx) => {
-                    const videoIdx = `video-${idx}`;
-                    const className = 'autoscale-video-container';
-                    let videoClassName = 'autoscale-video-wrapper autoscale-video-content';
-                    if (video.hasVideoLink()) {
-                        videoClassName += ' clickable-video';
-                    }
-
-                    return (
-                        <div key={videoIdx} className={className} onClick={this.handleVideoClick}>
+            <>
+                <div
+                    className="panel-multi-video"
+                    onClick={() => {
+                        if (this.state.isVideoDetailOpen) {
+                            this.handleCloseModal();
+                        }
+                    }}
+                >
+                    {this.state.isVideoDetailOpen && this.state.videoDetail && (
+                        <div className="video-detail" key={this.state.videoDetail.videoId}>
                             <VideoProxyPlayer
                                 crossOrigin={'anonymous'}
-                                className={videoClassName}
                                 disableSubtitles={true}
-                                videoProxy={video}
-                                {...sizeConstraints}
+                                videoProxy={this.state.videoDetail}
+                                style={{
+                                    width: '100%',
+                                    height: 'auto',
+                                }}
                                 // To prevent blinking
                                 disablePoster={true}
                                 playing={playing}
                                 playbackRate={playbackRate}
-                                loop
+                                onEnded={() => {
+                                    this.handleCloseModal();
+                                }}
                                 muted
                             />
+                        </div>
+                    )}
 
-                            {/*
+                    {videos.map((video, idx) => {
+                        const videoIdx = `video-${idx}`;
+                        let className = 'autoscale-video-container video-slided-out';
+                        let videoClassName = 'autoscale-video-wrapper autoscale-video-content';
+                        if (video.hasVideoLink()) {
+                            videoClassName += ' clickable-video';
+                        }
+
+                        const isPlaying = this.state.isVideoDetailOpen ? false : playing;
+
+                        if (this.state.isVideoDetailOpen) {
+                            className += ' hidden';
+                        }
+
+                        return (
+                            <div
+                                key={videoIdx}
+                                className={className}
+                                onClick={() => {
+                                    this.openVideoLink(video);
+                                }}
+                            >
+                                <VideoProxyPlayer
+                                    crossOrigin={'anonymous'}
+                                    className={videoClassName}
+                                    disableSubtitles={true}
+                                    videoProxy={video}
+                                    style={{
+                                        width: '100%',
+                                        height: 'auto',
+                                    }}
+                                    // To prevent blinking
+                                    disablePoster={true}
+                                    playing={isPlaying}
+                                    playbackRate={playbackRate}
+                                    loop
+                                    muted
+                                />
+
+                                {/*
                             <div className="loading-overlay" />
                             */}
-                        </div>
-                    );
-                })}
-            </div>
+                            </div>
+                        );
+                    })}
+                </div>
+            </>
         );
     }
 
-    protected handleVideoClick = (e: MouseEvent<HTMLDivElement>): void => {
-        const target = e.target;
-        console.log('CLICKING VIDEO LINK', target);
+    protected handleCloseModal = (): void => {
+        this.setState({
+            isVideoDetailOpen: false,
+            videoDetail: undefined,
+        });
+    };
+
+    protected openVideoLink = (video: VideoProxy): void => {
+        const { videoLink } = video;
+
+        if (videoLink) {
+            this.setState({
+                isVideoDetailOpen: true,
+                videoDetail: videoLink,
+            });
+
+            //alert(`linkedVideo ${videoLink.videoId}`);
+            //console.log('linkedVideo', videoLink);
+        }
     };
 }
