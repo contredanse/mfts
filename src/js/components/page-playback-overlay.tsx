@@ -2,7 +2,7 @@ import React from 'react';
 import PageProxy from '@src/models/proxy/page-proxy';
 
 import './page-playback-overlay.scss';
-import { BasicI18nDictionary, getFromDictionary } from '@src/i18n/basic-i18n';
+import { BasicI18nDictionary } from '@src/i18n/basic-i18n';
 import PageCard from '@src/components/page-card';
 import MenuRepository from '@src/models/repository/menu-repository';
 
