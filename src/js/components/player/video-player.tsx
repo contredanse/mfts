@@ -320,7 +320,7 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
             this.props.onDebug('handleCanPlay');
         }
         this.initAutoPlay();
-
+        this.setPlaybackRate(this.props.playbackRate);
         if (this.props.onCanPlay) {
             this.props.onCanPlay(e);
         }
