@@ -79,7 +79,7 @@
         "cover": "watergravity.jpg",
         "keywords": {
             "en": ["sensation", "senses", "gravity", "water"],
-            "fr": ["sensation", "sens", "pesanteur", "dans", "l'eau"]
+            "fr": ["sensation", "sens", "pesanteur", "dans", "eau"]
         },
         "content": {
             "layout": "single-video",
@@ -196,7 +196,7 @@
         "cover": "pointing_scapula.jpg",
         "keywords": {
             "en": ["sensation", "senses", "pointing", "relation", "scapula"],
-            "fr": ["sensation", "sens", "pointer", "relation", "l'omoplate"]
+            "fr": ["sensation", "sens", "pointer", "relation", "omoplate"]
         },
         "content": {
             "layout": "single-video",
@@ -406,7 +406,7 @@
         "cover": "sphericalspace.jpg",
         "keywords": {
             "en": ["sensation", "senses", "space", "spherical"],
-            "fr": ["sensation", "sens", "l'espace", "sphérique"]
+            "fr": ["sensation", "sens", "espace", "sphérique"]
         },
         "content": {
             "layout": "single-video",
@@ -429,7 +429,7 @@
         "cover": "perf_comments_goldberg.jpg",
         "keywords": {
             "en": ["sensation", "senses", "mfs", "base", "improvisation", "looking", "goldberg", "variations"],
-            "fr": ["sensation", "sens", "mfs", "base", "l'improvisation", "introduction", "goldberg", "variations"]
+            "fr": ["sensation", "sens", "mfs", "base", "improvisation", "introduction", "goldberg", "variations"]
         },
         "content": {
             "layout": "single-video",
@@ -452,7 +452,7 @@
         "cover": "goldberg.jpg",
         "keywords": {
             "en": ["sensation", "senses", "mfs", "base", "improvisation", "goldberg", "variations"],
-            "fr": ["sensation", "sens", "mfs", "base", "l'improvisation", "goldberg", "variations"]
+            "fr": ["sensation", "sens", "mfs", "base", "improvisation", "goldberg", "variations"]
         },
         "content": {
             "layout": "single-video",
@@ -475,7 +475,7 @@
         "cover": "perf_comments_english.jpg",
         "keywords": {
             "en": ["sensation", "senses", "mfs", "base", "improvisation", "looking", "suites"],
-            "fr": ["sensation", "sens", "mfs", "base", "l'improvisation", "introduction", "suites"]
+            "fr": ["sensation", "sens", "mfs", "base", "improvisation", "introduction", "suites"]
         },
         "content": {
             "layout": "single-video",
@@ -498,7 +498,7 @@
         "cover": "english.jpg",
         "keywords": {
             "en": ["sensation", "senses", "mfs", "base", "improvisation", "suites"],
-            "fr": ["sensation", "sens", "mfs", "base", "l'improvisation", "suites"]
+            "fr": ["sensation", "sens", "mfs", "base", "improvisation", "suites"]
         },
         "content": {
             "layout": "single-video",
@@ -521,7 +521,7 @@
         "cover": "perf_techimpro.jpg",
         "keywords": {
             "en": ["sensation", "senses", "mfs", "base", "improvisation", "technique"],
-            "fr": ["sensation", "sens", "mfs", "base", "l'improvisation", "technique"]
+            "fr": ["sensation", "sens", "mfs", "base", "improvisation", "technique"]
         },
         "content": {
             "layout": "single-video",
@@ -764,7 +764,7 @@
         "cover": "crescent_water.jpg",
         "keywords": {
             "en": ["forms", "crescent", "roll", "water"],
-            "fr": ["formes", "roulé", "croissant", "dans", "l'eau"]
+            "fr": ["formes", "roulé", "croissant", "dans", "eau"]
         },
         "loop_number": 3,
         "content": {
@@ -954,7 +954,7 @@
         "cover": "helixinwater.jpg",
         "keywords": {
             "en": ["forms", "helix", "roll", "water"],
-            "fr": ["formes", "roulé", "hélice", "dans", "l'eau"]
+            "fr": ["formes", "roulé", "hélice", "dans", "eau"]
         },
         "loop_number": 2,
         "content": {
@@ -1103,7 +1103,7 @@
         "cover": "frontal_head_top.jpg",
         "keywords": {
             "en": ["forms", "undulation", "frontal", "initiated", "head"],
-            "fr": ["formes", "l'ondulation", "frontale", "initiée", "tête"]
+            "fr": ["formes", "ondulation", "frontale", "initiée", "tête"]
         },
         "content": {
             "layout": "three-videos-audio-subs",
@@ -1181,7 +1181,7 @@
         "cover": "frontal_pelvis_top.jpg",
         "keywords": {
             "en": ["forms", "undulation", "frontal", "initiated", "pelvis"],
-            "fr": ["formes", "l'ondulation", "frontale", "initiée", "bassin"]
+            "fr": ["formes", "ondulation", "frontale", "initiée", "bassin"]
         },
         "content": {
             "layout": "three-videos-only",
@@ -1244,7 +1244,7 @@
         "cover": "lateral_head_front.jpg",
         "keywords": {
             "en": ["forms", "undulation", "lateral", "initiated", "head"],
-            "fr": ["formes", "l'ondulation", "latérale", "initiée", "tête"]
+            "fr": ["formes", "ondulation", "latérale", "initiée", "tête"]
         },
         "content": {
             "layout": "two-videos-only",
@@ -1292,7 +1292,7 @@
         "cover": "lateral_pelvis_top.jpg",
         "keywords": {
             "en": ["forms", "undulation", "lateral", "initiated", "pelvis"],
-            "fr": ["formes", "l'ondulation", "latérale", "initiée", "bassin"]
+            "fr": ["formes", "ondulation", "latérale", "initiée", "bassin"]
         },
         "content": {
             "layout": "two-videos-only",
@@ -1340,7 +1340,7 @@
         "cover": "dolphininwater.jpg",
         "keywords": {
             "en": ["forms", "undulation", "dolphin"],
-            "fr": ["formes", "l'ondulation", "dauphin"]
+            "fr": ["formes", "ondulation", "dauphin"]
         },
         "loop_number": 3,
         "content": {
@@ -1364,7 +1364,7 @@
         "cover": "aikido_principle.jpg",
         "keywords": {
             "en": ["forms", "aikido", "roll", "principle"],
-            "fr": ["formes", "chute", "roulée", "l'aïkido", "principe"]
+            "fr": ["formes", "chute", "roulée", "aïkido", "aikido", "principe"]
         },
         "content": {
             "layout": "single-video",
@@ -1387,7 +1387,7 @@
         "cover": "aikido_3D_side.jpg",
         "keywords": {
             "en": ["forms", "aikido", "roll", "directions"],
-            "fr": ["formes", "chute", "roulée", "l'aïkido", "directions"]
+            "fr": ["formes", "chute", "roulée", "aïkido", "aikido", "directions"]
         },
         "content": {
             "layout": "three-videos-audio-subs",
@@ -1534,7 +1534,7 @@
         "cover": "puzzle1_demo_graph.jpg",
         "keywords": {
             "en": ["forms", "looking", "puzzle", "analyse"],
-            "fr": ["formes", "regarder", "puzzle", "l'analyse"]
+            "fr": ["formes", "regarder", "puzzle", "analyse"]
         },
         "content": {
             "layout": "single-video",
@@ -1792,7 +1792,7 @@
         "cover": "wu_bendingbone.jpg",
         "keywords": {
             "en": ["forms", "warm", "ups", "bending", "bone"],
-            "fr": ["formes", "échauffements", "courber", "l'os"]
+            "fr": ["formes", "échauffements", "courber", "os"]
         },
         "content": {
             "layout": "single-video",
