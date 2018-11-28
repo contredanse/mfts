@@ -51,38 +51,11 @@ export default class PanelMultiVideo extends React.Component<PanelMultiVideoProp
                 height: '100%',
             };
         }
-        return (
-            <>
-                <div
-                    className="panel-multi-video"
-                    onClick={() => {
-                        if (this.state.isVideoDetailOpen) {
-                            this.handleCloseModal();
-                        }
-                    }}
-                >
-                    {this.state.isVideoDetailOpen && this.state.videoDetail && (
-                        <div className="video-detail" key={this.state.videoDetail.videoId}>
-                            <VideoProxyPlayer
-                                crossOrigin={'anonymous'}
-                                disableSubtitles={true}
-                                videoProxy={this.state.videoDetail}
-                                style={{
-                                    width: '100%',
-                                    height: 'auto',
-                                }}
-                                // To prevent blinking
-                                disablePoster={true}
-                                playing={playing}
-                                playbackRate={playbackRate}
-                                onEnded={() => {
-                                    this.handleCloseModal();
-                                }}
-                                muted
-                            />
-                        </div>
-                    )}
 
+        console.log('rerender mutli video');
+        return (
+            <div className="panel-multi-video-container">
+                <div className="panel-multi-video" key={pageProxy.pageId}>
                     {videos.map((video, idx) => {
                         const videoIdx = `video-${idx}`;
                         let className = 'autoscale-video-container video-slided-out';
@@ -99,7 +72,7 @@ export default class PanelMultiVideo extends React.Component<PanelMultiVideoProp
 
                         return (
                             <div
-                                key={videoIdx}
+                                key={`${video.videoId}`}
                                 className={className}
                                 onClick={() => {
                                     this.openVideoLink(video);
@@ -129,7 +102,37 @@ export default class PanelMultiVideo extends React.Component<PanelMultiVideoProp
                         );
                     })}
                 </div>
-            </>
+
+                {this.state.isVideoDetailOpen && this.state.videoDetail && (
+                    <div
+                        className="video-detail"
+                        key={`detail-${this.state.videoDetail.videoId}`}
+                        onClick={() => {
+                            if (this.state.isVideoDetailOpen) {
+                                this.handleCloseModal();
+                            }
+                        }}
+                    >
+                        <VideoProxyPlayer
+                            crossOrigin={'anonymous'}
+                            disableSubtitles={true}
+                            videoProxy={this.state.videoDetail}
+                            style={{
+                                width: 'auto',
+                                height: '100%',
+                            }}
+                            // To prevent blinking
+                            disablePoster={true}
+                            playing={playing}
+                            playbackRate={playbackRate}
+                            onEnded={() => {
+                                this.handleCloseModal();
+                            }}
+                            muted
+                        />
+                    </div>
+                )}
+            </div>
         );
     }
 

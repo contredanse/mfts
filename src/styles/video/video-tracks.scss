@@ -34,6 +34,13 @@ $track-padding-bottom: 50px;
 }
 
 video {
+    &:focus {
+        outline: none;
+    }
+    &::-moz-focus-inner {
+        border: 0;
+    }
+
     &::cue {
         position: fixed;
         bottom: 0;

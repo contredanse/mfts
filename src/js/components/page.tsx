@@ -141,6 +141,8 @@ class Page extends React.PureComponent<PageProps, PageState> {
             onRateChangeRequest: this.handleRateChange,
         };
 
+        console.log('RERENDER PAGE');
+
         return (
             <div className="page-container">
                 <EventListener target="window" onKeyPress={this.handleGlobalKeyPress} />
@@ -171,8 +173,9 @@ class Page extends React.PureComponent<PageProps, PageState> {
                                 playbackRate={this.state.playbackRate}
                             />
                             {audioProxy ? (
-                                <div className="panel-audio-subs">
+                                <div className="panel-audio-subs" key={audioProxy.getSourceFile()}>
                                     <VideoProxyPlayer
+                                        key={audioProxy.getSourceFile()}
                                         ref={this.mainPlayerRef}
                                         style={{ width: '100%', height: '100%' }}
                                         crossOrigin={'anonymous'}
@@ -181,7 +184,6 @@ class Page extends React.PureComponent<PageProps, PageState> {
                                         disablePoster={true}
                                         videoProxy={audioProxy}
                                         playing={this.state.isPlaying}
-                                        onRateChange={this.handleRateChange}
                                         onPlaybackChange={this.handlePlaybackChange}
                                         onEnded={this.onEnded}
                                         controlBarProps={controlBarProps}

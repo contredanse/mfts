@@ -144,7 +144,7 @@ export default class DataProxyPlayer extends React.Component<DataProxyPlayerProp
             videoSources = mapAudioProxyToVideoSourceProps(videoProxy);
         }
         const textTracks = mapMediaProxyTracksToTextTracksProps(videoProxy, defaultSubtitleLang);
-
+        console.log('rerender videoPlayer', videoSources[0].src);
         return (
             <VideoPlayer
                 ref={this.playerRef}
