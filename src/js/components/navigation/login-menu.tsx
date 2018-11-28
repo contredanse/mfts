@@ -1,6 +1,6 @@
 import { ApplicationState } from '@src/store';
 import { Dispatch } from 'redux';
-import { AuthUser, getUserProfile, loginUser, logoutUser } from '@src/store/auth/auth';
+import { AuthUser, getUserProfile, logoutUser } from '@src/store/auth/auth';
 import { connect } from 'react-redux';
 import React from 'react';
 import './login-menu.scss';
