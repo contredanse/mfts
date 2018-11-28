@@ -246,7 +246,6 @@ class Page extends React.PureComponent<PageProps, PageState> {
 
     private handlePlaybackChange = (isPlaying: boolean) => {
         this.setState((prevState: PageState) => {
-            console.log('handlePlaybackChange');
             // reset played state. do not change isPlaying
             // otherwise it's gonna be recursive
             const newState = {
