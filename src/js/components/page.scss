@@ -83,6 +83,7 @@ $max-video-width: 720px;
 
         .page-multi-video-layout {
             flex: auto;
+
             display: grid;
 
             grid-template-areas:
@@ -99,7 +100,7 @@ $max-video-width: 720px;
             }
 
             .panel-audio-subs {
-                max-height: 100%;
+                max-height: 90%;
                 //border: 5px solid pink;
                 video {
                     object-fit: initial;

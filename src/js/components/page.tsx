@@ -147,11 +147,9 @@ class Page extends React.PureComponent<PageProps, PageState> {
         return (
             <div className="page-container">
                 <EventListener target="window" onKeyPress={this.handleGlobalKeyPress} />
-                <div className="page-header">
-                    <AppBarPortal>
-                        <PageBreadcrumb title={pageTitle} sections={this.state.breadcrumb} lang={lang} />
-                    </AppBarPortal>
-                </div>
+                <AppBarPortal>
+                    <PageBreadcrumb title={pageTitle} sections={this.state.breadcrumb} lang={lang} />
+                </AppBarPortal>
                 <div className="page-content">
                     {played && menuRepository && (
                         <PagePlaybackOverlay

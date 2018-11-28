@@ -82,10 +82,6 @@ export default class PanelMultiVideo extends React.Component<PanelMultiVideoProp
                                     className={videoClassName}
                                     disableSubtitles={true}
                                     videoProxy={video}
-                                    style={{
-                                        width: '100%',
-                                        height: 'auto',
-                                    }}
                                     // To prevent blinking
                                     disablePoster={true}
                                     playing={isPlaying}
