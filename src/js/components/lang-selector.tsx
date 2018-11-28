@@ -2,7 +2,6 @@ import React, { CSSProperties } from 'react';
 import { RouteComponentProps, withRouter } from 'react-router';
 import './lang-selector.scss';
 import { getNextLang, LanguageContextConsumer } from '@src/context/language-context';
-import { Simulate } from 'react-dom/test-utils';
 
 type LangSelectorProps = {
     className?: string;
