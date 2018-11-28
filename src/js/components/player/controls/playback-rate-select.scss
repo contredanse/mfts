@@ -1,5 +1,5 @@
 option.playback-rate-select-option {
-    background-color: pink;
+    background-color: white;
 }
 
 .playback-rate-select {
@@ -17,8 +17,17 @@ option.playback-rate-select-option {
     background-position: center left;
     background-repeat: no-repeat;
 
-    border: 0px;
-    outline: 0px;
+    border-style: none;
+    border: 0;
+    outline: 0;
+
+    &:focus {
+        outline: none;
+    }
+
+    &::-moz-focus-inner {
+        border: 0px;
+    }
 
     option {
         border: 0px;
@@ -46,18 +55,22 @@ option.playback-rate-select-option {
         }
     }
 
+    &::-moz-focus-outer,
+    &::-moz-focus-inner,
     &:focus,
     &:focus-within,
     &:active,
     &:hover {
+        //outline: 0;
+        border: 0;
+        border-style: none;
         outline: 0;
-        border: 0px;
-        outline: 0px;
+        color: yellow;
 
         &:hover {
             outline: 0;
-            border: 0px;
-            outline: 0px;
+            border: 0;
+            //outline: 0px;
         }
         //box-shadow: 0 0 3pt 2pt #8F4A11;
         //box-shadow: 0 0 3pt 2pt #719ECE;
