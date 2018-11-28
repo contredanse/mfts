@@ -34,6 +34,7 @@ $track-padding-bottom: 50px;
 }
 
 video {
+    // Fix issues with firefox border when element is focusable
     &:focus {
         outline: none;
     }
