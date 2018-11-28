@@ -12,7 +12,7 @@ $track-background-color: rgba(0, 0, 0, 0);
 $track-text-shadow: 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, -1px -1px 0 #000;
 //$track-text-shadow:  none;
 
-$track-padding-bottom: 50px;
+$track-padding-bottom: 0px;
 
 @mixin trackFontDisplay {
     font-size: 2vw;
@@ -43,7 +43,7 @@ video {
     }
 
     &::cue {
-        position: fixed;
+        position: absolute; // to be tested: it was relative
         bottom: 0;
         left: 0;
         right: 0;
@@ -81,13 +81,11 @@ video {
         letter-spacing: normal;
         word-spacing: normal;
         text-transform: unset;
-
         text-indent: 0;
         text-decoration: none;
         pointer-events: none;
         user-select: none;
         -webkit-user-select: none;
-        user-select: none;
         line-height: normal;
         word-break: break-word;
     }
@@ -102,6 +100,7 @@ video {
         /* Ensure captions aren't cropped when the pseudo element's width cannot accommodate all the text */
         min-width: -webkit-min-content;
         @include trackFontDisplay;
+        font-size: 3em;
     }
 }
 

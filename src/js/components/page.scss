@@ -89,19 +89,22 @@ $max-video-width: 720px;
             grid-template-areas:
                 'multi-video-band'
                 'audio-subs-band';
-            grid-template-rows: 1fr minmax(170px, 20%);
+            grid-template-rows: 1fr 170px;
 
-            > .panel-multi-video {
+            .panel-multi-video {
+                //    border: 1px solid blue;
                 grid-area: multi-video-band;
             }
 
             > .panel-audio-subs {
+                //border: 1px solid green;
                 grid-area: audio-subs-band;
             }
 
             .panel-audio-subs {
                 max-height: 90%;
-                //border: 5px solid pink;
+                margin-bottom: 40px;
+                border: 5px solid pink;
                 video {
                     object-fit: initial;
                     max-height: 100%;
