@@ -104,8 +104,12 @@ $max-video-width: 720px;
             .panel-audio-subs {
                 max-height: 90%;
                 margin-bottom: 40px;
-                border: 5px solid pink;
+                //border: 5px solid pink;
                 video {
+                    &::-webkit-media-text-track-container {
+                        transform: translateY(-60px);
+                    }
+
                     object-fit: initial;
                     max-height: 100%;
                     height: 100%;

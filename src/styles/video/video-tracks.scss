@@ -71,7 +71,7 @@ video {
         overflow: visible !important;
         // -webkit-transform: translateY(40%) !important;
         // max-height: calc(100% - #{$track-padding-bottom});
-        // transform: translateY(-#{$track-padding-bottom - 30px}) !important;
+        //transform: translateY(-60px) !important;
         //transform: translateY(-5vh) !important;
 
         // overflow: hidden;
@@ -100,7 +100,6 @@ video {
         /* Ensure captions aren't cropped when the pseudo element's width cannot accommodate all the text */
         min-width: -webkit-min-content;
         @include trackFontDisplay;
-        font-size: 3em;
     }
 }
 
