@@ -17,6 +17,7 @@ import PagePlaybackOverlay from '@src/components/page-playback-overlay';
 import VideoPlayer from '@src/components/player/video-player';
 import AppBarPortal from '@src/components/navigation/app-bar-portal';
 import ConnectedControlBar from '@src/components/player/controls/connected-control-bar';
+import PagePanelAudio from '@src/components/page-panel-audio';
 
 export type PageProps = {
     pageProxy: PageProxy;
@@ -173,22 +174,16 @@ class Page extends React.PureComponent<PageProps, PageState> {
                                 playbackRate={this.state.playbackRate}
                             />
                             {audioProxy ? (
-                                <div className="panel-audio-subs" key={audioProxy.getSourceFile()}>
-                                    <VideoProxyPlayer
-                                        key={audioProxy.getSourceFile()}
-                                        ref={this.mainPlayerRef}
-                                        style={{ width: '100%', height: '100%' }}
-                                        crossOrigin={'anonymous'}
-                                        defaultSubtitleLang={defaultSubtitleLang}
-                                        subtitleVisibility={subtitleVisibility}
-                                        disablePoster={true}
-                                        videoProxy={audioProxy}
-                                        playing={this.state.isPlaying}
-                                        onPlaybackChange={this.handlePlaybackChange}
-                                        onEnded={this.onEnded}
-                                        controlBarProps={controlBarProps}
-                                    />
-                                </div>
+                                <PagePanelAudio
+                                    audioProxy={audioProxy}
+                                    subtitleLang={defaultSubtitleLang}
+                                    subtitleVisibility={subtitleVisibility}
+                                    playing={this.state.isPlaying}
+                                    onEnded={this.onEnded}
+                                    handlePlaybackChange={this.handlePlaybackChange}
+                                    playerRef={this.mainPlayerRef}
+                                    controlBarProps={controlBarProps}
+                                />
                             ) : (
                                 <ConnectedControlBar {...controlBarProps} />
                             )}
@@ -295,7 +290,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
         });
     };
 
-    private onEnded = (e: SyntheticEvent<HTMLVideoElement>) => {
+    private onEnded = (e?: SyntheticEvent<HTMLVideoElement>) => {
         if (this.props.onPagePlayed) {
             this.props.onPagePlayed();
         } else {
