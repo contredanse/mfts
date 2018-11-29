@@ -29,6 +29,10 @@ export default class PagePanelAudio extends React.PureComponent<PagePanelAudioPr
         this.state = defaultState;
     }
 
+    componentWillUnmount() {
+        console.log('PAGEPANEL AUDIO IS REMOVED FROM THE DOM');
+    }
+
     render() {
         const {
             audioProxy,
@@ -44,7 +48,6 @@ export default class PagePanelAudio extends React.PureComponent<PagePanelAudioPr
         return (
             <div className="panel-audio-subs">
                 <VideoProxyPlayer
-                    key={audioProxy.getSourceFile()}
                     ref={playerRef}
                     style={{ width: '100%', height: '100%' }}
                     crossOrigin={'anonymous'}

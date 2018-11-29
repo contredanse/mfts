@@ -102,7 +102,6 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
             // Set default playback props
             this.setPlaybackRate(this.props.playbackRate);
 
-            console.log('COMPONENTDIDMOUNT setting new state');
             if (!this.state.refLoaded) {
                 this.setState({
                     refLoaded: true,
@@ -144,9 +143,12 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
         }
 
         // Let's deep check controlbarprops
+        /*
         if (!equal(nextProps.controlBarProps, this.props.controlBarProps)) {
+            console.log('REFLOADED MISSING', nextProps.controlBarProps, this.props.controlBarProps);
             shouldUpdate = true;
         }
+        */
 
         // Let's handle those ones without React.
         if (this.props.playbackRate !== nextProps.playbackRate) {
