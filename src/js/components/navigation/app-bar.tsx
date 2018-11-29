@@ -49,7 +49,7 @@ export const AppBarComponent: React.SFC<AppBarWithRouterProps> = props => {
                     history.push(getMainMenuRoute(lang));
                 }}
             >
-                <img src={helixSvg} style={{ fill: 'white' }} />
+                <img src={helixSvg} />
             </button>
 
             <div id="app-bar-portal-ctn" className="app-bar-portal" />

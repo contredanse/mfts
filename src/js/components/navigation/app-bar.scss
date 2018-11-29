@@ -76,6 +76,11 @@ $bg-gradient-color: black;
     .helix-menu-icon,
     .main-menu-icon {
         transition: opacity 600ms ease-in;
+        &:hover {
+            svg.mdi-icon {
+                fill: $button-color-hover;
+            }
+        }
     }
 
     &.idle-mode {
