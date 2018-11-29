@@ -142,7 +142,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
             onRateChangeRequest: this.handleRateChange,
         };
 
-        console.log('RERENDER PAGE');
+        // console.log('RERENDER PAGE');
 
         return (
             <div className="page-container">
