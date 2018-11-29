@@ -3,7 +3,6 @@ import VideoProxyPlayer from '@src/components/player/data-proxy-player';
 import VideoProxy from '@src/models/proxy/video-proxy';
 import PageProxy from '@src/models/proxy/page-proxy';
 import './panel-multi-video.scss';
-import { Spring, Transition } from 'react-spring';
 
 type PanelMultiVideoProps = {
     videos: VideoProxy[];
