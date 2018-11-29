@@ -3,6 +3,7 @@ import VideoProxyPlayer from '@src/components/player/data-proxy-player';
 import VideoProxy from '@src/models/proxy/video-proxy';
 import PageProxy from '@src/models/proxy/page-proxy';
 import './panel-multi-video.scss';
+import { Spring, Transition } from 'react-spring';
 
 type PanelMultiVideoProps = {
     videos: VideoProxy[];
@@ -23,6 +24,46 @@ const defaultProps = {
 
 const defaultState = {
     isVideoDetailOpen: false,
+};
+
+type VideoDetailProps = {
+    videoDetail: VideoProxy;
+    isOpen: boolean;
+    handleClose: () => void;
+    playbackRate?: number;
+    playing?: boolean;
+};
+
+const VideoDetail = (props: VideoDetailProps) => {
+    return (
+        <div
+            className="video-detail"
+            key={`detail-${props.videoDetail.videoId}`}
+            onClick={() => {
+                if (props.isOpen) {
+                    props.handleClose();
+                }
+            }}
+        >
+            <VideoProxyPlayer
+                crossOrigin={'anonymous'}
+                disableSubtitles={true}
+                videoProxy={props.videoDetail}
+                style={{
+                    width: 'auto',
+                    height: '100%',
+                }}
+                // To prevent blinking
+                disablePoster={true}
+                playing={props.playing}
+                playbackRate={props.playbackRate}
+                onEnded={() => {
+                    props.handleClose();
+                }}
+                muted
+            />
+        </div>
+    );
 };
 
 export default class PanelMultiVideo extends React.Component<PanelMultiVideoProps, PanelMultiVideoState> {
@@ -51,7 +92,8 @@ export default class PanelMultiVideo extends React.Component<PanelMultiVideoProp
             };
         }
 
-        console.log('rerender mutli video');
+        const state = this.state;
+
         return (
             <div className="panel-multi-video-container">
                 <div className="panel-multi-video" key={pageProxy.pageId}>
@@ -98,34 +140,14 @@ export default class PanelMultiVideo extends React.Component<PanelMultiVideoProp
                     })}
                 </div>
 
-                {this.state.isVideoDetailOpen && this.state.videoDetail && (
-                    <div
-                        className="video-detail"
-                        key={`detail-${this.state.videoDetail.videoId}`}
-                        onClick={() => {
-                            if (this.state.isVideoDetailOpen) {
-                                this.handleCloseModal();
-                            }
-                        }}
-                    >
-                        <VideoProxyPlayer
-                            crossOrigin={'anonymous'}
-                            disableSubtitles={true}
-                            videoProxy={this.state.videoDetail}
-                            style={{
-                                width: 'auto',
-                                height: '100%',
-                            }}
-                            // To prevent blinking
-                            disablePoster={true}
-                            playing={playing}
-                            playbackRate={playbackRate}
-                            onEnded={() => {
-                                this.handleCloseModal();
-                            }}
-                            muted
-                        />
-                    </div>
+                {state.isVideoDetailOpen && state.videoDetail && (
+                    <VideoDetail
+                        videoDetail={state.videoDetail}
+                        isOpen={state.isVideoDetailOpen}
+                        handleClose={this.handleCloseModal}
+                        playbackRate={playbackRate}
+                        playing={playing}
+                    />
                 )}
             </div>
         );

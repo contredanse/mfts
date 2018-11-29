@@ -73,10 +73,21 @@ $bg-gradient-color: black;
         }
     }
 
+    .helix-menu-icon,
+    .main-menu-icon {
+        transition: opacity 600ms ease-in;
+    }
+
     &.idle-mode {
         opacity: 0.9;
 
         .app-bar-portal {
+            opacity: 0;
+        }
+        .main-menu-icon {
+            opacity: 0.3;
+        }
+        .helix-menu-icon {
             opacity: 0;
         }
     }

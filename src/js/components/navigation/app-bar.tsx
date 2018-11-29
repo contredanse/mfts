@@ -32,7 +32,7 @@ export const AppBarComponent: React.SFC<AppBarWithRouterProps> = props => {
     return (
         <div className={`${['app-bar-container', classes].join(' ')}`}>
             <button
-                className="mdi-icon"
+                className="main-menu-icon mdi-icon"
                 onClick={() => {
                     if (onMenuOpenRequest) {
                         onMenuOpenRequest();
@@ -43,9 +43,8 @@ export const AppBarComponent: React.SFC<AppBarWithRouterProps> = props => {
             >
                 <MenuIcon />
             </button>
-
             <button
-                className="mdi-icon"
+                className="helix-menu-icon mdi-icon"
                 onClick={() => {
                     history.push(getMainMenuRoute(lang));
                 }}
