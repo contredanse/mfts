@@ -20,6 +20,7 @@ export type LoginFormProps = {
     user?: AuthUser | null;
     authenticated: boolean;
     lang?: string;
+    onSuccess?: () => void;
     externalUrls?: ExternalUrls;
 } & Pick<RouteComponentProps, 'match' | 'history'>;
 
@@ -138,6 +139,9 @@ export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormStat
                                     {errors.password && touched.password && (
                                         <div className="input-feedback">{errors.password}</div>
                                     )}
+
+                                    {this.props.authError && <h2>{this.props.authError}</h2>}
+
                                     <button type="submit" disabled={isSubmitting}>
                                         {this.tr('submit')}
                                     </button>
