@@ -51,16 +51,17 @@ module.exports = merge(common, {
             /**
              * Aliases to avoid duplicates in build.
              */
-            classnames: path.resolve(__dirname, 'node_modules/classnames'), // enabled: material-ui and local differs
+            //classnames: path.resolve(__dirname, 'node_modules/classnames'), // enabled: material-ui and local differs
             // Material-ui & material-ui-icons
-            recompose: path.resolve(__dirname, 'node_modules/recompose'),
+            //recompose: path.resolve(__dirname, 'node_modules/recompose'),
             // React-transition-group
-            'react-transition-group': path.resolve(__dirname, 'node_modules/react-transition-group'),
-            'hoist-non-react-statics': path.resolve(__dirname, 'node_modules/hoist-non-react-statics'),
-            'react-is': path.resolve(__dirname, 'node_modules/react-is'),
+            //'react-transition-group': path.resolve(__dirname, 'node_modules/react-transition-group'),
+            //'hoist-non-react-statics': path.resolve(__dirname, 'node_modules/hoist-non-react-statics'),
+            //'react-is': path.resolve(__dirname, 'node_modules/react-is'),
 
             // Everyone will have a different babel 7 runtime, let's flatten it
             '@babel/runtime': path.resolve(__dirname, 'node_modules/@babel/runtime'),
+            //'regenerator-runtime': path.resolve(__dirname, 'node_modules/@babel/runtime'),
         },
     },
     module: {
@@ -304,13 +305,13 @@ module.exports = merge(common, {
             verbose: true,
             emitError: true,
             // Warn also if major versions differ (default: true)
-            strict: true,
+            strict: false,
             exclude(instance) {
                 // @material-ui/core and history
                 // use different major versions for 'warning' package
                 // That can be ignored.
                 //return instance.name === 'warning';
-                return ['warning'].includes(instance.name);
+                return ['warning', 'regenerator-runtime'].includes(instance.name);
             },
         }),
 
