@@ -10,9 +10,6 @@
         "clean:all": "run-p clean:build clean:dist",
         "clean:build": "rimraf build",
         "clean:dist": "rimraf dist",
-        "server:build": "next ./server build && tsc --project tsconfig.server.json",
-        "server:dev": "nodemon server/index.ts",
-        "server:start": "NODE_ENV=production node production-server/index.js",
         "tsc": "tsc -p . --noEmit",
         "lint": "tslint --project './tsconfig.json'",
         "lint:fix": "tslint --project './tsconfig.json' --fix",
@@ -119,7 +116,6 @@
         "mkdirp": "^0.5.1",
         "modern-normalize": "^0.5.0",
         "node-sass": "^4.10.0",
-        "nodemon": "^1.18.7",
         "optimize-css-assets-webpack-plugin": "^5.0.1",
         "postcss-loader": "^3.0.0",
         "prettier": "^1.15.3",
@@ -193,6 +189,6 @@
     },
     "devEngines": {
         "npm": ">=5.x",
-        "yarn": ">=1.4"
+        "yarn": ">=1.7"
     }
 }
