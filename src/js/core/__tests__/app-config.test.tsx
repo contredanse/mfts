@@ -26,6 +26,11 @@ describe('AppConfig test', () => {
             menu: [] as IJsonMenu[],
         },
         fallbackLang: 'en',
+        externalUrls: {
+            resetPassword: '',
+            shopLink: '',
+            myAccount: '',
+        },
     });
 
     it('should return appAssetsLocator', () => {
