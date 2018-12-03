@@ -28,7 +28,7 @@ class LoginContainer extends Component<LoginContainerProps, LoginContainerState>
         }
         return (
             <LoginLayout>
-                <ConnectedLoginForm match={this.props.match} history={this.props.history} />
+                <ConnectedLoginForm lang={lang} match={this.props.match} history={this.props.history} />
             </LoginLayout>
         );
     }
