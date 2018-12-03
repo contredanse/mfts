@@ -1,13 +1,13 @@
 import React from 'react';
 import './login-form.scss';
 import i18n from './login-form.i18n';
-import { Redirect, RouteComponentProps } from 'react-router';
+import { RouteComponentProps } from 'react-router';
 import contredanseLogo from '@assets/images/logo-contredanse.png';
 import { ApplicationState } from '@src/store';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { AuthUser, loginUser } from '@src/store/auth/auth';
-import { Formik, Field, Form, FormikActions } from 'formik';
+import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 import { getFromDictionary } from '@src/i18n/basic-i18n';
 import { appConfig } from '@config/config';
