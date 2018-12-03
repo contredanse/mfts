@@ -18,8 +18,8 @@ const LoginFormDictionary: BasicI18nDictionary = {
         fr: 'Introduisez votre email',
     },
     please_login_text: {
-        en: 'Please login to your contredanse account.',
-        fr: 'Veuiller vous connecter sur contredanse.',
+        en: 'Please login to your Contredanse account.',
+        fr: 'Veuillez vous connecter sur Contredanse.',
     },
     no_account_text: {
         en: "Don't have an account ?",
