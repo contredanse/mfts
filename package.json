@@ -74,7 +74,7 @@
         "@types/yup": "^0.26.2",
         "autoprefixer": "^9.4.0",
         "awesome-typescript-loader": "^5.2.1",
-        "babel-coreo": "^7.0.0-bridge.0",
+        "babel-core": "^7.0.0-bridge.0",
         "babel-jest": "^23.6.0",
         "babel-loader": "^8.0.4",
         "brotli-webpack-plugin": "^1.0.0",
