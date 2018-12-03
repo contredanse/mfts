@@ -7,6 +7,12 @@ import VideoRepository from '@src/models/repository/video-repository';
 import PageRepository from '@src/models/repository/page-repository';
 import MenuRepository from '@src/models/repository/menu-repository';
 
+export type ExternalUrls = {
+    resetPassword: string;
+    shopLink: string;
+    myAccount: string;
+};
+
 export default class AppConfig {
     protected _assetsLocator!: AppAssetsLocator;
 
@@ -66,6 +72,10 @@ export default class AppConfig {
         return new PageRepository(this, this.getAppData().pages, this.getVideoRepository(params));
     }
 
+    getExternalUrls(): ExternalUrls {
+        return this.config.externalUrls;
+    }
+
     getApiBaseUrl(): string {
         return this.config.apiBaseUrl;
     }
@@ -93,4 +103,5 @@ export interface IAppConfig {
     fallbackLang: string;
     data: IAppDataConfig;
     apiBaseUrl: string;
+    externalUrls: ExternalUrls;
 }
