@@ -28,4 +28,9 @@ export const appConfig = new AppConfig({
         pages: dataPages as IJsonPage[],
         videos: dataVideos as IJsonVideo[],
     },
+    externalUrls: {
+        myAccount: process.env.MY_ACCOUNT_URL || '/404-externalUrls-config-error',
+        resetPassword: process.env.RESET_PASSWORD_URL || '/404-externalUrls-config-error',
+        shopLink: process.env.SHOP_SUBSCRIPTION_URL || '/404-externalUrls-config-error',
+    },
 });
