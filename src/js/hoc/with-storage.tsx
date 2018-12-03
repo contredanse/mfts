@@ -1,19 +1,31 @@
 import React from 'react';
 import { Subtract } from 'utility-types';
 
-type InjectedStorageProps = {
+type InjectedProps = {
     load: (key: string) => string | null;
     save: (key: string, data: string) => void;
     remove: (key: string) => void;
 };
 
-type WithStorageState = {
-    localStorageAvailable: boolean;
-};
+const withStorage = <WrappedProps extends InjectedProps>(WrappedComponent: React.ComponentType<WrappedProps>) => {
+    // These props will be added to original component type
 
-const withStorage = <P extends InjectedStorageProps>(WrappedComponent: React.ComponentType<P>) => {
-    class WithStorage extends React.Component<Subtract<P, InjectedStorageProps>, WithStorageState> {
-        state = {
+    type HocProps = Subtract<WrappedProps, InjectedProps> & {
+        // here you can extend hoc props
+        initialCount?: number;
+    };
+
+    type HocState = {
+        localStorageAvailable: boolean;
+    };
+
+    class WithStorage extends React.Component<HocProps, HocState> {
+        // Enhance component name for debugging and React-Dev-Tools
+        static displayName = `withState(${WrappedComponent.name})`;
+        // reference to original wrapped component
+        static readonly WrappedComponent = WrappedComponent;
+
+        readonly state: HocState = {
             localStorageAvailable: false,
         };
 
@@ -54,7 +66,9 @@ const withStorage = <P extends InjectedStorageProps>(WrappedComponent: React.Com
         };
 
         render() {
-            return <WrappedComponent load={this.load} save={this.save} remove={this.remove} {...this.props} />;
+            const { ...restProps } = this.props as {};
+
+            return <WrappedComponent {...restProps} load={this.load} save={this.save} remove={this.remove} />;
         }
     }
 
