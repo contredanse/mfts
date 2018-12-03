@@ -9,7 +9,7 @@ module.exports = {
              * -webkit-border-radius: 5px; that the latest browsers support as border-radius won't be added.
              * https://github.com/ai/browserslist#queries
              */
-            browsers: 'last 2 versions',
+            //browsers: 'last 2 versions',
         }),
     ],
 };

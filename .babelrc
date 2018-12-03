@@ -5,15 +5,6 @@
             {
                 "modules": "auto",
                 "useBuiltIns": "usage",
-                "targets": {
-                    "browsers": [
-                        "chrome >= 57",
-                        "firefox >= 54",
-                        "safari >= 9",
-                        "edge >= 15"
-                        //"ie >= 11",
-                    ]
-                },
                 "debug": true
             }
         ],
