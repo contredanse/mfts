@@ -18,11 +18,12 @@
         height: auto;
         margin-left: auto;
         margin-right: auto;
-        margin-bottom: 40px;
+        margin-bottom: 1.5em;
     }
 
     h2 {
         font-weight: normal;
+        font-size: 1.4em;
         color: #616161;
         text-align: center;
     }
@@ -30,6 +31,7 @@
     p {
         text-align: center;
         padding: 0 30px;
+        font-size: 1em;
         color: #848484;
         font-weight: lighter;
     }
@@ -65,7 +67,9 @@
 
         .error-response-text {
             padding: 5px;
-
+            font-size: 1.1em;
+            //text-shadow: 1px -1px 0 grey, -1px 1px 0 grey, 1px 1px 0 red, -1px -1px 0 grey;
+            font-weight: 600;
             color: rgba(red, 0.9);
         }
 

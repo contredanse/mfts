@@ -1,13 +1,13 @@
 import React from 'react';
 import './login-form.scss';
 import i18n from './login-form.i18n';
-import { RouteComponentProps } from 'react-router';
+import { Redirect, RouteComponentProps } from 'react-router';
 import contredanseLogo from '@assets/images/logo-contredanse.png';
 import { ApplicationState } from '@src/store';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { AuthUser, loginUser } from '@src/store/auth/auth';
-import { Formik } from 'formik';
+import { Formik, Field, Form, FormikActions } from 'formik';
 import * as Yup from 'yup';
 import { getFromDictionary } from '@src/i18n/basic-i18n';
 import { appConfig } from '@config/config';
@@ -51,15 +51,6 @@ export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormStat
     render() {
         const { authenticated, user, externalUrls } = this.props;
 
-        if (authenticated) {
-            return (
-                <div className="profile-page-container">
-                    <div>Already authenticated ;)</div>
-                    <div>User: {user ? user.email : 'unknown'}</div>
-                </div>
-            );
-        }
-
         return (
             <div className="login-page-container">
                 <div className="login-page">
@@ -78,12 +69,6 @@ export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormStat
                         onSubmit={(values, { setSubmitting }) => {
                             this.handleSubmit(values);
                             setSubmitting(false);
-                            /*
-                            setTimeout(() => {
-                                alert(JSON.stringify(values, null, 2));
-                                setSubmitting(false);
-                            }, 1500);
-*/
                         }}
                         validationSchema={Yup.object().shape({
                             email: Yup.string()
@@ -105,11 +90,11 @@ export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormStat
                                 handleReset,
                             } = props;
                             return (
-                                <form onSubmit={handleSubmit}>
+                                <Form>
                                     <label htmlFor="email" style={{ display: 'block' }}>
                                         {this.tr('email')}
                                     </label>
-                                    <input
+                                    <Field
                                         id="email"
                                         placeholder={this.tr('enter_email')}
                                         type="text"
@@ -125,7 +110,7 @@ export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormStat
                                     <label htmlFor="password" style={{ display: 'block' }}>
                                         {this.tr('password')}
                                     </label>
-                                    <input
+                                    <Field
                                         id="password"
                                         placeholder="Password"
                                         type="password"
@@ -147,7 +132,7 @@ export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormStat
                                     <button type="submit" disabled={isSubmitting}>
                                         {this.tr('submit')}
                                     </button>
-                                </form>
+                                </Form>
                             );
                         }}
                     </Formik>
@@ -179,7 +164,7 @@ const mapDispatchToProps = (dispatch: Dispatch): Pick<LoginFormProps, 'handleSub
     //handleSubmit: (data: any) => dispatch(uiActions.setFullscreen(isFullscreen)),
     handleSubmit: (data: any) =>
         loginUser(data, () => {
-            alert('Success');
+            //alert('Success');
         })(dispatch),
 });
 
