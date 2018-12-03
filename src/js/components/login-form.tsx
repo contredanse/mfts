@@ -140,7 +140,9 @@ export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormStat
                                         <div className="input-feedback">{errors.password}</div>
                                     )}
 
-                                    {this.props.authError && <h2>{this.props.authError}</h2>}
+                                    {this.props.authError && (
+                                        <div className="error-response-text">{this.props.authError}</div>
+                                    )}
 
                                     <button type="submit" disabled={isSubmitting}>
                                         {this.tr('submit')}
