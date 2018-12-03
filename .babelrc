@@ -7,9 +7,9 @@
                 "useBuiltIns": "usage",
                 "targets": {
                     "browsers": [
-                        "chrome >= 60",
-                        "firefox >= 56",
-                        "safari >= 10",
+                        "chrome >= 57",
+                        "firefox >= 54",
+                        "safari >= 9",
                         "edge >= 15"
                         //"ie >= 11",
                     ]
@@ -53,13 +53,19 @@
                 ]
             ],
             "plugins": [
-                "@babel/plugin-transform-modules-commonjs",
+                "@babel/plugin-transform-modules-commonjs"
             ]
         }
     },
     "plugins": [
         // Runtime
-        "@babel/plugin-transform-runtime",
+        ["@babel/plugin-transform-runtime",
+        {
+            "corejs": false,
+            "helpers": true,
+            "regenerator": true,
+            "useESModules": false
+        }],
 
         // Stage 3
         "@babel/plugin-syntax-dynamic-import",
