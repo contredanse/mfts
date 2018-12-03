@@ -43,6 +43,7 @@ if (isChrome(false)) {
     registerServiceWorker({
         onSuccess: registration => {},
         onUpdate: registration => {
+            /*
             console.log('An update was found, removing the serviceWorker');
             console.log('Lets show the pwa-version-notification');
             const notification = document.getElementById('pwa-version-notification');
@@ -61,6 +62,7 @@ if (isChrome(false)) {
                     }
                 });
             }
+            */
         },
     });
 } else {
