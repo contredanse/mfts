@@ -43,7 +43,7 @@ const menuItems = {
         hidden: !isScreenAdaptedForHelixMenu(),
     },
     list: {
-        label: { fr: 'Contenu', en: 'Content' },
+        label: { fr: 'Recherche', en: 'Search' },
         route: '/{lang}/page-list',
     },
     bio: {
