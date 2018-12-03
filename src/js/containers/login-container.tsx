@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { RouteComponentProps, withRouter } from 'react-router';
+import { Redirect, RouteComponentProps, withRouter } from 'react-router';
 import { LoginLayout } from '@src/components/layout/login-layout';
 import ConnectedLoginForm from '@src/components/login-form';
 import { ApplicationState } from '@src/store';
 import { AuthUser } from '@src/store/auth/auth';
 import { connect } from 'react-redux';
-import ConnectedProfileContainer from '@src/containers/profile-container';
+import { getMainMenuRoute } from '@src/helpers/main-menu-redirect';
 
 type LoginContainerProps = {
     user?: AuthUser | null;
@@ -24,7 +24,8 @@ class LoginContainer extends Component<LoginContainerProps, LoginContainerState>
     render() {
         const { authenticated, user, lang } = this.props;
         if (authenticated) {
-            return <ConnectedProfileContainer lang={lang} />;
+            const menuRoute = getMainMenuRoute(lang);
+            return <Redirect to={menuRoute} />;
         }
         return (
             <LoginLayout>
