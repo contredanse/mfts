@@ -9,6 +9,7 @@
         padding: 20px 30px;
         box-shadow: 0 14px 8px 0 rgba(0, 0, 0, 0.08), 0 9px 16px 4px rgba(0, 0, 0, 0.12);
         //max-width: 50%;
+        color: black;
     }
 
     img {
@@ -33,39 +34,51 @@
         font-weight: lighter;
     }
 
-    .form {
+    form {
         display: flex;
         justify-content: center;
-        margin-top: 30px;
-    }
 
-    .form input {
-        background: #fafafa;
-        border: 1px solid #c7c7c7;
-        border-radius: 2px;
-        height: 30px;
-        width: 180px;
-        font-size: 14px;
-        margin-right: 20px;
-        color: #848484;
-        outline: none;
-        padding-left: 7px;
-    }
+        flex-direction: column;
 
-    .form button {
-        background: #f76c6c;
-        box-shadow: 0 16px 18px 0 rgba(0, 0, 0, 0.13), 0 4px 6px 0 rgba(0, 0, 0, 0.16);
-        border-radius: 2px;
-        border: none;
-        color: #fff;
-        padding: 10px 15px;
-        outline: none;
-        cursor: pointer;
-        opacity: 1;
-        transition: opacity 150ms ease-in-out;
-    }
+        label {
+            color: rgba(black, 0.6);
+            font-size: 0.8em;
+        }
 
-    .form button:hover {
-        opacity: 0.9;
+        .text-input {
+            background: #fafafa;
+            border: 1px solid #c7c7c7;
+            border-radius: 2px;
+            height: 30px;
+            font-size: 1em;
+            outline: none;
+            padding-left: 7px;
+            margin-bottom: 5px;
+            &.error {
+                border: 1px solid rgba(red, 0.9);
+            }
+        }
+
+        .input-feedback {
+            color: red;
+        }
+
+        button {
+            margin-top: 5px;
+            background: #f76c6c;
+            box-shadow: 0 16px 18px 0 rgba(0, 0, 0, 0.13), 0 4px 6px 0 rgba(0, 0, 0, 0.16);
+            border-radius: 2px;
+            border: none;
+            color: #fff;
+            padding: 10px 15px;
+            outline: none;
+            cursor: pointer;
+            opacity: 1;
+            transition: opacity 150ms ease-in-out;
+
+            &:hover {
+                opacity: 0.9;
+            }
+        }
     }
 }
