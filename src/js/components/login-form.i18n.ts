@@ -25,6 +25,10 @@ const LoginFormDictionary: BasicI18nDictionary = {
         en: "Don't have an account ?",
         fr: 'Pas de compte ?',
     },
+    register_here: {
+        en: 'Register here.',
+        fr: 'Enregistrez-vous ici.',
+    },
     not_subscribed_yet: {
         en: 'Not subscribed yet ?',
         fr: 'Pas encore abonné ?',
@@ -33,10 +37,7 @@ const LoginFormDictionary: BasicI18nDictionary = {
         en: 'Subscribe here !',
         fr: 'Abonnez-vous ici !',
     },
-    register_here: {
-        en: 'Register here.',
-        fr: 'Enregistrez-vous ici.',
-    },
+
     password_forgotten: {
         en: 'Password forgotten ?',
         fr: 'Mot de passe oublié ?',
