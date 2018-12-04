@@ -33,10 +33,6 @@ const menuItems = {
         label: { fr: 'Accueil', en: 'Home' },
         route: '/',
     },
-    about: {
-        label: { fr: 'A propos', en: 'About' },
-        route: '/{lang}/about/credits',
-    },
     menu: {
         label: { fr: 'Menu', en: 'Menu' },
         route: getMainMenuRoute,
@@ -46,6 +42,10 @@ const menuItems = {
         label: { fr: 'Recherche', en: 'Search' },
         route: '/{lang}/page-list',
     },
+    about: {
+        label: { fr: 'A propos', en: 'About' },
+        route: '/{lang}/about/about',
+    },
     bio: {
         label: { fr: 'Biographie', en: 'Biography' },
         route: '/{lang}/about/bio',
@@ -53,6 +53,10 @@ const menuItems = {
     biblio: {
         label: { fr: 'Bibliographie', en: 'Bibliography' },
         route: '/{lang}/about/biblio',
+    },
+    credits: {
+        label: { fr: 'Crédits', en: 'Credits' },
+        route: '/{lang}/about/credits',
     },
 };
 
