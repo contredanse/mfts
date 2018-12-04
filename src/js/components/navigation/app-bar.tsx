@@ -24,7 +24,7 @@ type AppBarProps = {
 
 type AppBarWithRouterProps = AppBarProps & RouteComponentProps<{}>;
 
-export const AppBarComponent: React.SFC<AppBarWithRouterProps> = props => {
+export const AppBarComponent: React.FC<AppBarWithRouterProps> = props => {
     const { history, lang, onMenuOpenRequest, hidden } = props;
 
     const classes = [props.extraClasses, hidden ? 'hidden' : undefined].join(' ');
