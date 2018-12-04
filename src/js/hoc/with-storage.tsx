@@ -7,7 +7,8 @@ type InjectedProps = {
     remove: (key: string) => void;
 };
 
-const withStorage = <WrappedProps extends InjectedProps>(WrappedComponent: React.ComponentType<WrappedProps>) => {
+// @Todo remove & any after Typescript 3.2 fixes
+const withStorage = <WrappedProps extends InjectedProps>(WrappedComponent: React.ComponentType<WrappedProps & any>) => {
     // These props will be added to original component type
 
     type HocProps = Subtract<WrappedProps, InjectedProps> & {
