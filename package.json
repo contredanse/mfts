@@ -139,7 +139,7 @@
         "tslint-react": "^3.6.0",
         "typeface-raleway": "^0.0.54",
         "typesafe-actions": "^2.0.4",
-        "typescript": "3.1.6",
+        "typescript": "3.2.1",
         "url-loader": "^1.1.2",
         "utility-types": "^2.1.0",
         "webpack": "^4.27.0",
