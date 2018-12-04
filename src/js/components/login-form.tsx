@@ -54,15 +54,15 @@ export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormStat
         return (
             <div className="login-page-container">
                 <div className="login-page">
-                    <img src={contredanseLogo} alt="Contredanse logo" />
+                    <h2>Bienvenue à vous</h2>
 
-                    <h2>{this.tr('please_login_text')}</h2>
+                    <p>Afin de poursuivre la lecture, si vous ne l'avez pas encore</p>
+
                     <p>
-                        {this.tr('not_subscribed_yet')}&nbsp;
-                        <a target="_blank" rel="noopener" href={externalUrls!.shopLink}>
-                            {this.tr('subscribe_here')}
-                        </a>
+                        <button type="submit">Obtenez votre accès 12 mois</button>
                     </p>
+
+                    <p>Ou connectez-vous</p>
 
                     <Formik
                         initialValues={{ email: '', password: '' }}
@@ -143,6 +143,8 @@ export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormStat
                             {this.tr('reset_password_here')}
                         </a>
                     </p>
+
+                    <img src={contredanseLogo} alt="Contredanse logo" />
                 </div>
             </div>
         );

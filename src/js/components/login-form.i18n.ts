@@ -37,6 +37,14 @@ const LoginFormDictionary: BasicI18nDictionary = {
         en: 'Subscribe here !',
         fr: 'Abonnez-vous ici !',
     },
+    no_access_text: {
+        en: "Don't have an access ?",
+        fr: "Pas d'accès ?",
+    },
+    get_it_here: {
+        en: 'Get it here !',
+        fr: 'Obtenez-le ici !',
+    },
 
     password_forgotten: {
         en: 'Password forgotten ?',
