@@ -4,6 +4,8 @@ import bio_en from './bio.en.md';
 import bio_fr from './bio.fr.md';
 import credits_en from './credits.en.md';
 import credits_fr from './credits.fr.md';
+import about_en from './about.en.md';
+import about_fr from './about.fr.md';
 
 export type HTMLStaticContent = {
     section_id: string;
@@ -24,6 +26,11 @@ export const staticContent: HTMLStaticContent[] = [
         section_id: 'credits',
         title: { en: 'Credits', fr: 'Crédits' },
         content: { en: credits_en, fr: credits_fr },
+    },
+    {
+        section_id: 'about',
+        title: { en: 'About', fr: 'A propos' },
+        content: { en: about_en, fr: about_fr },
     },
     {
         section_id: 'bio',
