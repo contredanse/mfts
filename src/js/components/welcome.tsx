@@ -13,6 +13,7 @@ type WelcomeProps = {
     lang?: string;
     pageRepository: PageRepository;
     fromPageId?: string;
+    handleLoginSuccess?: () => void;
 } & RouteComponentProps;
 
 type WelcomeState = {
@@ -42,21 +43,8 @@ class Welcome extends React.PureComponent<WelcomeProps, WelcomeState> {
         }
     }
 
-    handleLoginSuccess = () => {
-        const { currentPage } = this.state;
-        const { lang, history } = this.props;
-
-        if (currentPage && currentPage !== null) {
-            const pageId = currentPage.pageId;
-            history.push(`/${lang}/page/${pageId}`);
-        } else {
-            // redirect to helix/search page
-            getMainMenuRoute(lang!);
-        }
-    };
-
     render() {
-        const { lang } = this.props;
+        const { lang, handleLoginSuccess } = this.props;
         const { currentPage } = this.state;
         const title = lang === 'fr' ? 'Bienvenue' : 'Welcome';
         return (
@@ -70,7 +58,7 @@ class Welcome extends React.PureComponent<WelcomeProps, WelcomeState> {
                         lang={lang}
                         match={this.props.match}
                         history={this.props.history}
-                        onSuccess={this.handleLoginSuccess}
+                        onSuccess={handleLoginSuccess}
                     />
                 </div>
             </div>

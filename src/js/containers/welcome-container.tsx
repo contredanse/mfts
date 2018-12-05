@@ -2,17 +2,23 @@ import React from 'react';
 import { DataSupportedLangType } from '@src/models/repository/data-repository';
 import { PageOverlay } from '@src/components/layout/page-overlay';
 import PageRepository from '@src/models/repository/page-repository';
-import { RouteComponentProps, withRouter } from 'react-router';
+import { Redirect, RouteComponentProps, withRouter } from 'react-router';
 import DocumentMeta from '@src/utils/document-meta';
 import Welcome from '@src/components/welcome';
+import { ApplicationState } from '@src/store';
+import { connect } from 'react-redux';
+import { AuthUser } from '@src/store/auth/auth';
+import { getMainMenuRoute } from '@src/helpers/main-menu-redirect';
 
-type RestrictedContainerProps = {
+type WelcomeContainerProps = {
     lang?: DataSupportedLangType;
     pageRepository: PageRepository;
     fromPageId?: string;
+    user?: AuthUser | null;
+    authenticated: boolean;
 } & RouteComponentProps<any>;
 
-type RestrictedContainerState = {};
+type WelcomeContainerState = {};
 
 const defaultState = {};
 
@@ -20,27 +26,58 @@ const defaultProps = {
     lang: 'en',
 };
 
-class WelcomeContainer extends React.PureComponent<RestrictedContainerProps, RestrictedContainerState> {
+class WelcomeContainer extends React.PureComponent<WelcomeContainerProps, WelcomeContainerState> {
     static defaultProps = defaultProps;
 
-    readonly state: RestrictedContainerState;
+    readonly state: WelcomeContainerState;
 
-    constructor(props: RestrictedContainerProps) {
+    constructor(props: WelcomeContainerProps) {
         super(props);
         this.state = defaultState;
     }
 
-    componentDidMount() {}
+    handleLoginSuccess = () => {
+        const { fromPageId } = this.props;
+        const { lang, history } = this.props;
+
+        if (fromPageId && fromPageId !== null) {
+            const pageId = fromPageId;
+            history.push(`/${lang}/page/${pageId}`);
+        } else {
+            // redirect to helix/search page
+            history.push(getMainMenuRoute(lang!));
+        }
+    };
 
     render() {
-        const { lang, pageRepository, fromPageId } = this.props;
+        const { authenticated, user, lang, pageRepository, fromPageId } = this.props;
+        if (authenticated) {
+            const menuRoute = getMainMenuRoute(lang!);
+            return <Redirect to={menuRoute} />;
+        }
+
         return (
             <PageOverlay closeButton={false}>
                 <DocumentMeta title={'MFS >> Welcome'} />
-                <Welcome pageRepository={pageRepository} lang={lang} fromPageId={fromPageId} />
+                <Welcome
+                    pageRepository={pageRepository}
+                    lang={lang}
+                    fromPageId={fromPageId}
+                    handleLoginSuccess={this.handleLoginSuccess}
+                />
             </PageOverlay>
         );
     }
 }
 
-export default withRouter(WelcomeContainer);
+const mapStateToProps = ({ auth }: ApplicationState) => ({
+    user: auth.user,
+    authenticated: auth.authenticated,
+});
+
+const ConnectedWelcomeContainer = connect(
+    mapStateToProps,
+    null
+)(WelcomeContainer);
+
+export default withRouter(ConnectedWelcomeContainer);
