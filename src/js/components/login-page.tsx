@@ -5,6 +5,7 @@ import { RouteComponentProps, withRouter } from 'react-router';
 import { appConfig } from '@config/config';
 import { ExternalUrls } from '@src/core/app-config';
 import ConnectedLoginForm from '@src/components/login-form';
+import { getMainMenuRoute } from '@src/helpers/main-menu-redirect';
 
 export type LoginPageProps = {
     lang?: string;
@@ -23,11 +24,22 @@ export class LoginPage extends React.PureComponent<LoginPageProps, LoginPageStat
         super(props);
     }
 
+    handleLoginSuccess = () => {
+        const { lang, history } = this.props;
+        // redirect to helix/search page
+        history.push(getMainMenuRoute(lang!));
+    };
+
     render() {
         const { lang } = this.props;
         return (
             <div className="login-page-container">
-                <ConnectedLoginForm lang={lang} match={this.props.match} history={this.props.history} />
+                <ConnectedLoginForm
+                    lang={lang}
+                    match={this.props.match}
+                    history={this.props.history}
+                    onSuccess={this.handleLoginSuccess}
+                />
             </div>
         );
     }

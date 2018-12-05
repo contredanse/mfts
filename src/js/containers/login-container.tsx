@@ -22,11 +22,21 @@ class LoginContainer extends Component<LoginContainerProps, LoginContainerState>
     constructor(props: LoginContainerProps) {
         super(props);
     }
+
     render() {
         const { authenticated, user, lang } = this.props;
         if (authenticated) {
-            const menuRoute = getMainMenuRoute(lang);
-            return <Redirect to={menuRoute} />;
+            return (
+                <LoginLayout>
+                    <div className="login-page-container">
+                        <div className="profile-page-container">
+                            <div>Authenticated ;)</div>
+                            <div>Profile page</div>
+                            <div>User: {user ? user.email : 'unknown'}</div>
+                        </div>
+                    </div>
+                </LoginLayout>
+            );
         }
         return (
             <LoginLayout>
