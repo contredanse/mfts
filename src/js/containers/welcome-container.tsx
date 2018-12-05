@@ -2,7 +2,7 @@ import React from 'react';
 import { DataSupportedLangType } from '@src/models/repository/data-repository';
 import { PageOverlay } from '@src/components/layout/page-overlay';
 import PageRepository from '@src/models/repository/page-repository';
-import { Redirect, RouteComponentProps, withRouter } from 'react-router';
+import { RouteComponentProps, withRouter } from 'react-router';
 import DocumentMeta from '@src/utils/document-meta';
 import Welcome from '@src/components/welcome';
 import { ApplicationState } from '@src/store';

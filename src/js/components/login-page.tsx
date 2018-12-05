@@ -2,8 +2,6 @@ import React from 'react';
 import './login-page.scss';
 import { RouteComponentProps, withRouter } from 'react-router';
 
-import { appConfig } from '@config/config';
-import { ExternalUrls } from '@src/core/app-config';
 import ConnectedLoginForm from '@src/components/login-form';
 import { getMainMenuRoute } from '@src/helpers/main-menu-redirect';
 

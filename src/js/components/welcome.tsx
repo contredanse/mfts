@@ -1,13 +1,10 @@
 import React from 'react';
 import './welcome.scss';
 import { RouteComponentProps, withRouter } from 'react-router';
-import contredanseLogo from '@assets/images/logo-contredanse.png';
 import PageRepository from '@src/models/repository/page-repository';
 import PageProxy from '@src/models/proxy/page-proxy';
-import PageCard from '@src/components/page-card';
 import AppBarPortal from '@src/components/navigation/app-bar-portal';
 import ConnectedLoginForm from '@src/components/login-form';
-import { getMainMenuRoute } from '@src/helpers/main-menu-redirect';
 
 type WelcomeProps = {
     lang?: string;
