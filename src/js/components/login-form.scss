@@ -31,7 +31,20 @@
         font-weight: lighter;
     }
 
-    .shop_button {
+    a {
+        &:link,
+        &:visited,
+        &:hover,
+        &:active {
+            color: inherit;
+            text-decoration: none;
+        }
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    a.shop_button {
         display: inline-block;
         //margin-top: 2px;
         background: #a93c99;
@@ -48,7 +61,6 @@
         &:visited {
             text-decoration: none;
         }
-
         &:hover {
             text-decoration: underline;
             filter: brightness(110%);

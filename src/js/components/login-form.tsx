@@ -137,9 +137,8 @@ export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormStat
                 </Formik>
 
                 <p>
-                    {this.tr('password_forgotten')}&nbsp;
                     <a target="_blank" rel="noopener" href={externalUrls!.resetPassword}>
-                        {this.tr('reset_password_here')}
+                        {this.tr('password_forgotten')}
                     </a>
                 </p>
 

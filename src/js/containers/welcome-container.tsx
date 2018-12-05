@@ -45,17 +45,17 @@ class WelcomeContainer extends React.PureComponent<WelcomeContainerProps, Welcom
             history.push(`/${lang}/page/${pageId}`);
         } else {
             // redirect to helix/search page
-            // history.push(getMainMenuRoute(lang!));
-            // do nothing ;)
+            history.push(getMainMenuRoute(lang!));
         }
     };
 
     render() {
         const { authenticated, user, lang, pageRepository, fromPageId } = this.props;
+        /*
         if (authenticated) {
             const menuRoute = getMainMenuRoute(lang!);
             return <Redirect to={menuRoute} />;
-        }
+        }*/
 
         return (
             <PageOverlay closeButton={false}>
