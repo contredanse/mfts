@@ -4,92 +4,92 @@
     align-items: center;
     justify-content: center;
 
-    .login-page {
+    .login-form {
         background: #ffffff;
         padding: 20px 30px;
         box-shadow: 0 14px 8px 0 rgba(0, 0, 0, 0.08), 0 9px 16px 4px rgba(0, 0, 0, 0.12);
         //max-width: 50%;
         color: black;
-    }
 
-    img {
-        display: block;
-        background: black; // to make to logo background in brown
-        height: auto;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 1.5em;
-        margin-bottom: 0.5em;
-        width: 100px;
-    }
-
-    h2 {
-        font-weight: normal;
-        font-size: 1.4em;
-        color: #616161;
-        text-align: center;
-    }
-
-    p {
-        text-align: center;
-        padding: 0 30px;
-        font-size: 1em;
-        color: #848484;
-        font-weight: lighter;
-    }
-
-    form {
-        display: flex;
-        justify-content: center;
-
-        flex-direction: column;
-
-        label {
-            color: rgba(black, 0.6);
-            font-size: 0.8em;
+        img {
+            display: block;
+            background: black; // to make to logo background in brown
+            height: auto;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+            width: 100px;
         }
 
-        .text-input {
-            background: #fafafa;
-            border: 1px solid #c7c7c7;
-            border-radius: 2px;
-            height: 30px;
+        h2 {
+            font-weight: normal;
+            font-size: 1.4em;
+            color: #616161;
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+            padding: 0 30px;
             font-size: 1em;
-            outline: none;
-            padding-left: 7px;
-            margin-bottom: 5px;
-            &.error {
-                border: 1px solid rgba(red, 0.9);
+            color: #848484;
+            font-weight: lighter;
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+
+            flex-direction: column;
+
+            label {
+                color: rgba(black, 0.6);
+                font-size: 0.8em;
             }
-        }
 
-        .input-feedback {
-            color: red;
-        }
+            .text-input {
+                background: #fafafa;
+                border: 1px solid #c7c7c7;
+                border-radius: 2px;
+                height: 30px;
+                font-size: 1em;
+                outline: none;
+                padding-left: 7px;
+                margin-bottom: 5px;
+                &.error {
+                    border: 1px solid rgba(red, 0.9);
+                }
+            }
 
-        .error-response-text {
-            padding: 5px;
-            font-size: 1.1em;
-            //text-shadow: 1px -1px 0 grey, -1px 1px 0 grey, 1px 1px 0 red, -1px -1px 0 grey;
-            font-weight: 600;
-            color: rgba(red, 0.9);
-        }
+            .input-feedback {
+                color: red;
+            }
 
-        button {
-            margin-top: 5px;
-            background: #f76c6c;
-            box-shadow: 0 16px 18px 0 rgba(0, 0, 0, 0.13), 0 4px 6px 0 rgba(0, 0, 0, 0.16);
-            border-radius: 2px;
-            border: none;
-            color: #fff;
-            padding: 10px 15px;
-            outline: none;
-            cursor: pointer;
-            opacity: 1;
-            transition: opacity 150ms ease-in-out;
+            .error-response-text {
+                padding: 5px;
+                font-size: 1.1em;
+                //text-shadow: 1px -1px 0 grey, -1px 1px 0 grey, 1px 1px 0 red, -1px -1px 0 grey;
+                font-weight: 600;
+                color: rgba(red, 0.9);
+            }
 
-            &:hover {
-                opacity: 0.9;
+            button {
+                margin-top: 5px;
+                background: #f76c6c;
+                box-shadow: 0 16px 18px 0 rgba(0, 0, 0, 0.13), 0 4px 6px 0 rgba(0, 0, 0, 0.16);
+                border-radius: 2px;
+                border: none;
+                color: #fff;
+                padding: 10px 15px;
+                outline: none;
+                cursor: pointer;
+                opacity: 1;
+                transition: opacity 150ms ease-in-out;
+
+                &:hover {
+                    opacity: 0.9;
+                }
             }
         }
     }

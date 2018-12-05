@@ -52,100 +52,94 @@ export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormStat
         const { authenticated, user, externalUrls } = this.props;
 
         return (
-            <div className="login-page-container">
-                <div className="login-page">
-                    <h2>Bienvenue à vous</h2>
+            <div className="login-form">
+                <h2>Bienvenue à vous</h2>
 
-                    <p>Afin de poursuivre la lecture, si vous ne l'avez pas encore</p>
+                <p>Afin de poursuivre la lecture, si vous ne l'avez pas encore</p>
 
-                    <p>
-                        <button type="submit">Obtenez votre accès 12 mois</button>
-                    </p>
+                <p>
+                    <button type="submit">Obtenez votre accès 12 mois</button>
+                </p>
 
-                    <p>Ou connectez-vous</p>
+                <p>Ou connectez-vous</p>
 
-                    <Formik
-                        initialValues={{ email: '', password: '' }}
-                        onSubmit={(values, { setSubmitting }) => {
-                            this.handleSubmit(values);
-                            setSubmitting(false);
-                        }}
-                        validationSchema={Yup.object().shape({
-                            email: Yup.string()
-                                .email(this.tr('a_valid_email_is_required'))
-                                .required(this.tr('required')),
-                            password: Yup.string().required(this.tr('required')),
-                        })}
-                    >
-                        {props => {
-                            const {
-                                values,
-                                touched,
-                                errors,
-                                dirty,
-                                isSubmitting,
-                                handleChange,
-                                handleBlur,
-                                handleSubmit,
-                                handleReset,
-                            } = props;
-                            return (
-                                <Form>
-                                    <label htmlFor="email" style={{ display: 'block' }}>
-                                        {this.tr('email')}
-                                    </label>
-                                    <Field
-                                        id="email"
-                                        placeholder={this.tr('enter_email')}
-                                        type="text"
-                                        value={values.email}
-                                        onChange={handleChange}
-                                        onBlur={handleBlur}
-                                        className={errors.email && touched.email ? 'text-input error' : 'text-input'}
-                                    />
-                                    {errors.email && touched.email && (
-                                        <div className="input-feedback">{errors.email}</div>
-                                    )}
+                <Formik
+                    initialValues={{ email: '', password: '' }}
+                    onSubmit={(values, { setSubmitting }) => {
+                        this.handleSubmit(values);
+                        setSubmitting(false);
+                    }}
+                    validationSchema={Yup.object().shape({
+                        email: Yup.string()
+                            .email(this.tr('a_valid_email_is_required'))
+                            .required(this.tr('required')),
+                        password: Yup.string().required(this.tr('required')),
+                    })}
+                >
+                    {props => {
+                        const {
+                            values,
+                            touched,
+                            errors,
+                            dirty,
+                            isSubmitting,
+                            handleChange,
+                            handleBlur,
+                            handleSubmit,
+                            handleReset,
+                        } = props;
+                        return (
+                            <Form>
+                                <label htmlFor="email" style={{ display: 'block' }}>
+                                    {this.tr('email')}
+                                </label>
+                                <Field
+                                    id="email"
+                                    placeholder={this.tr('enter_email')}
+                                    type="text"
+                                    value={values.email}
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    className={errors.email && touched.email ? 'text-input error' : 'text-input'}
+                                />
+                                {errors.email && touched.email && <div className="input-feedback">{errors.email}</div>}
 
-                                    <label htmlFor="password" style={{ display: 'block' }}>
-                                        {this.tr('password')}
-                                    </label>
-                                    <Field
-                                        id="password"
-                                        placeholder="Password"
-                                        type="password"
-                                        value={values.password}
-                                        onChange={handleChange}
-                                        onBlur={handleBlur}
-                                        className={
-                                            errors.password && touched.password ? 'text-input error' : 'text-input'
-                                        }
-                                    />
-                                    {errors.password && touched.password && (
-                                        <div className="input-feedback">{errors.password}</div>
-                                    )}
+                                <label htmlFor="password" style={{ display: 'block' }}>
+                                    {this.tr('password')}
+                                </label>
+                                <Field
+                                    id="password"
+                                    placeholder="Password"
+                                    type="password"
+                                    value={values.password}
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    className={errors.password && touched.password ? 'text-input error' : 'text-input'}
+                                />
+                                {errors.password && touched.password && (
+                                    <div className="input-feedback">{errors.password}</div>
+                                )}
 
-                                    {this.props.authError && (
-                                        <div className="error-response-text">{this.props.authError}</div>
-                                    )}
+                                {this.props.authError && (
+                                    <div className="error-response-text">{this.props.authError}</div>
+                                )}
 
-                                    <button type="submit" disabled={isSubmitting}>
-                                        {this.tr('submit')}
-                                    </button>
-                                </Form>
-                            );
-                        }}
-                    </Formik>
+                                <button type="submit" disabled={isSubmitting}>
+                                    {this.tr('submit')}
+                                </button>
+                            </Form>
+                        );
+                    }}
+                </Formik>
 
-                    <p>
-                        {this.tr('password_forgotten')}&nbsp;
-                        <a target="_blank" rel="noopener" href={externalUrls!.resetPassword}>
-                            {this.tr('reset_password_here')}
-                        </a>
-                    </p>
+                <p>
+                    {this.tr('password_forgotten')}&nbsp;
+                    <a target="_blank" rel="noopener" href={externalUrls!.resetPassword}>
+                        {this.tr('reset_password_here')}
+                    </a>
+                </p>
 
-                    <img src={contredanseLogo} alt="Contredanse logo" />
-                </div>
+                <img src={contredanseLogo} alt="Contredanse logo" />
             </div>
         );
     }
