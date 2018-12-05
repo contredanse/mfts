@@ -42,7 +42,6 @@ class ProfileContainer extends Component<ProfileContainerProps, ProfileContainer
                         <div>User: {user ? user.email : 'unknown'}</div>
                     </div>
                 </div>
-                }
             </LoginLayout>
         );
     }
