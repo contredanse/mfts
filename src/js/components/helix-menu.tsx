@@ -33,7 +33,8 @@ class HelixMenu extends React.PureComponent<HelixMenuProps, HelixMenuState> {
     }
 
     componentDidMount() {
-        const { jsonDataMenu, lang } = this.props;
+        const { jsonDataMenu, lang, openedPageId } = this.props;
+
         this.spiralMenu = new SpiralMenu({
             container: this.containerRef.current,
             content: jsonDataMenu,
@@ -41,24 +42,17 @@ class HelixMenu extends React.PureComponent<HelixMenuProps, HelixMenuState> {
             callback: (menuNode: IJsonMenuPage) => {
                 this.openPage(menuNode.page_id);
             },
+            selectedNodeId: openedPageId,
         });
     }
 
     componentDidUpdate() {
         this.spiralMenu.setLanguage(this.props.lang);
+        const { openedPageId } = this.props;
+        if (openedPageId && this.spiralMenu.selectNode) {
+            this.spiralMenu.selectNode(openedPageId);
+        }
     }
-
-    componentWillUnmount() {
-        // The clean up
-        this.spiralMenu.clear();
-        delete this.spiralMenu;
-    }
-
-    openPage = (pageId: string): void => {
-        // TODO, move it to container through an 'onPageSelected' prop
-        const { lang } = this.props;
-        this.props.history.push(`/${lang}/page/${pageId}`);
-    };
 
     render() {
         return (
@@ -68,6 +62,18 @@ class HelixMenu extends React.PureComponent<HelixMenuProps, HelixMenuState> {
             </div>
         );
     }
+
+    componentWillUnmount() {
+        // The clean up
+        this.spiralMenu.clear();
+        delete this.spiralMenu;
+    }
+
+    private openPage = (pageId: string): void => {
+        // TODO, move it to container through an 'onPageSelected' prop
+        const { lang } = this.props;
+        this.props.history.push(`/${lang}/page/${pageId}`);
+    };
 }
 
 export default withRouter(HelixMenu);
