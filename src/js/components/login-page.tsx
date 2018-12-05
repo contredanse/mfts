@@ -1,6 +1,6 @@
 import React from 'react';
 import './login-page.scss';
-import { RouteComponentProps } from 'react-router';
+import { RouteComponentProps, withRouter } from 'react-router';
 
 import { appConfig } from '@config/config';
 import { ExternalUrls } from '@src/core/app-config';
@@ -8,7 +8,7 @@ import ConnectedLoginForm from '@src/components/login-form';
 
 export type LoginPageProps = {
     lang?: string;
-} & Pick<RouteComponentProps, 'match' | 'history'>;
+} & RouteComponentProps<any>;
 
 type LoginPageState = {};
 
@@ -33,4 +33,4 @@ export class LoginPage extends React.PureComponent<LoginPageProps, LoginPageStat
     }
 }
 
-export default LoginPage;
+export default withRouter(LoginPage);

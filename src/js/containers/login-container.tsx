@@ -11,7 +11,8 @@ type LoginContainerProps = {
     user?: AuthUser | null;
     lang: string;
     authenticated: boolean;
-} & RouteComponentProps<{}>;
+};
+
 type LoginContainerState = {};
 
 const defaultProps = {};
@@ -29,7 +30,7 @@ class LoginContainer extends Component<LoginContainerProps, LoginContainerState>
         }
         return (
             <LoginLayout>
-                <LoginPage lang={lang} match={this.props.match} history={this.props.history} />
+                <LoginPage lang={lang} />
             </LoginLayout>
         );
     }
@@ -40,11 +41,9 @@ const mapStateToProps = ({ auth }: ApplicationState) => ({
     authenticated: auth.authenticated,
 });
 
-const ConnectedLoginContainer = withRouter(
-    connect(
-        mapStateToProps,
-        null
-    )(LoginContainer)
-);
+const ConnectedLoginContainer = connect(
+    mapStateToProps,
+    null
+)(LoginContainer);
 
 export default ConnectedLoginContainer;
