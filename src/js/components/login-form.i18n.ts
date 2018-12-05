@@ -63,6 +63,26 @@ const LoginFormDictionary: BasicI18nDictionary = {
         en: 'A valid email is required.',
         fr: 'Doit être un email valide.',
     },
+
+    welcome_to_you: {
+        en: 'Welcome to you',
+        fr: 'La bienvenue à vous',
+    },
+
+    to_continue_text: {
+        en: "In order to continue and if you don't have one",
+        fr: "Afin de poursuivre la lecture et si vous ne l'avez pas encore",
+    },
+
+    get_your_12_months_access: {
+        en: 'Get your 12 months access',
+        fr: 'Obtenez votre accès 12 mois',
+    },
+
+    or_connect: {
+        en: 'Or connect',
+        fr: 'Ou connectez-vous',
+    },
 };
 
 export default LoginFormDictionary;

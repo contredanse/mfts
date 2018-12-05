@@ -53,15 +53,15 @@ export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormStat
 
         return (
             <div className="login-form">
-                <h2>Bienvenue à vous</h2>
+                <h2>{this.tr('welcome_to_you')}</h2>
 
-                <p>Afin de poursuivre la lecture, si vous ne l'avez pas encore</p>
+                <p>{this.tr('to_continue_text')}</p>
 
                 <p>
-                    <button type="submit">Obtenez votre accès 12 mois</button>
+                    <button type="submit">{this.tr('get_your_12_months_access')}</button>
                 </p>
 
-                <p>Ou connectez-vous</p>
+                <p>{this.tr('or_connect')}</p>
 
                 <Formik
                     initialValues={{ email: '', password: '' }}
