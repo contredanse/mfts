@@ -48,6 +48,8 @@ export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormStat
         return false;
     };
 
+    componentDidMount(): void {}
+
     render() {
         const { authenticated, user, externalUrls } = this.props;
 
@@ -58,9 +60,9 @@ export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormStat
                 <p>{this.tr('to_continue_text')}</p>
 
                 <p>
-                    <button onClick={() => {}} type="submit">
+                    <a className="shop_button" target="_blank" rel="noopener" href={externalUrls!.shopLink}>
                         {this.tr('get_your_12_months_access')}
-                    </button>
+                    </a>
                 </p>
 
                 <p>{this.tr('or_connect')}</p>
