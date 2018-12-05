@@ -7,14 +7,26 @@
     flex: 1 0;
     height: 100%;
     font-size: 1em;
-    border: 1px solid green;
 
     .welcome-container-inner {
         flex-grow: 1;
 
         display: flex;
-        border: 1px solid blue;
         align-items: center;
         justify-content: center;
+
+        .login-form {
+            background: black;
+            color: white;
+
+            h2 {
+                color: grey;
+            }
+
+            p {
+                color: #848484;
+                color: white;
+            }
+        }
     }
 }
