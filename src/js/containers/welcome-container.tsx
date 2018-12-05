@@ -45,7 +45,8 @@ class WelcomeContainer extends React.PureComponent<WelcomeContainerProps, Welcom
             history.push(`/${lang}/page/${pageId}`);
         } else {
             // redirect to helix/search page
-            history.push(getMainMenuRoute(lang!));
+            // history.push(getMainMenuRoute(lang!));
+            // do nothing ;)
         }
     };
 

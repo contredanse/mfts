@@ -14,6 +14,17 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        opacity: 1;
+
+        &.animation-start {
+            transition: all 600ms ease-in-out;
+            opacity: 0.1;
+            //translate:
+        }
+
+        &.animation-end {
+            opacity: 1;
+        }
 
         .login-form {
             background: black;

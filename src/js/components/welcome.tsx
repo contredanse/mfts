@@ -18,6 +18,7 @@ type WelcomeProps = {
 
 type WelcomeState = {
     currentPage?: PageProxy | null;
+    mounted: boolean;
 };
 
 const defaultProps = {
@@ -31,37 +32,49 @@ class Welcome extends React.PureComponent<WelcomeProps, WelcomeState> {
         super(props);
         this.state = {
             currentPage: null,
+            mounted: false,
         };
     }
 
-    componentDidMount(): void {
+    async componentDidMount() {
         const { fromPageId, pageRepository } = this.props;
         if (fromPageId) {
             this.setState({
                 currentPage: pageRepository.getPageProxy(fromPageId),
             });
         }
+
+        // wait a bit for browser stuff
+        const ANIMATION_TIMEOUT = 80;
+        setTimeout(() => {
+            this.setState({ mounted: true });
+        }, ANIMATION_TIMEOUT);
     }
 
     render() {
         const { lang, handleLoginSuccess } = this.props;
-        const { currentPage } = this.state;
+        const { currentPage, mounted } = this.state;
         const title = lang === 'fr' ? 'Bienvenue' : 'Welcome';
+
+        // For nimations
+        const initialCls = mounted ? 'animation-end' : '';
+
         return (
-            <div className="welcome-container">
+            <>
                 <AppBarPortal>
                     <div>{title}</div>
                 </AppBarPortal>
-
-                <div className="welcome-container-inner">
-                    <ConnectedLoginForm
-                        lang={lang}
-                        match={this.props.match}
-                        history={this.props.history}
-                        onSuccess={handleLoginSuccess}
-                    />
+                <div className="welcome-container">
+                    <div className={`welcome-container-inner animation-start ${initialCls}`}>
+                        <ConnectedLoginForm
+                            lang={lang}
+                            match={this.props.match}
+                            history={this.props.history}
+                            onSuccess={handleLoginSuccess}
+                        />
+                    </div>
                 </div>
-            </div>
+            </>
         );
     }
 }
