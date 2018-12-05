@@ -4,35 +4,17 @@
 $font: $primary-font;
 //$font: 'Times New Roman', Times;
 
-// Added by seb as test
-.spiral-flying-label img {
-    display: block;
-    padding: 10px 5px;
-    width: 100px;
-    //height: 60px;
-    position: relative;
-    left: 15px;
-    top: calc(-1em - 6px);
-    transition: left 0.16s ease-out;
-    /*border: 1px solid yellow;*/
-    cursor: pointer;
-}
-
-//
-
 #spiral-container {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-
     background-color: black;
     overflow: hidden;
-    font-family: $font;
+    font-family: $primary-font; //"Times New Roman", Times;
     font-size: 18px;
     color: white;
-
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -40,7 +22,6 @@ $font: $primary-font;
     -ms-user-select: none;
     user-select: none;
 }
-
 #spiral-canvas {
     position: absolute;
     top: 0;
@@ -49,7 +30,6 @@ $font: $primary-font;
     height: 100%;
     /*cursor: pointer;*/
 }
-
 #spiral-label-container {
     position: absolute;
     top: 0;
@@ -57,7 +37,6 @@ $font: $primary-font;
     width: 100%;
     height: 100%;
 }
-
 .spiral-flying-label {
     display: block;
     position: absolute;
@@ -73,12 +52,10 @@ $font: $primary-font;
     -ms-user-select: none;
     user-select: none;
 }
-
 .spiral-flying-label span:hover {
     color: yellow;
     /*border-bottom: 1px dotted yellow;*/
 }
-
 .spiral-flying-label span {
     display: block;
     padding: 10px 5px;
@@ -89,24 +66,19 @@ $font: $primary-font;
     /*border: 1px solid yellow;*/
     cursor: pointer;
 }
-
 .spiral-flying-label span.page {
     font-style: italic;
 }
-
 .spiral-flying-label span.section {
     font-weight: bold;
     font-size: 1.2em;
 }
-
 .spiral-flying-label span.open {
     color: #aa0;
 }
-
 .spiral-flying-label span.sub {
     margin: 0 15px;
 }
-
 .spiral-flying-label.left span {
     left: calc(-100% - 15px);
 }
