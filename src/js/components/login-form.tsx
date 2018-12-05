@@ -58,7 +58,9 @@ export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormStat
                 <p>{this.tr('to_continue_text')}</p>
 
                 <p>
-                    <button type="submit">{this.tr('get_your_12_months_access')}</button>
+                    <button onClick={() => {}} type="submit">
+                        {this.tr('get_your_12_months_access')}
+                    </button>
                 </p>
 
                 <p>{this.tr('or_connect')}</p>
