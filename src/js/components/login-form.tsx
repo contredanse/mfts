@@ -14,7 +14,7 @@ import { appConfig } from '@config/config';
 import { ExternalUrls } from '@src/core/app-config';
 
 export type LoginFormProps = {
-    handleSubmit?: (data: any) => void;
+    handleSubmit?: (data: any, onSuccess?: () => void) => void;
     authError: string | null;
     loading: boolean;
     user?: AuthUser | null;
@@ -41,9 +41,9 @@ export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormStat
     }
 
     handleSubmit = (data: any) => {
-        console.log('FORMDATA', data);
+        //console.log('FORMDATA', data);
         if (this.props.handleSubmit) {
-            this.props.handleSubmit(data);
+            this.props.handleSubmit(data, this.props.onSuccess);
         }
         return false;
     };
@@ -158,9 +158,11 @@ const mapStateToProps = ({ auth }: ApplicationState) => ({
 
 const mapDispatchToProps = (dispatch: Dispatch): Pick<LoginFormProps, 'handleSubmit'> => ({
     //handleSubmit: (data: any) => dispatch(uiActions.setFullscreen(isFullscreen)),
-    handleSubmit: (data: any) =>
+    handleSubmit: (data: any, onSuccess?: () => void) =>
         loginUser(data, () => {
-            //alert('Success');
+            if (onSuccess) {
+                onSuccess();
+            }
         })(dispatch),
 });
 
