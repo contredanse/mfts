@@ -1,19 +1,3 @@
-/*
-TODO:
-
-- being able to close spiral content completely
-- better or no rotate reaction when clicking
-- resize label font if not enough available space ? (or use responsive css)
-- add touch event capacity
-OK - spirals should resize according to available screen space, not just center
-OK - use an easing function on text alpha to make it more clear
-OK - eventually use scaling on text labels
-OK - thinner spirals
-OK - change mouseover cursor
-OK - add setlanguage method
-
-*/
-
 /////////////////////////////////////////////////////////////
 //////////////////////    Vec3     //////////////////////////
 /////////////////////////////////////////////////////////////
@@ -33,6 +17,7 @@ var Vec3 = function(x, y, z) {
     "content": json object containing menu structure
     "callback": function called when clicking on a page node
     "language": locale string
+    "selectedNodeId": ID for pre-selected node upon startup
   }
 */
 var SpiralMenu = function(settings) {
@@ -44,7 +29,7 @@ var SpiralMenu = function(settings) {
     // visual elements
     var self = this;
     this.configuration = new SpiralConfig(this.canvas, 50);
-    this.configuration.language = settings.language;
+    this.configuration.language = settings.language || 'en';
     var numSpirals = this.content.length;
     var spirals = [];
 
@@ -56,53 +41,13 @@ var SpiralMenu = function(settings) {
     var spiralRotation = 0;
     var spiralSpeed = 0.012;
     var frameReq = 0;
+    var lastOpen = null;
 
     // labels
     var labelPool = [];
     this.labels = [];
 
     var navigationCallback = settings.callback;
-
-    function prepareContent(node, iterator) {
-        node.open = false;
-        node.level = iterator;
-        if (node.hasOwnProperty('content')) {
-            for (let child of node.content) {
-                prepareContent(child, iterator + 1);
-            }
-        }
-    }
-
-    function updateMenu() {
-        // clean current menu
-        self.labels = [];
-        self.labelContainer.innerHTML = '';
-
-        // parse content and create labels
-        for (var i = 0; i < numSpirals; ++i) {
-            var sl = [];
-            var nl = self.content[i].content.length;
-            var points = spirals[i].computePositions(spiralRotation, self.configuration, nl);
-
-            for (var j = 0; j < nl; ++j) {
-                addToMenu(self.content[i].content[j], sl, points[j]);
-            }
-
-            self.labels.push(sl);
-        }
-    }
-
-    function addToMenu(node, array, p) {
-        // create label for node
-        var label = new SpiralLabel(node, self.labelContainer, self.configuration, p);
-        array.push(label);
-        // resurse for opened sections
-        if (node.type == 'section' && node.open == true) {
-            for (let child of node.content) {
-                addToMenu(child, array, p);
-            }
-        }
-    }
 
     var onSpiralResize = function(event) {
         self.configuration.center();
@@ -120,15 +65,15 @@ var SpiralMenu = function(settings) {
 
         // check if clicked on node label
         if (event.target.classList.contains('node')) {
-            let node = event.target.__node;
-            switch (node.type) {
+            let label = event.target.__slobject;
+            switch (label.node.type) {
                 case 'section':
-                    if (node.open) {
-                        node.open = false;
+                    if (label.node.open) {
+                        closeLabel(label);
                     } else {
-                        openBranchForNode(node);
+                        openLabel(label);
                     }
-                    updateMenu();
+                    //updateMenu();
                     spiralSpeed = -0.01;
                     if (frameReq == 0) {
                         frameReq = requestAnimationFrame(render);
@@ -136,7 +81,7 @@ var SpiralMenu = function(settings) {
                     break;
                 case 'page':
                     // console.log("Sould open node : " + node[ "title_" + this.config.language ]);
-                    navigationCallback(node);
+                    navigationCallback(label.node);
                     break;
             }
             // if ( node.type == "section" ) {
@@ -157,30 +102,43 @@ var SpiralMenu = function(settings) {
         }
     }
 
-    function openBranchForNode(target) {
-        for (let spiral of self.content) {
-            //console.log("check : " + spiral[ "title_" + this.config.language ]);
-            for (let node of spiral.content) {
-                //console.log("check : " + node[ "title_" + this.config.language ]);
-                if (node.type == 'section') {
-                    node.open = checkSectionForNode(node, target);
-                    //console.log("NODE open("+node.open+") : "+ node.title);
-                }
+    function closeLabel(label) {
+        if (label.node.open == false) return;
+
+        label.node.open = false;
+        for (let node of label.node.content) {
+            closeLabel(node.label);
+            node.label.remove();
+            let index = self.labels[node.spiral].indexOf(node.label);
+            if (index > -1) {
+                self.labels[node.spiral].splice(index, 1);
             }
         }
+        lastOpen = null;
     }
 
-    function checkSectionForNode(node, target) {
-        // node is target, should not be opened
-        if (node == target) return true;
+    function openLabel(label) {
+        if (label.node.open == true) return;
 
-        let open = false;
-        for (let child in node.content) {
-            if (child == target) {
-                open = true;
-            }
+        label.node.open = true;
+        let index = self.labels[label.node.spiral].indexOf(label);
+        //let nodes = [];
+        for (let node of label.node.content) {
+            // TODO: position element at parent position
+            self.labelContainer.appendChild(node.label.element);
+            self.labels[node.spiral].splice(index + 1, 0, node.label);
+            ++index;
         }
-        return open;
+
+        // close other spiral
+        closeLabel(self.content[(label.node.spiral + 1) % 2].label);
+
+        // close last ?
+        if (lastOpen && lastOpen.node.level > 1) {
+            closeLabel(lastOpen);
+        }
+
+        lastOpen = label;
     }
 
     function onContainerMouseWheel(event) {
@@ -246,6 +204,10 @@ var SpiralMenu = function(settings) {
     }
 
     this.clear = function() {
+        // clear canvas
+        self.canvas.width = self.configuration.canvasWidth;
+        self.canvas.height = self.configuration.canvasHeight;
+        // remove listeners
         window.removeEventListener('resize', onSpiralResize);
         self.container.removeEventListener('mouseup', onContainerMouseUp);
         self.container.removeEventListener('mousedown', onContainerMouseDown);
@@ -253,30 +215,95 @@ var SpiralMenu = function(settings) {
         isMouseDown = false;
         spiralSpeed = 0;
         self.configuration = null;
+
+        // cancel animation frame
         if (frameReq) {
             cancelAnimationFrame(frameReq);
             frameReq = 0;
         }
+
+        // remove circular references
+        for (let spiral of self.content) {
+            clean(spiral);
+        }
+
+        // clear elements
+        self.spirals = null;
+        self.labels = null;
+        self.labelContainer.innerHTML = '';
+        self.content = null;
     };
+
+    function clean(node) {
+        if (node.content) {
+            for (let child of node.content) {
+                clean(child);
+            }
+        }
+
+        node.label.clear();
+        delete node.label;
+    }
+
+    function prepareContent(node, iterator, spiralID) {
+        node.id = node.id || node.page_id;
+        node.open = node.open || false;
+        node.level = iterator;
+        node.spiral = spiralID;
+        node.label = new SpiralLabel(node, self.labelContainer, self.configuration);
+
+        if (node.hasOwnProperty('content')) {
+            for (let child of node.content) {
+                prepareContent(child, iterator + 1, spiralID);
+            }
+        }
+    }
+
+    function findIdInNode(id, node, path) {
+        if (node.id == id) return true;
+
+        if (node.content) {
+            for (let child of node.content) {
+                if (child.id == id) {
+                    path.push(node);
+                    return true;
+                }
+                if (findIdInNode(id, child, path)) {
+                    path.unshift(node);
+                }
+            }
+        }
+
+        return false;
+    }
+
+    // find auto-selected node
+    var pathNodes = [];
+    if (settings.selectedNodeId) {
+        for (let node of self.content) {
+            findIdInNode(settings.selectedNodeId, node, pathNodes);
+        }
+    }
 
     // prepare startup content
     for (var i = 0; i < numSpirals; ++i) {
-        prepareContent(this.content[i], 0);
+        prepareContent(self.content[i], 1, i);
         spirals.push(new Spiral(i * Math.PI, Math.PI * 0.8));
-        var sl = [];
-        var nn = this.content[i].content.length;
-        for (var j = 0; j < nn; ++j) {
-            var label = new SpiralLabel(this.content[i].content[j], this.labelContainer, self.configuration);
-            sl.push(label);
-        }
-        self.labels.push(sl);
+        let rootLabel = self.content[i].label;
+        self.labelContainer.appendChild(rootLabel.element);
+        self.labels.push([rootLabel]);
+    }
+
+    for (let node of pathNodes) {
+        openLabel(node.label);
     }
 
     window.addEventListener('resize', onSpiralResize);
-    this.container.addEventListener('mouseup', onContainerMouseUp);
-    this.container.addEventListener('mousedown', onContainerMouseDown);
-    this.container.addEventListener('mousewheel', onContainerMouseWheel);
+    self.container.addEventListener('mouseup', onContainerMouseUp);
+    self.container.addEventListener('mousedown', onContainerMouseDown);
+    self.container.addEventListener('mousewheel', onContainerMouseWheel);
 
+    // updateMenu();
     render();
 };
 
@@ -316,7 +343,7 @@ SpiralConfig.prototype.center = function() {
     this.centerY = this.canvasHeight / 2;
     this.canvas.width = this.canvasWidth;
     this.canvas.height = this.canvasHeight;
-    this.width = (this.canvasHeight - 140) / 4; //Math.min( this.centerX - 20, 200 );
+    this.width = (this.canvasHeight - 140) / 5; //Math.min( this.centerX - 20, 200 );
     this.height = this.canvasHeight - 140; //Math.min( this.canvasHeight - 40, 600 );
 };
 
@@ -427,22 +454,27 @@ var SpiralLabel = function(node, container, config, p) {
     e.style.top = this.posY + 'px';
     if (this.isLeft) e.classList.add('left');
 
-    // Test by seb for images (will be dropped)
-    if (true || node.type == 'section') {
-        var ee = document.createElement('span');
-        ee.className = 'node ' + node.type + (node.level > 1 ? ' sub' : '') + (node.open ? ' open' : '');
-        ee.innerHTML = node['title_' + this.config.language];
-        ee.__node = node;
-    } else {
-        var ee = document.createElement('img');
-        ee.className = 'node ' + node.type + (node.level > 1 ? ' sub' : '') + (node.open ? ' open' : '');
-        ee.src = `https://assets.materialforthespine.com/videos/covers/cbfhu-03.jpg`;
-        ee.__node = node;
-    }
-
+    var ee = document.createElement('span');
+    ee.className = 'node ' + node.type + (node.level > 1 ? ' sub' : '') + (node.open ? ' open' : '');
+    ee.innerHTML = node['title_' + this.config.language];
+    ee.__slobject = this;
     e.appendChild(ee);
-    container.appendChild(e);
+    //container.appendChild(e);
     this.element = e;
+};
+
+SpiralLabel.prototype.clear = function() {
+    this.remove();
+    delete this.element.childNodes[0].__slobject;
+    this.config = null;
+    this.node = null;
+    this.element = null;
+};
+
+SpiralLabel.prototype.remove = function() {
+    if (this.element.parentNode) {
+        this.element.parentNode.removeChild(this.element);
+    }
 };
 
 SpiralLabel.prototype.updateLabel = function() {
