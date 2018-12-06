@@ -1,11 +1,33 @@
 @import '../../../styles/variables';
 
 .bm-menu {
+    border-right: 1px solid rgba(grey, 0.8);
+    .side-menu-footer {
+        position: absolute;
+        bottom: 0;
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: 5px;
+        font-size: 1em;
+        div {
+            margin: 5px;
+            flex: 1 1;
+            text-align: center;
+            img {
+                width: 40px;
+                //border: 1px solid green;
+            }
+        }
+    }
+
     .side-menu-item {
         display: block;
         border: 1px solid white;
-        padding: 20px;
-        font-size: 1.7em;
+        padding: 15px;
+        font-size: 1.5em;
 
         &:link {
             text-decoration: none;

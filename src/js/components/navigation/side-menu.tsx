@@ -4,7 +4,7 @@ import { RouteComponentProps, withRouter } from 'react-router';
 
 import './side-menu.scss';
 
-import contredanseLogo from '@assets/images/logo-contredanse.png';
+import contredanseLogo from '@assets/images/logo-contredanse-white.jpg';
 import ConnectedLangSelector from '@src/components/lang-selector';
 import ConnectedLoginMenu from '@src/components/navigation/login-menu';
 import { ApplicationState } from '@src/store';
@@ -84,7 +84,7 @@ export class SideMenu extends React.PureComponent<Props, State> {
 
         return (
             <Menu
-                width={300}
+                width={240}
                 isOpen={isOpen}
                 onStateChange={onStateChange}
                 pageWrapId={'page-wrap'}
@@ -139,7 +139,12 @@ export class SideMenu extends React.PureComponent<Props, State> {
                     )}
                 </ConnectedLangSelector>
 
-                <img src={contredanseLogo} />
+                <div className="side-menu-footer">
+                    <div>
+                        <img src={contredanseLogo} />
+                    </div>
+                    <div>© Contredanse Editions, 2018</div>
+                </div>
             </Menu>
         );
     }
