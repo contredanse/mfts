@@ -114,73 +114,83 @@ export class SideMenu extends React.PureComponent<Props, State> {
 
         const { lang } = this.props;
 
+        const footerClass = isOpen ? 'side-menu-footer open' : 'side-menu-footer closed';
+
         return (
-            <Menu
-                styles={menuStyles}
-                width={250}
-                isOpen={isOpen}
-                onStateChange={onStateChange}
-                pageWrapId={'page-wrap'}
-                outerContainerId={'outer-container'}
-            >
-                <div className="language-selector-menu">
-                    <ConnectedLangSelector>
-                        {({ nextLang, updateLang, currentLang }) => (
-                            <>
-                                <button color="inherit">{currentLang}</button>
+            <>
+                <Menu
+                    styles={menuStyles}
+                    width={250}
+                    isOpen={isOpen}
+                    onStateChange={onStateChange}
+                    pageWrapId={'page-wrap'}
+                    outerContainerId={'outer-container'}
+                >
+                    <div className="top-header-menu-container">
+                        <div className="top-header-menu-inner">
+                            <div>
+                                <h2>Material for the spine</h2>
+                            </div>
+                            <div className="lang-selector-menu">
+                                <ConnectedLangSelector>
+                                    {({ nextLang, updateLang, currentLang }) => (
+                                        <>
+                                            <button color="inherit">{currentLang}</button>
 
-                                <button color="inherit" onClick={() => updateLang(nextLang)}>
-                                    {nextLang}
-                                </button>
-                            </>
-                        )}
-                    </ConnectedLangSelector>
-                </div>
+                                            <button color="inherit" onClick={() => updateLang(nextLang)}>
+                                                {nextLang}
+                                            </button>
+                                        </>
+                                    )}
+                                </ConnectedLangSelector>
+                            </div>
+                        </div>
+                    </div>
 
-                <div className="side-menu-footer">
+                    {Object.entries(menuItems).map(([key, menuItem]) => {
+                        if ('hidden' in menuItem && menuItem.hidden === true) {
+                            return null;
+                        }
+
+                        const label = lang === 'fr' ? menuItem.label.fr : menuItem.label.en;
+                        return (
+                            <a
+                                className={`side-menu-item key-${key}`}
+                                key={key}
+                                onClick={() => {
+                                    const newRoute =
+                                        typeof menuItem.route === 'function'
+                                            ? menuItem.route(lang)
+                                            : menuItem.route.replace('{lang}', lang);
+
+                                    this.props.history.push(newRoute);
+                                    if (this.props.onStateChange) {
+                                        this.props.onStateChange({ isOpen: false });
+                                    }
+                                }}
+                            >
+                                {label}
+                            </a>
+                        );
+                    })}
+
+                    <ConnectedLoginMenu
+                        lang={lang}
+                        handleLoginRequest={() => {
+                            this.props.history.push(`/${lang}/login`);
+                            if (this.props.onStateChange) {
+                                this.props.onStateChange({ isOpen: false });
+                            }
+                        }}
+                    />
+                </Menu>
+                <div className={footerClass}>
                     <div>
                         <img src={contredanseLogo} />
                     </div>
                     <div>© Contredanse Editions, 2018</div>
                 </div>
-
-                {Object.entries(menuItems).map(([key, menuItem]) => {
-                    if ('hidden' in menuItem && menuItem.hidden === true) {
-                        return null;
-                    }
-
-                    const label = lang === 'fr' ? menuItem.label.fr : menuItem.label.en;
-                    return (
-                        <a
-                            className={`side-menu-item key-${key}`}
-                            key={key}
-                            onClick={() => {
-                                const newRoute =
-                                    typeof menuItem.route === 'function'
-                                        ? menuItem.route(lang)
-                                        : menuItem.route.replace('{lang}', lang);
-
-                                this.props.history.push(newRoute);
-                                if (this.props.onStateChange) {
-                                    this.props.onStateChange({ isOpen: false });
-                                }
-                            }}
-                        >
-                            {label}
-                        </a>
-                    );
-                })}
-
-                <ConnectedLoginMenu
-                    lang={lang}
-                    handleLoginRequest={() => {
-                        this.props.history.push(`/${lang}/login`);
-                        if (this.props.onStateChange) {
-                            this.props.onStateChange({ isOpen: false });
-                        }
-                    }}
-                />
-            </Menu>
+            </>
         );
     }
 }

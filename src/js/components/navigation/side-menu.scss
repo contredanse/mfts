@@ -1,47 +1,15 @@
 @import '../../../styles/variables';
 @import '../../../styles/_media-queries.scss';
 
+$topbar-height: 50px;
+
 .bm-menu {
     // border-right: 1px solid rgba(grey, 0.8);
     background-color: black;
 
-    .bm-overlay {
-        background: rgba(0, 0, 0, 0.8);
-    }
-
-    .language-selector-menu {
-        z-index: -1;
-        position: fixed;
-        top: 0;
-        right: 0;
-    }
-
-    .side-menu-footer {
-        z-index: -1;
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        // width: calc(100vw - 200px);
-        width: 100vw;
-        border-bottom: 1px solid rgba(grey, 0.8);
-        display: flex;
-        opacity: 0.99;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        padding-bottom: 5px;
-        padding-top: 15px;
-        background-color: rgba(black, 0.8);
-        font-size: 1em;
-        div {
-            margin: 5px;
-            flex: 1 1;
-            text-align: center;
-            img {
-                width: 40px;
-                //border: 1px solid green;
-            }
-        }
+    &:first-child {
+        margin-top: $topbar-height;
+        border-top: 1px solid rgba(grey, 0.8);
     }
 
     .side-menu-item {
@@ -50,7 +18,17 @@
         border-bottom: 1px solid rgba(grey, 0.8);
         border-right: 1px solid rgba(grey, 0.8);
         padding: 15px;
-        font-size: 1.5em;
+        font-size: 1.2em;
+
+        @include media-breakpoint-down(sm) {
+            font-size: 1.1em;
+            padding: 10px;
+        }
+
+        @include media-breakpoint-up(md) {
+            font-size: 1.4em;
+            padding: 10px;
+        }
 
         &.key-menu {
             background-color: blue;
@@ -68,6 +46,106 @@
             cursor: pointer;
             background-color: rgba(grey, 0.4);
             color: yellow;
+        }
+    }
+
+    .top-header-menu-container {
+        //z-index: -1;
+        position: fixed;
+        top: 0;
+        right: 0;
+        //border-bottom: 1px solid rgba(grey, 0.8);
+        width: 100vw;
+        background-color: rgba(black, 0.8);
+        padding: 5px;
+
+        height: $topbar-height;
+
+        .top-header-menu-inner {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+            //    border: 1px solid blue;
+
+            h2 {
+                margin: 0;
+                margin-left: 5px;
+                display: inline-block;
+
+                font-weight: 400;
+                padding: 0;
+                font-size: 1.3em;
+                color: yellow;
+            }
+
+            .lang-selector-menu {
+                button {
+                    display: inline-block;
+                    //margin-top: 2px;
+                    background: #a93c99;
+                    box-shadow: 0 16px 18px 0 rgba(0, 0, 0, 0.13), 0 4px 6px 0 rgba(0, 0, 0, 0.16);
+                    border-radius: 2px;
+                    border: none;
+                    color: white;
+                    padding: 7px 10px;
+                    outline: none;
+                    cursor: pointer;
+                    opacity: 1;
+                    transition: all 150ms ease-in-out;
+                    text-decoration: none;
+                    &:visited {
+                        text-decoration: none;
+                    }
+                    &:hover {
+                        text-decoration: underline;
+                        filter: brightness(110%);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.side-menu-footer {
+    &.open {
+        z-index: 10000;
+        opacity: 1;
+    }
+
+    // safari
+    /*
+    &.closed {
+        z-index: -1;
+        opacity: 0;
+        display: none;
+    }*/
+
+    transition: opacity 600ms ease-out;
+    //z-index: -1;
+    position: fixed;
+    display: none;
+    bottom: 0;
+    right: 0;
+    // width: calc(100vw - 200px);
+    width: 100vw;
+    //border-bottom: 1px solid rgba(grey, 0.8);
+    display: flex;
+    opacity: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 10px;
+    padding-top: 15px;
+    background-color: rgba(black, 0.4);
+    font-size: 1em;
+    div {
+        margin: 5px;
+        flex: 1 1;
+        text-align: center;
+        img {
+            width: 40px;
+            //border: 1px solid green;
         }
     }
 }

@@ -13,11 +13,23 @@ $title-opacity: 0.8;
     flex-direction: column;
     .fullsize-video-bg {
         flex: 1 1 auto;
+        .fullsize-video-bg-viewport {
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+            align-items: center;
 
-        @include media-breakpoint-down(sm) {
-            // flex: 0 1 auto;
+            video {
+                opacity: 0.35;
+                @include media-breakpoint-down(sm) {
+                    transform: translateY(120px);
+                    object-fit: scale-down;
+                    max-width: 80vw;
+                }
+            }
         }
     }
+
     .fullsize-video-bg-inner {
         @include media-breakpoint-down(sm) {
             //height: 60vh;
@@ -29,7 +41,8 @@ $title-opacity: 0.8;
         > div {
             flex: 1 1 auto;
             @include media-breakpoint-down(sm) {
-                // margin-top: 5em;
+                margin-top: 15vh;
+                align-self: flex-start;
             }
 
             padding: 0 2em;
