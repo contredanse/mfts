@@ -148,8 +148,7 @@ class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
                                 </div>
 
                                 <div className="control-bar-ctn__panel">
-                                    <div className="control-bar-ctn__panel__left" />
-                                    <div className="control-bar-ctn__panel__center">
+                                    <div className="control-bar-ctn__panel__left">
                                         {props.enablePrevControl && (
                                             <PrevButton
                                                 tooltip={tr('play_previous')}
@@ -174,6 +173,7 @@ class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
                                             />
                                         )}
                                     </div>
+                                    <div className="control-bar-ctn__panel__center" />
 
                                     <div className="control-bar-ctn__panel__right">
                                         {props.enableSpeedControl && (
