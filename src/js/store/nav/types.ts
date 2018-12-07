@@ -17,4 +17,6 @@ export const enum NavActionTypes {
 
 export interface NavState {
     readonly navBreadcrumb?: NavBreadcrumbProps;
+    readonly previousLocation?: string;
+    readonly currentLocation?: string;
 }
