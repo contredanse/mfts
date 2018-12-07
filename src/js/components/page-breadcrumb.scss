@@ -13,7 +13,7 @@ $breadcrumb-font: $primary-font;
     //max-width: 80vw;
     font-family: $breadcrumb-font;
     text-shadow: 1px 1px 1px rgba(black, 0.4);
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: 500;
     color: rgba(white, 0.9);
     text-decoration: none;
@@ -22,13 +22,15 @@ $breadcrumb-font: $primary-font;
         &:hover {
             //border: 1px solid red;
             cursor: pointer;
+            color: yellow;
         }
+
         &::after {
             content: '';
             display: block;
             width: 0;
             height: 1px;
-            background: rgba(yellow, 0.4);
+            background: rgba(yellow, 0.2);
             transition: width 0.3s;
         }
         &:hover::after {
