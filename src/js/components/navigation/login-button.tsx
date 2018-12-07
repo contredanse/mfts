@@ -3,25 +3,27 @@ import { Dispatch } from 'redux';
 import { AuthUser, getUserProfile, logoutUser } from '@src/store/auth/auth';
 import { connect } from 'react-redux';
 import React from 'react';
-import './login-menu.scss';
+import './login-button.scss';
+import { RouteComponentProps, withRouter } from 'react-router';
 
-type LoginMenuProps = {
+type LoginButtonProps = {
     lang: string;
     handleLogout: () => void;
     handleLoginRequest: () => void;
+    afterLogout?: () => void;
     authenticated: boolean;
     user?: AuthUser | null;
     getUserProfile: () => void;
-};
+} & RouteComponentProps<{}>;
 
-type LoginMenuState = {};
+type LoginButtonState = {};
 
 const defaultProps = {};
 
-export class LoginMenu extends React.PureComponent<LoginMenuProps, LoginMenuState> {
+export class LoginButton extends React.PureComponent<LoginButtonProps, LoginButtonState> {
     static defaultProps = defaultProps;
 
-    constructor(props: LoginMenuProps) {
+    constructor(props: LoginButtonProps) {
         super(props);
     }
 
@@ -33,23 +35,19 @@ export class LoginMenu extends React.PureComponent<LoginMenuProps, LoginMenuStat
 
     handleLogout = () => {
         this.props.handleLogout();
+        if (this.props.afterLogout) {
+            this.props.afterLogout();
+        }
     };
 
     render() {
         const { authenticated, user, handleLoginRequest } = this.props;
         return (
-            <div className="login-menu-item-container">
+            <div className="login-button-container">
                 {authenticated ? (
-                    <div>
-                        <div>{user && user.email}</div>
-                        <div>
-                            <button onClick={this.handleLogout}>Logout</button>
-                        </div>
-                    </div>
+                    <button onClick={this.handleLogout}>Logout</button>
                 ) : (
-                    <div>
-                        <button onClick={handleLoginRequest}>Login</button>
-                    </div>
+                    <button onClick={handleLoginRequest}>Login</button>
                 )}
             </div>
         );
@@ -68,9 +66,9 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
     getUserProfile: () => getUserProfile()(dispatch),
 });
 
-const ConnectedLoginMenu = connect(
+const ConnectedLoginButton = connect(
     mapStateToProps,
     mapDispatchToProps
-)(LoginMenu);
+)(LoginButton);
 
-export default ConnectedLoginMenu;
+export default withRouter(ConnectedLoginButton);

@@ -67,7 +67,7 @@ $topbar-height: 40px;
 
     transition: opacity 600ms ease-out;
     z-index: -1;
-    display: none;
+    display: flex;
     position: fixed;
     bottom: 0;
     right: 0;
@@ -78,16 +78,28 @@ $topbar-height: 40px;
     //border-bottom: 1px solid rgba(grey, 0.8);
 
     opacity: 0;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     padding-bottom: 10px;
     padding-top: 15px;
     background-color: rgba(black, 0.4);
     font-size: 1em;
-    div {
+    .side-menu-footer-center {
         margin: 5px;
         flex: 1 1;
+        text-align: center;
+        img {
+            width: 40px;
+            //border: 1px solid green;
+        }
+    }
+
+    .side-menu-footer-right {
+        position: absolute;
+        right: 0px;
+        margin: 5px;
+        //flex: 1 1;
         text-align: center;
         img {
             width: 40px;
@@ -126,22 +138,31 @@ $topbar-height: 40px;
         flex-direction: row;
         justify-content: flex-start;
         align-items: flex-start;
-        //    border: 1px solid blue;
+        width: 100%;
+        //border: 1px solid red;
+        div {
+            flex: 1 1;
+            h2 {
+                margin: 5px;
+                line-height: 1em;
+                //margin-left: 5px;
+                display: inline-block;
 
-        h2 {
-            margin: 5px;
-            line-height: 1em;
-            //margin-left: 5px;
-            display: inline-block;
-
-            font-weight: 400;
-            padding: 0;
-            font-size: 1.3em;
-            color: yellow;
+                font-weight: 400;
+                padding: 0;
+                font-size: 1.3em;
+                color: yellow;
+            }
         }
 
-        .lang-selector-menu {
-            border: 1px solid blue;
+        .side-menu-header-right {
+            flex: 0 1;
+            flex-wrap: wrap;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: flex-end;
+
             button {
                 display: inline-block;
                 //margin-top: 2px;
@@ -162,7 +183,7 @@ $topbar-height: 40px;
                 }
 
                 &:hover {
-                    text-decoration: underline;
+                    //text-decoration: underline;
                     filter: brightness(110%);
                 }
             }

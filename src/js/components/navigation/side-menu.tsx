@@ -12,6 +12,7 @@ import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import * as uiActions from '@src/store/ui/actions';
 import { getMainMenuRoute, isScreenAdaptedForHelixMenu } from '@src/helpers/main-menu-redirect';
+import ConnectedLoginButton from '@src/components/navigation/login-button';
 
 // To not bundle svg
 const Menu = require('react-burger-menu/lib/menus/pushRotate');
@@ -121,30 +122,48 @@ export class SideMenu extends React.PureComponent<Props, State> {
             <>
                 <div className={headerClass}>
                     <div className="side-menu-header-inner">
-                        <div>
+                        <div className="side-menu-header-left">
                             <h2>Material for the spine</h2>
                         </div>
-                        <div className="lang-selector-menu">
-                            <ConnectedLangSelector>
-                                {({ nextLang, updateLang, currentLang }) => (
-                                    <>
-                                        <button color="inherit">{currentLang}</button>
-
-                                        <button color="inherit" onClick={() => updateLang(nextLang)}>
-                                            {nextLang}
-                                        </button>
-                                    </>
-                                )}
-                            </ConnectedLangSelector>
+                        <div className="side-menu-header-right">
+                            <ConnectedLoginButton
+                                lang={lang}
+                                afterLogout={() => {
+                                    this.props.history.push(`/`);
+                                    if (this.props.onStateChange) {
+                                        this.props.onStateChange({ isOpen: false });
+                                    }
+                                }}
+                                handleLoginRequest={() => {
+                                    this.props.history.push(`/${lang}/login`);
+                                    if (this.props.onStateChange) {
+                                        this.props.onStateChange({ isOpen: false });
+                                    }
+                                }}
+                            />
                         </div>
                     </div>
                 </div>
 
                 <div className={footerClass}>
-                    <div>
-                        <img src={contredanseLogo} />
+                    <div className="side-menu-footer-center">
+                        <div>
+                            <img src={contredanseLogo} />
+                        </div>
+                        <div>© Contredanse Editions, 2018</div>
                     </div>
-                    <div>© Contredanse Editions, 2018</div>
+
+                    <div className="side-menu-footer-right">
+                        <ConnectedLangSelector>
+                            {({ nextLang, updateLang, currentLang }) => (
+                                <>
+                                    <button color="inherit" onClick={() => updateLang(nextLang)}>
+                                        {nextLang}
+                                    </button>
+                                </>
+                            )}
+                        </ConnectedLangSelector>
+                    </div>
                 </div>
 
                 <Menu
