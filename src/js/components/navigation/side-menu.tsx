@@ -15,6 +15,7 @@ import { getMainMenuRoute, isScreenAdaptedForHelixMenu } from '@src/helpers/main
 
 // To not bundle svg
 const Menu = require('react-burger-menu/lib/menus/pushRotate');
+// import { pushRotate as Menu } from 'react-burger-menu'
 
 type Props = {
     isOpen: boolean;
@@ -60,13 +61,44 @@ const menuItems = {
     },
 };
 
-/*
-const menuRoutes = {
-    home: (lang: string) => history.push(`/`),
-    helix: (lang: string) => history.push(`/${lang}/menu`),
-    'page-list': (lang: string) => history.push(`/${lang}/page-list`),
-    about: (lang: string) => history.push(`/${lang}/about`),
-}*/
+const menuStyles = {
+    /*
+    bmBurgerButton: {
+        position: 'fixed',
+        width: '36px',
+        height: '30px',
+        left: '36px',
+        top: '36px'
+    },
+    bmBurgerBars: {
+        background: '#373a47'
+    },
+    bmCrossButton: {
+        height: '24px',
+        width: '24px'
+    },
+    bmCross: {
+        background: '#bdc3c7'
+    },
+    bmMenu: {
+        background: '#373a47',
+        padding: '2.5em 1.5em 0',
+        fontSize: '1.15em'
+    },
+    bmMorphShape: {
+        fill: '#373a47'
+    },
+    bmItemList: {
+        color: '#b8b7ad',
+        padding: '0.8em'
+    },
+    bmItem: {
+        display: 'inline-block'
+    },*/
+    bmOverlay: {
+        background: 'rgba(0, 0, 0, 0.8)',
+    },
+};
 
 export class SideMenu extends React.PureComponent<Props, State> {
     static defaultProps = defaultProps;
@@ -84,12 +116,34 @@ export class SideMenu extends React.PureComponent<Props, State> {
 
         return (
             <Menu
-                width={270}
+                styles={menuStyles}
+                width={250}
                 isOpen={isOpen}
                 onStateChange={onStateChange}
                 pageWrapId={'page-wrap'}
                 outerContainerId={'outer-container'}
             >
+                <div className="language-selector-menu">
+                    <ConnectedLangSelector>
+                        {({ nextLang, updateLang, currentLang }) => (
+                            <>
+                                <button color="inherit">{currentLang}</button>
+
+                                <button color="inherit" onClick={() => updateLang(nextLang)}>
+                                    {nextLang}
+                                </button>
+                            </>
+                        )}
+                    </ConnectedLangSelector>
+                </div>
+
+                <div className="side-menu-footer">
+                    <div>
+                        <img src={contredanseLogo} />
+                    </div>
+                    <div>© Contredanse Editions, 2018</div>
+                </div>
+
                 {Object.entries(menuItems).map(([key, menuItem]) => {
                     if ('hidden' in menuItem && menuItem.hidden === true) {
                         return null;
@@ -126,25 +180,6 @@ export class SideMenu extends React.PureComponent<Props, State> {
                         }
                     }}
                 />
-
-                <ConnectedLangSelector>
-                    {({ nextLang, updateLang, currentLang }) => (
-                        <>
-                            <button color="inherit">{currentLang}</button>
-
-                            <button color="inherit" onClick={() => updateLang(nextLang)}>
-                                {nextLang}
-                            </button>
-                        </>
-                    )}
-                </ConnectedLangSelector>
-
-                <div className="side-menu-footer">
-                    <div>
-                        <img src={contredanseLogo} />
-                    </div>
-                    <div>© Contredanse Editions, 2018</div>
-                </div>
             </Menu>
         );
     }
