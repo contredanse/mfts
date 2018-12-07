@@ -1,4 +1,5 @@
 @import '../../styles/_variables.scss';
+@import '../../styles/_media-queries.scss';
 
 $header-section-height: 20px;
 
@@ -120,7 +121,7 @@ $max-video-width: 720px;
 
         .page-single-video-layout {
             flex: auto;
-            justify-items: center;
+            justify-content: center;
             align-items: center;
             margin-bottom: $single-video-margin-bottom;
 

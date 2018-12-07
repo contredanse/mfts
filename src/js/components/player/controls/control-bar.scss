@@ -2,7 +2,7 @@
 @import '../../../../styles/_media-queries.scss';
 
 $bg-gradient-color: grey;
-$max-controlbar-width: 900px;
+$max-controlbar-width: 1000px;
 //$max-controlbar-width: 100%;
 
 .control-bar-ctn {
@@ -11,12 +11,13 @@ $max-controlbar-width: 900px;
 
     //height: 100px;
 
+    /*
     background: linear-gradient(
         to bottom,
         rgba($bg-gradient-color, 0.01) 0%,
         rgba($bg-gradient-color, 0.2) 60%,
         rgba($bg-gradient-color, 0.8) 100%
-    );
+    );*/
 
     opacity: 1;
     transition: opacity $hide-animation-timeout ease-in;
@@ -58,40 +59,23 @@ $max-controlbar-width: 900px;
         }
 
         &__left {
-            @include media-breakpoint-down(sm) {
-                display: none;
-            }
-            flex: 1;
+            //@include media-breakpoint-down(sm) {
+            //    display: none;
+            //}
+            flex: 0;
+            padding-right: 10px;
             justify-content: flex-start;
-            align-items: flex-start;
-            display: flex;
-        }
-        &__center {
-            display: flex;
-            flex: auto;
+            //align-items: flex-start;
             align-items: center;
-            justify-content: center;
             background: linear-gradient(to top, rgba(black, 0.01) 0%, rgba(black, 0.4) 10%, rgba(black, 1) 100%);
-            //
-            //border: 1px solid yellow;
-            @include media-breakpoint-down(sm) {
-                //align-items: center;
-                justify-content: flex-start;
-
-                padding-bottom: 10px;
-                background: linear-gradient(to left, rgba(black, 0.01) 0%, rgba(black, 0.4) 10%, rgba(black, 1) 100%);
-                //flex: 1 1;
-
-                //border: 1px solid white;
-            }
-
+            display: flex;
             button {
                 &.ReplayButton,
                 &.PlayButton,
                 &.PauseButton {
                     margin: 10px;
-                    width: 50px;
-                    height: 50px;
+                    width: 40px;
+                    height: 40px;
                     opacity: 0.9;
                 }
             }
@@ -104,6 +88,26 @@ $max-controlbar-width: 900px;
                     }
                 }
             }
+        }
+        &__center {
+            display: flex;
+            flex: auto;
+            align-items: center;
+            justify-content: center;
+            //
+            //
+            //border: 1px solid yellow;
+            /*
+            @include media-breakpoint-down(sm) {
+                //align-items: center;
+                justify-content: flex-start;
+
+                padding-bottom: 10px;
+                background: linear-gradient(to left, rgba(black, 0.01) 0%, rgba(black, 0.4) 10%, rgba(black, 1) 100%);
+                //flex: 1 1;
+
+                //border: 1px solid white;
+            }*/
         }
         &__right {
             flex: 1;
