@@ -13,7 +13,7 @@ $font: $primary-font;
     background-color: black;
     overflow: hidden;
     font-family: $primary-font; //"Times New Roman", Times;
-    font-size: 18px;
+    font-size: 1.2em;
     color: white;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -70,7 +70,7 @@ $font: $primary-font;
     font-style: italic;
 }
 .spiral-flying-label span.section {
-    font-weight: bold;
+    font-weight: 500;
     font-size: 1.2em;
 }
 .spiral-flying-label span.open {
