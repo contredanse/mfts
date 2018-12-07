@@ -23,12 +23,13 @@ $button-margin: 0px;
 $bg-gradient-color: black;
 
 .app-bar-container {
+    /*
     background: linear-gradient(
         to top,
         rgba($bg-gradient-color, 0.01) 0%,
         rgba($bg-gradient-color, 1) 50%,
         rgba($bg-gradient-color, 1) 100%
-    );
+    );*/
 
     background-color: rgba(black, 0.01);
 
