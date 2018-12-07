@@ -4,6 +4,12 @@ import '@thirdparty/spiral.scss';
 
 import { IJsonMenu, IJsonMenuPage } from '@data/json/data-menu';
 import { RouteComponentProps, withRouter } from 'react-router';
+import { ApplicationState } from '@src/store';
+import { Dispatch } from 'redux';
+import * as uiActions from '@src/store/ui/actions';
+import { connect } from 'react-redux';
+import { AppBarComponent } from '@src/components/navigation/app-bar';
+import { NavState } from '@src/store/nav';
 
 type HelixMenuProps = {
     lang: string;
@@ -34,7 +40,7 @@ class HelixMenu extends React.PureComponent<HelixMenuProps, HelixMenuState> {
 
     componentDidMount() {
         const { jsonDataMenu, lang, openedPageId } = this.props;
-
+        console.log('HELIX WITH SELECTED NODE ID', openedPageId);
         this.spiralMenu = new SpiralMenu({
             container: this.containerRef.current,
             content: jsonDataMenu,
@@ -48,10 +54,11 @@ class HelixMenu extends React.PureComponent<HelixMenuProps, HelixMenuState> {
 
     componentDidUpdate() {
         this.spiralMenu.setLanguage(this.props.lang);
+        /*
         const { openedPageId } = this.props;
         if (openedPageId && this.spiralMenu.selectNode) {
             this.spiralMenu.selectNode(openedPageId);
-        }
+        }*/
     }
 
     render() {
