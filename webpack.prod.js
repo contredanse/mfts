@@ -103,9 +103,9 @@ module.exports = merge(common, {
                     {
                         loader: 'css-loader', // translates CSS into CommonJS
                         options: {
-                            sourceMap: false,
-                            modules: false, // use CSS-Modules to scope styles
-                            importLoader: 2,
+                            //sourceMap: false,
+                            //modules: false, // use CSS-Modules to scope styles
+                            //importLoader: 2,
                         },
                     },
 
