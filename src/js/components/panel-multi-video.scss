@@ -1,3 +1,5 @@
+@import '../../styles/_variables.scss';
+@import '../../styles/_media-queries.scss';
 .panel-multi-video-container {
     position: relative;
     display: flex;
@@ -59,6 +61,8 @@
 
         .autoscale-video-container {
             height: auto; // Fix height !!!
+
+            max-width: 500px;
 
             // Simulate grid-gap
             // margin: 0 5px;
