@@ -115,9 +115,31 @@ export class SideMenu extends React.PureComponent<Props, State> {
         const { lang } = this.props;
 
         const footerClass = isOpen ? 'side-menu-footer open' : 'side-menu-footer closed';
+        const headerClass = isOpen ? 'side-menu-header open' : 'side-menu-header closed';
 
         return (
             <>
+                <div className={headerClass}>
+                    <div className="side-menu-header-inner">
+                        <div>
+                            <h2>Material for the spine</h2>
+                        </div>
+                        <div className="lang-selector-menu">
+                            <ConnectedLangSelector>
+                                {({ nextLang, updateLang, currentLang }) => (
+                                    <>
+                                        <button color="inherit">{currentLang}</button>
+
+                                        <button color="inherit" onClick={() => updateLang(nextLang)}>
+                                            {nextLang}
+                                        </button>
+                                    </>
+                                )}
+                            </ConnectedLangSelector>
+                        </div>
+                    </div>
+                </div>
+
                 <div className={footerClass}>
                     <div>
                         <img src={contredanseLogo} />
@@ -133,27 +155,6 @@ export class SideMenu extends React.PureComponent<Props, State> {
                     pageWrapId={'page-wrap'}
                     outerContainerId={'outer-container'}
                 >
-                    <div className="top-header-menu-container">
-                        <div className="top-header-menu-inner">
-                            <div>
-                                <h2>Material for the spine</h2>
-                            </div>
-                            <div className="lang-selector-menu">
-                                <ConnectedLangSelector>
-                                    {({ nextLang, updateLang, currentLang }) => (
-                                        <>
-                                            <button color="inherit">{currentLang}</button>
-
-                                            <button color="inherit" onClick={() => updateLang(nextLang)}>
-                                                {nextLang}
-                                            </button>
-                                        </>
-                                    )}
-                                </ConnectedLangSelector>
-                            </div>
-                        </div>
-                    </div>
-
                     {Object.entries(menuItems).map(([key, menuItem]) => {
                         if ('hidden' in menuItem && menuItem.hidden === true) {
                             return null;
