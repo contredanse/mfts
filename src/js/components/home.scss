@@ -44,7 +44,7 @@ $title-opacity: 0.9;
         > div {
             flex: 1 1 auto;
             @include media-breakpoint-down(sm) {
-                margin-top: 15vh;
+                margin-top: 20vh;
                 align-self: flex-start;
             }
 

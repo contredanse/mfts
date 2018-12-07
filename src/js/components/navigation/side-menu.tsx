@@ -118,6 +118,13 @@ export class SideMenu extends React.PureComponent<Props, State> {
 
         return (
             <>
+                <div className={footerClass}>
+                    <div>
+                        <img src={contredanseLogo} />
+                    </div>
+                    <div>© Contredanse Editions, 2018</div>
+                </div>
+
                 <Menu
                     styles={menuStyles}
                     width={220}
@@ -184,12 +191,6 @@ export class SideMenu extends React.PureComponent<Props, State> {
                         }}
                     />
                 </Menu>
-                <div className={footerClass}>
-                    <div>
-                        <img src={contredanseLogo} />
-                    </div>
-                    <div>© Contredanse Editions, 2018</div>
-                </div>
             </>
         );
     }

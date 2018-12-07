@@ -109,6 +109,7 @@ $topbar-height: 50px;
 
 .side-menu-footer {
     &.open {
+        display: flex;
         z-index: 10000;
         opacity: 1;
     }
@@ -122,15 +123,17 @@ $topbar-height: 50px;
     }*/
 
     transition: opacity 600ms ease-out;
-    //z-index: -1;
-    position: fixed;
+    z-index: -1;
     display: none;
+    position: fixed;
     bottom: 0;
     right: 0;
+    left: 0;
+    margin: 0 auto;
     // width: calc(100vw - 200px);
-    width: 100vw;
+    //width: 100vw;
     //border-bottom: 1px solid rgba(grey, 0.8);
-    display: flex;
+
     opacity: 0;
     flex-direction: column;
     justify-content: flex-start;

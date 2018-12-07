@@ -4,6 +4,12 @@
 .login-form {
     background: #ffffff;
     padding: 20px 30px;
+
+    @include media-breakpoint-down(sm) {
+        padding: 10px 10px;
+        font-size: 0.95em;
+    }
+
     box-shadow: 0 14px 8px 0 rgba(0, 0, 0, 0.08), 0 9px 16px 4px rgba(0, 0, 0, 0.12);
     //max-width: 50%;
     color: black;
@@ -16,7 +22,8 @@
         margin-right: auto;
         margin-top: 1.5em;
         margin-bottom: 0.5em;
-        width: 100px;
+        max-width: 100px;
+        width: 10vh;
     }
 
     h2 {
