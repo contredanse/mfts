@@ -12,7 +12,12 @@
         //grid-template-columns: repeat(5,1fr);
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         grid-gap: 15px;
-        @include media-breakpoint-down(sm) {
+
+        @include media-breakpoint-up(lg) {
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+
+        @include media-breakpoint-down(xs) {
             grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
             grid-gap: 5px;
         }
