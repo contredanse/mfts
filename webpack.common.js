@@ -1,5 +1,7 @@
 const path = require('path');
 
+var ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+
 module.exports = {
     entry: {
         // Polyfill needed only in production
@@ -36,6 +38,7 @@ module.exports = {
             //
             // NEED CAREFUL TESTS, BABEL 7.rc.1 TYPESCRIPT SUPPORT IS
             // NOT YET USABLE
+            /*
             {
                 test: /\.ts(x?)$/,
                 exclude: /node_modules/,
@@ -54,6 +57,23 @@ module.exports = {
                             useBabel: false,
                             useCache: true,
                             silent: false,
+                        },
+                    },
+                ],
+            },*/
+
+            {
+                test: /\.tsx?$/,
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: 'babel-loader', // For polyfilling
+                    },
+                    {
+                        loader: 'ts-loader',
+                        options: {
+                            // IMPORTANT! use transpileOnly mode to speed-up compilation
+                            transpileOnly: true,
                         },
                     },
                 ],
@@ -115,5 +135,5 @@ module.exports = {
         ],
     },
 
-    plugins: [],
+    plugins: [new ForkTsCheckerWebpackPlugin()],
 };
