@@ -4,12 +4,6 @@ import '@thirdparty/spiral.scss';
 
 import { IJsonMenu, IJsonMenuPage } from '@data/json/data-menu';
 import { RouteComponentProps, withRouter } from 'react-router';
-import { ApplicationState } from '@src/store';
-import { Dispatch } from 'redux';
-import * as uiActions from '@src/store/ui/actions';
-import { connect } from 'react-redux';
-import { AppBarComponent } from '@src/components/navigation/app-bar';
-import { NavState } from '@src/store/nav';
 
 type HelixMenuProps = {
     lang: string;
