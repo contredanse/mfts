@@ -32,12 +32,14 @@
         ]
     },
     "browserslist": [
+        "last 2 versions",
         "chrome >= 57",
         "firefox >= 54",
         "safari >= 9",
         "edge >= 15",
-        "last 2 versions",
-        "not dead"
+        "not dead",
+        "not ie <= 11",
+        "not op_mini all"
     ],
     "devDependencies": {
         "@babel/core": "7.2.0",
