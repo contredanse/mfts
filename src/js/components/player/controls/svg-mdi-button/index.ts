@@ -1,4 +1,4 @@
-export { default as Button, ButtonProps } from '../button';
+export { default as Button } from '../button';
 export { default as PlayButton } from './play-button';
 export { default as PauseButton } from './pause-button';
 export { default as PrevButton } from './prev-button';
