@@ -80,7 +80,6 @@
         "@types/throttle-debounce": "^1.1.0",
         "@types/yup": "^0.26.3",
         "autoprefixer": "^9.4.2",
-        "awesome-typescript-loader": "^5.2.1",
         "babel-core": "^7.0.0-bridge.0",
         "babel-jest": "^23.6.0",
         "babel-loader": "^8.0.4",
