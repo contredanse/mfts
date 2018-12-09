@@ -38,7 +38,9 @@ const menuItems = {
     menu: {
         label: { fr: 'Menu', en: 'Menu' },
         route: getMainMenuRoute,
-        hidden: !isScreenAdaptedForHelixMenu(),
+        hidden: (): boolean => {
+            return !isScreenAdaptedForHelixMenu();
+        },
     },
     list: {
         label: { fr: 'Recherche', en: 'Search' },
@@ -117,7 +119,7 @@ export class SideMenu extends React.PureComponent<Props, State> {
 
         const footerClass = isOpen ? 'side-menu-footer open' : 'side-menu-footer closed';
         const headerClass = isOpen ? 'side-menu-header open' : 'side-menu-header closed';
-
+        //alert('rerender');
         return (
             <>
                 <div className={headerClass}>
@@ -175,8 +177,11 @@ export class SideMenu extends React.PureComponent<Props, State> {
                     outerContainerId={'outer-container'}
                 >
                     {Object.entries(menuItems).map(([key, menuItem]) => {
-                        if ('hidden' in menuItem && menuItem.hidden === true) {
-                            return null;
+                        if ('hidden' in menuItem) {
+                            const hidden = typeof menuItem.hidden === 'function' ? menuItem.hidden() : menuItem.hidden;
+                            if (hidden) {
+                                return null;
+                            }
                         }
 
                         const label = lang === 'fr' ? menuItem.label.fr : menuItem.label.en;
