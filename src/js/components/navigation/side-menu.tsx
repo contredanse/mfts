@@ -208,6 +208,12 @@ export class SideMenu extends React.PureComponent<Props, State> {
 
                     <ConnectedLoginMenu
                         lang={lang}
+                        afterLogout={() => {
+                            this.props.history.push(`/`);
+                            if (this.props.onStateChange) {
+                                this.props.onStateChange({ isOpen: false });
+                            }
+                        }}
                         handleLoginRequest={() => {
                             this.props.history.push(`/${lang}/login`);
                             if (this.props.onStateChange) {

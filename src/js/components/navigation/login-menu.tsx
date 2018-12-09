@@ -4,11 +4,13 @@ import { AuthUser, getUserProfile, logoutUser } from '@src/store/auth/auth';
 import { connect } from 'react-redux';
 import React from 'react';
 import './login-menu.scss';
+import { RouteComponentProps, withRouter } from 'react-router';
 
 type LoginMenuProps = {
     lang: string;
     handleLogout: () => void;
     handleLoginRequest: () => void;
+    afterLogout?: () => void;
     authenticated: boolean;
     user?: AuthUser | null;
     getUserProfile: () => void;
@@ -33,6 +35,9 @@ export class LoginMenu extends React.PureComponent<LoginMenuProps, LoginMenuStat
 
     handleLogout = () => {
         this.props.handleLogout();
+        if (this.props.afterLogout) {
+            this.props.afterLogout();
+        }
     };
 
     render() {
