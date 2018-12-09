@@ -45,15 +45,18 @@ export class LoginMenu extends React.PureComponent<LoginMenuProps, LoginMenuStat
         return (
             <div className="login-menu-item-container">
                 {authenticated ? (
-                    <div>
+                    <div className="unauthenticated-container">
+                        <div>Welcome</div>
                         <div>{user && user.email}</div>
                         <div>
                             <button onClick={this.handleLogout}>Logout</button>
                         </div>
                     </div>
                 ) : (
-                    <div>
-                        <button onClick={handleLoginRequest}>Login</button>
+                    <div className="unauthenticated-container">
+                        <div>
+                            <button onClick={handleLoginRequest}>Login</button>
+                        </div>
                     </div>
                 )}
             </div>

@@ -2,8 +2,46 @@
 @import '../../../styles/_media-queries.scss';
 
 .login-menu-item-container {
-    margin: 5px;
+    margin-top: 15px;
     padding: 5px;
-    border: 1px solid blue;
-    border-radius: 5px;
+    border: 1px solid rgba(grey, 0.9);
+    //background-color: rgba(grey, 0.3);
+
+    .authenticated-container,
+    .unauthenticated-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        div {
+            margin-top: 10px;
+        }
+        //flex-wrap: wrap;
+    }
+
+    button {
+        display: inline-block;
+        //margin-top: 2px;
+        background: #a93c99;
+        box-shadow: 0 16px 18px 0 rgba(0, 0, 0, 0.13), 0 4px 6px 0 rgba(0, 0, 0, 0.16);
+        border-radius: 2px;
+        border: none;
+        color: white;
+        padding: 5px 10px;
+        outline: none;
+        cursor: pointer;
+        opacity: 1;
+        transition: all 150ms ease-in-out;
+        text-decoration: none;
+
+        &:visited {
+            text-decoration: none;
+        }
+
+        &:hover {
+            text-decoration: underline;
+            filter: brightness(110%);
+        }
+    }
 }
