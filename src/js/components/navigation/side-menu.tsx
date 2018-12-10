@@ -119,7 +119,7 @@ export class SideMenu extends React.PureComponent<Props, State> {
 
         const footerClass = isOpen ? 'side-menu-footer open' : 'side-menu-footer closed';
         const headerClass = isOpen ? 'side-menu-header open' : 'side-menu-header closed';
-        //alert('rerender');
+
         return (
             <>
                 <div className={headerClass}>
