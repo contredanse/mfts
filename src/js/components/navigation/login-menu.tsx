@@ -4,7 +4,6 @@ import { AuthUser, getUserProfile, logoutUser } from '@src/store/auth/auth';
 import { connect } from 'react-redux';
 import React from 'react';
 import './login-menu.scss';
-import { RouteComponentProps, withRouter } from 'react-router';
 
 type LoginMenuProps = {
     lang: string;
