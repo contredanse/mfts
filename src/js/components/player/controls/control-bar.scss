@@ -81,7 +81,8 @@ $max-controlbar-width: 1000px;
             }
             div {
                 &.loading-button {
-                    width: 50px;
+                    width: 40px;
+                    height: 40px;
                     margin: 10px;
                     img {
                         width: 100%;
@@ -112,10 +113,14 @@ $max-controlbar-width: 1000px;
         &__right {
             flex: 0;
             button {
+                //border: 1px solid blue;
+                width: 1.5em;
                 margin: 0;
                 margin-left: 3px;
-                zoom: 0.8;
+                //zoom: 0.8;
+
                 svg.mdi-icon {
+                    vertical-align: bottom;
                     fill: rgba(white, 0.9);
                 }
             }
