@@ -277,14 +277,6 @@ var SpiralMenu = function(settings) {
         return false;
     }
 
-    // find auto-selected node
-    var pathNodes = [];
-    if (settings.selectedNodeId) {
-        for (let node of self.content) {
-            findIdInNode(settings.selectedNodeId, node, pathNodes);
-        }
-    }
-
     // prepare startup content
     for (var i = 0; i < numSpirals; ++i) {
         prepareContent(self.content[i], 1, i);
@@ -292,6 +284,14 @@ var SpiralMenu = function(settings) {
         let rootLabel = self.content[i].label;
         self.labelContainer.appendChild(rootLabel.element);
         self.labels.push([rootLabel]);
+    }
+
+    // find auto-selected node
+    var pathNodes = [];
+    if (settings.selectedNodeId) {
+        for (let node of self.content) {
+            findIdInNode(settings.selectedNodeId, node, pathNodes);
+        }
     }
 
     for (let node of pathNodes) {
