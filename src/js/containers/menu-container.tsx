@@ -16,7 +16,7 @@ type MenuContainerProps = {
 
 type MenuContainerState = {};
 
-class MenuContainer extends React.Component<MenuContainerProps, MenuContainerState> {
+class MenuContainer extends React.PureComponent<MenuContainerProps, MenuContainerState> {
     constructor(props: MenuContainerProps) {
         super(props);
     }
@@ -43,7 +43,7 @@ class MenuContainer extends React.Component<MenuContainerProps, MenuContainerSta
     grepPageFromPreviousLocation(previousLocation?: string | null): string | undefined {
         if (previousLocation) {
             // Grep from page spec
-            console.log('previousLocation', previousLocation);
+            console.log('Menu::init - the previous location is', previousLocation);
             const regExp = /\/(en|fr)\/page\/([a-z0-9-_\.]+)$/i;
             const found = previousLocation.match(regExp);
 

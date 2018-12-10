@@ -289,6 +289,7 @@ var SpiralMenu = function(settings) {
     // find auto-selected node
     var pathNodes = [];
     if (settings.selectedNodeId) {
+        console.log('spiral.js::selectedNodeId', settings.selectedNodeId);
         for (let node of self.content) {
             findIdInNode(settings.selectedNodeId, node, pathNodes);
         }

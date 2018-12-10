@@ -34,7 +34,7 @@ class HelixMenu extends React.PureComponent<HelixMenuProps, HelixMenuState> {
 
     componentDidMount() {
         const { jsonDataMenu, lang, openedPageId } = this.props;
-        console.log('HELIX WITH SELECTED NODE ID', openedPageId);
+        console.log('HELIX::DIDMOUNT with selected page:', openedPageId);
         this.spiralMenu = new SpiralMenu({
             container: this.containerRef.current,
             content: jsonDataMenu,
@@ -47,6 +47,7 @@ class HelixMenu extends React.PureComponent<HelixMenuProps, HelixMenuState> {
     }
 
     componentDidUpdate() {
+        console.log('HELIX::DIDUPDATE');
         this.spiralMenu.setLanguage(this.props.lang);
         /*
         const { openedPageId } = this.props;
@@ -56,6 +57,7 @@ class HelixMenu extends React.PureComponent<HelixMenuProps, HelixMenuState> {
     }
 
     render() {
+        console.log('HELIX::RENDER');
         return (
             <div id="spiral-container" ref={this.containerRef}>
                 <canvas id="spiral-canvas" ref={this.canvasRef} />
@@ -66,6 +68,7 @@ class HelixMenu extends React.PureComponent<HelixMenuProps, HelixMenuState> {
 
     componentWillUnmount() {
         // The clean up
+        console.log('HELIX::CLEANUP');
         this.spiralMenu.clear();
         delete this.spiralMenu;
     }
