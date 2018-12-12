@@ -48,7 +48,7 @@ const styles = (theme: Theme) =>
 export type AppBarWithStylesProps = AppBarProps & WithStyles<typeof styles>;
 export type AppBarWithRouterProps = AppBarProps & RouteComponentProps<{}>;
 
-export const AppBarComponent: React.SFC<AppBarWithStylesProps & AppBarWithRouterProps> = props => {
+export const AppBarComponent: React.FC<AppBarWithStylesProps & AppBarWithRouterProps> = props => {
     const { classes, history, lang, onMenuOpenRequest } = props;
     //const currentPath = props.location.pathname;
 

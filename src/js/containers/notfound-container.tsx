@@ -4,7 +4,7 @@ import { RouteComponentProps, withRouter } from 'react-router';
 type NotFoundContainerProps = {} & RouteComponentProps<any>;
 type NotFoundContainerState = {};
 
-export const NotFoundComponent: React.SFC<{}> = props => {
+export const NotFoundComponent: React.FC<{}> = props => {
     return <h1 style={{ color: 'red' }}>Page not found!</h1>;
 };
 

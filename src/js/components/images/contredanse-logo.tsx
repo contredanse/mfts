@@ -8,7 +8,7 @@ const defaultProps = {
     alt: 'Contredanse',
 } as ContredanseLogoProps;
 
-export const ContredanseLogo: React.SFC<ContredanseLogoProps> = props => {
+export const ContredanseLogo: React.FC<ContredanseLogoProps> = props => {
     const { ...innerProps } = props;
     return <img src={contredanseLogo} {...innerProps} />;
 };
