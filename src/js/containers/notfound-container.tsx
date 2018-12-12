@@ -1,12 +1,11 @@
 import React from 'react';
 import { RouteComponentProps, withRouter } from 'react-router';
+import DocumentMeta from '@src/utils/document-meta';
+import { PageOverlay } from '@src/components/layout/page-overlay';
+import NotFound from '@src/components/not-found';
 
 type NotFoundContainerProps = {} & RouteComponentProps<any>;
 type NotFoundContainerState = {};
-
-export const NotFoundComponent: React.FC<{}> = props => {
-    return <h1 style={{ color: 'red' }}>Page not found!</h1>;
-};
 
 class NotFoundContainer extends React.Component<NotFoundContainerProps, NotFoundContainerState> {
     constructor(props: NotFoundContainerProps) {
@@ -15,9 +14,10 @@ class NotFoundContainer extends React.Component<NotFoundContainerProps, NotFound
 
     render() {
         return (
-            <div>
-                <NotFoundComponent />
-            </div>
+            <PageOverlay closeButton={false}>
+                <DocumentMeta title="404 - Not found" />
+                <NotFound />
+            </PageOverlay>
         );
     }
 }
