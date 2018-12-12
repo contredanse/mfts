@@ -30,7 +30,7 @@ const defaultState = {
     isFullscreen: false,
 };
 
-const LoadingMessage = () => "I'm loading...";
+const LoadingMessage: React.FC = () => <div>...</div>;
 
 const LoginContainer = lazy(() => import('./login-container'));
 
@@ -65,11 +65,7 @@ class App extends React.PureComponent<AppProps, AppState> {
             const lang = (match.params! as { lang: string }).lang;
             return (
                 <Switch>
-                    <Suspense
-                        fallback={() => {
-                            return null;
-                        }}
-                    >
+                    <Suspense fallback={<LoadingMessage />}>
                         <Route
                             exact={true}
                             path={`${match.path}/menu/:pageId?`}
