@@ -4,7 +4,9 @@ import DocumentMeta from '@src/utils/document-meta';
 import { PageOverlay } from '@src/components/layout/page-overlay';
 import NotFound from '@src/components/not-found';
 
-type NotFoundContainerProps = {} & RouteComponentProps<any>;
+type NotFoundContainerProps = {
+    lang?: string;
+} & RouteComponentProps<any>;
 type NotFoundContainerState = {};
 
 class NotFoundContainer extends React.Component<NotFoundContainerProps, NotFoundContainerState> {
@@ -16,7 +18,7 @@ class NotFoundContainer extends React.Component<NotFoundContainerProps, NotFound
         return (
             <PageOverlay closeButton={false}>
                 <DocumentMeta title="404 - Not found" />
-                <NotFound />
+                <NotFound lang={this.props.lang} />
             </PageOverlay>
         );
     }
