@@ -1,0 +1,19 @@
+@import '../../styles/_variables.scss';
+@import '../../styles/_media-queries.scss';
+
+$margin-bottom: 100px;
+
+.not-found-container {
+    display: flex;
+    flex: 1 1;
+    height: calc(100% - #{$margin-bottom});
+    justify-content: center;
+    align-items: center;
+    margin-bottom: $margin-bottom;
+
+    .not-found-inner {
+        h2 {
+            font-size: 1.3em;
+        }
+    }
+}
