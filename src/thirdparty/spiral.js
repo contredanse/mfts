@@ -80,7 +80,7 @@ var SpiralMenu = function(settings) {
                     }
                     break;
                 case 'page':
-                    // console.log("Sould open node : " + node[ "title_" + this.config.language ]);
+                    // console.log("Should open node : " + node[ "title_" + this.config.language ]);
                     navigationCallback(label.node);
                     break;
             }
@@ -290,12 +290,16 @@ var SpiralMenu = function(settings) {
     var pathNodes = [];
     if (settings.selectedNodeId) {
         console.log('spiral.js::selectedNodeId', settings.selectedNodeId);
+        console.log('spiral.js::self.content', self.content);
         for (let node of self.content) {
             findIdInNode(settings.selectedNodeId, node, pathNodes);
         }
+        console.log('spiral.js::pathNodes', pathNodes);
     }
 
     for (let node of pathNodes) {
+        console.log('spiral.js::openLabel', node.label);
+
         openLabel(node.label);
     }
 
