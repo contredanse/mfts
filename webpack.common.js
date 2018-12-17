@@ -108,6 +108,10 @@ module.exports = {
                 ],
             },
             {
+                test: /.mdx$/,
+                use: ['babel-loader', '@mdx-js/loader'],
+            },
+            {
                 test: /\.worker\.js$/,
                 use: { loader: 'worker-loader' },
             },
