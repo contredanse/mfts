@@ -5,6 +5,8 @@
     display: flex;
     flex: 1 1;
 
+    font-weight: lighter;
+
     @include media-breakpoint-up(xl) {
         justify-content: center;
         margin: 3em 5em 5em 0;
