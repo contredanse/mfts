@@ -409,7 +409,6 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
     private initAutoPlay() {
         if (this.props.autoPlay || this.props.playing) {
             if (!this.inAutoPlayInit) {
-                console.log('AUTIPLAY::INIT');
                 this.inAutoPlayInit = true;
                 this.play(
                     () => {
