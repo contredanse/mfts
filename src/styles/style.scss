@@ -8,16 +8,18 @@
 
 body {
     font-family: $primary-font;
-
     background-color: $body-bg;
-    /*
-    background-image: radial-gradient(
-            120% 600px at 50% 200px,
-            #1c99ff,
-            #7006be 120%
-    );*/
-
     color: $body-color;
+
+    // FIX FOR BOLDER APPEARANCE ON MAC DUE
+    // TO SUBPIXEL RENDERING !!!
+    // WARNING THIS HACK IS ONLY TO BE USED ON DARK/BLACK
+    // BACKGROUNDS... SUBPIXEL RENDERING DOES NOT WORK WELL
+    // ON DARK BACKGROUNDS AND WE DON'T HAVE MUCH OPTIONS.
+    // http://www.usabilitypost.com/2012/11/05/stop-fixing-font-smoothing/
+    // https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth
+    -moz-osx-font-smoothing: grayscale; /* Firefox */
+    -webkit-font-smoothing: antialiased; /* WebKit  */
 }
 
 .fullscreen {
