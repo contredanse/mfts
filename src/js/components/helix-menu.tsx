@@ -4,6 +4,7 @@ import '@thirdparty/spiral.scss';
 
 import { IJsonMenu, IJsonMenuPage } from '@data/json/data-menu';
 import { RouteComponentProps, withRouter } from 'react-router';
+import { cloneDeep } from 'lodash-es';
 
 type HelixMenuProps = {
     lang: string;
@@ -26,10 +27,13 @@ class HelixMenu extends React.PureComponent<HelixMenuProps, HelixMenuState> {
 
     readonly state: HelixMenuState = {};
 
+    readonly menuData: IJsonMenu[];
+
     constructor(props: HelixMenuProps) {
         super(props);
         this.canvasRef = React.createRef<HTMLCanvasElement>();
         this.containerRef = React.createRef<HTMLDivElement>();
+        this.menuData = cloneDeep(props.jsonDataMenu);
     }
 
     componentDidMount() {
@@ -37,7 +41,7 @@ class HelixMenu extends React.PureComponent<HelixMenuProps, HelixMenuState> {
         console.log('HELIX::DIDMOUNT with selected page:', openedPageId);
         this.spiralMenu = new SpiralMenu({
             container: this.containerRef.current,
-            content: jsonDataMenu,
+            content: this.menuData,
             language: lang,
             callback: (menuNode: IJsonMenuPage) => {
                 this.openPage(menuNode.page_id);
