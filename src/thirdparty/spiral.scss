@@ -70,8 +70,9 @@ $font: $primary-font;
     font-style: italic;
 }
 .spiral-flying-label span.section {
-    font-weight: 500;
-    font-size: 1.2em;
+    font-weight: 400;
+    font-size: 1em;
+    text-transform: uppercase;
 }
 .spiral-flying-label span.open {
     color: #aa0;
