@@ -2,7 +2,7 @@ var outdatedBrowserRework = require('outdated-browser-rework');
 
 outdatedBrowserRework({
     browserSupport: {
-        Chrome: 88, // Includes Chrome for mobile devices
+        Chrome: 57, // Includes Chrome for mobile devices
         Edge: 15,
         Safari: 11.1,
         'Mobile Safari': 10,
