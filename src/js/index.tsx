@@ -11,9 +11,9 @@ import App from './containers/app';
 
 import '@public/favicon.ico';
 
-//import 'typeface-karla';
+import 'typeface-karla';
 import 'typeface-source-sans-pro';
-import 'typeface-spectral';
+//import 'typeface-spectral';
 //import 'typeface-lato';
 //import 'typeface-quicksand';
 //import 'typeface-raleway';
