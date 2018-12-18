@@ -71,7 +71,7 @@ const LoginFormDictionary: BasicI18nDictionary = {
 
     to_continue_text: {
         en: "In order to continue and if you don't have one",
-        fr: "Afin de poursuivre la lecture et si vous ne l'avez pas encore",
+        fr: "Afin de poursuivre la lecture et si vous ne l'avez pas encore fait",
     },
 
     get_your_12_months_access: {
