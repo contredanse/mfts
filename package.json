@@ -147,6 +147,8 @@
         "typeface-lato": "^0.0.54",
         "typeface-quicksand": "^0.0.54",
         "typeface-raleway": "^0.0.54",
+        "typeface-source-sans-pro": "^0.0.54",
+        "typeface-spectral": "^0.0.54",
         "typesafe-actions": "^2.0.4",
         "typescript": "3.2.2",
         "url-loader": "^1.1.2",
