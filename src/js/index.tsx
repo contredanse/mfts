@@ -28,6 +28,8 @@ import { register as registerServiceWorker, unregister as unregisterServiceWorke
 import configureStore from './configureStore';
 import { isChrome } from '@src/utils/browser-detect';
 
+import './check-outdated-version';
+
 const initialState = window.initialReduxState;
 const store = configureStore(history, initialState);
 

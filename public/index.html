@@ -12,51 +12,30 @@
     <!-- Make sure theme-color is defined -->
     <meta name="theme-color" content="#000000">
 
+
   <style>
-      #pwa-version-notification {
-          visibility: hidden;
-          min-width: 250px;
-          margin-left: -125px;
-          background-color: #333;
+      #outdated {
+          display: none;
+          background-color: red;
           color: #fff;
           text-align: center;
           border-radius: 2px;
           padding: 16px;
-          position: fixed;
-          z-index: 1;
-          left: 50%;
-          bottom: 30px;
+          position: absolute;
+          left: 0;
+          width: 100%;
+          top: 0;
+          z-index: 1000000;
+          font-size: 20px;
       }
-      #pwa-version-notification.show {
+      #outdated.show {
           visibility: visible;
-          -webkit-animation: fadein 0.5s;
-          animation: fadein 0.5s;
       }
 
-      #pwa-version-notification a:hover {
+      #outdated a:hover {
           color: yellow;
       }
 
-      @-webkit-keyframes fadein {
-          from {
-              bottom: 0;
-              opacity: 0;
-          }
-          to {
-              bottom: 30px;
-              opacity: 1;
-          }
-      }
-      @keyframes fadein {
-          from {
-              bottom: 0;
-              opacity: 0;
-          }
-          to {
-              bottom: 30px;
-              opacity: 1;
-          }
-      }
   </style>
 
   </head>
@@ -65,9 +44,7 @@
       You need to enable JavaScript to run this app.
     </noscript>
     <div id="app"></div>
-    <!-- The notification for pwa -->
-    <div id="pwa-version-notification">
-        A new version of this app is available. Please <a id="reload">reload</a> the page.
-    </div>
+    <!-- The notification for outdated browsers -->
+    <div id="outdated"></div>
   </body>
 </html>

@@ -19,6 +19,7 @@ const Workbox = require('workbox-webpack-plugin');
 const DotenvPlugin = require('dotenv-webpack');
 const Dotenv = require('dotenv');
 const fs = require('fs');
+//const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
 
 const StatsWriterPlugin = require('webpack-stats-plugin').StatsWriterPlugin;
 
@@ -35,6 +36,9 @@ const distFolder = path.resolve(__dirname, 'dist');
 // Workbox worker is manually added to the static folder
 const workboxMainJs = require.resolve('workbox-sw');
 const workboxVersion = require(require.resolve('workbox-sw/package.json')).version;
+
+const outdatedMainJs = require.resolve('outdated-browser-rework');
+const outdatedVersion = require(require.resolve('outdated-browser-rework/package.json')).version;
 
 module.exports = merge(common, {
     devtool: 'hidden-source-map', // or false if you don't want source map
@@ -315,6 +319,7 @@ module.exports = merge(common, {
         new webpack.EnvironmentPlugin({
             'process.env.NODE_ENV': JSON.stringify('production'),
             NODE_ENV: JSON.stringify('production'),
+            OUTDATED_JS: `${distFolder}/public/static/js/outdated-browser-rework.${outdatedVersion}.js`,
         }),
 
         new webpack.LoaderOptionsPlugin({
@@ -410,6 +415,10 @@ module.exports = merge(common, {
             // Copy static .htaccess file for static assets
             { from: './public/static/.htaccess.dist', to: `${distFolder}/public/static/.htaccess`, toType: 'file' },
             { from: workboxMainJs, to: `${distFolder}/public/static/js/workbox-sw.${workboxVersion}.js` },
+            {
+                from: outdatedMainJs,
+                to: `${distFolder}/public/static/js/outdated-browser-rework.${outdatedVersion}.js`,
+            },
         ]),
 
         new CompressionPlugin({
