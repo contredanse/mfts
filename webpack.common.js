@@ -64,7 +64,7 @@ module.exports = {
 
             {
                 test: /\.tsx?$/,
-                //exclude: /node_modules/,
+                exclude: /node_modules/,
                 use: [
                     {
                         loader: 'babel-loader', // For polyfilling
@@ -83,7 +83,7 @@ module.exports = {
                 // you can use the following rule
                 //test: /\.[tj]sx?$/,
                 test: /\.(jsx|js|mjs)$/,
-                // exclude: /node_modules/,
+                exclude: /node_modules/,
                 use: [
                     {
                         loader: 'babel-loader',
