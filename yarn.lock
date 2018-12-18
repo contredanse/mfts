@@ -11521,6 +11521,11 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
+typeface-eb-garamond@^0.0.54:
+  version "0.0.54"
+  resolved "https://registry.yarnpkg.com/typeface-eb-garamond/-/typeface-eb-garamond-0.0.54.tgz#5274c1c8b5ceecaf64c4fa810a4b26c6d73359bf"
+  integrity sha512-dKmQ9uQ+0MpIbabTdpNYbRDAKcURiIlU7j8Zb1vbFhZWyoWEbanyvG+D2FzxnzdNyih8Oh6w1mWKlMRiONTnIw==
+
 typeface-eczar@^0.0.54:
   version "0.0.54"
   resolved "https://registry.yarnpkg.com/typeface-eczar/-/typeface-eczar-0.0.54.tgz#680e0a8a351b185888145f086dde68eec677fbb1"
