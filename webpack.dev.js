@@ -83,6 +83,7 @@ module.exports = merge(common, {
     devServer: {
         contentBase: path.resolve(__dirname, 'build'),
         port: 3001,
+        host: '0.0.0.0',
         //historyApiFallback: true,
         historyApiFallback: {
             rewrites: [
