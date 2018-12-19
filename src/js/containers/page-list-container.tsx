@@ -10,6 +10,7 @@ import memoize from 'memoize-one';
 import DocumentMeta from '@src/utils/document-meta';
 import { BasicI18nDictionary, getFromDictionary } from '@src/i18n/basic-i18n';
 import AppBarPortal from '@src/components/navigation/app-bar-portal';
+import { debounce, throttle } from 'throttle-debounce';
 
 type PageListContainerProps = {
     pageRepository: PageRepository;
@@ -34,6 +35,12 @@ const i18nDict: BasicI18nDictionary = {
 class PageListContainer extends React.PureComponent<PageListContainerProps, PageListContainerState> {
     readonly state: PageListContainerState;
 
+    updateFragment = debounce(120, (fragment: string) => {
+        this.setState({
+            filterText: fragment,
+        });
+    });
+
     constructor(props: PageListContainerProps) {
         super(props);
         this.state = {
@@ -52,19 +59,17 @@ class PageListContainer extends React.PureComponent<PageListContainerProps, Page
         });
     }
 
+    updateSearch = (e: React.SyntheticEvent<HTMLInputElement>) => {
+        const fragment = e.currentTarget.value;
+        this.updateFragment(fragment);
+    };
+
     filterPages = (list: IJsonPage[], filterText: string, lang: string): IJsonPage[] => {
         return this.props.pageRepository.findPages(filterText, lang);
         /*
         return list.filter((page: IJsonPage) => {
             return page.title[lang].includes(filterText) || page.keywords[lang].includes(filterText);
         });*/
-    };
-
-    updateSearch = (e: React.SyntheticEvent<HTMLInputElement>) => {
-        const fragment = e.currentTarget.value;
-        this.setState({
-            filterText: fragment,
-        });
     };
 
     openPage = (pageId: string) => {
@@ -93,7 +98,7 @@ class PageListContainer extends React.PureComponent<PageListContainerProps, Page
             <PageOverlay>
                 <DocumentMeta title={documentTitle} />
                 <AppBarPortal>
-                    <SearchBox onChange={this.updateSearch} />
+                    <SearchBox lang={lang} onChange={this.updateSearch} />
                 </AppBarPortal>
                 <PageList
                     pageRepository={this.props.pageRepository}
