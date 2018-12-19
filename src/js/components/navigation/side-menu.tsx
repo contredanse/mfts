@@ -130,21 +130,13 @@ export class SideMenu extends React.PureComponent<Props, State> {
                             <h2>Material for the spine</h2>
                         </div>
                         <div className="side-menu-header-right">
-                            <ConnectedLoginButton
-                                lang={lang}
-                                afterLogout={() => {
-                                    this.props.history.push(`/`);
-                                    if (this.props.onStateChange) {
-                                        this.props.onStateChange({ isOpen: false });
-                                    }
-                                }}
-                                handleLoginRequest={() => {
-                                    this.props.history.push(`/${lang}/login`);
-                                    if (this.props.onStateChange) {
-                                        this.props.onStateChange({ isOpen: false });
-                                    }
-                                }}
-                            />
+                            <ConnectedLangSelector>
+                                {({ currentLang, nextLang, toggleLang, updateLang }) => (
+                                    <div className="lang-selector-panel" onClick={() => updateLang(nextLang)}>
+                                        {nextLang === 'en' ? 'English' : 'Français'}
+                                    </div>
+                                )}
+                            </ConnectedLangSelector>
                         </div>
                     </div>
                 </div>
@@ -159,17 +151,7 @@ export class SideMenu extends React.PureComponent<Props, State> {
                         </div>
                     </div>
 
-                    <div className="side-menu-footer-right">
-                        <ConnectedLangSelector>
-                            {({ nextLang, updateLang, currentLang }) => (
-                                <>
-                                    <button color="inherit" onClick={() => updateLang(nextLang)}>
-                                        {nextLang}
-                                    </button>
-                                </>
-                            )}
-                        </ConnectedLangSelector>
-                    </div>
+                    <div className="side-menu-footer-right" />
                 </div>
 
                 <Menu
@@ -247,3 +229,23 @@ export const ConnectedSideMenu = withRouter(
         mapDispatchToProps
     )(SideMenu)
 );
+
+/*
+
+                            <ConnectedLoginButton
+                                lang={lang}
+                                afterLogout={() => {
+                                    this.props.history.push(`/`);
+                                    if (this.props.onStateChange) {
+                                        this.props.onStateChange({ isOpen: false });
+                                    }
+                                }}
+                                handleLoginRequest={() => {
+                                    this.props.history.push(`/${lang}/login`);
+                                    if (this.props.onStateChange) {
+                                        this.props.onStateChange({ isOpen: false });
+                                    }
+                                }}
+                            />
+
+ */

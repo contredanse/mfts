@@ -138,6 +138,21 @@ $topbar-height: 40px;
 }
 
 .side-menu-header {
+    .lang-selector-panel {
+        position: fixed;
+        right: 20px;
+        top: 15px;
+        color: white;
+        font-size: 1em;
+        cursor: pointer;
+        user-select: none;
+        z-index: 5500;
+        &:hover {
+            //text-decoration: underline;
+            color: $link-hover-color;
+        }
+    }
+
     transition: opacity 600ms ease-in;
     z-index: -1;
     &.open {
