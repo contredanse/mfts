@@ -14,6 +14,8 @@ import { connect } from 'react-redux';
 import * as uiActions from '@src/store/ui/actions';
 import { getMainMenuRoute } from '@src/helpers/main-menu-redirect';
 
+import ReactSVG from 'react-svg';
+
 type AppBarProps = {
     title: string;
     lang: string;
@@ -49,7 +51,7 @@ export const AppBarComponent: React.FC<AppBarWithRouterProps> = props => {
                     history.push(getMainMenuRoute(lang));
                 }}
             >
-                <img src={helixSvg} />
+                <ReactSVG src={helixSvg} />
             </button>
 
             <div id="app-bar-portal-ctn" className="app-bar-portal" />
