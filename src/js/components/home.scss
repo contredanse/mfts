@@ -8,16 +8,17 @@ $title-color: $yellow-color;
 $title-opacity: 0.9;
 
 .home-container {
+    margin-bottom: 150px;
     img.logo-contredanse {
         position: fixed;
         bottom: 35px;
         align-self: center;
-        z-index: 1000;
-        opacity: 0.8;
-        width: 60px;
+        //z-index: 1000;
+        opacity: 0.4;
+        width: 50px;
         @include media-breakpoint-down(sm) {
             bottom: 25px;
-            width: 30px;
+            width: 35px;
         }
     }
 
@@ -38,7 +39,7 @@ $title-opacity: 0.9;
                 object-fit: scale-down;
                 //transform: translateY(-50px);
                 @include media-breakpoint-down(sm) {
-                    transform: translateY(100px);
+                    transform: translateY(90px);
                     object-fit: scale-down;
                     max-width: 80vw;
                 }
