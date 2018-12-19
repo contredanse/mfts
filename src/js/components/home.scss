@@ -12,7 +12,8 @@ $title-opacity: 0.9;
         position: fixed;
         bottom: 35px;
         align-self: center;
-        //z-index: 1000;
+        z-index: 1000;
+        opacity: 0.8;
         width: 60px;
         @include media-breakpoint-down(sm) {
             bottom: 25px;
