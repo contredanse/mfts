@@ -6,6 +6,7 @@ import DocumentMeta from '@src/utils/document-meta';
 import { ApplicationState } from '@src/store';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
+import { grepPageIdFromRoute } from '@src/helpers/route-utils';
 
 type MenuContainerProps = {
     menuRepository: MenuRepository;
@@ -29,7 +30,7 @@ class MenuContainer extends React.PureComponent<MenuContainerProps, MenuContaine
         if (openedPageId) {
             pageId = openedPageId;
         } else {
-            pageId = this.grepPageFromPreviousLocation(previousLocation);
+            pageId = grepPageIdFromRoute(previousLocation);
         }
 
         return (
@@ -38,20 +39,6 @@ class MenuContainer extends React.PureComponent<MenuContainerProps, MenuContaine
                 <HelixMenu lang={lang} jsonDataMenu={menuRepository.getJsonMenu()} openedPageId={pageId} />
             </div>
         );
-    }
-
-    grepPageFromPreviousLocation(previousLocation?: string | null): string | undefined {
-        if (previousLocation) {
-            // Grep from page spec
-            console.log('Menu::init - the previous location is', previousLocation);
-            const regExp = /\/(en|fr)\/page\/([a-z0-9-_\.]+)$/i;
-            const found = previousLocation.match(regExp);
-
-            if (found) {
-                return found[2];
-            }
-        }
-        return undefined;
     }
 }
 

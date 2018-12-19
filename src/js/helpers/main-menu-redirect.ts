@@ -8,7 +8,10 @@ export const isScreenAdaptedForHelixMenu = (): boolean => {
     return screenWidth >= helixMinimumWidthConstraint;
 };
 
-export const getMainMenuRoute = (lang: string): string => {
+export const getMainMenuRoute = (lang: string, pageId?: string): string => {
     const menuId = isScreenAdaptedForHelixMenu() ? 'menu' : 'page-list';
+    if (pageId) {
+        return `/${lang}/${menuId}/${pageId}`;
+    }
     return `/${lang}/${menuId}`;
 };

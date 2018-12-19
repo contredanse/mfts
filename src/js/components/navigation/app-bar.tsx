@@ -15,6 +15,7 @@ import * as uiActions from '@src/store/ui/actions';
 import { getMainMenuRoute } from '@src/helpers/main-menu-redirect';
 
 import ReactSVG from 'react-svg';
+import ConnectedMenuButton from '@src/components/navigation/menu-button';
 
 type AppBarProps = {
     title: string;
@@ -45,14 +46,7 @@ export const AppBarComponent: React.FC<AppBarWithRouterProps> = props => {
             >
                 <MenuIcon />
             </button>
-            <button
-                className="helix-menu-icon mdi-icon"
-                onClick={() => {
-                    history.push(getMainMenuRoute(lang));
-                }}
-            >
-                <ReactSVG src={helixSvg} />
-            </button>
+            <ConnectedMenuButton lang={lang} />
 
             <div id="app-bar-portal-ctn" className="app-bar-portal" />
         </div>

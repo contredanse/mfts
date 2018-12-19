@@ -27,21 +27,31 @@ class HelixMenu extends React.PureComponent<HelixMenuProps, HelixMenuState> {
 
     readonly state: HelixMenuState = {};
 
-    readonly menuData: IJsonMenu[];
-
     constructor(props: HelixMenuProps) {
         super(props);
         this.canvasRef = React.createRef<HTMLCanvasElement>();
         this.containerRef = React.createRef<HTMLDivElement>();
-        this.menuData = cloneDeep(props.jsonDataMenu);
     }
 
     componentDidMount() {
-        const { jsonDataMenu, lang, openedPageId } = this.props;
-        console.log('HELIX::DIDMOUNT with selected page:', openedPageId);
+        this.initSpiral();
+    }
+
+    componentDidUpdate() {
+        // Yes because the provided spiral change
+        // underlying data and does not provide
+        // a reset
+        this.removeSpiral();
+        this.initSpiral();
+    }
+
+    initSpiral() {
+        const { lang, openedPageId, jsonDataMenu } = this.props;
+        const menuData: IJsonMenu[] = cloneDeep(jsonDataMenu);
+
         this.spiralMenu = new SpiralMenu({
             container: this.containerRef.current,
-            content: this.menuData,
+            content: menuData,
             language: lang,
             callback: (menuNode: IJsonMenuPage) => {
                 this.openPage(menuNode.page_id);
@@ -50,14 +60,9 @@ class HelixMenu extends React.PureComponent<HelixMenuProps, HelixMenuState> {
         });
     }
 
-    componentDidUpdate() {
-        console.log('HELIX::DIDUPDATE');
-        this.spiralMenu.setLanguage(this.props.lang);
-        /*
-        const { openedPageId } = this.props;
-        if (openedPageId && this.spiralMenu.selectNode) {
-            this.spiralMenu.selectNode(openedPageId);
-        }*/
+    removeSpiral() {
+        this.spiralMenu.clear();
+        delete this.spiralMenu;
     }
 
     render() {
@@ -72,9 +77,7 @@ class HelixMenu extends React.PureComponent<HelixMenuProps, HelixMenuState> {
 
     componentWillUnmount() {
         // The clean up
-        console.log('HELIX::CLEANUP');
-        this.spiralMenu.clear();
-        delete this.spiralMenu;
+        this.removeSpiral();
     }
 
     private openPage = (pageId: string): void => {
