@@ -7,14 +7,11 @@ import './app-bar.scss';
 
 import MenuIcon from 'mdi-react/MenuIcon';
 
-import helixSvg from '@assets/svg/helix-contredanse.svg';
 import { ApplicationState } from '@src/store';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import * as uiActions from '@src/store/ui/actions';
-import { getMainMenuRoute } from '@src/helpers/main-menu-redirect';
 
-import ReactSVG from 'react-svg';
 import ConnectedMenuButton from '@src/components/navigation/menu-button';
 
 type AppBarProps = {
