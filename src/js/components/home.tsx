@@ -7,6 +7,7 @@ import EventListener from 'react-event-listener';
 import FullsizeVideoBg from '@src/components/layout/fullsize-video-bg';
 import ConnectedLangSelector from '@src/components/lang-selector';
 import { BasicI18nDictionary } from '@src/i18n/basic-i18n';
+import contredanseLogo from '@assets/images/logo-contredanse-white.jpg';
 
 type HomeProps = {
     assetsLocator: AppAssetsLocator;
@@ -115,6 +116,7 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
                         </p>
                     </div>
                 </FullsizeVideoBg>
+                <img className="logo-contredanse" src={contredanseLogo} alt="Contredanse logo" />
                 <EventListener
                     target={document}
                     onMouseMoveCapture={this.handleMove}
