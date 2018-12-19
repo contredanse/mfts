@@ -77,10 +77,12 @@ $bg-gradient-color: black;
 
     .helix-menu-icon,
     .main-menu-icon {
-        transition: opacity 600ms ease-in;
+        color: white;
         &:hover {
-            svg.mdi-icon {
+            svg {
                 fill: $button-color-hover;
+                transition: all 400ms ease-in-out;
+                //transform: scale(3) rotate3d(0, 0, 1, 2080deg);
             }
         }
     }
