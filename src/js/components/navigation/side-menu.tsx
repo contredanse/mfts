@@ -15,7 +15,8 @@ import { getMainMenuRoute, isScreenAdaptedForHelixMenu } from '@src/helpers/main
 import ConnectedLoginButton from '@src/components/navigation/login-button';
 
 // To not bundle svg
-const Menu = require('react-burger-menu/lib/menus/pushRotate');
+//const Menu = require('react-burger-menu/lib/menus/pushRotate');
+const Menu = require('react-burger-menu/lib/menus/push');
 // import { pushRotate as Menu } from 'react-burger-menu'
 
 type Props = {
@@ -99,7 +100,8 @@ const menuStyles = {
         display: 'inline-block'
     },*/
     bmOverlay: {
-        background: 'rgba(0, 0, 0, 0.8)',
+        background: 'rgba(0, 0, 0, 0.82)',
+        //zIndex: 10000,
     },
 };
 

@@ -86,9 +86,16 @@ $topbar-height: 40px;
     background-color: rgba(black, 0.4);
     font-size: 1em;
     .side-menu-footer-center {
+        //position: fixed;
+        bottom: 5px;
+        left: 0;
+        display: flex;
+        width: 100%;
+
         margin: 5px;
-        flex: 1 1;
+        //flex: 1 1;
         text-align: center;
+        flex-direction: column;
         img {
             width: 40px;
             //border: 1px solid green;
