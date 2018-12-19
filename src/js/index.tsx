@@ -23,9 +23,9 @@ import 'typeface-eb-garamond';
 
 import { appConfig } from '@config/config';
 import AppConfig from '@src/core/app-config';
-import { register as registerServiceWorker, unregister as unregisterServiceWorker } from './registerServiceWorker';
+import { register as registerServiceWorker, unregister as unregisterServiceWorker } from './register-service-worker';
 
-import configureStore from './configureStore';
+import configureStore from './configure-store';
 import { isChrome } from '@src/utils/browser-detect';
 
 import './check-outdated-version';
