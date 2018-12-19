@@ -26,6 +26,10 @@ body {
 .fullscreen {
     /* To prevent scrollbar to appear when sidemenu animations are playing */
     overflow: hidden;
+    &.fullscreen-enabled {
+        // A crazy bug in Safari 10.1 and up !!!
+        background-color: rgba($body-bg, 0.05);
+    }
 }
 
 .window-container {
