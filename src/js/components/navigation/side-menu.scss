@@ -55,6 +55,12 @@ $topbar-height: 40px;
         display: flex;
         z-index: 10000;
         opacity: 1;
+        .side-menu-footer-center {
+            .footer-logo-container {
+                opacity: 1;
+                //border: 1px solid red;
+            }
+        }
     }
 
     // safari
@@ -65,7 +71,7 @@ $topbar-height: 40px;
         display: none;
     }*/
 
-    transition: opacity 600ms ease-out;
+    transition: opacity 1000ms ease-in-out;
     z-index: -1;
     display: flex;
     position: fixed;
@@ -85,20 +91,36 @@ $topbar-height: 40px;
     padding-top: 15px;
     background-color: rgba(black, 0.4);
     font-size: 1em;
+
     .side-menu-footer-center {
         //position: fixed;
         bottom: 5px;
+
         left: 0;
         display: flex;
         width: 100%;
 
         margin: 5px;
         //flex: 1 1;
-        text-align: center;
-        flex-direction: column;
-        img {
-            width: 40px;
-            //border: 1px solid green;
+
+        flex-direction: row;
+
+        /*
+        @include media-breakpoint-down(sm) {
+            justify-content: flex-end;
+            align-items: flex-end;
+        }*/
+
+        justify-content: center;
+        align-items: center;
+        .footer-logo-container {
+            text-align: center;
+            opacity: 0.2;
+            img {
+                margin: 5px;
+                width: 40px;
+                //border: 1px solid green;
+            }
         }
     }
 

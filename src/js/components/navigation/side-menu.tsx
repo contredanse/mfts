@@ -151,10 +151,12 @@ export class SideMenu extends React.PureComponent<Props, State> {
 
                 <div className={footerClass}>
                     <div className="side-menu-footer-center">
-                        <div>
-                            <img src={contredanseLogo} />
+                        <div className="footer-logo-container">
+                            <div>
+                                <img src={contredanseLogo} />
+                            </div>
+                            <div>© Contredanse Editions, 2018</div>
                         </div>
-                        <div>© Contredanse Editions, 2018</div>
                     </div>
 
                     <div className="side-menu-footer-right">
