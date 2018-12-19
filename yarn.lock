@@ -941,6 +941,11 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
   integrity sha512-ONhaKPIufzzrlNbqtWFFd+jlnemX6lJAgq9ZeiZtS7I1PIf/la7CW4m83rTXRnVnsMbW2k56pGYu7AUFJD9Pow==
 
+"@tanem/svg-injector@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@tanem/svg-injector/-/svg-injector-2.1.1.tgz#e9bc12d87d2d1adfcaa46c17c9f481c563ee9d88"
+  integrity sha512-wuiBXgwu3aOdnOgNVM/4L/6nh3z/DGJCFuXgPv/iiDWQk0wgLsp/Olnmxn+iHr90Js/9JAhQZuaHTf5/1nrqOw==
+
 "@types/anymatch@*":
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/@types/anymatch/-/anymatch-1.3.0.tgz#d1d55958d1fccc5527d4aba29fc9c4b942f563ff"
@@ -1089,6 +1094,13 @@
   dependencies:
     "@types/history" "*"
     "@types/react" "*"
+
+"@types/react-svg@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@types/react-svg/-/react-svg-5.0.0.tgz#32c9b5e987cadff2797468bbee0abd265f44b75c"
+  integrity sha512-SKvgyw45ZaZX91uulrA1dgENZ0tC6D3owupmZKOuJFffkHJvp8lvfjbb+5juC3z4qCYoqESgxkkiS6owa+gemg==
+  dependencies:
+    react-svg "*"
 
 "@types/react-transition-group@^2.0.14":
   version "2.0.14"
@@ -9668,6 +9680,15 @@ react-router@^4.3.1:
     path-to-regexp "^1.7.0"
     prop-types "^15.6.1"
     warning "^4.0.1"
+
+react-svg@*, react-svg@^7.2.2:
+  version "7.2.2"
+  resolved "https://registry.yarnpkg.com/react-svg/-/react-svg-7.2.2.tgz#cd914c92c3fccedcb06bfdff3cef64cdc2dace21"
+  integrity sha512-2EFN1pXHMZ5XZgXfsIlAIf5bOySwYbMvBuox5aUJwJfHuhqPEZ5DU73apEnm93fo7S1afL9/MZqtLsoEnukUwA==
+  dependencies:
+    "@babel/runtime" "^7.2.0"
+    "@tanem/svg-injector" "^2.1.1"
+    prop-types "^15.6.2"
 
 react-test-renderer@^16.0.0-0:
   version "16.6.3"
