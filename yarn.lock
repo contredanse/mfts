@@ -11621,6 +11621,11 @@ typeface-fira-sans@^0.0.54:
   resolved "https://registry.yarnpkg.com/typeface-fira-sans/-/typeface-fira-sans-0.0.54.tgz#1a5fbd8fdc6195ee580e765dbcc4113df18f0f6f"
   integrity sha512-WPbYqk8w4YRWWCGOrBDXo0iPUmNdTR3frTq2I16+RSLJMNbIDjRMpbMjmyMipBmXN8bwuvyumCgJ5oGpuzpY3g==
 
+typeface-im-fell-english@^0.0.54:
+  version "0.0.54"
+  resolved "https://registry.yarnpkg.com/typeface-im-fell-english/-/typeface-im-fell-english-0.0.54.tgz#9d8bdb81d3df5de347c4c5fb7cc0c72b968bff3d"
+  integrity sha512-JRz8OsytkQ39NcOF5YoGddSckA4ld28qDCn9h3n04LcRuTR1K5UDhTg+j3jhwEdV6KB31McEU0axcovU51I22g==
+
 typeface-karla@^0.0.54:
   version "0.0.54"
   resolved "https://registry.yarnpkg.com/typeface-karla/-/typeface-karla-0.0.54.tgz#f59d09b329a378db2161a3ecd6e6a0054699b579"
