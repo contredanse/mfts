@@ -10,6 +10,10 @@ import ReplayIcon from 'mdi-react/ReplayIcon';
 import PreviousIcon from 'mdi-react/SkipPreviousIcon';
 import NextIcon from 'mdi-react/SkipNextIcon';
 import { RouteComponentProps, withRouter } from 'react-router';
+import { ApplicationState } from '@src/store';
+import { Dispatch } from 'redux';
+import * as uiActions from '@src/store/ui/actions';
+import { connect } from 'react-redux';
 
 type PagePlaybackOverlayProps = {
     currentPage: PageProxy;
@@ -17,6 +21,7 @@ type PagePlaybackOverlayProps = {
     lang?: string;
     onReplayRequest?: () => void;
     onPageRequest?: (pageId: string) => void;
+    onRendered?: () => void;
 } & RouteComponentProps<any>;
 
 type PagePlaybackOverlayState = {};
@@ -51,7 +56,12 @@ class PagePlaybackOverlay extends React.PureComponent<PagePlaybackOverlayProps, 
         this.state = defaultState;
     }
 
-    componentDidMount(): void {}
+    componentDidMount(): void {
+        const { onRendered } = this.props;
+        if (onRendered) {
+            onRendered();
+        }
+    }
 
     componentDidUpdate(prevProps: PagePlaybackOverlayProps, nextState: PagePlaybackOverlayState): void {}
 
@@ -124,3 +134,18 @@ class PagePlaybackOverlay extends React.PureComponent<PagePlaybackOverlayProps, 
 }
 
 export default withRouter(PagePlaybackOverlay);
+
+const mapStateToProps = ({ ui }: ApplicationState) => ({
+    extraClasses: ui.isIdleMode ? 'idle-mode' : undefined,
+});
+
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+    onRendered: () => dispatch(uiActions.setIdleMode(false)),
+});
+
+export const ConnectedPagePlaybackOverlay = withRouter(
+    connect(
+        mapStateToProps,
+        mapDispatchToProps
+    )(PagePlaybackOverlay)
+);

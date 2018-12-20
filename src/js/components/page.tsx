@@ -13,7 +13,7 @@ import MenuRepository, { MenuSectionProps, PrevAndNextPageEntities } from '@src/
 import PageBreadcrumb from '@src/components/page-breadcrumb';
 import TrackVisibilityHelper, { TrackVisibilityMode } from '@src/components/player/track/track-visibility-helper';
 import EventListener from 'react-event-listener';
-import PagePlaybackOverlay from '@src/components/page-playback-overlay';
+import PagePlaybackOverlay, { ConnectedPagePlaybackOverlay } from '@src/components/page-playback-overlay';
 import VideoPlayer from '@src/components/player/video-player';
 import AppBarPortal from '@src/components/navigation/app-bar-portal';
 import ConnectedControlBar from '@src/components/player/controls/connected-control-bar';
@@ -152,7 +152,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
                 </AppBarPortal>
                 <div className="page-content">
                     {played && menuRepository && (
-                        <PagePlaybackOverlay
+                        <ConnectedPagePlaybackOverlay
                             currentPage={page}
                             lang={lang}
                             menuRepository={menuRepository}
