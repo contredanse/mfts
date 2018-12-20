@@ -40,6 +40,8 @@ const workboxVersion = require(require.resolve('workbox-sw/package.json')).versi
 const outdatedMainJs = require.resolve('outdated-browser-rework');
 const outdatedVersion = require(require.resolve('outdated-browser-rework/package.json')).version;
 
+const socialMediaPicture = Dotenv.parse(fs.readFileSync(dotEnvFile))['SOCIAL_MEDIA_PICTURE'];
+
 module.exports = merge(common, {
     devtool: 'hidden-source-map', // or false if you don't want source map
     mode: 'production',
@@ -346,8 +348,12 @@ module.exports = merge(common, {
         new HtmlWebpackPlugin({
             alwaysWriteToDisk: true,
             hash: false,
-            title: "Steve Paxton's Material for the spine",
             template: './public/index.html',
+            templateParameters: {
+                socialMediaPicture: socialMediaPicture,
+                publicUrl: PUBLIC_URL,
+                title: "Steve Paxton's Material for the spine",
+            },
             removeAttributeQuotes: true,
             removeComments: true,
             minify: {
@@ -419,6 +425,7 @@ module.exports = merge(common, {
                 from: outdatedMainJs,
                 to: `${distFolder}/public/static/js/outdated-browser-rework.${outdatedVersion}.js`,
             },
+            { from: './src/assets/social/**/*', to: `${distFolder}/public/static/social/`, flatten: true },
         ]),
 
         new CompressionPlugin({

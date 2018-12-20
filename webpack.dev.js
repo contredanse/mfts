@@ -4,10 +4,13 @@ const common = require('./webpack.common.js');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 const DotenvPlugin = require('dotenv-webpack');
+const Dotenv = require('dotenv');
+const fs = require('fs');
 
 //const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-
 const dotEnvFile = './.env.development.local';
+const socialMediaPicture = Dotenv.parse(fs.readFileSync(dotEnvFile))['SOCIAL_MEDIA_PICTURE'];
+const PUBLIC_URL = Dotenv.parse(fs.readFileSync(dotEnvFile))['PUBLIC_URL'];
 
 module.exports = merge(common, {
     devtool: 'cheap-module-source-map',
@@ -65,8 +68,12 @@ module.exports = merge(common, {
         new HtmlWebpackPlugin({
             alwaysWriteToDisk: true,
             hash: false,
-            title: 'Paxton MFS',
             template: './public/index.html',
+            templateParameters: {
+                socialMediaPicture: socialMediaPicture,
+                publicUrl: PUBLIC_URL,
+                title: "Steve Paxton's Material for the spine",
+            },
             removeAttributeQuotes: false,
             removeComments: false,
             minify: {
