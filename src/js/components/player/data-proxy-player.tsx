@@ -29,6 +29,7 @@ export type DataProxyPlayerProps = {
     muted?: boolean;
     autoPlay?: boolean;
     controls?: boolean;
+    noDownload?: boolean;
     onEnded?: (e: SyntheticEvent<HTMLVideoElement>) => void;
     onRateChange?: (playbackRate: number) => void;
     onPlaybackChange?: (isPlaying: boolean) => void;
@@ -48,6 +49,7 @@ const defaultProps = {
     disablePoster: false,
     controls: false,
     subtitleVisibility: 'showing',
+    noDownload: true,
 };
 
 const defaultState = {};
@@ -133,6 +135,7 @@ export default class DataProxyPlayer extends React.Component<DataProxyPlayerProp
             videoProxy,
             defaultSubtitleLang,
             autoPlay,
+            noDownload,
         } = this.props;
 
         let firstCover = null;
@@ -165,6 +168,7 @@ export default class DataProxyPlayer extends React.Component<DataProxyPlayerProp
                 {...(loop ? { loop } : {})}
                 {...(playbackRate ? { playbackRate } : {})}
                 {...(autoPlay ? { autoPlay } : {})}
+                {...(noDownload ? { controlsList: 'nodownload' } : {})}
             />
         );
     }
