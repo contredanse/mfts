@@ -8,6 +8,7 @@ import FullsizeVideoBg from '@src/components/layout/fullsize-video-bg';
 import ConnectedLangSelector from '@src/components/lang-selector';
 import { BasicI18nDictionary } from '@src/i18n/basic-i18n';
 import contredanseLogo from '@assets/images/logo-contredanse-white.jpg';
+import PwaInstaller from '@src/components/pwa-installer';
 
 type HomeProps = {
     assetsLocator: AppAssetsLocator;
@@ -90,6 +91,7 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
 
         return (
             <div className="home-container">
+                <PwaInstaller displayTimeout={30} />
                 <ConnectedLangSelector>
                     {({ currentLang, nextLang, toggleLang, updateLang }) => (
                         <div className="lang-selector-panel" onClick={() => updateLang(nextLang)}>
@@ -116,6 +118,7 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
                         </p>
                     </div>
                 </FullsizeVideoBg>
+
                 <img className="logo-contredanse" src={contredanseLogo} alt="Contredanse logo" />
                 <EventListener
                     target={document}
