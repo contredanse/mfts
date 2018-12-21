@@ -202,27 +202,37 @@ module.exports = merge(common, {
                     chunks: 'all',
                 },
 
-                i18next: {
-                    test: /[\\/]node_modules\/(.*)i18n/,
-                    name: 'i18next',
-                    priority: -2,
-                    enforce: true,
-                    chunks: 'all',
-                },
-
                 react: {
-                    test: /[\\/]node_modules\/(react|react-dom)\//,
+                    test: /[\\/]node_modules\/(react|react-dom|react-is|)\//,
                     name: 'react',
                     priority: -5,
                     enforce: true,
                     chunks: 'all',
                 },
 
+                'react-friends': {
+                    test: /[\\/]node_modules\/(redux|react-redux|connected-react-router|react-router|react-router-dom|formik|react-svg|react-transition-group|react-burger-menu)\//,
+                    name: 'react-friends',
+                    priority: -10,
+                    enforce: true,
+                    chunks: 'all',
+                },
+
+                /*
+                formik: {
+                    test: /[\\/]node_modules\/(formik)\//,
+                    name: 'formik',
+                    priority: -20,
+                    enforce: true,
+                    chunks: 'all',
+                },
+                */
+
                 // Extract material-ui and icons in a separate chunk
                 mui: {
                     test: /[\\/]node_modules\/(@material-ui|material-ui)/,
                     name: 'mui',
-                    priority: -10,
+                    priority: -30,
                     enforce: true,
                     chunks: 'all',
                 },
@@ -232,7 +242,7 @@ module.exports = merge(common, {
                     //test: /[\\/]node_modules[\\/](.*).js$/,
                     test: /[\\/]node_modules[\\/]/,
                     name: 'vendors',
-                    priority: -20,
+                    priority: -40,
                     enforce: true,
                     chunks: 'all',
                 },
@@ -466,30 +476,6 @@ module.exports = merge(common, {
                 new RegExp('/[^/]+\\.[^/]+$'),
             ],
         }),
-
-        //new Workbox.InjectManifest({
-        // It's actually a chunk name !!!
-        //importWorkboxFrom: 'workboxSw',
-        //    importWorkboxFrom: 'disabled',
-        //    importScripts: [`static/js/workbox-sw.${workboxVersion}.js`],
-        //    swSrc: './src/js/service-worker.webpack.stub.js',
-        //    swDest: 'service-worker.js',
-        //    exclude: [/\.htaccess$/, /assets-manifest\.json$/, /\.map$/, /\.br$/, /\.gz$/],
-
-        /** Only working with GeneratSwPlugin
-            navigateFallback: 'index.html',
-            // By default, a cache-busting query parameter is appended to requests
-            // used to populate the caches, to ensure the responses are fresh.
-            // If a URL is already hashed by Webpack, then there is no concern
-            // about it being stale, and the cache-busting can be skipped.
-            dontCacheBustUrlsMatching: /\.\w{8}\./,
-            navigateFallbackWhitelist: [/^(?!\/__).*<REMOVEMEWHENUNCOMMENTING>/ ],
-            // Whether or not the service worker should start controlling any existing clients as soon as it activates.
-            clientsClaim: true,
-            // Whether or not the service worker should skip over the waiting lifecycle stage. Normally this is used with `clientsClaim: true`.
-            skipWaiting: true
-            */
-        //}),
 
         new StatsWriterPlugin({
             // no support for absolute paths
