@@ -147,6 +147,7 @@
         "typeface-fira-sans": "^0.0.54",
         "typeface-im-fell-english": "^0.0.54",
         "typeface-karla": "^0.0.54",
+        "typeface-eb-garamond": "^0.0.54",
         "typeface-lato": "^0.0.54",
         "typeface-quicksand": "^0.0.54",
         "typeface-raleway": "^0.0.54",
@@ -197,7 +198,6 @@
         "redux-thunk": "^2.3.0",
         "throttle-debounce": "^2.0.1",
         "tslib": "^1.9.3",
-        "typeface-eb-garamond": "^0.0.54",
         "wretch": "^1.4.2",
         "yup": "^0.26.6"
     },
