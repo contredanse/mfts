@@ -171,7 +171,7 @@
         "worker-loader": "^2.0.0"
     },
     "dependencies": {
-        "@babel/polyfill": "^7.2.3",
+        "@babel/polyfill": "^7.2.5",
         "@babel/runtime": "^7.2.0",
         "classnames": "^2.2.6",
         "connected-react-router": "^6.0.0",
