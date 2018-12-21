@@ -1,7 +1,7 @@
 # CACHING OF ALL CSS/JS/ICONS (they contains an hash, so it's safe)
-<FilesMatch "\.(css|js|png|br|gz)$">
+<FilesMatch "\.(css|js|png|br|gz|woff2)$">
     # 2weeks
-    Header set Cache-Control "max-age=604800, public"
+    Header set Cache-Control "max-age=1209600, public"
 </FilesMatch>
 
 
