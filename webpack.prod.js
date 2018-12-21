@@ -203,7 +203,7 @@ module.exports = merge(common, {
                 },
 
                 react: {
-                    test: /[\\/]node_modules\/(react|react-dom|react-is|)\//,
+                    test: /[\\/]node_modules\/(react|react-dom)\//,
                     name: 'react',
                     priority: -5,
                     enforce: true,
@@ -211,7 +211,7 @@ module.exports = merge(common, {
                 },
 
                 'react-friends': {
-                    test: /[\\/]node_modules\/(redux|react-redux|connected-react-router|react-router|react-router-dom|formik|react-svg|react-transition-group|react-burger-menu)\//,
+                    test: /[\\/]node_modules\/(redux|react-redux|connected-react-router|react-router|react-router-dom|formik|react-svg|react-transition-group|react-burger-menu|react-custom-scrollbars|react-is)\//,
                     name: 'react-friends',
                     priority: -10,
                     enforce: true,
