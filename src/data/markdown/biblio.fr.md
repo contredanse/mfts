@@ -4,8 +4,11 @@
 
 ### *Gravity* by Steve Paxton, Contredanse Éditions, Bruxelles, 2018.
 
-*Gravité* de Steve Paxton, traduit de l'américain par Denise Luccioni, 
+[*Gravité*](https://www.contredanse.org) de Steve Paxton, traduit de l'américain par Denise Luccioni, 
 Éditions Contredanse, Bruxelles, 2018
+
+[![Gravity Image](./images/gravity-book-fr.jpg)](https://contredanse.org/)
+
 
 Dans cet opuscule inédit, le danseur Steve Paxton retrace une vie en compagnie de la force de gravité. 
 Des souvenirs du premier vol en avion aux cours de danse, de méditations métaphysiques 
