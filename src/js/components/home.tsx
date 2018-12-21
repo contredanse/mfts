@@ -25,11 +25,11 @@ type HomeState = {
 };
 
 const defaultProps = {
-    playbackRate: 1,
+    playbackRate: 0.5,
     mouseMoveDelay: 80,
     useClickableBox: true,
-    //videosIds: ['intro_2tubes_walk'],
-    videosIds: ['cbfhu', 'intro_2tubes_walk'],
+    videosIds: ['intro_2tubes_walk'],
+    //videosIds: ['cbfhu', 'intro_2tubes_walk'],
     //https://assets.materialforthespine.com/videos/cbfhu.webm
 };
 

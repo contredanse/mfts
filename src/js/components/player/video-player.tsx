@@ -100,6 +100,7 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
             this.trackManager = new HTMLVideoTrackManager(this.videoRef.current);
             this.registerVideoListeners(this.videoRef.current);
             // Set default playback props
+
             this.setPlaybackRate(this.props.playbackRate);
 
             if (!this.state.refLoaded) {
@@ -177,6 +178,7 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
 
     setPlaybackRate(playbackRate: number): void {
         const videoEl = this.getVideoElement();
+
         if (videoEl !== null) {
             if (!this.props.muted && this.props.playbackRateAutoMute) {
                 const { min, max } = this.props.playbackRateAutoMute;
