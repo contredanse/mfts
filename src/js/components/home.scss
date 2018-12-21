@@ -33,9 +33,11 @@ $title-opacity: 0.7;
             flex-direction: column;
             align-items: center;
             video {
-                opacity: 0.35;
-                max-width: 920px;
+                opacity: 0.45;
+                max-width: 620px;
                 object-fit: scale-down;
+                transform: translateY(90px);
+
                 //transform: translateY(-50px);
                 @include media-breakpoint-down(sm) {
                     transform: translateY(90px);
@@ -47,24 +49,24 @@ $title-opacity: 0.7;
     }
 
     .fullsize-video-bg-inner {
-        align-items: center;
-
+        align-items: flex-start;
+        //background-color: rgba(grey, 0.1);
         flex-direction: row;
-        text-align: center;
+        text-align: left;
 
         > div {
             flex: 1 1 auto;
-            @include media-breakpoint-down(sm) {
-                margin-top: 20vh;
-                align-self: flex-start;
-            }
+            //@include media-breakpoint-down(sm) {
+            margin-top: 10vh;
+            //align-self: flex-start;
+            //}
 
             padding: 0 2em;
             h1 {
                 transition: all 0.2s ease-in-out;
                 //mix-blend-mode: difference;
                 font-family: $impact-font;
-                font-size: 2.8em;
+                font-size: 3.2em;
                 line-height: 1.3em;
                 font-weight: 500;
                 //font-style: italic;
