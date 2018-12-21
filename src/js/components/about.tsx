@@ -36,7 +36,7 @@ class About extends React.PureComponent<AboutProps, AboutState> {
                 <AppBarPortal>
                     <div>{title}</div>
                 </AppBarPortal>
-
+                <div className={'bg'} />
                 <WebpackMarkdown className={mdClassName} content={content!} />
             </div>
         );
