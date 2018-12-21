@@ -2,6 +2,7 @@
 @import '../../styles/_media-queries.scss';
 
 .add-to-homescreen-container {
+    display: flex;
     align-self: center;
     justify-self: center;
     position: fixed; //fixed is absolute to a browser
