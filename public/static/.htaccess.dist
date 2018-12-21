@@ -4,6 +4,11 @@
     Header set Cache-Control "max-age=1209600, public"
 </FilesMatch>
 
+<FilesMatch "\.(jpg)$">
+    # 1 day
+    Header set Cache-Control "max-age=86400, public"
+</FilesMatch>
+
 
 # BROTLI AND ZOPFLI PREGENERATED
 RewriteEngine on
