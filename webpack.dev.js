@@ -90,6 +90,9 @@ module.exports = merge(common, {
     devServer: {
         contentBase: path.resolve(__dirname, 'build'),
         port: 3001,
+        // to allow devserver to be accessed from multiple
+        // machines. Be aware it's a security risk too
+        disableHostCheck: true,
         host: '0.0.0.0',
         //historyApiFallback: true,
         historyApiFallback: {
