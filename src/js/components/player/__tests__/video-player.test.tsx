@@ -26,13 +26,15 @@ describe('Video player component', () => {
             />
         );
         expect(wrapper.find('video').children().length).toEqual(2);
-        expect(
-            wrapper
-                .find('video')
-                .find('source')
-                .first()
-                .props().src
-        ).toEqual('http://localhost/videos/test_video.webm');
+        const props = wrapper
+            .find('video')
+            .find('source')
+            .first()
+            .props();
+
+        expect(props.src).toEqual('http://localhost/videos/test_video.webm');
+
+        expect(props.type).toEqual('video/webm; vp9');
     });
 
     it('should call events', () => {
