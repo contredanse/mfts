@@ -44,7 +44,7 @@ class PwaInstaller extends React.PureComponent<Props, State> {
 
     componentDidMount() {
         window.addEventListener('beforeinstallprompt', this.beforeInstallPrompt as (e: Event) => void);
-        this.displayA2hsPrompt();
+        //this.displayA2hsPrompt();
     }
     componentWillUnmount() {
         if (this.timeoutHandle) {
