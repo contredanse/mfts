@@ -2,41 +2,92 @@ import React from 'react';
 
 import './pwa-installer.scss';
 
+import { Transition } from 'react-transition-group';
+
 type Props = {
-    displayTimeout: number;
+    displayTimeout?: number;
+    hideTimeout?: number;
 };
 
 type State = {
+    showPrompt: boolean;
     installed: boolean;
     cancelled: boolean;
+    standalone: boolean;
 };
 
 const defaultProps = {
-    displayTimeout: 30,
+    displayTimeout: 5000,
+    hideTimeout: 20000,
+};
+
+export const isStandAlone = (): boolean => {
+    return window.matchMedia('(display-mode: standalone)').matches;
 };
 
 class PwaInstaller extends React.PureComponent<Props, State> {
     static defaultProps = defaultProps;
     readonly state = {
-        installed: true,
+        showPrompt: false,
+        installed: false,
         cancelled: false,
+        standalone: false,
     };
+    timeoutHandle?: number;
+    hideTimeoutHandle?: number;
 
     deferredPrompt?: BeforeInstallPromptEvent;
 
     componentDidMount() {
         window.addEventListener('beforeinstallprompt', this.beforeInstallPrompt as (e: Event) => void);
+        this.displayA2hsPrompt();
     }
     componentWillUnmount() {
+        if (this.timeoutHandle) {
+            clearTimeout(this.timeoutHandle);
+        }
+        if (this.hideTimeoutHandle) {
+            clearTimeout(this.hideTimeoutHandle);
+        }
         window.removeEventListener('beforeinstallprompt', this.beforeInstallPrompt as (e: Event) => void);
     }
 
     beforeInstallPrompt = (e: BeforeInstallPromptEvent): void => {
-        console.log('beforeinstallprompt Event fired');
-        this.setState({ installed: false });
+        console.log('beforeinstallprompt event fired', e);
+
+        // Prevent Chrome 67 and earlier from
+        // automatically showing the prompt
         e.preventDefault();
-        // Stash the event so it can be triggered later.
-        this.deferredPrompt = e;
+
+        if (isStandAlone()) {
+            // Already in standalone mode
+            // Nothing to install ;)
+            this.setState({
+                standalone: true,
+                showPrompt: false,
+            });
+        } else {
+            // Stash the event so it can be triggered later.
+            this.deferredPrompt = e;
+
+            this.displayA2hsPrompt();
+        }
+    };
+
+    displayA2hsPrompt = (): void => {
+        if (this.timeoutHandle === undefined) {
+            this.timeoutHandle = setTimeout(() => {
+                this.setState({
+                    showPrompt: true,
+                    installed: false,
+                });
+                this.hideTimeoutHandle = setTimeout(() => {
+                    this.setState({
+                        showPrompt: false,
+                    });
+                }, this.props.hideTimeout) as any;
+            }, this.props.displayTimeout) as any;
+        }
     };
 
     requestAddToHomescreen = () => {
@@ -50,12 +101,14 @@ class PwaInstaller extends React.PureComponent<Props, State> {
                 if (choiceResult.outcome === 'dismissed') {
                     console.log('User cancelled home screen install');
                     this.setState({
+                        showPrompt: false,
                         cancelled: true,
                         installed: false,
                     });
                 } else {
                     console.log('User added to home screen');
                     this.setState({
+                        showPrompt: false,
                         cancelled: false,
                         installed: true,
                     });
@@ -67,14 +120,15 @@ class PwaInstaller extends React.PureComponent<Props, State> {
     };
 
     render() {
-        const { installed, cancelled } = this.state;
-        if (installed || cancelled) {
-            return null;
-        }
+        const { showPrompt } = this.state;
         return (
-            <div className="add-to-homescreen-container">
-                <button onClick={this.requestAddToHomescreen}>Add to homescreen</button>
-            </div>
+            <Transition timeout={500} appear={true} exit={true} in={showPrompt}>
+                {status => (
+                    <div className={`a2hs-container a2hs-container-${status}`}>
+                        <button onClick={this.requestAddToHomescreen}>Add to homescreen</button>
+                    </div>
+                )}
+            </Transition>
         );
     }
 }

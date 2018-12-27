@@ -11,7 +11,7 @@ $overlay-top-margin: 45px;
     //margin-top: 5px;
     max-width: 100%;
     //height: calc(100vh - #{$overlay-top-margin});
-    z-index: 1000;
+    z-index: 500;
     overflow: hidden;
     display: flex;
     .page-overlay-ctn {

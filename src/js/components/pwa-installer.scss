@@ -1,19 +1,30 @@
 @import '../../styles/_variables.scss';
 @import '../../styles/_media-queries.scss';
 
-.add-to-homescreen-container {
+$transition: transform 1000ms ease-in-out, opacity 1000ms ease-in-out;
+
+$default-margin: 15px;
+
+.a2hs-container {
     display: flex;
     align-self: center;
     justify-self: center;
-    position: fixed; //fixed is absolute to a browser
+    position: fixed;
     bottom: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.5);
     color: white;
     z-index: 100000;
-    padding: 15px;
-    border: 1px solid white;
-    left: 50%;
-    margin-bottom: 20px;
-    transform: translateX(-50%);
+    right: $default-margin;
+    margin-bottom: $default-margin;
+    transform: translateY(100px);
+    opacity: 0;
+
+    transition: $transition;
+    &.a2hs-container-entered {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+
+    &.a2hs-container-exited {
+        opacity: 0;
+    }
 }

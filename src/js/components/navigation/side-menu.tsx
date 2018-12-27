@@ -16,7 +16,8 @@ import ConnectedLoginButton from '@src/components/navigation/login-button';
 
 // To not bundle svg
 //const Menu = require('react-burger-menu/lib/menus/pushRotate');
-const Menu = require('react-burger-menu/lib/menus/push');
+//const Menu = require('react-burger-menu/lib/menus/push');
+const Menu = require('react-burger-menu/lib/menus/slide');
 // import { pushRotate as Menu } from 'react-burger-menu'
 
 type Props = {
