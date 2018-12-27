@@ -3,22 +3,43 @@
 
 $transition: transform 1000ms ease-in-out, opacity 1000ms ease-in-out;
 
-$default-margin: 15px;
-
 .a2hs-container {
     display: flex;
-    align-self: center;
-    justify-self: center;
+    align-items: center;
+    justify-content: center;
     position: fixed;
     bottom: 0;
+    right: 0;
+    left: 0;
     color: white;
     z-index: 100000;
-    right: $default-margin;
-    margin-bottom: $default-margin;
     transform: translateY(100px);
     opacity: 0;
-
+    background-color: rgba(black, 0.9);
+    font-family: $ui-font;
     transition: $transition;
+    border-top: 1px solid rgba(white, 0.8);
+    padding: 15px;
+    .message {
+        flex: 1 0;
+        a {
+            font-size: 1.2em;
+            &:hover {
+                cursor: pointer;
+                color: purple;
+            }
+        }
+    }
+
+    .dismiss {
+        width: 10%;
+        &:hover {
+            cursor: pointer;
+        }
+        align-self: flex-start;
+        text-align: right;
+    }
+
     &.a2hs-container-entered {
         transform: translateY(0px);
         opacity: 1;
