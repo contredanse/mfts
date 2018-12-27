@@ -1,6 +1,13 @@
 const path = require('path');
 
-var ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+
+const marked = require('marked');
+const renderer = new marked.Renderer();
+renderer.link = function(href, title, text) {
+    var link = marked.Renderer.prototype.link.call(this, href, title, text);
+    return link.replace('<a', "<a target='_blank' ");
+};
 
 module.exports = {
     entry: {
@@ -103,6 +110,7 @@ module.exports = {
                         loader: 'markdown-loader',
                         options: {
                             /* your options here */
+                            renderer,
                         },
                     },
                 ],
