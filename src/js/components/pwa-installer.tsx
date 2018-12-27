@@ -1,10 +1,13 @@
 import React from 'react';
 
 import './pwa-installer.scss';
+import i18n from './pwa-installer.i18n';
 
 import { Transition } from 'react-transition-group';
+import { getFromDictionary } from '@src/i18n/basic-i18n';
 
 type Props = {
+    lang?: string;
     displayTimeout?: number;
     hideTimeout?: number;
 };
@@ -17,8 +20,9 @@ type State = {
 };
 
 const defaultProps = {
+    defaultLang: 'en',
     displayTimeout: 5000,
-    hideTimeout: 20000,
+    hideTimeout: 200000,
 };
 
 export const isStandAlone = (): boolean => {
@@ -40,7 +44,7 @@ class PwaInstaller extends React.PureComponent<Props, State> {
 
     componentDidMount() {
         window.addEventListener('beforeinstallprompt', this.beforeInstallPrompt as (e: Event) => void);
-        //this.displayA2hsPrompt();
+        this.displayA2hsPrompt();
     }
     componentWillUnmount() {
         if (this.timeoutHandle) {
@@ -90,6 +94,14 @@ class PwaInstaller extends React.PureComponent<Props, State> {
         }
     };
 
+    hideA2hsPrompt = (): void => {
+        clearTimeout(this.hideTimeoutHandle);
+        this.setState({
+            showPrompt: false,
+            cancelled: true,
+        });
+    };
+
     requestAddToHomescreen = () => {
         if (this.deferredPrompt !== undefined) {
             // The user has had a positive interaction with our app and Chrome
@@ -125,12 +137,21 @@ class PwaInstaller extends React.PureComponent<Props, State> {
             <Transition timeout={300} appear={true} exit={true} in={showPrompt}>
                 {status => (
                     <div className={`a2hs-container a2hs-container-${status}`}>
-                        <button onClick={this.requestAddToHomescreen}>Add to homescreen</button>
+                        <div className="message">
+                            <a onClick={this.requestAddToHomescreen}>{this.tr('add_to_homescreen')}</a>
+                        </div>
+                        <div className="dismiss" onClick={this.hideA2hsPrompt}>
+                            x
+                        </div>
                     </div>
                 )}
             </Transition>
         );
     }
+
+    private tr = (text: string): string => {
+        return getFromDictionary(text, this.props.lang!, i18n);
+    };
 }
 
 export default PwaInstaller;
