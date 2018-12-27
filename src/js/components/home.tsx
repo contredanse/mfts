@@ -91,7 +91,7 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
 
         return (
             <div className="home-container">
-                <PwaInstaller />
+                <PwaInstaller lang={lang} />
                 <ConnectedLangSelector>
                     {({ currentLang, nextLang, toggleLang, updateLang }) => (
                         <div className="lang-selector-panel" onClick={() => updateLang(nextLang)}>
