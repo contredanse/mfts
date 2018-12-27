@@ -40,7 +40,7 @@ class PwaInstaller extends React.PureComponent<Props, State> {
 
     componentDidMount() {
         window.addEventListener('beforeinstallprompt', this.beforeInstallPrompt as (e: Event) => void);
-        this.displayA2hsPrompt();
+        //this.displayA2hsPrompt();
     }
     componentWillUnmount() {
         if (this.timeoutHandle) {
@@ -122,7 +122,7 @@ class PwaInstaller extends React.PureComponent<Props, State> {
     render() {
         const { showPrompt } = this.state;
         return (
-            <Transition timeout={500} appear={true} exit={true} in={showPrompt}>
+            <Transition timeout={300} appear={true} exit={true} in={showPrompt}>
                 {status => (
                     <div className={`a2hs-container a2hs-container-${status}`}>
                         <button onClick={this.requestAddToHomescreen}>Add to homescreen</button>
