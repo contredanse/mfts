@@ -109,7 +109,7 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
                 });
             }
         } else {
-            throw Error('Registering listeners failed, video element is null');
+            console.error('Error, registering listeners failed, video element is null');
         }
     }
 
