@@ -20,7 +20,7 @@ $transition: transform 1000ms ease-in-out, opacity 1000ms ease-in-out;
     transition: $transition;
     border-top: 1px solid rgba(white, 0.6);
     padding: 15px;
-    min-height: 100px;
+    min-height: 85px;
     .message {
         flex: 1 0;
         a {
