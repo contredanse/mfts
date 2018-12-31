@@ -1,4 +1,7 @@
-$overlay-top-margin: 45px;
+@import '../../../styles/variables';
+@import '../../../styles/_media-queries.scss';
+
+$overlay-top-margin: 35px + $appbar-margin-from-window;
 .page-overlay-viewport {
     position: fixed;
     top: $overlay-top-margin;

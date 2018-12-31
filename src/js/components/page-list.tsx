@@ -29,24 +29,22 @@ export default class PageList extends React.PureComponent<PageListProps, PageLis
         const toc = this.getTocComponent(list);
         const baseUrl = this.props.baseUrl;
         return (
-            <div>
-                <div className="page-list-wrapper">
-                    <TransitionGroup className="grid-cards">
-                        {list &&
-                            list.map(page => {
-                                const pageId = page.page_id;
-                                const pageProxy = this.props.pageRepository.getPageProxy(pageId);
-                                if (!pageProxy) {
-                                    return null;
-                                }
-                                return (
-                                    <Animate key={pageId}>
-                                        <PageCard pageProxy={pageProxy} lang={lang} onClick={this.props.onPageClick} />
-                                    </Animate>
-                                );
-                            })}
-                    </TransitionGroup>
-                </div>
+            <div className="page-list-wrapper">
+                <TransitionGroup className="grid-cards">
+                    {list &&
+                        list.map(page => {
+                            const pageId = page.page_id;
+                            const pageProxy = this.props.pageRepository.getPageProxy(pageId);
+                            if (!pageProxy) {
+                                return null;
+                            }
+                            return (
+                                <Animate key={pageId}>
+                                    <PageCard pageProxy={pageProxy} lang={lang} onClick={this.props.onPageClick} />
+                                </Animate>
+                            );
+                        })}
+                </TransitionGroup>
             </div>
         );
     }

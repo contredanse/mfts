@@ -33,15 +33,17 @@ $bg-gradient-color: black;
 
     background-color: rgba(black, 0.9);
 
-    width: 100%;
-    padding: 10px 15px;
+    //width: 100%;
+    padding: 0;
     vertical-align: top;
     // height: 100px;
 
     position: fixed;
-    top: 0px;
-    left: 0px;
-    z-index: 5000;
+    top: $appbar-margin-from-window;
+    left: $appbar-margin-from-window;
+    right: $appbar-margin-from-window;
+
+    z-index: 999;
     //border: 1px solid blue;
 
     display: flex;
@@ -78,7 +80,9 @@ $bg-gradient-color: black;
     .helix-menu-icon,
     .main-menu-icon {
         color: white;
+        opacity: 0.7;
         &:hover {
+            opacity: 1;
             svg {
                 fill: $button-color-hover;
                 transition: all 400ms ease-in-out;

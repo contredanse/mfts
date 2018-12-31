@@ -3,10 +3,13 @@
 
 .page-list-wrapper {
     background-color: black;
+    margin-left: $appbar-margin-from-window;
+    margin-right: $appbar-margin-from-window;
+    margin-top: $appbar-margin-from-window + 15px;
 
     .grid-cards {
         list-style: none;
-        margin: 5px;
+        margin: 0;
         padding: 0;
         display: grid;
         //grid-template-columns: repeat(5,1fr);
