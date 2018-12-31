@@ -1,15 +1,26 @@
 @import '../../../styles/variables';
 @import '../../../styles/_media-queries.scss';
 
-$overlay-top-margin: 35px + $appbar-margin-from-window;
+$overlay-top-margin: 35px;
 .page-overlay-viewport {
     position: fixed;
     top: $overlay-top-margin;
+
+    @include media-breakpoint-down(sm) {
+        top: $overlay-top-margin;
+    }
+
     bottom: 0;
     left: 0;
     right: 0;
     padding: 0;
     margin: 0;
+    margin-top: $appbar-margin-from-window + 15px;
+
+    @include media-breakpoint-down(sm) {
+        top: $appbar-margin-from-window-sm;
+    }
+
     width: 100%;
     //margin-top: 5px;
     max-width: 100%;

@@ -5,6 +5,12 @@
     display: flex;
     flex: 1 1;
 
+    margin-top: $appbar-margin-from-window;
+
+    @include media-breakpoint-down(sm) {
+        margin-top: $appbar-margin-from-window-sm;
+    }
+
     .bg {
         position: fixed;
         top: 0;

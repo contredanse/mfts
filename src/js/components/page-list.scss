@@ -5,7 +5,11 @@
     background-color: black;
     margin-left: $appbar-margin-from-window;
     margin-right: $appbar-margin-from-window;
-    margin-top: $appbar-margin-from-window + 15px;
+    margin-top: 2px;
+    @include media-breakpoint-down(sm) {
+        margin-left: $appbar-margin-from-window-sm;
+        margin-right: $appbar-margin-from-window-sm;
+    }
 
     .grid-cards {
         list-style: none;

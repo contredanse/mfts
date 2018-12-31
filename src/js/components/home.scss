@@ -137,6 +137,12 @@ $title-opacity: 0.7;
         position: fixed;
         right: $appbar-margin-from-window;
         top: $appbar-margin-from-window;
+
+        @include media-breakpoint-down(sm) {
+            right: $appbar-margin-from-window-sm;
+            top: $appbar-margin-from-window-sm;
+        }
+        margin: 0;
         color: white;
         font-size: 1em;
         cursor: pointer;

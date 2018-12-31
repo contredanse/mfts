@@ -1,7 +1,9 @@
 @import '../../../styles/variables';
 @import '../../../styles/_media-queries.scss';
 
-$topbar-height: 40px;
+//$topbar-height: 40px;
+
+$topbar-height: $appbar-margin-from-window;
 
 .bm-menu {
     font-family: $ui-font;
@@ -188,8 +190,9 @@ $topbar-height: 40px;
         align-items: flex-start;
         width: 100%;
         //border: 1px solid red;
-        div {
+        .side-menu-header-left {
             flex: 1 1;
+            display: none;
             h2 {
                 margin: 5px;
                 line-height: 1em;
@@ -210,6 +213,27 @@ $topbar-height: 40px;
             flex-direction: row;
             justify-content: flex-end;
             align-items: flex-end;
+
+            .lang-selector-panel {
+                position: fixed;
+                right: $appbar-margin-from-window;
+                top: $appbar-margin-from-window;
+
+                @include media-breakpoint-down(sm) {
+                    right: $appbar-margin-from-window-sm;
+                    top: $appbar-margin-from-window-sm;
+                }
+                margin: 0;
+                color: white;
+                font-size: 1em;
+                cursor: pointer;
+                user-select: none;
+                z-index: 5500;
+                &:hover {
+                    //text-decoration: underline;
+                    color: $link-hover-color;
+                }
+            }
 
             button {
                 display: inline-block;

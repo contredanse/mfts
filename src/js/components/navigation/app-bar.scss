@@ -43,6 +43,12 @@ $bg-gradient-color: black;
     left: $appbar-margin-from-window;
     right: $appbar-margin-from-window;
 
+    @include media-breakpoint-down(sm) {
+        top: $appbar-margin-from-window-sm;
+        left: $appbar-margin-from-window-sm;
+        right: $appbar-margin-from-window-sm;
+    }
+
     z-index: 999;
     //border: 1px solid blue;
 
