@@ -1,5 +1,5 @@
 {
-    "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+    "extends": ["tslint:recommended", "tslint-react", "tslint-sonarts", "tslint-config-prettier"],
     "linterOptions": {
         "exclude": ["src/thirdparty/*.js", "**/*.min.js", "**/*.json", "**/svg-icons.tsx"]
     },
