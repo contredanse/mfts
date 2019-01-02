@@ -1,4 +1,4 @@
-import React, { SourceHTMLAttributes, SyntheticEvent, VideoHTMLAttributes } from 'react';
+import React, { MouseEventHandler, SourceHTMLAttributes, SyntheticEvent, VideoHTMLAttributes } from 'react';
 import { Omit, Overwrite } from 'utility-types';
 import equal from 'fast-deep-equal';
 import HTMLVideoTrackManager from '@src/components/player/track/html-video-track-manager';
@@ -40,6 +40,7 @@ export type VideoPlayerProps = {
     loop?: boolean;
     muted?: boolean;
     preload?: string;
+    disableContextMenu?: boolean;
     controlBarProps?: ControlBarProps;
     playbackRateAutoMute?: { min: number; max: number };
 } & Overwrite<
@@ -62,6 +63,7 @@ const defaultProps = {
     autoPlay: false,
     playing: false,
     loop: false,
+    disableContextMenu: false,
     playbackRateAutoMute: {
         min: 0.5,
         max: 1.5,
@@ -269,6 +271,7 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
                     onEnded={this.handleOnEnded}
                     onPause={this.handleOnPause}
                     onPlay={this.handleOnPlay}
+                    onContextMenu={this.handleOnContextMenu}
                     onRateChange={this.handleOnRateChange}
                     onError={this.handleOnError}
                     autoPlay={autoPlay}
@@ -299,6 +302,17 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
             </>
         );
     }
+
+    private handleOnContextMenu = (e: SyntheticEvent<HTMLVideoElement>): void => {
+        const { disableContextMenu, onContextMenu } = this.props;
+        if (disableContextMenu) {
+            e.preventDefault();
+        } else if (onContextMenu) {
+            e.persist();
+            e.preventDefault();
+            onContextMenu(e.nativeEvent as any);
+        }
+    };
 
     private handleOnPlay = (e: SyntheticEvent<HTMLVideoElement>) => {
         if (this.props.onDebug) {
