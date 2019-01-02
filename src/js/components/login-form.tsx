@@ -41,7 +41,6 @@ export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormStat
     }
 
     handleSubmit = (data: any) => {
-        //console.log('FORMDATA', data);
         if (this.props.handleSubmit) {
             this.props.handleSubmit(data, this.props.onSuccess);
         }
@@ -51,7 +50,7 @@ export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormStat
     componentDidMount(): void {}
 
     render() {
-        const { authenticated, user, externalUrls } = this.props;
+        const { externalUrls } = this.props;
 
         return (
             <div className="login-form">
@@ -81,17 +80,7 @@ export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormStat
                     })}
                 >
                     {props => {
-                        const {
-                            values,
-                            touched,
-                            errors,
-                            dirty,
-                            isSubmitting,
-                            handleChange,
-                            handleBlur,
-                            handleSubmit,
-                            handleReset,
-                        } = props;
+                        const { values, touched, errors, isSubmitting, handleChange, handleBlur } = props;
                         return (
                             <Form>
                                 <label htmlFor="email" style={{ display: 'block' }}>

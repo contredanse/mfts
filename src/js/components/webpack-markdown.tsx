@@ -9,10 +9,6 @@ type WebpackMarkdownProps = {
     className?: string;
 };
 
-const defaultProps = {
-    className: 'markdown',
-};
-
 class WebpackMarkdown extends React.PureComponent<WebpackMarkdownProps, {}> {
     constructor(props: WebpackMarkdownProps) {
         super(props);

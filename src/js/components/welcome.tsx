@@ -50,7 +50,7 @@ class Welcome extends React.PureComponent<WelcomeProps, WelcomeState> {
 
     render() {
         const { lang, handleLoginSuccess } = this.props;
-        const { currentPage, mounted } = this.state;
+        const { mounted } = this.state;
         const title = lang === 'fr' ? 'Bienvenue' : 'Welcome';
 
         // For nimations

@@ -77,27 +77,12 @@ export default class PanelMultiVideo extends React.Component<PanelMultiVideoProp
         const { pageProxy, playing, playbackRate } = this.props;
         const videos = pageProxy.getVideos();
 
-        let sizeConstraints = {
-            width: '100%',
-            height: 'auto',
-        };
-
-        // If there's only one video we need to swap width and height
-        // values
-        if (videos.length === 1) {
-            sizeConstraints = {
-                width: 'auto',
-                height: '100%',
-            };
-        }
-
         const state = this.state;
 
         return (
             <div className="panel-multi-video-container">
                 <div className="panel-multi-video" key={pageProxy.pageId}>
-                    {videos.map((video, idx) => {
-                        const videoIdx = `video-${idx}`;
+                    {videos.map(video => {
                         let className = 'autoscale-video-container video-slided-out';
                         let videoClassName = 'autoscale-video-wrapper autoscale-video-content';
                         if (video.hasVideoLink()) {
@@ -167,9 +152,6 @@ export default class PanelMultiVideo extends React.Component<PanelMultiVideoProp
                 isVideoDetailOpen: true,
                 videoDetail: videoLink,
             });
-
-            //alert(`linkedVideo ${videoLink.videoId}`);
-            //console.log('linkedVideo', videoLink);
         }
     };
 }

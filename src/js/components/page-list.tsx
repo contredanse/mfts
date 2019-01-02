@@ -16,18 +16,15 @@ type PageListProps = {
 
 type PageListState = {};
 
+const Animate = ({ children, ...props }: { children: ReactNode }) => (
+    <CSSTransition {...props} enter={true} appear={true} exit={false} timeout={1000} classNames="fade">
+        {children}
+    </CSSTransition>
+);
+
 export default class PageList extends React.PureComponent<PageListProps, PageListState> {
     render() {
         const { pages: list, lang } = this.props;
-
-        const Animate = ({ children, ...props }: { children: ReactNode }) => (
-            <CSSTransition {...props} enter={true} appear={true} exit={false} timeout={1000} classNames="fade">
-                {children}
-            </CSSTransition>
-        );
-
-        const toc = this.getTocComponent(list);
-        const baseUrl = this.props.baseUrl;
         return (
             <div className="page-list-wrapper">
                 <TransitionGroup className="grid-cards">
@@ -46,37 +43,6 @@ export default class PageList extends React.PureComponent<PageListProps, PageLis
                         })}
                 </TransitionGroup>
             </div>
-        );
-    }
-
-    protected getTocComponent(list: IJsonPage[]): JSX.Element {
-        return (
-            <table>
-                <thead>
-                    <tr>
-                        <td />
-                        <td>Title</td>
-                        <td>Layout</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    {list.map((page: IJsonPage, idx: number) => (
-                        <tr key={page.page_id}>
-                            <td>{idx + 1}</td>
-                            <td
-                                onClick={() => {
-                                    if (this.props.onPageClick) {
-                                        this.props.onPageClick(page.page_id);
-                                    }
-                                }}
-                            >
-                                {page.title[this.props.lang]}
-                            </td>
-                            <td>{page.content.layout}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
         );
     }
 }

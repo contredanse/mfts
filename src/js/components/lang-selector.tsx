@@ -1,11 +1,9 @@
-import React, { CSSProperties } from 'react';
+import React from 'react';
 import { RouteComponentProps, withRouter } from 'react-router';
 import './lang-selector.scss';
 import { getNextLang, LanguageContextConsumer } from '@src/context/language-context';
 
 type LangSelectorProps = {
-    className?: string;
-    style?: CSSProperties;
     children(props: {
         currentLang: string;
         nextLang: string;
@@ -14,10 +12,7 @@ type LangSelectorProps = {
     }): JSX.Element;
 } & RouteComponentProps<any>;
 
-const defaultProps = {
-    className: 'lang-selector',
-    style: {} as CSSProperties,
-};
+const defaultProps = {};
 
 class LangSelector extends React.Component<LangSelectorProps> {
     static defaultProps = defaultProps;
@@ -27,7 +22,6 @@ class LangSelector extends React.Component<LangSelectorProps> {
     }
 
     updateLang = (lang: string): void => {
-        //const { lang: currentLang, setLang } = this.props;
         const { pathname: uri } = this.props.location;
 
         const newLocation = uri.replace(
@@ -40,7 +34,7 @@ class LangSelector extends React.Component<LangSelectorProps> {
     };
 
     render() {
-        const { className, style, children } = this.props;
+        const { children } = this.props;
         return (
             <LanguageContextConsumer>
                 {({ lang, nextLang, changeLang }) => {

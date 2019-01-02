@@ -25,7 +25,7 @@ type PageContainerProps = {
 } & RouteComponentProps<any>;
 
 type PageContainerState = {
-    pageProxy: PageProxy | undefined;
+    pageProxy?: PageProxy;
 };
 
 const tenSeconds = 1e4;
@@ -117,7 +117,7 @@ class PageContainer extends React.PureComponent<PageContainerProps, PageContaine
     }
 
     private getStateFromPageId(pageId: string): Pick<PageContainerState, 'pageProxy'> {
-        const pageProxy = this.props.pageRepository.getPageProxy(this.props.pageId);
+        const pageProxy = this.props.pageRepository.getPageProxy(pageId);
         if (pageProxy) {
             return {
                 pageProxy: pageProxy,
@@ -135,11 +135,6 @@ class PageContainer extends React.PureComponent<PageContainerProps, PageContaine
             const newRoute = routeSpec.replace('{lang}', lang);
             history.push(newRoute);
         }
-    };
-
-    private navigateToPage = (pageId: string): void => {
-        const { lang, history } = this.props;
-        history.push(`/${lang}/page/${pageId}`);
     };
 
     private clearAuthTimeout(): void {

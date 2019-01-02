@@ -46,10 +46,12 @@
             "@src",
             "@config",
             "@data",
+            "@assets",
             "history",
-            "bootstrap",
             "material-ui",
-            "@material-ui"
+            "@material-ui",
+            "mdi-react",
+            "react-burger-menu"
         ],
         "no-this-assignment": [
             true,

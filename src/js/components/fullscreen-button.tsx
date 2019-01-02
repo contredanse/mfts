@@ -47,7 +47,7 @@ export class FullscreenButton extends React.Component<FullscreenButtonProps> {
     };
 
     render() {
-        const { isFullscreen, className, style, lang } = this.props;
+        const { isFullscreen, className, style } = this.props;
         if (!fscreen.fullscreenEnabled) {
             return null;
         }
@@ -64,7 +64,7 @@ export class FullscreenButton extends React.Component<FullscreenButtonProps> {
     }
 
     protected tr = (text: string): string => {
-        return getFromDictionary(text, this.props.lang!, i18n);
+        return getFromDictionary(text, this.props.lang, i18n);
     };
 }
 

@@ -8,7 +8,7 @@ import { IJsonVideo } from '@data/json/data-videos';
 
 const apiBaseUrl = process.env.API_BASE_URL || 'http://error.api_url_config.local';
 const mediaAssetsServerBaseUrl = process.env.ASSETS_BASE_URL || 'http://error.assets_url_config.local';
-
+const notFoundUrl = '/404-externalUrls-config-error';
 export const appConfig = new AppConfig({
     apiBaseUrl: apiBaseUrl,
     assetsLocatorProps: {
@@ -29,8 +29,8 @@ export const appConfig = new AppConfig({
         videos: dataVideos as IJsonVideo[],
     },
     externalUrls: {
-        myAccount: process.env.MY_ACCOUNT_URL || '/404-externalUrls-config-error',
-        resetPassword: process.env.RESET_PASSWORD_URL || '/404-externalUrls-config-error',
-        shopLink: process.env.SHOP_SUBSCRIPTION_URL || '/404-externalUrls-config-error',
+        myAccount: process.env.MY_ACCOUNT_URL || notFoundUrl,
+        resetPassword: process.env.RESET_PASSWORD_URL || notFoundUrl,
+        shopLink: process.env.SHOP_SUBSCRIPTION_URL || notFoundUrl,
     },
 });

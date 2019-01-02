@@ -45,10 +45,8 @@ class FullScreen extends React.Component<FullScreenProps> {
     };
 
     enterFullScreen = (): void => {
-        if (fscreen.fullscreenEnabled) {
-            if (this.screenCtnRef.current) {
-                fscreen.requestFullscreen(this.screenCtnRef.current);
-            }
+        if (fscreen.fullscreenEnabled && this.screenCtnRef.current) {
+            fscreen.requestFullscreen(this.screenCtnRef.current);
         }
     };
 

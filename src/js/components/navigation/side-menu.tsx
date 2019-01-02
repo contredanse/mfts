@@ -13,11 +13,10 @@ import { connect } from 'react-redux';
 import * as uiActions from '@src/store/ui/actions';
 import { getMainMenuRoute, isScreenAdaptedForHelixMenu } from '@src/helpers/main-menu-redirect';
 
-// To not bundle svg
-//const Menu = require('react-burger-menu/lib/menus/pushRotate');
-//const Menu = require('react-burger-menu/lib/menus/push');
+// Using a require to not bundle svg
+// xconst Menu = require('react-burger-menu/lib/menus/pushRotate');
+// xconst Menu = require('react-burger-menu/lib/menus/push');
 const Menu = require('react-burger-menu/lib/menus/slide');
-// import { pushRotate as Menu } from 'react-burger-menu'
 
 type Props = {
     isOpen: boolean;
@@ -111,8 +110,6 @@ export class SideMenu extends React.PureComponent<Props, State> {
     constructor(props: Props) {
         super(props);
     }
-
-    initRoutes(lang: string) {}
 
     render() {
         const { isOpen, onStateChange } = this.props;

@@ -39,7 +39,7 @@ export default class AppBarPortal extends React.PureComponent<AppBarPortalProps,
     }
 
     render() {
-        const { children, container } = this.props;
+        const { children } = this.props;
         return createPortal(children, this.el);
     }
 }

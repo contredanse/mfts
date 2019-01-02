@@ -1,6 +1,4 @@
 import { combineReducers, Dispatch, Action, AnyAction } from 'redux';
-//import history from '../history';
-//import { all, fork } from 'redux-saga/effects'
 
 import { uiStateReducer, UiState } from './ui';
 import { navReducer, NavState } from './nav';

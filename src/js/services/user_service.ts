@@ -20,7 +20,6 @@ const login = (username: string, password: string): Promise<Response> => {
 };
 
 const logout = (): void => {
-    // remove user from local storage to log user out
     localStorage.removeItem('user');
 };
 
@@ -28,16 +27,6 @@ const isLogged = (): any | null => {
     const user = JSON.parse(localStorage.getItem('user') || '');
     return user && user.token;
 };
-
-/*
-function getAll() {
-    const requestOptions = {
-        method: 'GET',
-        headers: authHeader()
-    };
-
-    return fetch(`${appConfig.getApiBaseUrl()}/users`, requestOptions).then(handleResponse);
-}*/
 
 const handleResponse = (response: Response) => {
     return response.text().then(text => {
@@ -59,5 +48,4 @@ export const userService = {
     login,
     logout,
     isLogged,
-    //getAll
 };

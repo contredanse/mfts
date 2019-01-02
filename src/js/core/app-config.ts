@@ -33,29 +33,11 @@ export default class AppConfig {
         return this._assetsLocator;
     }
 
-    public getVideoRepository(params?: IDataRepositoryParams): VideoRepository {
-        if (params === undefined) {
-            // Default params
-            params = {
-                fallbackLang: this.config.fallbackLang as DataSupportedLangType,
-                assetsBaseUrl: this.assetsLocator.getMediaTypeBaseUrl('default'),
-                videoBaseUrl: this.assetsLocator.getMediaTypeBaseUrl('videos'),
-                audioBaseUrl: this.assetsLocator.getMediaTypeBaseUrl('audios'),
-            };
-        }
+    public getVideoRepository(): VideoRepository {
         return new VideoRepository(this, this.getAppData().videos);
     }
 
     public getMenuRepository(params?: IDataRepositoryParams, pageRepository?: PageRepository): MenuRepository {
-        if (params === undefined) {
-            // Default params
-            params = {
-                fallbackLang: this.config.fallbackLang as DataSupportedLangType,
-                assetsBaseUrl: this.assetsLocator.getMediaTypeBaseUrl('default'),
-                videoBaseUrl: this.assetsLocator.getMediaTypeBaseUrl('videos'),
-                audioBaseUrl: this.assetsLocator.getMediaTypeBaseUrl('audios'),
-            };
-        }
         return new MenuRepository(this, this.getAppData().menu, pageRepository);
     }
 
@@ -69,7 +51,7 @@ export default class AppConfig {
                 audioBaseUrl: this.assetsLocator.getMediaTypeBaseUrl('audios'),
             };
         }
-        return new PageRepository(this, this.getAppData().pages, this.getVideoRepository(params));
+        return new PageRepository(this, this.getAppData().pages, this.getVideoRepository());
     }
 
     getExternalUrls(): ExternalUrls {

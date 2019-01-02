@@ -122,9 +122,7 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
             // Sources have been reloaded or text tracks have been changed
             videoEl.load();
 
-            if (this.props.playing) {
-                //  this.initAutoPlay();
-            } else {
+            if (!this.props.playing) {
                 videoEl.pause();
             }
         }
@@ -262,7 +260,6 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
             ...mediaProps
         } = this.props;
 
-        //console.log('RERENDER VIDEOPLAYER', this.props.controlBarProps);
         return (
             <>
                 <video

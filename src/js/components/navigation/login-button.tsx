@@ -41,7 +41,7 @@ export class LoginButton extends React.PureComponent<LoginButtonProps, LoginButt
     };
 
     render() {
-        const { authenticated, user, handleLoginRequest } = this.props;
+        const { authenticated, handleLoginRequest } = this.props;
         return (
             <div className="login-button-container">
                 {authenticated ? (

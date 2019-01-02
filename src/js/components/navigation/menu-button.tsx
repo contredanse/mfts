@@ -36,7 +36,7 @@ export class MenuButton extends React.PureComponent<MenuButtonProps, MenuButtonS
     };
 
     render() {
-        const { lang, className } = this.props;
+        const { className } = this.props;
         return (
             <button className={className} onClick={this.handleClick}>
                 <ReactSVG src={helixSvg} />
@@ -49,11 +49,6 @@ const mapStateToProps = ({ nav }: ApplicationState) => ({
     route: nav.currentLocation,
 });
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({});
-
-const ConnectedMenuButton = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(MenuButton);
+const ConnectedMenuButton = connect(mapStateToProps)(MenuButton);
 
 export default withRouter(ConnectedMenuButton);

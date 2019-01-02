@@ -22,7 +22,7 @@ type IdleMonitorProps = {
     timeout?: number;
     events?: string[];
     element?: HTMLElement;
-    enableOnMount: boolean;
+    enableOnMount?: boolean;
     isActive?: boolean;
     onIdleChange?: (idle: boolean) => void;
     enableDebug: boolean;
@@ -129,7 +129,7 @@ class IdleMonitor extends React.PureComponent<IdleMonitorProps, IdleMonitorState
     render() {
         const { idle } = this.state;
         if (this.props.enableDebug) {
-            const debugComponent = (
+            return (
                 <div
                     style={{
                         position: 'fixed',
@@ -143,7 +143,6 @@ class IdleMonitor extends React.PureComponent<IdleMonitorProps, IdleMonitorState
                     {idle ? 'IDLE' : 'NOTIDLE'}
                 </div>
             );
-            return debugComponent;
         }
         return null;
     }

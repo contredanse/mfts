@@ -27,7 +27,7 @@ const LanguageContext = React.createContext<LanguageContextProps>({
 
 export const LanguageContextConsumer = LanguageContext.Consumer;
 
-type LanguageProviderState = {} & LanguageContextProps;
+type LanguageProviderState = LanguageContextProps;
 type LanguageProviderProps = {
     initialLang?: string;
     //children: ReactNode;

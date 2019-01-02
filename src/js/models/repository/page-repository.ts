@@ -24,7 +24,7 @@ export default class PageRepository {
             return this.getAllPages();
         }
         const regex = new RegExp(fragment, 'i');
-        const results = this.pages.filter((page: IJsonPage, idx: number) => {
+        return this.pages.filter((page: IJsonPage) => {
             const keywords = page.keywords[lang] || page.keywords[this.config.fallbackLang];
             if (keywords !== undefined) {
                 return (
@@ -37,15 +37,12 @@ export default class PageRepository {
             }
             return false;
         });
-
-        return results;
     }
 
     getPage(pageId: string): IJsonPage | undefined {
-        const page = this.pages.find((element: IJsonPage) => {
+        return this.pages.find((element: IJsonPage) => {
             return pageId === element.page_id;
         });
-        return page;
     }
 
     /**
@@ -56,11 +53,9 @@ export default class PageRepository {
         if (page === undefined) {
             return undefined;
         }
-
-        const pageProxy = PageProxyFactory.createFromJson(page, this.videoRepository, {
+        return PageProxyFactory.createFromJson(page, this.videoRepository, {
             fallbackLang: this.config.fallbackLang,
             assetsLocator: this.config.assetsLocator,
         });
-        return pageProxy;
     }
 }

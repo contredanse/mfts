@@ -2,7 +2,6 @@ import React from 'react';
 import PageProxy from '@src/models/proxy/page-proxy';
 
 import './page-playback-overlay.scss';
-import { BasicI18nDictionary } from '@src/i18n/basic-i18n';
 import PageCard from '@src/components/page-card';
 import MenuRepository from '@src/models/repository/menu-repository';
 
@@ -29,21 +28,6 @@ type PagePlaybackOverlayState = {};
 const defaultState: PagePlaybackOverlayState = {};
 const defaultProps = {
     lang: 'en',
-};
-
-const i18nDict: BasicI18nDictionary = {
-    replay_page: {
-        en: 'Replay',
-        fr: 'Rejouer',
-    },
-    play_next_page: {
-        en: 'Next page',
-        fr: 'Page suivante',
-    },
-    play_previous_page: {
-        en: 'Previous page',
-        fr: 'Page précédente',
-    },
 };
 
 class PagePlaybackOverlay extends React.PureComponent<PagePlaybackOverlayProps, PagePlaybackOverlayState> {
@@ -78,7 +62,7 @@ class PagePlaybackOverlay extends React.PureComponent<PagePlaybackOverlayProps, 
                                 this.handlePageRequest(p.previousPage!.pageId);
                             }}
                         >
-                            <PageCard pageProxy={p.previousPage!} lang={lang} />
+                            <PageCard pageProxy={p.previousPage} lang={lang} />
                             <div className="action-overlay">
                                 <div>
                                     <PreviousIcon size="100%" />
@@ -91,7 +75,7 @@ class PagePlaybackOverlay extends React.PureComponent<PagePlaybackOverlayProps, 
 
                     {currentPage && (
                         <div className="action-item" onClick={this.handleReplayRequest}>
-                            <PageCard pageProxy={currentPage!} lang={lang} />
+                            <PageCard pageProxy={currentPage} lang={lang} />
                             <div className="action-overlay">
                                 <div>
                                     <ReplayIcon size="100%" />
@@ -107,7 +91,7 @@ class PagePlaybackOverlay extends React.PureComponent<PagePlaybackOverlayProps, 
                                 this.handlePageRequest(p.nextPage!.pageId);
                             }}
                         >
-                            <PageCard pageProxy={p.nextPage!} lang={lang} />
+                            <PageCard pageProxy={p.nextPage} lang={lang} />
                             <div className="action-overlay">
                                 <div>
                                     <NextIcon size="100%" />

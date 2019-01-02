@@ -40,7 +40,7 @@ class WelcomeContainer extends React.PureComponent<WelcomeContainerProps, Welcom
         const { fromPageId } = this.props;
         const { lang, history } = this.props;
 
-        if (fromPageId && fromPageId !== null) {
+        if (fromPageId) {
             const pageId = fromPageId;
             history.push(`/${lang}/page/${pageId}`);
         } else {
@@ -50,12 +50,7 @@ class WelcomeContainer extends React.PureComponent<WelcomeContainerProps, Welcom
     };
 
     render() {
-        const { authenticated, user, lang, pageRepository, fromPageId } = this.props;
-        /*
-        if (authenticated) {
-            const menuRoute = getMainMenuRoute(lang!);
-            return <Redirect to={menuRoute} />;
-        }*/
+        const { lang, pageRepository, fromPageId } = this.props;
 
         return (
             <PageOverlay closeButton={false}>

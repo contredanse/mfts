@@ -1,7 +1,7 @@
 import VideoSourceProxy, { VideoSourceProxyFactory, IVideoSourceProxyData } from './video-source-proxy';
 import { AbstractBaseProxy, IBaseProxyOptions } from './abstract-base-proxy';
-import { IJsonVideo, IJsonVideoMeta, IJsonVideoSource, IJsonVideoTrack } from '../../../data/json/data-videos';
-import { IJsonPageAudioTrack } from '../../../data/json/data-pages';
+import { IJsonVideo, IJsonVideoMeta, IJsonVideoSource, IJsonVideoTrack } from '@data/json/data-videos';
+import { IJsonPageAudioTrack } from '@data/json/data-pages';
 import { sortBy } from '@src/utils/sort-functions';
 
 export class VideoProxyFactory {
@@ -78,11 +78,9 @@ export default class VideoProxy extends AbstractBaseProxy {
         if (!this.hasCover()) {
             return undefined;
         }
-        const src = baseUrl
+        return baseUrl
             ? this.getHelper().addBaseUrl(this.covers![0], baseUrl)
             : this.getHelper().getAssetUrl(this.covers![0], 'videoCovers');
-
-        return src;
     }
 
     getNumberedCover(numberSuffix: number = 1, baseUrl?: string): string | undefined {

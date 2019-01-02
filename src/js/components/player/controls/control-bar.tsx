@@ -119,9 +119,6 @@ class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
         return (
             <PlaybackStatusProvider videoEl={videoEl ? videoEl : undefined} progressInterval={300}>
                 {status => {
-                    // No reliable way to be know what is the display state of subs
-                    // Let's recalc everytime the playback state changes.
-                    const hasVisibleTrack = videoEl && hasVisibleTextTrack(videoEl);
                     return (
                         <>
                             <IdleMonitor
@@ -334,13 +331,6 @@ class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
     };
 
     protected handleRateChangeRequest = (playbackRate: number): void => {
-        /*
-        const { videoEl } = this.props;
-        if (videoEl) {
-            videoEl.playbackRate = playbackRate;
-        } else {
-            this.logWarning('Cannot set playback rate,videoEl have not been registered');
-        }*/
         if (this.props.onRateChangeRequest) {
             this.props.onRateChangeRequest(playbackRate);
         }
@@ -350,7 +340,7 @@ class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
         return getFromDictionary(text, this.props.lang!, ControlBarDictionary);
     };
 
-    protected logWarning(msg: string) {
+    private logWarning(msg: string) {
         console.warn(`ControlBar: ${msg}`);
     }
 }

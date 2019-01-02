@@ -76,10 +76,10 @@ export const loginUser = ({ email, password }: AuthCredentials, onSuccess?: (dat
     };
 };
 
-export const getUserProfile = (token?: string, onFailure?: () => void) => {
+export const getUserProfile = (token?: string, onFailure?: (error: any) => void) => {
     return async (dispatch: Dispatch) => {
         const accessToken = token ? token : localStorage.getItem(AUTH_TOKEN_LOCALSTORAGE_KEY);
-        const res = await wretchRequest
+        await wretchRequest
             .url(`${baseUrl}/v1/profile`)
             .options({ headers: { Accept: 'application/json' } })
             .auth(`Bearer ${accessToken}`)
@@ -102,8 +102,10 @@ export const getUserProfile = (token?: string, onFailure?: () => void) => {
                 dispatch(authActions.authenticateUser(user));
             })
             .catch((error: any) => {
-                const reason = 'reason' in error ? error.reason : '';
                 dispatch(authActions.unAuthenticateUser());
+                if (onFailure) {
+                    onFailure(error);
+                }
             });
     };
 };

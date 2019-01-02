@@ -131,7 +131,7 @@ class RangeControlOverlay extends PureComponent<RangeControlOverlayProps, RangeC
         const scrollX =
             window.pageXOffset !== undefined
                 ? window.pageXOffset
-                : ((document.documentElement || document.body.parentNode || document.body) as HTMLElement).scrollLeft;
+                : (document.documentElement || document.body.parentNode || document.body).scrollLeft;
         let dLeft = mouseX - (rect.left + scrollX);
         dLeft = Math.max(dLeft, 0);
         dLeft = Math.min(dLeft, rect.width);

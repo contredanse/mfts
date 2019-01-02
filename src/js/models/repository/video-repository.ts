@@ -12,11 +12,11 @@ export default class VideoRepository {
     }
 
     getVideo(videoId: string): IJsonVideo | undefined {
-        const video =
+        return (
             this.videos.find((element: IJsonVideo) => {
                 return videoId === element.video_id;
-            }) || undefined;
-        return video;
+            }) || undefined
+        );
     }
 
     getVideoProxy(videoId: string): VideoProxy | undefined {

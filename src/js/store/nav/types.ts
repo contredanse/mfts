@@ -1,5 +1,3 @@
-//import { PageBreadcrumbProps } from '@src/components/page-breadcrumb';
-
 export type NavBreadcrumbProps = {
     title: string;
 };

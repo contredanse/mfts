@@ -1,7 +1,5 @@
 import React, { SyntheticEvent } from 'react';
 
-//import { withNamespaces, WithNamespaces } from 'react-i18next';
-
 import './page.scss';
 
 import PageProxy from '@src/models/proxy/page-proxy';
@@ -76,7 +74,6 @@ class Page extends React.PureComponent<PageProps, PageState> {
         this.state = defaultPageState;
         this.trackVisibilityHelper = new TrackVisibilityHelper();
 
-        const pageId = this.props.pageProxy.pageId;
         const { pageProxy } = this.props;
         this.state = {
             ...defaultPageState,
@@ -84,11 +81,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
         };
     }
 
-    componentDidMount(): void {
-        const { pageProxy } = this.props;
-        const hasSingleVideoPlayer = pageProxy.isSingleVideoContent();
-        const hasAudioPlayer = !hasSingleVideoPlayer && pageProxy.hasAudio();
-    }
+    componentDidMount(): void {}
 
     componentDidUpdate(prevProps: PageProps, nextState: PageState): void {
         if (this.props.pageProxy.pageId !== prevProps.pageProxy.pageId) {
@@ -141,8 +134,6 @@ class Page extends React.PureComponent<PageProps, PageState> {
             onPreviousLinkPressed: this.handlePlayPreviousRequest,
             onRateChangeRequest: this.handleRateChange,
         };
-
-        // console.log('RERENDER PAGE');
 
         return (
             <div className="page-container">
@@ -243,11 +234,10 @@ class Page extends React.PureComponent<PageProps, PageState> {
         this.setState((prevState: PageState) => {
             // reset played state. do not change isPlaying
             // otherwise it's gonna be recursive
-            const newState = {
+            return {
                 ...prevState,
                 played: isPlaying ? false : prevState.played,
             };
-            return newState;
         });
     };
 
@@ -257,12 +247,11 @@ class Page extends React.PureComponent<PageProps, PageState> {
             if (player) {
                 player.replay();
             }
-            const newState = {
+            return {
                 ...prevState,
                 currentLoopIteration: 1,
                 played: false,
             };
-            return newState;
         });
     };
 

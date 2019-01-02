@@ -119,10 +119,9 @@ export default class MenuRepository {
 
     findMenuSection(menuId: string): IJsonMenu | undefined {
         const flatMenu = this.getFlatMenu();
-        const menu = flatMenu.find((element: IJsonMenu) => {
+        return flatMenu.find((element: IJsonMenu) => {
             return menuId === element.id;
         });
-        return menu;
     }
 
     /**

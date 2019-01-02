@@ -26,11 +26,7 @@ class About extends React.PureComponent<AboutProps, AboutState> {
     }
 
     render() {
-        const { lang, content, title, mdClassName } = this.props;
-        const videosBaseUrl = this.props.assetsLocator.getMediaTypeBaseUrl('videos');
-
-        const videoSrcs = [{ src: `${videosBaseUrl}/napp.webm`, type: 'video/webm' }];
-
+        const { content, title, mdClassName } = this.props;
         return (
             <div className="about-container">
                 <AppBarPortal>

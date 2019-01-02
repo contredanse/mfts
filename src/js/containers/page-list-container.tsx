@@ -66,10 +66,6 @@ class PageListContainer extends React.PureComponent<PageListContainerProps, Page
 
     filterPages = (list: IJsonPage[], filterText: string, lang: string): IJsonPage[] => {
         return this.props.pageRepository.findPages(filterText, lang);
-        /*
-        return list.filter((page: IJsonPage) => {
-            return page.title[lang].includes(filterText) || page.keywords[lang].includes(filterText);
-        });*/
     };
 
     openPage = (pageId: string) => {
@@ -78,15 +74,7 @@ class PageListContainer extends React.PureComponent<PageListContainerProps, Page
     };
 
     render(): JSX.Element {
-        const { lang, menuId } = this.props;
-        const searchBoxStyle = {
-            // position: 'fixed',
-            // top: '70px',
-            // right: '25px',
-            // width: '150px',
-        } as React.CSSProperties;
-
-        console.log('RERENDER PAGELIST');
+        const { lang } = this.props;
 
         // Calculate the latest filtered list. If these arguments haven't changed
         // since the last render, `memoize-one` will reuse the last return value.
