@@ -160,6 +160,7 @@ export default class DataProxyPlayer extends React.Component<DataProxyPlayerProp
                 onCanPlay={this.onCanPlay}
                 onPlaybackChange={this.onPlaybackChange}
                 controlBarProps={this.props.controlBarProps}
+                disableContextMenu={true}
                 srcs={videoSources}
                 {...(textTracks ? { tracks: textTracks } : {})}
                 {...(!disablePoster && firstCover ? { cover: firstCover } : {})}
