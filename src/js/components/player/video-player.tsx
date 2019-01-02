@@ -1,4 +1,4 @@
-import React, { MouseEventHandler, SourceHTMLAttributes, SyntheticEvent, VideoHTMLAttributes } from 'react';
+import React, { SourceHTMLAttributes, SyntheticEvent, VideoHTMLAttributes } from 'react';
 import { Omit, Overwrite } from 'utility-types';
 import equal from 'fast-deep-equal';
 import HTMLVideoTrackManager from '@src/components/player/track/html-video-track-manager';

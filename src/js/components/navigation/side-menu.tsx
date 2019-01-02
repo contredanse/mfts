@@ -12,7 +12,6 @@ import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import * as uiActions from '@src/store/ui/actions';
 import { getMainMenuRoute, isScreenAdaptedForHelixMenu } from '@src/helpers/main-menu-redirect';
-import ConnectedLoginButton from '@src/components/navigation/login-button';
 
 // To not bundle svg
 //const Menu = require('react-burger-menu/lib/menus/pushRotate');
@@ -230,23 +229,3 @@ export const ConnectedSideMenu = withRouter(
         mapDispatchToProps
     )(SideMenu)
 );
-
-/*
-
-                            <ConnectedLoginButton
-                                lang={lang}
-                                afterLogout={() => {
-                                    this.props.history.push(`/`);
-                                    if (this.props.onStateChange) {
-                                        this.props.onStateChange({ isOpen: false });
-                                    }
-                                }}
-                                handleLoginRequest={() => {
-                                    this.props.history.push(`/${lang}/login`);
-                                    if (this.props.onStateChange) {
-                                        this.props.onStateChange({ isOpen: false });
-                                    }
-                                }}
-                            />
-
- */

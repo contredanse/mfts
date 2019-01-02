@@ -10,7 +10,7 @@ import memoize from 'memoize-one';
 import DocumentMeta from '@src/utils/document-meta';
 import { BasicI18nDictionary, getFromDictionary } from '@src/i18n/basic-i18n';
 import AppBarPortal from '@src/components/navigation/app-bar-portal';
-import { debounce, throttle } from 'throttle-debounce';
+import { debounce } from 'throttle-debounce';
 
 type PageListContainerProps = {
     pageRepository: PageRepository;
