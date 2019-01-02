@@ -8,7 +8,6 @@ export const showLocalizedTextTrack = (
 ): boolean => {
     for (let i = 0; i < video.textTracks.length; i++) {
         if (video.textTracks[i].language === lang && video.textTracks[i].kind === kind) {
-            const isLoaded = video.textTracks[i].cues !== null;
             video.textTracks[i].mode = 'showing';
         } else {
             video.textTracks[i].mode = 'hidden';

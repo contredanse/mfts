@@ -16,7 +16,7 @@ export default class HTMLVideoTrackManager {
     }
 
     static createTrackNode(textTrack: TextTrackHTMLAttributes): HTMLTrackElement {
-        const track = document.createElement('track') as HTMLTrackElement;
+        const track = document.createElement('track');
         track.setAttribute('kind', textTrack.kind);
         track.setAttribute('label', textTrack.label);
         track.setAttribute('srcLang', textTrack.srcLang);
