@@ -78,7 +78,7 @@
         "@types/source-map-support": "^0.4.1",
         "@types/tapable": "^1.0.4",
         "@types/throttle-debounce": "^1.1.0",
-        "@types/yup": "^0.26.3",
+        "@types/yup": "^0.26.4",
         "autoprefixer": "^9.4.3",
         "babel-core": "^7.0.0-bridge.0",
         "babel-jest": "^23.6.0",
