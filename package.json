@@ -129,7 +129,7 @@
         "react-mock-router": "^1.0.15",
         "redux-mock-store": "^1.5.3",
         "request": "^2.88.0",
-        "rimraf": "^2.6.2",
+        "rimraf": "^2.6.3",
         "sass-loader": "^7.1.0",
         "shipit-cli": "^4.1.2",
         "shipit-deploy": "^4.1.3",
