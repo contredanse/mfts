@@ -63,7 +63,14 @@ export const loginUser = ({ email, password }: AuthCredentials, onSuccess?: (dat
                 }
             })
             .catch(error => {
-                const reason = 'reason' in error ? error.reason : '';
+                const errorText = 'text' in error ? error.text : '';
+                let reason = '';
+                try {
+                    reason = JSON.parse(errorText).reason;
+                } catch (e) {
+                    console.log('Login error', error);
+                    reason = errorText.toString();
+                }
                 dispatch(authActions.authFormSubmitFailure(`Login failed ${reason}`));
             });
     };
