@@ -71,7 +71,7 @@ export const loginUser = ({ email, password }: AuthCredentials, onSuccess?: (dat
                     console.log('Login error', error);
                     reason = errorText.toString();
                 }
-                dispatch(authActions.authFormSubmitFailure(`Login failed ${reason}`));
+                dispatch(authActions.authFormSubmitFailure(`${reason}`));
             });
     };
 };
