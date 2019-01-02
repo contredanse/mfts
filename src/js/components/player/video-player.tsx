@@ -257,6 +257,7 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
             onPlaybackChange,
             onDebug,
             onError,
+            disableContextMenu,
             // The rest in mediaProps
             ...mediaProps
         } = this.props;
