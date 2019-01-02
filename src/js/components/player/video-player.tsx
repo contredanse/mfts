@@ -308,8 +308,8 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
         if (disableContextMenu) {
             e.preventDefault();
         } else if (onContextMenu) {
-            e.persist();
             e.preventDefault();
+            e.persist();
             onContextMenu(e.nativeEvent as any);
         }
     };
