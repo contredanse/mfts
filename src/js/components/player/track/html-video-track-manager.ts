@@ -22,8 +22,8 @@ export default class HTMLVideoTrackManager {
         track.setAttribute('srcLang', textTrack.srcLang);
         track.setAttribute('src', textTrack.src);
         if (textTrack.default) {
+            // because track.setAttribute('default', 'default') don't work for FF
             track.default = true;
-            //track.setAttribute('default', 'default');
         }
         return track;
     }
@@ -63,19 +63,6 @@ export default class HTMLVideoTrackManager {
                 trackNode.addEventListener('load', events.onLoad);
             }
 
-            /*
-            trackNode.addEventListener('load', (e: Event) => {
-                const currentTrack = e.currentTarget as HTMLTrackElement;
-                if (currentTrack.default) {
-                    //currentTrack.track.mode = 'showing';
-                    // thanks Firefox (not needed anymore)
-                    //video.textTracks[trackIdx].mode = 'showing';
-                } else {
-                    //currentTrack.track.mode = 'hidden';
-                    // thanks Firefox (not needed anymore)
-                    //video.textTracks[trackIdx].mode = 'hidden';
-                }
-            });*/
             trackNodes.push(this.videoEl.appendChild(trackNode));
         });
         return trackNodes;

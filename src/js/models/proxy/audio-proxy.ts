@@ -1,4 +1,4 @@
-import { IJsonLocalizedAudioSource, IJsonPageAudio, IJsonPageAudioTrack } from '../../../data/json/data-pages';
+import { IJsonLocalizedAudioSource, IJsonPageAudio, IJsonPageAudioTrack } from '@data/json/data-pages';
 import { AbstractBaseProxy, IBaseProxyOptions } from './abstract-base-proxy';
 
 export class AudioProxyFactory {

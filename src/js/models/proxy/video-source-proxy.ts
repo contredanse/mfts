@@ -1,5 +1,5 @@
 import { AbstractBaseProxy, IBaseProxyOptions } from './abstract-base-proxy';
-import { IJsonVideoSource } from '../../../data/json/data-videos';
+import { IJsonVideoSource } from '@data/json/data-videos';
 
 export class VideoSourceProxyFactory {
     static createFromJson(data: IJsonVideoSource, options: IVideoSourceProxyOptions): VideoSourceProxy {

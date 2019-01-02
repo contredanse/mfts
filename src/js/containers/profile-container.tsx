@@ -30,7 +30,6 @@ class ProfileContainer extends Component<ProfileContainerProps, ProfileContainer
     render() {
         const { authenticated, user } = this.props;
         if (!authenticated) {
-            //alert('cool');
             return null;
         }
         return (

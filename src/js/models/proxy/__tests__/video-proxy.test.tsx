@@ -1,5 +1,5 @@
 import { VideoProxyFactory } from '@src/models/proxy/video-proxy';
-import { IJsonVideo } from '../../../../data/json/data-videos';
+import { IJsonVideo } from '@data/json/data-videos';
 import { VideoSourceProxyFactory } from '../video-source-proxy';
 import AppAssetsLocator from '../../../core/app-assets-locator';
 

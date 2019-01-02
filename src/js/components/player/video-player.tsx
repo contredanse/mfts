@@ -77,8 +77,8 @@ const defaultState = {
 class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
     static defaultProps = defaultProps;
     readonly state = defaultState;
-    private videoRef!: React.RefObject<HTMLVideoElement>;
-    private controlBarRef!: React.RefObject<ControlBar>;
+    private readonly videoRef!: React.RefObject<HTMLVideoElement>;
+    private readonly controlBarRef!: React.RefObject<ControlBar>;
     private listenersRegistered = false;
     private trackManager!: HTMLVideoTrackManager;
 

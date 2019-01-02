@@ -19,7 +19,7 @@ const defaultProps = {
 class FullScreen extends React.Component<FullScreenProps> {
     static defaultProps = defaultProps;
 
-    private screenCtnRef!: React.RefObject<HTMLDivElement>;
+    private readonly screenCtnRef: React.RefObject<HTMLDivElement>;
 
     constructor(props: FullScreenProps) {
         super(props);

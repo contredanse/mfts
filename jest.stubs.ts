@@ -43,5 +43,3 @@ const localStorageMock = {
 };
 
 Object.defineProperty(window, 'localStorage', { value: localStorageMock });
-
-//const localStorage = localStorageMock;

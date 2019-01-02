@@ -97,7 +97,6 @@ export default class PlaybackStatusProvider extends React.PureComponent<Playback
                 if (!this.isCancelled) {
                     this.setState(
                         (prevState: PlaybackStatusState): PlaybackStatusState => {
-                            //const { videoEl } = this.props;
                             return {
                                 ...prevState,
                                 currentTime: videoEl.currentTime,
@@ -213,13 +212,11 @@ export default class PlaybackStatusProvider extends React.PureComponent<Playback
     private setEndedState = (e: Event): void => {
         const { videoEl } = this.props;
         if (videoEl && e.target !== null) {
-            //if (!this.state.isPlaying) {
             this.setState(prevState => ({
                 ...prevState,
                 isEnded: true,
                 isPlaying: false,
             }));
-            //}
         } else {
             console.warn('Cannot update setEndedState, no "event.target" available', e);
         }

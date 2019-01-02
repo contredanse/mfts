@@ -1,5 +1,5 @@
 import React from 'react';
-//import React, { lazy, Suspense } from 'react';
+
 import { hot } from 'react-hot-loader';
 
 import { Route } from 'react-router-dom';

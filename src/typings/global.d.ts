@@ -48,14 +48,3 @@ declare module '*.mdx' {
     let MDXComponent: (props: any) => JSX.Element;
     export default MDXComponent;
 }
-
-/*
-declare interface System {
-    import<T = any>(module: string): Promise<T>
-}
-declare var System: System;
-
-
-declare interface NodeModule {
-    hot?: { accept: (path: string, callback: () => void) => void };
-}*/
