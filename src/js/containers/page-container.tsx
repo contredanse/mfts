@@ -56,13 +56,12 @@ class PageContainer extends React.PureComponent<PageContainerProps, PageContaine
 
     componentDidMount() {
         this.createAuthTimeout();
-
         this.setNavigationBreadcrumb(this.state.pageProxy);
     }
 
     componentWillUnmount() {
         this.clearAuthTimeout();
-        this.setNavigationBreadcrumb(undefined);
+        this.setNavigationBreadcrumb();
     }
 
     componentDidUpdate(prevProps: PageContainerProps, prevState: PageContainerState) {
