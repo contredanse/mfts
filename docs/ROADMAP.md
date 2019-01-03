@@ -12,25 +12,23 @@
 - [X] General application
   - [X] Fullscreen
   
-- [ ] Video player
+- [x] Video player
   - [x] Sound buttons (on/off)
   - [x] Loading indicator (currently a message)
     - [x] Loading indicator as a message
     - [x] `NiceToHave` Add loading animation 
-  - [ ] Menu for playback speed
-    - [ ] `NicetoHave` auto mute sound if speed below or over limits.
+  - [x] Menu for playback speed
+    - [x] `NicetoHave` auto mute sound if speed below or over limits.
   - [x] OnEnd event, when video finish let's go `somewhere`
   - [x] Persist choice for subtitles (local storage)
-  - [ ] NTH: Volume slider
   
        
-- [ ] Page behaviours  
-  - [ ] When playback very short - loop ? Question  
+- [x] Page behaviours  
+  - [x] When playback very short - loop ? Question  
   - [x] Playback next/previous video 
-  - [ ] Control play/pause with space
-  - [ ] Multi video player
-        - [ ] Video zoom 
-        - [ ] NiceToHave (play - image par image)
+  - [x] Control play/pause with space
+  - [x] Multi video player
+        - [x] Video zoom 
 
 - [ ] Page list:
   - [ ] Organize by section
@@ -40,19 +38,16 @@
 
 - [X] Menu
   - [X] Menu with links to helix, search, about, login...
-  - [ ] Helix **see with @emeric**.
+  - [X] Helix **see with @emeric**.
       
 - [x] Data
   - [X] Repository: get the next/previous page from MenuRepository
      
 
-- [ ] Authentication
-  - [ ] Profile page (wip)
-    - [X] Login form
-    - [ ] Register form
-    - [ ] Info (pricing) ?
-  - [ ] Backend ? (symfony/zend-expressive ?)
-    - [ ] Contredanse_v4 support
+- [X] Authentication
+  - [X] Login form
+  - [x] Backend ? (symfony/zend-expressive ?)
+    - [x] Contredanse_v4 support
 
   
 - [x] Meta manager (title)
@@ -73,43 +68,43 @@
     - [x] Design: Video background (2tubes)
     - [x] Feature: Remove speed behaviour onMouseOver
   - [x] **Introduction page**
-    - [ ] Skip intro -> go to navigation (helix or page list / quid mobile ?)    
-  - [ ] **Navigation Appbar**
-    - [ ] Design: Page breadcrumb should be in the top area.
-    - [ ] Design: Keep only hamburger menu and helix icons
-    - [ ] Feature: Side navigation opens submenu (contredanse provides markdown)    
-       - [ ] Home
-       - [ ] About 
-       - [ ] Content
-       - [ ] Credits 
-       - [ ] Biography
-       - [ ] (Login/Logout)
-       - [ ] Language and Link contredanse 
-       - [ ] Copyright       
-  - [ ] **Page**
+    - [x] Skip intro -> go to navigation (helix or page list / quid mobile ?)    
+  - [x] **Navigation Appbar**
+    - [x] Design: Page breadcrumb should be in the top area.
+    - [x] Design: Keep only hamburger menu and helix icons
+    - [x] Feature: Side navigation opens submenu (contredanse provides markdown)    
+       - [x] Home
+       - [x] About 
+       - [x] Content
+       - [x] Credits 
+       - [x] Biography
+       - [x] (Login/Logout)
+       - [x] Language and Link contredanse 
+       - [x] CopDeployment
+
+  - [x] **Page**
     - [x] Design: margin-bottom to prevent video to overlap with controls
-  - [ ] **PageList**
-      - [ ] Design: Move the search to the top (new appbar)    
+  - [x] **PageList**
+      - [x] Design: Move the search to the top (new appbar)    
   - [x] **Player**       
     - [x] Overlay:
-      - [ ] Strategy choice (next / reload / timeout ?)       
-    - [ ] Controlbar
+      - [x] Strategy choice (next / reload / timeout ?)       
+    - [x] Controlbar
       - [x] Playback speed control 
         - [x] If video is muted or explicit definition `speed_control` in data.
       - [x] Translated tooltips for buttons (play, pause, show subtitles...)              
-      - [ ] SVG icons:
+      - [x] SVG icons:
         - [ ] <u>Contredanse</u>
           - [ ] play/pause maybe ? 
           - [ ] looping on/off variants
           - [ ] subtitles on/off variants
-      - [ ] Visually indicate that it's autoloop or looping iterations
-      - [ ] Change orger of icons
-          - [ ] Previous to the left... (greyed if not availble)         
+      - [x] Change orger of icons
+          - [x] Previous to the left... (greyed if not availble)         
   - [x] **Static pages**
-    - [ ] Markdown for pages
-      - [ ] Bibliography
-      - [ ] Copyright
+    - [x] Markdown for pages
+      - [x] Bibliography
+      - [x] Copyright
       - [x] Credits
-      - [ ] Biography
-      - [ ] Biblio
+      - [x] Biography
+      - [x] Biblio
                
