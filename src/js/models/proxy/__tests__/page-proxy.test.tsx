@@ -22,7 +22,7 @@ describe('Data page retrieval', () => {
         expect(page).toBeDefined();
 
         if (page !== undefined) {
-            const videos = await page.getVideos('en');
+            const videos = page.getVideos('en');
             expect(videos.length).toBe(page.countVideos());
             expect(page.getFirstVideo('en')!.videoId).toEqual(videos[0].videoId);
         }

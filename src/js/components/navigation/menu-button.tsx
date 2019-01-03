@@ -1,5 +1,4 @@
 import { ApplicationState } from '@src/store';
-import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import React from 'react';
 import './login-button.scss';

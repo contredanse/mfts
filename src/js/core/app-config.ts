@@ -1,4 +1,3 @@
-import { DataSupportedLangType, IDataRepositoryParams } from '@src/models/repository/data-repository';
 import { IJsonPage } from '@data/json/data-pages';
 import { IJsonVideo } from '@data/json/data-videos';
 import { IJsonMenu } from '@data/json/data-menu';
@@ -34,24 +33,15 @@ export default class AppConfig {
     }
 
     public getVideoRepository(): VideoRepository {
-        return new VideoRepository(this, this.getAppData().videos);
+        return new VideoRepository(this, this.config.data.videos);
     }
 
-    public getMenuRepository(params?: IDataRepositoryParams, pageRepository?: PageRepository): MenuRepository {
-        return new MenuRepository(this, this.getAppData().menu, pageRepository);
+    public getMenuRepository(pageRepository?: PageRepository): MenuRepository {
+        return new MenuRepository(this, this.config.data.menu, pageRepository);
     }
 
-    public getPageRepository(params?: IDataRepositoryParams): PageRepository {
-        if (params === undefined) {
-            // Default params
-            params = {
-                fallbackLang: this.config.fallbackLang as DataSupportedLangType,
-                assetsBaseUrl: this.assetsLocator.getMediaTypeBaseUrl('default'),
-                videoBaseUrl: this.assetsLocator.getMediaTypeBaseUrl('videos'),
-                audioBaseUrl: this.assetsLocator.getMediaTypeBaseUrl('audios'),
-            };
-        }
-        return new PageRepository(this, this.getAppData().pages, this.getVideoRepository());
+    public getPageRepository(): PageRepository {
+        return new PageRepository(this, this.config.data.pages, this.getVideoRepository());
     }
 
     getExternalUrls(): ExternalUrls {
@@ -64,13 +54,6 @@ export default class AppConfig {
 
     getConfig(): IAppConfig {
         return this.config;
-    }
-
-    /**
-     * @deprecated
-     */
-    getAppData(): IAppDataConfig {
-        return this.config.data;
     }
 }
 

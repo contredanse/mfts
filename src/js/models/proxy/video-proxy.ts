@@ -3,6 +3,7 @@ import { AbstractBaseProxy, IBaseProxyOptions } from './abstract-base-proxy';
 import { IJsonVideo, IJsonVideoMeta, IJsonVideoSource, IJsonVideoTrack } from '@data/json/data-videos';
 import { IJsonPageAudioTrack } from '@data/json/data-pages';
 import { sortBy } from '@src/utils/sort-functions';
+import { clone } from 'lodash-es';
 
 export class VideoProxyFactory {
     static createFromJson(data: IJsonVideo, options: IVideoProxyOptions): VideoProxy {
@@ -117,7 +118,8 @@ export default class VideoProxy extends AbstractBaseProxy {
     getSources(sortByPriority: boolean = true): VideoSourceProxy[] {
         let data: IVideoSourceProxyData[] = [];
         if (sortByPriority) {
-            data = this.data.sources.sort(sortBy('priority'));
+            data = clone(this.data.sources);
+            data.sort(sortBy('priority'));
         } else {
             data = this.data.sources;
         }

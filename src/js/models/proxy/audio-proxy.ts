@@ -31,11 +31,9 @@ export default class AudioProxy extends AbstractBaseProxy {
             return undefined;
         }
 
-        const src = baseUrl
+        return baseUrl
             ? this.getHelper().addBaseUrl(sourceFile, baseUrl)
             : this.getHelper().getAssetUrl(sourceFile, 'audios');
-
-        return src;
     }
 
     hasTrack(): boolean {

@@ -21,7 +21,7 @@ class ProfileContainer extends Component<ProfileContainerProps, ProfileContainer
     }
 
     componentDidMount(): void {
-        const { authenticated, user, lang } = this.props;
+        const { authenticated, lang } = this.props;
         if (!authenticated) {
             this.props.history.push(`/${lang}/login`);
         }

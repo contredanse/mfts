@@ -39,7 +39,7 @@ const defaultProps = {
 };
 
 // We'll actually inject our own state
-export type PlaybackStatusState = {} & InjectedPlaybackStatusProps;
+export type PlaybackStatusState = InjectedPlaybackStatusProps;
 
 const defaultPlaybackStatusState = {
     isPlaying: false,

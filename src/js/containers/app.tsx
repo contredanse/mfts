@@ -22,20 +22,6 @@ import PageListContainer from './page-list-container';
 import WelcomeContainer from './welcome-container';
 import IntroContainer from './intro-container';
 import AboutContainer from './about-container';
-/**
- * For Suspense support, Warning this path is abandonned
- * Makes the deploy/hash more complicated as old resources
- * must still be present when loading a new page.
- */
-
-//const LoadingMessage: React.FC = () => <div>...</div>;
-//const LoginContainer = lazy(() => import('./login-container'));
-//const IntroContainer = lazy(() => import('./intro-container'));
-//const PageContainer = lazy(() => import('./page-container'));
-//const PageListContainer = lazy(() => import('./page-list-container'));
-//const AboutContainer = lazy(() => import('./about-container'));
-//const MenuContainer = lazy(() => import('./menu-container'));
-//const WelcomeContainer = lazy(() => import('./welcome-container'));
 
 type AppProps = {
     appConfig: AppConfig;
@@ -62,17 +48,17 @@ class App extends React.PureComponent<AppProps, AppState> {
 
         // Init repositories
         const pageRepository = this.props.appConfig.getPageRepository();
-        const menuRepository = this.props.appConfig.getMenuRepository(undefined, pageRepository);
+        const menuRepository = this.props.appConfig.getMenuRepository(pageRepository);
 
         const localizedRoutes = ({ match }: RouteComponentProps) => {
-            const lang = (match.params! as { lang: string }).lang;
+            const lang = (match.params as { lang: string }).lang;
             return (
                 <Switch>
                     <Route
                         exact={true}
                         path={`${match.path}/menu/:pageId?`}
                         render={(props: RouteComponentProps<any>) => {
-                            const { pageId, lang: routeLang } = props.match.params;
+                            const { pageId } = props.match.params;
                             return <MenuContainer lang={lang} menuRepository={menuRepository} openedPageId={pageId} />;
                         }}
                     />

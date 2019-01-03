@@ -105,28 +105,34 @@ class PwaInstaller extends React.PureComponent<Props, State> {
         if (this.deferredPrompt !== undefined) {
             // The user has had a positive interaction with our app and Chrome
             // has tried to prompt previously, so let's show the prompt.
-            this.deferredPrompt.prompt();
-            // Follow what the user has done with the prompt.
-            this.deferredPrompt.userChoice.then(choiceResult => {
-                console.log(choiceResult.outcome);
-                if (choiceResult.outcome === 'dismissed') {
-                    console.log('User cancelled home screen install');
-                    this.setState({
-                        showPrompt: false,
-                        cancelled: true,
-                        installed: false,
-                    });
-                } else {
-                    console.log('User added to home screen');
-                    this.setState({
-                        showPrompt: false,
-                        cancelled: false,
-                        installed: true,
-                    });
-                }
-                // We no longer need the prompt.  Clear it up.
-                this.deferredPrompt = undefined;
+            this.deferredPrompt.prompt().catch(() => {
+                console.error('A2HS promise prompt error');
             });
+            // Follow what the user has done with the prompt.
+            this.deferredPrompt.userChoice
+                .then(choiceResult => {
+                    console.log(choiceResult.outcome);
+                    if (choiceResult.outcome === 'dismissed') {
+                        console.log('User cancelled home screen install');
+                        this.setState({
+                            showPrompt: false,
+                            cancelled: true,
+                            installed: false,
+                        });
+                    } else {
+                        console.log('User added to home screen');
+                        this.setState({
+                            showPrompt: false,
+                            cancelled: false,
+                            installed: true,
+                        });
+                    }
+                    // We no longer need the prompt.  Clear it up.
+                    this.deferredPrompt = undefined;
+                })
+                .catch(() => {
+                    console.error('A2HS userChoice promise prompt error');
+                });
         }
     };
 

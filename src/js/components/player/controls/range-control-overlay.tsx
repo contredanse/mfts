@@ -144,7 +144,7 @@ class RangeControlOverlay extends PureComponent<RangeControlOverlayProps, RangeC
         const scrollY =
             window.pageYOffset !== undefined
                 ? window.pageYOffset
-                : ((document.documentElement || document.body.parentNode || document.body) as HTMLElement).scrollTop;
+                : (document.documentElement || document.body.parentNode || document.body).scrollTop;
         let dTop = mouseY - (rect.top + scrollY);
         dTop = Math.max(dTop, 0);
         dTop = Math.min(dTop, rect.height);

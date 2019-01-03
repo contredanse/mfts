@@ -68,7 +68,8 @@
         "ordered-imports": [false],
         "prefer-method-signature": false,
         "prefer-template": [true, "allow-single-concat"],
-        "quotemark": [true, "single", "jsx-double"],
+        "quotemark": [true, "single", "jsx-double", "avoid-escape"],
+        "prefer-for-of": false,
         /* inherited from prettier
         "trailing-comma": [
             true,
