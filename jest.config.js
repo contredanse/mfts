@@ -19,6 +19,7 @@ module.exports = {
         '@assets/(.*)$': '<rootDir>/src/assets/$1',
         '@thirdparty/(.*)$': '<rootDir>/src/thirdparty/$1',
         '@data/(.*)$': '<rootDir>/src/data/$1',
+        '@styles/*': '<rootDir>/src/styles/$1',
     },
     globals: {
         window: {},
