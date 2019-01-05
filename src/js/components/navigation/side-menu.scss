@@ -6,6 +6,11 @@
 $topbar-height: $appbar-margin-from-window;
 
 .bm-menu {
+    // remove outline
+    .bm-item:focus {
+        outline: none;
+    }
+
     font-family: $ui-font;
 
     // border-right: 1px solid rgba(grey, 0.8);
