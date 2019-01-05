@@ -997,10 +997,10 @@
   resolved "https://registry.yarnpkg.com/@types/cheerio/-/cheerio-0.22.10.tgz#780d552467824be4a241b29510a7873a7432c4a6"
   integrity sha512-fOM/Jhv51iyugY7KOBZz2ThfT1gwvsGCfWxpLpZDgkGjpEO4Le9cld07OdskikLjDUQJ43dzDaVRSFwQlpdqVg==
 
-"@types/classnames@^2.2.6":
-  version "2.2.6"
-  resolved "https://registry.yarnpkg.com/@types/classnames/-/classnames-2.2.6.tgz#dbe8a666156d556ed018e15a4c65f08937c3f628"
-  integrity sha512-XHcYvVdbtAxVstjKxuULYqYaWIzHR15yr1pZj4fnGChuBVJlIAp9StJna0ZJNSgxPh4Nac2FL4JM3M11Tm6fqQ==
+"@types/classnames@^2.2.7":
+  version "2.2.7"
+  resolved "https://registry.yarnpkg.com/@types/classnames/-/classnames-2.2.7.tgz#fb68cc9be8487e6ea5b13700e759bfbab7e0fefd"
+  integrity sha512-rzOhiQ55WzAiFgXRtitP/ZUT8iVNyllEpylJ5zHzR4vArUvMB39GTk+Zon/uAM0JxEFAWnwsxC2gH8s+tZ3Myg==
 
 "@types/dotenv-webpack@^1.5.0":
   version "1.5.0"
@@ -2749,7 +2749,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@^2.1.1, classnames@^2.2.6:
+classnames@^2.2.6:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
   integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
@@ -6864,10 +6864,10 @@ jest-leak-detector@^23.6.0:
   dependencies:
     pretty-format "^23.6.0"
 
-jest-localstorage-mock@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/jest-localstorage-mock/-/jest-localstorage-mock-2.3.0.tgz#86eda98d5af3aed687aebf11dbab3ca0f8fe66ff"
-  integrity sha512-Lk+awEPuIz0PSERHtnsXyMVLvf/4mZ3sZBEjKG5sJHvey2/i2JfQmmb/NHhialMbHXZILBORzuH64YXhWGlLsQ==
+jest-localstorage-mock@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/jest-localstorage-mock/-/jest-localstorage-mock-2.4.0.tgz#c6073810735dd3af74020ea6c3885ec1cc6d0d13"
+  integrity sha512-/mC1JxnMeuIlAaQBsDMilskC/x/BicsQ/BXQxEOw+5b1aGZkkOAqAF3nu8yq449CpzGtp5jJ5wCmDNxLgA2m6A==
 
 jest-matcher-utils@^23.6.0:
   version "23.6.0"
@@ -7893,10 +7893,10 @@ mdx-constant@^0.1.0:
   resolved "https://registry.yarnpkg.com/mdx-constant/-/mdx-constant-0.1.0.tgz#5d9b9981274bebb29127cd650fb5e4d9f557185d"
   integrity sha512-no+6C7HQMtDyDjW6wk9hUPND1Fm+7UCpvH+GtGn49qR35FG+HbMBVYgukpfF77Q4W91CID/Uc+kUK9Q7TAQpRw==
 
-mdx-loader@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/mdx-loader/-/mdx-loader-2.2.0.tgz#a9fee86c885d17e938e7d357e0c226bc03745eb6"
-  integrity sha512-MG5fZJTPk6OjLoYX9e8AfxsnwzU5L0jooTPfUg5P20xpZnS8L0SznkQdA9A4EsJiTV99VqOQpz/Jrbq8I+YZ/w==
+mdx-loader@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/mdx-loader/-/mdx-loader-2.2.1.tgz#63a741071f38b6950c9a55a6633d4ff02bab9e5d"
+  integrity sha512-wnt6potOxI5JYcPfZlmYGx0Z/CHA+cbgCz6NIqGp4eR7Tzmf+fAbODPbCXfXgAr2bFP+KeDIXXSjn+D2ob6Ghw==
   dependencies:
     "@mdx-js/mdx" "^0.16.0"
     "@mdx-js/tag" "^0.16.0"
@@ -8885,10 +8885,10 @@ osenv@0, osenv@^0.1.4:
     os-homedir "^1.0.0"
     os-tmpdir "^1.0.0"
 
-outdated-browser-rework@^2.6.2:
-  version "2.6.2"
-  resolved "https://registry.yarnpkg.com/outdated-browser-rework/-/outdated-browser-rework-2.6.2.tgz#111ac075777ff4c39071ab8d2db72649ad72145c"
-  integrity sha512-eWW5sV+ePW/VPpulUX0RSaRiDgkvzn9/oCCnDcZ195nS5q1EI56T9lxG1V3j0a3GmjDzB5yRoEQnvAjtKx53Fw==
+outdated-browser-rework@^2.7.0:
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/outdated-browser-rework/-/outdated-browser-rework-2.7.0.tgz#e49cc8bab0481c9c94f1d292d3364035cacbe149"
+  integrity sha512-a9A5U3bzATzWAOCpiinfwNX7awyG0UFUE/e/4pbAYaf4VGWQsEcz2D6fjm42qa1WGHPh5d6tjs2aCjXS305TBg==
   dependencies:
     ua-parser-js "^0.7.18"
 
@@ -10009,15 +10009,15 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-burger-menu@^2.5.4:
-  version "2.5.4"
-  resolved "https://registry.yarnpkg.com/react-burger-menu/-/react-burger-menu-2.5.4.tgz#7ca5f5297491e748368fb99b9df12056b3f90b0b"
-  integrity sha512-illxa1UX8pRXd8CADA6wAquraaWcZ4Um0kCMyC0YmnnslWYSsA4sNJ35f/uKanLYgw3aD9uQL7XigEchHlgCiw==
+react-burger-menu@^2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/react-burger-menu/-/react-burger-menu-2.6.0.tgz#21873cf71fc630c8b52c2423a24998c8addae1b7"
+  integrity sha512-fWYrM093wbJpjxGFNtDJpc+YwJKIvwuNI5JGYNEaMtmVIoirqAbnSuBnHKMHvU+LGotvOWR4wNZ6zXX9U3xL3g==
   dependencies:
     browserify-optional "^1.0.0"
-    classnames "^2.1.1"
+    classnames "^2.2.6"
     eve "~0.5.1"
-    prop-types "^15.6.1"
+    prop-types "^15.6.2"
     snapsvg-cjs "0.0.6"
 
 react-custom-scrollbars@^4.2.1:
@@ -12732,10 +12732,20 @@ webpack-cli@^3.2.0:
     v8-compile-cache "^2.0.2"
     yargs "^12.0.4"
 
-webpack-dev-middleware@3.4.0, webpack-dev-middleware@^3.4.0:
+webpack-dev-middleware@3.4.0:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-3.4.0.tgz#1132fecc9026fd90f0ecedac5cbff75d1fb45890"
   integrity sha512-Q9Iyc0X9dP9bAsYskAVJ/hmIZZQwf/3Sy4xCAZgL5cUkjZmUZLt4l5HpbST/Pdgjn3u6pE7u5OdGd1apgzRujA==
+  dependencies:
+    memory-fs "~0.4.1"
+    mime "^2.3.1"
+    range-parser "^1.0.3"
+    webpack-log "^2.0.0"
+
+webpack-dev-middleware@^3.5.0:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-3.5.0.tgz#fff0a07b0461314fb6ca82df3642c2423f768429"
+  integrity sha512-1Zie7+dMr4Vv3nGyhr8mxGQkzTQK1PTS8K3yJ4yB1mfRGwO1DzQibgmNfUqbEfQY6eEtEEUzC+o7vhpm/Sfn5w==
   dependencies:
     memory-fs "~0.4.1"
     mime "^2.3.1"
