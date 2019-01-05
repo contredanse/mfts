@@ -16,7 +16,7 @@ import { getMainMenuRoute, isScreenAdaptedForHelixMenu } from '@src/helpers/main
 // Using a require to not bundle svg
 // xconst Menu = require('react-burger-menu/lib/menus/pushRotate');
 // xconst Menu = require('react-burger-menu/lib/menus/push');
-const Menu = require('react-burger-menu/lib/menus/slide');
+import Menu from 'react-burger-menu/lib/menus/slide';
 
 type Props = {
     isOpen: boolean;
