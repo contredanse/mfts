@@ -9,7 +9,7 @@
         "cover": "hello.jpg",
         "keywords": {
             "en": ["sensation", "senses", "weight"],
-            "fr": ["sensation", "sens", "poids"]
+            "fr": ["sensation", "sens", "poids", "Check"]
         },
         "content": {
             "layout": "single-video",
