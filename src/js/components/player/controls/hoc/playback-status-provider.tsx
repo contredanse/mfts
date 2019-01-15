@@ -289,6 +289,7 @@ export default class PlaybackStatusProvider extends React.PureComponent<Playback
      * @param visible if undefined, will auto detect current visibility
      */
     private triggerTextTrackVisibilityChange = (visible?: boolean): void => {
+        console.warn('trigger');
         if (visible === undefined) {
             const { videoEl } = this.props;
             visible = videoEl ? hasVisibleTextTrack(videoEl) : false;
