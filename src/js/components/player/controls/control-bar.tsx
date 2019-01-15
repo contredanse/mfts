@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SyntheticEvent } from 'react';
 import './control-bar.scss';
 import { ControlBarDictionary } from './control-bar.i18n';
 
@@ -55,7 +55,6 @@ export type ControlBarProps = {
 };
 
 export type ControlbarState = {
-    isActive: boolean;
     hasMouseOver?: boolean;
 };
 
@@ -82,7 +81,7 @@ class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
         super(props);
         this.trackVisibilityHelper = new TrackVisibilityHelper();
         this.state = {
-            isActive: true,
+            hasMouseOver: false,
         };
     }
 
@@ -106,6 +105,12 @@ class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
         return <PlayButton tooltip={this.tr('play')} isEnabled={true} onClick={this.play} {...spaceAction} />;
     };
 
+    handleIdleChange = (idleMode: boolean) => {
+        if (this.props.handleIdleModeChange) {
+            this.props.handleIdleModeChange(idleMode);
+        }
+    };
+
     render() {
         const props = this.props;
         const { videoEl, enableMuteControl, playbackRate, idleMonitorTimeout } = this.props;
@@ -119,13 +124,15 @@ class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
         return (
             <PlaybackStatusProvider videoEl={videoEl ? videoEl : undefined} progressInterval={300}>
                 {status => {
+                    const hasVisibleTextTrack = status.hasVisibleTextTrack;
+
                     return (
                         <>
                             <IdleMonitor
                                 timeout={idleMonitorTimeout}
                                 enableDebug={false}
                                 isActive={status.isPlaying && this.state.hasMouseOver !== true}
-                                onIdleChange={this.props.handleIdleModeChange}
+                                onIdleChange={this.handleIdleChange}
                             />
                             <div
                                 className={`${['control-bar-ctn', this.props.extraClasses].join(' ')}`}
@@ -183,10 +190,8 @@ class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
                                         {status.trackLangs.length > 0 && (
                                             <SubtitlesButton
                                                 isEnabled={true}
-                                                tooltip={tr(
-                                                    !status.hasVisibleTextTrack ? 'show_subtitles' : 'hide_subtitles'
-                                                )}
-                                                extraClasses={status.hasVisibleTextTrack ? 'isActive' : ''}
+                                                tooltip={tr(!hasVisibleTextTrack ? 'show_subtitles' : 'hide_subtitles')}
+                                                extraClasses={hasVisibleTextTrack ? 'isActive' : ''}
                                                 onClick={() => {
                                                     this.toggleSubtitles();
                                                     // This is a hack, we need to dispatch manually
@@ -237,13 +242,15 @@ class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
         );
     }
 
-    protected setMouseOver = (): void => {
+    protected setMouseOver = (e: SyntheticEvent<HTMLDivElement>): void => {
+        e.stopPropagation();
         this.setState({
             hasMouseOver: true,
         });
     };
 
-    protected setMouseOut = (): void => {
+    protected setMouseOut = (e: SyntheticEvent<HTMLDivElement>): void => {
+        e.stopPropagation();
         this.setState({
             hasMouseOver: false,
         });
@@ -258,6 +265,7 @@ class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
 
     protected toggleSubtitles = (): void => {
         const { videoEl, lang } = this.props;
+
         if (videoEl) {
             if (hasVisibleTextTrack(videoEl)) {
                 // A track was shown let's hide everything
