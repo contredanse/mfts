@@ -29,8 +29,8 @@ const defaultProps = {
     playbackRate: 0.5,
     mouseMoveDelay: 80,
     useClickableBox: true,
-    //videosIds: ['intro_2tubes_walk'],
-    videosIds: ['cbfhu'],
+    videosIds: ['intro_2tubes_walk'],
+    //videosIds: ['cbfhu'],
     //https://assets.materialforthespine.com/videos/cbfhu.webm
 };
 

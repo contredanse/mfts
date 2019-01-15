@@ -14,14 +14,14 @@ import '@public/favicon.ico';
 import 'typeface-eb-garamond';
 import 'typeface-im-fell-english';
 import 'typeface-karla';
-//import 'typeface-source-sans-pro';
+import 'typeface-source-sans-pro';
 
-//import 'typeface-spectral';
-//import 'typeface-lato';
-//import 'typeface-quicksand';
-//import 'typeface-raleway';
-//import 'typeface-fira-sans';
-//import 'typeface-eczar';
+import 'typeface-spectral';
+import 'typeface-lato';
+import 'typeface-quicksand';
+import 'typeface-raleway';
+import 'typeface-fira-sans';
+import 'typeface-eczar';
 
 import { appConfig } from '@config/config';
 import AppConfig from '@src/core/app-config';

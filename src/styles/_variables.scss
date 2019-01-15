@@ -8,20 +8,24 @@ $body-bg: black; //rgba($brown-color, 1);
 $body-color: #fff;
 
 //$primary-font: 'Karla', 'Lato', 'Eczar', 'Fira Sans', 'Karla', 'Quicksand', 'Roboto', 'Times New Roman', 'tahoma';
-//$primary-font: 'Karla', 'Times New Roman', sans-serif;
+$primary-font: 'Karla', 'Times New Roman', sans-serif;
 //$primary-font: 'Spectral', 'Source Sans Pro', 'Courier New', 'Times New Roman', sans-serif;
 //$primary-font: 'Source Sans Pro', 'Courier New', 'Times New Roman', sans-serif;
-$primary-font: 'EB Garamond', 'Times New Roman', sans-serif;
+//$primary-font: 'EB Garamond', 'Times New Roman', sans-serif;
+
+$secondary-font: 'Karla';
 
 //$impact-font: 'IM Fell English';
 $impact-font: $primary-font;
 
-$ui-font: 'Karla';
-//$ui-font: $primary-font;
+//$ui-font: 'Karla';
+$ui-font: $primary-font;
 
 $form-font: 'Karla';
+//$form-font: $secondary-font;
 
-$subtitle-font: 'Karla';
+//$subtitle-font: 'Karla';
+$subtitle-font: $secondary-font;
 
 $yellow-color: #ffff00;
 

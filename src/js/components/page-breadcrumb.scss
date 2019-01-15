@@ -18,6 +18,9 @@ $breadcrumb-font: $primary-font;
     color: rgba(white, 0.9);
     text-decoration: none;
 
+    user-focus: none;
+    user-select: none;
+
     &__link {
         &:hover {
             //border: 1px solid red;

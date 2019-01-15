@@ -1,5 +1,3 @@
-# Biographie
-
 Depuis 55 ans, Steve Paxton explore la fiction de la danse « cultivée » et la « vérité » de l’improvisation.
 
 Né à Phoenix dans l’Arizona en 1939, il aborde sa recherche sur le mouvement par la gymnastique

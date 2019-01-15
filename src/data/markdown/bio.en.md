@@ -1,5 +1,3 @@
-# Biography
-
 Steve Paxton has researched the fiction of cultured dance and the “truth” of improvisation for 55 years.
 
 Born in Phoenix, Arizona in 1939, he began his movement studies in gymnastics and then trained

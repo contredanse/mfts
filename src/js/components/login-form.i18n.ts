@@ -65,8 +65,8 @@ const LoginFormDictionary: BasicI18nDictionary = {
     },
 
     welcome_to_you: {
-        en: 'Welcome to you',
-        fr: 'La bienvenue à vous',
+        en: 'Welcome',
+        fr: 'Bienvenue',
     },
 
     to_continue_text: {

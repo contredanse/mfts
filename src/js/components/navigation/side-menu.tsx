@@ -36,7 +36,7 @@ const menuItems = {
         route: '/',
     },
     menu: {
-        label: { fr: 'Menu', en: 'Menu' },
+        label: { fr: 'Contenu', en: 'Content' },
         route: getMainMenuRoute,
         hidden: (): boolean => {
             return !isScreenAdaptedForHelixMenu();
@@ -144,7 +144,7 @@ export class SideMenu extends React.PureComponent<Props, State> {
                             <div>
                                 <img src={contredanseLogo} />
                             </div>
-                            <div>© Contredanse Editions, 2018</div>
+                            <div>© Contredanse Editions, 2019</div>
                         </div>
                     </div>
 

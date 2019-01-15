@@ -18,7 +18,7 @@
         right: 0;
         left: 0;
         //background: url('../../assets/images/background-wall.jpg') no-repeat;
-        background: url('../../data/markdown/images/gravity-book-fr.jpg') no-repeat;
+        //background: url('../../data/markdown/images/gravity-book-fr.jpg') no-repeat;
         background-size: cover;
         z-index: -1;
         opacity: 0.3;
@@ -55,16 +55,19 @@
         a:link,
         a.visited,
         a.active {
-            color: white;
+            color: $link-hover-color;
+            text-decoration: none;
+            //border-bottom: 1px solid rgba(grey, 0.8);
         }
         a:hover {
             color: $link-hover-color;
+            //border-bottom: 1px solid rgba(grey, 0.1);
         }
 
         text-align: left;
         h1 {
             //mix-blend-mode: difference;
-            font-size: 2.2em;
+            font-size: 1.7em;
             font-weight: 500;
             letter-spacing: 0.025em;
             text-transform: uppercase;
@@ -77,17 +80,19 @@
             //mix-blend-mode: overlay;
         }
         h2 {
-            font-size: 1.7em;
+            font-weight: 200;
+            font-size: 1.6em;
             text-transform: none;
         }
         h3 {
-            font-size: 1.5em;
+            font-size: 1.2em;
             font-weight: 400;
             opacity: 0.9;
+            color: lightgrey;
         }
         p {
             font-size: 1.2em;
-            line-height: 1.58;
+            line-height: 1.35;
             letter-spacing: -0.004em;
         }
     }

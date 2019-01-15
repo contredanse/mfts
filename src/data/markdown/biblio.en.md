@@ -1,5 +1,3 @@
-# Bibliography
-
 ## Publications
 
 ### *Gravity* by Steve Paxton, Contredanse Éditions, Bruxelles, 2018.
@@ -8,7 +6,10 @@ In this book, the dancer Steve Paxton traces a lifetime in the company of gravit
 
 *Gravité* by Steve Paxton, translation in french by Denise Luccioni, Éditions Contredanse, Bruxelles, 2018
 
-Paxton has published numerous articles from 1975 to the present in the dance journal *Contact Quarterly*, Northampton, MA. These articles include dance for the physically disabled, dance for the visually disabled, dance analysis, Contact Improvisation technique and theory, and occasional pieces.
+Paxton has published numerous articles from 1975 to the present in the dance
+journal *Contact Quarterly*, Northampton, MA. These articles include dance for the physically disabled, 
+dance for the visually disabled, dance analysis, 
+Contact Improvisation technique and theory, and occasional pieces.
 
 His work is featured in the following books: *Terpsichore in Sneakers*, Sally Banes, Wesleyan, 1987 ; *The Rise and Fall and Rise of Modern Dance*, Don McDonagh, ebrandedbooks.com, US, revised edition, 1 décembre 1990 ; *Sharing the Dance: Contact Improvisation & American Culture*, Cynthia Novack, University of Wisconsin Press; 1990 ; *Democracy's Body: Judson Dance Theater, 1962-64*, Sally Banes, Duke University Press Books, 1993 ; *Dance as a Theatre Art, Source Readings in Dance History from 1581 to the Present*, ss la dir. de Selma Jeanne Cohen, Princeton Book Company, 1992 ; *The Grand Union (1970-1976): An Improvisational Performance Group*, Margaret Hupp Ramsay, Peter Lang Publishing Inc, 1991.
 
