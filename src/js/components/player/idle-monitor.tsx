@@ -1,14 +1,14 @@
 import React from 'react';
-import { throttle } from 'throttle-debounce';
+import { debounce, throttle } from 'throttle-debounce';
 
 const isBrowser = (typeof window === 'undefined' ? 'undefined' : typeof window) === 'object';
 
 const defaultEvents = [
-    'mousemove',
     'keydown',
     'wheel',
     'DOMMouseScroll',
     'mouseWheel',
+    'mousemove',
     'mousedown',
     'touchstart',
     'touchmove',
@@ -48,13 +48,13 @@ const defaultState = {
     idle: false,
 };
 
-class IdleMonitor extends React.PureComponent<IdleMonitorProps, IdleMonitorState> {
+class IdleMonitor extends React.Component<IdleMonitorProps, IdleMonitorState> {
     static defaultProps = defaultProps;
 
     timeoutHandle?: number;
     isCancelled = false;
 
-    onEvent = throttle(50, () => {
+    onEvent = throttle(100, () => {
         if (this.isCancelled) {
             clearTimeout(this.timeoutHandle);
         } else {
@@ -93,6 +93,14 @@ class IdleMonitor extends React.PureComponent<IdleMonitorProps, IdleMonitorState
         };
     };
 
+    shouldComponentUpdate(
+        nextProps: Readonly<IdleMonitorProps>,
+        nextState: Readonly<IdleMonitorState>,
+        nextContext: any
+    ): boolean {
+        return this.state.idle !== nextState.idle;
+    }
+
     async componentDidMount() {
         const { element, events, enableOnMount } = this.props;
         if (!element) {
@@ -128,6 +136,7 @@ class IdleMonitor extends React.PureComponent<IdleMonitorProps, IdleMonitorState
 
     render() {
         const { idle } = this.state;
+        console.log('RERENDRE IDLE MONITOR', this.state);
         if (this.props.enableDebug) {
             return (
                 <div
