@@ -50,7 +50,6 @@ export const loginUser = ({ email, password }: AuthCredentials, onSuccess?: (dat
                 language: window.navigator.language || '',
             })
             .json(response => {
-                alert('cool');
                 const data = response as AuthResponse;
                 const { access_token } = data;
                 dispatch(authActions.authFormSubmitSuccess());
