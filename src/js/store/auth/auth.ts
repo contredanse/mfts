@@ -3,6 +3,7 @@ import wretch from 'wretch';
 import { appConfig } from '@config/config';
 
 import * as authActions from './actions';
+import { AuthErrorPayload } from '@src/store/auth/types';
 
 export const AUTH_TOKEN_LOCALSTORAGE_KEY = 'user.token';
 
@@ -46,8 +47,10 @@ export const loginUser = ({ email, password }: AuthCredentials, onSuccess?: (dat
             .post({
                 email: email,
                 password: password,
+                language: window.navigator.language || '',
             })
             .json(response => {
+                alert('cool');
                 const data = response as AuthResponse;
                 const { access_token } = data;
                 dispatch(authActions.authFormSubmitSuccess());
@@ -64,14 +67,22 @@ export const loginUser = ({ email, password }: AuthCredentials, onSuccess?: (dat
             })
             .catch(error => {
                 const errorText = 'text' in error ? error.text : '';
-                let reason = '';
+                const errorPayload: AuthErrorPayload = {
+                    message: 'Unknown error',
+                    expiryDate: null,
+                };
                 try {
-                    reason = JSON.parse(errorText).reason;
+                    const parsed = JSON.parse(errorText);
+                    errorPayload.message = parsed.error_type;
+                    // test expiry date
+                    if (parsed.expired_date) {
+                        errorPayload.expiryDate = parsed.expired_date;
+                    }
                 } catch (e) {
                     console.log('Login error', error);
-                    reason = errorText.toString();
+                    errorPayload.message = errorText.toString();
                 }
-                dispatch(authActions.authFormSubmitFailure(`${reason}`));
+                dispatch(authActions.authFormSubmitFailure(errorPayload));
             });
     };
 };

@@ -1,5 +1,5 @@
 import { Reducer } from 'redux';
-import { AuthState, AuthActionTypes } from './types';
+import { AuthState, AuthActionTypes, AuthErrorPayload } from './types';
 import { hasPersistedToken } from '@src/store/auth/auth';
 
 // Temp you had a token... all is good !
@@ -11,6 +11,7 @@ const initAuth = {
 const initialState: AuthState = {
     authenticated: initAuth.authenticated,
     authError: null,
+    authExpiry: null,
     loading: false,
     user: null,
 };
@@ -22,15 +23,27 @@ const reducer: Reducer<AuthState> = (state = initialState, action): AuthState =>
         case AuthActionTypes.AUTHENTICATE_USER:
             return { ...state, authenticated: true, user: action.payload };
         case AuthActionTypes.UNAUTHENTICATE_USER:
+            // prevent unauthenticate while authenticating
+            if (state.loading) {
+                return state;
+            }
             return { ...state, user: null, authenticated: false };
         case AuthActionTypes.RESET_AUTH_FORM:
-            return { ...state, authError: null, loading: false };
+            return { ...state, authError: null, authExpiry: null, loading: false };
         case AuthActionTypes.AUTH_FORM_SUBMIT_REQUEST:
             return { ...state, loading: true };
         case AuthActionTypes.AUTH_FORM_SUBMIT_SUCCESS:
-            return { ...state, loading: false, authError: null };
+            return { ...state, loading: false, authError: null, authExpiry: null };
         case AuthActionTypes.AUTH_FORM_SUBMIT_FAILURE:
-            return { ...state, authenticated: false, user: null, loading: false, authError: action.payload };
+            const { message, expiryDate } = action.payload as AuthErrorPayload;
+            return {
+                ...state,
+                authenticated: false,
+                user: null,
+                loading: false,
+                authError: message,
+                authExpiry: expiryDate,
+            };
         default: {
             return state;
         }

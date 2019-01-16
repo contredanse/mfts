@@ -83,6 +83,41 @@ const LoginFormDictionary: BasicI18nDictionary = {
         en: 'Or connect',
         fr: 'Ou connectez-vous',
     },
+
+    /**
+     * Error messages
+     */
+
+    // This error happens when login/pass are incorrect.
+    // User should click on 'Password forgotten'
+    'fail.credentials': {
+        en: 'Invalid credentials, login/password does not match.',
+        fr: 'Mot de passe ou email invalide.',
+    },
+
+    // This error happens when product access have expired
+    'fail.expiry': {
+        en: 'Access has expired on %date%.',
+        fr: 'Votre accès a expiré le %date%.',
+    },
+
+    'fail.payment': {
+        en: 'Payment issue.',
+        fr: 'Problème de paiement.',
+    },
+
+    'fail.no_access': {
+        en: 'You need to order an access first.',
+        fr: 'Veuillez obtenir un accès.',
+    },
+
+    // Generic error, when none of the above errors applies.
+    // possibly due to failure in communication between authentication
+    // database
+    fail: {
+        en: 'Error while verifying your account. Please try again later.',
+        fr: 'Erreur lors de la vérification de votre compte. Veuillez réessayer.',
+    },
 };
 
 export default LoginFormDictionary;

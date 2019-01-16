@@ -16,6 +16,7 @@ import { ExternalUrls } from '@src/core/app-config';
 export type LoginFormProps = {
     handleSubmit?: (data: any, onSuccess?: () => void) => void;
     authError: string | null;
+    authExpiry: string | null;
     loading: boolean;
     user?: AuthUser | null;
     authenticated: boolean;
@@ -114,7 +115,9 @@ export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormStat
                                 )}
 
                                 {this.props.authError && (
-                                    <div className="error-response-text">{this.props.authError}</div>
+                                    <div className="error-response-text">
+                                        {this.getAuthErrorMessage(this.props.authError, this.props.authExpiry)}
+                                    </div>
                                 )}
 
                                 <button type="submit" disabled={isSubmitting}>
@@ -136,6 +139,14 @@ export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormStat
         );
     }
 
+    private getAuthErrorMessage = (message: string, expiry: string | null): string => {
+        const msg = this.tr(message);
+        if (expiry && Date.parse(expiry)) {
+            return msg.replace('%date%', new Date(expiry).toLocaleDateString(this.props.lang));
+        }
+        return msg;
+    };
+
     private tr = (text: string): string => {
         return getFromDictionary(text, this.props.lang!, i18n);
     };
@@ -143,6 +154,7 @@ export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormStat
 
 const mapStateToProps = ({ auth }: ApplicationState) => ({
     authError: auth.authError,
+    authExpiry: auth.authExpiry,
     loading: auth.loading,
     user: auth.user,
     authenticated: auth.authenticated,

@@ -7,6 +7,11 @@
 
 import { AuthUser } from '@src/store/auth/auth';
 
+export type AuthErrorPayload = {
+    message: string;
+    expiryDate: string | null;
+};
+
 export const enum AuthActionTypes {
     AUTHENTICATE_USER = '@@auth/AUTHENTICATE_USER',
     UNAUTHENTICATE_USER = '@@auth/UNAUTHENTICATE_USER',
@@ -21,6 +26,7 @@ export const enum AuthActionTypes {
 export interface AuthState {
     readonly authenticated: boolean;
     readonly authError: string | null;
+    readonly authExpiry: string | null;
     readonly loading: boolean;
     readonly user: null | AuthUser;
 }

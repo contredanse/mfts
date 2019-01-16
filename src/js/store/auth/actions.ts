@@ -1,6 +1,6 @@
 import { action } from 'typesafe-actions';
 
-import { AuthActionTypes } from './types';
+import { AuthActionTypes, AuthErrorPayload } from './types';
 import { AuthUser } from '@src/store/auth/auth';
 
 // Here we use the `action` helper function provided by `typesafe-actions`.
@@ -17,4 +17,5 @@ export const resetAuthForm = () => action(AuthActionTypes.RESET_AUTH_FORM);
 
 export const authFormSubmitRequest = () => action(AuthActionTypes.AUTH_FORM_SUBMIT_REQUEST);
 export const authFormSubmitSuccess = () => action(AuthActionTypes.AUTH_FORM_SUBMIT_SUCCESS);
-export const authFormSubmitFailure = (error: string) => action(AuthActionTypes.AUTH_FORM_SUBMIT_FAILURE, error);
+export const authFormSubmitFailure = (errorPayload: AuthErrorPayload) =>
+    action(AuthActionTypes.AUTH_FORM_SUBMIT_FAILURE, errorPayload);
