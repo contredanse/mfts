@@ -82,6 +82,9 @@
         h2 {
             font-weight: 200;
             font-size: 1.6em;
+            margin-top: 0;
+            margin-bottom: 0.5em;
+
             text-transform: none;
         }
         h3 {
@@ -91,6 +94,8 @@
             color: lightgrey;
         }
         p {
+            margin-top: 0;
+
             font-size: 1.2em;
             line-height: 1.35;
             letter-spacing: -0.004em;
