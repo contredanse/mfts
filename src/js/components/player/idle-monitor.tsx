@@ -1,5 +1,5 @@
 import React from 'react';
-import { debounce, throttle } from 'throttle-debounce';
+import { throttle } from 'throttle-debounce';
 
 const isBrowser = (typeof window === 'undefined' ? 'undefined' : typeof window) === 'object';
 
