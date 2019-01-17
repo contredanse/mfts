@@ -1,11 +1,9 @@
+@import '../../styles/_variables.scss';
+@import '../../styles/_media-queries.scss';
+
 $button-icon-size: 2em;
 
-// $color-hover: saturate(lighten($green, 10%), 20%);
-// $color-active: desaturate(darken($green, 20%), 20%);
-
-//$button-color-hover: desaturate(darken($green, 20%), 10%);
 $button-color-hover: yellow;
-//$button-color-active: fade-out($button-color-hover, 0.5);
 $button-color-active: white;
 
 $button-background: rgba(0, 0, 0, 0);
@@ -19,8 +17,14 @@ $button-margin: 0px;
 
 .fullscreen-button {
     position: fixed;
-    bottom: 15px;
-    right: 15px;
+    bottom: $appbar-margin-from-window;
+    right: $appbar-margin-from-window;
+
+    @include media-breakpoint-down(sm) {
+        bottom: $appbar-margin-from-window-sm;
+        right: $appbar-margin-from-window-sm;
+    }
+
     z-index: 1000;
 
     margin: $button-margin;

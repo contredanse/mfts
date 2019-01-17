@@ -119,7 +119,13 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
                     </div>
                 </FullsizeVideoBg>
 
-                <img className="logo-contredanse" src={contredanseLogo} alt="Contredanse logo" />
+                <img
+                    className="logo-contredanse"
+                    src={contredanseLogo}
+                    alt="Contredanse logo"
+                    onClick={this.openContredanse}
+                />
+
                 <EventListener
                     target={document}
                     onMouseMoveCapture={this.handleMove}
@@ -128,6 +134,13 @@ class Home extends React.PureComponent<HomeProps, HomeState> {
             </div>
         );
     }
+
+    openContredanse = () => {
+        const win = window.open('https://www.contredanse.org', '_blank');
+        if (win) {
+            win.focus();
+        }
+    };
 
     handleOnEnded = () => {
         this.setState({
