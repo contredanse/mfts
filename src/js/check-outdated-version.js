@@ -3,14 +3,16 @@ const outdatedBrowserRework = require('outdated-browser-rework');
 const language = (() => {
     // default
     let lang = 'en';
+
     if (window.location && window.location.pathname) {
         const matches = window.location.pathname.match(/^\/fr/);
         if (matches) {
             lang = 'fr';
         }
     }
-    // from navigator
-    if (navigator.language && navigator.language.startsWith('fr')) {
+
+    const browserLocale = window.navigator.language || window.navigator.userLanguage;
+    if (browserLocale && browserLocale.slice(0, 2) === 'fr') {
         lang = 'fr';
     }
     return lang;
