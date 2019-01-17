@@ -19,11 +19,9 @@
         align-items: center;
         max-width: 720px;
         video {
-            //border: 1px solid rgba(yellow, 0.8);
             filter: $video-filters;
-            max-width: 99%;
-            // because some have too small sizes
-            width: 99%;
+            max-width: 100%;
+            width: 100%;
         }
         &:hover {
             cursor: pointer;
