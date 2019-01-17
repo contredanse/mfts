@@ -111,12 +111,17 @@ const LoginFormDictionary: BasicI18nDictionary = {
         fr: 'Veuillez obtenir un accès.',
     },
 
+    'fail.network': {
+        en: 'Network failure, please try again later.',
+        fr: 'Erreur réseau, veuillez réessayer plus tard.',
+    },
+
     // Generic error, when none of the above errors applies.
     // possibly due to failure in communication between authentication
     // database
     fail: {
         en: 'Error while verifying your account. Please try again later.',
-        fr: 'Erreur lors de la vérification de votre compte. Veuillez réessayer.',
+        fr: 'Erreur lors de la vérification de votre compte. Veuillez réessayer plus tard.',
     },
 };
 
