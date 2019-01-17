@@ -18,7 +18,7 @@ const language = (() => {
 
 outdatedBrowserRework({
     browserSupport: {
-        Chrome: 76, // Includes Chrome for mobile devices
+        Chrome: 57, // Includes Chrome for mobile devices
         Edge: 16,
         Firefox: 54,
         IE: false,
