@@ -3,22 +3,8 @@
 
 $bg-gradient-color: grey;
 $max-controlbar-width: 2500px;
-//$max-controlbar-width: 100%;
 
 .control-bar-ctn {
-    //display: flex;
-    //flex-direction: column;
-
-    //height: 100px;
-
-    /*
-    background: linear-gradient(
-        to bottom,
-        rgba($bg-gradient-color, 0.01) 0%,
-        rgba($bg-gradient-color, 0.2) 60%,
-        rgba($bg-gradient-color, 0.8) 100%
-    );*/
-
     opacity: 1;
     transition: opacity $hide-animation-timeout ease-in;
 
@@ -27,16 +13,17 @@ $max-controlbar-width: 2500px;
     }
 
     position: fixed;
-    bottom: 0;
-    left: $appbar-margin-from-window;
-    right: $appbar-margin-from-window;
+    bottom: $controlbar-margin-from-window-bottom;
+    left: $controlbar-margin-from-window;
+    right: $controlbar-margin-from-window;
 
     @include media-breakpoint-down(sm) {
-        left: $appbar-margin-from-window-sm;
-        right: $appbar-margin-from-window-sm;
+        left: $controlbar-margin-from-window-sm;
+        right: $controlbar-margin-from-window-sm;
+        bottom: $controlbar-margin-from-window-bottom-sm;
     }
+    padding: 0;
 
-    padding: 10px;
     display: flex;
 
     flex-flow: column-reverse;
@@ -45,10 +32,6 @@ $max-controlbar-width: 2500px;
     justify-items: center;
 
     &__progress-bar {
-        //background-color: white;
-        //height: 60px;
-        //width: 100%;
-        //flex: 1 1 100%;
         width: 100%;
         max-width: $max-controlbar-width;
     }
@@ -65,13 +48,9 @@ $max-controlbar-width: 2500px;
         }
 
         &__left {
-            //@include media-breakpoint-down(sm) {
-            //    display: none;
-            //}
             flex: 0;
             padding-right: 10px;
             justify-content: flex-start;
-            //align-items: flex-start;
             align-items: center;
             background: linear-gradient(to top, rgba(black, 0.01) 0%, rgba(black, 0.4) 10%, rgba(black, 1) 100%);
             display: flex;
@@ -101,109 +80,30 @@ $max-controlbar-width: 2500px;
             flex: auto;
             align-items: center;
             justify-content: center;
-            //
-            //
-            //border: 1px solid yellow;
-            /*
-            @include media-breakpoint-down(sm) {
-                //align-items: center;
-                justify-content: flex-start;
-
-                padding-bottom: 10px;
-                background: linear-gradient(to left, rgba(black, 0.01) 0%, rgba(black, 0.4) 10%, rgba(black, 1) 100%);
-                //flex: 1 1;
-
-                //border: 1px solid white;
-            }*/
         }
         &__right {
             flex: 0;
             button {
-                //border: 1px solid blue;
                 width: 1.5em;
                 margin: 0;
-
-                margin-left: 5px;
+                margin-left: 15px;
                 @include media-breakpoint-down(sm) {
                     margin-left: 10px;
                 }
-                zoom: 0.9;
-
                 svg.mdi-icon {
                     vertical-align: middle;
                     fill: rgba(white, 0.9);
                 }
             }
+
+            .playback-rate-select {
+                margin-bottom: 3px;
+            }
+
             background: linear-gradient(to right, rgba(black, 0.01) 0%, rgba(black, 0.4) 10%, rgba(black, 1) 100%);
             justify-content: flex-end;
             align-items: flex-end;
-            //border: 1px dashed blue;
             display: flex;
         }
     }
 }
-
-/*
-
-
-.control-bar-overlay {
-    position: absolute;
-
-    margin: 0;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-
-    padding: 5px;
-
-    display: flex;
-    flex-direction: column;
-
-    opacity: 0.7;
-    transition: opacity 500ms ease-in-out;
-
-    &--active {
-        //background-color: black;
-        opacity: 1;
-
-        //background: linear-gradient(to bottom, rgba(197,222,234, 0.1) 0%,rgba(138,187,215,0.5) 31%,rgba(6,109,171,1) 100%)
-
-        .control-bar-overlay-top {
-            background: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 60%, rgba(0, 0, 0, 0.7) 100%);
-        }
-
-        .control-bar-overlay-bottom {
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 31%, rgba(0, 0, 0, 1) 100%);
-        }
-    }
-
-    &--hidden {
-        //background-color: black;
-        opacity: 0;
-    }
-
-    &--mini {
-        //background-color: black;
-    }
-
-    .control-bar-overlay-top {
-        flex: 1;
-        //border: 1px solid grey;
-    }
-
-    .control-bar-overlay-middle {
-        flex: auto;
-        //border: 1px solid green;
-    }
-
-    .control-bar-overlay-bottom {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        //border: 1px solid blue;
-    }
-}
-
- */

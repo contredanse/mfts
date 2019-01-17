@@ -25,6 +25,12 @@ $link-hover-color: $yellow-color;
 $appbar-margin-from-window: 30px;
 $appbar-margin-from-window-sm: 15px;
 
+$controlbar-margin-from-window: $appbar-margin-from-window;
+$controlbar-margin-from-window-sm: $appbar-margin-from-window-sm;
+
+$controlbar-margin-from-window-bottom: $appbar-margin-from-window;
+$controlbar-margin-from-window-bottom-sm: $appbar-margin-from-window-sm;
+
 $helix-menu-icon-minimum-width: 700px;
 
 // A map of breakpoints.
