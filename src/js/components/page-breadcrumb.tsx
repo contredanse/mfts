@@ -2,6 +2,7 @@ import React from 'react';
 import './page-breadcrumb.scss';
 import { MenuSectionProps } from '@src/models/repository/menu-repository';
 import { RouteComponentProps, withRouter } from 'react-router';
+import { getMainMenuRoute } from '@src/helpers/main-menu-redirect';
 
 export type PageBreadcrumbProps = {
     lang: string;
@@ -9,12 +10,14 @@ export type PageBreadcrumbProps = {
     sections?: MenuSectionProps[];
     separator?: string;
     onSectionSelected?: (menuId: string) => {};
+    useMainMenuRoute?: boolean;
 } & RouteComponentProps<any>;
 
 type PageBreadcrumbState = {};
 
 const defaultProps = {
     separator: '/',
+    useMainMenuRoute: true,
 };
 
 class PageBreadcrumb extends React.PureComponent<PageBreadcrumbProps, PageBreadcrumbState> {
@@ -29,8 +32,12 @@ class PageBreadcrumb extends React.PureComponent<PageBreadcrumbProps, PageBreadc
         if (onSectionSelected !== undefined) {
             onSectionSelected(menuId);
         } else {
-            const { history, lang } = this.props;
-            history.push(`/${lang}/page-list/${menuId}`);
+            const { history, lang, useMainMenuRoute } = this.props;
+            if (useMainMenuRoute) {
+                history.push(getMainMenuRoute(lang, menuId));
+            } else {
+                history.push(`/${lang}/page-list/${menuId}`);
+            }
         }
     };
     render() {
