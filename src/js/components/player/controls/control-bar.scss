@@ -2,7 +2,7 @@
 @import '../../../../styles/_media-queries.scss';
 
 $bg-gradient-color: grey;
-$max-controlbar-width: 1500px;
+$max-controlbar-width: 2500px;
 //$max-controlbar-width: 100%;
 
 .control-bar-ctn {
@@ -28,8 +28,14 @@ $max-controlbar-width: 1500px;
 
     position: fixed;
     bottom: 0;
-    left: 0;
-    right: 0;
+    left: $appbar-margin-from-window;
+    right: $appbar-margin-from-window;
+
+    @include media-breakpoint-down(sm) {
+        left: $appbar-margin-from-window-sm;
+        right: $appbar-margin-from-window-sm;
+    }
+
     padding: 10px;
     display: flex;
 
@@ -116,11 +122,15 @@ $max-controlbar-width: 1500px;
                 //border: 1px solid blue;
                 width: 1.5em;
                 margin: 0;
-                margin-left: 3px;
-                //zoom: 0.8;
+
+                margin-left: 6px;
+                @include media-breakpoint-down(sm) {
+                    margin-left: 10px;
+                }
+                zoom: 0.9;
 
                 svg.mdi-icon {
-                    vertical-align: bottom;
+                    vertical-align: middle;
                     fill: rgba(white, 0.9);
                 }
             }

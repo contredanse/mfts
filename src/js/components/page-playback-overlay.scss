@@ -5,8 +5,15 @@
     position: absolute;
 
     margin: 0;
-    left: 0;
-    right: 0;
+
+    left: $appbar-margin-from-window;
+    right: $appbar-margin-from-window;
+
+    @include media-breakpoint-down(sm) {
+        left: $appbar-margin-from-window-sm;
+        right: $appbar-margin-from-window-sm;
+    }
+
     top: 0;
     bottom: 0px;
 
