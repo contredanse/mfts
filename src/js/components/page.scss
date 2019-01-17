@@ -27,9 +27,7 @@ $max-video-width: 720px;
         flex-basis: 100%; // vertical space used: 100%
     }
     .autoscale-video-content {
-        //background-color: #ccffcc;
         position: relative;
-
         max-width: $max-video-width;
 
         video {
@@ -38,16 +36,7 @@ $max-video-width: 720px;
             top: 0;
             width: 100%;
             height: 100%;
-            filter: contrast(120%) brightness(110%);
-            /*
-            &:hover {
-                // custom color calibration. To choose later !
-                 // hue-rotate(5deg);
-            }
-            */
-
-            //          height: auto !important;
-            //          max-height: 100%;
+            filter: $video-filters;
         }
     }
 }
