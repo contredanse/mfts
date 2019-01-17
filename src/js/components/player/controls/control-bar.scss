@@ -83,6 +83,12 @@ $max-controlbar-width: 2500px;
         }
         &__right {
             flex: 0;
+
+            background: linear-gradient(to right, rgba(black, 0.01) 0%, rgba(black, 0.4) 10%, rgba(black, 1) 100%);
+            justify-content: flex-end;
+            align-items: flex-end;
+            display: flex;
+
             button {
                 width: 1.5em;
                 margin: 0;
@@ -97,13 +103,9 @@ $max-controlbar-width: 2500px;
             }
 
             .playback-rate-select {
+                // hack to fix alignment issue
                 margin-bottom: 3px;
             }
-
-            background: linear-gradient(to right, rgba(black, 0.01) 0%, rgba(black, 0.4) 10%, rgba(black, 1) 100%);
-            justify-content: flex-end;
-            align-items: flex-end;
-            display: flex;
         }
     }
 }
