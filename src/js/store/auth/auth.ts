@@ -81,7 +81,7 @@ export const loginUser = ({ email, password }: AuthCredentials, onSuccess?: (dat
                         }
                     } catch (e) {
                         const errorMsg = error.toString();
-                        if (errorMsg.match('Failed to fetch')) {
+                        if (errorMsg.match(/fail(.*) to fetch|network/i)) {
                             errorPayload.message = 'fail.network';
                         } else {
                             errorPayload.message = errorMsg;
