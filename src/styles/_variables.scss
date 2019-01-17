@@ -7,32 +7,25 @@ $brown-color-light: rgb(156, 57, 0);
 $body-bg: black; //rgba($brown-color, 1);
 $body-color: #fff;
 
-//$primary-font: 'Karla', 'Lato', 'Eczar', 'Fira Sans', 'Karla', 'Quicksand', 'Roboto', 'Times New Roman', 'tahoma';
-$primary-font: 'Karla', 'Times New Roman', sans-serif;
+$primary-font: 'Karla', sans-serif;
 //$primary-font: 'Spectral', 'Source Sans Pro', 'Courier New', 'Times New Roman', sans-serif;
-//$primary-font: 'Source Sans Pro', 'Courier New', 'Times New Roman', sans-serif;
-//$primary-font: 'EB Garamond', 'Times New Roman', sans-serif;
 
-$secondary-font: 'Karla';
-
-//$impact-font: 'IM Fell English';
 $impact-font: $primary-font;
 
-//$ui-font: 'Karla';
 $ui-font: $primary-font;
 
-$form-font: 'Karla';
-//$form-font: $secondary-font;
+$form-font: $primary-font;
+$subtitle-font: $primary-font;
 
-//$subtitle-font: 'Karla';
-$subtitle-font: $secondary-font;
-
+//$yellow-color: #fff53a;
 $yellow-color: #ffff00;
 
 $link-hover-color: $yellow-color;
 
 $appbar-margin-from-window: 30px;
 $appbar-margin-from-window-sm: 15px;
+
+$helix-menu-icon-minimum-width: 700px;
 
 // A map of breakpoints.
 

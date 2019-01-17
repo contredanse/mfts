@@ -97,6 +97,12 @@ $bg-gradient-color: black;
         }
     }
 
+    @media screen and (max-width: $helix-menu-icon-minimum-width) {
+        .helix-menu-icon {
+            display: none;
+        }
+    }
+
     &.idle-mode {
         opacity: 0.9;
 
