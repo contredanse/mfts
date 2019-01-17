@@ -41,48 +41,55 @@ export const loginUser = ({ email, password }: AuthCredentials, onSuccess?: (dat
     return (dispatch: Dispatch) => {
         dispatch(authActions.authFormSubmitRequest());
 
-        return wretchRequest
-            .url(`${baseUrl}/auth/token`)
-            .options({ mode: 'cors' })
-            .post({
-                email: email,
-                password: password,
-                language: window.navigator.language || '',
-            })
-            .json(response => {
-                const data = response as AuthResponse;
-                const { access_token } = data;
-                dispatch(authActions.authFormSubmitSuccess());
-                dispatch(
-                    authActions.authenticateUser({
-                        email,
-                        token: access_token,
-                    })
-                );
-                localStorage.setItem(AUTH_TOKEN_LOCALSTORAGE_KEY, access_token);
-                if (onSuccess) {
-                    onSuccess(data);
-                }
-            })
-            .catch(error => {
-                const errorText = 'text' in error ? error.text : '';
-                const errorPayload: AuthErrorPayload = {
-                    message: 'Unknown error',
-                    expiryDate: null,
-                };
-                try {
-                    const parsed = JSON.parse(errorText);
-                    errorPayload.message = parsed.error_type;
-                    // test expiry date
-                    if (parsed.expired_date) {
-                        errorPayload.expiryDate = parsed.expired_date;
+        return (
+            wretchRequest
+                .url(`http://qsdkjlkjqslkdjlkqjsldkjqs.com/auth/token`)
+                //.url(`${baseUrl}/auth/token`)
+                .options({ mode: 'cors' })
+                .post({
+                    email: email,
+                    password: password,
+                    language: window.navigator.language || '',
+                })
+                .json(response => {
+                    const data = response as AuthResponse;
+                    const { access_token } = data;
+                    dispatch(authActions.authFormSubmitSuccess());
+                    dispatch(
+                        authActions.authenticateUser({
+                            email,
+                            token: access_token,
+                        })
+                    );
+                    localStorage.setItem(AUTH_TOKEN_LOCALSTORAGE_KEY, access_token);
+                    if (onSuccess) {
+                        onSuccess(data);
                     }
-                } catch (e) {
-                    console.log('Login error', error);
-                    errorPayload.message = errorText.toString();
-                }
-                dispatch(authActions.authFormSubmitFailure(errorPayload));
-            });
+                })
+                .catch(error => {
+                    const errorText = 'text' in error ? error.text : error;
+                    const errorPayload: AuthErrorPayload = {
+                        message: 'Unknown error',
+                        expiryDate: null,
+                    };
+                    try {
+                        const parsed = JSON.parse(errorText);
+                        errorPayload.message = parsed.error_type;
+                        // test expiry date
+                        if (parsed.expired_date) {
+                            errorPayload.expiryDate = parsed.expired_date;
+                        }
+                    } catch (e) {
+                        const errorMsg = error.toString();
+                        if (errorMsg.match('Failed to fetch')) {
+                            errorPayload.message = 'fail.network';
+                        } else {
+                            errorPayload.message = errorMsg;
+                        }
+                    }
+                    dispatch(authActions.authFormSubmitFailure(errorPayload));
+                })
+        );
     };
 };
 
