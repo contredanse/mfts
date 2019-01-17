@@ -53,15 +53,26 @@
         justify-content: flex-end;
 
         .action-item {
+            padding: 15px;
+
+            &:first-child {
+                padding-left: 0px;
+            }
+            &:last-child {
+                padding-right: 0px;
+            }
+
             @include media-breakpoint-down(xs) {
                 &:first-child {
                     display: none;
+                }
+                &:nth-child(2) {
+                    padding-left: 0px;
                 }
             }
 
             flex: 1 1 100%;
             display: flex;
-            padding: 15px;
             position: relative;
             &:hover {
                 cursor: pointer;
