@@ -1,0 +1,16 @@
+@import '~outdated-browser-rework/style.scss';
+
+#outdated {
+    text-transform: none;
+
+    h6 {
+        font-size: 25px;
+        line-height: 25px;
+        margin: 24px 0;
+    }
+    p {
+        font-size: 14px;
+        line-height: 14px;
+        margin: 0;
+    }
+}

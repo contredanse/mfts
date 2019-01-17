@@ -1,7 +1,7 @@
 @import '~modern-normalize/modern-normalize.css';
-//@import '~normalize.css/normalize.css';
 @import './_variables.scss';
 @import './_media-queries.scss';
+@import './outdated-browser.scss';
 @import 'video/video-tracks';
 @import 'animation/animations';
 @import 'animation/page-transition';
