@@ -146,7 +146,7 @@ class PwaInstaller extends React.PureComponent<Props, State> {
                             <a onClick={this.requestAddToHomescreen}>{this.tr('add_to_homescreen')}</a>
                         </div>
                         <div className="dismiss" onClick={this.hideA2hsPrompt}>
-                            ✖
+                            &times;
                         </div>
                     </div>
                 )}
