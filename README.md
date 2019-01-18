@@ -5,6 +5,49 @@
 [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
-# Webapp 
+# MFTS Webapp
+
+Source code of this webapp is freely available under MIT license. Video material is subject to copyright to Contredanse editions, Brussels.
+
+## Install
+
+```bash
+$ git clone https://github.com/contredanse/mfts.git
+$ cd mfts
+$ yarn install
+```
+
+## Configure
+
+```bash
+$ cp env.example env.development.local
+$ cp env.example env.production.local
+```
+*and edit those files*.
+
+## Develop
+
+```bash
+$ yarn start
+```
+*then open http://localhost:3001 in your browser.* 
+
+## Check & test
+
+```bash
+$ yarn lint:fix
+$ yarn prettier
+$ yarn test
+```
+
+## Build
+
+```bash
+$ yarn build
+```
+
+
+
+ 
 
 
