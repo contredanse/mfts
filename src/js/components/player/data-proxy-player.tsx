@@ -59,11 +59,14 @@ export default class DataProxyPlayer extends React.Component<DataProxyPlayerProp
 
     readonly state: DataProxyPlayerState = defaultState;
 
-    protected playerRef: React.RefObject<VideoPlayer>;
+    private playerRef: React.RefObject<VideoPlayer>;
+
+    private tracksInitialized: boolean;
 
     constructor(props: DataProxyPlayerProps) {
         super(props);
         this.playerRef = React.createRef<VideoPlayer>();
+        this.tracksInitialized = false;
     }
 
     shouldComponentUpdate(nextProps: DataProxyPlayerProps, nextState: DataProxyPlayerState): boolean {
@@ -186,10 +189,14 @@ export default class DataProxyPlayer extends React.Component<DataProxyPlayerProp
     private onCanPlay = (e: SyntheticEvent<HTMLVideoElement>) => {
         // Initialize state for tracks
         const videoEl = e.currentTarget as HTMLVideoElement;
-        if (this.props.subtitleVisibility === 'showing' && this.props.defaultSubtitleLang) {
-            showLocalizedTextTrack(videoEl, this.props.defaultSubtitleLang);
-        } else {
-            hideAllTextTracks(videoEl);
+
+        if (!this.tracksInitialized) {
+            if (this.props.subtitleVisibility === 'showing' && this.props.defaultSubtitleLang) {
+                showLocalizedTextTrack(videoEl, this.props.defaultSubtitleLang);
+            } else {
+                hideAllTextTracks(videoEl);
+            }
+            this.tracksInitialized = true;
         }
     };
 }
