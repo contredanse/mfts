@@ -136,7 +136,6 @@ class IdleMonitor extends React.Component<IdleMonitorProps, IdleMonitorState> {
 
     render() {
         const { idle } = this.state;
-        console.log('RERENDRE IDLE MONITOR', this.state);
         if (this.props.enableDebug) {
             return (
                 <div
