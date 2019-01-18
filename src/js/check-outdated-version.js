@@ -30,8 +30,8 @@ outdatedBrowserRework({
         Safari: 11,
         Vivaldi: 1,
     },
-    language: language,
     isUnknownBrowserOK: false,
+    language: language,
     messages: {
         en: {
             callToAction: 'Update my browser now',
