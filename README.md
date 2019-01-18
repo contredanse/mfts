@@ -46,6 +46,21 @@ $ yarn test
 $ yarn build
 ```
 
+## Production
+
+### Server
+
+To fully take advantage of brotli, Apache is recommended over Nginx.
+Really be sure to not cache either `service-worker.js` and `index.html` 
+to prevent PWA caching issues. 
+
+*See [config examples](./docs/deploy) and [htaccess example](./public/.htaccess.dist). Note
+that you apache support is build with the project. Nothing to do for apache users.*
+
+### Deploy
+
+For simple deployments scenarios have a look to the [deploy.sh.example](./deploy.sh.example). 
+ 
 
 
  
