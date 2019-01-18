@@ -739,6 +739,7 @@
         },
         "sort_idx": 2800,
         "cover": "cbfhu.jpg",
+        "speed_control": true,
         "keywords": {
             "en": ["forms", "crescent", "roll", "head", "feet"],
             "fr": ["formes", "roulé", "croissant", "tête", "pieds", "vers", "haut"]
@@ -1532,6 +1533,7 @@
         },
         "sort_idx": 4900,
         "cover": "puzzle1_demo_graph.jpg",
+        "speed_control": true,
         "keywords": {
             "en": ["forms", "looking", "puzzle", "analyse"],
             "fr": ["formes", "regarder", "puzzle", "analyse"]
