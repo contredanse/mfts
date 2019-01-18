@@ -54,7 +54,7 @@ class IdleMonitor extends React.Component<IdleMonitorProps, IdleMonitorState> {
     timeoutHandle?: number;
     isCancelled = false;
 
-    onEvent = throttle(100, () => {
+    onEvent = throttle(60, () => {
         if (this.isCancelled) {
             clearTimeout(this.timeoutHandle);
         } else {
