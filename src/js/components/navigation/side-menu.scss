@@ -106,9 +106,13 @@ $topbar-height: $appbar-margin-from-window;
             text-align: center;
             opacity: 0.2;
             white-space: nowrap;
+            background-color: black;
             img {
                 margin: 5px;
                 width: 40px;
+                &:hover {
+                    cursor: pointer;
+                }
             }
             .contredanse-text {
                 display: block;

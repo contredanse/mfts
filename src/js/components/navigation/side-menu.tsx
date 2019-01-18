@@ -142,7 +142,7 @@ export class SideMenu extends React.PureComponent<Props, State> {
                     <div className="side-menu-footer-center">
                         <div className="footer-logo-container">
                             <div>
-                                <img src={contredanseLogo} />
+                                <img src={contredanseLogo} onClick={this.openContredanse} />
                             </div>
                             <div className="contredanse-text">© Contredanse Editions, 2019</div>
                             <div className="contredanse-mini-text">© Contredanse</div>
@@ -209,6 +209,13 @@ export class SideMenu extends React.PureComponent<Props, State> {
             </>
         );
     }
+
+    openContredanse = () => {
+        const win = window.open('https://www.contredanse.org', '_blank');
+        if (win) {
+            win.focus();
+        }
+    };
 }
 
 export default withRouter(SideMenu);
