@@ -71,7 +71,7 @@ export class LoginMenu extends React.PureComponent<LoginMenuProps, LoginMenuStat
     }
 
     private tr = (text: string): string => {
-        return getFromDictionary(text, this.props.lang!, i18n);
+        return getFromDictionary(text, this.props.lang, i18n);
     };
 }
 
