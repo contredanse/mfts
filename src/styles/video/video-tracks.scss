@@ -2,17 +2,14 @@
 @import '../_media-queries.scss';
 
 $track-font-family: $subtitle-font, sans-serif;
-//$track-font: 32px sans-serif;
-//$track-color: rgba(255, 255, 255, 1);
-//$track-color: rgba(255, 249, 61, 1);
-$track-color: yellow;
-//$track-color: rgba(255, 255, 255, 1);
+$track-color: $yellow-color;
 $track-background-color: rgba(0, 0, 0, 0);
-//$track-text-shadow:  -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 $track-text-shadow: 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, -1px -1px 0 #000;
-//$track-text-shadow:  none;
 
 $track-padding-bottom: 0px;
+
+$webkit-track-padding-bottom: $appbar-margin-from-window;
+$webkit-track-padding-bottom-sm: $appbar-margin-from-window-sm;
 
 @mixin trackFontDisplay {
     font-size: 2vw;
@@ -69,10 +66,11 @@ video {
         position: relative;
 
         overflow: visible !important;
-        // -webkit-transform: translateY(40%) !important;
-        // max-height: calc(100% - #{$track-padding-bottom});
-        //transform: translateY(-60px) !important;
-        //transform: translateY(-5vh) !important;
+        transform: translateY(-#{$webkit-track-padding-bottom}) !important;
+
+        @include media-breakpoint-down(sm) {
+            transform: translateY(-#{$webkit-track-padding-bottom-sm}) !important;
+        }
 
         // overflow: hidden;
         text-align: center;
