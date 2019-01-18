@@ -11,17 +11,7 @@ import App from './containers/app';
 
 import '@public/favicon.ico';
 
-//import 'typeface-eb-garamond';
-//import 'typeface-im-fell-english';
 import 'typeface-karla';
-//import 'typeface-source-sans-pro';
-
-//import 'typeface-spectral';
-//import 'typeface-lato';
-//import 'typeface-quicksand';
-//import 'typeface-raleway';
-//import 'typeface-fira-sans';
-//import 'typeface-eczar';
 
 import { appConfig } from '@config/config';
 import AppConfig from '@src/core/app-config';
@@ -43,38 +33,13 @@ const renderApp = (Component: any, config: AppConfig, elementId: string) => {
         document.getElementById(elementId)
     );
 };
-//console.log('appConfig', appConfig);
 renderApp(App, appConfig, 'app');
 
-// Only chrome allowed till workbox 4
+// Only chrome allowed till workbox 4 is out
 if (isChrome(false)) {
-    // Too much problems with service workers when using
-    // other browsers, hope it's gonna be better once workbox-sw 4.0
-    // have been released.
     registerServiceWorker({
         onSuccess: registration => {},
-        onUpdate: registration => {
-            /*
-            console.log('An update was found, removing the serviceWorker');
-            console.log('Lets show the pwa-version-notification');
-            const notification = document.getElementById('pwa-version-notification');
-            if (notification) {
-                notification.className = 'show';
-                notification.addEventListener('click', () => {
-                    console.log('Clicked update !');
-                    if ('serviceWorker' in navigator) {
-                        navigator.serviceWorker.ready.then(reg => {
-                            console.log('Unregistering the service worker');
-                            reg.unregister().then(() => {
-                                console.log('Reloading the page');
-                                window.location.reload();
-                            });
-                        });
-                    }
-                });
-            }
-            */
-        },
+        onUpdate: registration => {},
     });
 } else {
     unregisterServiceWorker();
