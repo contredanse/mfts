@@ -21,7 +21,6 @@ export const showLocalizedTextTrack = (
  * @return number of hidden tracks
  */
 export const hideAllTextTracks = (video: HTMLVideoElement): number => {
-    console.log('HIDEALLTEXTTRACKS');
     let countHidden = 0;
     for (let i = 0; i < video.textTracks.length; i++) {
         video.textTracks[i].mode = 'hidden';
@@ -31,7 +30,6 @@ export const hideAllTextTracks = (video: HTMLVideoElement): number => {
 };
 
 export const hasVisibleTextTrack = (video: HTMLVideoElement): boolean => {
-    console.log('HASVISIBLETEXTTRACKS');
     for (let i = 0; i < video.textTracks.length; i++) {
         if (video.textTracks[i].mode === 'showing') {
             return true;
@@ -41,7 +39,6 @@ export const hasVisibleTextTrack = (video: HTMLVideoElement): boolean => {
 };
 
 export const hasTextTrack = (video: HTMLVideoElement): boolean => {
-    console.log('HASTEXTTRACKS');
     return video.textTracks.length > 0;
 };
 
