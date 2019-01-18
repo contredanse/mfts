@@ -48,6 +48,7 @@ $title-opacity: 0.7;
                 max-width: 620px;
                 object-fit: scale-down;
                 transform: translateY(90px);
+                filter: contrast(120%);
                 @include media-breakpoint-down(sm) {
                     transform: translateY(90px);
                     object-fit: scale-down;
@@ -98,9 +99,8 @@ $title-opacity: 0.7;
                     font-size: 2.3em;
                 }
 
-                //mix-blend-mode: overlay;
                 color: $link-hover-color;
-                opacity: 0.7;
+                opacity: 0.8;
                 &:focus {
                     outline: none;
                 }
