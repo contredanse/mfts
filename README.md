@@ -50,12 +50,12 @@ $ yarn build
 
 ### Server
 
-To fully take advantage of brotli, Apache is recommended over Nginx.
+To fully take advantage of brotli compression, Apache is recommended over Nginx.
 Really be sure to not cache either `service-worker.js` and `index.html` 
 to prevent PWA caching issues. 
 
-*See [config examples](./docs/deploy) and [htaccess example](./public/.htaccess.dist). Note
-that you apache support is build with the project. Nothing to do for apache users.*
+*See [notes](./docs/deploy), [root .htaccess](./public/.htaccess.dist) and [static .htaccess](./public/static/.htaccess.dist). 
+Note that apache support is build with the project. In other words, nothing to do for apache users.*
 
 ### Deploy
 
