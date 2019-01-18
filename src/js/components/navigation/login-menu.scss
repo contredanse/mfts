@@ -24,6 +24,22 @@
         }
     }
 
+    @media screen and (max-height: 500px) {
+        margin-top: 15px;
+        border: none;
+        .authenticated-container,
+        .unauthenticated-container {
+            div {
+                margin-top: 0px;
+
+                &.welcome,
+                &.user_email {
+                    display: none;
+                }
+            }
+        }
+    }
+
     button {
         display: inline-block;
         background: #a93c99;

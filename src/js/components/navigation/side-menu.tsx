@@ -144,7 +144,8 @@ export class SideMenu extends React.PureComponent<Props, State> {
                             <div>
                                 <img src={contredanseLogo} />
                             </div>
-                            <div>© Contredanse Editions, 2019</div>
+                            <div className="contredanse-text">© Contredanse Editions, 2019</div>
+                            <div className="contredanse-mini-text">© Contredanse</div>
                         </div>
                     </div>
 

@@ -20,6 +20,8 @@ body {
     // https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth
     -moz-osx-font-smoothing: grayscale; /* Firefox */
     -webkit-font-smoothing: antialiased; /* WebKit  */
+    // iOS and Safari
+    -webkit-touch-callout: none;
     font-weight: normal;
 }
 
