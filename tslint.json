@@ -78,6 +78,8 @@
         // tslint-react
         "jsx-no-lambda": false,
         "jsx-boolean-value": ["never"],
-        "jsx-no-multiline-js": false
+        "jsx-no-multiline-js": false,
+        // sonar
+        "cognitive-complexity": [true, 30]
     }
 }
