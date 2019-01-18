@@ -124,8 +124,6 @@ class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
         return (
             <PlaybackStatusProvider videoEl={videoEl ? videoEl : undefined} progressInterval={300}>
                 {status => {
-                    const hasVisibleTextTrack = status.hasVisibleTextTrack;
-
                     return (
                         <>
                             <IdleMonitor
@@ -190,8 +188,10 @@ class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
                                         {status.trackLangs.length > 0 && (
                                             <SubtitlesButton
                                                 isEnabled={true}
-                                                tooltip={tr(!hasVisibleTextTrack ? 'show_subtitles' : 'hide_subtitles')}
-                                                extraClasses={hasVisibleTextTrack ? 'isActive' : ''}
+                                                tooltip={tr(
+                                                    !status.hasVisibleTextTrack ? 'show_subtitles' : 'hide_subtitles'
+                                                )}
+                                                extraClasses={status.hasVisibleTextTrack ? 'isActive' : ''}
                                                 onClick={() => {
                                                     this.toggleSubtitles();
                                                     // This is a hack, we need to dispatch manually
