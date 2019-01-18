@@ -7,9 +7,4 @@
 
 # Webapp 
 
-### Acknowledgments
-
-> WebStorm  
-> [![WebStorm](./docs/images/jetbrains/webstorm.svg)](https://www.jetbrains.com)
-
 
