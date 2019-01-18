@@ -29,10 +29,6 @@ export default class PagePanelAudio extends React.PureComponent<PagePanelAudioPr
         this.state = defaultState;
     }
 
-    componentWillUnmount() {
-        console.log('PAGEPANEL AUDIO IS REMOVED FROM THE DOM');
-    }
-
     render() {
         const {
             audioProxy,
