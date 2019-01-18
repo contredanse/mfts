@@ -60,7 +60,6 @@
             }
         ],
         "no-trailing-whitespace": true,
-        "no-unused-variable": [true, { "ignore-pattern": "^_" }],
         "object-literal-sort-keys": false,
         "object-literal-shorthand": false,
         "one-variable-per-declaration": [false],
@@ -70,20 +69,6 @@
         "prefer-template": [true, "allow-single-concat"],
         "quotemark": [true, "single", "jsx-double", "avoid-escape"],
         "prefer-for-of": false,
-        /* inherited from prettier
-        "trailing-comma": [
-            true,
-            {
-                "singleline": "never",
-                "multiline": {
-                    "objects": "always",
-                    "arrays": "always",
-                    "functions": "never",
-                    "typeLiterals": "ignore"
-                },
-                "esSpecCompliant": true
-            }
-        ],*/
         "triple-equals": [true, "allow-null-check"],
         "type-literal-delimiter": true,
         "typedef": [true],
