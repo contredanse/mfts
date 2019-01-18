@@ -12,8 +12,8 @@ before_install:
   - npm install -g codecov
 
 jobs:
-  allow_failures:
-    - stage: Lint
+  #allow_failures:
+  #  - stage: Lint
 
   include:
     - stage: Test
