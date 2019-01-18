@@ -53,7 +53,7 @@ class WelcomeContainer extends React.PureComponent<WelcomeContainerProps, Welcom
         const { lang, pageRepository, fromPageId } = this.props;
 
         return (
-            <PageOverlay closeButton={false}>
+            <PageOverlay fullHeight={true} closeButton={false}>
                 <DocumentMeta title={'MFS >> Welcome'} />
                 <Welcome
                     pageRepository={pageRepository}

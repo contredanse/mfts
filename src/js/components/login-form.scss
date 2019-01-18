@@ -13,7 +13,6 @@
     }
 
     box-shadow: 0 14px 8px 0 rgba(0, 0, 0, 0.08), 0 9px 16px 4px rgba(0, 0, 0, 0.12);
-    //max-width: 50%;
     color: black;
 
     img {
@@ -33,6 +32,18 @@
         font-size: 1.4em;
         color: #616161;
         text-align: center;
+    }
+
+    @media screen and (max-height: 400px) {
+        position: fixed;
+        top: 5px;
+        z-index: 1000;
+        padding: 5px 5px;
+        font-size: 0.75em;
+
+        h2 {
+            display: none;
+        }
     }
 
     p {

@@ -6,20 +6,24 @@ import { CustomScrollbar } from '@src/components/layout/custom-scrollbar';
 type PageOverlayProps = {
     closeButton?: boolean;
     onClose?: () => void;
+    fullHeight?: boolean;
 };
 type PageOverlayState = {};
 
 const defaultProps = {
     closeButton: false,
+    fullHeight: false,
 };
 
 export class PageOverlay extends React.PureComponent<PageOverlayProps, PageOverlayState> {
     static defaultProps = defaultProps;
     render() {
-        const { closeButton } = this.props;
+        const { closeButton, fullHeight } = this.props;
+
+        const extraCls = fullHeight ? ' full-height' : '';
 
         return (
-            <div className="page-overlay-viewport">
+            <div className={'page-overlay-viewport' + extraCls}>
                 <div className="page-overlay-ctn">
                     {closeButton === true && (
                         <div className="top-bar">

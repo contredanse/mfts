@@ -28,6 +28,12 @@ $overlay-top-margin: 35px;
     z-index: 500;
     overflow: hidden;
     display: flex;
+
+    &.full-height {
+        margin-top: 0;
+        top: 0;
+    }
+
     .page-overlay-ctn {
         //display: flex;
         //flex-flow: column;

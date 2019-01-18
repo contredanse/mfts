@@ -23,20 +23,17 @@ $button-margin: 0px;
 $bg-gradient-color: black;
 
 .app-bar-container {
-    /*
-    background: linear-gradient(
-        to top,
-        rgba($bg-gradient-color, 0.01) 0%,
-        rgba($bg-gradient-color, 1) 50%,
-        rgba($bg-gradient-color, 1) 100%
-    );*/
-
+    // fix issues with fullscreen
     background-color: rgba(black, 0.9);
 
-    //width: 100%;
+    @media screen and (max-height: 500px) {
+        background-color: rgba(black, 0);
+    }
+
+    z-index: 999;
+
     padding: 0;
     vertical-align: top;
-    // height: 100px;
 
     position: fixed;
     top: $appbar-margin-from-window;
@@ -49,7 +46,6 @@ $bg-gradient-color: black;
         right: $appbar-margin-from-window-sm;
     }
 
-    z-index: 999;
     //border: 1px solid blue;
 
     display: flex;
