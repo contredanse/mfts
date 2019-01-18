@@ -76,6 +76,10 @@ $title-opacity: 0.7;
             user-select: none;
             padding: 0 2em;
 
+            &:focus {
+                outline: none;
+            }
+
             h1 {
                 transition: all 0.2s ease-in-out;
                 //mix-blend-mode: difference;
@@ -83,34 +87,39 @@ $title-opacity: 0.7;
                 font-size: 3.2em;
                 line-height: 1.3em;
                 font-weight: 500;
-                //font-style: italic;
 
                 letter-spacing: 0.035em;
                 text-transform: uppercase;
-                //font-variant: small-caps;
-                margin: 0.3em 0 0 0;
+                margin: 0;
+                padding: 0;
 
                 @include media-breakpoint-down(sm) {
-                    margin: 0.3em 0;
-                    font-size: 2.5em;
+                    margin: 0;
+                    font-size: 2.3em;
                 }
 
-                //-webkit-text-stroke: 1px rgba(white, 0.3);
-                //-webkit-text-fill-color: rgba(white, 0.1);
-                mix-blend-mode: overlay;
+                //mix-blend-mode: overlay;
                 color: $link-hover-color;
-                //filter: grayscale(100%);
                 opacity: 0.7;
+                &:focus {
+                    outline: none;
+                }
             }
             h1 + p {
+                margin: 0.5em;
+                padding: 0;
+
                 font-family: $primary-font;
                 font-size: 1.4em;
                 font-weight: 400;
                 opacity: 0.9;
+                &:focus {
+                    outline: none;
+                }
 
                 @include media-breakpoint-down(sm) {
                     margin: 0.25em 0;
-                    font-size: 1.3em;
+                    font-size: 1.1em;
                 }
             }
             h3 {
@@ -119,9 +128,16 @@ $title-opacity: 0.7;
                 color: white;
                 opacity: 0.9;
                 font-weight: 400;
-                margin: 0;
+                margin: 0.5em;
                 padding: 0;
-                line-height: 2.2;
+                &:focus {
+                    outline: none;
+                }
+
+                @include media-breakpoint-down(sm) {
+                    margin: 0.25em 0;
+                    font-size: 1.1em;
+                }
             }
         }
     }
@@ -134,10 +150,6 @@ $title-opacity: 0.7;
         &:hover {
             cursor: pointer;
             h1 {
-                //opacity: 0.8;
-                // To be removed of course
-                text-shadow: 3px 3px 3px rgba(grey, 0.6);
-                //filter: grayscale(10%);
             }
             a {
                 color: $yellow-color;

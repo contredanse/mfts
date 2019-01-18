@@ -5,7 +5,6 @@ $topbar-height: $appbar-margin-from-window;
 $topbar-height-sm: $appbar-margin-from-window-sm;
 
 .bm-menu {
-    // remove outline
     .bm-item:focus {
         outline: none;
     }
@@ -169,15 +168,22 @@ $topbar-height-sm: $appbar-margin-from-window-sm;
 .side-menu-header {
     .lang-selector-panel {
         position: fixed;
-        right: 20px;
-        top: 15px;
+        border: 5px solid black;
+        background-color: black;
+        right: $appbar-margin-from-window;
+        top: $appbar-margin-from-window;
+        margin-top: 8px;
+        @include media-breakpoint-down(sm) {
+            right: $appbar-margin-from-window-sm;
+            top: $appbar-margin-from-window-sm;
+            margin: 4px;
+        }
         color: white;
         font-size: 1em;
         cursor: pointer;
         user-select: none;
         z-index: 5500;
         &:hover {
-            //text-decoration: underline;
             color: $link-hover-color;
         }
     }
