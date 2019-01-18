@@ -85,7 +85,7 @@ class IdleMonitor extends React.Component<IdleMonitorProps, IdleMonitorState> {
             return null;
         }
 
-        if (this.props.onIdleChange) {
+        if (this.props.onIdleChange && idle !== prevState.idle) {
             this.props.onIdleChange(newIdle);
         }
         return {
