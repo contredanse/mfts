@@ -1,9 +1,8 @@
 @import '../../../styles/variables';
 @import '../../../styles/_media-queries.scss';
 
-//$topbar-height: 40px;
-
 $topbar-height: $appbar-margin-from-window;
+$topbar-height-sm: $appbar-margin-from-window-sm;
 
 .bm-menu {
     // remove outline
@@ -19,6 +18,10 @@ $topbar-height: $appbar-margin-from-window;
     &:first-child {
         margin-top: $topbar-height;
         border-top: 1px solid rgba(grey, 0.8);
+
+        @media screen and (max-height: 500px) {
+            margin-top: $topbar-height-sm;
+        }
     }
 
     .side-menu-item {
@@ -204,6 +207,10 @@ $topbar-height: $appbar-margin-from-window;
     padding: 5px;
 
     height: $topbar-height;
+
+    @media screen and (max-height: 500px) {
+        height: $topbar-height-sm;
+    }
 
     .side-menu-header-inner {
         display: flex;
