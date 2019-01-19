@@ -126,8 +126,10 @@ var SpiralMenu = function(settings) {
         for (let node of label.node.content) {
             // TODO: position element at parent position
             self.labelContainer.appendChild(node.label.element);
+
+            // Added by seb to get 'open class'
             node.label.element.className = node.label.element.className + ' open';
-            console.log('node.label.element', node.label.element);
+
             self.labels[node.spiral].splice(index + 1, 0, node.label);
             ++index;
         }
