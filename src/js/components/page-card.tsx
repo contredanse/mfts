@@ -56,7 +56,7 @@ class PageCard extends React.PureComponent<PageCardProps, PageCardState> {
                         {videos.map(video => {
                             return (
                                 <React.Fragment key={video.videoId}>
-                                    <div>
+                                    <div className="page-card-thumbnail">
                                         <img src={video.getNumberedCover(2)} title={video.videoId} />
                                     </div>
                                 </React.Fragment>
