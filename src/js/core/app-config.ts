@@ -13,9 +13,9 @@ export type ExternalUrls = {
 };
 
 export default class AppConfig {
-    protected _assetsLocator!: AppAssetsLocator;
+    private _assetsLocator!: AppAssetsLocator;
 
-    protected readonly config: IAppConfig;
+    private readonly config: IAppConfig;
 
     constructor(config: IAppConfig) {
         this.config = config;
