@@ -38,9 +38,7 @@ class HelixMenu extends React.PureComponent<HelixMenuProps, HelixMenuState> {
     }
 
     componentDidUpdate() {
-        // Yes because the provided spiral change
-        // underlying data and does not provide
-        // a reset
+        // Needed because the spiral mutates the underlying data
         this.removeSpiral();
         this.initSpiral();
     }
@@ -66,7 +64,6 @@ class HelixMenu extends React.PureComponent<HelixMenuProps, HelixMenuState> {
     }
 
     render() {
-        console.log('HELIX::RENDER');
         return (
             <div id="spiral-container" ref={this.containerRef}>
                 <canvas id="spiral-canvas" ref={this.canvasRef} />
