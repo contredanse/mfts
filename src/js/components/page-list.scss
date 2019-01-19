@@ -68,5 +68,6 @@
         opacity: 0.01;
         transform: scaleY(0) scaleX(0);
         transition: all 350ms ease-in;
+        transition-property: transform, filter, opacity;
     }
 }
