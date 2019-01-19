@@ -126,6 +126,8 @@ var SpiralMenu = function(settings) {
         for (let node of label.node.content) {
             // TODO: position element at parent position
             self.labelContainer.appendChild(node.label.element);
+            node.label.element.className = node.label.element.className + ' open';
+            console.log('node.label.element', node.label.element);
             self.labels[node.spiral].splice(index + 1, 0, node.label);
             ++index;
         }
@@ -461,6 +463,7 @@ var SpiralLabel = function(node, container, config, p) {
 
     var ee = document.createElement('span');
     ee.className = 'node ' + node.type + (node.level > 1 ? ' sub' : '') + (node.open ? ' open' : '');
+
     ee.innerHTML = node['title_' + this.config.language];
     ee.__slobject = this;
     e.appendChild(ee);
@@ -536,4 +539,3 @@ function easeInOutQuad(t) {
 }
 
 export default SpiralMenu;
-//module.exports = SpiralMenu;
