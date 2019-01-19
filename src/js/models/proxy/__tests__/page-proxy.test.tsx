@@ -4,9 +4,10 @@ import AppAssetsLocator from '../../../core/app-assets-locator';
 
 describe('Data page retrieval', () => {
     const globalDataRepo = appConfig.getPageRepository();
+
     const pageId = 'forms.crescent-roll.crescent-led-by-feet-and-hands';
 
-    test('PageProxy properties', async () => {
+    test('PageProxy properties', () => {
         const page = globalDataRepo.getPageProxy(pageId);
         expect(page).toBeDefined();
 
@@ -17,7 +18,7 @@ describe('Data page retrieval', () => {
         }
     });
 
-    test('PageProxy getting videos', async () => {
+    test('PageProxy getting videos', () => {
         const page = globalDataRepo.getPageProxy(pageId);
         expect(page).toBeDefined();
 
@@ -28,7 +29,7 @@ describe('Data page retrieval', () => {
         }
     });
 
-    test('isMultiVideoContent', async () => {
+    test('isMultiVideoContent', () => {
         [
             { pageId: 'sensation-and-senses.pointing.parts-of-pointing', multi: false },
             { pageId: 'forms.crescent-roll.head-up', multi: true },
