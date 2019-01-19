@@ -38,29 +38,13 @@ class HelixMenu extends React.PureComponent<HelixMenuProps, HelixMenuState> {
     }
 
     componentDidUpdate() {
-        // Needed because the spiral mutates the underlying data
+        // Till having a reset method on the spiral
         this.removeSpiral();
         this.initSpiral();
     }
 
-    initSpiral() {
-        const { lang, openedPageId, jsonDataMenu } = this.props;
-        const menuData: IJsonMenu[] = cloneDeep(jsonDataMenu);
-
-        this.spiralMenu = new SpiralMenu({
-            container: this.containerRef.current,
-            content: menuData,
-            language: lang,
-            callback: (menuNode: IJsonMenuPage) => {
-                this.openPage(menuNode.page_id);
-            },
-            selectedNodeId: openedPageId,
-        });
-    }
-
-    removeSpiral() {
-        this.spiralMenu.clear();
-        delete this.spiralMenu;
+    componentWillUnmount() {
+        this.removeSpiral();
     }
 
     render() {
@@ -72,13 +56,27 @@ class HelixMenu extends React.PureComponent<HelixMenuProps, HelixMenuState> {
         );
     }
 
-    componentWillUnmount() {
-        // The clean up
-        this.removeSpiral();
+    private initSpiral() {
+        const { lang, openedPageId, jsonDataMenu } = this.props;
+        // Data is cloned to avoid mutation of the underlying data.
+        const menuData: IJsonMenu[] = cloneDeep(jsonDataMenu);
+        this.spiralMenu = new SpiralMenu({
+            container: this.containerRef.current,
+            content: menuData,
+            language: lang,
+            callback: (menuNode: IJsonMenuPage) => {
+                this.openPage(menuNode.page_id);
+            },
+            selectedNodeId: openedPageId,
+        });
+    }
+
+    private removeSpiral() {
+        this.spiralMenu.clear();
+        delete this.spiralMenu;
     }
 
     private openPage = (pageId: string): void => {
-        // TODO, move it to container through an 'onPageSelected' prop
         const { lang } = this.props;
         this.props.history.push(`/${lang}/page/${pageId}`);
     };
