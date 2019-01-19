@@ -1,13 +1,11 @@
 module.exports = {
-    verbose: false,
+    verbose: true,
     testURL: 'http://localhost/',
     transform: {
-        //        '^.+\\.(js|jsx)$': 'babel-jest',
         '^.+\\.(js|jsx|ts|tsx)$': 'ts-jest',
     },
     transformIgnorePatterns: ['<rootDir>/node_modules/(?!(lodash-es))'],
     testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$',
-    //stringifyContentPathRegex: '/(lodash-es|lodash)$',
     moduleFileExtensions: ['ts', 'tsx', 'js', 'mjs', 'jsx', 'json', 'node'],
     moduleNameMapper: {
         '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':

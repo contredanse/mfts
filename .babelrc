@@ -37,9 +37,9 @@
                         "modules": "commonjs",
                         "targets": {
                             "browsers": [
-                                "chrome >= 60"
+                                "chrome >= 57"
                             ],
-                            "node": 12
+                            "node": 10
                         }
                     }
                 ]
