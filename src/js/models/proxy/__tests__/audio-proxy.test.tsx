@@ -1,6 +1,6 @@
 import { AudioProxyFactory } from '@src/models/proxy/audio-proxy';
 import { IJsonPageAudio } from '@data/json/data-pages';
-import AppAssetsLocator from '../../../core/app-assets-locator';
+import AppAssetsLocator from '@src/core/app-assets-locator';
 
 describe('AudioProxy from IJsonPageAudio', () => {
     const jsonAudio: IJsonPageAudio = {
