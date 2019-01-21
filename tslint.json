@@ -82,6 +82,7 @@
         // sonar
         "cognitive-complexity": [true, 30],
         "no-duplicate-string": [true, 5],
-        "no-useless-intersection": false
+        "no-useless-intersection": false,
+        "bool-param-default": false
     }
 }
