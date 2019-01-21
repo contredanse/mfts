@@ -763,6 +763,7 @@
         },
         "sort_idx": 2900,
         "cover": "crescent_water.jpg",
+        "speed_control": true,
         "keywords": {
             "en": ["forms", "crescent", "roll", "water"],
             "fr": ["formes", "roulé", "croissant", "dans", "eau"]
@@ -953,6 +954,7 @@
         },
         "sort_idx": 3300,
         "cover": "helixinwater.jpg",
+        "speed_control": true,
         "keywords": {
             "en": ["forms", "helix", "roll", "water"],
             "fr": ["formes", "roulé", "hélice", "dans", "eau"]
@@ -1339,6 +1341,7 @@
         },
         "sort_idx": 4300,
         "cover": "dolphininwater.jpg",
+        "speed_control": true,
         "keywords": {
             "en": ["forms", "undulation", "dolphin"],
             "fr": ["formes", "ondulation", "dauphin"]
