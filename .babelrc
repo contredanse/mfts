@@ -34,6 +34,8 @@
                 [
                     "@babel/env",
                     {
+                        "debug": false,
+                        "useBuiltIns": false,
                         "modules": "commonjs",
                         "targets": {
                             "browsers": [

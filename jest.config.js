@@ -18,6 +18,8 @@ module.exports = {
         '@thirdparty/(.*)$': '<rootDir>/src/thirdparty/$1',
         '@data/(.*)$': '<rootDir>/src/data/$1',
         '@styles/*': '<rootDir>/src/styles/$1',
+        // fix lodash esm issues, by replacing lodash-es by commonjs one
+        '^lodash-es$': 'lodash',
     },
     globals: {
         window: {},
