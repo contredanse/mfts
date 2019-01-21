@@ -2,7 +2,7 @@
 
 [*Gravity*](https://www.contredanse.org/contredanseV4/templates/index.php?path=eshop/action_search.php&product_id=218) de Steve Paxton, Éditions Contredanse, Bruxelles, 2018.
 
-[*Gravité*](https://www.contredanse.org/contredanseV4/templates/index.php?path=eshop/action_search.php&product_id=219) de Steve Paxton, traduit de l'américain par Denise Luccioni, Éditions Contredanse, Bruxelles, 2018.
+[*La gravité*](https://www.contredanse.org/contredanseV4/templates/index.php?path=eshop/action_search.php&product_id=219) de Steve Paxton, traduit de l'américain par Denise Luccioni, Éditions Contredanse, Bruxelles, 2018.
 
 [![Gravity Image](./images/gravity-gravite.jpg)](https://contredanse.org/)
 
