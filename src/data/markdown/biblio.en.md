@@ -1,12 +1,14 @@
 ## Publications
 
-[*Gravity*](https://www.contredanse.org/contredanseV4/templates/index.php?path=eshop/action_search.php&product_id=218) by Steve Paxton, Contredanse Éditions, Bruxelles, 2018.
+[*Gravity*](https://www.contredanse.org/contredanseV4/templates/index.php?path=eshop/action_search.php&product_id=218) by Steve Paxton, Contredanse Editions, Bruxelles, 2018.
 
 In this book, the dancer Steve Paxton traces a lifetime in the company of gravity. The memory of his first flight, a meditation on walking, pondering on the conditions of life, and a dream of dancing make up pieces of a puzzle. Paxton muses about the limit of his consciousness and celebrates the potentiality of our senses to enter the dance. 
 
-[*Gravité*](https://www.contredanse.org/contredanseV4/templates/index.php?path=eshop/action_search.php&product_id=219) by Steve Paxton, translation in french by Denise Luccioni, Éditions Contredanse, Bruxelles, 2018
+[*La gravité*](https://www.contredanse.org/contredanseV4/templates/index.php?path=eshop/action_search.php&product_id=219) by Steve Paxton, translation in french by Denise Luccioni, Contredanse Editions, Bruxelles, 2018
 
 [![Gravity Image](./images/gravity-gravite.jpg)](https://contredanse.org/)
+
+[*Material for the Spine, a movement study*](https://www.contredanse.org/contredanseV4/templates/index.php?path=eshop/action_search.php&product_id=212) by Steve Paxton, Baptiste Andrien and Florence Corin, Contredanse Editions, Bruxelles, 2008.
 
 Paxton has published numerous articles from 1975 to the present in the dance
 journal [*Contact Quarterly*](https://contactquarterly.com/), Northampton, MA. These articles include dance for the physically disabled, dance for the visually disabled, dance analysis, Contact Improvisation technique and theory, and occasional pieces.
