@@ -6,10 +6,7 @@
 
 [![Gravity Image](./images/gravity-gravite.jpg)](https://contredanse.org/)
 
-Dans cet opuscule inédit, le danseur Steve Paxton retrace une vie en compagnie de la force de gravité. 
-Des souvenirs du premier vol en avion aux cours de danse, de méditations métaphysiques 
-à l'observation de cochons, Steve Paxton interroge ce qui est à la limite de notre conscience
-et convie nos sens à entrer dans la danse.  
+Dans cet opuscule inédit, le danseur Steve Paxton retrace une vie en compagnie de la force de gravité. Des souvenirs du premier vol en avion aux cours de danse, de méditations métaphysiques à l'observation de cochons, Steve Paxton interroge ce qui est à la limite de notre conscience et convie nos sens à entrer dans la danse.  
 
 Steve Paxton publie de nombreux articles à partir de 1975 dans la revue de danse [*Contact Quarterly*](https://contactquarterly.com/). Il écrit notamment sur la danse pour les handicapés, la danse pour les malvoyants, sur l’analyse de la danse, sur la technique et la théorie du Contact Improvisation et divers autres thèmes. 
 
