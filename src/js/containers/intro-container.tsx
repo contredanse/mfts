@@ -66,6 +66,7 @@ class IntroContainer extends React.PureComponent<IntroContainerProps, IntroConta
                                     this.goNext();
                                 }}
                                 onNewRouteRequest={this.goNext}
+                                forceNextPageControl={true}
                             />
                             <ConnectedOverlayedPageControl onClick={this.goNext}>
                                 <span>Skip introduction</span>

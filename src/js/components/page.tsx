@@ -23,6 +23,7 @@ export type PageProps = {
     lang: string;
     onNewRouteRequest?: (routeSpec?: string) => void;
     onPagePlayed?: () => void;
+    forceNextPageControl?: boolean;
 };
 
 type PageStateFromPageProxy = {
@@ -58,7 +59,9 @@ const defaultPageState: PageState = {
     breadcrumb: [],
 };
 
-const defaultProps = {};
+const defaultProps = {
+    forceNextPageControl: false,
+};
 
 class Page extends React.PureComponent<PageProps, PageState> {
     static defaultProps = defaultProps;
@@ -128,7 +131,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
             mediaIsSilent: this.state.isSilent,
             disableButtonSpaceClick: true,
             idleMonitorTimeout: 1500,
-            enableNextControl: this.state.nextPage !== undefined,
+            enableNextControl: this.state.nextPage !== undefined || this.props.forceNextPageControl,
             enablePrevControl: this.state.previousPage !== undefined,
             onNextLinkPressed: this.handlePlayNextRequest,
             onPreviousLinkPressed: this.handlePlayPreviousRequest,
