@@ -128,7 +128,7 @@ class Page extends React.PureComponent<PageProps, PageState> {
             mediaIsSilent: this.state.isSilent,
             disableButtonSpaceClick: true,
             idleMonitorTimeout: 1500,
-            enableNextControl: true,
+            enableNextControl: this.state.nextPage !== undefined,
             enablePrevControl: this.state.previousPage !== undefined,
             onNextLinkPressed: this.handlePlayNextRequest,
             onPreviousLinkPressed: this.handlePlayPreviousRequest,
