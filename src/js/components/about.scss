@@ -36,7 +36,7 @@
         font-family: $primary-font;
         flex: 1 1 auto;
         font-size: 1.2em;
-        padding: 0em 2em 3em 3em;
+        padding: 0em 2em 2em 2em;
 
         @include media-breakpoint-down(xs) {
             padding: 0em 1.5em 0.5em 1.5em;
@@ -97,7 +97,7 @@
             margin-top: 0;
 
             font-size: 1em;
-            line-height: 1.35;
+            line-height: 1.15;
             letter-spacing: -0.004em;
         }
     }
