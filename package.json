@@ -78,7 +78,7 @@
         "@types/source-map-support": "^0.4.1",
         "@types/tapable": "^1.0.4",
         "@types/throttle-debounce": "^1.1.0",
-        "@types/yup": "^0.26.5",
+        "@types/yup": "^0.26.6",
         "autoprefixer": "^9.4.6",
         "babel-core": "^7.0.0-bridge.0",
         "babel-jest": "^23.6.0",
@@ -171,7 +171,7 @@
         "formik": "^1.4.2",
         "fscreen": "^1.0.2",
         "history": "^4.7.2",
-        "hoist-non-react-statics": "^3.2.1",
+        "hoist-non-react-statics": "^3.3.0",
         "lodash-es": "^4.17.11",
         "memoize-one": "^5.0.0",
         "outdated-browser-rework": "^2.7.1",
@@ -191,7 +191,7 @@
         "throttle-debounce": "^2.1.0",
         "tslib": "^1.9.3",
         "wretch": "^1.4.2",
-        "yup": "^0.26.7"
+        "yup": "^0.26.10"
     },
     "devEngines": {
         "npm": ">=5.x",
