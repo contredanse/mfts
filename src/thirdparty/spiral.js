@@ -39,7 +39,7 @@ var SpiralMenu = function(settings) {
     var mouseX = 0;
     var gravity = 1;
     var spiralRotation = 0;
-    var spiralSpeed = 0.012;
+    var spiralSpeed = settings.selectedNodeId ? 0.0035 : 0.012;
     var frameReq = 0;
     var lastOpen = null;
 
