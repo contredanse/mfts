@@ -293,17 +293,16 @@ var SpiralMenu = function(settings) {
     // find auto-selected node
     var pathNodes = [];
     if (settings.selectedNodeId) {
-        console.log('spiral.js::selectedNodeId', settings.selectedNodeId);
-        console.log('spiral.js::self.content', self.content);
+        //console.log('spiral.js::selectedNodeId', settings.selectedNodeId);
+        //console.log('spiral.js::self.content', self.content);
         for (let node of self.content) {
             findIdInNode(settings.selectedNodeId, node, pathNodes);
         }
-        console.log('spiral.js::pathNodes', pathNodes);
+        //console.log('spiral.js::pathNodes', pathNodes);
     }
 
     for (let node of pathNodes) {
-        console.log('spiral.js::openLabel', node.label);
-
+        //console.log('spiral.js::openLabel', node.label);
         openLabel(node.label);
     }
 
