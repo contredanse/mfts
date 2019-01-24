@@ -14,7 +14,7 @@ type LoginMenuProps = {
     afterLogout?: () => void;
     authenticated: boolean;
     user?: AuthUser | null;
-    getUserProfile: () => void;
+    getUserProfile?: () => void;
     loading: boolean;
 };
 
@@ -31,8 +31,8 @@ export class LoginMenu extends React.PureComponent<LoginMenuProps, LoginMenuStat
         super(props);
     }
 
-    async componentDidMount() {
-        if (this.props.authenticated && !this.props.user) {
+    componentDidMount() {
+        if (this.props.authenticated && !this.props.user && !this.props.loading && this.props.getUserProfile) {
             this.props.getUserProfile();
         }
     }

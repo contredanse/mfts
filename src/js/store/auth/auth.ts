@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux';
-import wretch from 'wretch';
+import wretch, { WretcherError } from 'wretch';
 import { appConfig } from '@config/config';
 
 import * as authActions from './actions';
@@ -37,8 +37,33 @@ const wretchRequest = wretch()
 
 const baseUrl = appConfig.getApiBaseUrl();
 
+const getFormErrorPayload = (error: any): AuthErrorPayload => {
+    const errorText = 'text' in error ? error.text : error;
+    const errorPayload: AuthErrorPayload = {
+        message: 'Unknown error',
+        expiryDate: null,
+    };
+    try {
+        const parsed = JSON.parse(errorText as string);
+        errorPayload.message = parsed.error_type;
+        // test expiry date
+        if (parsed.expired_date) {
+            errorPayload.expiryDate = parsed.expired_date;
+        }
+    } catch (e) {
+        const errorMsg = error !== null ? error.toString() : 'Unknown error';
+        if (errorMsg.match(/fail(.*) to fetch|network/i)) {
+            errorPayload.message = 'fail.network';
+        } else {
+            errorPayload.message = errorMsg;
+        }
+    }
+    return errorPayload;
+};
+
 export const loginUser = ({ email, password }: AuthCredentials, onSuccess?: (data: AuthResponse) => void) => {
     return (dispatch: Dispatch) => {
+        console.log('AUTH.TS::AUTHFORMSUBMITREQUEST');
         dispatch(authActions.authFormSubmitRequest());
 
         return wretchRequest
@@ -49,9 +74,14 @@ export const loginUser = ({ email, password }: AuthCredentials, onSuccess?: (dat
                 password: password,
                 language: window.navigator.language || '',
             })
+            .unauthorized(error => {
+                const errorPayload = getFormErrorPayload(error);
+                dispatch(authActions.authFormSubmitFailure(errorPayload));
+            })
             .json(response => {
                 const data = response as AuthResponse;
                 const { access_token } = data;
+
                 dispatch(authActions.authFormSubmitSuccess());
                 dispatch(
                     authActions.authenticateUser({
@@ -65,26 +95,7 @@ export const loginUser = ({ email, password }: AuthCredentials, onSuccess?: (dat
                 }
             })
             .catch(error => {
-                const errorText = 'text' in error ? error.text : error;
-                const errorPayload: AuthErrorPayload = {
-                    message: 'Unknown error',
-                    expiryDate: null,
-                };
-                try {
-                    const parsed = JSON.parse(errorText);
-                    errorPayload.message = parsed.error_type;
-                    // test expiry date
-                    if (parsed.expired_date) {
-                        errorPayload.expiryDate = parsed.expired_date;
-                    }
-                } catch (e) {
-                    const errorMsg = error.toString();
-                    if (errorMsg.match(/fail(.*) to fetch|network/i)) {
-                        errorPayload.message = 'fail.network';
-                    } else {
-                        errorPayload.message = errorMsg;
-                    }
-                }
+                const errorPayload = getFormErrorPayload(error);
                 dispatch(authActions.authFormSubmitFailure(errorPayload));
             });
     };
@@ -100,11 +111,9 @@ export const getUserProfile = (token?: string, onFailure?: (error: any) => void)
             .options({ mode: 'cors' })
             .get()
             .unauthorized(() => {
-                console.log('401 Unauthorized, unauthenticating');
                 dispatch(authActions.unAuthenticateUser());
             })
             .forbidden(() => {
-                console.log('403 Forbidden');
                 dispatch(authActions.unAuthenticateUser());
             })
             .json(response => {

@@ -23,6 +23,7 @@ class LoginContainer extends Component<LoginContainerProps, LoginContainerState>
 
     render() {
         const { authenticated, user, lang } = this.props;
+
         if (authenticated) {
             return (
                 <LoginLayout>
