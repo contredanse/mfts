@@ -8,8 +8,32 @@
         "sort_idx": 100,
         "cover": "hello.jpg",
         "keywords": {
-            "en": ["hello", "feet", "gravity","sensation", "senses", "weight", "dancer", "palette", "gravity well", "skin", "brain"],
-            "fr": ["hello", "pieds", "pesanteur", "sensation", "sens", "poids", "danseur", "palette", "puit de pesanteur", "peau", "cerveau"]
+            "en": [
+                "hello",
+                "feet",
+                "gravity",
+                "sensation",
+                "senses",
+                "weight",
+                "dancer",
+                "palette",
+                "gravity well",
+                "skin",
+                "brain"
+            ],
+            "fr": [
+                "hello",
+                "pieds",
+                "pesanteur",
+                "sensation",
+                "sens",
+                "poids",
+                "danseur",
+                "palette",
+                "puit de pesanteur",
+                "peau",
+                "cerveau"
+            ]
         },
         "content": {
             "layout": "single-video",
@@ -55,8 +79,8 @@
         "sort_idx": 300,
         "cover": "falls.jpg",
         "keywords": {
-            "en": ["sensation", "senses", "gravity", "falls","water"],
-            "fr": ["sensation", "sens", "pesanteur", "chutes","eau"]
+            "en": ["sensation", "senses", "gravity", "falls", "water"],
+            "fr": ["sensation", "sens", "pesanteur", "chutes", "eau"]
         },
         "content": {
             "layout": "single-video",
@@ -102,7 +126,7 @@
         "cover": "adjusting_birds.jpg",
         "keywords": {
             "en": ["sensation", "senses", "gravity", "adjusting", "feet", "weight"],
-            "fr": ["sensation", "sens", "pesanteur", "ajuster","pieds", "poids"]
+            "fr": ["sensation", "sens", "pesanteur", "ajuster", "pieds", "poids"]
         },
         "content": {
             "layout": "single-video",
@@ -148,8 +172,30 @@
         "sort_idx": 700,
         "cover": "smalldance_full.jpg",
         "keywords": {
-            "en": ["sensation", "senses", "basics", "approach", "small dance", "walk", "stretch", "arms", "legs", "weight"],
-            "fr": ["sensation", "sens", "base", "petite danse,", "approche", "marche", "étirement", "bras", "jambes", "poids"]
+            "en": [
+                "sensation",
+                "senses",
+                "basics",
+                "approach",
+                "small dance",
+                "walk",
+                "stretch",
+                "arms",
+                "legs",
+                "weight"
+            ],
+            "fr": [
+                "sensation",
+                "sens",
+                "base",
+                "petite danse,",
+                "approche",
+                "marche",
+                "étirement",
+                "bras",
+                "jambes",
+                "poids"
+            ]
         },
         "content": {
             "layout": "single-video",
