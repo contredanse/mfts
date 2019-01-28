@@ -1,6 +1,8 @@
 @import '../../../styles/variables';
 @import '../../../styles/_media-queries.scss';
 
+$button-login-color: #2e7d32;
+
 .login-menu-item-container {
     margin-top: 15px;
     padding: 5px 5px 15px 5px;
@@ -43,7 +45,7 @@
 
     button {
         display: inline-block;
-        background: #a93c99;
+        background: $button-login-color;
         box-shadow: 0 16px 18px 0 rgba(0, 0, 0, 0.13), 0 4px 6px 0 rgba(0, 0, 0, 0.16);
         border-radius: 2px;
         border: none;

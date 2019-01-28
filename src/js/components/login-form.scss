@@ -1,6 +1,9 @@
 @import '../../styles/_variables.scss';
 @import '../../styles/_media-queries.scss';
 
+$button-get-access-color: #003300;
+$button-login-color: #2e7d32;
+
 .login-form {
     font-family: $form-font;
 
@@ -70,7 +73,7 @@
     a.shop_button {
         display: inline-block;
         //margin-top: 2px;
-        background: #a93c99;
+        background: $button-get-access-color;
         box-shadow: 0 16px 18px 0 rgba(0, 0, 0, 0.13), 0 4px 6px 0 rgba(0, 0, 0, 0.16);
         border-radius: 2px;
         border: none;
@@ -129,7 +132,7 @@
 
         button {
             margin-top: 5px;
-            background: #f76c6c;
+            background: $button-login-color;
             box-shadow: 0 16px 18px 0 rgba(0, 0, 0, 0.13), 0 4px 6px 0 rgba(0, 0, 0, 0.16);
             border-radius: 2px;
             border: none;
