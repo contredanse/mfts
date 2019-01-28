@@ -1,7 +1,11 @@
 @import '../styles/_variables.scss';
 @import '../styles/_media-queries.scss';
 
-$font: $primary-font;
+$helix-font: $primary-font;
+$helix-label-hover-color: $link-hover-color;
+
+// replace by none to disable the appearance of border
+$helix-border-style-section: 1px solid rgba(white, 0.3);
 
 #spiral-container {
     position: absolute;
@@ -11,7 +15,7 @@ $font: $primary-font;
     height: 100%;
     background-color: black;
     overflow: hidden;
-    font-family: $primary-font;
+    font-family: $helix-font;
     font-size: 1.2em;
     color: white;
     user-select: none;
@@ -62,7 +66,7 @@ $font: $primary-font;
                 font-size: 1em;
                 line-height: 1em;
                 text-transform: uppercase;
-                border: 1px solid rgba(white, 0.3);
+                border: $helix-border-style-section;
             }
 
             &.sub {
@@ -70,7 +74,7 @@ $font: $primary-font;
             }
 
             &:hover {
-                color: $link-hover-color;
+                color: $helix-label-hover-color;
             }
         }
         &.open {
