@@ -11,7 +11,7 @@ const LoginFormDictionary: BasicI18nDictionary = {
     },
     submit: {
         en: 'Submit',
-        fr: 'Login',
+        fr: 'Se connecter',
     },
     enter_email: {
         en: 'Enter your email',
@@ -19,7 +19,7 @@ const LoginFormDictionary: BasicI18nDictionary = {
     },
     please_login_text: {
         en: 'Please login to your Contredanse account.',
-        fr: 'Veuillez vous connecter sur Contredanse.',
+        fr: 'Veuillez vous connecter avec votre compte Contredanse.',
     },
     no_account_text: {
         en: "Don't have an account ?",
@@ -34,16 +34,16 @@ const LoginFormDictionary: BasicI18nDictionary = {
         fr: 'Pas encore abonné ?',
     },
     subscribe_here: {
-        en: 'Subscribe here !',
-        fr: 'Abonnez-vous ici !',
+        en: 'Subscribe here.',
+        fr: 'Abonnez-vous ici.',
     },
     no_access_text: {
         en: "Don't have an access ?",
         fr: "Pas d'accès ?",
     },
     get_it_here: {
-        en: 'Get it here !',
-        fr: 'Obtenez-le ici !',
+        en: 'Get it here.',
+        fr: 'Obtenez-le ici.',
     },
 
     password_forgotten: {
@@ -61,7 +61,7 @@ const LoginFormDictionary: BasicI18nDictionary = {
     },
     a_valid_email_is_required: {
         en: 'A valid email is required.',
-        fr: 'Doit être un email valide.',
+        fr: 'Entrez une adresse email valide.',
     },
 
     welcome_to_you: {

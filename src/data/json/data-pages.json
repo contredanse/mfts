@@ -8,8 +8,8 @@
         "sort_idx": 100,
         "cover": "hello.jpg",
         "keywords": {
-            "en": ["sensation", "senses", "weight"],
-            "fr": ["sensation", "sens", "poids"]
+            "en": ["hello", "feet", "gravity","sensation", "senses", "weight", "dancer", "palette", "gravity well", "skin", "brain"],
+            "fr": ["hello", "pieds", "pesanteur", "sensation", "sens", "poids", "danseur", "palette", "puit de pesanteur", "peau", "cerveau"]
         },
         "content": {
             "layout": "single-video",
@@ -31,8 +31,8 @@
         "sort_idx": 200,
         "cover": "lemmon_en.jpg",
         "keywords": {
-            "en": ["sensation", "senses", "gravity", "flat", "round"],
-            "fr": ["sensation", "sens", "pesanteur", "plat", "rond"]
+            "en": ["lemon", "fall", "sensation", "senses", "gravity", "flat", "round"],
+            "fr": ["citron", "chute", "sensation", "sens", "pesanteur", "plat", "rond"]
         },
         "content": {
             "layout": "single-video",
@@ -55,8 +55,8 @@
         "sort_idx": 300,
         "cover": "falls.jpg",
         "keywords": {
-            "en": ["sensation", "senses", "gravity", "falls"],
-            "fr": ["sensation", "sens", "pesanteur", "chutes"]
+            "en": ["sensation", "senses", "gravity", "falls","water"],
+            "fr": ["sensation", "sens", "pesanteur", "chutes","eau"]
         },
         "content": {
             "layout": "single-video",
@@ -79,7 +79,7 @@
         "cover": "watergravity.jpg",
         "keywords": {
             "en": ["sensation", "senses", "gravity", "water"],
-            "fr": ["sensation", "sens", "pesanteur", "dans", "eau"]
+            "fr": ["sensation", "sens", "pesanteur", "eau"]
         },
         "content": {
             "layout": "single-video",
@@ -101,8 +101,8 @@
         "sort_idx": 500,
         "cover": "adjusting_birds.jpg",
         "keywords": {
-            "en": ["sensation", "senses", "gravity", "adjusting"],
-            "fr": ["sensation", "sens", "pesanteur", "ajuster"]
+            "en": ["sensation", "senses", "gravity", "adjusting", "feet", "weight"],
+            "fr": ["sensation", "sens", "pesanteur", "ajuster","pieds", "poids"]
         },
         "content": {
             "layout": "single-video",
@@ -124,8 +124,8 @@
         "sort_idx": 600,
         "cover": "breathing_en.jpg",
         "keywords": {
-            "en": ["sensation", "senses", "basics", "approach", "breathing"],
-            "fr": ["sensation", "sens", "base", "respirer,", "approche"]
+            "en": ["sensation", "senses", "basics", "approach", "breathing", "diaphragm", "panique"],
+            "fr": ["sensation", "sens", "base", "respirer,", "approche", "diaphragme", "panique"]
         },
         "content": {
             "layout": "single-video",
@@ -148,8 +148,8 @@
         "sort_idx": 700,
         "cover": "smalldance_full.jpg",
         "keywords": {
-            "en": ["sensation", "senses", "basics", "approach", "small", "dance"],
-            "fr": ["sensation", "sens", "base", "petite", "danse,", "approche"]
+            "en": ["sensation", "senses", "basics", "approach", "small dance", "walk", "stretch", "arms", "legs", "weight"],
+            "fr": ["sensation", "sens", "base", "petite danse,", "approche", "marche", "étirement", "bras", "jambes", "poids"]
         },
         "content": {
             "layout": "single-video",
@@ -428,8 +428,8 @@
         "sort_idx": 1900,
         "cover": "perf_comments_goldberg.jpg",
         "keywords": {
-            "en": ["sensation", "senses", "mfs", "base", "improvisation", "looking", "goldberg", "variations"],
-            "fr": ["sensation", "sens", "mfs", "base", "improvisation", "introduction", "goldberg", "variations"]
+            "en": ["sensation", "senses", "mfs", "base", "improvisation", "looking", "Goldberg", "variations"],
+            "fr": ["sensation", "sens", "mfs", "base", "improvisation", "introduction", "Goldberg", "variations"]
         },
         "content": {
             "layout": "single-video",
@@ -451,8 +451,8 @@
         "sort_idx": 2000,
         "cover": "goldberg.jpg",
         "keywords": {
-            "en": ["sensation", "senses", "mfs", "base", "improvisation", "goldberg", "variations"],
-            "fr": ["sensation", "sens", "mfs", "base", "improvisation", "goldberg", "variations"]
+            "en": ["sensation", "senses", "mfs", "base", "improvisation", "Goldberg", "variations"],
+            "fr": ["sensation", "sens", "mfs", "base", "improvisation", "Goldberg", "variations"]
         },
         "content": {
             "layout": "single-video",
@@ -474,8 +474,8 @@
         "sort_idx": 2100,
         "cover": "perf_comments_english.jpg",
         "keywords": {
-            "en": ["sensation", "senses", "mfs", "base", "improvisation", "looking", "suites"],
-            "fr": ["sensation", "sens", "mfs", "base", "improvisation", "introduction", "suites"]
+            "en": ["sensation", "senses", "mfs", "base", "improvisation", "looking", "English suites"],
+            "fr": ["sensation", "sens", "mfs", "base", "improvisation", "introduction", "English suites"]
         },
         "content": {
             "layout": "single-video",
@@ -497,8 +497,8 @@
         "sort_idx": 2200,
         "cover": "english.jpg",
         "keywords": {
-            "en": ["sensation", "senses", "mfs", "base", "improvisation", "suites"],
-            "fr": ["sensation", "sens", "mfs", "base", "improvisation", "suites"]
+            "en": ["sensation", "senses", "mfs", "base", "improvisation", "English suites"],
+            "fr": ["sensation", "sens", "mfs", "base", "improvisation", "Ensglish suites"]
         },
         "content": {
             "layout": "single-video",
@@ -583,7 +583,7 @@
                         "muted": true,
                         "desc": {
                             "en": "-- led by feet and hands - detail from side",
-                            "fr": "-- initié par le les mains et les pieds - détail - depuis le côté"
+                            "fr": "-- initié par les mains et les pieds - détail - depuis le côté"
                         }
                     }
                 },
@@ -598,7 +598,7 @@
                         "muted": true,
                         "desc": {
                             "en": "-- led by feet and hands - detail from top",
-                            "fr": "-- initié par le les mains et les pieds - détail - depuis le haut"
+                            "fr": "-- initié par les mains et les pieds - détail - depuis le haut"
                         }
                     }
                 },
@@ -613,7 +613,7 @@
                         "muted": true,
                         "desc": {
                             "en": "-- led by feet and hands - detail from head",
-                            "fr": "-- initié par le les mains et les pieds - détail - depuis la tête"
+                            "fr": "-- initié par les mains et les pieds - détail - depuis la tête"
                         }
                     }
                 }
@@ -692,7 +692,7 @@
         "sort_idx": 2700,
         "cover": "chu_fromfeet.jpg",
         "keywords": {
-            "en": ["forms", "crescent", "roll", "head"],
+            "en": ["forms", "crescent", "roll", "head", "up"],
             "fr": ["formes", "roulé", "croissant", "tête", "dégagée"]
         },
         "content": {
@@ -741,7 +741,7 @@
         "cover": "cbfhu.jpg",
         "speed_control": true,
         "keywords": {
-            "en": ["forms", "crescent", "roll", "head", "feet"],
+            "en": ["forms", "crescent", "roll", "head", "feet", "up"],
             "fr": ["formes", "roulé", "croissant", "tête", "pieds", "vers", "haut"]
         },
         "content": {
