@@ -428,6 +428,8 @@ module.exports = merge(common, {
         new CopyWebpackPlugin([
             // Copy default .htaccess file
             { from: './public/.htaccess.dist', to: `${distFolder}/public/.htaccess`, toType: 'file' },
+            // Copy robots.txt
+            { from: './public/robots.txt', to: `${distFolder}/public/robots.txt`, toType: 'file' },
             // Copy static .htaccess file for static assets
             { from: './public/static/.htaccess.dist', to: `${distFolder}/public/static/.htaccess`, toType: 'file' },
             { from: workboxMainJs, to: `${distFolder}/public/static/js/workbox-sw.${workboxVersion}.js` },
