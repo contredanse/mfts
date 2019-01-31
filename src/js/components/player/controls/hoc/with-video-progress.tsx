@@ -27,10 +27,7 @@ const defaultState: VideoProgressState = {
     duration: Infinity,
 };
 
-// @Todo remove & any after Typescript 3.2 fixes
-const withVideoProgress = <P extends InjectedWithVideoProgressProps>(
-    WrappedComponent: React.ComponentType<P & any>
-) => {
+const withVideoProgress = <P extends InjectedWithVideoProgressProps>(WrappedComponent: React.ComponentType<P>) => {
     type VideoProgressInnerProps = Subtract<P, InjectedWithVideoProgressProps> & WithVideoProgressProps;
 
     class WithVideoProgress extends React.PureComponent<VideoProgressInnerProps, VideoProgressState> {
@@ -71,9 +68,11 @@ const withVideoProgress = <P extends InjectedWithVideoProgressProps>(
             const { videoEl, progressInterval, ...componentProps } = this.props as WithVideoProgressProps;
             const { currentTime, duration, bufferedTime } = this.state;
 
+            // temp solution for typescript 3.2/3.3
+            // https://github.com/Microsoft/TypeScript/issues/28938#issuecomment-450636046
             return (
                 <WrappedComponent
-                    {...componentProps}
+                    {...componentProps as P}
                     currentTime={currentTime}
                     duration={duration}
                     bufferedTime={bufferedTime}
