@@ -12,7 +12,7 @@
         // See: https://github.com/babel/babel/issues/7074
         "no-parameter-properties": true,
         "no-empty": [true, "allow-empty-catch", "allow-empty-functions"],
-        "no-any": false,
+        "no-any": true,
         "no-floating-promises": true,
         "arrow-parens": false,
         "arrow-return-shorthand": [false],
@@ -82,7 +82,6 @@
         // sonar
         "cognitive-complexity": [true, 30],
         "no-duplicate-string": [true, 5],
-        "no-useless-intersection": false,
         "bool-param-default": false
     }
 }
