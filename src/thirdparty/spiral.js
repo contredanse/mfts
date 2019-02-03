@@ -106,6 +106,7 @@ var SpiralMenu = function(settings) {
         if (label.node.open == false) return;
 
         label.node.open = false;
+        label.element.classList.remove('open');
         for (let node of label.node.content) {
             closeLabel(node.label);
             node.label.remove();
@@ -121,14 +122,11 @@ var SpiralMenu = function(settings) {
         if (label.node.open == true) return;
 
         label.node.open = true;
+        label.element.classList.add('open');
         let index = self.labels[label.node.spiral].indexOf(label);
-        //let nodes = [];
         for (let node of label.node.content) {
             // TODO: position element at parent position
             self.labelContainer.appendChild(node.label.element);
-
-            // Added by seb to get 'open class'
-            node.label.element.className = node.label.element.className + ' open';
 
             self.labels[node.spiral].splice(index + 1, 0, node.label);
             ++index;
@@ -269,7 +267,7 @@ var SpiralMenu = function(settings) {
         if (node.content) {
             for (let child of node.content) {
                 if (child.id == id) {
-                    path.push(node);
+                    path.push(node, child);
                     return true;
                 }
                 if (findIdInNode(id, child, path)) {
@@ -293,16 +291,16 @@ var SpiralMenu = function(settings) {
     // find auto-selected node
     var pathNodes = [];
     if (settings.selectedNodeId) {
-        //console.log('spiral.js::selectedNodeId', settings.selectedNodeId);
-        //console.log('spiral.js::self.content', self.content);
+        // console.log('spiral.js::selectedNodeId', settings.selectedNodeId);
+        // console.log('spiral.js::self.content', self.content);
         for (let node of self.content) {
             findIdInNode(settings.selectedNodeId, node, pathNodes);
         }
-        //console.log('spiral.js::pathNodes', pathNodes);
+        // console.log('spiral.js::pathNodes', pathNodes);
     }
 
     for (let node of pathNodes) {
-        //console.log('spiral.js::openLabel', node.label);
+        // console.log('spiral.js::openLabel', node.label);
         openLabel(node.label);
     }
 
@@ -463,7 +461,9 @@ var SpiralLabel = function(node, container, config, p) {
     if (this.isLeft) e.classList.add('left');
 
     var ee = document.createElement('span');
-    ee.className = 'node ' + node.type + (node.level > 1 ? ' sub' : '') + (node.open ? ' open' : '');
+    ee.classList.add('node', node.type);
+    if (node.level > 1) ee.classList.add('sub');
+    if (node.open) ee.classList.add('open');
 
     ee.innerHTML = node['title_' + this.config.language];
     ee.__slobject = this;
