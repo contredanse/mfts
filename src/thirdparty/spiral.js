@@ -107,12 +107,14 @@ var SpiralMenu = function(settings) {
 
         label.node.open = false;
         label.element.classList.remove('open');
-        for (let node of label.node.content) {
-            closeLabel(node.label);
-            node.label.remove();
-            let index = self.labels[node.spiral].indexOf(node.label);
-            if (index > -1) {
-                self.labels[node.spiral].splice(index, 1);
+        if (label.node.content) {
+            for (let node of label.node.content) {
+                closeLabel(node.label);
+                node.label.remove();
+                let index = self.labels[node.spiral].indexOf(node.label);
+                if (index > -1) {
+                    self.labels[node.spiral].splice(index, 1);
+                }
             }
         }
         lastOpen = null;
@@ -124,12 +126,14 @@ var SpiralMenu = function(settings) {
         label.node.open = true;
         label.element.classList.add('open');
         let index = self.labels[label.node.spiral].indexOf(label);
-        for (let node of label.node.content) {
-            // TODO: position element at parent position
-            self.labelContainer.appendChild(node.label.element);
+        if (label.node.content) {
+            for (let node of label.node.content) {
+                // TODO: position element at parent position
+                self.labelContainer.appendChild(node.label.element);
 
-            self.labels[node.spiral].splice(index + 1, 0, node.label);
-            ++index;
+                self.labels[node.spiral].splice(index + 1, 0, node.label);
+                ++index;
+            }
         }
 
         // close other spiral
