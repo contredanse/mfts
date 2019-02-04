@@ -55,13 +55,28 @@ describe('Menu repository', () => {
         expect(nav.next).toHaveProperty('page_id', 'forms.cultivating.kindling-scythe');
     });
 
-    test('getPageBreadcrumbTest', async () => {
+    test('getPageBreadcrumbTest with two levels deep', () => {
         const pageId = 'forms.cultivating.dance-culture';
         const breadcrumb = menuRepo.getPageBreadcrumb(pageId, 'en');
         expect(breadcrumb).toHaveLength(2);
         expect(breadcrumb[0]).toEqual({
             id: 'forms',
             title: 'Forms',
+        });
+
+        expect(breadcrumb[1]).toEqual({
+            id: 'forms.cultivating',
+            title: 'Cultivating',
+        });
+    });
+
+    test('getPageBreadcrumbTest with one levels deep', () => {
+        const pageId = 'forms.introduction';
+        const breadcrumb = menuRepo.getPageBreadcrumb(pageId, 'fr');
+        expect(breadcrumb).toHaveLength(1);
+        expect(breadcrumb[0]).toEqual({
+            id: 'forms',
+            title: 'Les formes',
         });
     });
 });

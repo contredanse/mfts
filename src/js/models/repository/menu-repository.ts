@@ -1,5 +1,5 @@
 import AppConfig from '@src/core/app-config';
-import { IJsonMenu, IJsonMenuSection } from '@data/json/data-menu';
+import { IJsonMenu, IJsonMenuPage, IJsonMenuSection } from '@data/json/data-menu';
 import PageRepository from '@src/models/repository/page-repository';
 import PageProxy from '@src/models/proxy/page-proxy';
 import { Omit } from 'utility-types';
@@ -100,7 +100,6 @@ export default class MenuRepository {
     getPageBreadcrumb(pageId: string, lang: string): MenuSectionProps[] {
         const accu: IJsonMenuSection[] = [];
         this.searchMenuTree(this.menu, pageId, accu);
-
         const breadcrumb: MenuSectionProps[] = [];
         accu.forEach((menuItem, idx) => {
             breadcrumb[idx] = {
@@ -134,6 +133,8 @@ export default class MenuRepository {
         pageId: string,
         breadcrumb?: Array<Omit<IJsonMenuSection, 'content'>>
     ): IJsonMenu | null {
+        const levelsToSearch = pageId.split('.').length;
+
         if ('page_id' in menu && menu.page_id === pageId) {
             return menu;
         } else if ('content' in menu || Array.isArray(menu)) {
@@ -142,15 +143,19 @@ export default class MenuRepository {
             const children: IJsonMenu[] = Array.isArray(menu) ? menu : menu.content || [];
 
             for (let i = 0; result === null && i < children.length; i++) {
+                const child = children[i] as IJsonMenuSection & IJsonMenuPage;
+
                 if (breadcrumb !== undefined && children[i].type === 'section') {
-                    const child = children[i] as IJsonMenuSection;
                     const level = child.id.split('.').length;
-                    breadcrumb[level - 1] = {
-                        id: child.id,
-                        title_fr: children[i].title_fr,
-                        title_en: children[i].title_en,
-                    };
+                    if (level < levelsToSearch) {
+                        breadcrumb[level - 1] = {
+                            id: child.id,
+                            title_fr: children[i].title_fr,
+                            title_en: children[i].title_en,
+                        };
+                    }
                 }
+
                 result = this.searchMenuTree(children[i], pageId, breadcrumb);
             }
             return result;
