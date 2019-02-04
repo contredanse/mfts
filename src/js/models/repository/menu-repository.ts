@@ -139,12 +139,9 @@ export default class MenuRepository {
             return menu;
         } else if ('content' in menu || Array.isArray(menu)) {
             let result = null;
-
             const children: IJsonMenu[] = Array.isArray(menu) ? menu : menu.content || [];
-
             for (let i = 0; result === null && i < children.length; i++) {
                 const child = children[i] as IJsonMenuSection & IJsonMenuPage;
-
                 if (breadcrumb !== undefined && children[i].type === 'section') {
                     const level = child.id.split('.').length;
                     if (level < levelsToSearch) {
@@ -155,7 +152,6 @@ export default class MenuRepository {
                         };
                     }
                 }
-
                 result = this.searchMenuTree(children[i], pageId, breadcrumb);
             }
             return result;
