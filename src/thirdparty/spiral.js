@@ -35,6 +35,7 @@ var SpiralMenu = function(settings) {
 
     // Spiral drag properties
     var isMouseDown = false;
+    var touchID = 0;
     var pMouseX = 0;
     var mouseX = 0;
     var gravity = 1;
@@ -97,6 +98,53 @@ var SpiralMenu = function(settings) {
         mouseX = pMouseX;
         self.canvas.style.cursor = 'ew-resize';
         self.container.addEventListener('mousemove', onContainerMouseMove);
+        if (frameReq == 0) {
+            frameReq = requestAnimationFrame(render);
+        }
+    }
+
+    function onContainerTouchBegin(event) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+
+        // stop automatic rotation at first click
+        gravity = 0.915;
+
+        // check if clicked on node label
+        if (event.target.classList.contains('node')) {
+            let label = event.target.__slobject;
+            switch (label.node.type) {
+                case 'section':
+                    if (label.node.open) {
+                        closeLabel(label);
+                    } else {
+                        openLabel(label);
+                    }
+                    //updateMenu();
+                    spiralSpeed = -0.01;
+                    if (frameReq == 0) {
+                        frameReq = requestAnimationFrame(render);
+                    }
+                    break;
+                case 'page':
+                    // console.log("Should open node : " + node[ "title_" + this.config.language ]);
+                    navigationCallback(label.node);
+                    break;
+            }
+            // if ( node.type == "section" ) {
+            //   node.open = !node.open;
+
+            // }
+            return;
+        }
+
+        // else start spiral drag operation
+        isMouseDown = true;
+        let touch = event.changedTouches[0];
+        pMouseX = touch.pageX;
+        mouseX = pMouseX;
+        touchID = touch.identifier;
+        self.container.addEventListener('touchmove', onContainerTouchMove);
         if (frameReq == 0) {
             frameReq = requestAnimationFrame(render);
         }
@@ -169,6 +217,23 @@ var SpiralMenu = function(settings) {
         }
     }
 
+    function onContainerTouchMove(event) {
+        for (let touch of event.touches) {
+            if (touch.identifier == touchID) {
+                mouseX = touch.pageX;
+            }
+        }
+    }
+
+    function onContainerTouchEnd(event) {
+        if (isMouseDown) {
+            isMouseDown = false;
+            touchID = 0;
+            self.canvas.style.cursor = 'pointer';
+            self.container.removeEventListener('touchmove', onContainerTouchMove);
+        }
+    }
+
     function render() {
         // console.log("render");
         // clear canvas
@@ -218,6 +283,10 @@ var SpiralMenu = function(settings) {
         self.container.removeEventListener('mouseup', onContainerMouseUp);
         self.container.removeEventListener('mousedown', onContainerMouseDown);
         self.container.removeEventListener('mousewheel', onContainerMouseWheel);
+
+        self.container.removeEventListener('touchend', onContainerTouchEnd);
+        self.container.removeEventListener('mousedown', onContainerTouchBegin);
+
         isMouseDown = false;
         spiralSpeed = 0;
         self.configuration = null;
@@ -313,6 +382,8 @@ var SpiralMenu = function(settings) {
     self.container.addEventListener('mousedown', onContainerMouseDown);
     self.container.addEventListener('mousewheel', onContainerMouseWheel);
 
+    self.container.addEventListener('touchend', onContainerTouchEnd);
+    self.container.addEventListener('touchstart', onContainerTouchBegin);
     // updateMenu();
     render();
 };
