@@ -335,7 +335,10 @@ var SpiralMenu = function(settings) {
     }
 
     function findIdInNode(id, node, path) {
-        if (node.id == id) return true;
+        if (node.id == id) {
+            path.push(node);
+            return true;
+        }
 
         if (node.content) {
             for (let child of node.content) {
