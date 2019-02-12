@@ -66,12 +66,14 @@ $helix-border-style-section: none;
                 font-weight: 400;
                 font-size: 1em;
                 line-height: 1em;
-                text-transform: lowercase;
+                text-transform: uppercase;
                 border: $helix-border-style-section;
             }
 
             &.sub {
                 margin: 0 15px;
+                text-transform: none;
+
             }
 
             &:hover {
