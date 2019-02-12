@@ -4,8 +4,8 @@
 $helix-font: $primary-font;
 $helix-label-hover-color: $link-hover-color;
 
-// replace by none to disable the appearance of border
-$helix-border-style-section: 1px solid rgba(white, 0.3);
+// replace by none to disable the appearance of border - before:(1px solid rgba(white, 0.3)
+$helix-border-style-section: none;
 
 #spiral-container {
     position: absolute;
@@ -59,13 +59,14 @@ $helix-border-style-section: 1px solid rgba(white, 0.3);
 
             &.page {
                 font-style: italic;
+                color: #ffff00;
             }
 
             &.section {
                 font-weight: 400;
                 font-size: 1em;
                 line-height: 1em;
-                text-transform: uppercase;
+                text-transform: lowercase;
                 border: $helix-border-style-section;
             }
 
@@ -80,8 +81,7 @@ $helix-border-style-section: 1px solid rgba(white, 0.3);
         &.open {
             span {
                 &.section {
-                    color: #aa0;
-                    border: 1px solid #aa0;
+                    color: #b0b0b0;
                 }
             }
         }
