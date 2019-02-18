@@ -1,7 +1,7 @@
 ## MATERIAL FOR THE SPINE
 ## une étude du mouvement
 
-Réalisé par Baptiste Andrien, Florence Corin, Steve Paxton.
+Réalisé par Steve Paxton, Baptiste Andrien et Florence Corin pour Contredanse.
 Publié et produit par Contredanse.
 
 Projet initié par Patricia Kuypers. Conseil artistique : Patricia Kuypers, Lisa Nelson. 
