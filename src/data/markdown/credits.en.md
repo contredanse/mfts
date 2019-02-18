@@ -1,7 +1,7 @@
 ## MATERIAL FOR THE SPINE
 ## a movement study
 
-Realised by Baptiste Andrien, Florence Corin, Steve Paxton.
+Realised by Steve Paxton, Baptiste Andrien and Florence Corin for Contredanse.
 Edited and produced by Contredanse.
 
 Project initiated by Patricia Kuypers. 
