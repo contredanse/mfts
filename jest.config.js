@@ -26,11 +26,11 @@ module.exports = {
         'ts-jest': {
             tsConfig: './tsconfig.jest.json',
             compiler: 'typescript',
-            babelConfig: '.babelrc',
+            //babelConfig: '.babelrc',
         },
     },
     //setupFiles: ['./jest.stubs.ts', 'jest-localstorage-mock'],
     setupFiles: ['./jest.stubs.ts'],
-    setupTestFrameworkScriptFile: './jest.tests.ts',
+    setupFilesAfterEnv: ['./jest.tests.ts'],
     collectCoverageFrom: ['src/**/*.+(ts|tsx|js|jsx)', '!src/__tests__/*'],
 };
