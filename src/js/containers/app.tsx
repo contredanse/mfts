@@ -1,7 +1,5 @@
 import React from 'react';
 
-//import { hot } from 'react-hot-loader';
-//
 import { hot } from 'react-hot-loader/root';
 
 import { Route } from 'react-router-dom';
@@ -183,5 +181,7 @@ class App extends React.PureComponent<AppProps, AppState> {
     }
 }
 
-//export default (process.env.NODE_ENV === 'development' ? hot(App) : App);
+// Could be also: export default (process.env.NODE_ENV === 'development' ? hot(App) : App);
+// to save few bytes
+
 export default hot(App);

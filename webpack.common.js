@@ -41,7 +41,7 @@ module.exports = {
                         loader: 'babel-loader', // For polyfilling
                         options: {
                             cacheDirectory: false,
-                            plugins: ['react-hot-loader/babel'],
+                            // plugins: ['react-hot-loader/babel'], in babelrc
                         },
                     },
                     {
@@ -64,7 +64,7 @@ module.exports = {
                         loader: 'babel-loader',
                         options: {
                             cacheDirectory: true,
-                            plugins: ['react-hot-loader/babel'],
+                            // plugins: ['react-hot-loader/babel'], in babelrc
                         },
                     },
                 ],
