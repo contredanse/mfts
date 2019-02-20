@@ -33,48 +33,16 @@ module.exports = {
     },
     module: {
         rules: [
-            // AWESOME TYPESCRIPT LOADER IS IN THE PROCESS OF
-            // BEING DROPPED, SEE BABEL 7 TYPESCRIPT SUPPORT
-            // BELOW. SECTION KEPT IN CASE WE FACE ISSUES
-            // NOTE THAT BUILD SIZE IS DIFFERENT, BABEL WILL
-            // GIVE HEAVIER BUILDS BUT ADDS SUPPORT FOR OLDER BROWSERS,
-            // ACCORDING TO ENV IN .babelrc
-
-            // We still use because of
-            // - https://github.com/babel/babel/issues/7074
-            //
-            // NEED CAREFUL TESTS, BABEL 7.rc.1 TYPESCRIPT SUPPORT IS
-            // NOT YET USABLE
-            /*
-            {
-                test: /\.ts(x?)$/,
-                exclude: /node_modules/,
-                use: [
-                    // For polyfilling
-
-                    {
-                        loader: 'babel-loader',
-                    },
-                    {
-                        loader: 'awesome-typescript-loader',
-                        options: {
-                            configFilename: 'tsconfig.json',
-                            // Use babel to ensure polyfill
-                            // DOES NOT WORK YET
-                            useBabel: false,
-                            useCache: true,
-                            silent: false,
-                        },
-                    },
-                ],
-            },*/
-
             {
                 test: /\.tsx?$/,
                 exclude: /node_modules/,
                 use: [
                     {
                         loader: 'babel-loader', // For polyfilling
+                        options: {
+                            cacheDirectory: false,
+                            plugins: ['react-hot-loader/babel'],
+                        },
                     },
                     {
                         loader: 'ts-loader',
@@ -96,6 +64,7 @@ module.exports = {
                         loader: 'babel-loader',
                         options: {
                             cacheDirectory: true,
+                            plugins: ['react-hot-loader/babel'],
                         },
                     },
                 ],
