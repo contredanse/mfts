@@ -19,13 +19,11 @@ export const getNextLang = (currentLang: string) => {
     return currentLang === 'en' ? 'fr' : 'en';
 };
 
-const LanguageContext = React.createContext<LanguageContextProps>({
+export const LanguageContext = React.createContext<LanguageContextProps>({
     lang: defaultLang,
     nextLang: getNextLang(defaultLang),
     changeLang: () => {},
 });
-
-export const LanguageContextConsumer = LanguageContext.Consumer;
 
 type LanguageProviderState = LanguageContextProps;
 type LanguageProviderProps = {

@@ -12,7 +12,7 @@ import AppConfig from '@src/core/app-config';
 import DocumentMeta from '@src/utils/document-meta';
 import { ConnectedFullScreen } from '@src/utils/fullscreen';
 import { ConnectedSideMenu } from '@src/components/navigation/side-menu';
-import { LanguageContextConsumer, LanguageContextProvider } from '@src/context/language-context';
+import { LanguageContext, LanguageContextProvider } from '@src/context/language-context';
 import HomeContainer from './home-container';
 import NotFoundContainer from './notfound-container';
 import LoginContainer from './login-container';
@@ -138,7 +138,7 @@ class App extends React.PureComponent<AppProps, AppState> {
 
         return (
             <LanguageContextProvider>
-                <LanguageContextConsumer>
+                <LanguageContext.Consumer>
                     {({ lang }) => {
                         const title = '';
                         return (
@@ -175,7 +175,7 @@ class App extends React.PureComponent<AppProps, AppState> {
                             </ConnectedRouter>
                         );
                     }}
-                </LanguageContextConsumer>
+                </LanguageContext.Consumer>
             </LanguageContextProvider>
         );
     }

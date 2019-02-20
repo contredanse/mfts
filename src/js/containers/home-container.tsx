@@ -3,7 +3,7 @@ import Home from '@src/components/home';
 import { RouteComponentProps, withRouter } from 'react-router';
 import AppAssetsLocator from '@src/core/app-assets-locator';
 import ConnectedFullscreenButton from '@src/components/fullscreen-button';
-import { LanguageContextConsumer } from '@src/context/language-context';
+import { LanguageContext } from '@src/context/language-context';
 
 type HomeContainerProps = {
     assetsLocator: AppAssetsLocator;
@@ -20,7 +20,7 @@ class HomeContainer extends React.Component<HomeContainerProps, HomeContainerSta
         const { assetsLocator } = this.props;
 
         return (
-            <LanguageContextConsumer>
+            <LanguageContext.Consumer>
                 {({ lang }) => {
                     return (
                         <div className="full-page-slide-ctn">
@@ -29,7 +29,7 @@ class HomeContainer extends React.Component<HomeContainerProps, HomeContainerSta
                         </div>
                     );
                 }}
-            </LanguageContextConsumer>
+            </LanguageContext.Consumer>
         );
     }
 }

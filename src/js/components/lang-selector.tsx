@@ -1,7 +1,7 @@
 import React from 'react';
 import { RouteComponentProps, withRouter } from 'react-router';
 import './lang-selector.scss';
-import { getNextLang, LanguageContextConsumer } from '@src/context/language-context';
+import { getNextLang, LanguageContext } from '@src/context/language-context';
 
 type LangSelectorProps = {
     children(props: {
@@ -36,7 +36,7 @@ class LangSelector extends React.Component<LangSelectorProps> {
     render() {
         const { children } = this.props;
         return (
-            <LanguageContextConsumer>
+            <LanguageContext.Consumer>
                 {({ lang, nextLang, changeLang }) => {
                     return children({
                         updateLang: (newLang: string) => {
@@ -52,7 +52,7 @@ class LangSelector extends React.Component<LangSelectorProps> {
                         nextLang: nextLang,
                     });
                 }}
-            </LanguageContextConsumer>
+            </LanguageContext.Consumer>
         );
     }
 }
