@@ -51,7 +51,8 @@
             "material-ui",
             "@material-ui",
             "mdi-react",
-            "react-burger-menu"
+            "react-burger-menu",
+            "react-hot-loader"
         ],
         "no-this-assignment": [
             true,
