@@ -142,7 +142,7 @@ export class SideMenu extends React.PureComponent<Props, State> {
                     <div className="side-menu-footer-center">
                         <div className="footer-logo-container">
                             <div>
-                                <img src={contredanseLogo} onClick={this.openContredanse} />
+                                <img src={contredanseLogo} onClick={this.openContredanse} alt={''} />
                             </div>
                             <div className="contredanse-text">© Contredanse Editions, 2019</div>
                             <div className="contredanse-mini-text">© Contredanse</div>
