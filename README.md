@@ -18,13 +18,19 @@ originally written in flash/actionscript.
 Video material is subject to copyright to Contredanse editions, Brussels.
 For support please register for a paid subscription.*
 
+## Technologies
+
+- React/Typescript/Webpack.
+
 ## Contributors
 
 - [Sébastien Vanvelthem](https://github.com/belgattitude) - Webapp development.
 - [Boblemarin](https://github.com/boblemarin) - Spiral menu development.
 - [Contredanse](https://contredanse.org) - Design UI, texts, content.
 
-## Install
+## Notes for developers
+
+### Install
 
 ```bash
 $ git clone https://github.com/contredanse/mfts.git
@@ -32,7 +38,7 @@ $ cd mfts
 $ yarn install
 ```
 
-## Configure
+### Configure
 
 ```bash
 $ cp env.example env.development.local
@@ -40,14 +46,14 @@ $ cp env.example env.production.local
 ```
 *and edit those files*.
 
-## Develop
+### Develop
 
 ```bash
 $ yarn start
 ```
 *then open http://localhost:3001 in your browser.* 
 
-## Check & test
+### Check & test
 
 ```bash
 $ yarn lint:fix
@@ -55,15 +61,15 @@ $ yarn prettier
 $ yarn test
 ```
 
-## Build
+### Build
 
 ```bash
 $ yarn build
 ```
 
-## Production
+### Production
 
-### Server
+#### Server
 
 To fully take advantage of brotli compression, Apache is recommended over Nginx.
 Really be sure to not cache either `service-worker.js` and `index.html` 
@@ -72,7 +78,7 @@ to prevent PWA caching issues.
 *See [notes](./docs/deploy), [root .htaccess](./public/.htaccess.dist) and [static .htaccess](./public/static/.htaccess.dist). 
 Note that apache support is build with the project. In other words, nothing to do for apache users.*
 
-### Deploy
+#### Deploy
 
 For simple deployments scenarios have a look to the [deploy.sh.example](./deploy.sh.example). 
  
