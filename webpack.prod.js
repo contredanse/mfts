@@ -19,6 +19,8 @@ const Workbox = require('workbox-webpack-plugin');
 const DotenvPlugin = require('dotenv-webpack');
 const Dotenv = require('dotenv');
 const fs = require('fs');
+const SitemapPlugin = require('sitemap-webpack-plugin').default;
+
 //const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
 
 const StatsWriterPlugin = require('webpack-stats-plugin').StatsWriterPlugin;
@@ -478,6 +480,88 @@ module.exports = merge(common, {
                 new RegExp('/[^/]+\\.[^/]+$'),
             ],
         }),
+
+        new SitemapPlugin(
+            PUBLIC_URL,
+            [
+                {
+                    path: '/',
+                    priority: '1.0',
+                },
+                {
+                    path: '/en/menu',
+                    hreflang: 'en',
+                    priority: '0.8',
+                },
+                {
+                    path: '/fr/menu',
+                    hreflang: 'fr',
+                    priority: '0.8',
+                },
+                {
+                    path: '/en/intro',
+                    hreflang: 'en',
+                    priority: '0.8',
+                },
+                {
+                    path: '/fr/intro',
+                    hreflang: 'fr',
+                    priority: '0.8',
+                },
+                {
+                    path: '/en/page-list',
+                    hreflang: 'en',
+                    priority: '0.8',
+                },
+                {
+                    path: '/fr/page-list',
+                    hreflang: 'fr',
+                    priority: '0.8',
+                },
+                {
+                    path: '/en/about/about',
+                    hreflang: 'en',
+                    priority: '0.8',
+                },
+                {
+                    path: '/fr/about/about',
+                    hreflang: 'fr',
+                    priority: '0.8',
+                },
+                {
+                    path: '/en/about/bio',
+                    hreflang: 'en',
+                    priority: '0.6',
+                },
+                {
+                    path: '/fr/about/biblio',
+                    hreflang: 'fr',
+                    priority: '0.6',
+                },
+                {
+                    path: '/en/about/biblio',
+                    hreflang: 'en',
+                    priority: '0.6',
+                },
+                {
+                    path: '/fr/about/credits',
+                    hreflang: 'fr',
+                    priority: '0.4',
+                },
+                {
+                    path: '/en/about/credits',
+                    hreflang: 'en',
+                    priority: '0.4',
+                },
+            ],
+            {
+                fileName: 'sitemap.xml',
+                lastMod: true,
+                skipGzip: true,
+                changeFreq: 'monthly',
+                priority: '0.4',
+            }
+        ),
 
         new StatsWriterPlugin({
             // no support for absolute paths
