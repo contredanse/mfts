@@ -10,7 +10,14 @@
 A movement study webapp converted from [Contredanse](https://www.contredanse.org)'s "Material for the Spine" DVD-ROM 
 originally written in flash/actionscript.
 
-*Source code of this webapp is freely available under MIT license. Video material is subject to copyright to Contredanse editions, Brussels.*
+ https://www.materialforthespine.com
+
+## License
+
+*Source code of this webapp is freely available under MIT license. 
+Video material is subject to copyright to Contredanse editions, Brussels.
+For support please register for a paid subscription.*
+
 
 ## Install
 
