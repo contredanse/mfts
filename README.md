@@ -18,6 +18,11 @@ originally written in flash/actionscript.
 Video material is subject to copyright to Contredanse editions, Brussels.
 For support please register for a paid subscription.*
 
+## Contributors
+
+- [Sébastien Vanvelthem](https://github.com/belgattitude) - Webapp development.
+- [Boblemarin](https://github.com/boblemarin) - Spiral menu development.
+- [Contredanse](https://contredanse.org) - Design UI, texts, content.
 
 ## Install
 
