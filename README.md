@@ -5,9 +5,12 @@
 [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
-# MFTS Webapp
+# MFS 
 
-Source code of this webapp is freely available under MIT license. Video material is subject to copyright to Contredanse editions, Brussels.
+A movement study webapp converted from [Contredanse](https://www.contredanse.org)'s "Material for the Spine" DVD-ROM 
+originally written in flash/actionscript.
+
+*Source code of this webapp is freely available under MIT license. Video material is subject to copyright to Contredanse editions, Brussels.*
 
 ## Install
 
