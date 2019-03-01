@@ -24,9 +24,9 @@ For support please register for a paid subscription.*
 
 ## Contributors
 
-- [Sébastien Vanvelthem](https://github.com/belgattitude) - Webapp development.
+- [Sébastien Vanvelthem](https://github.com/belgattitude) - Webapp development, video/medias conversions.
 - [Boblemarin](https://github.com/boblemarin) - Spiral menu development.
-- [Contredanse](https://contredanse.org) - Design UI, texts, content.
+- [Contredanse](https://contredanse.org) - Design specs, texts, multimedia content.
 
 ## Notes for developers
 
