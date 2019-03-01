@@ -18,44 +18,49 @@ const language = (() => {
     return lang;
 })();
 
-outdatedBrowserRework({
-    browserSupport: {
-        Chrome: 57, // Includes Chrome for mobile devices
-        Edge: 16,
-        Firefox: 54,
-        IE: false,
-        'Mobile Safari': 10.2,
-        Opera: 50,
-        // allows 11.1 as minimum
-        Safari: 11,
-        Vivaldi: 1,
-    },
-    isUnknownBrowserOK: false,
-    language: language,
-    messages: {
-        en: {
-            callToAction: 'Update my browser now',
-            close: 'Close',
-            outOfDate: 'Sorry, your browser is not supported.',
-            update: {
-                appStore: 'Please update iOS from the Settings App',
-                googlePlay: 'Please install Chrome from Google Play',
-                web: 'Update your browser to view this website correctly or use a recent version of Firefox or Chrome.',
-            },
-            url: 'http://outdatedbrowser.com/',
+if (/bot|google|baidu|bing|msn|duckduckbot|teoma|slurp|yandex/i.test(navigator.userAgent)) {
+    console.log('has been detected as a crawler bot, skipping browser message');
+} else {
+    outdatedBrowserRework({
+        browserSupport: {
+            Chrome: 57, // Includes Chrome for mobile devices
+            Edge: 16,
+            Firefox: 54,
+            IE: false,
+            'Mobile Safari': 10.2,
+            Opera: 50,
+            // allows 11.1 as minimum
+            Safari: 11,
+            Vivaldi: 1,
         },
-        fr: {
-            callToAction: 'Mettre à jour maintenant ',
-            close: 'Fermer',
-            outOfDate: "Désolé, votre navigateur n'est pas supporté.",
-            update: {
-                appStore: "Merci de mettre à jour iOS depuis l'application Réglages",
-                googlePlay: "Merci d'installer Chrome depuis le Google Play Store",
-                web:
-                    'Mettez à jour votre navigateur pour afficher correctement ce site Web ou utilisez une version récente de Firefox ou Chrome.',
+        isUnknownBrowserOK: false,
+        language: language,
+        messages: {
+            en: {
+                callToAction: 'Update my browser now',
+                close: 'Close',
+                outOfDate: 'Sorry, your browser is not supported.',
+                update: {
+                    appStore: 'Please update iOS from the Settings App',
+                    googlePlay: 'Please install Chrome from Google Play',
+                    web:
+                        'Update your browser to view this website correctly or use a recent version of Firefox or Chrome.',
+                },
+                url: 'http://outdatedbrowser.com/',
             },
-            url: 'http://outdatedbrowser.com/fr',
+            fr: {
+                callToAction: 'Mettre à jour maintenant ',
+                close: 'Fermer',
+                outOfDate: "Désolé, votre navigateur n'est pas supporté.",
+                update: {
+                    appStore: "Merci de mettre à jour iOS depuis l'application Réglages",
+                    googlePlay: "Merci d'installer Chrome depuis le Google Play Store",
+                    web:
+                        'Mettez à jour votre navigateur pour afficher correctement ce site Web ou utilisez une version récente de Firefox ou Chrome.',
+                },
+                url: 'http://outdatedbrowser.com/fr',
+            },
         },
-    },
-    requireChromeOnAndroid: false,
-});
+        requireChromeOnAndroid: false,
+    });
+}
