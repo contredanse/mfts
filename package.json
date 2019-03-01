@@ -185,7 +185,7 @@
         "react-router": "^4.3.1",
         "react-router-dom": "^4.3.1",
         "react-svg": "^7.2.7",
-        "react-transition-group": "^2.5.3",
+        "react-transition-group": "^2.6.0",
         "redux": "^4.0.1",
         "redux-thunk": "^2.3.0",
         "throttle-debounce": "^2.1.0",
