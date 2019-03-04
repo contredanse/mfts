@@ -31,14 +31,20 @@ const defaultProps = {
     authError: null,
     loading: false,
     lang: 'en',
-    externalUrls: appConfig.getExternalUrls(),
 };
 
 export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormState> {
     static defaultProps = defaultProps;
 
+    private externalUrls: ExternalUrls;
+
     constructor(props: LoginFormProps) {
         super(props);
+        if (props.externalUrls === undefined) {
+            this.externalUrls = appConfig.getExternalUrls(props.lang);
+        } else {
+            this.externalUrls = props.externalUrls;
+        }
     }
 
     handleSubmit = (data: any) => {
@@ -51,7 +57,7 @@ export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormStat
     componentDidMount(): void {}
 
     render() {
-        const { externalUrls } = this.props;
+        const externalUrls = this.externalUrls;
 
         return (
             <div className="login-form">
@@ -60,7 +66,7 @@ export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormStat
                 <p>{this.tr('to_continue_text')}</p>
 
                 <p>
-                    <a className="shop_button" target="_blank" rel="noopener" href={externalUrls!.shopLink}>
+                    <a className="shop_button" target="_blank" rel="noopener" href={externalUrls.shopLink}>
                         {this.tr('get_your_12_months_access')}
                     </a>
                 </p>
@@ -129,7 +135,7 @@ export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormStat
                 </Formik>
 
                 <p>
-                    <a target="_blank" rel="noopener" href={externalUrls!.resetPassword}>
+                    <a target="_blank" rel="noopener" href={externalUrls.resetPassword}>
                         {this.tr('password_forgotten')}
                     </a>
                 </p>
