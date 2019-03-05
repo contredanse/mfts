@@ -30,21 +30,13 @@ type LoginFormState = {};
 const defaultProps = {
     authError: null,
     loading: false,
-    lang: 'en',
 };
 
 export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormState> {
     static defaultProps = defaultProps;
 
-    private externalUrls: ExternalUrls;
-
     constructor(props: LoginFormProps) {
         super(props);
-        if (props.externalUrls === undefined) {
-            this.externalUrls = appConfig.getExternalUrls(props.lang);
-        } else {
-            this.externalUrls = props.externalUrls;
-        }
     }
 
     handleSubmit = (data: any) => {
@@ -57,7 +49,9 @@ export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormStat
     componentDidMount(): void {}
 
     render() {
-        const externalUrls = this.externalUrls;
+        const externalUrls = this.props.externalUrls
+            ? this.props.externalUrls
+            : appConfig.getExternalUrls(this.props.lang);
 
         return (
             <div className="login-form">
