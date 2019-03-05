@@ -80,7 +80,7 @@ class PageListContainer extends React.PureComponent<PageListContainerProps, Page
         // since the last render, `memoize-one` will reuse the last return value.
         const filteredList = this.filterPages(this.state.pages, this.state.filterText, this.props.lang);
 
-        const documentTitle = `MFS >> ${getFromDictionary('page_title', lang, i18nDict)}`;
+        const documentTitle = `Material for the spine - ${getFromDictionary('page_title', lang, i18nDict)}`;
 
         return (
             <PageOverlay>

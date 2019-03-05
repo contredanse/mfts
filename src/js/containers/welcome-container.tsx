@@ -54,7 +54,7 @@ class WelcomeContainer extends React.PureComponent<WelcomeContainerProps, Welcom
 
         return (
             <PageOverlay fullHeight={true} closeButton={false}>
-                <DocumentMeta title={'MFS >> Welcome'} />
+                <DocumentMeta title={'Material for the spine - Welcome'} />
                 <Welcome
                     pageRepository={pageRepository}
                     lang={lang}

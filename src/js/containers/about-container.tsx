@@ -34,7 +34,7 @@ class AboutContainer extends React.PureComponent<AboutContainerProps, AboutConta
         if (document) {
             const title = document.title[lang] || document.title.en;
             const content = document.content[lang] || document.content.en;
-            const documentTitle = `MFS >> ${title}`;
+            const documentTitle = `Material for the spine - ${title}`;
             return (
                 <PageOverlay closeButton={false}>
                     <DocumentMeta title={documentTitle} />

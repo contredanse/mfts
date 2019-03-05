@@ -44,7 +44,7 @@ export default class AppConfig {
         return new PageRepository(this, this.config.data.pages, this.getVideoRepository());
     }
 
-    getExternalUrls(addLanguage?: string): ExternalUrls {
+    public getExternalUrls(addLanguage?: string): ExternalUrls {
         if (addLanguage !== undefined) {
             return {
                 shopLink: `${this.config.externalUrls.shopLink}&language=${addLanguage}`,
@@ -55,11 +55,11 @@ export default class AppConfig {
         return this.config.externalUrls;
     }
 
-    getApiBaseUrl(): string {
+    public getApiBaseUrl(): string {
         return this.config.apiBaseUrl;
     }
 
-    getConfig(): IAppConfig {
+    public getConfig(): IAppConfig {
         return this.config;
     }
 }

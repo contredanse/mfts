@@ -35,7 +35,7 @@ class MenuContainer extends React.PureComponent<MenuContainerProps, MenuContaine
 
         return (
             <div style={{ textAlign: 'center' }}>
-                <DocumentMeta title={'MFS >> Menu'} />
+                <DocumentMeta title={'Material for the spine - Menu'} />
                 <HelixMenu lang={lang} jsonDataMenu={menuRepository.getJsonMenu()} openedPageId={pageId} />
             </div>
         );

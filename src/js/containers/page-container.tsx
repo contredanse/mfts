@@ -80,7 +80,7 @@ class PageContainer extends React.PureComponent<PageContainerProps, PageContaine
         const { lang } = this.props;
 
         if (pageProxy) {
-            const documentTitle = `MFS >> ${pageProxy.getTitle(lang)}`;
+            const documentTitle = `Material for the spine - ${pageProxy.getTitle(lang)}`;
             return (
                 <PageOverlay closeButton={false}>
                     <div className="page-wrapper">
