@@ -321,7 +321,7 @@ module.exports = merge(common, {
     },
 
     plugins: [
-        new CleanWebpackPlugin('dist', {}),
+        new CleanWebpackPlugin({}),
 
         new DotenvPlugin({
             path: dotEnvFile, // load this now instead of the ones in '.env'
