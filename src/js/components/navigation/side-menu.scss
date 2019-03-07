@@ -105,6 +105,8 @@ $topbar-height-sm: $appbar-margin-from-window-sm;
         align-items: center;
 
         .footer-logo-container {
+            // Disabled for expo
+            display: none;
             text-align: center;
             opacity: 0.2;
             white-space: nowrap;
@@ -117,7 +119,7 @@ $topbar-height-sm: $appbar-margin-from-window-sm;
                 }
             }
             .contredanse-text {
-                display: block;
+                display: none;
             }
 
             .contredanse-mini-text {

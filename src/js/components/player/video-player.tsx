@@ -293,6 +293,7 @@ class VideoPlayer extends React.Component<VideoPlayerProps, VideoPlayerState> {
                 {this.state.refLoaded && this.props.controlBarProps && (
                     <ConnectedControlBar
                         ref={this.controlBarRef}
+                        enableFullscreenControl={false}
                         videoEl={this.videoRef.current}
                         {...this.props.controlBarProps}
                     />

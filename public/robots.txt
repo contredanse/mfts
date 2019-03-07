@@ -1,5 +1,2 @@
 User-agent: *
-Disallow: /api/*
-Disallow: /assets/*.mp4$
-Disallow: /assets/*.mp3$
-Disallow: /assets/*.webm$
+Disallow: *

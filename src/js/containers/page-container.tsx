@@ -144,6 +144,8 @@ class PageContainer extends React.PureComponent<PageContainerProps, PageContaine
     }
 
     private createAuthTimeout(): void {
+        // disabled for expo
+        return;
         if (!this.props.authenticated) {
             this.clearAuthTimeout();
             // typescript does not resolve correct

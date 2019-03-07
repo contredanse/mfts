@@ -33,7 +33,8 @@ export class LoginMenu extends React.PureComponent<LoginMenuProps, LoginMenuStat
 
     componentDidMount() {
         if (this.props.authenticated && !this.props.user && !this.props.loading && this.props.getUserProfile) {
-            this.props.getUserProfile();
+            // disabled for expo
+            //this.props.getUserProfile();
         }
     }
 

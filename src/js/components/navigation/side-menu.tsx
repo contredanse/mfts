@@ -54,10 +54,12 @@ const menuItems = {
         label: { fr: 'Biographie', en: 'Biography' },
         route: '/{lang}/about/bio',
     },
+    /* Disabled for expo
     biblio: {
         label: { fr: 'Bibliographie', en: 'Bibliography' },
         route: '/{lang}/about/biblio',
     },
+    */
     credits: {
         label: { fr: 'Crédits', en: 'Credits' },
         route: '/{lang}/about/credits',

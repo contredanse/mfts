@@ -216,22 +216,6 @@ class ControlBar extends React.PureComponent<ControlBarProps, ControlbarState> {
                                                 disableSpaceClick={props.disableButtonSpaceClick}
                                             />
                                         )}
-
-                                        {props.enableFullscreenControl && (
-                                            <>
-                                                {props.isFullscreen ? (
-                                                    <FullscreenExitButton
-                                                        isEnabled={true}
-                                                        onClick={this.toggleFullScreen}
-                                                    />
-                                                ) : (
-                                                    <FullscreenButton
-                                                        isEnabled={true}
-                                                        onClick={this.toggleFullScreen}
-                                                    />
-                                                )}
-                                            </>
-                                        )}
                                     </div>
                                 </div>
                             </div>

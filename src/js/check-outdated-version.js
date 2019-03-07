@@ -18,6 +18,8 @@ const language = (() => {
     return lang;
 })();
 
+/* Do not check anything for expo
+
 if (/bot|google|baidu|bing|msn|duckduckbot|teoma|slurp|yandex/i.test(navigator.userAgent)) {
     // console.log('has been detected as a crawler bot, skipping browser message');
 } else {
@@ -64,3 +66,4 @@ if (/bot|google|baidu|bing|msn|duckduckbot|teoma|slurp|yandex/i.test(navigator.u
         requireChromeOnAndroid: false,
     });
 }
+*/

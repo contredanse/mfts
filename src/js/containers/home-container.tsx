@@ -25,7 +25,6 @@ class HomeContainer extends React.Component<HomeContainerProps, HomeContainerSta
                     return (
                         <div className="full-page-slide-ctn">
                             <Home assetsLocator={assetsLocator} lang={lang} />
-                            <ConnectedFullscreenButton lang={lang} />
                         </div>
                     );
                 }}
