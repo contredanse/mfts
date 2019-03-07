@@ -37,10 +37,13 @@ renderApp(App, appConfig, 'app');
 
 // Only chrome allowed till workbox 4 is out
 if (isChrome(false)) {
+    // remove for exhibition
+    /*
     registerServiceWorker({
         onSuccess: registration => {},
         onUpdate: registration => {},
     });
+    */
 } else {
     unregisterServiceWorker();
 }
