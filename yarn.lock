@@ -1963,7 +1963,7 @@ babel-extract-comments@^1.0.0:
   dependencies:
     babylon "^6.18.0"
 
-babel-jest@^24.3.0, babel-jest@^24.5.0:
+babel-jest@^24.5.0:
   version "24.5.0"
   resolved "https://registry.yarnpkg.com/babel-jest/-/babel-jest-24.5.0.tgz#0ea042789810c2bec9065f7c8ab4dc18e1d28559"
   integrity sha512-0fKCXyRwxFTJL0UXDJiT2xYxO9Lu2vBd9n+cC+eDjESzcVG3s2DRGAxbzJX21fceB1WYoBjAh8pQ83dKcl003g==
