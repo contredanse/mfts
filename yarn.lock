@@ -895,7 +895,7 @@
   dependencies:
     regenerator-runtime "^0.12.0"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.2.0", "@babel/runtime@^7.3.1", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.2", "@babel/runtime@^7.4.3":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.2.0", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.3":
   version "7.4.3"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.4.3.tgz#79888e452034223ad9609187a0ad1fe0d2ad4bdc"
   integrity sha512-9lsJwJLxDh/T3Q3SZszfWOTkk3pHbkmH+3KY+zwIDmsNlxsumuhS2TH3NIpktU4kNvfzy+k3eLT7aTJSPTo0OA==
@@ -1140,10 +1140,10 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
   integrity sha512-ONhaKPIufzzrlNbqtWFFd+jlnemX6lJAgq9ZeiZtS7I1PIf/la7CW4m83rTXRnVnsMbW2k56pGYu7AUFJD9Pow==
 
-"@tanem/svg-injector@^7.0.8":
-  version "7.0.10"
-  resolved "https://registry.yarnpkg.com/@tanem/svg-injector/-/svg-injector-7.0.10.tgz#93d85dafb06c73f2e5f329a60f394e308f2c2720"
-  integrity sha512-De6QJStDVqtx6Yx2jNqtyYZtHY30S/VOw5ZtgaXDWjmOqnDjWbzWXvXISmhUV+adpYisSIQ9Zh0MgWCO9JLRKg==
+"@tanem/svg-injector@^7.0.11":
+  version "7.0.11"
+  resolved "https://registry.yarnpkg.com/@tanem/svg-injector/-/svg-injector-7.0.11.tgz#7d6b4f81d16c0aa6a8f9f332490384c3d3526866"
+  integrity sha512-/Yp5VEWWlR8Yyj3zS9QnLybbkOpWIidtg5eS5gZ2dsIsXl+8uVEIJpEK/ufhX82Mfe5VhogXPB820prQeWQI2A==
   dependencies:
     "@babel/runtime" "^7.3.4"
 
@@ -1278,10 +1278,15 @@
   resolved "https://registry.yarnpkg.com/@types/memoize-one/-/memoize-one-4.1.1.tgz#41dd138a4335b5041f7d8fc038f9d593d88b3369"
   integrity sha512-+9djKUUn8hOyktLCfCy4hLaIPgDNovaU36fsnZe9trFHr6ddlbIn2q0SEsnkCkNR+pBWEU440Molz/+Mpyf+gQ==
 
-"@types/node@*", "@types/node@^11.13.0":
+"@types/node@*":
   version "11.13.0"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-11.13.0.tgz#b0df8d6ef9b5001b2be3a94d909ce3c29a80f9e1"
   integrity sha512-rx29MMkRdVmzunmiA4lzBYJNnXsW/PhG4kMBy2ATsYaDjGGR75dCFEVVROKpNwlVdcUX3xxlghKQOeDPBJobng==
+
+"@types/node@^11.13.4":
+  version "11.13.4"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-11.13.4.tgz#f83ec3c3e05b174b7241fadeb6688267fe5b22ca"
+  integrity sha512-+rabAZZ3Yn7tF/XPGHupKIL5EcAbrLxnTr/hgQICxbeuAfWtT0UZSfULE+ndusckBItcv4o6ZeOJplQikVcLvQ==
 
 "@types/prop-types@*":
   version "15.7.0"
@@ -1347,10 +1352,10 @@
     "@types/history" "*"
     "@types/react" "*"
 
-"@types/react-transition-group@^2.8.0":
-  version "2.8.0"
-  resolved "https://registry.yarnpkg.com/@types/react-transition-group/-/react-transition-group-2.8.0.tgz#0e30ced3ad695ac053f715675467162b19bbe539"
-  integrity sha512-DHZrY4UBypeT/bD2WakC3MkdBHMOkhqWnRRCMqrtNknyhfkCfKmRlpKdxGlPkDKvNl2uDSHcdvmKy8JW0aNETA==
+"@types/react-transition-group@^2.9.0":
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/@types/react-transition-group/-/react-transition-group-2.9.0.tgz#2a74a885432d673a93a2c93c34ce5dbf9f1426f8"
+  integrity sha512-hP7vUaZMVSWKxo133P8U51U6UZ7+pbY+eAQb8+p6SZ2rB1rj3mOTDgTzhhi+R2SCB4S+sWekAAGoxdiZPG0ReQ==
   dependencies:
     "@types/react" "*"
 
@@ -4874,10 +4879,10 @@ forever-agent@~0.6.1:
   resolved "https://registry.yarnpkg.com/forever-agent/-/forever-agent-0.6.1.tgz#fbc71f0c41adeb37f96c577ad1ed42d8fdacca91"
   integrity sha1-+8cfDEGt6zf5bFd60e1C2P2sypE=
 
-fork-ts-checker-webpack-plugin@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/fork-ts-checker-webpack-plugin/-/fork-ts-checker-webpack-plugin-1.0.1.tgz#140453c4dc3dc35937034b7416b66a3bacfbc3a8"
-  integrity sha512-RrVxSiNtngsFDLQpP2QlrVaJK1zqRdwhtwslmDUWQTg3t3GW8QN7D3EpW/EAI+oqTqL0dGvLyluyYQ/eIrIHvQ==
+fork-ts-checker-webpack-plugin@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/fork-ts-checker-webpack-plugin/-/fork-ts-checker-webpack-plugin-1.0.2.tgz#1f40585c1f60ffc3a420cd5f6a8d8be25b5635fc"
+  integrity sha512-DAyBgXAoJoSTXK8LSTvNgYJE+PmawnIyh2qZUfV5vB237ARuyEEq/H1y0i9UdhXLY6QlCH+5LojGyaHwD9W2RA==
   dependencies:
     babel-code-frame "^6.22.0"
     chalk "^2.4.1"
@@ -7909,12 +7914,13 @@ min-document@^2.19.0:
   dependencies:
     dom-walk "^0.1.0"
 
-mini-css-extract-plugin@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/mini-css-extract-plugin/-/mini-css-extract-plugin-0.5.0.tgz#ac0059b02b9692515a637115b0cc9fed3a35c7b0"
-  integrity sha512-IuaLjruM0vMKhUUT51fQdQzBYTX49dLj8w68ALEAe2A4iYNpIC4eMac67mt3NzycvjOlf07/kYxJDc0RTl1Wqw==
+mini-css-extract-plugin@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/mini-css-extract-plugin/-/mini-css-extract-plugin-0.6.0.tgz#a3f13372d6fcde912f3ee4cd039665704801e3b9"
+  integrity sha512-79q5P7YGI6rdnVyIAV4NXpBQJFWdkzJxCim3Kog4078fM0piAaFlwocqbejdWtLW1cEzCexPrh6EdyFsPgVdAw==
   dependencies:
     loader-utils "^1.1.0"
+    normalize-url "^2.0.1"
     schema-utils "^1.0.0"
     webpack-sources "^1.1.0"
 
@@ -8322,7 +8328,7 @@ normalize-range@^0.1.2:
   resolved "https://registry.yarnpkg.com/normalize-range/-/normalize-range-0.1.2.tgz#2d10c06bdfd312ea9777695a4d28439456b75942"
   integrity sha1-LRDAa9/TEuqXd2laTShDlFa3WUI=
 
-normalize-url@2.0.1:
+normalize-url@2.0.1, normalize-url@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-2.0.1.tgz#835a9da1551fa26f70e92329069a23aa6574d7e6"
   integrity sha512-D6MUW4K/VzoJ4rJ01JFKxDrtY1v9wrgzCX5f2qj/lzH1m/lW6MhUZFKerVsnyjOhOsYzI9Kqqak+10l4LvLpMw==
@@ -9815,7 +9821,7 @@ react-hot-loader@^4.8.3:
     shallowequal "^1.0.2"
     source-map "^0.7.3"
 
-react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.2, react-is@^16.8.4, react-is@^16.8.6:
+react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
   version "16.8.6"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
   integrity sha512-aUk3bHfZ2bRSVFFbbeVS4i+lNPZr3/WM5jT2J5omUVV1zzcs1nAaf3l51ctA5FFvCRbhrH0bdAsRRQddFJZPtA==
@@ -9830,17 +9836,17 @@ react-mock-router@^1.0.15:
   resolved "https://registry.yarnpkg.com/react-mock-router/-/react-mock-router-1.0.15.tgz#01c823a7ed366e7e834565e879bc72443131b4e1"
   integrity sha1-Acgjp+02bn6DRWXoebxyRDExtOE=
 
-react-redux@^6.0.1:
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-6.0.1.tgz#0d423e2c1cb10ada87293d47e7de7c329623ba4d"
-  integrity sha512-T52I52Kxhbqy/6TEfBv85rQSDz6+Y28V/pf52vDWs1YRXG19mcFOGfHnY2HsNFHyhP+ST34Aih98fvt6tqwVcQ==
+react-redux@^7.0.1:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-7.0.1.tgz#321285e6c85c3586d11cc066ab33dc580da599fb"
+  integrity sha512-orSiI/QXtGiiJmf8lN/zVTx4hysFo/kGOsce28IUu/mu98AGemBwPTDzf64P4Vf/miRmevO8/w2RSw2awDd21w==
   dependencies:
-    "@babel/runtime" "^7.3.1"
+    "@babel/runtime" "^7.4.3"
     hoist-non-react-statics "^3.3.0"
     invariant "^2.2.4"
     loose-envify "^1.4.0"
     prop-types "^15.7.2"
-    react-is "^16.8.2"
+    react-is "^16.8.6"
 
 react-router-dom@^4.3.1:
   version "4.3.1"
@@ -9867,13 +9873,13 @@ react-router@^4.3.1:
     prop-types "^15.6.1"
     warning "^4.0.1"
 
-react-svg@^8.0.3:
-  version "8.0.3"
-  resolved "https://registry.yarnpkg.com/react-svg/-/react-svg-8.0.3.tgz#3a51c0d8d184aeb737e9638578cda7916cbf3048"
-  integrity sha512-TRIWll3fbgfqhV6cwG8vkUMuk0osdHnXmBozjgc7u8lb4UoQ2UD33WiUTn0/icbvkrD8ZYootVdNJY8MnZOh3w==
+react-svg@^8.0.4:
+  version "8.0.4"
+  resolved "https://registry.yarnpkg.com/react-svg/-/react-svg-8.0.4.tgz#95e44bba723ec7ee5d6b5ab949675874da2565d7"
+  integrity sha512-W0NKzJzToRjAv3VkXKdtWa0I0cxi+S0wOiX1OkjUvGITEtmD3qZGNcLd9+StY9o0hPXo0OYYmvE0ENsDQc0Jsg==
   dependencies:
-    "@babel/runtime" "^7.4.2"
-    "@tanem/svg-injector" "^7.0.8"
+    "@babel/runtime" "^7.4.3"
+    "@tanem/svg-injector" "^7.0.11"
     prop-types "^15.7.2"
 
 react-test-renderer@^16.0.0-0:
@@ -11836,10 +11842,10 @@ typesafe-actions@^4.0.0:
   resolved "https://registry.yarnpkg.com/typesafe-actions/-/typesafe-actions-4.0.0.tgz#b41aca3538dd4cf51ed7c7f4e6ee3b517a1d6dc8"
   integrity sha512-VWIQZpUgEqddDbNi1c9eq5T6nzQVGP01HA74O4PXnyzDrewBL6L6usSigH8ZEpqmM/pw59BKttXeiCu6bF7RNA==
 
-typescript@^3.4.2:
-  version "3.4.2"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.4.2.tgz#9ed4e6475d906f589200193be056f5913caed481"
-  integrity sha512-Og2Vn6Mk7JAuWA1hQdDQN/Ekm/SchX80VzLhjKN9ETYrIepBFAd8PkOdOTK2nKt0FCkmMZKBJvQ1dV1gIxPu/A==
+typescript@^3.4.3:
+  version "3.4.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.4.3.tgz#0eb320e4ace9b10eadf5bc6103286b0f8b7c224f"
+  integrity sha512-FFgHdPt4T/duxx6Ndf7hwgMZZjZpB+U0nMNGVCYPq0rEzWKjEDobm4J6yb3CS7naZ0yURFqdw9Gwc7UOh/P9oQ==
 
 typographic-apostrophes-for-possessive-plurals@^1.0.5:
   version "1.0.5"
@@ -12326,10 +12332,10 @@ webidl-conversions@^4.0.2:
   resolved "https://registry.yarnpkg.com/webidl-conversions/-/webidl-conversions-4.0.2.tgz#a855980b1f0b6b359ba1d5d9fb39ae941faa63ad"
   integrity sha512-YQ+BmxuTgd6UXZW3+ICGfyqRyHXVlD5GtQr5+qjiNW7bF0cqrzX500HVXPBOvgXb5YnzDd+h0zqyv61KUD7+Sg==
 
-webpack-bundle-analyzer@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/webpack-bundle-analyzer/-/webpack-bundle-analyzer-3.2.0.tgz#0630d298e88511d036d7c823705d7b852593d5c4"
-  integrity sha512-F6bwrg5TBb9HsHZCltH1L5F091ELQ+/i67MEH7jWkYRvVp53eONNneGaIXSdOQUiXUyd3RnkITWRfWvSVQGnZQ==
+webpack-bundle-analyzer@^3.3.2:
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/webpack-bundle-analyzer/-/webpack-bundle-analyzer-3.3.2.tgz#3da733a900f515914e729fcebcd4c40dde71fc6f"
+  integrity sha512-7qvJLPKB4rRWZGjVp5U1KEjwutbDHSKboAl0IfafnrdXMrgC0tOtZbQD6Rw0u4cmpgRN4O02Fc0t8eAT+FgGzA==
   dependencies:
     acorn "^6.0.7"
     acorn-walk "^6.1.1"
@@ -12372,10 +12378,10 @@ webpack-dev-middleware@^3.6.2:
     range-parser "^1.0.3"
     webpack-log "^2.0.0"
 
-webpack-dev-server@^3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/webpack-dev-server/-/webpack-dev-server-3.3.0.tgz#eee6b5cf0f754661aed796ffdcc9c6493a963a8b"
-  integrity sha512-75LTgV367MRDVIC+IBETrKEy9175+i5fy9nkw8MW+udnPCzNzSfZtKUIG5thQcooaNruPZZoEV8fCZqKJszOIw==
+webpack-dev-server@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/webpack-dev-server/-/webpack-dev-server-3.3.1.tgz#7046e49ded5c1255a82c5d942bcdda552b72a62d"
+  integrity sha512-jY09LikOyGZrxVTXK0mgIq9y2IhCoJ05848dKZqX1gAGLU1YDqgpOT71+W53JH/wI4v6ky4hm+KvSyW14JEs5A==
   dependencies:
     ansi-html "0.0.7"
     bonjour "^3.5.0"
