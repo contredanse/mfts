@@ -1140,10 +1140,10 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
   integrity sha512-ONhaKPIufzzrlNbqtWFFd+jlnemX6lJAgq9ZeiZtS7I1PIf/la7CW4m83rTXRnVnsMbW2k56pGYu7AUFJD9Pow==
 
-"@tanem/svg-injector@^7.0.13":
-  version "7.0.13"
-  resolved "https://registry.yarnpkg.com/@tanem/svg-injector/-/svg-injector-7.0.13.tgz#67eac8455806369eefc4d445e6b02b454a062cd4"
-  integrity sha512-uQ5OuW8ZWjioB018NBeAiL0F7GNskIeAGYufx6sSHsAxdDBLRbCCs6UTQtMeXQaklyaZBjGQnAOsa227gA81CA==
+"@tanem/svg-injector@^7.0.14":
+  version "7.0.14"
+  resolved "https://registry.yarnpkg.com/@tanem/svg-injector/-/svg-injector-7.0.14.tgz#c64aa85333229a510a88018c30e529112e136a6e"
+  integrity sha512-ZchZHozkCRYjj6foDjUvgQid6nv4BXn22jL7pIAQ93MvWNfQ13jd5OgLDkzqVlQra73gGvYP+C3xMmYPbm68mg==
   dependencies:
     "@babel/runtime" "^7.4.3"
 
@@ -9878,13 +9878,13 @@ react-router@5.0.0, react-router@^5.0.0:
     tiny-invariant "^1.0.2"
     tiny-warning "^1.0.0"
 
-react-svg@^8.0.5:
-  version "8.0.5"
-  resolved "https://registry.yarnpkg.com/react-svg/-/react-svg-8.0.5.tgz#9cc2fb8e98277dd4d760d4ca8cc5429f656d6e02"
-  integrity sha512-m9OnKLCKiblq07/qI+Zd+3ZIq1FDovDrOL2VQlCcQLy4DpHFpWoLcApEQZLuv9XThAITJmgd4abjMY7Trksghw==
+react-svg@^8.0.6:
+  version "8.0.6"
+  resolved "https://registry.yarnpkg.com/react-svg/-/react-svg-8.0.6.tgz#d4992c5b22fd10e8ae5529efab42935b385bcc24"
+  integrity sha512-x4j3/k6745TeOpRWntT5WLiuFlcQoSBCmW1w/z2NsKhUQ6emlQ3BqZSuwynxDkpKEvtq4t+4DWmPWgxbTUuPWA==
   dependencies:
     "@babel/runtime" "^7.4.3"
-    "@tanem/svg-injector" "^7.0.13"
+    "@tanem/svg-injector" "^7.0.14"
     prop-types "^15.7.2"
 
 react-test-renderer@^16.0.0-0:
@@ -9897,15 +9897,14 @@ react-test-renderer@^16.0.0-0:
     react-is "^16.8.6"
     scheduler "^0.13.6"
 
-react-transition-group@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-3.0.0.tgz#36efa4db970d5eec5e3028e0c458931163fa3b9b"
-  integrity sha512-A9ojB/LWECbFj58SNfjK1X9aaAU+1olLS0DFSikvrr2KfMaiBELemHDa5dKNvcTk2t3gUtDL/PJpFrBKDfMpLg==
+react-transition-group@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.0.0.tgz#1d82b20d78aa09eac6268ceef0349307146942c6"
+  integrity sha512-b+uvkr15Pb80mqcsz5WAB+d53zS8/pTp3wDEsOiqpea93G8BqfsMFcPv2XZR0owqU13BJWoJvd17VjOPEY/9aA==
   dependencies:
     dom-helpers "^3.4.0"
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
-    react-lifecycles-compat "^3.0.4"
 
 react@^16.8.6:
   version "16.8.6"
@@ -11767,12 +11766,12 @@ tslint-sonarts@^1.9.0:
   dependencies:
     immutable "^3.8.2"
 
-tslint@^5.15.0:
-  version "5.15.0"
-  resolved "https://registry.yarnpkg.com/tslint/-/tslint-5.15.0.tgz#6ffb180986d63afa1e531feb2a134dbf961e27d3"
-  integrity sha512-6bIEujKR21/3nyeoX2uBnE8s+tMXCQXhqMmaIPJpHmXJoBJPTLcI7/VHRtUwMhnLVdwLqqY3zmd8Dxqa5CVdJA==
+tslint@^5.16.0:
+  version "5.16.0"
+  resolved "https://registry.yarnpkg.com/tslint/-/tslint-5.16.0.tgz#ae61f9c5a98d295b9a4f4553b1b1e831c1984d67"
+  integrity sha512-UxG2yNxJ5pgGwmMzPMYh/CCnCnh0HfPgtlVRDs1ykZklufFBL1ZoTlWFRz2NQjcoEiDoRp+JyT0lhBbbH/obyA==
   dependencies:
-    babel-code-frame "^6.22.0"
+    "@babel/code-frame" "^7.0.0"
     builtin-modules "^1.1.1"
     chalk "^2.3.0"
     commander "^2.12.1"
