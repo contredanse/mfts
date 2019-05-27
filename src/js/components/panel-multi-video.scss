@@ -86,7 +86,7 @@
 
             .autoscale-video-wrapper {
                 position: relative;
-
+                flex-basis: 0; // fix chrome 74 for multivideos
                 video {
                     position: relative;
                     width: 100%;
