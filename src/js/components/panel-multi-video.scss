@@ -40,37 +40,21 @@
             right: 0;
             bottom: 0;
             background-color: #1abc9c;
-            //background-color: black;
             opacity: 0.2;
         }
 
-        // hack to vertically center the videos without
-        // sacrifying
-        //.vertical-wrapper {
         margin-left: 10px;
         margin-right: 10px;
-        //display: flex;
-        //flex: 1;
-
-        //height: 200px;
-        //border: 5px solid green;
-        //justify-content: center;
         align-items: center;
-        //margin: 0 -5px; // simulate grid-gap
 
         .autoscale-video-container {
             height: auto; // Fix height !!!
 
             max-width: 500px;
 
-            // Simulate grid-gap
-            // margin: 0 5px;
-
-            //border: 1px solid blue;
             flex: 1 1 100%; //flex-basis: 100%; to prevent flickering when adjusting size on load
             display: flex;
             align-items: center;
-            //border: 5px solid black;
             padding-left: 5px;
             padding-right: 5px;
 
@@ -97,15 +81,11 @@
 
                 &.hidden {
                     opacity: 0.15;
-                    //transform: scaleX(0.1)
                 }
             }
 
             .autoscale-video-wrapper {
-                //flex: 1 1 auto;
-                //border: 1px solid red;
                 position: relative;
-                //padding-top: 75.25%;
 
                 video {
                     position: relative;
@@ -114,7 +94,5 @@
                 }
             }
         }
-
-        //}
     }
 }
