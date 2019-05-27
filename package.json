@@ -185,7 +185,7 @@
         "react-redux": "^7.0.3",
         "react-router": "^5.0.0",
         "react-router-dom": "^5.0.0",
-        "react-svg": "^9.0.3",
+        "react-svg": "^10.0.4",
         "react-transition-group": "^4.0.1",
         "redux": "^4.0.1",
         "redux-thunk": "^2.3.0",
