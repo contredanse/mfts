@@ -23,6 +23,7 @@ if (/bot|google|baidu|bing|msn|duckduckbot|teoma|slurp|yandex/i.test(navigator.u
 } else {
     outdatedBrowserRework({
         browserSupport: {
+            Brave: 70,
             Chrome: 57, // Includes Chrome for mobile devices
             Edge: 16,
             Firefox: 54,
