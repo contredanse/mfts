@@ -39,9 +39,11 @@ const baseUrl = appConfig.getApiBaseUrl();
 
 const getFormErrorPayload = (error: any): AuthErrorPayload => {
     const errorText = 'text' in error ? error.text : error;
+    const browserMsg = 'message' in error ? error.message : undefined;
     const errorPayload: AuthErrorPayload = {
         message: 'Unknown error',
         expiryDate: null,
+        browserMsg: browserMsg,
     };
     try {
         const parsed = JSON.parse(errorText as string);
@@ -68,7 +70,12 @@ export const loginUser = ({ email, password }: AuthCredentials, onSuccess?: (dat
 
         return wretchRequest
             .url(`${baseUrl}/auth/token`)
-            .options({ mode: 'cors' })
+            .options({
+                mode: 'cors',
+                headers: {
+                    Accept: 'application/json',
+                },
+            })
             .post({
                 email: email,
                 password: password,
@@ -94,6 +101,7 @@ export const loginUser = ({ email, password }: AuthCredentials, onSuccess?: (dat
                     onSuccess(data);
                 }
             })
+
             .catch(error => {
                 const errorPayload = getFormErrorPayload(error);
                 dispatch(authActions.authFormSubmitFailure(errorPayload));
@@ -106,9 +114,13 @@ export const getUserProfile = (token?: string, onFailure?: (error: any) => void)
         const accessToken = token ? token : localStorage.getItem(AUTH_TOKEN_LOCALSTORAGE_KEY);
         await wretchRequest
             .url(`${baseUrl}/v1/profile`)
-            .options({ headers: { Accept: 'application/json' } })
             .auth(`Bearer ${accessToken}`)
-            .options({ mode: 'cors' })
+            .options({
+                mode: 'cors',
+                headers: {
+                    Accept: 'application/json',
+                },
+            })
             .get()
             .unauthorized(() => {
                 dispatch(authActions.unAuthenticateUser());

@@ -16,6 +16,7 @@ import { ExternalUrls } from '@src/core/app-config';
 export type LoginFormProps = {
     handleSubmit?: (data: any, onSuccess?: () => void) => void;
     authError: string | null;
+    browserErrorMsg: string | null;
     authExpiry: string | null;
     loading: boolean;
     user?: AuthUser | null;
@@ -117,6 +118,12 @@ export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormStat
                                 {this.props.authError && (
                                     <div className="error-response-text">
                                         {this.getAuthErrorMessage(this.props.authError, this.props.authExpiry)}
+
+                                        {this.props.browserErrorMsg && (
+                                            <small>
+                                                <em>&nbsp;({this.props.browserErrorMsg})</em>
+                                            </small>
+                                        )}
                                     </div>
                                 )}
 
@@ -155,6 +162,7 @@ export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormStat
 const mapStateToProps = ({ auth }: ApplicationState) => ({
     authError: auth.authError,
     authExpiry: auth.authExpiry,
+    browserErrorMsg: auth.browserErrorMsg,
     loading: auth.loading,
     user: auth.user,
     authenticated: auth.authenticated,

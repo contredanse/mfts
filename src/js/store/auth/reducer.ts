@@ -12,6 +12,7 @@ const initialState: AuthState = {
     authenticated: initAuth.authenticated,
     authError: null,
     authExpiry: null,
+    browserErrorMsg: null,
     loading: false,
     user: null,
 };
@@ -21,7 +22,7 @@ const initialState: AuthState = {
 const reducer: Reducer<AuthState> = (state = initialState, action): AuthState => {
     switch (action.type) {
         case AuthActionTypes.AUTHENTICATE_USER:
-            return { ...state, authenticated: true, user: action.payload };
+            return { ...state, authenticated: true, browserErrorMsg: null, user: action.payload };
         case AuthActionTypes.UNAUTHENTICATE_USER:
             // prevent unauthenticate while authenticating
             if (state.loading) {
@@ -29,19 +30,20 @@ const reducer: Reducer<AuthState> = (state = initialState, action): AuthState =>
             }
             return { ...state, user: null, authenticated: false };
         case AuthActionTypes.RESET_AUTH_FORM:
-            return { ...state, authError: null, authExpiry: null, loading: false };
+            return { ...state, authError: null, authExpiry: null, browserErrorMsg: null, loading: false };
         case AuthActionTypes.AUTH_FORM_SUBMIT_REQUEST:
             return { ...state, loading: true };
         case AuthActionTypes.AUTH_FORM_SUBMIT_SUCCESS:
-            return { ...state, loading: false, authError: null, authExpiry: null };
+            return { ...state, loading: false, authError: null, browserErrorMsg: null, authExpiry: null };
         case AuthActionTypes.AUTH_FORM_SUBMIT_FAILURE:
-            const { message, expiryDate } = action.payload as AuthErrorPayload;
+            const { message, expiryDate, browserMsg } = action.payload as AuthErrorPayload;
             return {
                 ...state,
                 authenticated: false,
                 user: null,
                 loading: false,
                 authError: message,
+                browserErrorMsg: browserMsg || null,
                 authExpiry: expiryDate,
             };
         default: {
