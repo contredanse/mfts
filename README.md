@@ -10,7 +10,12 @@
 A movement study webapp converted from [Contredanse](https://www.contredanse.org)'s "Material for the Spine" DVD-ROM 
 originally written in flash/actionscript.
 
- https://www.materialforthespine.com
+
+https://www.materialforthespine.com
+
+
+![Material for the spine](./docs/images/mfts-animated.gif)
+
 
 ## License
 
@@ -40,11 +45,11 @@ $ yarn install
 
 ### Configure
 
+See the env.example file.
+
 ```bash
 $ cp env.example env.development.local
-$ cp env.example env.production.local
 ```
-*and edit those files*.
 
 ### Develop
 
@@ -82,8 +87,4 @@ Note that apache support is build with the project. In other words, nothing to d
 
 For simple deployments scenarios have a look to the [deploy.sh.example](./deploy.sh.example). 
  
-
-
- 
-
 
