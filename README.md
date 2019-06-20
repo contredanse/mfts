@@ -14,9 +14,6 @@ originally written in flash/actionscript.
 https://www.materialforthespine.com
 
 
-![Material for the spine](./docs/images/mfts-animated.gif)
-
-
 ## License
 
 *Source code of this webapp is freely available under MIT license. 
