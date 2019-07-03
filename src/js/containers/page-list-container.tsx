@@ -100,4 +100,4 @@ class PageListContainer extends React.PureComponent<PageListContainerProps, Page
     }
 }
 
-export default withRouter<PageListContainerProps & RouteComponentProps<any>>(PageListContainer);
+export default withRouter(PageListContainer);
