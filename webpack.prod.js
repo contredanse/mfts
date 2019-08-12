@@ -21,8 +21,6 @@ const Dotenv = require('dotenv');
 const fs = require('fs');
 const SitemapPlugin = require('sitemap-webpack-plugin').default;
 
-//const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
-
 const StatsWriterPlugin = require('webpack-stats-plugin').StatsWriterPlugin;
 
 const extractSass = new MiniCssExtractPlugin({
