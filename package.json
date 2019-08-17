@@ -167,6 +167,7 @@
         "@babel/runtime": "^7.5.5",
         "classnames": "^2.2.6",
         "connected-react-router": "^6.5.2",
+        "core-js": "2",
         "fast-deep-equal": "^2.0.1",
         "formik": "^1.5.8",
         "fscreen": "^1.0.2",
