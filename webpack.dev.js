@@ -108,7 +108,7 @@ module.exports = merge(common, {
         proxy: {
             '/api': {
                 changeOrigin: true,
-                target: 'http://contredanse.local',
+                target: 'http://mfts.local/',
             },
         },
         headers: {

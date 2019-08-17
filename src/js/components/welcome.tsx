@@ -5,6 +5,7 @@ import PageRepository from '@src/models/repository/page-repository';
 import PageProxy from '@src/models/proxy/page-proxy';
 import AppBarPortal from '@src/components/navigation/app-bar-portal';
 import ConnectedLoginForm from '@src/components/login-form';
+import { ApplicationState } from '@src/store';
 
 type WelcomeProps = {
     lang?: string;
@@ -53,7 +54,7 @@ class Welcome extends React.PureComponent<WelcomeProps, WelcomeState> {
         const { mounted } = this.state;
         const title = lang === 'fr' ? 'Bienvenue' : 'Welcome';
 
-        // For nimations
+        // For animations
         const initialCls = mounted ? 'animation-end' : '';
 
         return (

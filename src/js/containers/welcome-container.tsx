@@ -2,7 +2,7 @@ import React from 'react';
 import { DataSupportedLangType } from '@src/models/repository/data-repository';
 import { PageOverlay } from '@src/components/layout/page-overlay';
 import PageRepository from '@src/models/repository/page-repository';
-import { RouteComponentProps, withRouter } from 'react-router';
+import { Redirect, RouteComponentProps, withRouter } from 'react-router';
 import DocumentMeta from '@src/utils/document-meta';
 import Welcome from '@src/components/welcome';
 import { ApplicationState } from '@src/store';
@@ -50,9 +50,15 @@ class WelcomeContainer extends React.PureComponent<WelcomeContainerProps, Welcom
     };
 
     render() {
-        const { lang, pageRepository, fromPageId } = this.props;
+        const { lang, pageRepository, fromPageId, authenticated } = this.props;
 
-        return (
+        return authenticated ? (
+            fromPageId ? (
+                <Redirect to={`/${lang}/page/${fromPageId}`} />
+            ) : (
+                <Redirect to={`/${getMainMenuRoute(lang!)}`} />
+            )
+        ) : (
             <PageOverlay fullHeight={true} closeButton={false}>
                 <DocumentMeta title={'Material for the spine - Welcome'} />
                 <Welcome

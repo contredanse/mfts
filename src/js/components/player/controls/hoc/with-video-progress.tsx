@@ -72,7 +72,7 @@ const withVideoProgress = <P extends InjectedWithVideoProgressProps>(WrappedComp
             // https://github.com/Microsoft/TypeScript/issues/28938#issuecomment-450636046
             return (
                 <WrappedComponent
-                    {...componentProps as P}
+                    {...(componentProps as P)}
                     currentTime={currentTime}
                     duration={duration}
                     bufferedTime={bufferedTime}

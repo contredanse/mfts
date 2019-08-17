@@ -146,13 +146,11 @@ class PageContainer extends React.PureComponent<PageContainerProps, PageContaine
     private createAuthTimeout(): void {
         if (!this.props.authenticated) {
             this.clearAuthTimeout();
-            // typescript does not resolve correct
-            // setTimeout version between node/browser
             this.authTimeoutHandle = setTimeout(() => {
                 if (!this.isAuthTimeoutCancelled) {
                     this.redirectIfNotAuthenticacted(this.props.pageId);
                 }
-            }, this.props.authTimeoutCheck) as any;
+            }, this.props.authTimeoutCheck);
             this.isAuthTimeoutCancelled = false;
         }
     }
