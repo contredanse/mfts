@@ -79,6 +79,11 @@ const LoginFormDictionary: BasicI18nDictionary = {
         fr: 'Obtenez votre accès 12 mois',
     },
 
+    get_your_access: {
+        en: 'Get your access',
+        fr: 'Obtenez votre accès',
+    },
+
     or_connect: {
         en: 'Or connect',
         fr: 'Ou connectez-vous',

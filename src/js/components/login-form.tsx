@@ -62,7 +62,7 @@ export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormStat
 
                 <p>
                     <a className="shop_button" target="_blank" rel="noopener" href={externalUrls.shopLink}>
-                        {this.tr('get_your_12_months_access')}
+                        {this.tr('get_your_access')}
                     </a>
                 </p>
 
