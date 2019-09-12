@@ -24,6 +24,7 @@ const defaultState = {};
 
 const defaultProps = {
     lang: 'en',
+    authenticated: false,
 };
 
 class WelcomeContainer extends React.PureComponent<WelcomeContainerProps, WelcomeContainerState> {

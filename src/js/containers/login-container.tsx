@@ -13,7 +13,9 @@ type LoginContainerProps = {
 
 type LoginContainerState = {};
 
-const defaultProps = {};
+const defaultProps = {
+    authenticated: false,
+};
 
 class LoginContainer extends Component<LoginContainerProps, LoginContainerState> {
     static defaultProps = defaultProps;
