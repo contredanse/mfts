@@ -150,9 +150,9 @@ module.exports = merge(common, {
                     {
                         loader: 'sass-loader', // compiles Sass to CSS
                         options: {
-                            outputStyle: 'expanded',
+                            implementation: require('node-sass'),
                             sourceMap: false,
-                            sourceMapContents: false,
+                            sassOptions: {},
                         },
                     },
                 ],
