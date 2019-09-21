@@ -67,6 +67,8 @@ module.exports = merge(common, {
 
             // Everyone will have a different babel 7 runtime, let's flatten it
             '@babel/runtime': path.resolve(__dirname, 'node_modules/@babel/runtime'),
+
+            //'history': path.resolve(__dirname, 'node_modules/history'),
             //'regenerator-runtime': path.resolve(__dirname, 'node_modules/@babel/runtime'),
         },
     },
@@ -351,7 +353,7 @@ module.exports = merge(common, {
                 // use different major versions for 'warning' package
                 // That can be ignored.
                 //return instance.name === 'warning';
-                return ['warning', 'regenerator-runtime'].includes(instance.name);
+                return ['warning', 'regenerator-runtime', 'history'].includes(instance.name);
             },
         }),
 
