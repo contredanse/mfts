@@ -18,7 +18,7 @@ jobs:
   include:
     - stage: Test
       script:
-        - yarn tsc
+        - yarn typecheck
         - yarn test:coverage
       after_success:
         - codecov
