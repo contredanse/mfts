@@ -1,7 +1,5 @@
 const path = require('path');
 
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-
 const marked = require('marked');
 const renderer = new marked.Renderer();
 renderer.link = function(href, title, text) {
@@ -33,26 +31,6 @@ module.exports = {
     },
     module: {
         rules: [
-            {
-                test: /\.tsx?$/,
-                exclude: /node_modules/,
-                use: [
-                    {
-                        loader: 'babel-loader', // For polyfilling
-                        options: {
-                            cacheDirectory: false,
-                            // plugins: ['react-hot-loader/babel'], in babelrc
-                        },
-                    },
-                    {
-                        loader: 'ts-loader',
-                        options: {
-                            // IMPORTANT! use transpileOnly mode to speed-up compilation
-                            transpileOnly: true,
-                        },
-                    },
-                ],
-            },
             {
                 // Whenever babel is ready to fully handle typescript
                 // you can use the following rule
@@ -125,6 +103,4 @@ module.exports = {
             },
         ],
     },
-
-    plugins: [new ForkTsCheckerWebpackPlugin()],
 };

@@ -6,6 +6,7 @@ const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 const DotenvPlugin = require('dotenv-webpack');
 const Dotenv = require('dotenv');
 const fs = require('fs');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 //const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const dotEnvFile = './.env.development.local';
@@ -24,6 +25,26 @@ module.exports = merge(common, {
     //context: path.resolve(__dirname),
     module: {
         rules: [
+            {
+                test: /\.tsx?$/,
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: 'babel-loader', // For polyfilling
+                        options: {
+                            cacheDirectory: false,
+                            // plugins: ['react-hot-loader/babel'], in babelrc
+                        },
+                    },
+                    {
+                        loader: 'ts-loader',
+                        options: {
+                            // IMPORTANT! use transpileOnly mode to speed-up compilation
+                            transpileOnly: true,
+                        },
+                    },
+                ],
+            },
             {
                 test: /\.(s?css)$/,
                 use: ['css-hot-loader', 'style-loader', 'css-loader', 'sass-loader'],
@@ -53,6 +74,7 @@ module.exports = merge(common, {
         ],
     },
     plugins: [
+        new ForkTsCheckerWebpackPlugin(),
         new DotenvPlugin({
             path: dotEnvFile, // load this now instead of the ones in '.env'
             safe: true, // load '.env.example' to verify the '.env' variables are all set. Can also be a string to a different file.

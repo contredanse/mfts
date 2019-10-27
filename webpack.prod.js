@@ -75,6 +75,26 @@ module.exports = merge(common, {
     module: {
         rules: [
             {
+                test: /\.tsx?$/,
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: 'babel-loader', // For polyfilling
+                        options: {
+                            cacheDirectory: false,
+                            // plugins: ['react-hot-loader/babel'], in babelrc
+                        },
+                    },
+                    {
+                        loader: 'ts-loader',
+                        options: {
+                            transpileOnly: false,
+                        },
+                    },
+                ],
+            },
+
+            {
                 test: /\.woff$|\.woff2?$/,
                 loader: 'file-loader',
                 options: {
