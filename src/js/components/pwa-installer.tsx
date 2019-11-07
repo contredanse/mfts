@@ -88,8 +88,8 @@ class PwaInstaller extends React.PureComponent<Props, State> {
                     this.setState({
                         showPrompt: false,
                     });
-                }, this.props.hideTimeout) as any;
-            }, this.props.displayTimeout) as any;
+                }, this.props.hideTimeout);
+            }, this.props.displayTimeout);
         }
     };
 
