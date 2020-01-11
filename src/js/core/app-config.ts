@@ -47,7 +47,7 @@ export default class AppConfig {
     public getExternalUrls(addLanguage?: string): ExternalUrls {
         if (addLanguage !== undefined) {
             return {
-                shopLink: `${this.config.externalUrls.shopLink}&language=${addLanguage}`,
+                shopLink: `${this.config.externalUrls.shopLink}?lang=${addLanguage}`,
                 resetPassword: `${this.config.externalUrls.resetPassword}&language=${addLanguage}`,
                 myAccount: `${this.config.externalUrls.myAccount}&language=${addLanguage}`,
             };
