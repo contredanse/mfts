@@ -4,7 +4,7 @@ import React from 'react';
 import './login-button.scss';
 import { RouteComponentProps, withRouter } from 'react-router';
 import { getMainMenuRoute } from '@src/helpers/main-menu-redirect';
-import ReactSVG from 'react-svg';
+import { ReactSVG } from 'react-svg';
 import helixSvg from '@assets/svg/helix-contredanse.svg';
 import { grepPageIdFromRoute } from '@src/helpers/route-utils';
 
