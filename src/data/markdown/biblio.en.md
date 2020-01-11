@@ -1,10 +1,10 @@
 ## Publications
 
-[*Gravity*](https://www.contredanse.org/contredanseV4/templates/index.php?path=eshop/action_search.php&product_id=218) by Steve Paxton, Contredanse Editions, Bruxelles, 2018.
+[*Gravity*](https://contredanse.org/product/material-for-the-spine-une-etude-du-mouvement-a-movement-study?lang=en) by Steve Paxton, Contredanse Editions, Bruxelles, 2018.
 
 In this book, the dancer Steve Paxton traces a lifetime in the company of gravity. The memory of his first flight, a meditation on walking, pondering on the conditions of life, and a dream of dancing make up pieces of a puzzle. Paxton muses about the limit of his consciousness and celebrates the potentiality of our senses to enter the dance. 
 
-[*La gravité*](https://www.contredanse.org/contredanseV4/templates/index.php?path=eshop/action_search.php&product_id=219) by Steve Paxton, translation in french by Denise Luccioni, Contredanse Editions, Bruxelles, 2018
+[*La gravité*](https://contredanse.org/product/material-for-the-spine-une-etude-du-mouvement-a-movement-study?lang=fr) by Steve Paxton, translation in french by Denise Luccioni, Contredanse Editions, Bruxelles, 2018
 
 [![Gravity Image](./images/gravity-gravite.jpg)](https://contredanse.org/)
 
