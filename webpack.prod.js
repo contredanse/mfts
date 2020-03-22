@@ -27,9 +27,14 @@ const extractSass = new MiniCssExtractPlugin({
     filename: 'static/css/style.[contenthash:8].css',
 });
 
-const dotEnvFile = './.env.production.local';
+const dotEnvFile = fs.existsSync('.env.production.local') ? './.env.production.local' : './env/env-template';
 
-const PUBLIC_URL = Dotenv.parse(fs.readFileSync(dotEnvFile))['PUBLIC_URL'];
+Dotenv.config({
+    path: dotEnvFile,
+});
+
+const PUBLIC_URL = process.env.PUBLIC_URL;
+const socialMediaPicture = process.env.SOCIAL_MEDIA_PICTURE;
 
 const distFolder = path.resolve(__dirname, 'dist');
 
@@ -39,8 +44,6 @@ const workboxVersion = require(require.resolve('workbox-sw/package.json')).versi
 
 const outdatedMainJs = require.resolve('outdated-browser-rework');
 const outdatedVersion = require(require.resolve('outdated-browser-rework/package.json')).version;
-
-const socialMediaPicture = Dotenv.parse(fs.readFileSync(dotEnvFile))['SOCIAL_MEDIA_PICTURE'];
 
 module.exports = merge(common, {
     devtool: 'hidden-source-map', // or false if you don't want source map

@@ -69,7 +69,7 @@ $ yarn test
 $ yarn build
 ```
 
-> The build will b available in `/dist/public`
+> The build will be available in `/dist/public`
 
 ### Production
 

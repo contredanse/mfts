@@ -8,10 +8,14 @@ const Dotenv = require('dotenv');
 const fs = require('fs');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
-//const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const dotEnvFile = './.env.development.local';
-const socialMediaPicture = Dotenv.parse(fs.readFileSync(dotEnvFile))['SOCIAL_MEDIA_PICTURE'];
-const PUBLIC_URL = Dotenv.parse(fs.readFileSync(dotEnvFile))['PUBLIC_URL'];
+const dotEnvFile = fs.existsSync('.env.development.local') ? './.env.development.local' : './env/env-template';
+
+Dotenv.config({
+    path: dotEnvFile,
+});
+
+const socialMediaPicture = process.env.SOCIAL_MEDIA_PICTURE;
+const PUBLIC_URL = process.env.PUBLIC_URL;
 
 module.exports = merge(common, {
     devtool: 'cheap-module-source-map',
