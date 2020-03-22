@@ -51,7 +51,7 @@ $ cp env.example env.development.local
 ### Develop
 
 ```bash
-$ yarn start
+$ yarn dev
 ```
 *then open http://localhost:3001 in your browser.* 
 
@@ -68,6 +68,8 @@ $ yarn test
 ```bash
 $ yarn build
 ```
+
+> The build will b available in `/dist/public`
 
 ### Production
 
