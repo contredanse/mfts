@@ -4,8 +4,6 @@
     "license": "MIT",
     "scripts": {
         "build": "cross-env NODE_ENV=production BABEL_ENV=production webpack --mode production --config webpack.prod.js",
-        "source-map-explorer": "source-map-explorer ./dist/main.*.js ./dist/main.*.js.map",
-        "stats": "yarn build && webpack-bundle-analyzer dist/.webpack-stats.json",
         "dev": "cross-env NODE_ENV=development webpack-dev-server --mode development --hot --config webpack.dev.js",
         "clean:all": "run-p clean:build clean:dist",
         "clean:build": "rimraf build",
@@ -17,7 +15,9 @@
         "test": "jest --config jest.config.js",
         "test:coverage": "jest --config jest.config.js --coverage",
         "test:watch": "jest --config jest.config.js --watch",
-        "test:update": "jest --config jest.config.js -u"
+        "test:update": "jest --config jest.config.js -u",
+        "source-map-explorer": "source-map-explorer ./dist/main.*.js ./dist/main.*.js.map",
+        "stats": "yarn build && webpack-bundle-analyzer dist/.webpack-stats.json"
     },
     "husky": {
         "hooks": {
