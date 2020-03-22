@@ -39,7 +39,7 @@ module.exports = merge(common, {
                     {
                         loader: 'ts-loader',
                         options: {
-                            // IMPORTANT! use transpileOnly mode to speed-up compilation
+                            configFile: 'tsconfig.dev.json',
                             transpileOnly: true,
                         },
                     },
@@ -74,7 +74,9 @@ module.exports = merge(common, {
         ],
     },
     plugins: [
-        new ForkTsCheckerWebpackPlugin(),
+        new ForkTsCheckerWebpackPlugin({
+            tsconfig: 'tsconfig.dev.json',
+        }),
         new DotenvPlugin({
             path: dotEnvFile, // load this now instead of the ones in '.env'
             safe: true, // load '.env.example' to verify the '.env' variables are all set. Can also be a string to a different file.
