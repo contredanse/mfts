@@ -1,6 +1,8 @@
 {
     "version": 2,
     "public": false,
+    "cleanUrls": true,
+    "trailingSlash": false,
     "build": {
         "env": {
             "API_BASE_URL": "https://app.materialforthespine.com/api",
@@ -9,5 +11,24 @@
             "SHOP_SUBSCRIPTION_URL": "https://contredanse.org/product/material-for-the-spine-une-etude-du-mouvement-a-movement-study"
         }
     },
-    "routes": [{ "src": "/(.*)", "dest": "dist/public/index.html", "continue": true }]
+    "builds": [
+        {
+            "src": "package.json",
+            "use": "@now/static-build",
+            "config": {
+                "distDir": "dist/public"
+            }
+        }
+    ],
+    "headers": [
+        {
+            "source": "/service-worker.js",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=0, must-revalidate"
+                }
+            ]
+        }
+    ]
 }

@@ -3,19 +3,14 @@ node_js:
   - "12"
 
 jobs:
-  #allow_failures:
-  #  - stage: Lint
   include:
     - stage: Test
       script:
         - yarn typecheck
-        - yarn test:coverage
+        - yarn test
     - stage: Build
       script:
         - yarn build
-    - stage: Lint
-      script:
-        - yarn lint
 
 cache:
   yarn: true

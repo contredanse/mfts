@@ -1,11 +1,12 @@
 {
-    "name": "mfts",
+    "name": "@contredanse/mfts",
+    "private": "true",
     "version": "1.0.0",
     "license": "MIT",
     "scripts": {
         "build": "cross-env NODE_ENV=production BABEL_ENV=production webpack --mode production --config webpack.prod.js",
         "dev": "cross-env NODE_ENV=development webpack-dev-server --mode development --hot --config webpack.dev.js",
-        "clean:all": "run-p clean:build clean:dist",
+        "clean": "run-p clean:*",
         "clean:build": "rimraf build",
         "clean:dist": "rimraf dist",
         "typecheck": "tsc -p . --noEmit",
