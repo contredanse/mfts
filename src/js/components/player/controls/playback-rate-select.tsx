@@ -2,10 +2,10 @@ import React, { PureComponent, CSSProperties } from 'react';
 
 import './playback-rate-select.scss';
 
-export type PlaybackRates = Array<{
+export type PlaybackRates = {
     value: number;
     title: string;
-}>;
+}[];
 
 export type PlaybackRateSelectProps = {
     playbackRate: number;

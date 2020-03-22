@@ -7,7 +7,8 @@ dist
 deploy.sh
 deploy*.sh
 coverage
-shipitfile.js
 .env
 .env.local
 .env.*.local
+
+.now
