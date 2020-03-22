@@ -1,0 +1,13 @@
+{
+    "version": 2,
+    "public": false,
+    "build": {
+        "env": {
+            "API_BASE_URL": "https://app.materialforthespine.com/api",
+            "RESET_PASSWORD_URL": "https://www.contredanse.org/contredanseV4/templates/index.php?path=authenticate/askPassword.php",
+            "MY_ACCOUNT_URL": "https://www.contredanse.org/contredanseV4/templates/index.php?path=authenticate/login.php",
+            "SHOP_SUBSCRIPTION_URL": "https://contredanse.org/product/material-for-the-spine-une-etude-du-mouvement-a-movement-study"
+        }
+    },
+    "routes": [{ "src": "/(.*)", "dest": "dist/public/$1", "continue": true }]
+}
