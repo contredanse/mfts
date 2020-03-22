@@ -22,21 +22,18 @@
         {
             "src": "/(service-worker.js|index.html|assets-manifest.json|favicon.ico|robots.txt|sitemap.xml)",
             "headers": { "Cache-Control": "public, max-age=0, must-revalidate" },
+            "dest": "/$1",
             "continue": false
         },
         {
             "src": "/static/(css|fonts|icons|images|js)/(.*)",
-            "headers": { "Cache-Control": "public,max-age=31536000,immutable" },
+            "headers": { "Cache-Control": "public,max-age=86400,immutable" },
+            "dest": "/static/$1/$2",
             "continue": false
         },
         {
-            "src": "/",
-            "headers": { "Cache-Control": "public, max-age=0, must-revalidate" },
-            "continue": false
-        },
-        {
-            "src": "/^(?!.*\\.(js|css|ico|txt|png|svg|jpg|json|html|woff2)($|\\?)).*",
-            "headers": { "cache-control": "s-maxage=0" },
+            "src": "^/(?!.*\\.(js|css|jpg|html|txt|ico|json|woff2|mp4|webm)($|\\?)).*",
+            "headers": { "cache-control": "public, max-age=0, must-revalidate" },
             "dest": "/index.html"
         }
     ]
