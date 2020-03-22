@@ -33,6 +33,9 @@ jobs:
       - name: Install dependencies
         run: |
           yarn install --frozen-lockfile --check-files
+
+      - name: Check pristine lock file
+        run: |
           sh ./scripts/check-git-pristine-yarn-lock.sh
 
       - name: Linting
@@ -52,8 +55,6 @@ jobs:
       - name: Build
         run: |
           yarn build
-        env:
-          NEXT_TELEMETRY_DISABLED: 1
 
       - name: Send coverage with action
         uses: codecov/codecov-action@v1
