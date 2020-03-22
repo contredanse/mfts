@@ -9,5 +9,5 @@
             "SHOP_SUBSCRIPTION_URL": "https://contredanse.org/product/material-for-the-spine-une-etude-du-mouvement-a-movement-study"
         }
     },
-    "routes": [{ "src": "/(.*)", "dest": "dist/public/$1", "continue": true }]
+    "routes": [{ "src": "/(.*)", "dest": "dist/public/index.html", "continue": true }]
 }
