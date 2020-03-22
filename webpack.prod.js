@@ -57,19 +57,9 @@ module.exports = merge(common, {
             /**
              * Aliases to avoid duplicates in build.
              */
-            //classnames: path.resolve(__dirname, 'node_modules/classnames'), // enabled: material-ui and local differs
-            // Material-ui & material-ui-icons
-            //recompose: path.resolve(__dirname, 'node_modules/recompose'),
-            // React-transition-group
-            //'react-transition-group': path.resolve(__dirname, 'node_modules/react-transition-group'),
-            //'hoist-non-react-statics': path.resolve(__dirname, 'node_modules/hoist-non-react-statics'),
-            //'react-is': path.resolve(__dirname, 'node_modules/react-is'),
-
             // Everyone will have a different babel 7 runtime, let's flatten it
             '@babel/runtime': path.resolve(__dirname, 'node_modules/@babel/runtime'),
-
             //'history': path.resolve(__dirname, 'node_modules/history'),
-            //'regenerator-runtime': path.resolve(__dirname, 'node_modules/@babel/runtime'),
         },
     },
     module: {
@@ -79,10 +69,9 @@ module.exports = merge(common, {
                 exclude: /node_modules/,
                 use: [
                     {
-                        loader: 'babel-loader', // For polyfilling
+                        loader: 'babel-loader',
                         options: {
                             cacheDirectory: false,
-                            // plugins: ['react-hot-loader/babel'], in babelrc
                         },
                     },
                     {
@@ -93,7 +82,6 @@ module.exports = merge(common, {
                     },
                 ],
             },
-
             {
                 test: /\.woff$|\.woff2?$/,
                 loader: 'file-loader',
@@ -105,7 +93,6 @@ module.exports = merge(common, {
             },
             // Process any JS outside of the app with Babel.
             // Unlike the application JS, we only compile the standard ES features.
-
             {
                 test: /\.(js|mjs)$/,
                 exclude: /@babel(?:\/|\\{1,2})runtime/,
@@ -117,8 +104,6 @@ module.exports = merge(common, {
                     compact: false,
                     presets: [[require.resolve('babel-preset-react-app/dependencies'), { helpers: true }]],
                     cacheDirectory: true,
-                    // cacheCompression: true,
-
                     // If an error happens in a package, it's possible to be
                     // because it was compiled. Thus, we don't want the browser
                     // debugger to show the original code. Instead, the code
@@ -179,17 +164,6 @@ module.exports = merge(common, {
                     },
                 ],
             },
-            /**
-             * To help tree-shaking and save a few kb's...
-             * we can force declaration of sideEffects directly in the webpack
-             * rules section. Use with care, most libraries will update the
-             * sideEffect declaration in package.json anyway
-             */
-            /*
-            {
-                include: path.resolve('node_modules', 'react-i18next'),
-                sideEffects: false,
-            }*/
         ],
     },
 
@@ -207,23 +181,12 @@ module.exports = merge(common, {
             name: true,
 
             cacheGroups: {
-                /* Not required
-                styles: {
-                    name: 'styles',
-                    test: /\.css$/,
-                    chunks: 'initial',
-                    //enforce: true,
-                    priority: -30,
-                    minSize: 0,
-                    reuseExistingChunk: true,
-                },*/
                 data: {
                     test: /[\\/]src\/data\/json\/(.*)\.json$/,
                     name: 'data',
                     enforce: true,
                     chunks: 'all',
                 },
-
                 react: {
                     test: /[\\/]node_modules\/(react|react-dom)\//,
                     name: 'react',
@@ -231,7 +194,6 @@ module.exports = merge(common, {
                     enforce: true,
                     chunks: 'all',
                 },
-
                 'react-friends': {
                     test: /[\\/]node_modules\/(redux|react-redux|connected-react-router|react-router|react-router-dom|formik|react-svg|react-transition-group|react-burger-menu|react-custom-scrollbars|react-is)\//,
                     name: 'react-friends',
@@ -239,16 +201,6 @@ module.exports = merge(common, {
                     enforce: true,
                     chunks: 'all',
                 },
-
-                /*
-                formik: {
-                    test: /[\\/]node_modules\/(formik)\//,
-                    name: 'formik',
-                    priority: -20,
-                    enforce: true,
-                    chunks: 'all',
-                },
-                */
 
                 // Extract material-ui and icons in a separate chunk
                 mui: {
@@ -272,7 +224,6 @@ module.exports = merge(common, {
         },
 
         noEmitOnErrors: true, // NoEmitOnErrorsPlugin
-        //concatenateModules: true, //ModuleConcatenationPlugin (scope-hoisting)
         minimizer: [
             new TerserPlugin({
                 terserOptions: {
