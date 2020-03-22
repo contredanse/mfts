@@ -10,7 +10,7 @@ jobs:
         - yarn test
     - stage: Build
       script:
-        - yarn build
+        - STATIC_COMPRESS=true && yarn build
 
 cache:
   yarn: true

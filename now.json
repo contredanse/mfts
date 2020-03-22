@@ -1,8 +1,6 @@
 {
     "version": 2,
     "public": false,
-    "cleanUrls": true,
-    "trailingSlash": false,
     "build": {
         "env": {
             "API_BASE_URL": "https://app.materialforthespine.com/api",
@@ -20,15 +18,25 @@
             }
         }
     ],
-    "headers": [
+    "routes": [
         {
-            "source": "/service-worker.js",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "public, max-age=0, must-revalidate"
-                }
-            ]
+            "src": "/(service-worker.js|index.html)",
+            "headers": { "Cache-Control": "public, max-age=0, must-revalidate" },
+            "continue": false
+        },
+        {
+            "src": "/static(?:[^/]+/css|fonts|images|js)/.+",
+            "headers": { "Cache-Control": "public,max-age=31536000,immutable" },
+            "continue": false
+        },
+        {
+            "src": "/",
+            "headers": { "Cache-Control": "public, max-age=0, must-revalidate" },
+            "continue": true
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/index.html"
         }
     ]
 }

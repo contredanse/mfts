@@ -1,10 +1,11 @@
 {
     "name": "@contredanse/mfts",
-    "private": "true",
+    "private": true,
     "version": "1.0.0",
     "license": "MIT",
     "scripts": {
-        "build": "cross-env NODE_ENV=production BABEL_ENV=production webpack --mode production --config webpack.prod.js",
+        "build": "cross-env NODE_ENV=production BABEL_ENV=production STATIC_COMPRESS=1 webpack --mode production --config webpack.prod.js",
+        "now-build": "cross-env NODE_ENV=production BABEL_ENV=production STATIC_COMPRESS=0 webpack --mode production --config webpack.prod.js",
         "dev": "cross-env NODE_ENV=development webpack-dev-server --mode development --hot --config webpack.dev.js",
         "clean": "run-p clean:*",
         "clean:build": "rimraf build",

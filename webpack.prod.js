@@ -35,6 +35,7 @@ Dotenv.config({
 
 const PUBLIC_URL = process.env.PUBLIC_URL;
 const socialMediaPicture = process.env.SOCIAL_MEDIA_PICTURE;
+const staticCompress = process.env.STATIC_COMPRESS;
 
 const distFolder = path.resolve(__dirname, 'dist');
 
@@ -45,7 +46,7 @@ const workboxVersion = require(require.resolve('workbox-sw/package.json')).versi
 const outdatedMainJs = require.resolve('outdated-browser-rework');
 const outdatedVersion = require(require.resolve('outdated-browser-rework/package.json')).version;
 
-module.exports = merge(common, {
+const prodConfig = merge(common, {
     devtool: 'hidden-source-map', // or false if you don't want source map
     mode: 'production',
     entry: ['./src/js/index.tsx'],
@@ -416,21 +417,6 @@ module.exports = merge(common, {
             { from: './src/assets/social/**/*', to: `${distFolder}/public/static/social/`, flatten: true },
         ]),
 
-        new CompressionPlugin({
-            test: /\.(js|css|svg)$/,
-            compressionOptions: {
-                numiterations: 15,
-            },
-            algorithm(input, compressionOptions, callback) {
-                return zopfli.gzip(input, compressionOptions, callback);
-            },
-        }),
-
-        new BrotliPlugin({
-            asset: '[path].br[query]',
-            test: /\.(js|css|svg)$/,
-        }),
-
         // https://developers.google.com/web/tools/workbox/modules/workbox-webpack-plugin
 
         new Workbox.GenerateSW({
@@ -543,3 +529,27 @@ module.exports = merge(common, {
         }),
     ],
 });
+
+if (staticCompress) {
+    prodConfig.plugins = [
+        ...prodConfig.plugins,
+        ...[
+            new CompressionPlugin({
+                test: /\.(js|css|svg)$/,
+                compressionOptions: {
+                    numiterations: 15,
+                },
+                algorithm(input, compressionOptions, callback) {
+                    return zopfli.gzip(input, compressionOptions, callback);
+                },
+            }),
+
+            new BrotliPlugin({
+                asset: '[path].br[query]',
+                test: /\.(js|css|svg)$/,
+            }),
+        ],
+    ];
+}
+
+module.exports = prodConfig;
