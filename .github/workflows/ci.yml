@@ -51,7 +51,7 @@ jobs:
         run: |
           yarn build
         env:
-          STATIC_COMPRESS: 0
+          STATIC_COMPRESS: false
 
       - name: Send coverage with action
         uses: codecov/codecov-action@v1

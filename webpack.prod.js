@@ -35,7 +35,7 @@ Dotenv.config({
 
 const PUBLIC_URL = process.env.PUBLIC_URL;
 const socialMediaPicture = process.env.SOCIAL_MEDIA_PICTURE;
-const staticCompress = process.env.STATIC_COMPRESS;
+const staticCompress = process.env.STATIC_COMPRESS === 'true' || process.env.STATIC_COMPRESS == '1';
 
 const distFolder = path.resolve(__dirname, 'dist');
 
@@ -530,7 +530,7 @@ const prodConfig = merge(common, {
     ],
 });
 
-if (staticCompress) {
+if (staticCompress === true) {
     prodConfig.plugins = [
         ...prodConfig.plugins,
         ...[
