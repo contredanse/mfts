@@ -1,0 +1,41 @@
+{
+    "version": 2,
+    "public": false,
+    "build": {
+        "env": {
+            "API_BASE_URL": "https://app.materialforthespine.com/api",
+            "ASSETS_BASE_URL": "https://www.materialforthespine.com/assets",
+            "RESET_PASSWORD_URL": "https://www.contredanse.org/contredanseV4/templates/index.php?path=authenticate/askPassword.php",
+            "MY_ACCOUNT_URL": "https://www.contredanse.org/contredanseV4/templates/index.php?path=authenticate/login.php",
+            "SHOP_SUBSCRIPTION_URL": "https://contredanse.org/product/material-for-the-spine-une-etude-du-mouvement-a-movement-study"
+        }
+    },
+    "builds": [
+        {
+            "src": "package.json",
+            "use": "@now/static-build",
+            "config": {
+                "distDir": "dist/public"
+            }
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(service-worker.js|index.html|assets-manifest.json|favicon.ico|robots.txt|sitemap.xml)",
+            "headers": { "Cache-Control": "public, max-age=0, must-revalidate" },
+            "dest": "/$1",
+            "continue": false
+        },
+        {
+            "src": "/static/(css|fonts|icons|images|js)/(.*)",
+            "headers": { "Cache-Control": "public,max-age=86400,immutable" },
+            "dest": "/static/$1/$2",
+            "continue": false
+        },
+        {
+            "src": "^/(?!.*\\.(js|css|jpg|html|txt|ico|json|woff2|mp4|webm)($|\\?)).*",
+            "headers": { "cache-control": "public, max-age=0, must-revalidate" },
+            "dest": "/index.html"
+        }
+    ]
+}

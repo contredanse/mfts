@@ -78,7 +78,7 @@ export default class MenuRepository {
     getPrevAndNextPageMenu(pageId: string, lang: string): PrevAndNextPageId {
         const prevAndNextMenuPage: PrevAndNextPageId = {};
 
-        const pageMenu = this.getFlatMenu().filter(item => {
+        const pageMenu = this.getFlatMenu().filter((item) => {
             return item.type === 'page';
         });
 
@@ -131,7 +131,7 @@ export default class MenuRepository {
     protected searchMenuTree(
         menu: IJsonMenu | IJsonMenu[],
         pageId: string,
-        breadcrumb?: Array<Omit<IJsonMenuSection, 'content'>>
+        breadcrumb?: Omit<IJsonMenuSection, 'content'>[]
     ): IJsonMenu | null {
         const levelsToSearch = pageId.split('.').length;
 
@@ -161,7 +161,7 @@ export default class MenuRepository {
 
     protected flatten(data: IJsonMenu[]): IJsonMenu[] {
         const result = [] as any[];
-        data.forEach(item => {
+        data.forEach((item) => {
             if (Array.isArray(item.content)) {
                 result.push({
                     type: item.type,

@@ -8,10 +8,14 @@ const Dotenv = require('dotenv');
 const fs = require('fs');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
-//const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const dotEnvFile = './.env.development.local';
-const socialMediaPicture = Dotenv.parse(fs.readFileSync(dotEnvFile))['SOCIAL_MEDIA_PICTURE'];
-const PUBLIC_URL = Dotenv.parse(fs.readFileSync(dotEnvFile))['PUBLIC_URL'];
+const dotEnvFile = fs.existsSync('.env.development.local') ? './.env.development.local' : './env/env-template';
+
+Dotenv.config({
+    path: dotEnvFile,
+});
+
+const socialMediaPicture = process.env.SOCIAL_MEDIA_PICTURE;
+const PUBLIC_URL = process.env.PUBLIC_URL;
 
 module.exports = merge(common, {
     devtool: 'cheap-module-source-map',
@@ -39,7 +43,7 @@ module.exports = merge(common, {
                     {
                         loader: 'ts-loader',
                         options: {
-                            // IMPORTANT! use transpileOnly mode to speed-up compilation
+                            configFile: 'tsconfig.dev.json',
                             transpileOnly: true,
                         },
                     },
@@ -74,7 +78,9 @@ module.exports = merge(common, {
         ],
     },
     plugins: [
-        new ForkTsCheckerWebpackPlugin(),
+        new ForkTsCheckerWebpackPlugin({
+            tsconfig: 'tsconfig.dev.json',
+        }),
         new DotenvPlugin({
             path: dotEnvFile, // load this now instead of the ones in '.env'
             safe: true, // load '.env.example' to verify the '.env' variables are all set. Can also be a string to a different file.
