@@ -3,18 +3,13 @@ name: CI/CD
 on:
   push:
     branches:
-      - dev
       - master
-    paths-ignore:
-      - "docs/**"
 
   pull_request:
     types:
       - opened
       - synchronize
       - reopened
-    paths-ignore:
-      - "docs/**"
 
 jobs:
   test:
