@@ -42,10 +42,13 @@ $ yarn install
 
 ### Configure
 
-See the env.example file.
+> You don't have to but if you want for development to change
+> some environment variables (links, assets url's...
+
+Copy the [env.template](./env/env.template) file into `./env.development.local'.
 
 ```bash
-$ cp env.example env.development.local
+$ cp ./env/env.template ./env.development.local
 ```
 
 ### Develop
