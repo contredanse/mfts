@@ -24,15 +24,16 @@ if (/bot|google|baidu|bing|msn|duckduckbot|teoma|slurp|yandex/i.test(navigator.u
     outdatedBrowserRework({
         browserSupport: {
             Brave: 70,
-            Chrome: 57, // Includes Chrome for mobile devices
+            Chrome: 70, // Includes Chrome for mobile devices
             Edge: 16,
-            Firefox: 54,
+            Firefox: 68,
             IE: false,
             'Mobile Safari': 10.2,
             Opera: 50,
             // allows 11.1 as minimum
             Safari: 11,
             Vivaldi: 1,
+            Yandex: 17,
         },
         isUnknownBrowserOK: false,
         language: language,
