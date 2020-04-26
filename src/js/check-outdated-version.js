@@ -33,6 +33,7 @@ if (/bot|google|baidu|bing|msn|duckduckbot|teoma|slurp|yandex/i.test(navigator.u
             // allows 11.1 as minimum
             Safari: 11,
             Vivaldi: 1,
+            Yandex: 17,
         },
         isUnknownBrowserOK: false,
         language: language,
