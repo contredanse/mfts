@@ -33,10 +33,10 @@
     },
     "browserslist": [
         "last 2 versions",
-        "chrome >= 57",
-        "firefox >= 54",
-        "safari >= 9",
-        "edge >= 15",
+        "chrome >= 71",
+        "firefox >= 68",
+        "safari >= 11",
+        "edge >= 16",
         "not dead",
         "not ie <= 12",
         "not op_mini all"
