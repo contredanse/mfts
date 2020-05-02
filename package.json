@@ -5,7 +5,7 @@
     "license": "MIT",
     "scripts": {
         "build": "cross-env NODE_ENV=production BABEL_ENV=production STATIC_COMPRESS=true webpack --mode production --config webpack.prod.js",
-        "now-build": "cross-env ASSETS_BASE_URL=https://assets.materialforthespine.com NODE_ENV=production BABEL_ENV=production STATIC_COMPRESS=false webpack --mode production --config webpack.prod.js",
+        "now-build": "cross-env NODE_ENV=production BABEL_ENV=production STATIC_COMPRESS=false webpack --mode production --config webpack.prod.js",
         "dev": "cross-env NODE_ENV=development webpack-dev-server --mode development --hot --config webpack.dev.js",
         "clean": "run-p clean:*",
         "clean:build": "rimraf build",
