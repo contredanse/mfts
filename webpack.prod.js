@@ -302,7 +302,7 @@ const prodConfig = merge(common, {
 
         new DotenvPlugin({
             path: dotEnvFile, // load this now instead of the ones in '.env'
-            safe: true, // load '.env.example' to verify the '.env' variables are all set. Can also be a string to a different file.
+            safe: false, // load '.env.example' to verify the '.env' variables are all set. Can also be a string to a different file.
             systemvars: true, // load all the predefined 'process.env' variables which will trump anything local per dotenv specs.
             silent: false, // hide any errors
         }),
