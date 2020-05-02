@@ -33,6 +33,8 @@ Dotenv.config({
     path: dotEnvFile,
 });
 
+console.log('env', process.env);
+
 const PUBLIC_URL = process.env.PUBLIC_URL;
 const socialMediaPicture = process.env.SOCIAL_MEDIA_PICTURE;
 const staticCompress = process.env.STATIC_COMPRESS === 'true' || process.env.STATIC_COMPRESS == '1';
