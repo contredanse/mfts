@@ -3,7 +3,13 @@
 
 # Without ending slash
 PUBLIC_URL=https://www.materialforthespine.com
+
+# This is where are stored VIDEOS, SUBTITLES, IMAGES URL...
+# For production:
 ASSETS_BASE_URL=https://www.materialforthespine.com/assets
+
+# For development (because cors matters here)
+# ASSETS_BASE_URL=https://assets.materialforthespine.com
 
 API_BASE_URL=https://app.materialforthespine.com/api
 
