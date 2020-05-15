@@ -1,5 +1,7 @@
 ## Publications
 
+HELLO
+
 [*Gravity*](https://contredanse.org/product/material-for-the-spine-une-etude-du-mouvement-a-movement-study?lang=en) by Steve Paxton, Contredanse Editions, Bruxelles, 2018.
 
 In this book, the dancer Steve Paxton traces a lifetime in the company of gravity. The memory of his first flight, a meditation on walking, pondering on the conditions of life, and a dream of dancing make up pieces of a puzzle. Paxton muses about the limit of his consciousness and celebrates the potentiality of our senses to enter the dance. 
@@ -14,6 +16,7 @@ Paxton has published numerous articles from 1975 to the present in the dance
 journal [*Contact Quarterly*](https://contactquarterly.com/), Northampton, MA. These articles include dance for the physically disabled, dance for the visually disabled, dance analysis, Contact Improvisation technique and theory, and occasional pieces.
 
 His work is featured in the following books: *Terpsichore in Sneakers*, Sally Banes, Wesleyan, 1987 ; *The Rise and Fall and Rise of Modern Dance*, Don McDonagh, ebrandedbooks.com, US, revised edition, 1 décembre 1990 ; *Sharing the Dance: Contact Improvisation & American Culture*, Cynthia Novack, University of Wisconsin Press; 1990 ; *Democracy's Body: Judson Dance Theater, 1962-64*, Sally Banes, Duke University Press Books, 1993 ; *Dance as a Theatre Art, Source Readings in Dance History from 1581 to the Present*, ss la dir. de Selma Jeanne Cohen, Princeton Book Company, 1992 ; *The Grand Union (1970-1976): An Improvisational Performance Group*, Margaret Hupp Ramsay, Peter Lang Publishing Inc, 1991.
+
 
 ## Videos
 
