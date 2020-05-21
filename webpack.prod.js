@@ -33,7 +33,7 @@ Dotenv.config({
     path: dotEnvFile,
 });
 
-console.log('env', process.env);
+// console.log('env', process.env);
 
 const PUBLIC_URL = process.env.PUBLIC_URL;
 const socialMediaPicture = process.env.SOCIAL_MEDIA_PICTURE;

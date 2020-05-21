@@ -2,15 +2,13 @@ const path = require('path');
 
 const marked = require('marked');
 const renderer = new marked.Renderer();
-renderer.link = function(href, title, text) {
+renderer.link = function (href, title, text) {
     var link = marked.Renderer.prototype.link.call(this, href, title, text);
     return link.replace('<a', "<a target='_blank' ");
 };
 
 module.exports = {
     entry: {
-        // Polyfill needed only in production
-        // index: ['babel-polyfill', './src/js/index.tsx'],
         index: ['./src/js/index.tsx'],
     },
     resolve: {
