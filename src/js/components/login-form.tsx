@@ -75,13 +75,11 @@ export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormStat
                         setSubmitting(false);
                     }}
                     validationSchema={Yup.object().shape({
-                        email: Yup.string()
-                            .email(this.tr('a_valid_email_is_required'))
-                            .required(this.tr('required')),
+                        email: Yup.string().email(this.tr('a_valid_email_is_required')).required(this.tr('required')),
                         password: Yup.string().required(this.tr('required')),
                     })}
                 >
-                    {props => {
+                    {(props) => {
                         const { values, touched, errors, isSubmitting, handleChange, handleBlur } = props;
                         return (
                             <Form>
@@ -119,11 +117,13 @@ export class LoginForm extends React.PureComponent<LoginFormProps, LoginFormStat
                                     <div className="error-response-text">
                                         {this.getAuthErrorMessage(this.props.authError, this.props.authExpiry)}
 
+                                        {/*
                                         {this.props.browserErrorMsg && (
                                             <small>
                                                 <em>&nbsp;({this.props.browserErrorMsg})</em>
                                             </small>
                                         )}
+                                        */}
                                     </div>
                                 )}
 
@@ -178,9 +178,6 @@ const mapDispatchToProps = (dispatch: Dispatch): Pick<LoginFormProps, 'handleSub
         })(dispatch),
 });
 
-const ConnectedLoginForm = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(LoginForm);
+const ConnectedLoginForm = connect(mapStateToProps, mapDispatchToProps)(LoginForm);
 
 export default ConnectedLoginForm;
