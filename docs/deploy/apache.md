@@ -143,30 +143,22 @@ AddType text/vtt .vtt
 </IfModule>
 
 # Set CORS Headers for resources
-<FilesMatch "\.(ttf|woff|vtt|mp4|webm|jpg|mp3)$">
+
+#<FilesMatch "\.(ttf|woff|vtt|mp4|webm|jpg|mp3)$">
     <IfModule mod_headers.c>
-        SetEnvIf Origin "http(s)?://(preview\.|www\.|app\.)?(localhost|materialforthespine.com)(:\d+)?$" AccessControlAllowOrigin=$0
+	SetEnvIf Origin "http(s)?://(.*\.)?(materialforthespine.com|contredanse.now.sh|localhost|127.0.0.1|0.0.0.0)(:\d+)?$" AccessControlAllowOrigin=$0
         
-        # For dev chrome still have a bug with caching from different origin.
-        # Disabled for now
-        
-        #Header always set Access-Control-Allow-Origin %{AccessControlAllowOrigin}e env=AccessControlAllowOrigin
-        #Header always set Vary Origin
-        
-        Header always set Access-Control-Allow-Origin "*"        
-        
-        Header always set Access-Control-Allow-Methods "POST, GET, OPTIONS, DELETE, PUT"
-        # 30 seconds before preflight request (let's not cache long when using multiple origins)
-        Header always set Access-Control-Max-Age "30"
-        Header always set Access-Control-Allow-Headers "x-requested-with, Content-Type, origin, authorization, accept, client-security-token"
-    
-        # Added a rewrite to respond with a 200 SUCCESS on every OPTIONS request.
-        RewriteEngine On
-        RewriteCond %{REQUEST_METHOD} OPTIONS
-        RewriteRule ^(.*)$ $1 [R=200,L]
+	Header always set Access-Control-Allow-Origin %{AccessControlAllowOrigin}e env=AccessControlAllowOrigin
+	Header always set Access-Control-Allow-Methods "POST, GET, OPTIONS, HEAD"
+
+	# Added a rewrite to respond with a 200 SUCCESS on every OPTIONS request.
+	RewriteEngine On
+	RewriteCond %{REQUEST_METHOD} OPTIONS
+	RewriteRule ^(.*)$ $1 [R=200,L]
 
     </IfModule>
-</FilesMatch>
+#</FilesMatch>
+
 
 
 ```

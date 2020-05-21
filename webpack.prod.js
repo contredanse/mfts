@@ -33,7 +33,7 @@ Dotenv.config({
     path: dotEnvFile,
 });
 
-console.log('env', process.env);
+// console.log('env', process.env);
 
 const PUBLIC_URL = process.env.PUBLIC_URL;
 const socialMediaPicture = process.env.SOCIAL_MEDIA_PICTURE;
@@ -404,20 +404,22 @@ const prodConfig = merge(common, {
 
         new HtmlWebpackHarddiskPlugin(),
 
-        new CopyWebpackPlugin([
-            // Copy default .htaccess file
-            { from: './public/.htaccess.dist', to: `${distFolder}/public/.htaccess`, toType: 'file' },
-            // Copy robots.txt
-            { from: './public/robots.txt', to: `${distFolder}/public/robots.txt`, toType: 'file' },
-            // Copy static .htaccess file for static assets
-            { from: './public/static/.htaccess.dist', to: `${distFolder}/public/static/.htaccess`, toType: 'file' },
-            { from: workboxMainJs, to: `${distFolder}/public/static/js/workbox-sw.${workboxVersion}.js` },
-            {
-                from: outdatedMainJs,
-                to: `${distFolder}/public/static/js/outdated-browser-rework.${outdatedVersion}.js`,
-            },
-            { from: './src/assets/social/**/*', to: `${distFolder}/public/static/social/`, flatten: true },
-        ]),
+        new CopyWebpackPlugin({
+            patterns: [
+                // Copy default .htaccess file
+                { from: './public/.htaccess.dist', to: `${distFolder}/public/.htaccess`, toType: 'file' },
+                // Copy robots.txt
+                { from: './public/robots.txt', to: `${distFolder}/public/robots.txt`, toType: 'file' },
+                // Copy static .htaccess file for static assets
+                { from: './public/static/.htaccess.dist', to: `${distFolder}/public/static/.htaccess`, toType: 'file' },
+                { from: workboxMainJs, to: `${distFolder}/public/static/js/workbox-sw.${workboxVersion}.js` },
+                {
+                    from: outdatedMainJs,
+                    to: `${distFolder}/public/static/js/outdated-browser-rework.${outdatedVersion}.js`,
+                },
+                { from: './src/assets/social/**/*', to: `${distFolder}/public/static/social/`, flatten: true },
+            ],
+        }),
 
         // https://developers.google.com/web/tools/workbox/modules/workbox-webpack-plugin
 

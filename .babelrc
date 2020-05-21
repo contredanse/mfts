@@ -1,12 +1,12 @@
 {
     "presets": [
         [
-            "@babel/env",
+            "@babel/preset-env",
             {
                 //"modules": "commonjs",
                 "modules": "auto",
+                "corejs": { "version": 3, "proposals": true },
                 "useBuiltIns": "usage",
-                "corejs": 3,
                 "debug": true
             }
         ],
@@ -16,7 +16,7 @@
         "development": {
             "presets": [
                 [
-                    "@babel/env",
+                    "@babel/preset-env",
                     {
                         "useBuiltIns": false
                     }
@@ -29,7 +29,7 @@
         "test": {
             "presets": [
                 [
-                    "@babel/env",
+                    "@babel/preset-env",
                     {
                         "debug": false,
                         "useBuiltIns": false,
@@ -51,7 +51,7 @@
     "plugins": [
         ["@babel/plugin-transform-runtime",
         {
-            "corejs": false,
+            "corejs": 3,
             "helpers": true,
             "regenerator": true,
             "useESModules": false
