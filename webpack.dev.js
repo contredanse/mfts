@@ -79,7 +79,9 @@ module.exports = merge(common, {
     },
     plugins: [
         new ForkTsCheckerWebpackPlugin({
-            tsconfig: 'tsconfig.dev.json',
+            typescript: {
+                configFile: 'tsconfig.dev.json',
+            },
         }),
         new DotenvPlugin({
             path: dotEnvFile, // load this now instead of the ones in '.env'
