@@ -146,7 +146,7 @@ AddType text/vtt .vtt
 
 #<FilesMatch "\.(ttf|woff|vtt|mp4|webm|jpg|mp3)$">
     <IfModule mod_headers.c>
-	SetEnvIf Origin "http(s)?://(.*\.)?(materialforthespine.com|contredanse.now.sh|localhost|127.0.0.1|0.0.0.0)(:\d+)?$" AccessControlAllowOrigin=$0
+	SetEnvIf Origin "http(s)?://(.*\.)?(materialforthespine.com|contredanse.now.sh|contredanse.vercel.app|localhost|127.0.0.1|0.0.0.0)(:\d+)?$" AccessControlAllowOrigin=$0
         
 	Header always set Access-Control-Allow-Origin %{AccessControlAllowOrigin}e env=AccessControlAllowOrigin
 	Header always set Access-Control-Allow-Methods "POST, GET, OPTIONS, HEAD"

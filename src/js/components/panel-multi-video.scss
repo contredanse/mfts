@@ -18,6 +18,7 @@
         justify-content: center;
         align-items: center;
         max-width: 720px;
+        z-index: 1;
         video {
             filter: $video-filters;
             max-width: 100%;
