@@ -155,9 +155,10 @@ const prodConfig = merge(common, {
                         loader: 'postcss-loader',
                         options: {
                             sourceMap: false,
-                            config: {
-                                path: path.resolve(__dirname, 'postcss.config.js'),
+                            /*
+                            postcssOptions: {
                             },
+                            */
                         },
                     },
                     {
