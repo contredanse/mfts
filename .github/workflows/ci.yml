@@ -40,10 +40,13 @@ jobs:
       - name: Install dependencies
         run: |
           yarn install --frozen-lockfile --check-files
-
+            -
       - name: Check pristine lock file
         run: |
           sh ./scripts/check-git-pristine-yarn-lock.sh
+
+      - name: Check packages duplicates
+        run: yarn deduplicate --list --fail
 
       - name: Linting
         run: |
