@@ -39,7 +39,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          yarn install --frozen-lockfile --check-files
+          yarn install --frozen-lockfile
             -
       - name: Check pristine lock file
         run: |
