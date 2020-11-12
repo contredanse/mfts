@@ -65,7 +65,7 @@ const prodConfig = merge(common, {
              * Aliases to avoid duplicates in build.
              */
             // Everyone will have a different babel 7 runtime, let's flatten it
-            '@babel/runtime': path.resolve(__dirname, 'node_modules/@babel/runtime'),
+            //'@babel/runtime': path.resolve(__dirname, 'node_modules/@babel/runtime'),
             //'history': path.resolve(__dirname, 'node_modules/history'),
         },
     },
