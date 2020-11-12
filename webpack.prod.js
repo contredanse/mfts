@@ -138,9 +138,6 @@ const prodConfig = merge(common, {
                 use: [
                     {
                         loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            sourceMap: false,
-                        },
                     },
                     {
                         loader: 'css-loader', // translates CSS into CommonJS
