@@ -48,8 +48,7 @@ const outdatedMainJs = require.resolve('outdated-browser-rework');
 const outdatedVersion = require(require.resolve('outdated-browser-rework/package.json')).version;
 
 const prodConfig = merge(common, {
-    //devtool: 'hidden-source-map', // or false if you don't want source map
-    devtool: 'cheap-module-source-map',
+    devtool: 'hidden-source-map', // or false if you don't want source map
     mode: 'production',
     entry: ['./src/js/index.tsx'],
     output: {
