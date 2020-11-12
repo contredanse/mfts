@@ -36,13 +36,11 @@ const renderApp = (Component: any, config: AppConfig, elementId: string) => {
 renderApp(App, appConfig, 'app');
 
 // Only chrome allowed till workbox 4 is out
-/*
 if (isChrome(false)) {
     registerServiceWorker({
-        onSuccess: registration => {},
-        onUpdate: registration => {},
+        onSuccess: (registration) => {},
+        onUpdate: (registration) => {},
     });
 } else {
     unregisterServiceWorker();
 }
-*/
