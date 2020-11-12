@@ -47,9 +47,11 @@ const workboxVersion = require(require.resolve('workbox-sw/package.json')).versi
 const outdatedMainJs = require.resolve('outdated-browser-rework');
 const outdatedVersion = require(require.resolve('outdated-browser-rework/package.json')).version;
 
+const debugBuild = true;
+
 const prodConfig = merge(common, {
-    devtool: 'hidden-source-map', // or false if you don't want source map
-    mode: 'production',
+    devtool: debugBuild ? 'cheap-module-source-map' : 'hidden-source-map', // or false if you don't want source map
+    mode: debugBuild ? 'development' : 'production',
     entry: ['./src/js/index.tsx'],
     output: {
         path: path.resolve(distFolder, 'public'),
@@ -113,7 +115,7 @@ const prodConfig = merge(common, {
                     // because it was compiled. Thus, we don't want the browser
                     // debugger to show the original code. Instead, the code
                     // being evaluated would be much more helpful.
-                    sourceMaps: false,
+                    sourceMaps: debugBuild ? true : false,
                 },
             },
             {
