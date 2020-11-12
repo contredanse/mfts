@@ -331,7 +331,7 @@ const prodConfig = merge(common, {
                 // use different major versions for 'warning' package
                 // That can be ignored.
                 //return instance.name === 'warning';
-                return ['warning', 'regenerator-runtime', 'history', 'scheduler'].includes(instance.name);
+                return ['warning', 'scheduler'].includes(instance.name);
             },
         }),
 
