@@ -14,7 +14,6 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const CompressionPlugin = require('compression-webpack-plugin');
 const zopfli = require('@gfx/zopfli');
-const BrotliPlugin = require('brotli-webpack-plugin');
 const Workbox = require('workbox-webpack-plugin');
 const DotenvPlugin = require('dotenv-webpack');
 const Dotenv = require('dotenv');
@@ -49,7 +48,8 @@ const outdatedMainJs = require.resolve('outdated-browser-rework');
 const outdatedVersion = require(require.resolve('outdated-browser-rework/package.json')).version;
 
 const prodConfig = merge(common, {
-    devtool: 'hidden-source-map', // or false if you don't want source map
+    //devtool: 'hidden-source-map', // or false if you don't want source map
+    devtool: 'cheap-module-source-map',
     mode: 'production',
     entry: ['./src/js/index.tsx'],
     output: {
@@ -540,18 +540,23 @@ if (staticCompress === true) {
         ...prodConfig.plugins,
         ...[
             new CompressionPlugin({
-                test: /\.(js|css|svg)$/,
-                compressionOptions: {
-                    numiterations: 15,
-                },
+                filename: '[path][base].gz',
                 algorithm(input, compressionOptions, callback) {
                     return zopfli.gzip(input, compressionOptions, callback);
                 },
+                test: /\.js$|\.css$$/,
+                threshold: 10240,
+                minRatio: 0.8,
             }),
-
-            new BrotliPlugin({
-                asset: '[path].br[query]',
+            new CompressionPlugin({
+                filename: '[path][base].br',
+                algorithm: 'brotliCompress',
                 test: /\.(js|css|svg)$/,
+                compressionOptions: {
+                    level: 11,
+                },
+                threshold: 10240,
+                minRatio: 0.8,
             }),
         ],
     ];
