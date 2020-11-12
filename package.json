@@ -6,7 +6,7 @@
     "scripts": {
         "build": "cross-env NODE_ENV=production BABEL_ENV=production STATIC_COMPRESS=true webpack --config webpack.prod.js",
         "serve": "npx serve ./dist/public",
-        "now-build": "cross-env NODE_ENV=production BABEL_ENV=production STATIC_COMPRESS=false webpack --config webpack.prod.js",
+        "now-build": "cross-env NODE_ENV=development BABEL_ENV=development STATIC_COMPRESS=false webpack --mode development --config webpack.prod.js",
         "dev": "cross-env NODE_ENV=development webpack-dev-server --mode development --config webpack.dev.js",
         "clean": "run-p clean:*",
         "clean:build": "rimraf build",
