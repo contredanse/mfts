@@ -307,14 +307,14 @@ const prodConfig = merge(common, {
         }),
 
         new webpack.EnvironmentPlugin({
-            'process.env.NODE_ENV': JSON.stringify('production'),
-            NODE_ENV: JSON.stringify('production'),
+            'process.env.NODE_ENV': debugBuild ? JSON.stringify('development') : JSON.stringify('production'),
+            NODE_ENV: debugBuild ? JSON.stringify('development') : JSON.stringify('production'),
             OUTDATED_JS: `${distFolder}/public/static/js/outdated-browser-rework.${outdatedVersion}.js`,
         }),
 
         new webpack.LoaderOptionsPlugin({
-            minimize: true,
-            debug: false,
+            minimize: !debugBuild,
+            debug: debugBuild,
         }),
 
         extractSass,
@@ -342,8 +342,8 @@ const prodConfig = merge(common, {
                 publicUrl: PUBLIC_URL,
                 title: "Steve Paxton's Material for the spine",
             },
-            removeAttributeQuotes: true,
-            removeComments: true,
+            removeAttributeQuotes: !debugBuild,
+            removeComments: !debugBuild,
             minify: {
                 removeComments: true,
                 collapseWhitespace: true,
@@ -352,7 +352,7 @@ const prodConfig = merge(common, {
                 removeEmptyAttributes: true,
                 removeStyleLinkTypeAttributes: true,
                 keepClosingSlash: true,
-                minifyJS: true,
+                minifyJS: !debugBuild,
                 minifyCSS: true,
                 minifyURLs: true,
             },
@@ -533,7 +533,7 @@ const prodConfig = merge(common, {
     ],
 });
 
-if (staticCompress === true) {
+if (debugBuild !== true && staticCompress === true) {
     prodConfig.plugins = [
         ...prodConfig.plugins,
         ...[

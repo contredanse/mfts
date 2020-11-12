@@ -21,15 +21,18 @@ import configureStore from './configure-store';
 import { isChrome } from '@src/utils/browser-detect';
 
 import './check-outdated-version';
+import { ErrorBoundary } from '@src/components/error/error-boundary';
 
 const initialState = window.initialReduxState;
 const store = configureStore(history, initialState);
 
 const renderApp = (Component: any, config: AppConfig, elementId: string) => {
     render(
-        <ReduxProvider store={store}>
-            <Component appConfig={config} />
-        </ReduxProvider>,
+        <ErrorBoundary>
+            <ReduxProvider store={store}>
+                <Component appConfig={config} />
+            </ReduxProvider>
+        </ErrorBoundary>,
         document.getElementById(elementId)
     );
 };
