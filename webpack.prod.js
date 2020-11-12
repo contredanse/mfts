@@ -541,6 +541,9 @@ if (staticCompress === true) {
                 algorithm(input, compressionOptions, callback) {
                     return zopfli.gzip(input, compressionOptions, callback);
                 },
+                compressionOptions: {
+                    numiterations: 15,
+                },
                 test: /\.js$|\.css$$/,
                 threshold: 10240,
                 minRatio: 0.8,

@@ -11,6 +11,7 @@
         "clean": "run-p clean:*",
         "clean:build": "rimraf build",
         "clean:dist": "rimraf dist",
+        "reinstall": "run-p clean:* && rimraf --no-glob ./yarn.lock ./node_modules && yarn install",
         "typecheck": "tsc -p . --noEmit",
         "lint": "tslint --project './tsconfig.json'",
         "lint:fix": "tslint --project './tsconfig.json' --fix",
