@@ -37,6 +37,7 @@ Dotenv.config({
 const PUBLIC_URL = process.env.PUBLIC_URL;
 const socialMediaPicture = process.env.SOCIAL_MEDIA_PICTURE;
 const staticCompress = process.env.STATIC_COMPRESS === 'true' || process.env.STATIC_COMPRESS == '1';
+const debugBuild = process.env.DEBUG_BUILD === 'true' || process.env.DEBUG_BUILD == '1';
 
 const distFolder = path.resolve(__dirname, 'dist');
 
@@ -46,8 +47,6 @@ const workboxVersion = require(require.resolve('workbox-sw/package.json')).versi
 
 const outdatedMainJs = require.resolve('outdated-browser-rework');
 const outdatedVersion = require(require.resolve('outdated-browser-rework/package.json')).version;
-
-const debugBuild = true;
 
 const prodConfig = merge(common, {
     devtool: debugBuild ? 'inline-source-map' : 'hidden-source-map', // or false if you don't want source map
