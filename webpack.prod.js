@@ -14,7 +14,6 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const CompressionPlugin = require('compression-webpack-plugin');
 const zopfli = require('@gfx/zopfli');
-const BrotliPlugin = require('brotli-webpack-plugin');
 const Workbox = require('workbox-webpack-plugin');
 const DotenvPlugin = require('dotenv-webpack');
 const Dotenv = require('dotenv');
@@ -48,9 +47,11 @@ const workboxVersion = require(require.resolve('workbox-sw/package.json')).versi
 const outdatedMainJs = require.resolve('outdated-browser-rework');
 const outdatedVersion = require(require.resolve('outdated-browser-rework/package.json')).version;
 
+const debugBuild = true;
+
 const prodConfig = merge(common, {
-    devtool: 'hidden-source-map', // or false if you don't want source map
-    mode: 'production',
+    devtool: debugBuild ? 'inline-source-map' : 'hidden-source-map', // or false if you don't want source map
+    mode: debugBuild ? 'development' : 'production',
     entry: ['./src/js/index.tsx'],
     output: {
         path: path.resolve(distFolder, 'public'),
@@ -64,7 +65,7 @@ const prodConfig = merge(common, {
              * Aliases to avoid duplicates in build.
              */
             // Everyone will have a different babel 7 runtime, let's flatten it
-            '@babel/runtime': path.resolve(__dirname, 'node_modules/@babel/runtime'),
+            //'@babel/runtime': path.resolve(__dirname, 'node_modules/@babel/runtime'),
             //'history': path.resolve(__dirname, 'node_modules/history'),
         },
     },
@@ -114,7 +115,7 @@ const prodConfig = merge(common, {
                     // because it was compiled. Thus, we don't want the browser
                     // debugger to show the original code. Instead, the code
                     // being evaluated would be much more helpful.
-                    sourceMaps: false,
+                    sourceMaps: debugBuild ? true : false,
                 },
             },
             {
@@ -138,9 +139,6 @@ const prodConfig = merge(common, {
                 use: [
                     {
                         loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            sourceMap: false,
-                        },
                     },
                     {
                         loader: 'css-loader', // translates CSS into CommonJS
@@ -231,71 +229,73 @@ const prodConfig = merge(common, {
         },
 
         noEmitOnErrors: true, // NoEmitOnErrorsPlugin
-        minimizer: [
-            new TerserPlugin({
-                terserOptions: {
-                    parse: {
-                        // we want terser to parse ecma 8 code. However, we don't want it
-                        // to apply any minfication steps that turns valid ecma 5 code
-                        // into invalid ecma 5 code. This is why the 'compress' and 'output'
-                        // sections only apply transformations that are ecma 5 safe
-                        // https://github.com/facebook/create-react-app/pull/4234
-                        ecma: 8,
-                    },
-                    compress: {
-                        ecma: 5,
+        minimizer: debugBuild
+            ? []
+            : [
+                  new TerserPlugin({
+                      terserOptions: {
+                          parse: {
+                              // we want terser to parse ecma 8 code. However, we don't want it
+                              // to apply any minfication steps that turns valid ecma 5 code
+                              // into invalid ecma 5 code. This is why the 'compress' and 'output'
+                              // sections only apply transformations that are ecma 5 safe
+                              // https://github.com/facebook/create-react-app/pull/4234
+                              ecma: 8,
+                          },
+                          compress: {
+                              ecma: 5,
 
-                        dead_code: true,
-                        drop_debugger: true,
+                              dead_code: true,
+                              drop_debugger: true,
 
-                        // Allow console messages
-                        drop_console: false,
+                              // Allow console messages
+                              drop_console: false,
 
-                        warnings: false,
-                        // Disabled because of an issue with Uglify breaking seemingly valid code:
-                        // https://github.com/facebook/create-react-app/issues/2376
-                        // Pending further investigation:
-                        // https://github.com/mishoo/UglifyJS2/issues/2011
-                        comparisons: false,
-                        // Disabled because of an issue with Terser breaking valid code:
-                        // https://github.com/facebook/create-react-app/issues/5250
-                        // Pending futher investigation:
-                        // https://github.com/terser-js/terser/issues/120
-                        inline: 2,
-                    },
-                    mangle: {
-                        safari10: true,
-                    },
-                    output: {
-                        ecma: 5,
-                        comments: false,
-                        // Turned on because emoji and regex is not minified properly using default
-                        // https://github.com/facebook/create-react-app/issues/2488
-                        ascii_only: true,
-                    },
-                },
-                // Use multi-process parallel running to improve the build speed
-                // Default number of concurrent runs: os.cpus().length - 1
-                parallel: true,
-                // Enable file caching
-                cache: true,
-                sourceMap: true,
-            }),
-            new OptimizeCssAssetsPlugin({
-                cssProcessor: require('cssnano'),
-                cssProcessorOptions: {
-                    //map: { inline: false, },
-                    //safe: true,
-                    discardUnused: {
-                        fontFace: false, // to not remove additional @font-face
-                    },
-                    discardComments: {
-                        removeAll: true,
-                    },
-                },
-                canPrint: true,
-            }),
-        ],
+                              warnings: false,
+                              // Disabled because of an issue with Uglify breaking seemingly valid code:
+                              // https://github.com/facebook/create-react-app/issues/2376
+                              // Pending further investigation:
+                              // https://github.com/mishoo/UglifyJS2/issues/2011
+                              comparisons: false,
+                              // Disabled because of an issue with Terser breaking valid code:
+                              // https://github.com/facebook/create-react-app/issues/5250
+                              // Pending futher investigation:
+                              // https://github.com/terser-js/terser/issues/120
+                              inline: 2,
+                          },
+                          mangle: {
+                              safari10: true,
+                          },
+                          output: {
+                              ecma: 5,
+                              comments: false,
+                              // Turned on because emoji and regex is not minified properly using default
+                              // https://github.com/facebook/create-react-app/issues/2488
+                              ascii_only: true,
+                          },
+                      },
+                      // Use multi-process parallel running to improve the build speed
+                      // Default number of concurrent runs: os.cpus().length - 1
+                      parallel: true,
+                      // Enable file caching
+                      cache: true,
+                      sourceMap: true,
+                  }),
+                  new OptimizeCssAssetsPlugin({
+                      cssProcessor: require('cssnano'),
+                      cssProcessorOptions: {
+                          //map: { inline: false, },
+                          //safe: true,
+                          discardUnused: {
+                              fontFace: false, // to not remove additional @font-face
+                          },
+                          discardComments: {
+                              removeAll: true,
+                          },
+                      },
+                      canPrint: true,
+                  }),
+              ],
     },
 
     plugins: [
@@ -309,14 +309,14 @@ const prodConfig = merge(common, {
         }),
 
         new webpack.EnvironmentPlugin({
-            'process.env.NODE_ENV': JSON.stringify('production'),
-            NODE_ENV: JSON.stringify('production'),
+            'process.env.NODE_ENV': debugBuild ? JSON.stringify('development') : JSON.stringify('production'),
+            NODE_ENV: debugBuild ? JSON.stringify('development') : JSON.stringify('production'),
             OUTDATED_JS: `${distFolder}/public/static/js/outdated-browser-rework.${outdatedVersion}.js`,
         }),
 
         new webpack.LoaderOptionsPlugin({
-            minimize: true,
-            debug: false,
+            minimize: !debugBuild,
+            debug: debugBuild,
         }),
 
         extractSass,
@@ -331,7 +331,7 @@ const prodConfig = merge(common, {
                 // use different major versions for 'warning' package
                 // That can be ignored.
                 //return instance.name === 'warning';
-                return ['warning', 'regenerator-runtime', 'history', 'scheduler'].includes(instance.name);
+                return ['warning', 'scheduler'].includes(instance.name);
             },
         }),
 
@@ -344,8 +344,8 @@ const prodConfig = merge(common, {
                 publicUrl: PUBLIC_URL,
                 title: "Steve Paxton's Material for the spine",
             },
-            removeAttributeQuotes: true,
-            removeComments: true,
+            removeAttributeQuotes: !debugBuild,
+            removeComments: !debugBuild,
             minify: {
                 removeComments: true,
                 collapseWhitespace: true,
@@ -354,7 +354,7 @@ const prodConfig = merge(common, {
                 removeEmptyAttributes: true,
                 removeStyleLinkTypeAttributes: true,
                 keepClosingSlash: true,
-                minifyJS: true,
+                minifyJS: !debugBuild,
                 minifyCSS: true,
                 minifyURLs: true,
             },
@@ -535,23 +535,31 @@ const prodConfig = merge(common, {
     ],
 });
 
-if (staticCompress === true) {
+if (debugBuild !== true && staticCompress === true) {
     prodConfig.plugins = [
         ...prodConfig.plugins,
         ...[
             new CompressionPlugin({
-                test: /\.(js|css|svg)$/,
-                compressionOptions: {
-                    numiterations: 15,
-                },
+                filename: '[path][base].gz',
                 algorithm(input, compressionOptions, callback) {
                     return zopfli.gzip(input, compressionOptions, callback);
                 },
+                compressionOptions: {
+                    numiterations: 15,
+                },
+                test: /\.js$|\.css$$/,
+                threshold: 10240,
+                minRatio: 0.8,
             }),
-
-            new BrotliPlugin({
-                asset: '[path].br[query]',
+            new CompressionPlugin({
+                filename: '[path][base].br',
+                algorithm: 'brotliCompress',
                 test: /\.(js|css|svg)$/,
+                compressionOptions: {
+                    level: 11,
+                },
+                threshold: 10240,
+                minRatio: 0.8,
             }),
         ],
     ];
