@@ -79,12 +79,12 @@ class PwaInstaller extends React.PureComponent<Props, State> {
 
     displayA2hsPrompt = (): void => {
         if (this.timeoutHandle === undefined) {
-            this.timeoutHandle = setTimeout(() => {
+            this.timeoutHandle = window.setTimeout(() => {
                 this.setState({
                     showPrompt: true,
                     installed: false,
                 });
-                this.hideTimeoutHandle = setTimeout(() => {
+                this.hideTimeoutHandle = window.setTimeout(() => {
                     this.setState({
                         showPrompt: false,
                     });
@@ -110,7 +110,7 @@ class PwaInstaller extends React.PureComponent<Props, State> {
             });
             // Follow what the user has done with the prompt.
             this.deferredPrompt.userChoice
-                .then(choiceResult => {
+                .then((choiceResult) => {
                     console.log(choiceResult.outcome);
                     if (choiceResult.outcome === 'dismissed') {
                         console.log('User cancelled home screen install');
@@ -140,7 +140,7 @@ class PwaInstaller extends React.PureComponent<Props, State> {
         const { showPrompt } = this.state;
         return (
             <Transition timeout={300} appear={true} exit={true} in={showPrompt}>
-                {status => (
+                {(status) => (
                     <div className={`a2hs-container a2hs-container-${status}`}>
                         <div className="message">
                             <a onClick={this.requestAddToHomescreen}>{this.tr('add_to_homescreen')}</a>

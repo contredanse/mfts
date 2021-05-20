@@ -146,7 +146,7 @@ class PageContainer extends React.PureComponent<PageContainerProps, PageContaine
     private createAuthTimeout(): void {
         if (!this.props.authenticated) {
             this.clearAuthTimeout();
-            this.authTimeoutHandle = setTimeout(() => {
+            this.authTimeoutHandle = window.setTimeout(() => {
                 if (!this.isAuthTimeoutCancelled) {
                     this.redirectIfNotAuthenticacted(this.props.pageId);
                 }
@@ -165,9 +165,4 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
     setPageBreadcrumb: (breadcrumb?: NavBreadcrumbProps) => dispatch(navActions.setPageBreadcrumb(breadcrumb)),
 });
 
-export default withRouter(
-    connect(
-        mapStateToProps,
-        mapDispatchToProps
-    )(PageContainer)
-);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PageContainer));
