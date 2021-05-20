@@ -1,4 +1,4 @@
-name: CI/CD
+name: CI
 
 on:
   push:
@@ -66,7 +66,7 @@ jobs:
         run: |
           yarn build
         env:
-          STATIC_COMPRESS: false
+          STATIC_COMPRESS: true
 
       - name: Send coverage with action
         uses: codecov/codecov-action@v1
