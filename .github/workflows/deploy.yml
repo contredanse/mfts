@@ -1,4 +1,4 @@
-name: CI
+name: Deploy
 
 on:
     push:
@@ -49,8 +49,8 @@ jobs:
               uses: burnett01/rsync-deployments@4.1
               with:
                  switches: -avzrP --delete --exclude=/assets
-                 path: dist/public
-                 remote_path: /tmp/test/
+                 path: dist/public/*
+                 remote_path: /tmp/public_html
                  remote_host: ${{ secrets.DEPLOY_HOST }}
                  remote_port: ${{ secrets.DEPLOY_PORT }}
                  remote_user: ${{ secrets.DEPLOY_USER }}
