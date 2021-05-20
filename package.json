@@ -25,7 +25,9 @@
         "stats": "yarn build && webpack-bundle-analyzer dist/.webpack-stats.json",
         "deduplicate": "yarn-deduplicate yarn.lock",
         "deps:check": "ncu --configFileName .ncurc.json",
-        "deps:update": "ncu --configFileName .ncurc.json -u"
+        "deps:check:minor": "ncu --configFileName .ncurc.json -t minor",
+        "deps:update": "ncu --configFileName .ncurc.json -u",
+        "deps:update:minor": "ncu --configFileName .ncurc.json -u -t minor"
     },
     "husky": {
         "hooks": {
