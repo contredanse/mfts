@@ -49,8 +49,9 @@ jobs:
               uses: burnett01/rsync-deployments@4.1
               with:
                  switches: -avzrP --delete --exclude=/assets
+                 # End with slash to allow sending .htaccess
                  path: dist/public/
-                 remote_path: /tmp/public_html
+                 remote_path: /tmp/public_html/
                  remote_host: ${{ secrets.DEPLOY_HOST }}
                  remote_port: ${{ secrets.DEPLOY_PORT }}
                  remote_user: ${{ secrets.DEPLOY_USER }}
