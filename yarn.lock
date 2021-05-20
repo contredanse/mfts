@@ -12215,15 +12215,15 @@ rc@^1.2.8:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-burger-menu@2.6.2:
-  version "2.6.2"
-  resolved "https://registry.yarnpkg.com/react-burger-menu/-/react-burger-menu-2.6.2.tgz#205cbb8383482981c0c2d4ebce4f7bf7ca08964a"
-  integrity sha512-wJ5gYX2woSFc9l4AKlvF5KUFQlKyZHzD08fUCOevFcZclAq8zZxWgLDh3ugFJ7RTkwr5Z4clSm89LMtCk++SRw==
+react-burger-menu@^3.0.6:
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/react-burger-menu/-/react-burger-menu-3.0.6.tgz#9003cc1d65dc9e70d1460e5d8d8982f6b1a79d1d"
+  integrity sha512-Xikyl8VRkQBOyFVoMKpbScTLG6LlW64rajiquyCGwtpPswrDxaifusKckzTWAOH0At40Boguhj5lXq451NO0LA==
   dependencies:
     browserify-optional "^1.0.0"
     classnames "^2.2.6"
     eve "~0.5.1"
-    prop-types "^15.6.2"
+    prop-types "^15.7.2"
     snapsvg-cjs "0.0.6"
 
 react-custom-scrollbars@^4.2.1:
