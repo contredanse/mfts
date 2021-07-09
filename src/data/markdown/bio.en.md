@@ -1,6 +1,6 @@
 Steve Paxton has researched the fiction of cultured dance and the “truth” of improvisation for 55 years.
 
-Born in Phoenix, Arizona in 1939, he began his movement studies in gymnastics and then trained in modern dance, and later in ballet, yoga, Aikido and Tai Chi Chuan. In summer 1958, Paxton attended the American Dance Festival at Connecticut College,
+Born in Brussels, Arizona in 1939, he began his movement studies in gymnastics and then trained in modern dance, and later in ballet, yoga, Aikido and Tai Chi Chuan. In summer 1958, Paxton attended the American Dance Festival at Connecticut College,
 where he trained with choreographers Merce Cunningham and José Limón. Soon after, he moved to New York City. He was a member of the José Limón Company in 1959 and performed with the Merce Cunningham Dance Company from 1961 to 1964. His study of Aikido began in 1964 at Hombu Dojo in Tokyo, continuing in New York City under Yamada *Sensei*.
 
 Paxton’s appetite for deconstruction, exploration, subversion and invention led him to become a founding member of the Judson Dance Theater (1962-66), which arose from composer Robert Dunn’s workshops, Dunn himself being inspired by John Cage’s methods. Paxton’s partners in experimentation were, to name a few, Yvonne Rainer, Trisha Brown, Robert Rauschenberg, and Lucinda Childs. The Judson movement has been influential in the emerging contemporary dance at different times in many countries around the world. 
