@@ -1,16 +1,16 @@
 ## Publications
 
-[*Gravity*](https://contredanse.org/product/material-for-the-spine-une-etude-du-mouvement-a-movement-study?lang=en) by Steve Paxton, Contredanse Editions, Bruxelles, 2018.
+[*Gravity*](https://contredanse.org/en/product/gravity/) by Steve Paxton, Contredanse Editions, Bruxelles, 2018.
 
-[*Gravity Audiobook*](https://contredanse.org/product/gravity-audiobook-steve-paxton/) by Steve Paxton, Contredanse Editions, Bruxelles, 2020.
+[*Gravity Audiobook*](https://contredanse.org/en/product/gravity-audiobook/) by Steve Paxton, Contredanse Editions, Bruxelles, 2020.
 
 In this book, the dancer Steve Paxton traces a lifetime in the company of gravity. The memory of his first flight, a meditation on walking, pondering on the conditions of life, and a dream of dancing make up pieces of a puzzle. Paxton muses about the limit of his consciousness and celebrates the potentiality of our senses to enter the dance. 
 
-[*La gravité*](https://contredanse.org/product/la-gravite-steve-paxton-editions-contredanse/) by Steve Paxton, translation in french by Denise Luccioni, Contredanse Editions, Bruxelles, 2018
+[*La gravité*](https://contredanse.org/en/product/la-gravite/) by Steve Paxton, translation in french by Denise Luccioni, Contredanse Editions, Bruxelles, 2018
 
-[![Gravity Image](./images/gravity-gravite.jpg)](https://contredanse.org/shop/)
+[![Gravity Image](./images/gravity-gravite.jpg)](https://contredanse.org/en/bookshop/)
 
-[*Material for the Spine, a movement study*](https://contredanse.org/product/material-for-the-spine-une-etude-du-mouvement-a-movement-study-copy/) by Steve Paxton, Baptiste Andrien and Florence Corin, Contredanse Editions, Bruxelles, 2008.
+[*Material for the Spine, a movement study*](https://contredanse.org/en/product/web-app-material-for-the-spine/) by Steve Paxton, Baptiste Andrien and Florence Corin, Contredanse Editions, Bruxelles, 2008.
 
 Paxton has published numerous articles from 1975 to the present in the dance
 journal [*Contact Quarterly*](https://contactquarterly.com/), Northampton, MA. These articles include dance for the physically disabled, dance for the visually disabled, dance analysis, Contact Improvisation technique and theory, and occasional pieces.
