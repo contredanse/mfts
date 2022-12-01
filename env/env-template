@@ -13,9 +13,9 @@ ASSETS_BASE_URL=https://www.materialforthespine.com/assets
 
 API_BASE_URL=https://app.materialforthespine.com/api
 
-RESET_PASSWORD_URL=https://www.contredanse.org/contredanseV4/templates/index.php?path=authenticate/askPassword.php
-MY_ACCOUNT_URL=https://www.contredanse.org/contredanseV4/templates/index.php?path=authenticate/login.php
-SHOP_SUBSCRIPTION_URL=https://contredanse.org/product/material-for-the-spine-une-etude-du-mouvement-a-movement-study
+RESET_PASSWORD_URL=https://contredanse.org/wp-login.php?action=lostpassword
+MY_ACCOUNT_URL=https://contredanse.org/my-account/orders/
+SHOP_SUBSCRIPTION_URL=https://contredanse.org/product/web-app-material-for-the-spine/
 
 # SOCIAL
 SOCIAL_MEDIA_PICTURE=https://www.materialforthespine.com/static/social/mfts-social.jpg
