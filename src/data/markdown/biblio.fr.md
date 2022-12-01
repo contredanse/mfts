@@ -1,6 +1,6 @@
 ## Publications
 
-[*Gravity*]([https://contredanse.org/product/gravity-book-steve-paxton-contredanse-editions/](https://contredanse.org/product/gravity/)) de Steve Paxton, Éditions Contredanse, Bruxelles, 2018.
+[*Gravity*](https://contredanse.org/product/gravity/) de Steve Paxton, Éditions Contredanse, Bruxelles, 2018.
 
 [*La gravité*](https://contredanse.org/product/la-gravite/) de Steve Paxton, traduit de l'américain par Denise Luccioni, Éditions Contredanse, Bruxelles, 2018.
 
