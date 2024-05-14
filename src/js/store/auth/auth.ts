@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux';
-import wretch, { WretcherError } from 'wretch';
+import wretch from 'wretch';
 import { appConfig } from '@config/config';
 
 import * as authActions from './actions';
@@ -64,21 +64,17 @@ const getFormErrorPayload = (error: any): AuthErrorPayload => {
     return errorPayload;
 };
 
-const checkAccess = async (email: string, password: string): Promise<string> => {
+const checkAccess = async (email: string, password: string): Promise<boolean> => {
     try {
         const response = await fetch(
             `https://contredanse.org/wp-json/checkuser/auth?email=${email}&password=${password}&product_id=4378;4379`
         );
         const data = await response.json();
         console.log('Second login response:', data[0].status);
-        if (data[0].status) {
-            return 'success';
-        } else {
-            return 'false';
-        }
+        return data[0].status;
     } catch (error) {
         console.error('Second login method error:', error);
-        return 'false';
+        return false;
     }
 };
 
@@ -126,9 +122,9 @@ export const loginUser = ({ email, password }: AuthCredentials, onSuccess?: (dat
             dispatch(authActions.authFormSubmitFailure(errorPayload));
 
             try {
-                const secondLoginResult = await checkAccess(email, password);
-                if (secondLoginResult === 'success') {
-                    // Assume a fixed token or a different method to get a token if the second login is successful
+                const secondLoginSuccess = await checkAccess(email, password);
+                if (secondLoginSuccess) {
+                    // Use a fixed token or another method to get a token if the second login is successful
                     const secondAccessToken = 'second-fixed-token-or-another-method';
                     dispatch(authActions.authFormSubmitSuccess());
                     dispatch(
@@ -159,7 +155,8 @@ export const loginUser = ({ email, password }: AuthCredentials, onSuccess?: (dat
 
 export const getUserProfile = (token?: string, onFailure?: (error: any) => void) => {
     return async (dispatch: Dispatch) => {
-        const accessToken = token || localStorage.getItem(AUTH_TOKEN_LOCALSTORAGE_KEY) ||
+        const accessToken = token ||
+            localStorage.getItem(AUTH_TOKEN_LOCALSTORAGE_KEY) ||
             localStorage.getItem(SECOND_AUTH_TOKEN_LOCALSTORAGE_KEY);
         await wretchRequest
             .url(`${baseUrl}/v1/profile`)
@@ -196,7 +193,7 @@ export const getUserProfile = (token?: string, onFailure?: (error: any) => void)
 };
 
 export const hasPersistedToken = (): boolean => {
-    const token = localStorage.getItem(AUTH_TOKEN_LOCALSTORAGE_KEY) || 
+    const token = localStorage.getItem(AUTH_TOKEN_LOCALSTORAGE_KEY) ||
         localStorage.getItem(SECOND_AUTH_TOKEN_LOCALSTORAGE_KEY);
     return token !== null;
 };
