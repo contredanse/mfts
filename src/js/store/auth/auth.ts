@@ -159,7 +159,8 @@ export const loginUser = ({ email, password }: AuthCredentials, onSuccess?: (dat
 
 export const getUserProfile = (token?: string, onFailure?: (error: any) => void) => {
     return async (dispatch: Dispatch) => {
-        const accessToken = token || localStorage.getItem(AUTH_TOKEN_LOCALSTORAGE_KEY) || localStorage.getItem(SECOND_AUTH_TOKEN_LOCALSTORAGE_KEY);
+        const accessToken = token || localStorage.getItem(AUTH_TOKEN_LOCALSTORAGE_KEY) ||
+            localStorage.getItem(SECOND_AUTH_TOKEN_LOCALSTORAGE_KEY);
         await wretchRequest
             .url(`${baseUrl}/v1/profile`)
             .auth(`Bearer ${accessToken}`)
@@ -195,7 +196,8 @@ export const getUserProfile = (token?: string, onFailure?: (error: any) => void)
 };
 
 export const hasPersistedToken = (): boolean => {
-    const token = localStorage.getItem(AUTH_TOKEN_LOCALSTORAGE_KEY) || localStorage.getItem(SECOND_AUTH_TOKEN_LOCALSTORAGE_KEY);
+    const token = localStorage.getItem(AUTH_TOKEN_LOCALSTORAGE_KEY) || 
+        localStorage.getItem(SECOND_AUTH_TOKEN_LOCALSTORAGE_KEY);
     return token !== null;
 };
 
@@ -204,4 +206,3 @@ export const logoutUser = (): PayloadAction => {
     localStorage.removeItem(SECOND_AUTH_TOKEN_LOCALSTORAGE_KEY);
     return authActions.unAuthenticateUser();
 };
-
