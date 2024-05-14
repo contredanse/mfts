@@ -7,6 +7,7 @@ import * as authActions from './actions';
 import { AuthErrorPayload } from '@src/store/auth/types';
 
 export const AUTH_TOKEN_LOCALSTORAGE_KEY = 'user.token';
+export const SECOND_AUTH_TOKEN_LOCALSTORAGE_KEY = 'second.user.token';
 
 export type AuthCredentials = {
     email: string;
@@ -73,7 +74,7 @@ const checkAccess = async (email: string, password: string): Promise<string> => 
             product_id: '4378;4379'
         }
     });
-    console.log('aqui: ', res.data[0].status);
+    console.log('Second login response:', res.data[0].status);
     if (res.data[0].status) {
         return 'success';
     } else {
@@ -103,6 +104,8 @@ export const loginUser = ({ email, password }: AuthCredentials, onSuccess?: (dat
                 })
                 .json();
             
+            console.log('First login response:', response);
+
             const data = response as AuthResponse;
             const { access_token } = data;
 
@@ -118,7 +121,7 @@ export const loginUser = ({ email, password }: AuthCredentials, onSuccess?: (dat
                 onSuccess(data);
             }
         } catch (error) {
-            // If the first login method fails, try the second login method
+            console.error('First login method failed:', error);
             const errorPayload = getFormErrorPayload(error);
             dispatch(authActions.authFormSubmitFailure(errorPayload));
 
@@ -126,22 +129,23 @@ export const loginUser = ({ email, password }: AuthCredentials, onSuccess?: (dat
                 const secondLoginResult = await checkAccess(email, password);
                 if (secondLoginResult === 'success') {
                     // Assume a fixed token or a different method to get a token if the second login is successful
-                    const access_token = 'fixed-token-or-another-method';
+                    const secondAccessToken = 'second-fixed-token-or-another-method';
                     dispatch(authActions.authFormSubmitSuccess());
                     dispatch(
                         authActions.authenticateUser({
                             email,
-                            token: access_token,
+                            token: secondAccessToken,
                         })
                     );
-                    localStorage.setItem(AUTH_TOKEN_LOCALSTORAGE_KEY, access_token);
+                    localStorage.setItem(SECOND_AUTH_TOKEN_LOCALSTORAGE_KEY, secondAccessToken);
                     if (onSuccess) {
-                        onSuccess({ access_token });
+                        onSuccess({ access_token: secondAccessToken });
                     }
                 } else {
                     dispatch(authActions.authFormSubmitFailure({ message: 'Second login method failed' }));
                 }
             } catch (secondError) {
+                console.error('Second login method error:', secondError);
                 const secondErrorPayload = getFormErrorPayload(secondError);
                 dispatch(authActions.authFormSubmitFailure(secondErrorPayload));
             }
@@ -151,7 +155,7 @@ export const loginUser = ({ email, password }: AuthCredentials, onSuccess?: (dat
 
 export const getUserProfile = (token?: string, onFailure?: (error: any) => void) => {
     return async (dispatch: Dispatch) => {
-        const accessToken = token ? token : localStorage.getItem(AUTH_TOKEN_LOCALSTORAGE_KEY);
+        const accessToken = token || localStorage.getItem(AUTH_TOKEN_LOCALSTORAGE_KEY) || localStorage.getItem(SECOND_AUTH_TOKEN_LOCALSTORAGE_KEY);
         await wretchRequest
             .url(`${baseUrl}/v1/profile`)
             .auth(`Bearer ${accessToken}`)
@@ -177,6 +181,7 @@ export const getUserProfile = (token?: string, onFailure?: (error: any) => void)
                 dispatch(authActions.authenticateUser(user));
             })
             .catch((error: any) => {
+                console.error('Get user profile error:', error);
                 dispatch(authActions.unAuthenticateUser());
                 if (onFailure) {
                     onFailure(error);
@@ -186,11 +191,12 @@ export const getUserProfile = (token?: string, onFailure?: (error: any) => void)
 };
 
 export const hasPersistedToken = (): boolean => {
-    const token = localStorage.getItem(AUTH_TOKEN_LOCALSTORAGE_KEY);
+    const token = localStorage.getItem(AUTH_TOKEN_LOCALSTORAGE_KEY) || localStorage.getItem(SECOND_AUTH_TOKEN_LOCALSTORAGE_KEY);
     return token !== null;
 };
 
 export const logoutUser = (): PayloadAction => {
     localStorage.removeItem(AUTH_TOKEN_LOCALSTORAGE_KEY);
+    localStorage.removeItem(SECOND_AUTH_TOKEN_LOCALSTORAGE_KEY);
     return authActions.unAuthenticateUser();
 };
