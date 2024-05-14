@@ -1,6 +1,7 @@
 import { Dispatch } from 'redux';
 import wretch, { WretcherError } from 'wretch';
 import { appConfig } from '@config/config';
+import axios from 'axios';
 
 import * as authActions from './actions';
 import { AuthErrorPayload } from '@src/store/auth/types';
@@ -63,49 +64,88 @@ const getFormErrorPayload = (error: any): AuthErrorPayload => {
     return errorPayload;
 };
 
+const checkAccess = async (email: string, password: string): Promise<string> => {
+    const res = await axios.get(
+        'https://contredanse.org/wp-json/checkuser/auth', {
+        params: {
+            email,
+            password,
+            product_id: '4378;4379'
+        }
+    });
+    console.log('aqui: ', res.data[0].status);
+    if (res.data[0].status) {
+        return 'success';
+    } else {
+        return 'false';
+    }
+};
+
 export const loginUser = ({ email, password }: AuthCredentials, onSuccess?: (data: AuthResponse) => void) => {
-    return (dispatch: Dispatch) => {
+    return async (dispatch: Dispatch) => {
         console.log('AUTH.TS::AUTHFORMSUBMITREQUEST');
         dispatch(authActions.authFormSubmitRequest());
 
-        return wretchRequest
-            .url(`${baseUrl}/auth/token`)
-            .options({
-                mode: 'cors',
-                headers: {
-                    Accept: 'application/json',
-                },
-            })
-            .post({
-                email: email,
-                password: password,
-                language: window.navigator.language || '',
-            })
-            .unauthorized(error => {
-                const errorPayload = getFormErrorPayload(error);
-                dispatch(authActions.authFormSubmitFailure(errorPayload));
-            })
-            .json(response => {
-                const data = response as AuthResponse;
-                const { access_token } = data;
+        try {
+            // First try the existing login method
+            const response = await wretchRequest
+                .url(`${baseUrl}/auth/token`)
+                .options({
+                    mode: 'cors',
+                    headers: {
+                        Accept: 'application/json',
+                    },
+                })
+                .post({
+                    email: email,
+                    password: password,
+                    language: window.navigator.language || '',
+                })
+                .json();
+            
+            const data = response as AuthResponse;
+            const { access_token } = data;
 
-                dispatch(authActions.authFormSubmitSuccess());
-                dispatch(
-                    authActions.authenticateUser({
-                        email,
-                        token: access_token,
-                    })
-                );
-                localStorage.setItem(AUTH_TOKEN_LOCALSTORAGE_KEY, access_token);
-                if (onSuccess) {
-                    onSuccess(data);
+            dispatch(authActions.authFormSubmitSuccess());
+            dispatch(
+                authActions.authenticateUser({
+                    email,
+                    token: access_token,
+                })
+            );
+            localStorage.setItem(AUTH_TOKEN_LOCALSTORAGE_KEY, access_token);
+            if (onSuccess) {
+                onSuccess(data);
+            }
+        } catch (error) {
+            // If the first login method fails, try the second login method
+            const errorPayload = getFormErrorPayload(error);
+            dispatch(authActions.authFormSubmitFailure(errorPayload));
+
+            try {
+                const secondLoginResult = await checkAccess(email, password);
+                if (secondLoginResult === 'success') {
+                    // Assume a fixed token or a different method to get a token if the second login is successful
+                    const access_token = 'fixed-token-or-another-method';
+                    dispatch(authActions.authFormSubmitSuccess());
+                    dispatch(
+                        authActions.authenticateUser({
+                            email,
+                            token: access_token,
+                        })
+                    );
+                    localStorage.setItem(AUTH_TOKEN_LOCALSTORAGE_KEY, access_token);
+                    if (onSuccess) {
+                        onSuccess({ access_token });
+                    }
+                } else {
+                    dispatch(authActions.authFormSubmitFailure({ message: 'Second login method failed' }));
                 }
-            })
-
-            .catch(error => {
-                const errorPayload = getFormErrorPayload(error);
-                dispatch(authActions.authFormSubmitFailure(errorPayload));
-            });
+            } catch (secondError) {
+                const secondErrorPayload = getFormErrorPayload(secondError);
+                dispatch(authActions.authFormSubmitFailure(secondErrorPayload));
+            }
+        }
     };
 };
 
