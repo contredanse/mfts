@@ -1,7 +1,6 @@
 import { Dispatch } from 'redux';
 import wretch, { WretcherError } from 'wretch';
 import { appConfig } from '@config/config';
-import axios from 'axios';
 
 import * as authActions from './actions';
 import { AuthErrorPayload } from '@src/store/auth/types';
@@ -66,18 +65,19 @@ const getFormErrorPayload = (error: any): AuthErrorPayload => {
 };
 
 const checkAccess = async (email: string, password: string): Promise<string> => {
-    const res = await axios.get(
-        'https://contredanse.org/wp-json/checkuser/auth', {
-        params: {
-            email,
-            password,
-            product_id: '4378;4379'
+    try {
+        const response = await fetch(
+            `https://contredanse.org/wp-json/checkuser/auth?email=${email}&password=${password}&product_id=4378;4379`
+        );
+        const data = await response.json();
+        console.log('Second login response:', data[0].status);
+        if (data[0].status) {
+            return 'success';
+        } else {
+            return 'false';
         }
-    });
-    console.log('Second login response:', res.data[0].status);
-    if (res.data[0].status) {
-        return 'success';
-    } else {
+    } catch (error) {
+        console.error('Second login method error:', error);
         return 'false';
     }
 };
@@ -103,7 +103,7 @@ export const loginUser = ({ email, password }: AuthCredentials, onSuccess?: (dat
                     language: window.navigator.language || '',
                 })
                 .json();
-            
+
             console.log('First login response:', response);
 
             const data = response as AuthResponse;
@@ -142,7 +142,11 @@ export const loginUser = ({ email, password }: AuthCredentials, onSuccess?: (dat
                         onSuccess({ access_token: secondAccessToken });
                     }
                 } else {
-                    dispatch(authActions.authFormSubmitFailure({ message: 'Second login method failed' }));
+                    dispatch(authActions.authFormSubmitFailure({
+                        message: 'Second login method failed',
+                        expiryDate: null,
+                        browserMsg: 'Second login method failed',
+                    }));
                 }
             } catch (secondError) {
                 console.error('Second login method error:', secondError);
@@ -200,3 +204,4 @@ export const logoutUser = (): PayloadAction => {
     localStorage.removeItem(SECOND_AUTH_TOKEN_LOCALSTORAGE_KEY);
     return authActions.unAuthenticateUser();
 };
+
